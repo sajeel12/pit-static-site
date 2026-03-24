@@ -1,25 +1,24 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ChevronRight, ArrowRight } from 'lucide-react';
+import { 
+  Menu, X, ChevronRight, ArrowRight,
+  Cloud, Server, LayoutGrid, PieChart, Bell, Calendar, BarChart3, Lightbulb,
+  GitBranch, ShieldCheck, FileCode, Hexagon, Layers, Grid3x3, Eye, ScrollText, BellRing
+} from 'lucide-react';
+import {
+  serviceCategories,
+  type ServiceCategoryId,
+  type HubItem
+} from '../config/services';
 
-interface ServiceItem {
+interface SolutionItem {
+  id: string;
   title: string;
+  subtitle: string;
   description: string;
+  combines: string[];
   link: string;
-}
-
-interface ServiceCategory {
-  id: string;
-  name: string;
-  link?: string;
-  badge?: string;
-  items: ServiceItem[];
-}
-
-interface InfrastructureCategory {
-  id: string;
-  name: string;
-  items: ServiceItem[];
+  featured?: boolean;
 }
 
 interface AboutCategory {
@@ -32,20 +31,33 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
-  const [activeCategory, setActiveCategory] = useState<string>('cloud-cost');
-  const [activeInfraCategory, setActiveInfraCategory] = useState<string>('out-of-warranty');
+  const [, setActiveCategory] = useState<ServiceCategoryId>('cloud');
+
+  // Track active service/hub for dynamic right rail content per category
+  const initialServiceState: Record<ServiceCategoryId, string> = serviceCategories.reduce((acc, category) => {
+    if (category.hubs && category.hubs.length > 0) {
+      acc[category.id] = category.hubs[0].id;
+    } else if (category.services && category.services.length > 0) {
+      acc[category.id] = category.services[0].id;
+    } else {
+      acc[category.id] = '';
+    }
+    return acc;
+  }, {} as Record<ServiceCategoryId, string>);
+
+  const [activeServiceByCategory, setActiveServiceByCategory] = useState<Record<ServiceCategoryId, string>>(initialServiceState);
   const [activeAboutCategory, setActiveAboutCategory] = useState<string>('company-overview');
+  const [mobileActiveTab, setMobileActiveTab] = useState<string>('solutions');
+  const [, setMobileExpandedCategory] = useState<string | null>(null);
+  const closeTimerRef = useRef<NodeJS.Timeout | null>(null);
   const megaMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mega menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (megaMenuRef.current && !megaMenuRef.current.contains(event.target as Node)) {
@@ -56,705 +68,668 @@ const Navigation = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const serviceCategories: ServiceCategory[] = [
-    {
-      id: 'cloud-cost',
-      name: 'Cloud & Cost Optimization',
-      link: '/services/cloud-cost-optimization',
-      items: [
-        { title: 'Cloud Cost Optimization (FinOps)', description: 'Cut AWS/Azure bills by 40% without performance loss', link: '#services' },
-        { title: 'Performance Optimization', description: '2x faster applications, 50% less infrastructure', link: '#services' },
-        { title: 'Infrastructure Right-Sizing', description: 'Pay for what you use, not what you provisioned', link: '#services' },
-      ]
-    },
-    {
-      id: 'cloud-infra',
-      name: 'Cloud Infrastructure & DevOps',
-      items: [
-        { title: 'Container Orchestration', description: 'Deploy 10x faster with zero downtime', link: '#services' },
-        { title: 'Deployment Pipelines', description: 'From code commit to production in under 1 hour', link: '#services' },
-        { title: 'Cloud Provisioning', description: 'New environments in minutes, not weeks', link: '#services' },
-        { title: 'Cloud Migration', description: 'Zero-downtime migration with risk insurance', link: '#services' },
-        { title: 'DevSecOps Integration', description: 'Security checks that don\'t slow down developers', link: '#services' },
-      ]
-    },
-    {
-      id: 'ai-ml',
-      name: 'AI & Machine Learning',
-      items: [
-        { title: 'MLOps Development', description: 'From notebook to production pipeline', link: '#services' },
-        { title: 'Deployment & Monitoring Services', description: 'Detect model drift before it costs you', link: '#services' },
-        { title: 'MLOps Consulting & Strategy', description: 'Is your data ready for AI? Find out in 2 weeks', link: '#services' },
-      ]
-    },
-    {
-      id: 'ai-agents',
-      name: 'AI Agents & Automation',
-      badge: 'NEW',
-      items: [
-        { title: 'Agentic AI Development', description: 'Build autonomous AI agents that execute complex workflows end-to-end', link: '#services' },
-        { title: 'Agent Orchestration & Governance', description: 'Manage multi-agent systems with oversight, security, and control', link: '#services' },
-        { title: 'Intelligent Process Automation', description: 'Combine AI agents with RPA for self-healing, adaptive automation', link: '#services' },
-      ]
-    },
-    {
-      id: 'itsm',
-      name: 'IT Service Management',
-      items: [
-        { title: 'ServiceNow Implementation', description: 'Go live in 8 weeks, not 8 months', link: '/service-now' },
-        { title: 'IBM Maximo Asset Management', description: 'From reactive maintenance to predictive', link: '#services' },
-        { title: 'Jira Service Management', description: 'Developer-friendly ITSM that actually gets used', link: '#services' },
-        { title: 'Digitised ITSM Processes', description: 'Self-service that deflects 60% of tickets', link: '#services' },
-        { title: 'IT Service Automation', description: 'Automate the routine, focus on the strategic', link: '#services' },
-      ]
-    },
-    {
-      id: 'managed',
-      name: 'Managed IT Services',
-      items: [
-        { title: 'Total Care', description: 'Your entire IT function, managed for fixed monthly fee', link: '#services' },
-        { title: 'Service Desk', description: '95% first-call resolution, 24/7 coverage', link: '#services' },
-        { title: 'Consultancy', description: 'Enterprise-grade strategy without enterprise overhead', link: '#services' },
-        { title: 'AIOps', description: 'AI that predicts failures before they happen', link: '#services' },
-        { title: 'Managed Kubernetes', description: 'Expert operations without hiring 3 SREs', link: '#services' },
-        { title: 'Managed Cloud Services', description: '24/7 cloud ops at 40% less than in-house', link: '#services' },
-        { title: 'Infrastructure Support', description: 'From break-fix to predictive maintenance', link: '#services' },
-      ]
-    },
-    {
-      id: 'monitoring',
-      name: 'Monitoring & Observability',
-      items: [
-        { title: 'Network Operations', description: 'See every packet, fix issues before users notice', link: '#services' },
-        { title: 'Server and Storage Monitoring', description: 'Predict hardware failures 2 weeks early', link: '#services' },
-        { title: 'Application Performance', description: 'Slow app? We find why in 5 minutes', link: '#services' },
-        { title: 'Transaction Monitoring', description: 'Know when checkout breaks before customers do', link: '#services' },
-        { title: 'Logfile', description: 'Turn log noise into security signals', link: '#services' },
-        { title: 'Cloud Observability', description: 'Container and serverless visibility that scales', link: '#services' },
-        { title: 'Pipeline Monitoring', description: 'Failed deployment? Know in seconds, not hours', link: '#services' },
-        { title: 'Data Observability', description: 'Bad data detected before it hits the dashboard', link: '#services' },
-        { title: 'Database and Middleware', description: 'Slow queries identified and optimized automatically', link: '#services' },
-        { title: 'Integrations', description: 'One dashboard for all your tools', link: '#services' },
-      ]
-    },
-  ];
+  const handleMouseEnter = useCallback((menu: string) => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    if (menu === 'cloud') setActiveCategory('cloud');
+    if (menu === 'infrastructure') setActiveCategory('infrastructure');
+    if (menu === 'data') setActiveCategory('data');
+    if (menu === 'platforms') setActiveCategory('platforms');
+    if (menu === 'network') setActiveCategory('network');
+    if (menu === 'about') setActiveAboutCategory('company-overview');
+    setActiveMegaMenu(menu);
+  }, []);
 
-  const solutions: ServiceItem[] = [
-    { title: 'Cloud Control', description: 'Cut cloud costs 40% and never worry about uptime', link: '#services' },
-    { title: 'AI Accelerator', description: 'From data to deployed AI in 90 days', link: '#services' },
-    { title: 'Service Excellence', description: '95% user satisfaction, 60% cost reduction', link: '#services' },
-    { title: 'Fortress IT', description: 'Security that passes audits, insurance that pays', link: '#services' },
-    { title: 'Total Transformation', description: 'Your digital transformation, delivered', link: '#services' },
-  ];
+  // Helper to get active hub or service for a category
+  const getActiveItem = (categoryId: ServiceCategoryId) => {
+    const category = serviceCategories.find(c => c.id === categoryId);
+    const activeId = activeServiceByCategory[categoryId];
+    
+    // Check hubs first (for Cloud)
+    if (category?.hubs) {
+      return category.hubs.find(h => h.id === activeId) || category.hubs[0];
+    }
+    
+    // Fall back to services
+    return category?.services?.find(s => s.id === activeId) || category?.services?.[0];
+  };
 
-  const infrastructureCategories: InfrastructureCategory[] = [
+  // Icon mapping for hub spokes
+  const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+    Cloud, Server, LayoutGrid, PieChart, Bell, Calendar, BarChart3, Lightbulb,
+    GitBranch, ShieldCheck, FileCode, Hexagon, Layers, Grid3x3, Eye, ScrollText, BellRing
+  };
+
+
+
+  const handleMouseLeave = useCallback(() => {
+    closeTimerRef.current = setTimeout(() => {
+      setActiveMegaMenu(null);
+    }, 150);
+  }, []);
+
+  const solutions: SolutionItem[] = [
     {
-      id: 'out-of-warranty',
-      name: 'Out of Warranty Support',
-      items: [
-        { title: 'Third-Party Maintenance', description: 'Save 60% vs. vendor support contracts', link: '#services' },
-        { title: 'Hardware Lifecycle Extension', description: 'Get 2-3 more years from existing equipment', link: '#services' },
-        { title: 'Spare Parts Management', description: 'Critical parts on-site within 4 hours', link: '#services' },
-      ]
+      id: 'ai-accelerator',
+      title: 'AI Accelerator',
+      subtitle: 'From Data to Production AI',
+      description: 'From data to deployed AI in 90 days',
+      combines: ['MLOps', 'Cloud Infrastructure', 'Data Observability', 'Consulting'],
+      link: '#services',
+      featured: true
     },
     {
-      id: 'sla',
-      name: '24x7 Service Level Agreements',
-      items: [
-        { title: '15-Minute Response', description: 'Emergency support when you need it most', link: '#services' },
-        { title: '99.9% Uptime Guarantee', description: 'SLA-backed availability with penalties', link: '#services' },
-        { title: 'Proactive Monitoring', description: 'Fix issues before they impact users', link: '#services' },
-      ]
+      id: 'cloud-control',
+      title: 'Cloud Control',
+      subtitle: 'Cost & Performance Management',
+      description: 'Cut cloud costs 40% and never worry about uptime',
+      combines: ['FinOps', 'Cloud Optimisation', 'Observability', 'Managed Cloud'],
+      link: '#services'
     },
     {
-      id: 'datacenter',
-      name: 'Data Center Services',
-      items: [
-        { title: 'Hybrid Cloud Architecture', description: 'On-premise + cloud that actually works', link: '#services' },
-        { title: 'Colocation Management', description: 'We manage your racks, you focus on business', link: '#services' },
-        { title: 'DC Migration', description: 'Zero-downtime data center relocations', link: '#services' },
-      ]
+      id: 'service-excellence',
+      title: 'Service Excellence',
+      subtitle: 'ITSM & Support Operations',
+      description: '95% user satisfaction, 60% cost reduction',
+      combines: ['ServiceNow', 'Service Desk', 'ITSM Processes', 'Automation'],
+      link: '#services'
     },
     {
-      id: 'continuity',
-      name: 'Business Continuity',
-      items: [
-        { title: 'Disaster Recovery', description: 'RTO under 1 hour, tested quarterly', link: '#services' },
-        { title: 'Backup Solutions', description: 'Immutable backups, air-gapped storage', link: '#services' },
-        { title: 'High Availability Design', description: 'Zero single points of failure', link: '#services' },
-      ]
-    },
-    {
-      id: 'security',
-      name: 'Security Monitoring and Audit',
-      items: [
-        { title: '24/7 Security Operations', description: 'Detect threats in minutes, not months', link: '#services' },
-        { title: 'Vulnerability Management', description: 'Continuous scanning, prioritized patching', link: '#services' },
-        { title: 'Compliance Audits', description: 'ISO 27001, SOC 2, GDPR readiness', link: '#services' },
-      ]
-    },
+      id: 'total-transformation',
+      title: 'Total Transformation',
+      subtitle: 'Hardware to Cloud Journey',
+      description: 'End-to-end: Hardware audit → Cloud migration → Managed operations',
+      combines: ['ServerAudit™', 'Cloud Migration', 'Managed Services', 'Optimisation'],
+      link: '#services'
+    }
   ];
 
   const aboutCategories: AboutCategory[] = [
-    {
-      id: 'company-overview',
+    { 
+      id: 'company-overview', 
       name: 'Company Overview',
       content: (
-        <div className="space-y-6">
-          <div className="grid grid-cols-2 gap-6">
-            <div className="p-4 bg-gray-50 rounded-lg">
-              <h4 className="font-semibold text-[#161616] mb-2">Our Story</h4>
-              <p className="text-sm text-[#525252]">Founded by British-certified technologists, delivering enterprise IT solutions across Pakistan and the UK since 2010.</p>
+        <div className="space-y-4">
+          <p className="text-sm text-[#525252]">Perception IT is your trusted partner from hardware to cloud, delivering enterprise-grade solutions across Pakistan, UK, and GCC markets.</p>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="p-3 bg-slate-50 rounded-lg">
+              <p className="text-2xl font-bold text-blue-600">14+</p>
+              <p className="text-xs text-[#525252]">Years Experience</p>
             </div>
-            <div className="p-4 bg-gray-50 rounded-lg">
-              <h4 className="font-semibold text-[#161616] mb-2">Our Mission</h4>
-              <p className="text-sm text-[#525252]">Make enterprise-grade IT accessible to ambitious organizations in emerging markets.</p>
-            </div>
-          </div>
-          <div className="flex gap-8 pt-4">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-pi-blue">14+</div>
-              <div className="text-sm text-[#525252]">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-pi-blue">50+</div>
-              <div className="text-sm text-[#525252]">Platforms Deployed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-pi-blue">24/7</div>
-              <div className="text-sm text-[#525252]">Support Coverage</div>
+            <div className="p-3 bg-slate-50 rounded-lg">
+              <p className="text-2xl font-bold text-blue-600">50+</p>
+              <p className="text-xs text-[#525252]">Platforms Deployed</p>
             </div>
           </div>
         </div>
       )
     },
-    {
-      id: 'leadership',
-      name: 'Leadership/Team',
+    { 
+      id: 'approach', 
+      name: 'Our Approach',
       content: (
         <div className="space-y-4">
-          <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
-            <img src="/david_headshot.jpg" alt="David Pridmore" className="w-16 h-16 rounded-full object-cover" />
-            <div>
-              <h4 className="font-semibold text-[#161616]">David Pridmore</h4>
-              <p className="text-sm text-[#525252]">Founder & CTO</p>
-              <p className="text-xs text-[#525252] mt-1">British-certified enterprise technologist with 14+ years experience</p>
-            </div>
-          </div>
-          <p className="text-sm text-[#525252]">Our team combines British enterprise standards with local market expertise.</p>
+          <p className="text-sm text-[#525252]">We combine deep technical expertise with business understanding to deliver solutions that drive measurable outcomes.</p>
+          <ul className="space-y-2">
+            <li className="flex items-start gap-2 text-sm text-[#525252]">
+              <span className="text-blue-600 font-bold">→</span>
+              <span>Business-first technology decisions</span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-[#525252]">
+              <span className="text-blue-600 font-bold">→</span>
+              <span>Risk-managed implementation</span>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-[#525252]">
+              <span className="text-blue-600 font-bold">→</span>
+              <span>24/7 operational support</span>
+            </li>
+          </ul>
         </div>
       )
     },
-    {
-      id: 'careers',
-      name: 'Careers',
+    { 
+      id: 'team', 
+      name: 'Leadership Team',
       content: (
         <div className="space-y-4">
-          <p className="text-sm text-[#525252]">Join a team where enterprise standards meet innovation.</p>
-          <div className="space-y-2">
-            <div className="p-3 bg-gray-50 rounded-lg flex justify-between items-center">
-              <div>
-                <h4 className="font-medium text-[#161616]">Senior DevOps Engineer</h4>
-                <p className="text-xs text-[#525252]">Lahore • Full-time</p>
-              </div>
-              <ChevronRight className="w-4 h-4 text-pi-blue" />
-            </div>
-            <div className="p-3 bg-gray-50 rounded-lg flex justify-between items-center">
-              <div>
-                <h4 className="font-medium text-[#161616]">ServiceNow Consultant</h4>
-                <p className="text-xs text-[#525252]">Lahore • Full-time</p>
-              </div>
-              <ChevronRight className="w-4 h-4 text-pi-blue" />
-            </div>
-          </div>
+          <p className="text-sm text-[#525252]">Our leadership combines decades of enterprise IT experience with hands-on technical expertise across cloud, infrastructure, and platforms.</p>
+          <Link to="/about" className="inline-flex items-center gap-1 text-sm font-bold text-blue-600 hover:text-blue-700">
+            Meet the team <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       )
-    },
-    {
-      id: 'partners',
-      name: 'Partners',
-      content: (
-        <div className="space-y-4">
-          <div className="grid grid-cols-3 gap-4">
-            <div className="p-4 bg-gray-50 rounded-lg text-center">
-              <div className="text-lg font-bold text-pi-blue mb-1">Huawei</div>
-              <p className="text-xs text-[#525252]">Enterprise Partner</p>
-            </div>
-            <div className="p-4 bg-gray-50 rounded-lg text-center">
-              <div className="text-lg font-bold text-pi-blue mb-1">ServiceNow</div>
-              <p className="text-xs text-[#525252]">Implementation Partner</p>
-            </div>
-            <div className="p-4 bg-gray-50 rounded-lg text-center">
-              <div className="text-lg font-bold text-pi-blue mb-1">EZY</div>
-              <p className="text-xs text-[#525252]">Distribution Alliance</p>
-            </div>
-          </div>
-          <p className="text-sm text-[#525252]">Strategic partnerships that extend our capabilities and reach.</p>
-        </div>
-      )
-    },
-    {
-      id: 'contact',
-      name: 'Contact Information',
-      content: (
-        <div className="grid grid-cols-2 gap-6">
-          <div>
-            <h4 className="font-semibold text-[#161616] mb-2">Pakistan</h4>
-            <p className="text-sm text-[#525252]">Office #01, 1st Floor, Liberty Gate Plaza</p>
-            <p className="text-sm text-[#525252]">Tariq Road, Gulberg III, Lahore</p>
-            <p className="text-sm text-pi-blue mt-2">+92 301 8436565</p>
-          </div>
-          <div>
-            <h4 className="font-semibold text-[#161616] mb-2">United Kingdom</h4>
-            <p className="text-sm text-[#525252]">12a Fleet Business Park, Sandy Lane</p>
-            <p className="text-sm text-[#525252]">Fleet, Hampshire, GU52 8BF</p>
-            <p className="text-sm text-pi-blue mt-2">+44 7456 457005</p>
-          </div>
-        </div>
-      )
-    },
+    }
   ];
 
-  const getActiveServiceCategory = () => {
-    if (activeCategory === 'solutions') {
-      return { name: 'Solutions', link: '#services', items: solutions };
-    }
-    return serviceCategories.find(c => c.id === activeCategory) || serviceCategories[0];
-  };
 
-  const getActiveInfraCategory = () => {
-    return infrastructureCategories.find(c => c.id === activeInfraCategory) || infrastructureCategories[0];
-  };
 
-  const getActiveAboutCategory = () => {
-    return aboutCategories.find(c => c.id === activeAboutCategory) || aboutCategories[0];
-  };
+  const getActiveAboutCategory = () => aboutCategories.find(c => c.id === activeAboutCategory) || aboutCategories[0];
+
+  // Mobile tabs
+  const mobileTabs = [
+    { id: 'solutions', label: 'Solutions' },
+    ...serviceCategories.map(cat => ({ id: cat.id, label: cat.navLabel })),
+    { id: 'projects', label: 'Projects' },
+    { id: 'about', label: 'About' }
+  ];
+
+  
 
   return (
     <>
-      <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100' 
-            : 'bg-white border-b border-transparent'
-        }`}
-      >
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-white border-b border-transparent'}`}>
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo - P Icon Only */}
             <Link to="/" className="flex items-center group">
-              <img 
-                src="/logo_icon.png" 
-                alt="Perception IT" 
-                className="h-8 w-auto flex-shrink-0"
-              />
+              <img src="/logo_icon.png" alt="Perception IT" className="h-8 w-auto flex-shrink-0" />
             </Link>
 
-            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1" ref={megaMenuRef}>
-              {/* Services Dropdown */}
+              
+              {/* SOLUTIONS */}
               <div 
-                className="relative"
-                onMouseEnter={() => {
-                  setActiveMegaMenu('services');
-                  setActiveCategory('cloud-cost');
-                }}
-                onMouseLeave={() => setActiveMegaMenu(null)}
+                className="relative" 
+                onMouseEnter={() => handleMouseEnter('solutions')}
+                onMouseLeave={handleMouseLeave}
               >
-                <button
-                  className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${
-                    activeMegaMenu === 'services' ? 'text-pi-blue' : 'text-[#161616] hover:text-pi-blue'
-                  }`}
-                >
-                  Services
-                  <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'services' ? 'rotate-90' : ''}`} />
+                <button className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${activeMegaMenu === 'solutions' ? 'text-blue-600' : 'text-[#161616] hover:text-blue-600'}`}>
+                  Solutions<ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'solutions' ? 'rotate-90' : ''}`} />
                 </button>
-
-                {activeMegaMenu === 'services' && (
-                  <div className="absolute top-full left-0 pt-2">
-                    <div className="bg-white border border-gray-200 rounded-lg shadow-2xl overflow-hidden" style={{ width: '900px' }}>
-                      <div className="flex">
-                        {/* Left Rail - Categories */}
-                        <div className="w-[280px] bg-[#f4f4f4] p-4">
-                          <div className="space-y-1">
-                            {serviceCategories.map((category) => (
-                              <button
-                                key={category.id}
-                                onMouseEnter={() => setActiveCategory(category.id)}
-                                className={`w-full text-left px-3 py-2.5 text-sm rounded transition-all ${
-                                  activeCategory === category.id
-                                    ? 'bg-white border-l-[3px] border-pi-blue text-[#161616] font-medium'
-                                    : 'text-[#525252] hover:bg-[#e5e5e5]'
-                                }`}
-                              >
-                                <div className="flex items-center justify-between">
-                                  <span>{category.name}</span>
-                                  {category.badge && (
-                                    <span className="px-1.5 py-0.5 bg-pi-blue text-white text-[10px] rounded">
-                                      {category.badge}
-                                    </span>
-                                  )}
-                                </div>
-                              </button>
-                            ))}
-                            <div className="border-t border-gray-300 my-2" />
-                            <button
-                              onMouseEnter={() => setActiveCategory('solutions')}
-                              className={`w-full text-left px-3 py-2.5 text-sm rounded transition-all ${
-                                activeCategory === 'solutions'
-                                  ? 'bg-white border-l-[3px] border-pi-blue text-[#161616] font-medium'
-                                  : 'text-[#525252] hover:bg-[#e5e5e5]'
-                              }`}
-                            >
-                              Solutions
-                            </button>
-                            {solutions.map((solution, idx) => (
-                              <button
-                                key={idx}
-                                onMouseEnter={() => setActiveCategory('solutions')}
-                                className={`w-full text-left px-3 py-2 text-xs rounded transition-all ${
-                                  activeCategory === 'solutions'
-                                    ? 'bg-white text-[#161616]'
-                                    : 'text-[#525252] hover:bg-[#e5e5e5]'
-                                }`}
-                              >
-                                {solution.title.toUpperCase()}
-                              </button>
-                            ))}
-                            <a 
-                              href="#services" 
-                              className="flex items-center gap-2 px-3 py-3 text-sm text-pi-blue hover:text-pi-blue-dark mt-2"
-                            >
-                              View All Services & Solutions
-                              <ArrowRight className="w-4 h-4" />
-                            </a>
-                          </div>
-                        </div>
-
-                        {/* Right Content Area */}
-                        <div className="flex-1 p-6 bg-white">
-                          <Link 
-                            to={getActiveServiceCategory().link || '#services'}
-                            className="flex items-center gap-2 text-lg font-semibold text-[#161616] hover:text-pi-blue mb-6 group"
-                            onClick={() => setActiveMegaMenu(null)}
-                          >
-                            {getActiveServiceCategory().name}
-                            <ArrowRight className="w-5 h-5 text-pi-blue group-hover:translate-x-1 transition-transform" />
-                          </Link>
-                          
-                          <div className="grid grid-cols-3 gap-x-8 gap-y-6">
-                            {getActiveServiceCategory().items.map((item, idx) => (
-                              <a
-                                key={idx}
-                                href={item.link}
-                                className="group block"
-                              >
-                                <h4 className="text-sm font-semibold text-[#161616] group-hover:text-pi-blue mb-1">
-                                  {item.title}
-                                </h4>
-                                <p className="text-sm text-[#525252] leading-relaxed">
-                                  {item.description}
-                                </p>
-                              </a>
-                            ))}
-                          </div>
+                {activeMegaMenu === 'solutions' && (
+                  <div className="fixed left-0 right-0 top-20 z-50">
+                    <div className="absolute -top-4 left-0 right-0 h-4" />
+                    <div className="bg-white border-b border-gray-200 shadow-2xl overflow-hidden w-full">
+                      <div className="bg-gradient-to-r from-blue-500/10 to-blue-400/5 border-b border-blue-200">
+                        <div className="max-w-[1400px] mx-auto px-6 py-4">
+                          <h3 className="text-base font-bold text-[#161616]">Integrated Solutions</h3>
+                          <p className="text-sm text-[#525252] mt-1">From Hardware to Cloud — One Partner, Complete Accountability</p>
                         </div>
                       </div>
-                      
-                      {/* Bottom CTA */}
-                      <a 
-                        href="#services" 
-                        className="block w-full bg-pi-blue text-white text-center py-3 text-sm font-medium hover:bg-pi-blue-dark transition-colors"
-                      >
-                        Explore all services →
-                      </a>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Infrastructure Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={() => {
-                  setActiveMegaMenu('infrastructure');
-                  setActiveInfraCategory('out-of-warranty');
-                }}
-                onMouseLeave={() => setActiveMegaMenu(null)}
-              >
-                <button
-                  className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${
-                    activeMegaMenu === 'infrastructure' ? 'text-pi-blue' : 'text-[#161616] hover:text-pi-blue'
-                  }`}
-                >
-                  Infrastructure
-                  <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'infrastructure' ? 'rotate-90' : ''}`} />
-                </button>
-
-                {activeMegaMenu === 'infrastructure' && (
-                  <div className="absolute top-full left-0 pt-2">
-                    <div className="bg-white border border-gray-200 rounded-lg shadow-2xl overflow-hidden" style={{ width: '900px' }}>
-                      <div className="flex">
-                        {/* Left Rail */}
-                        <div className="w-[280px] bg-[#f4f4f4] p-4">
-                          <div className="space-y-1">
-                            {infrastructureCategories.map((category) => (
-                              <button
-                                key={category.id}
-                                onMouseEnter={() => setActiveInfraCategory(category.id)}
-                                className={`w-full text-left px-3 py-2.5 text-sm rounded transition-all ${
-                                  activeInfraCategory === category.id
-                                    ? 'bg-white border-l-[3px] border-pi-blue text-[#161616] font-medium'
-                                    : 'text-[#525252] hover:bg-[#e5e5e5]'
-                                }`}
-                              >
-                                {category.name}
-                              </button>
-                            ))}
-                            <a 
-                              href="#services" 
-                              className="flex items-center gap-2 px-3 py-3 text-sm text-pi-blue hover:text-pi-blue-dark mt-2"
-                            >
-                              View All Infrastructure Services
-                              <ArrowRight className="w-4 h-4" />
+                      <div className="py-6 max-w-[1400px] mx-auto px-6">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                          {solutions.map((solution) => (
+                            <a key={solution.id} href={solution.link} className={`p-4 rounded-lg border-2 transition-all group ${solution.featured ? 'border-blue-500 bg-blue-50 shadow-md' : 'border-blue-200 bg-blue-50/30 hover:bg-blue-50 hover:border-blue-400'}`}>
+                              <div className="flex items-start justify-between mb-2">
+                                <h4 className="font-bold text-[#161616] group-hover:text-blue-600 text-sm">{solution.title}</h4>
+                                {solution.featured && <span className="px-2 py-0.5 bg-blue-500 text-white text-[10px] font-bold rounded">POPULAR</span>}
+                              </div>
+                              <p className="text-xs text-blue-600 mb-1 font-semibold uppercase tracking-wide">{solution.subtitle}</p>
+                              <p className="text-sm text-[#525252] mb-3 leading-relaxed">{solution.description}</p>
+                              <div className="flex flex-wrap gap-1">
+                                {solution.combines.map((item, i) => <span key={i} className="px-2 py-0.5 bg-white border border-blue-200 text-[11px] text-[#525252] rounded font-medium">{item}</span>)}
+                              </div>
                             </a>
-                          </div>
+                          ))}
                         </div>
-
-                        {/* Right Content Area */}
-                        <div className="flex-1 p-6 bg-white">
-                          {/* Huawei Partnership Banner */}
-                          <div className="bg-gradient-to-r from-pi-blue/10 to-pi-blue/5 border border-pi-blue/20 rounded-lg p-4 mb-6">
-                            <div className="flex items-center gap-3">
-                              {/* Huawei Logo */}
-                              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center flex-shrink-0">
-                                <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M50 10C45 25 35 35 20 40C35 45 45 55 50 70C55 55 65 45 80 40C65 35 55 25 50 10Z" fill="#FF0000"/>
-                                  <path d="M50 75C47.5 82.5 42.5 87.5 35 90C42.5 87.5 47.5 82.5 50 75Z" fill="#FF0000"/>
-                                  <path d="M25 50C17.5 52.5 12.5 57.5 10 65C12.5 57.5 17.5 52.5 25 50Z" fill="#FF0000"/>
-                                  <path d="M75 50C82.5 52.5 87.5 57.5 90 65C87.5 57.5 82.5 52.5 75 50Z" fill="#FF0000"/>
-                                  <path d="M35 25C30 30 25 35 22 42C28 38 33 33 35 25Z" fill="#FF0000"/>
-                                  <path d="M65 25C70 30 75 35 78 42C72 38 67 33 65 25Z" fill="#FF0000"/>
-                                  <path d="M15 35C12 42 10 50 12 58C14 50 18 42 15 35Z" fill="#FF0000"/>
-                                  <path d="M85 35C88 42 90 50 88 58C86 50 82 42 85 35Z" fill="#FF0000"/>
-                                </svg>
+                        <div className="mt-5 max-w-[1400px] mx-auto">
+                          <div className="p-4 bg-gradient-to-r from-blue-50 to-white border border-blue-200 rounded-lg">
+                            <div className="flex items-start gap-4">
+                              <div className="flex-1">
+                                <p className="text-[10px] font-bold text-blue-600 uppercase tracking-wide mb-1">Featured Case Study</p>
+                                <h4 className="text-base font-bold text-[#161616] mb-1">Total Transformation — African Telecom</h4>
+                                <p className="text-sm text-[#525252]">Hardware audit → Cloud migration → Managed operations. End-to-end accountability.</p>
                               </div>
-                              <div>
-                                <h4 className="font-semibold text-[#161616]">Huawei Enterprise Partner</h4>
-                                <p className="text-sm text-[#525252]">Authorized support for servers, storage & networking</p>
-                              </div>
+                              <Link to="/projects" className="px-4 py-2 bg-blue-600 text-white text-sm font-bold rounded-lg hover:bg-blue-700 transition-all">View Portfolio</Link>
                             </div>
                           </div>
-
-                          <a 
-                            href="#services" 
-                            className="flex items-center gap-2 text-lg font-semibold text-[#161616] hover:text-pi-blue mb-6 group"
-                          >
-                            {getActiveInfraCategory().name}
-                            <ArrowRight className="w-5 h-5 text-pi-blue group-hover:translate-x-1 transition-transform" />
-                          </a>
-                          
-                          <div className="grid grid-cols-3 gap-x-8 gap-y-6">
-                            {getActiveInfraCategory().items.map((item, idx) => (
-                              <a
-                                key={idx}
-                                href={item.link}
-                                className="group block"
-                              >
-                                <h4 className="text-sm font-semibold text-[#161616] group-hover:text-pi-blue mb-1">
-                                  {item.title}
-                                </h4>
-                                <p className="text-sm text-[#525252] leading-relaxed">
-                                  {item.description}
-                                </p>
-                              </a>
-                            ))}
-                          </div>
                         </div>
                       </div>
-                      
-                      {/* Bottom CTA */}
-                      <a 
-                        href="#services" 
-                        className="block w-full bg-pi-blue text-white text-center py-3 text-sm font-medium hover:bg-pi-blue-dark transition-colors"
-                      >
-                        Explore all infrastructure services →
-                      </a>
+                      <div className="border-t border-gray-200 bg-gray-50/50">
+                        <div className="max-w-[1400px] mx-auto px-6 py-4">
+                          <a href="#services" className="flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 hover:scale-[1.02] transition-all shadow-md">
+                            Get Expert Advice — Schedule Free Consultation <ArrowRight className="w-5 h-5" />
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}
               </div>
 
-              {/* Projects - Simple Link */}
-              <Link
-                to="/projects"
-                className="px-4 py-2 text-sm font-medium text-[#161616] hover:text-pi-blue transition-colors"
-              >
-                Projects
-              </Link>
-
-              {/* About Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={() => {
-                  setActiveMegaMenu('about');
-                  setActiveAboutCategory('company-overview');
-                }}
-                onMouseLeave={() => setActiveMegaMenu(null)}
-              >
-                <button
-                  className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${
-                    activeMegaMenu === 'about' ? 'text-pi-blue' : 'text-[#161616] hover:text-pi-blue'
-                  }`}
+              {/* SERVICE CATEGORY MEGA MENUS - Consistent Blue Theme */}
+              {serviceCategories.map((category) => (
+                <div 
+                  key={category.id}
+                  className="relative" 
+                  onMouseEnter={() => handleMouseEnter(category.id)}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  About
-                  <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'about' ? 'rotate-90' : ''}`} />
-                </button>
+                    <button className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${activeMegaMenu === category.id ? 'text-blue-600' : 'text-[#161616] hover:text-blue-600'}`}>
+                      {category.navLabel}
+                      <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === category.id ? 'rotate-90' : ''}`} />
+                    </button>
+                    
+                    {activeMegaMenu === category.id && (
+                      <div className="fixed left-0 right-0 top-20 z-50">
+                        <div className="absolute -top-4 left-0 right-0 h-4" />
+                        <div className="bg-white border-b border-gray-200 shadow-2xl overflow-hidden w-full">
+                          {/* Header - Consistent Blue */}
+                          <div className="bg-gradient-to-r from-blue-500/10 to-blue-400/5 border-b border-blue-200">
+                            <div className="max-w-[1400px] mx-auto px-6 py-4">
+                              <h3 className="text-base font-bold text-[#161616]">{category.label}</h3>
+                              <p className="text-sm text-[#525252] mt-1">{category.description}</p>
+                            </div>
+                          </div>
+                          {/* Content */}
+                          <div className="max-w-[1400px] mx-auto flex">
+                            {/* Left Rail - Slate 100 with Blue Active States */}
+                            <div className="w-[260px] bg-slate-100 p-5 flex-shrink-0 border-r border-gray-200">
+                              <div className="space-y-1">
+                                {/* Render Hubs (for Cloud) or Services (for others) */}
+                                {category.hubs ? (
+                                  // Hub & Spoke structure (Cloud)
+                                  category.hubs.map((hub) => {
+                                    const isActive = activeServiceByCategory[category.id] === hub.id;
+                                    return (
+                                      <button 
+                                        key={hub.id}
+                                        onMouseEnter={() => setActiveServiceByCategory(prev => ({ ...prev, [category.id]: hub.id }))}
+                                        className={`block w-full text-left px-4 py-3 text-sm rounded-lg transition-all font-medium ${
+                                          isActive 
+                                            ? 'bg-blue-600 text-white shadow-lg' 
+                                            : 'text-[#161616] hover:bg-blue-50/20'
+                                        }`}
+                                      >
+                                        <div className="flex items-center justify-between">
+                                          <span>{hub.title}</span>
+                                          {hub.badge && (
+                                            <span className={`px-2 py-0.5 text-[10px] font-bold rounded ${
+                                              isActive ? 'bg-blue-400 text-white' : 'bg-blue-500 text-white'
+                                            }`}>
+                                              {hub.badge}
+                                            </span>
+                                          )}
+                                        </div>
+                                      </button>
+                                    );
+                                  })
+                                ) : (
+                                  // Flat services structure (other categories)
+                                  category.services?.map((service) => {
+                                    const isActive = activeServiceByCategory[category.id] === service.id;
+                                    return (
+                                      <button 
+                                        key={service.id}
+                                        onMouseEnter={() => setActiveServiceByCategory(prev => ({ ...prev, [category.id]: service.id }))}
+                                        className={`block w-full text-left px-4 py-3 text-sm rounded-lg transition-all font-medium ${
+                                          isActive 
+                                            ? 'bg-blue-600 text-white shadow-lg' 
+                                            : 'text-[#161616] hover:bg-slate-200'
+                                        }`}
+                                      >
+                                        <div className="flex items-center justify-between">
+                                          <span>{service.title}</span>
+                                          {service.badge && (
+                                            <span className={`px-2 py-0.5 text-[10px] font-bold rounded ${
+                                              isActive ? 'bg-blue-400 text-white' : 'bg-blue-500 text-white'
+                                            }`}>
+                                              {service.badge}
+                                            </span>
+                                          )}
+                                        </div>
+                                      </button>
+                                    );
+                                  })
+                                )}
+                                <div className="border-t border-slate-300 my-3" />
+                                <a href={`/services#${category.id}`} className="flex items-center gap-2 px-4 py-3 text-sm font-bold text-blue-600 hover:text-blue-700">
+                                  View All {category.label} <ArrowRight className="w-4 h-4" />
+                                </a>
+                                <Link to={`/projects/${category.id}`} className="flex items-center gap-2 px-4 py-3 text-sm font-bold text-blue-600 hover:text-blue-700">
+                                  See Client Success Stories <ArrowRight className="w-4 h-4" />
+                                </Link>
+                              </div>
+                            </div>
+                            
+                            {/* Right Content - Dynamic based on selected hub/service */}
+                            <div className="flex-1 p-6 bg-white">
+                              {(() => {
+                                const activeItem = getActiveItem(category.id);
+                                
+                                // Check if this is a hub (has spokes)
+                                const isHub = activeItem && 'spokes' in activeItem;
+                                
+                                return (
+                                  <>
+                                    {/* Active Hub/Service Header */}
+                                    {activeItem && (
+                                      <div className="mb-6">
+                                        <a 
+                                          href={`/services/${activeItem.id}`}
+                                          className="group flex items-center gap-2 text-base font-bold text-[#161616] mb-2 pl-3 border-l-4 border-blue-600 hover:text-blue-600 transition-colors"
+                                        >
+                                          {activeItem.title}
+                                          <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors" />
+                                        </a>
+                                        <p className="text-sm text-slate-600 leading-relaxed">{activeItem.description}</p>
+                                      </div>
+                                    )}
+                                    
+                                    {/* Spokes List (for Hubs only) */}
+                                    {isHub && (activeItem as HubItem).spokes.length > 0 && (
+                                      <div className="mb-6">
+                                        <h5 className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-3">
+                                          Services
+                                        </h5>
+                                        <div className="grid grid-cols-2 gap-3">
+                                          {(activeItem as HubItem).spokes.map((spoke) => {
+                                            const IconComponent = iconMap[spoke.icon];
+                                            return (
+                                              <a 
+                                                key={spoke.id}
+                                                href={spoke.link}
+                                                className="flex items-center gap-3 p-3 rounded-lg border border-slate-200 hover:border-blue-300 hover:bg-blue-50/30 transition-all group"
+                                              >
+                                                {IconComponent && <IconComponent className="w-4 h-4 text-[#161616] flex-shrink-0" />}
+                                                <span className="text-[13px] font-medium text-blue-600 flex-1">
+                                                  {spoke.title}
+                                                </span>
+                                                <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-blue-600 transition-colors flex-shrink-0" />
+                                              </a>
+                                            );
+                                          })}
+                                        </div>
+                                      </div>
+                                    )}
+                                    
+                                    {/* Featured Case Study from Category */}
+                                    {category.caseStudies.find(s => s.featured) && (
+                                      <div className="mt-5 p-4 bg-gradient-to-r from-blue-50 to-white border border-blue-200 rounded-lg">
+                                        <p className="text-[10px] font-bold text-blue-600 uppercase tracking-wide mb-1">Featured Case Study</p>
+                                        {(() => {
+                                          const featured = category.caseStudies.find(s => s.featured)!;
+                                          return (
+                                            <>
+                                              <h4 className="text-base font-bold text-[#161616] mb-1">{featured.title}</h4>
+                                              <p className="text-sm text-[#525252] mb-3">{featured.description}</p>
+                                              <Link to={`/projects/case-study/${featured.slug}`} className="inline-flex items-center gap-1 text-sm font-semibold text-blue-600 hover:text-blue-700">
+                                                Read story <ArrowRight className="w-4 h-4" />
+                                              </Link>
+                                            </>
+                                          );
+                                        })()}
+                                      </div>
+                                    )}
+                                  </>
+                                );
+                              })()}
+                            </div>
+                          </div>
+                          
+                          {/* Footer - CTA */}
+                          <div className="border-t border-blue-200 bg-blue-50/30 py-4">
+                            <div className="max-w-[1400px] mx-auto px-6">
+                              <a href="#contact" className="flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 hover:scale-[1.02] transition-all shadow-md">
+                                Talk to an Expert <ArrowRight className="w-5 h-5" />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+              ))}
 
+              {/* PROJECTS */}
+              <div className="relative">
+                <Link
+                  to="/projects"
+                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors text-[#161616] hover:text-blue-600"
+                >
+                  Projects
+                </Link>
+              </div>
+
+              {/* ABOUT */}
+              <div 
+                className="relative" 
+                onMouseEnter={() => handleMouseEnter('about')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <button className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${activeMegaMenu === 'about' ? 'text-blue-600' : 'text-[#161616] hover:text-blue-600'}`}>
+                  About<ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'about' ? 'rotate-90' : ''}`} />
+                </button>
                 {activeMegaMenu === 'about' && (
-                  <div className="absolute top-full left-0 pt-2">
-                    <div className="bg-white border border-gray-200 rounded-lg shadow-2xl overflow-hidden" style={{ width: '700px' }}>
-                      <div className="flex">
-                        {/* Left Rail */}
-                        <div className="w-[240px] bg-[#f4f4f4] p-4">
+                  <div className="fixed left-0 right-0 top-20 z-50">
+                    <div className="absolute -top-4 left-0 right-0 h-4" />
+                    <div className="bg-white border-b border-gray-200 shadow-2xl overflow-hidden w-full">
+                      <div className="bg-gradient-to-r from-blue-500/10 to-blue-400/5 border-b border-blue-200">
+                        <div className="max-w-[1400px] mx-auto px-6 py-4">
+                          <h3 className="text-base font-bold text-[#161616]">About Perception IT</h3>
+                          <p className="text-sm text-[#525252] mt-1">Your partner from hardware to cloud</p>
+                        </div>
+                      </div>
+                      <div className="max-w-[1400px] mx-auto flex">
+                        <div className="w-[260px] bg-slate-100 p-5 flex-shrink-0 border-r border-gray-200">
                           <div className="space-y-1">
                             {aboutCategories.map((category) => (
-                              <button
-                                key={category.id}
-                                onMouseEnter={() => setActiveAboutCategory(category.id)}
-                                className={`w-full text-left px-3 py-2.5 text-sm rounded transition-all ${
-                                  activeAboutCategory === category.id
-                                    ? 'bg-white border-l-[3px] border-pi-blue text-[#161616] font-medium'
-                                    : 'text-[#525252] hover:bg-[#e5e5e5]'
+                              <button 
+                                key={category.id} 
+                                onMouseEnter={() => setActiveAboutCategory(category.id)} 
+                                className={`w-full text-left px-4 py-3 text-sm rounded-lg transition-all ${
+                                  activeAboutCategory === category.id 
+                                    ? 'bg-blue-600 text-white shadow-lg font-bold' 
+                                    : 'text-[#161616] hover:bg-slate-200 font-medium'
                                 }`}
                               >
                                 {category.name}
                               </button>
                             ))}
-                            <a 
-                              href="#about" 
-                              className="flex items-center gap-2 px-3 py-3 text-sm text-pi-blue hover:text-pi-blue-dark mt-2"
-                            >
-                              View All About Pages
-                              <ArrowRight className="w-4 h-4" />
-                            </a>
+                            <div className="border-t border-slate-300 my-3" />
+                            <Link to="/projects" className="block px-4 py-3 text-sm rounded-lg text-[#161616] hover:bg-slate-200 transition-all font-medium" onClick={() => setActiveMegaMenu(null)}>Projects</Link>
                           </div>
                         </div>
-
-                        {/* Right Content Area */}
                         <div className="flex-1 p-6 bg-white">
-                          <a 
-                            href="#about" 
-                            className="flex items-center gap-2 text-lg font-semibold text-[#161616] hover:text-pi-blue mb-4 group"
-                          >
-                            {getActiveAboutCategory().name}
-                            <ArrowRight className="w-5 h-5 text-pi-blue group-hover:translate-x-1 transition-transform" />
-                          </a>
-                          
-                          <div className="text-sm text-[#525252]">
-                            {getActiveAboutCategory().content}
+                          <Link to="/about" className="inline-flex items-center gap-2 text-base font-bold text-blue-700 hover:text-blue-800 mb-5 group">
+                            {getActiveAboutCategory().name}<ArrowRight className="w-5 h-5 text-blue-500 group-hover:translate-x-1 transition-transform" />
+                          </Link>
+                          <div className="text-sm text-[#525252]">{getActiveAboutCategory().content}</div>
+                          <div className="mt-5 p-3 bg-gradient-to-r from-blue-50 to-white border border-blue-200 rounded-lg">
+                            <p className="text-[10px] font-bold text-blue-600 uppercase tracking-wide mb-1">Client Success</p>
+                            <h4 className="text-sm font-bold text-[#161616] mb-1">14+ Years of Enterprise Excellence</h4>
+                            <p className="text-xs text-[#525252] mb-2">50+ platforms deployed across Pakistan, UK, and GCC markets</p>
+                            <Link to="/projects" className="text-xs text-blue-600 font-semibold hover:underline inline-flex items-center gap-1">View all case studies <ArrowRight className="w-3 h-3" /></Link>
                           </div>
                         </div>
                       </div>
-                      
-                      {/* Bottom CTA */}
-                      <a 
-                        href="#about" 
-                        className="block w-full bg-pi-blue text-white text-center py-3 text-sm font-medium hover:bg-pi-blue-dark transition-colors"
-                      >
-                        Learn more about Perception IT →
-                      </a>
+                      <div className="border-t border-blue-200 bg-blue-50/30">
+                        <div className="max-w-[1400px] mx-auto px-6 py-4">
+                          <a href="#contact" className="flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 hover:scale-[1.02] transition-all shadow-md">
+                            Start Your Project — Contact Us Today <ArrowRight className="w-5 h-5" />
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}
               </div>
             </div>
 
-            {/* CTA Button */}
             <div className="hidden lg:block">
-              <a
-                href="#contact"
-                className="inline-flex items-center px-5 py-2.5 bg-pi-blue text-white text-sm font-medium rounded-lg hover:bg-pi-blue-dark transition-colors"
-              >
+              <Link to="/contact" className="inline-flex items-center px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
                 Contact
-              </a>
+              </Link>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-[#161616]"
-            >
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden p-2 text-[#161616]">
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
       </nav>
 
+      {/* Background Overlay for Mega Menus */}
+      {activeMegaMenu && (
+        <div 
+          className="fixed inset-0 top-20 bg-black/40 backdrop-blur-sm z-40 transition-opacity duration-200"
+          onClick={() => setActiveMegaMenu(null)}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden">
-          <div className="absolute inset-0 bg-white" />
-          <div className="relative pt-20 px-6 h-full overflow-y-auto">
-            <div className="space-y-4">
-              {/* Services Accordion */}
-              <div className="border-b border-gray-100 pb-4">
-                <button className="flex items-center justify-between w-full py-3 text-lg font-medium text-[#161616]">
-                  Services
-                  <ChevronRight className="w-5 h-5" />
+        <div className="fixed inset-0 z-40 lg:hidden bg-white">
+          <div className="flex items-center justify-between px-4 h-16 border-b border-gray-100">
+            <Link to="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
+              <img src="/logo_icon.png" alt="Perception IT" className="h-8 w-auto" />
+            </Link>
+            <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-[#161616]"><X className="w-6 h-6" /></button>
+          </div>
+          <div className="border-b border-gray-100 overflow-x-auto scrollbar-hide">
+            <div className="flex px-2 py-3 gap-1 min-w-max">
+              {mobileTabs.map((tab) => (
+                <button 
+                  key={tab.id} 
+                  onClick={() => { setMobileActiveTab(tab.id); setMobileExpandedCategory(null); }} 
+                  className={`px-4 py-2 text-sm font-medium rounded-full whitespace-nowrap transition-colors ${
+                    mobileActiveTab === tab.id ? 'bg-blue-600 text-white' : 'bg-gray-100 text-[#525252] hover:bg-gray-200'
+                  }`}
+                >
+                  {tab.label}
                 </button>
-                <div className="pl-4 space-y-2 mt-2">
-                  {serviceCategories.map((cat) => (
-                    <a key={cat.id} href="#services" className="block py-2 text-sm text-[#525252]">
-                      {cat.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              {/* Infrastructure Accordion */}
-              <div className="border-b border-gray-100 pb-4">
-                <button className="flex items-center justify-between w-full py-3 text-lg font-medium text-[#161616]">
-                  Infrastructure
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-                <div className="pl-4 space-y-2 mt-2">
-                  {infrastructureCategories.map((cat) => (
-                    <a key={cat.id} href="#services" className="block py-2 text-sm text-[#525252]">
-                      {cat.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              {/* Simple Links */}
-              <Link to="/projects" className="block py-3 text-lg font-medium text-[#161616] border-b border-gray-100">
-                Projects
-              </Link>
-
-              {/* About Accordion */}
-              <div className="border-b border-gray-100 pb-4">
-                <button className="flex items-center justify-between w-full py-3 text-lg font-medium text-[#161616]">
-                  About
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-                <div className="pl-4 space-y-2 mt-2">
-                  {aboutCategories.map((cat) => (
-                    <a key={cat.id} href="#about" className="block py-2 text-sm text-[#525252]">
-                      {cat.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
+          </div>
+          
+          {/* Mobile Content */}
+          <div className="px-4 py-4 h-[calc(100vh-140px)] overflow-y-auto">
+            {/* Solutions Mobile */}
+            {mobileActiveTab === 'solutions' && (
+              <div className="space-y-4">
+                <p className="text-sm text-[#525252]">Integrated solutions from hardware to cloud</p>
+                {solutions.map((solution) => (
+                  <div key={solution.id} className={`p-4 rounded-lg border ${solution.featured ? 'border-blue-500 bg-blue-50' : 'border-gray-200'}`}>
+                    <div className="flex items-center justify-between mb-1">
+                      <h3 className="font-semibold text-[#161616]">{solution.title}</h3>
+                      {solution.featured && <span className="text-[10px] px-2 py-0.5 bg-blue-500 text-white rounded font-medium">POPULAR</span>}
+                    </div>
+                    <p className="text-xs text-blue-600 mb-1">{solution.subtitle}</p>
+                    <p className="text-sm text-[#525252] mb-2">{solution.description}</p>
+                    <div className="flex flex-wrap gap-1">
+                      {solution.combines.map((item, i) => <span key={i} className="px-2 py-0.5 bg-white border border-gray-200 text-[10px] text-[#525252] rounded">{item}</span>)}
+                    </div>
+                  </div>
+                ))}
+                <a href="#services" className="block w-full text-center py-3 bg-blue-600 text-white rounded-lg font-medium">Talk to an architect</a>
+              </div>
+            )}
 
-            <div className="mt-8 pb-8">
-              <a
-                href="#contact"
-                className="block w-full text-center px-5 py-4 bg-pi-blue text-white font-medium rounded-lg"
+            {/* Service Categories Mobile */}
+            {serviceCategories.map((category) => (
+              mobileActiveTab === category.id && (
+                <div key={category.id} className="space-y-4">
+                  <p className="text-sm text-[#525252]">{category.description}</p>
+                  <div className="space-y-2">
+                    {/* Hubs structure (Cloud) */}
+                    {category.hubs ? (
+                      category.hubs.map((hub) => (
+                        <div key={hub.id} className="border border-gray-200 rounded-lg overflow-hidden">
+                          <div className="p-4 bg-slate-50">
+                            <h3 className="font-semibold text-[#161616]">{hub.title}</h3>
+                            <p className="text-sm text-[#525252] mt-1">{hub.description}</p>
+                          </div>
+                          <div className="p-2 space-y-1">
+                            {hub.spokes.map((spoke) => (
+                              <a 
+                                key={spoke.id}
+                                href={spoke.link} 
+                                className="block p-3 hover:bg-slate-50 rounded-lg"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                <span className="text-sm font-medium text-[#161616]">{spoke.title}</span>
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      ))
+                    ) : (
+                      /* Services structure (other categories) */
+                      category.services?.map((service) => (
+                        <a 
+                          key={service.id}
+                          href={service.link} 
+                          className="block p-4 border border-gray-200 rounded-lg"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          <div className="flex items-center justify-between mb-1">
+                            <h3 className="font-semibold text-[#161616]">{service.title}</h3>
+                            {service.badge && (
+                              <span className="px-2 py-0.5 bg-blue-500 text-white text-[10px] font-bold rounded">
+                                {service.badge}
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-sm text-[#525252]">{service.description}</p>
+                        </a>
+                      ))
+                    )}
+                  </div>
+                  <div className="border-t border-gray-200 pt-4">
+                    <p className="text-sm font-semibold text-[#161616] mb-3">Related Case Studies</p>
+                    <div className="space-y-2">
+                      {category.caseStudies.slice(0, 3).map((study) => (
+                        <Link 
+                          key={study.id}
+                          to={`/projects/case-study/${study.slug}`}
+                          className="block p-3 bg-slate-50 rounded-lg"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          <h4 className="font-medium text-[#161616] text-sm mb-1">{study.title}</h4>
+                          <p className="text-xs text-[#525252] line-clamp-2">{study.description}</p>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )
+            ))}
+            
+            {mobileActiveTab === 'projects' && (
+              <div className="space-y-2">
+                <Link 
+                  to="/projects" 
+                  className="block px-4 py-3 border border-gray-200 rounded-lg text-[#161616] font-medium"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  View all projects
+                </Link>
+                <p className="text-sm text-[#525252]">Explore all published case studies with category filters.</p>
+              </div>
+            )}
+
+            {mobileActiveTab === 'about' && (
+              <div className="space-y-2">
+                {aboutCategories.map((category) => (
+                  <Link 
+                    key={category.id} 
+                    to="/about" 
+                    className="block px-4 py-3 border border-gray-200 rounded-lg text-[#161616] font-medium"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {category.name}
+                  </Link>
+                ))}
+                <Link 
+                  to="/projects" 
+                  className="block px-4 py-3 border border-gray-200 rounded-lg text-[#161616] font-medium"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Projects
+                </Link>
+              </div>
+            )}
+            
+            <div className="mt-6 pt-6 border-t border-gray-200">
+              <Link 
+                to="/contact" 
+                className="block w-full text-center py-4 bg-blue-600 text-white font-medium rounded-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
-                Contact
-              </a>
+                Contact Us
+              </Link>
             </div>
           </div>
         </div>

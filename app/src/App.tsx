@@ -66,7 +66,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:slug" element={<ProjectDetail />} />
+          <Route path="/projects/:category" element={<Projects />} />
+          <Route path="/projects/case-study/:slug" element={<ProjectDetail />} />
           <Route path="/services/cloud-cost-optimization" element={<CloudCostOptimization />} />
         </Routes>
       </div>

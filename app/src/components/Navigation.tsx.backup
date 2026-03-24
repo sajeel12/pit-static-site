@@ -1,0 +1,777 @@
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu, X, ChevronRight, ArrowRight, ChevronDown } from 'lucide-react';
+
+interface ServiceItem {
+  title: string;
+  description: string;
+  link: string;
+  crossSell?: { text: string; link: string };
+}
+
+interface ServiceCategory {
+  id: string;
+  name: string;
+  link?: string;
+  badge?: string;
+  items: ServiceItem[];
+}
+
+interface InfrastructureCategory {
+  id: string;
+  name: string;
+  items: ServiceItem[];
+}
+
+interface AboutCategory {
+  id: string;
+  name: string;
+  content: React.ReactNode;
+}
+
+interface SolutionItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  combines: string[];
+  link: string;
+  featured?: boolean;
+}
+
+const Navigation = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string>('cloud-devops');
+  const [activeInfraCategory, setActiveInfraCategory] = useState<string>('hardware-support');
+  const [activeAboutCategory, setActiveAboutCategory] = useState<string>('company-overview');
+  const [mobileActiveTab, setMobileActiveTab] = useState<string>('solutions');
+  const [mobileExpandedCategory, setMobileExpandedCategory] = useState<string | null>(null);
+  const closeTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const megaMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (megaMenuRef.current && !megaMenuRef.current.contains(event.target as Node)) {
+        setActiveMegaMenu(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleMouseEnter = useCallback((menu: string) => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    if (menu === 'cloud') setActiveCategory('cloud-devops');
+    if (menu === 'infrastructure') setActiveInfraCategory('hardware-support');
+    if (menu === 'about') setActiveAboutCategory('company-overview');
+    setActiveMegaMenu(menu);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    closeTimerRef.current = setTimeout(() => {
+      setActiveMegaMenu(null);
+    }, 150);
+  }, []);
+
+  const cloudCategories: ServiceCategory[] = [
+    { id: 'cloud-devops', name: 'Cloud & DevOps', link: '/services/cloud-devops', items: [
+      { title: 'Container Orchestration', description: 'Deploy 10x faster with zero downtime', link: '#services', crossSell: { text: 'See also: Managed Kubernetes', link: '#services' }},
+      { title: 'Deployment Pipelines', description: 'From code commit to production in under 1 hour', link: '#services', crossSell: { text: 'Part of: Cloud Control Solution', link: '#services' }},
+      { title: 'Cloud Migration', description: 'Zero-downtime migration with risk insurance', link: '#services', crossSell: { text: 'Start with: Hardware Audit', link: '#services' }},
+      { title: 'Cloud Provisioning', description: 'New environments in minutes, not weeks', link: '#services' },
+      { title: 'DevSecOps Integration', description: 'Security checks that don\'t slow down developers', link: '#services' },
+    ]},
+    { id: 'app-modernisation', name: 'Application Modernisation', link: '/services/app-modernisation', items: [
+      { title: 'Legacy App Refactoring', description: 'Transform monoliths to microservices', link: '#services' },
+      { title: 'API Integration', description: 'Connect legacy systems to modern cloud', link: '#services' },
+      { title: 'Cloud-Native Development', description: 'Build for scale from day one', link: '#services' },
+    ]},
+    { id: 'mlops-ai', name: 'MLOps & AI', badge: 'POPULAR', link: '/services/mlops-ai', items: [
+      { title: 'MLOps Development', description: 'From notebook to production pipeline', link: '#services', crossSell: { text: 'Bundle: AI Accelerator Solution', link: '#services' }},
+      { title: 'Model Deployment & Monitoring', description: 'Detect model drift before it costs you', link: '#services' },
+      { title: 'Agentic AI Development', description: 'Build autonomous AI agents for complex workflows', link: '#services' },
+      { title: 'MLOps Consulting', description: 'Is your data ready for AI? Find out in 2 weeks', link: '#services' },
+    ]},
+    { id: 'observability', name: 'Observability', link: '/services/observability', items: [
+      { title: 'Application Performance', description: 'Slow app? We find why in 5 minutes', link: '#services' },
+      { title: 'Cloud Observability', description: 'Container and serverless visibility that scales', link: '#services' },
+      { title: 'Data Observability', description: 'Bad data detected before it hits the dashboard', link: '#services' },
+      { title: 'Pipeline Monitoring', description: 'Failed deployment? Know in seconds, not hours', link: '#services' },
+    ]},
+    { id: 'optimisation', name: 'Optimisation (FinOps)', link: '/services/optimisation', items: [
+      { title: 'Cloud Cost Optimisation', description: 'Cut AWS/Azure bills by 40% without performance loss', link: '/services/cloud-cost-optimization', crossSell: { text: 'See: Cloud Control Solution', link: '#services' }},
+      { title: 'Performance Optimisation', description: '2x faster applications, 50% less infrastructure', link: '#services' },
+      { title: 'Infrastructure Right-Sizing', description: 'Pay for what you use, not what you provisioned', link: '#services' },
+    ]},
+  ];
+
+  const infrastructureCategories: InfrastructureCategory[] = [
+    { id: 'hardware-support', name: 'Hardware Support', items: [
+      { title: 'ServerAudit™', description: 'Comprehensive server health assessments', link: '#services' },
+      { title: 'Third-Party Maintenance', description: 'Save 60% vs. vendor support contracts', link: '#services', crossSell: { text: 'Next step: Cloud Migration Readiness', link: '#services' }},
+      { title: 'Hardware Lifecycle Extension', description: 'Get 2-3 more years from existing equipment', link: '#services' },
+      { title: 'Spare Parts Management', description: 'Critical parts on-site within 4 hours', link: '#services' },
+    ]},
+    { id: 'datacenter', name: 'Data Center Services', items: [
+      { title: 'Hybrid Cloud Architecture', description: 'On-premise + cloud that actually works', link: '#services' },
+      { title: 'Colocation Management', description: 'We manage your racks, you focus on business', link: '#services' },
+      { title: 'DC Migration', description: 'Zero-downtime data center relocations', link: '#services' },
+    ]},
+    { id: 'sla-support', name: '24x7 SLA Support', items: [
+      { title: '15-Minute Response', description: 'Emergency support when you need it most', link: '#services' },
+      { title: '99.9% Uptime Guarantee', description: 'SLA-backed availability with penalties', link: '#services' },
+      { title: 'Proactive Monitoring', description: 'Fix issues before they impact users', link: '#services' },
+    ]},
+    { id: 'continuity', name: 'Business Continuity', items: [
+      { title: 'Disaster Recovery', description: 'RTO under 1 hour, tested quarterly', link: '#services' },
+      { title: 'Backup Solutions', description: 'Immutable backups, air-gapped storage', link: '#services' },
+      { title: 'High Availability Design', description: 'Zero single points of failure', link: '#services' },
+    ]},
+  ];
+
+  const platforms: ServiceItem[] = [
+    { title: 'ServiceNow', description: 'Go live in 8 weeks, not 8 months', link: '#services', crossSell: { text: 'See also: Managed ServiceNow', link: '#services' }},
+    { title: 'IBM Maximo', description: 'From reactive maintenance to predictive', link: '#services' },
+    { title: 'Jira Service Management', description: 'Developer-friendly ITSM that actually gets used', link: '#services' },
+    { title: 'Custom Integrations', description: 'Connect your existing tools to work as one', link: '#services' },
+  ];
+
+  const solutions: SolutionItem[] = [
+    { id: 'ai-accelerator', title: 'AI Accelerator', subtitle: 'From Data to Production AI', description: 'From data to deployed AI in 90 days', combines: ['MLOps', 'Cloud Infrastructure', 'Data Observability', 'Consulting'], link: '#services', featured: true },
+    { id: 'cloud-control', title: 'Cloud Control', subtitle: 'Cost & Performance Management', description: 'Cut cloud costs 40% and never worry about uptime', combines: ['FinOps', 'Cloud Optimisation', 'Observability', 'Managed Cloud'], link: '#services' },
+    { id: 'service-excellence', title: 'Service Excellence', subtitle: 'ITSM & Support Operations', description: '95% user satisfaction, 60% cost reduction', combines: ['ServiceNow', 'Service Desk', 'ITSM Processes', 'Automation'], link: '#services' },
+    { id: 'total-transformation', title: 'Total Transformation', subtitle: 'Hardware to Cloud Journey', description: 'End-to-end: Hardware audit → Cloud migration → Managed operations', combines: ['ServerAudit™', 'Cloud Migration', 'Managed Services', 'Optimisation'], link: '#services' },
+  ];
+
+  const aboutCategories: AboutCategory[] = [
+    { id: 'company-overview', name: 'Company Overview', content: (
+      <div className="space-y-8">
+        <div className="grid grid-cols-2 gap-6">
+          <div className="p-5 bg-gray-50 rounded-lg">
+            <h4 className="font-semibold text-[#161616] mb-2 text-sm">Our Story</h4>
+            <p className="text-sm text-[#525252] leading-relaxed">Founded by British-certified technologists, delivering enterprise IT solutions across Pakistan and the UK since 2010.</p>
+          </div>
+          <div className="p-5 bg-gray-50 rounded-lg">
+            <h4 className="font-semibold text-[#161616] mb-2 text-sm">Our Mission</h4>
+            <p className="text-sm text-[#525252] leading-relaxed">Make enterprise-grade IT accessible to ambitious organizations in emerging markets.</p>
+          </div>
+        </div>
+        <div className="flex gap-10 pt-4">
+          <div className="text-center">
+            <div className="text-3xl font-bold text-pi-blue">14+</div>
+            <div className="text-sm text-[#525252] mt-1">Years Experience</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-pi-blue">50+</div>
+            <div className="text-sm text-[#525252] mt-1">Platforms Deployed</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-pi-blue">24/7</div>
+            <div className="text-sm text-[#525252] mt-1">Support Coverage</div>
+          </div>
+        </div>
+      </div>
+    )},
+    { id: 'leadership', name: 'Leadership', content: (
+      <div className="space-y-6">
+        <div className="flex items-center gap-4 p-5 bg-gray-50 rounded-lg">
+          <img src="/david_headshot.jpg" alt="David Pridmore" className="w-16 h-16 rounded-full object-cover" />
+          <div>
+            <h4 className="font-semibold text-[#161616]">David Pridmore</h4>
+            <p className="text-sm text-[#525252]">Founder & CTO</p>
+            <p className="text-xs text-[#525252] mt-1">British-certified enterprise technologist with 14+ years experience</p>
+          </div>
+        </div>
+        <p className="text-sm text-[#525252] leading-relaxed">Our team combines British enterprise standards with local market expertise.</p>
+      </div>
+    )},
+    { id: 'careers', name: 'Careers', content: (
+      <div className="space-y-6">
+        <p className="text-sm text-[#525252] leading-relaxed">Join a team where enterprise standards meet innovation.</p>
+        <div className="space-y-3">
+          <div className="p-4 bg-gray-50 rounded-lg flex justify-between items-center group hover:bg-gray-100 transition-colors cursor-pointer">
+            <div>
+              <h4 className="font-medium text-[#161616] text-sm">Senior DevOps Engineer</h4>
+              <p className="text-xs text-[#525252] mt-0.5">Lahore • Full-time</p>
+            </div>
+            <ChevronRight className="w-4 h-4 text-pi-blue" />
+          </div>
+          <div className="p-4 bg-gray-50 rounded-lg flex justify-between items-center group hover:bg-gray-100 transition-colors cursor-pointer">
+            <div>
+              <h4 className="font-medium text-[#161616] text-sm">ServiceNow Consultant</h4>
+              <p className="text-xs text-[#525252] mt-0.5">Lahore • Full-time</p>
+            </div>
+            <ChevronRight className="w-4 h-4 text-pi-blue" />
+          </div>
+        </div>
+      </div>
+    )},
+    { id: 'partners', name: 'Partners', content: (
+      <div className="space-y-6">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="p-5 bg-gray-50 rounded-lg text-center">
+            <div className="text-lg font-bold text-pi-blue mb-1">Huawei</div>
+            <p className="text-xs text-[#525252]">Enterprise Partner</p>
+          </div>
+          <div className="p-5 bg-gray-50 rounded-lg text-center">
+            <div className="text-lg font-bold text-pi-blue mb-1">ServiceNow</div>
+            <p className="text-xs text-[#525252]">Implementation Partner</p>
+          </div>
+          <div className="p-5 bg-gray-50 rounded-lg text-center">
+            <div className="text-lg font-bold text-pi-blue mb-1">EZY</div>
+            <p className="text-xs text-[#525252]">Distribution Alliance</p>
+          </div>
+        </div>
+        <p className="text-sm text-[#525252] leading-relaxed">Strategic partnerships that extend our capabilities and reach.</p>
+      </div>
+    )},
+    { id: 'contact-info', name: 'Contact', content: (
+      <div className="grid grid-cols-2 gap-8">
+        <div>
+          <h4 className="font-semibold text-[#161616] mb-3 text-sm uppercase tracking-wide">Pakistan</h4>
+          <p className="text-sm text-[#525252] leading-relaxed">Office #01, 1st Floor, Liberty Gate Plaza</p>
+          <p className="text-sm text-[#525252] leading-relaxed">Tariq Road, Gulberg III, Lahore</p>
+          <p className="text-sm text-pi-blue mt-3 font-medium">+92 301 8436565</p>
+        </div>
+        <div>
+          <h4 className="font-semibold text-[#161616] mb-3 text-sm uppercase tracking-wide">United Kingdom</h4>
+          <p className="text-sm text-[#525252] leading-relaxed">12a Fleet Business Park, Sandy Lane</p>
+          <p className="text-sm text-[#525252] leading-relaxed">Fleet, Hampshire, GU52 8BF</p>
+          <p className="text-sm text-pi-blue mt-3 font-medium">+44 7456 457005</p>
+        </div>
+      </div>
+    )},
+  ];
+
+  const deliveryModels = [
+    { title: 'Managed Services', description: 'Fully managed operations', link: '#services' },
+    { title: 'Consulting', description: 'Strategic guidance & architecture', link: '#services' },
+    { title: '24/7 Support', description: 'Round-the-clock assistance', link: '#services' },
+  ];
+
+  const getActiveCloudCategory = () => cloudCategories.find(c => c.id === activeCategory) || cloudCategories[0];
+  const getActiveInfraCategory = () => infrastructureCategories.find(c => c.id === activeInfraCategory) || infrastructureCategories[0];
+  const getActiveAboutCategory = () => aboutCategories.find(c => c.id === activeAboutCategory) || aboutCategories[0];
+
+  const mobileTabs = [
+    { id: 'solutions', label: 'Solutions' },
+    { id: 'cloud', label: 'Cloud' },
+    { id: 'infrastructure', label: 'Infrastructure' },
+    { id: 'platforms', label: 'Platforms' },
+    { id: 'about', label: 'About' },
+  ];
+
+  return (
+    <>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-white border-b border-transparent'}`}>
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-20">
+            <Link to="/" className="flex items-center group">
+              <img src="/logo_icon.png" alt="Perception IT" className="h-8 w-auto flex-shrink-0" />
+            </Link>
+
+            <div className="hidden lg:flex items-center gap-1" ref={megaMenuRef}>
+              
+              {/* SOLUTIONS */}
+              <div 
+                className="relative" 
+                onMouseEnter={() => handleMouseEnter('solutions')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <button className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${activeMegaMenu === 'solutions' ? 'text-pi-blue' : 'text-[#161616] hover:text-pi-blue'}`}>
+                  Solutions<ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'solutions' ? 'rotate-90' : ''}`} />
+                </button>
+                {activeMegaMenu === 'solutions' && (
+                  <div className="fixed left-0 right-0 top-20 z-50">
+                    {/* Invisible bridge */}
+                    <div className="absolute -top-4 left-0 right-0 h-4" />
+                    <div className="bg-white border-b border-gray-200 shadow-2xl overflow-hidden w-full">
+                      {/* Header - Blue Theme */}
+                      <div className="bg-gradient-to-r from-blue-500/10 to-blue-400/5 border-b border-blue-200">
+                        <div className="max-w-[1400px] mx-auto px-8 py-6">
+                          <h3 className="text-base font-bold text-[#161616]">Integrated Solutions</h3>
+                          <p className="text-sm text-[#525252] mt-1">From Hardware to Cloud — One Partner, Complete Accountability</p>
+                        </div>
+                      </div>
+                      {/* Content - Grid Layout with Blue Cards */}
+                      <div className="py-8 max-w-[1400px] mx-auto px-8">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                          {solutions.map((solution) => (
+                            <a key={solution.id} href={solution.link} className={`p-5 rounded-lg border-2 transition-all group ${solution.featured ? 'border-blue-500 bg-blue-50 shadow-md' : 'border-blue-200 bg-blue-50/30 hover:bg-blue-50 hover:border-blue-400'}`}>
+                              <div className="flex items-start justify-between mb-3">
+                                <h4 className="font-bold text-[#161616] group-hover:text-blue-600 text-sm">{solution.title}</h4>
+                                {solution.featured && <span className="px-2 py-0.5 bg-blue-500 text-white text-[10px] font-bold rounded">POPULAR</span>}
+                              </div>
+                              <p className="text-xs text-blue-600 mb-2 font-semibold uppercase tracking-wide">{solution.subtitle}</p>
+                              <p className="text-sm text-[#525252] mb-4 leading-relaxed">{solution.description}</p>
+                              <div className="flex flex-wrap gap-1.5">
+                                {solution.combines.map((item, i) => <span key={i} className="px-2 py-1 bg-white border border-blue-200 text-[11px] text-[#525252] rounded font-medium">{item}</span>)}
+                              </div>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                      {/* Footer CTA */}
+                      <div className="border-t border-gray-200 bg-gray-50/50">
+                        <div className="max-w-[1400px] mx-auto px-8 py-5">
+                          <a href="#services" className="flex items-center justify-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700 transition-colors uppercase tracking-wider">
+                            Not sure which solution? Talk to an architect <ArrowRight className="w-4 h-4" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* CLOUD */}
+              <div 
+                className="relative" 
+                onMouseEnter={() => handleMouseEnter('cloud')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <button className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${activeMegaMenu === 'cloud' ? 'text-pi-blue' : 'text-[#161616] hover:text-pi-blue'}`}>
+                  Cloud<ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'cloud' ? 'rotate-90' : ''}`} />
+                </button>
+                {activeMegaMenu === 'cloud' && (
+                  <div className="fixed left-0 right-0 top-20 z-50">
+                    {/* Invisible bridge */}
+                    <div className="absolute -top-4 left-0 right-0 h-4" />
+                    <div className="bg-white border-b border-gray-200 shadow-2xl overflow-hidden w-full">
+                      {/* Header - Same style as Solutions */}
+                      <div className="bg-gradient-to-r from-blue-500/10 to-blue-400/5 border-b border-blue-200">
+                        <div className="max-w-[1400px] mx-auto px-8 py-6">
+                          <h3 className="text-base font-bold text-[#161616]">Cloud Services</h3>
+                          <p className="text-sm text-[#525252] mt-1">Modern infrastructure and operations for the cloud-native enterprise</p>
+                        </div>
+                      </div>
+                      {/* Content - Left Rail Layout with Color Accents */}
+                      <div className="max-w-[1400px] mx-auto flex">
+                        <div className="w-[280px] bg-gradient-to-b from-blue-50/30 to-transparent p-6 flex-shrink-0 border-r border-gray-200">
+                          <div className="space-y-1">
+                            {cloudCategories.map((category) => (
+                              <button 
+                                key={category.id} 
+                                onMouseEnter={() => setActiveCategory(category.id)} 
+                                className={`w-full text-left px-4 py-3 text-sm rounded-lg transition-all ${activeCategory === category.id ? 'bg-white shadow-md border-l-[4px] border-blue-500 text-[#161616] font-bold' : 'text-[#525252] hover:bg-blue-100/50'}`}
+                              >
+                                <div className="flex items-center justify-between">
+                                  <span>{category.name}</span>
+                                  {category.badge && <span className="px-2 py-0.5 bg-blue-500 text-white text-[10px] font-bold rounded">{category.badge}</span>}
+                                </div>
+                              </button>
+                            ))}
+                            <div className="border-t border-blue-200 my-3" />
+                            <a href="#services" className="flex items-center gap-2 px-4 py-3 text-sm font-bold text-blue-600 hover:text-blue-700">
+                              View All Cloud Services<ArrowRight className="w-4 h-4" />
+                            </a>
+                          </div>
+                        </div>
+                        <div className="flex-1 p-8 bg-white">
+                          <Link to={getActiveCloudCategory().link || '#services'} className="inline-flex items-center gap-2 text-base font-bold text-blue-600 hover:text-blue-700 mb-6 group" onClick={() => setActiveMegaMenu(null)}>
+                            {getActiveCloudCategory().name}<ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                          </Link>
+                          <div className="grid grid-cols-2 gap-x-8 gap-y-5">
+                            {getActiveCloudCategory().items.map((item, idx) => (
+                              <div key={idx} className="group p-3 rounded-lg hover:bg-blue-50/30 transition-colors">
+                                <a href={item.link} className="block">
+                                  <h4 className="text-[13px] font-bold text-[#161616] group-hover:text-blue-600 mb-1.5">{item.title}</h4>
+                                  <p className="text-xs text-[#525252] leading-relaxed">{item.description}</p>
+                                </a>
+                                {item.crossSell && <a href={item.crossSell.link} className="text-xs text-blue-600 hover:underline inline-flex items-center gap-1 mt-2 font-semibold">{item.crossSell.text}<ArrowRight className="w-3 h-3" /></a>}
+                              </div>
+                            ))}
+                          </div>
+                          <div className="mt-8 pt-5 border-t border-blue-100 bg-blue-50/20 -mx-8 px-8 py-4">
+                            <p className="text-xs font-bold text-[#161616] mb-3 uppercase tracking-wide text-blue-700">How we deliver these services</p>
+                            <div className="flex gap-6">
+                              {deliveryModels.map((model, idx) => <a key={idx} href={model.link} className="text-xs text-blue-600 hover:underline font-semibold">{model.title}</a>)}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Footer CTA - Same style as Solutions */}
+                      <div className="border-t border-gray-200 bg-gray-50/50">
+                        <div className="max-w-[1400px] mx-auto px-8 py-5">
+                          <a href="#services" className="flex items-center justify-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700 transition-colors uppercase tracking-wider">
+                            Explore all cloud services <ArrowRight className="w-4 h-4" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* INFRASTRUCTURE */}
+              <div 
+                className="relative" 
+                onMouseEnter={() => handleMouseEnter('infrastructure')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <button className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${activeMegaMenu === 'infrastructure' ? 'text-pi-blue' : 'text-[#161616] hover:text-pi-blue'}`}>
+                  Infrastructure<ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'infrastructure' ? 'rotate-90' : ''}`} />
+                </button>
+                {activeMegaMenu === 'infrastructure' && (
+                  <div className="fixed left-0 right-0 top-20 z-50">
+                    {/* Invisible bridge */}
+                    <div className="absolute -top-4 left-0 right-0 h-4" />
+                    <div className="bg-white border-b border-gray-200 shadow-2xl overflow-hidden w-full">
+                      {/* Header - Blue Theme */}
+                      <div className="bg-gradient-to-r from-blue-500/10 to-blue-400/5 border-b border-blue-200">
+                        <div className="max-w-[1400px] mx-auto px-8 py-6">
+                          <h3 className="text-base font-bold text-[#161616]">Infrastructure Services</h3>
+                          <p className="text-sm text-[#525252] mt-1">High-performance hardware and data center solutions</p>
+                        </div>
+                      </div>
+                      {/* Content - Left Rail with Blue Color Accents */}
+                      <div className="max-w-[1400px] mx-auto flex">
+                        <div className="w-[280px] bg-gradient-to-b from-blue-50/30 to-transparent p-6 flex-shrink-0 border-r border-gray-200">
+                          <div className="space-y-1">
+                            {infrastructureCategories.map((category) => (
+                              <button 
+                                key={category.id} 
+                                onMouseEnter={() => setActiveInfraCategory(category.id)} 
+                                className={`w-full text-left px-4 py-3 text-sm rounded-lg transition-all ${activeInfraCategory === category.id ? 'bg-white shadow-md border-l-[4px] border-blue-500 text-[#161616] font-bold' : 'text-[#525252] hover:bg-blue-100/50'}`}
+                              >
+                                {category.name}
+                              </button>
+                            ))}
+                            <div className="border-t border-blue-200 my-3" />
+                            <a href="#services" className="flex items-center gap-2 px-4 py-3 text-sm font-bold text-blue-600 hover:text-blue-700">
+                              View All Infrastructure<ArrowRight className="w-4 h-4" />
+                            </a>
+                          </div>
+                        </div>
+                        <div className="flex-1 p-8 bg-white">
+                          {/* Huawei Banner with Blue Accent */}
+                          <div className="bg-gradient-to-r from-blue-100 to-blue-50 border border-blue-200 rounded-lg p-5 mb-6">
+                            <div className="flex items-center gap-4">
+                              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm border border-blue-200">
+                                <svg width="32" height="32" viewBox="0 0 100 100" fill="none"><path d="M50 10C45 25 35 35 20 40C35 45 45 55 50 70C55 55 65 45 80 40C65 35 55 25 50 10Z" fill="#FF0000"/><path d="M50 75C47.5 82.5 42.5 87.5 35 90C42.5 87.5 47.5 82.5 50 75Z" fill="#FF0000"/></svg>
+                              </div>
+                              <div>
+                                <h4 className="font-bold text-[#161616] text-sm">Huawei Enterprise Partner</h4>
+                                <p className="text-xs text-[#525252] mt-0.5">Authorized support for servers, storage & networking</p>
+                              </div>
+                            </div>
+                          </div>
+                          <a href="#services" className="inline-flex items-center gap-2 text-base font-bold text-blue-600 hover:text-blue-700 mb-6 group">
+                            {getActiveInfraCategory().name}<ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                          </a>
+                          <div className="grid grid-cols-2 gap-x-8 gap-y-5">
+                            {getActiveInfraCategory().items.map((item, idx) => (
+                              <div key={idx} className="group p-3 rounded-lg hover:bg-blue-50/30 transition-colors">
+                                <a href={item.link} className="block">
+                                  <h4 className="text-[13px] font-bold text-[#161616] group-hover:text-blue-600 mb-1.5">{item.title}</h4>
+                                  <p className="text-xs text-[#525252] leading-relaxed">{item.description}</p>
+                                </a>
+                                {item.crossSell && <a href={item.crossSell.link} className="text-xs text-blue-600 hover:underline inline-flex items-center gap-1 mt-2 font-semibold">{item.crossSell.text}<ArrowRight className="w-3 h-3" /></a>}
+                              </div>
+                            ))}
+                          </div>
+                          <div className="mt-8 pt-5 border-t border-blue-100 bg-blue-50/20 -mx-8 px-8 py-4">
+                            <a href="#services" className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700">
+                              <span>Ready for cloud?</span><span>Explore Cloud Migration Readiness →</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Footer CTA */}
+                      <div className="border-t border-gray-200 bg-gray-50/50">
+                        <div className="max-w-[1400px] mx-auto px-8 py-5">
+                          <a href="#services" className="flex items-center justify-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700 transition-colors uppercase tracking-wider">
+                            Explore all infrastructure services <ArrowRight className="w-4 h-4" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* PLATFORMS */}
+              <div 
+                className="relative" 
+                onMouseEnter={() => handleMouseEnter('platforms')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <button className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${activeMegaMenu === 'platforms' ? 'text-pi-blue' : 'text-[#161616] hover:text-pi-blue'}`}>
+                  Platforms<ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'platforms' ? 'rotate-90' : ''}`} />
+                </button>
+                {activeMegaMenu === 'platforms' && (
+                  <div className="fixed left-0 right-0 top-20 z-50">
+                    {/* Invisible bridge */}
+                    <div className="absolute -top-4 left-0 right-0 h-4" />
+                    <div className="bg-white border-b border-gray-200 shadow-2xl overflow-hidden w-full">
+                      {/* Header - Blue Theme */}
+                      <div className="bg-gradient-to-r from-blue-500/10 to-blue-400/5 border-b border-blue-200">
+                        <div className="max-w-[1400px] mx-auto px-8 py-6">
+                          <h3 className="text-base font-bold text-[#161616]">Platform Services</h3>
+                          <p className="text-sm text-[#525252] mt-1">Enterprise platforms implemented and managed</p>
+                        </div>
+                      </div>
+                      {/* Content - Left Rail with Blue Color Accents */}
+                      <div className="max-w-[1400px] mx-auto flex">
+                        <div className="w-[260px] bg-gradient-to-b from-blue-50/30 to-transparent p-6 flex-shrink-0 border-r border-gray-200">
+                          <div className="space-y-1">
+                            {platforms.map((platform, idx) => (
+                              <a key={idx} href={platform.link} className="block px-4 py-3 text-sm rounded-lg text-[#525252] hover:bg-blue-100/50 transition-all font-semibold">{platform.title}</a>
+                            ))}
+                            <div className="border-t border-blue-200 my-3" />
+                            <a href="#services" className="flex items-center gap-2 px-4 py-3 text-sm font-bold text-blue-600 hover:text-blue-700">
+                              View All Platforms<ArrowRight className="w-4 h-4" />
+                            </a>
+                          </div>
+                        </div>
+                        <div className="flex-1 p-8 bg-white">
+                          <h3 className="text-base font-bold text-blue-700 mb-2">Platform Services</h3>
+                          <p className="text-sm text-[#525252] mb-6 leading-relaxed">ServiceNow, Maximo & Custom Implementations. We don't just install — we configure, integrate, and manage.</p>
+                          <div className="space-y-5">
+                            {platforms.slice(0, 2).map((platform, idx) => (
+                              <div key={idx} className="group p-3 rounded-lg hover:bg-blue-50/30 transition-colors">
+                                <a href={platform.link} className="block">
+                                  <h4 className="text-[13px] font-bold text-[#161616] group-hover:text-blue-600 mb-1.5">{platform.title}</h4>
+                                  <p className="text-xs text-[#525252] leading-relaxed">{platform.description}</p>
+                                </a>
+                                {platform.crossSell && <a href={platform.crossSell.link} className="text-xs text-blue-600 hover:underline inline-flex items-center gap-1 mt-2 font-semibold">{platform.crossSell.text}<ArrowRight className="w-3 h-3" /></a>}
+                              </div>
+                            ))}
+                          </div>
+                          <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                            <p className="text-xs text-[#525252] leading-relaxed">Need ongoing platform management? See our <a href="#services" className="text-blue-600 font-bold hover:underline">Managed Platform Services</a></p>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Footer CTA */}
+                      <div className="border-t border-gray-200 bg-gray-50/50">
+                        <div className="max-w-[1400px] mx-auto px-8 py-5">
+                          <a href="#services" className="flex items-center justify-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700 transition-colors uppercase tracking-wider">
+                            Explore all platform services <ArrowRight className="w-4 h-4" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* ABOUT */}
+              <div 
+                className="relative" 
+                onMouseEnter={() => handleMouseEnter('about')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <button className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${activeMegaMenu === 'about' ? 'text-pi-blue' : 'text-[#161616] hover:text-pi-blue'}`}>
+                  About<ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'about' ? 'rotate-90' : ''}`} />
+                </button>
+                {activeMegaMenu === 'about' && (
+                  <div className="fixed left-0 right-0 top-20 z-50">
+                    {/* Invisible bridge */}
+                    <div className="absolute -top-4 left-0 right-0 h-4" />
+                    <div className="bg-white border-b border-gray-200 shadow-2xl overflow-hidden w-full">
+                      {/* Header - Blue Theme */}
+                      <div className="bg-gradient-to-r from-blue-500/10 to-blue-400/5 border-b border-blue-200">
+                        <div className="max-w-[1400px] mx-auto px-8 py-6">
+                          <h3 className="text-base font-bold text-[#161616]">About Perception IT</h3>
+                          <p className="text-sm text-[#525252] mt-1">Your partner from hardware to cloud</p>
+                        </div>
+                      </div>
+                      {/* Content - Left Rail with Blue Color Accents */}
+                      <div className="max-w-[1400px] mx-auto flex">
+                        <div className="w-[240px] bg-gradient-to-b from-blue-50/30 to-transparent p-6 flex-shrink-0 border-r border-gray-200">
+                          <div className="space-y-1">
+                            {aboutCategories.map((category) => (
+                              <button 
+                                key={category.id} 
+                                onMouseEnter={() => setActiveAboutCategory(category.id)} 
+                                className={`w-full text-left px-4 py-3 text-sm rounded-lg transition-all ${activeAboutCategory === category.id ? 'bg-white shadow-md border-l-[4px] border-blue-500 text-[#161616] font-bold' : 'text-[#525252] hover:bg-blue-100/50'}`}
+                              >
+                                {category.name}
+                              </button>
+                            ))}
+                            <div className="border-t border-blue-200 my-3" />
+                            <Link to="/projects" className="block px-4 py-3 text-sm rounded-lg text-[#525252] hover:bg-blue-100/50 transition-all font-semibold" onClick={() => setActiveMegaMenu(null)}>Projects</Link>
+                          </div>
+                        </div>
+                        <div className="flex-1 p-8 bg-white">
+                          <a href="#about" className="inline-flex items-center gap-2 text-base font-bold text-blue-700 hover:text-blue-800 mb-5 group">
+                            {getActiveAboutCategory().name}<ArrowRight className="w-5 h-5 text-blue-500 group-hover:translate-x-1 transition-transform" />
+                          </a>
+                          <div className="text-sm text-[#525252]">{getActiveAboutCategory().content}</div>
+                        </div>
+                      </div>
+                      {/* Footer CTA */}
+                      <div className="border-t border-gray-200 bg-gray-50/50">
+                        <div className="max-w-[1400px] mx-auto px-8 py-5">
+                          <a href="#contact" className="flex items-center justify-center gap-2 text-sm font-bold text-blue-700 hover:text-blue-800 transition-colors uppercase tracking-wider">
+                            Get in touch <ArrowRight className="w-4 h-4" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="hidden lg:block">
+              <a href="#contact" className="inline-flex items-center px-5 py-2.5 bg-pi-blue text-white text-sm font-medium rounded-lg hover:bg-pi-blue-dark transition-colors">Contact</a>
+            </div>
+
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden p-2 text-[#161616]">
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-40 lg:hidden bg-white">
+          <div className="flex items-center justify-between px-4 h-16 border-b border-gray-100">
+            <Link to="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
+              <img src="/logo_icon.png" alt="Perception IT" className="h-8 w-auto" />
+            </Link>
+            <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-[#161616]"><X className="w-6 h-6" /></button>
+          </div>
+          <div className="border-b border-gray-100 overflow-x-auto scrollbar-hide">
+            <div className="flex px-2 py-3 gap-1 min-w-max">
+              {mobileTabs.map((tab) => (
+                <button key={tab.id} onClick={() => { setMobileActiveTab(tab.id); setMobileExpandedCategory(null); }} className={`px-4 py-2 text-sm font-medium rounded-full whitespace-nowrap transition-colors ${mobileActiveTab === tab.id ? 'bg-pi-blue text-white' : 'bg-gray-100 text-[#525252] hover:bg-gray-200'}`}>
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="px-4 py-4 h-[calc(100vh-140px)] overflow-y-auto">
+            {mobileActiveTab === 'solutions' && (
+              <div className="space-y-4">
+                <p className="text-sm text-[#525252] mb-4">Integrated services from hardware to cloud</p>
+                {solutions.map((solution) => (
+                  <div key={solution.id} className={`p-4 rounded-lg border ${solution.featured ? 'border-pi-blue bg-pi-blue/5' : 'border-gray-200'}`}>
+                    <div className="flex items-center justify-between mb-1">
+                      <h3 className="font-semibold text-[#161616]">{solution.title}</h3>
+                      {solution.featured && <span className="text-[10px] px-2 py-0.5 bg-pi-blue text-white rounded font-medium">POPULAR</span>}
+                    </div>
+                    <p className="text-xs text-[#525252] mb-2">{solution.subtitle}</p>
+                    <p className="text-sm text-[#525252] mb-3">{solution.description}</p>
+                    <div className="flex flex-wrap gap-1 mb-3">
+                      {solution.combines.map((item, idx) => <span key={idx} className="px-2 py-0.5 bg-gray-100 text-[10px] text-[#525252] rounded">{item}</span>)}
+                    </div>
+                    <a href={solution.link} className="text-sm text-pi-blue font-medium inline-flex items-center gap-1">Learn more <ArrowRight className="w-4 h-4" /></a>
+                  </div>
+                ))}
+                <a href="#services" className="block w-full text-center py-3 bg-pi-blue text-white rounded-lg font-medium">Talk to an architect</a>
+              </div>
+            )}
+            {mobileActiveTab === 'cloud' && (
+              <div className="space-y-2">
+                {cloudCategories.map((category) => (
+                  <div key={category.id} className="border border-gray-200 rounded-lg overflow-hidden">
+                    <button onClick={() => setMobileExpandedCategory(mobileExpandedCategory === category.id ? null : category.id)} className="w-full flex items-center justify-between px-4 py-3 text-left">
+                      <span className="font-medium text-[#161616]">{category.name}</span>
+                      <ChevronDown className={`w-5 h-5 text-[#525252] transition-transform ${mobileExpandedCategory === category.id ? 'rotate-180' : ''}`} />
+                    </button>
+                    {mobileExpandedCategory === category.id && (
+                      <div className="px-4 pb-4 space-y-3">
+                        {category.items.map((item, idx) => (
+                          <div key={idx}>
+                            <a href={item.link} className="block">
+                              <h4 className="text-sm font-medium text-[#161616]">{item.title}</h4>
+                              <p className="text-xs text-[#525252]">{item.description}</p>
+                            </a>
+                            {item.crossSell && <a href={item.crossSell.link} className="text-xs text-pi-blue mt-1 inline-block">{item.crossSell.text} →</a>}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+                <div className="pt-4 border-t border-gray-200">
+                  <p className="text-xs text-[#525252] mb-2">How we deliver:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {deliveryModels.map((model, idx) => <a key={idx} href={model.link} className="px-3 py-1.5 bg-gray-100 text-xs text-[#525252] rounded-full">{model.title}</a>)}
+                  </div>
+                </div>
+              </div>
+            )}
+            {mobileActiveTab === 'infrastructure' && (
+              <div className="space-y-2">
+                <div className="p-4 bg-pi-blue/5 border border-pi-blue/20 rounded-lg mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                      <svg width="24" height="24" viewBox="0 0 100 100" fill="none"><path d="M50 10C45 25 35 35 20 40C35 45 45 55 50 70C55 55 65 45 80 40C65 35 55 25 50 10Z" fill="#FF0000"/></svg>
+                    </div>
+                    <div><h4 className="font-semibold text-[#161616]">Huawei Partner</h4><p className="text-xs text-[#525252]">Authorized enterprise support</p></div>
+                  </div>
+                </div>
+                {infrastructureCategories.map((category) => (
+                  <div key={category.id} className="border border-gray-200 rounded-lg overflow-hidden">
+                    <button onClick={() => setMobileExpandedCategory(mobileExpandedCategory === category.id ? null : category.id)} className="w-full flex items-center justify-between px-4 py-3 text-left">
+                      <span className="font-medium text-[#161616]">{category.name}</span>
+                      <ChevronDown className={`w-5 h-5 text-[#525252] transition-transform ${mobileExpandedCategory === category.id ? 'rotate-180' : ''}`} />
+                    </button>
+                    {mobileExpandedCategory === category.id && (
+                      <div className="px-4 pb-4 space-y-3">
+                        {category.items.map((item, idx) => (
+                          <div key={idx}>
+                            <a href={item.link} className="block">
+                              <h4 className="text-sm font-medium text-[#161616]">{item.title}</h4>
+                              <p className="text-xs text-[#525252]">{item.description}</p>
+                            </a>
+                            {item.crossSell && <a href={item.crossSell.link} className="text-xs text-pi-blue mt-1 inline-block">{item.crossSell.text} →</a>}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+                <a href="#services" className="block p-3 bg-pi-blue/5 rounded-lg text-pi-blue text-sm">Ready for cloud? Explore Cloud Migration →</a>
+              </div>
+            )}
+            {mobileActiveTab === 'platforms' && (
+              <div className="space-y-4">
+                <p className="text-sm text-[#525252]">ServiceNow, Maximo & Custom Implementations</p>
+                {platforms.map((platform, idx) => (
+                  <div key={idx} className="p-4 border border-gray-200 rounded-lg">
+                    <a href={platform.link} className="block mb-1">
+                      <h3 className="font-semibold text-[#161616]">{platform.title}</h3>
+                      <p className="text-sm text-[#525252]">{platform.description}</p>
+                    </a>
+                    {platform.crossSell && <a href={platform.crossSell.link} className="text-xs text-pi-blue">{platform.crossSell.text} →</a>}
+                  </div>
+                ))}
+                <div className="p-3 bg-pi-blue/5 rounded-lg border border-pi-blue/20">
+                  <p className="text-sm text-[#525252]">Need ongoing management? <a href="#services" className="text-pi-blue font-medium">Managed Platform Services</a></p>
+                </div>
+              </div>
+            )}
+            {mobileActiveTab === 'about' && (
+              <div className="space-y-2">
+                {aboutCategories.map((category) => <a key={category.id} href="#about" className="block px-4 py-3 border border-gray-200 rounded-lg text-[#161616] font-medium">{category.name}</a>)}
+                <Link to="/projects" className="block px-4 py-3 border border-gray-200 rounded-lg text-[#161616] font-medium" onClick={() => setIsMobileMenuOpen(false)}>Projects</Link>
+              </div>
+            )}
+            <div className="mt-6 pt-6 border-t border-gray-200">
+              <a href="#contact" className="block w-full text-center py-4 bg-pi-blue text-white font-medium rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</a>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default Navigation;

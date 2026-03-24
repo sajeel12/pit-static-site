@@ -3,6 +3,7 @@ import { ArrowRight, Check, Mail, ChevronDown, ChevronUp, TrendingDown, Zap, Dol
 import { Link } from 'react-router-dom';
 import Navigation from '../../components/Navigation';
 import Footer from '../../sections/Footer';
+import CrossSellCard, { CloudCostCrossSell } from '../../components/CrossSellCard';
 
 const CloudCostOptimization = () => {
   const [auditExpanded, setAuditExpanded] = useState(false);
@@ -415,6 +416,32 @@ const CloudCostOptimization = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Cross-Sell Section */}
+      <section id="cross-sell" className="reveal-section py-16 lg:py-20 bg-gray-50">
+        <div className={`max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 transition-all duration-700 delay-400 ${isVisible['cross-sell'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="grid md:grid-cols-2 gap-8">
+            <CloudCostCrossSell />
+            <CrossSellCard
+              variant="journey"
+              title="Related Reading"
+              description="Case studies and insights on cloud optimisation."
+              items={[
+                {
+                  title: 'Farmdar Case Study',
+                  description: 'How we reduced cloud costs by 40% for an IoT platform',
+                  link: '/projects'
+                },
+                {
+                  title: 'FinOps Best Practices',
+                  description: 'Our guide to sustainable cloud cost management',
+                  link: '#services'
+                }
+              ]}
+            />
           </div>
         </div>
       </section>
