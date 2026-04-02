@@ -1,4 +1,19 @@
-import { ArrowRight, Server, Cloud, Brain, Eye, Headphones, Activity } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { 
+  BareMetalServer, 
+  Cloud, 
+  Ai, 
+  View, 
+  Headphones, 
+  Activity 
+} from '@carbon/icons-react';
+import { 
+  DataScience,
+  EventAutomation,
+  Robotics,
+  EdgeComputing
+} from '@carbon/pictograms-react';
+
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../sections/Footer';
@@ -11,6 +26,7 @@ import Reliability from '../sections/Reliability';
 import Partnerships from '../sections/Partnerships';
 import Closing from '../sections/Closing';
 import Contact from '../sections/Contact';
+import Differentiator from '../sections/Differentiator';
 import ErrorBoundary from '../components/ErrorBoundary';
 
 /**
@@ -92,93 +108,20 @@ const ServiceCard = ({ icon, title, description, tags, cta, ctaLink, badge }: Se
   );
 };
 
-// IBM-Style Abstract Pattern Component
+// IBM-Style Abstract Pattern Component - Uses Carbon Pictograms
 const AbstractPattern = ({ type }: { type: string }) => {
-  const patterns: Record<string, React.ReactNode> = {
-    mlops: (
-      <svg viewBox="0 0 80 50" className="w-20 h-12 opacity-50 group-hover:opacity-70 transition-opacity brightness-75">
-        <circle cx="15" cy="25" r="3" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <circle cx="40" cy="15" r="3" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <circle cx="40" cy="35" r="3" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <circle cx="65" cy="25" r="3" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="18" y1="25" x2="37" y2="15" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="18" y1="25" x2="37" y2="35" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="43" y1="15" x2="62" y2="25" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="43" y1="35" x2="62" y2="25" stroke="currentColor" strokeWidth="0.8" />
-      </svg>
-    ),
-    aiops: (
-      <svg viewBox="0 0 80 50" className="w-20 h-12 opacity-50 group-hover:opacity-70 transition-opacity brightness-75">
-        <rect x="10" y="12" width="16" height="26" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <rect x="32" y="8" width="16" height="34" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <rect x="54" y="16" width="16" height="18" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="26" y1="25" x2="32" y2="25" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="48" y1="25" x2="54" y2="25" stroke="currentColor" strokeWidth="0.8" />
-      </svg>
-    ),
-    agents: (
-      <svg viewBox="0 0 80 50" className="w-20 h-12 opacity-50 group-hover:opacity-70 transition-opacity brightness-75">
-        <polygon points="40,10 50,32 30,32" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <polygon points="20,18 30,40 10,40" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <polygon points="60,18 70,40 50,40" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="30" y1="32" x2="25" y2="36" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="50" y1="32" x2="55" y2="36" stroke="currentColor" strokeWidth="0.8" />
-      </svg>
-    ),
-    edge: (
-      <svg viewBox="0 0 80 50" className="w-20 h-12 opacity-50 group-hover:opacity-70 transition-opacity brightness-75">
-        <circle cx="40" cy="25" r="12" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <circle cx="40" cy="25" r="8" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <circle cx="40" cy="25" r="4" fill="currentColor" opacity="0.4" />
-        <line x1="15" y1="25" x2="28" y2="25" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="52" y1="25" x2="65" y2="25" stroke="currentColor" strokeWidth="0.8" />
-      </svg>
-    ),
-    iot: (
-      <svg viewBox="0 0 80 50" className="w-20 h-12 opacity-50 group-hover:opacity-70 transition-opacity brightness-75">
-        <line x1="8" y1="38" x2="72" y2="38" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="12" y1="38" x2="20" y2="28" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="28" y1="38" x2="36" y2="18" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="44" y1="38" x2="52" y2="24" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="60" y1="38" x2="68" y2="14" stroke="currentColor" strokeWidth="0.8" />
-        <circle cx="20" cy="28" r="2" fill="currentColor" />
-        <circle cx="36" cy="18" r="2" fill="currentColor" />
-        <circle cx="52" cy="24" r="2" fill="currentColor" />
-        <circle cx="68" cy="14" r="2" fill="currentColor" />
-      </svg>
-    ),
-    finops: (
-      <svg viewBox="0 0 80 50" className="w-20 h-12 opacity-50 group-hover:opacity-70 transition-opacity brightness-75">
-        <rect x="16" y="18" width="12" height="20" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <rect x="34" y="12" width="12" height="26" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <rect x="52" y="22" width="12" height="16" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="12" y1="40" x2="68" y2="40" stroke="currentColor" strokeWidth="0.8" />
-      </svg>
-    ),
-    observability: (
-      <svg viewBox="0 0 80 50" className="w-20 h-12 opacity-50 group-hover:opacity-70 transition-opacity brightness-75">
-        <circle cx="40" cy="25" r="10" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <circle cx="40" cy="25" r="6" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <circle cx="40" cy="25" r="3" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="40" y1="8" x2="40" y2="15" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="40" y1="35" x2="40" y2="42" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="22" y1="25" x2="30" y2="25" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="50" y1="25" x2="58" y2="25" stroke="currentColor" strokeWidth="0.8" />
-      </svg>
-    ),
-    cicd: (
-      <svg viewBox="0 0 80 50" className="w-20 h-12 opacity-50 group-hover:opacity-70 transition-opacity brightness-75">
-        <circle cx="20" cy="16" r="3" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <circle cx="40" cy="25" r="3" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <circle cx="60" cy="34" r="3" fill="none" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="23" y1="18" x2="37" y2="23" stroke="currentColor" strokeWidth="0.8" />
-        <line x1="43" y1="27" x2="57" y2="32" stroke="currentColor" strokeWidth="0.8" />
-        <rect x="16" y="38" width="48" height="6" fill="none" stroke="currentColor" strokeWidth="0.8" rx="1" />
-      </svg>
-    ),
+  const pictograms: Record<string, React.ReactNode> = {
+    mlops: <DataScience className="w-16 h-10 opacity-60 group-hover:opacity-80 transition-opacity" />,
+    aiops: <EventAutomation className="w-16 h-10 opacity-60 group-hover:opacity-80 transition-opacity" />,
+    agents: <Robotics className="w-16 h-10 opacity-60 group-hover:opacity-80 transition-opacity" />,
+    edge: <EdgeComputing className="w-16 h-10 opacity-60 group-hover:opacity-80 transition-opacity" />,
+    iot: <DataScience className="w-16 h-10 opacity-60 group-hover:opacity-80 transition-opacity" />,
+    finops: <EventAutomation className="w-16 h-10 opacity-60 group-hover:opacity-80 transition-opacity" />,
+    observability: <Robotics className="w-16 h-10 opacity-60 group-hover:opacity-80 transition-opacity" />,
+    cicd: <EdgeComputing className="w-16 h-10 opacity-60 group-hover:opacity-80 transition-opacity" />,
   };
   
-  return patterns[type] || patterns.mlops;
+  return pictograms[type] || pictograms.mlops;
 };
 
 // IBM-Style Flip Card for Future Services
@@ -268,7 +211,7 @@ const ServicesVariant = () => {
           {/* Pillar Cards */}
           <div className="grid md:grid-cols-3 gap-6">
             <ServiceCard
-              icon={<Server className="w-5 h-5" />}
+              icon={<BareMetalServer className="w-5 h-5" />}
               title="Infrastructure"
               description={
                 <>
@@ -294,7 +237,7 @@ const ServicesVariant = () => {
               ctaLink="/services/cloud"
             />
             <ServiceCard
-              icon={<Brain className="w-5 h-5" />}
+              icon={<Ai className="w-5 h-5" />}
               title="AI"
               description={
                 <>
@@ -421,7 +364,7 @@ const ServicesVariant = () => {
             <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-8">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-indigo-100 flex items-center justify-center">
-                  <Eye className="w-6 h-6 text-indigo-600" />
+                  <View className="w-6 h-6 text-indigo-600" />
                 </div>
                 <div>
                   <p className="text-xs font-medium text-indigo-600 uppercase tracking-wide">Platform</p>
@@ -665,6 +608,9 @@ const Cover = () => {
         </ErrorBoundary>
         <ErrorBoundary>
           <Testimonials />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Differentiator />
         </ErrorBoundary>
         <ErrorBoundary>
           <CaseStudies />

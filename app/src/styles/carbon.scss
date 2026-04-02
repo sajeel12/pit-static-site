@@ -1,0 +1,352 @@
+// ============================================================================
+// Carbon Design System Integration for React + Vite + Tailwind
+// ============================================================================
+// @use rules MUST come first (before any @import or other rules)
+// ============================================================================
+
+// ----------------------------------------------------------------------------
+// 1. Carbon Configuration (using @use)
+// ----------------------------------------------------------------------------
+@use '@carbon/styles/scss/config' with (
+  $prefix: 'cds',
+  $css--body: false,
+  $css--font-face: false,
+  $css--reset: false,
+  $css--default-type: false
+);
+
+@use '@carbon/styles/scss/themes';
+@use '@carbon/styles/scss/theme' with (
+  $theme: themes.$white
+);
+
+@use '@carbon/styles/scss/spacing' as carbon-spacing;
+@use '@carbon/styles/scss/colors' as carbon-colors;
+@use '@carbon/styles/scss/grid' as carbon-grid;
+@use '@carbon/styles/scss/layout' as carbon-layout;
+@use '@carbon/styles/scss/type' as carbon-type;
+
+// ----------------------------------------------------------------------------
+// 2. Import IBM Plex Font from Google Fonts
+// ----------------------------------------------------------------------------
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap');
+
+// ----------------------------------------------------------------------------
+// 3. CSS Custom Properties - Spacing Tokens
+// ----------------------------------------------------------------------------
+:root {
+  // Carbon Spacing Scale (based on 2px)
+  --cds-spacing-01: 0.125rem;   // 2px
+  --cds-spacing-02: 0.25rem;    // 4px
+  --cds-spacing-03: 0.5rem;     // 8px
+  --cds-spacing-04: 0.75rem;    // 12px
+  --cds-spacing-05: 1rem;       // 16px
+  --cds-spacing-06: 1.5rem;     // 24px
+  --cds-spacing-07: 2rem;       // 32px
+  --cds-spacing-08: 2.5rem;     // 40px
+  --cds-spacing-09: 3rem;       // 48px
+  --cds-spacing-10: 4rem;       // 64px
+  --cds-spacing-11: 5rem;       // 80px
+  --cds-spacing-12: 6rem;       // 96px
+  --cds-spacing-13: 10rem;      // 160px
+  
+  // Layout tokens
+  --cds-layout-01: 1rem;        // 16px
+  --cds-layout-02: 1.5rem;      // 24px
+  --cds-layout-03: 2rem;        // 32px
+  --cds-layout-04: 3rem;        // 48px
+  --cds-layout-05: 4rem;        // 64px
+  --cds-layout-06: 6rem;        // 96px
+  --cds-layout-07: 10rem;       // 160px
+  
+  // Fluid spacing
+  --cds-fluid-spacing-01: 0;
+  --cds-fluid-spacing-02: 2vw;
+  --cds-fluid-spacing-03: 5vw;
+  --cds-fluid-spacing-04: 10vw;
+}
+
+// ----------------------------------------------------------------------------
+// 4. CSS Custom Properties - Color Tokens (White Theme)
+// ----------------------------------------------------------------------------
+:root {
+  // Background
+  --cds-background: #ffffff;
+  --cds-background-hover: #f4f4f4;
+  --cds-background-active: #e8e8e8;
+  --cds-background-selected: #e0e0e0;
+  --cds-background-selected-hover: #d1d1d1;
+  --cds-background-brand: #0f62fe;
+  
+  // Layer
+  --cds-layer-01: #f4f4f4;
+  --cds-layer-02: #ffffff;
+  --cds-layer-03: #f4f4f4;
+  --cds-layer-hover-01: #e8e8e8;
+  --cds-layer-hover-02: #f4f4f4;
+  --cds-layer-hover-03: #e8e8e8;
+  --cds-layer-active-01: #c6c6c6;
+  --cds-layer-active-02: #e0e0e0;
+  --cds-layer-active-03: #c6c6c6;
+  --cds-layer-selected-01: #e0e0e0;
+  --cds-layer-selected-02: #f4f4f4;
+  --cds-layer-selected-03: #e0e0e0;
+  --cds-layer-selected-hover-01: #d1d1d1;
+  --cds-layer-selected-hover-02: #e8e8e8;
+  --cds-layer-selected-hover-03: #d1d1d1;
+  
+  // Field
+  --cds-field-01: #f4f4f4;
+  --cds-field-02: #ffffff;
+  --cds-field-03: #f4f4f4;
+  --cds-field-hover-01: #e8e8e8;
+  --cds-field-hover-02: #f4f4f4;
+  --cds-field-hover-03: #e8e8e8;
+  
+  // Border
+  --cds-border-subtle-00: #e0e0e0;
+  --cds-border-subtle-01: #c6c6c6;
+  --cds-border-subtle-02: #e0e0e0;
+  --cds-border-subtle-03: #c6c6c6;
+  --cds-border-subtle-selected-01: #a8a8a8;
+  --cds-border-subtle-selected-02: #c6c6c6;
+  --cds-border-subtle-selected-03: #a8a8a8;
+  --cds-border-strong-01: #8d8d8d;
+  --cds-border-strong-02: #8d8d8d;
+  --cds-border-strong-03: #8d8d8d;
+  --cds-border-tile-01: #c6c6c6;
+  --cds-border-tile-02: #e0e0e0;
+  --cds-border-tile-03: #c6c6c6;
+  --cds-border-inverse: #161616;
+  --cds-border-interactive: #0f62fe;
+  --cds-border-disabled: #c6c6c6;
+  
+  // Text
+  --cds-text-primary: #161616;
+  --cds-text-secondary: #525252;
+  --cds-text-placeholder: #a8a8a8;
+  --cds-text-helper: #6f6f6f;
+  --cds-text-error: #da1e28;
+  --cds-text-inverse: #ffffff;
+  --cds-text-on-color: #ffffff;
+  --cds-text-on-color-disabled: #8d8d8d;
+  --cds-text-disabled: #c6c6c6;
+  
+  // Link
+  --cds-link-primary: #0f62fe;
+  --cds-link-primary-hover: #0043ce;
+  --cds-link-secondary: #0043ce;
+  --cds-link-inverse: #78a9ff;
+  --cds-link-visited: #8a3ffc;
+  
+  // Icon
+  --cds-icon-primary: #161616;
+  --cds-icon-secondary: #525252;
+  --cds-icon-inverse: #ffffff;
+  --cds-icon-on-color: #ffffff;
+  --cds-icon-on-color-disabled: #8d8d8d;
+  --cds-icon-disabled: #c6c6c6;
+  --cds-icon-interactive: #0f62fe;
+  
+  // Support
+  --cds-support-error: #da1e28;
+  --cds-support-success: #24a148;
+  --cds-support-warning: #f1c21b;
+  --cds-support-info: #0043ce;
+  --cds-support-error-inverse: #fa4d56;
+  --cds-support-success-inverse: #42be65;
+  --cds-support-warning-inverse: #f1c21b;
+  --cds-support-info-inverse: #4589ff;
+  
+  // Focus
+  --cds-focus: #0f62fe;
+  --cds-focus-inset: #ffffff;
+  --cds-focus-inverse: #ffffff;
+  
+  // Skeleton
+  --cds-skeleton-background: #e8e8e8;
+  --cds-skeleton-element: #c6c6c6;
+  
+  // Interactive
+  --cds-interactive: #0f62fe;
+  --cds-highlight: #d0e2ff;
+  
+  // Brand colors
+  --cds-brand-primary: #0f62fe;
+  --cds-brand-secondary: #0043ce;
+}
+
+// ----------------------------------------------------------------------------
+// 5. Typography - IBM Plex Font Families
+// ----------------------------------------------------------------------------
+:root {
+  --cds-font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --cds-font-mono: 'IBM Plex Mono', 'Fira Code', 'Consolas', monospace;
+  --cds-font-serif: 'IBM Plex Serif', Georgia, 'Times New Roman', serif;
+  --cds-font-condensed: 'IBM Plex Sans Condensed', sans-serif;
+}
+
+// Apply IBM Plex as default font family
+body {
+  font-family: var(--cds-font-sans);
+}
+
+// ----------------------------------------------------------------------------
+// 6. Carbon 2x Grid System
+// ----------------------------------------------------------------------------
+// Base: 16px, Mini unit: 32px
+// Breakpoints:
+//   sm: 320px+ (4 columns)
+//   md: 672px+ (8 columns)
+//   lg: 1056px+ (16 columns)
+//   xlg: 1312px+ (16 columns)
+//   max: 1584px+ (16 columns)
+
+.cds--css-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--cds-spacing-05); // 16px gutter
+  max-width: 99rem; // 1584px
+  margin: 0 auto;
+  padding: 0 var(--cds-spacing-05);
+  
+  @media (min-width: 672px) {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  
+  @media (min-width: 1056px) {
+    grid-template-columns: repeat(16, 1fr);
+  }
+}
+
+.cds--css-grid--full-width {
+  max-width: 100%;
+}
+
+.cds--css-grid--narrow {
+  padding: 0;
+}
+
+.cds--css-grid--condensed {
+  gap: var(--cds-spacing-03); // 8px gutter
+}
+
+// Column span classes
+@for $i from 1 through 16 {
+  .cds--col-span-#{$i} {
+    grid-column: span #{$i};
+  }
+}
+
+// Responsive column classes
+@media (min-width: 320px) {
+  @for $i from 1 through 4 {
+    .cds--col-span-#{$i}--sm {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+@media (min-width: 672px) {
+  @for $i from 1 through 8 {
+    .cds--col-span-#{$i}--md {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+@media (min-width: 1056px) {
+  @for $i from 1 through 16 {
+    .cds--col-span-#{$i}--lg {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+@media (min-width: 1312px) {
+  @for $i from 1 through 16 {
+    .cds--col-span-#{$i}--xlg {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+@media (min-width: 1584px) {
+  @for $i from 1 through 16 {
+    .cds--col-span-#{$i}--max {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------
+// 7. Utility Classes
+// ----------------------------------------------------------------------------
+
+// Spacing utilities
+@for $i from 1 through 13 {
+  .cds--m-#{$i} {
+    margin: var(--cds-spacing-#{$i});
+  }
+  .cds--mt-#{$i} {
+    margin-top: var(--cds-spacing-#{$i});
+  }
+  .cds--mr-#{$i} {
+    margin-right: var(--cds-spacing-#{$i});
+  }
+  .cds--mb-#{$i} {
+    margin-bottom: var(--cds-spacing-#{$i});
+  }
+  .cds--ml-#{$i} {
+    margin-left: var(--cds-spacing-#{$i});
+  }
+  .cds--mx-#{$i} {
+    margin-left: var(--cds-spacing-#{$i});
+    margin-right: var(--cds-spacing-#{$i});
+  }
+  .cds--my-#{$i} {
+    margin-top: var(--cds-spacing-#{$i});
+    margin-bottom: var(--cds-spacing-#{$i});
+  }
+  
+  .cds--p-#{$i} {
+    padding: var(--cds-spacing-#{$i});
+  }
+  .cds--pt-#{$i} {
+    padding-top: var(--cds-spacing-#{$i});
+  }
+  .cds--pr-#{$i} {
+    padding-right: var(--cds-spacing-#{$i});
+  }
+  .cds--pb-#{$i} {
+    padding-bottom: var(--cds-spacing-#{$i});
+  }
+  .cds--pl-#{$i} {
+    padding-left: var(--cds-spacing-#{$i});
+  }
+  .cds--px-#{$i} {
+    padding-left: var(--cds-spacing-#{$i});
+    padding-right: var(--cds-spacing-#{$i});
+  }
+  .cds--py-#{$i} {
+    padding-top: var(--cds-spacing-#{$i});
+    padding-bottom: var(--cds-spacing-#{$i});
+  }
+}
+
+// Typography utilities
+.cds--font-sans {
+  font-family: var(--cds-font-sans);
+}
+
+.cds--font-mono {
+  font-family: var(--cds-font-mono);
+}
+
+.cds--font-serif {
+  font-family: var(--cds-font-serif);
+}
+
+.cds--font-condensed {
+  font-family: var(--cds-font-condensed);
+}

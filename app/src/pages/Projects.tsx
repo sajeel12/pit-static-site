@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { 
   ArrowRight, 
   ChevronDown,
@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../sections/Footer';
+import LogoTicker from '../components/LogoTicker';
 import {
   serviceCategories,
   getFeaturedCaseStudy,
@@ -27,18 +28,24 @@ const getAllCaseStudies = () => {
   );
 };
 
+function getInitialFilter(category: string | undefined): ServiceCategoryId | 'all' {
+  if (category && serviceCategories.some(c => c.id === category)) {
+    return category as ServiceCategoryId;
+  }
+  return 'all';
+}
+
 export default function Projects() {
+  const navigate = useNavigate();
   const { category } = useParams<{ category?: string }>();
-  const [activeFilter, setActiveFilter] = useState<ServiceCategoryId | 'all'>('all');
+  const [activeFilter, setActiveFilter] = useState<ServiceCategoryId | 'all'>(() => getInitialFilter(category));
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
 
-  // Set filter from URL param on mount
+  // Sync filter when URL param changes
   useEffect(() => {
-    if (category && serviceCategories.some(c => c.id === category)) {
-      setActiveFilter(category as ServiceCategoryId);
-    } else {
-      setActiveFilter('all');
-    }
+    const newFilter = getInitialFilter(category);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setActiveFilter(newFilter);
   }, [category]);
 
   const allCaseStudies = getAllCaseStudies();
@@ -88,6 +95,9 @@ export default function Projects() {
           </div>
         </div>
       </div>
+
+      {/* Trusted By Logo Ticker */}
+      <LogoTicker />
 
       {/* Filter Tabs */}
       <div className="sticky top-20 z-30 bg-white border-b border-gray-200 shadow-sm">
@@ -260,9 +270,10 @@ export default function Projects() {
             return (
               <div 
                 key={study.id}
-                className={`group bg-white rounded-xl border border-gray-200 overflow-hidden transition-all hover:shadow-lg hover:border-blue-300 ${
+                className={`group bg-white rounded-xl border border-gray-200 overflow-hidden transition-all hover:shadow-lg hover:border-blue-300 cursor-pointer ${
                   study.isCollection ? 'ring-2 ring-blue-100' : ''
                 }`}
+                onClick={() => navigate(`/projects/case-study/${study.slug}`)}
               >
                 {/* Placeholder Header */}
                 <div 
@@ -299,7 +310,9 @@ export default function Projects() {
                   </div>
 
                   <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                    {study.title}
+                    <Link to={`/projects/case-study/${study.slug}`} className="hover:text-blue-600 transition-colors">
+                      {study.title}
+                    </Link>
                   </h3>
                   <p className="text-sm text-slate-600 mb-4 line-clamp-2">
                     {study.description}
@@ -365,7 +378,7 @@ export default function Projects() {
                   {/* Actions */}
                   <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                     <button 
-                      onClick={() => setExpandedProject(isExpanded ? null : study.id)}
+                      onClick={(e) => { e.stopPropagation(); setExpandedProject(isExpanded ? null : study.id); }}
                       className="flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
                     >
                       {isExpanded ? 'Show less' : 'Details'}
@@ -374,12 +387,14 @@ export default function Projects() {
                     <div className="flex items-center gap-2">
                       <a 
                         href="#contact"
+                        onClick={(e) => e.stopPropagation()}
                         className="text-xs font-medium text-slate-400 hover:text-blue-600 transition-colors px-2 py-1"
                       >
                         Similar project
                       </a>
                       <Link 
                         to={`/projects/case-study/${study.slug}`}
+                        onClick={(e) => e.stopPropagation()}
                         className="p-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
                       >
                         <ArrowUpRight className="w-4 h-4" />

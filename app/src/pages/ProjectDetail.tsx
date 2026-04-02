@@ -1,5 +1,6 @@
-import { useState } from 'react';
+
 import { ArrowRight, ArrowLeft, ChevronDown, ChevronUp, Phone } from 'lucide-react';
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../sections/Footer';
@@ -7,7 +8,7 @@ import Footer from '../sections/Footer';
 interface Project {
   id: string;
   title: string;
-  track: 'services' | 'infrastructure';
+  track: 'services' | 'infrastructure' | 'platforms';
   serviceCategories: string[];
   category: string;
   industry: string;
@@ -16,6 +17,7 @@ interface Project {
   description: string;
   slug: string;
   client?: string;
+  clientName?: string;
   challenge?: string[];
   solution?: string[];
   result?: string[];
@@ -24,6 +26,14 @@ interface Project {
     text: string;
     author: string;
     role: string;
+  };
+  logo?: string;
+  relatedServices?: { name: string; link: string }[];
+  ctaSection?: {
+    headline: string;
+    subheadline: string;
+    primaryCta: { text: string; link: string };
+    secondaryCta: { text: string; link: string };
   };
 }
 
@@ -71,6 +81,60 @@ const projectsData: Project[] = [
     },
   },
   {
+    id: '1a',
+    title: 'Telco Service Desk IT Process Migration to ServiceNow',
+    track: 'platforms',
+    serviceCategories: ['servicenow', 'service-desk'],
+    category: 'ServiceNow',
+    industry: 'telecommunications',
+    outcome: 'digital-transformation',
+    techStack: 'ServiceNow, Maximo, DB2, Cloud',
+    description: 'A mature service desk implementation for one of Pakistan\'s largest Telco was modernised and migrated to the cloud via ServiceNow.',
+    slug: 'telco-service-desk-it-process-migration-to-servicenow',
+    client: 'Jazz (Pakistan)',
+    clientName: 'Jazz',
+    challenge: [
+      'Outdated Maximo ticketing system had become a significant operational bottleneck',
+      'Scaling to 24/7 follow-the-sun support was not possible on on-premises infrastructure',
+      'Lack of real-time reporting and limited integration with existing tools',
+      'Manual incident workflows and high MTTR risk for business-critical services',
+    ],
+    solution: [
+      'Designed and executed phased migration from Maximo to ServiceNow with minimal user disruption',
+      'Built custom ServiceNow workflows mirroring existing processes while enabling automation',
+      'Integrated ServiceNow with existing IT ecosystem and data pipelines for continuity',
+      'Implemented UAT + pre-production feedback loops to refine experience before production launch',
+    ],
+    result: [
+      'ServiceNow platform availability achieved 99.95% SLA',
+      'Ticket resolution time reduced by 52% through automation and workflow optimization',
+      '24/7 follow-the-sun support model enabled with cloud-based access',
+      'Operational costs reduced by removing on-premises Maximo hardware and licensing dependencies',
+    ],
+    metrics: [
+      { label: 'Platform Availability', value: '99.95%' },
+      { label: 'Resolution Time', value: '-52%' },
+      { label: 'Support Coverage', value: '24/7' },
+      { label: 'IT Burden Reduction', value: '40%' },
+    ],
+    quote: {
+      text: "Perception IT's expertise in migrating our IBM Maximo ticketing system to ServiceNow was invaluable. Their smooth and meticulous approach ensured a seamless transition, eliminating the need for on-premises hardware and offering our team a robust cloud-based solution.",
+      author: 'Usman Ikram',
+      role: 'Manager, SQM & Automation Support, Jazz',
+    },
+    relatedServices: [
+      { name: 'ServiceNow', link: '/services/servicenow' },
+      { name: 'Service Desk', link: '/services/service-desk' },
+      { name: 'Observability', link: '/services/observability' },
+    ],
+    ctaSection: {
+      headline: 'Ready to migrate your service desk to ServiceNow?',
+      subheadline: 'Let us plan your end-to-end transformation with minimal disruption and maximum ROI.',
+      primaryCta: { text: 'Get a Free Consultation', link: '/contact' },
+      secondaryCta: { text: 'See Platform Services', link: '/services/servicenow' },
+    },
+  },
+  {
     id: '2',
     title: 'Elevating Financial Market Observability and Insight',
     track: 'services',
@@ -81,7 +145,8 @@ const projectsData: Project[] = [
     techStack: 'IBM, Netcool',
     description: 'Delivered comprehensive market surveillance and infrastructure monitoring, ensuring trading continuity and regulatory compliance for a regional stock exchange.',
     slug: 'financial-market-observability',
-    client: 'Regional Stock Exchange',
+    client: 'Major Asian Stock Exchange',
+    clientName: 'Major Asian Stock Exchange',
     challenge: [
       'Trading infrastructure required 99.99% availability during market hours',
       'Regulatory compliance demanded complete audit trails and reporting',
@@ -106,11 +171,6 @@ const projectsData: Project[] = [
       { label: 'Compliance', value: '100%' },
       { label: 'Systems', value: '500+' },
     ],
-    quote: {
-      text: "The observability platform Perception IT built gives us complete confidence in our trading infrastructure. We can now detect and resolve issues before they impact the market.",
-      author: 'Chief Technology Officer',
-      role: 'Regional Stock Exchange',
-    },
   },
   {
     id: '3',
@@ -122,7 +182,7 @@ const projectsData: Project[] = [
     outcome: 'sla-stability',
     techStack: 'Netcool',
     description: 'Implemented intelligent correlation across network domains, reducing mean-time-to-resolution and enabling faster root cause analysis for complex multi-layer incidents.',
-    slug: 'network-performance-optimization',
+    slug: 'network-performance-optimisation',
     client: 'National Telecom Provider',
     challenge: [
       'Network incidents spanned multiple domains (radio, transport, core)',
@@ -322,13 +382,79 @@ const projectsData: Project[] = [
       role: 'UK System Integrator',
     },
   },
+  {
+    id: '9',
+    title: 'Infrastructure Resilience for Manufacturing',
+    track: 'infrastructure',
+    serviceCategories: ['hardware-support', 'server-continuity', 'sla-support'],
+    category: 'Infrastructure Support',
+    industry: 'Manufacturing',
+    outcome: 'risk-mitigation',
+    techStack: 'Lenovo, Server Support, 24/7 Support, Preventive Maintenance',
+    description: 'Perception IT transformed server infrastructure from a risk into a reliable engine for operations. With 48 critical Lenovo servers supporting production and financial systems, any downtime could have cost millions.',
+    slug: 'infrastructure-resilience-manufacturing',
+    client: 'Ibrahim Fibres Limited',
+    clientName: 'Ibrahim Fibres Limited',
+    challenge: [
+      '48 critical Lenovo servers supporting production and financial systems',
+      'Any downtime could cost millions in lost output',
+      'Aging infrastructure without vendor support coverage',
+      'Reactive maintenance causing frequent disruptions',
+      'Security gaps from unpatched systems',
+    ],
+    solution: [
+      '24/7 support with same-day hardware replacements from Lahore warehouse',
+      'Proactive maintenance and automated firmware/driver patching',
+      'Preventive monitoring to identify issues before they cause downtime',
+      'Local spares inventory eliminating customs delays',
+      'Unified SLA covering textile production, power plant SCADA, and banking integration',
+    ],
+    result: [
+      'Zero unplanned outages since implementation',
+      'MTTR reduced from 72+ hours to under 6 hours',
+      'Avoided $750K+ in annual downtime risk',
+      'Extended hardware life by 3-4 years, deferring $200K+ CapEx',
+      'Enabled 2 new production lines on existing infrastructure',
+      'Met Allied Bank IT governance requirements without re-architecture',
+    ],
+    metrics: [
+      { label: 'Servers Supported', value: '48' },
+      { label: 'Unplanned Downtime', value: 'Zero' },
+      { label: 'MTTR', value: '<6hrs' },
+      { label: 'Cost Avoidance', value: '$750K+' },
+    ],
+    quote: {
+      text: "Perception IT transformed our server infrastructure from a risk into a reliable engine for operations. Their 24/7 support, same-day hardware replacements, and proactive maintenance have kept our systems running without a single major incident. We now operate with confidence knowing our IT backbone is in expert hands.",
+      author: 'Mr. Usman Zafar',
+      role: 'Head of IT, Ibrahim Fibres Limited',
+    },
+    logo: '/ibrahim-fibres-logo.svg',
+    relatedServices: [
+      { name: 'Hardware Support', link: '/services/hardware-support' },
+      { name: 'Server Continuity', link: '/services/server-continuity' },
+      { name: 'Data Center Operations', link: '/services/data-center' },
+      { name: 'Network Operations', link: '/services/network-operations' },
+      { name: '24/7 SLA Support', link: '/services/sla-support' },
+    ],
+    ctaSection: {
+      headline: 'Facing similar risks with aging infrastructure?',
+      subheadline: "Let's build a tailored SLA that keeps your operations running — no matter what.",
+      primaryCta: { text: 'Talk to Our Tech Leads', link: '/#contact' },
+      secondaryCta: { text: 'Schedule Free Assessment', link: '/#contact' },
+    },
+  },
 ];
 
 const ProjectDetail = () => {
   const [techExpanded, setTechExpanded] = useState(false);
   const { slug } = useParams<{ slug: string }>();
   
+  console.log('ProjectDetail slug:', slug);
+  console.log('Available slugs:', projectsData.map(p => p.slug));
+  
   const project = projectsData.find(p => p.slug === slug) || projectsData[0];
+  
+  console.log('Found project:', project.title, 'slug:', project.slug);
   
   const currentIndex = projectsData.findIndex(p => p.slug === slug);
   const prevProject = projectsData[currentIndex > 0 ? currentIndex - 1 : projectsData.length - 1];
@@ -472,14 +598,16 @@ const ProjectDetail = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <button
             onClick={() => setTechExpanded(!techExpanded)}
-            className="w-full flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+            className="w-full flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group"
           >
             <span className="font-semibold text-[#1A1A1A]">Technology Stack</span>
-            {techExpanded ? (
-              <ChevronUp className="w-5 h-5 text-gray-500" />
-            ) : (
-              <ChevronDown className="w-5 h-5 text-gray-500" />
-            )}
+            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+              {techExpanded ? (
+                <ChevronUp className="w-6 h-6 text-gray-600 group-hover:text-[#2563EB] transition-colors" />
+              ) : (
+                <ChevronDown className="w-6 h-6 text-gray-600 group-hover:text-[#2563EB] transition-colors" />
+              )}
+            </div>
           </button>
           
           {techExpanded && (
@@ -493,21 +621,101 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {/* Quote Block */}
-      {project.quote && (
+      {/* Client Logo & Testimonial Block */}
+      {(project.logo || project.quote) && (
+        <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Section Title */}
+            <h3 className="text-center text-sm font-semibold text-slate-400 uppercase tracking-widest mb-8">
+              Client Testimonial
+            </h3>
+            
+            {/* Logo */}
+            {project.logo && (
+              <div className="flex justify-center mb-8">
+                <div className="w-32 h-32 bg-white rounded-2xl shadow-lg flex items-center justify-center p-4">
+                  <img 
+                    src={project.logo} 
+                    alt={project.client} 
+                    className="max-w-full max-h-full object-contain"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
+                        parent.innerHTML = `<span class="text-2xl font-bold text-gray-400">${project.client?.charAt(0)}</span>`;
+                      }
+                    }}
+                  />
+                </div>
+              </div>
+            )}
+            
+            {/* Testimonial Quote */}
+            {project.quote && (
+              <div className="text-center">
+                <blockquote className="text-xl sm:text-2xl text-slate-800 font-medium leading-relaxed mb-8">
+                  "{project.quote.text}"
+                </blockquote>
+                <div className="flex items-center justify-center gap-4">
+                  <div className="w-12 h-12 bg-[#2563EB] rounded-full flex items-center justify-center text-white font-semibold">
+                    {project.quote.author.charAt(0)}
+                  </div>
+                  <div className="text-left">
+                    <div className="text-slate-900 font-medium">{project.quote.author}</div>
+                    <div className="text-slate-500 text-sm">{project.quote.role}</div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* Related Services */}
+      {project.relatedServices && project.relatedServices.length > 0 && (
+        <section className="py-12 bg-white border-y border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 className="text-lg font-semibold text-slate-900 mb-6 text-center">Related Services You May Be Interested In</h3>
+            <div className="flex flex-wrap justify-center gap-3">
+              {project.relatedServices.map((service, idx) => (
+                <Link
+                  key={idx}
+                  to={service.link}
+                  className="px-4 py-2 bg-slate-50 text-slate-700 text-sm font-medium rounded-lg border border-slate-200 hover:bg-[#2563EB] hover:text-white hover:border-[#2563EB] transition-all"
+                >
+                  {service.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Custom CTA Section */}
+      {project.ctaSection && (
         <section className="py-16 bg-[#2563EB]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <blockquote className="text-xl sm:text-2xl text-white font-medium leading-relaxed mb-8">
-              "{project.quote.text}"
-            </blockquote>
-            <div className="flex items-center justify-center gap-4">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-white font-semibold">
-                {project.quote.author.charAt(0)}
-              </div>
-              <div className="text-left">
-                <div className="text-white font-medium">{project.quote.author}</div>
-                <div className="text-white/70 text-sm">{project.quote.role}</div>
-              </div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+              {project.ctaSection.headline}
+            </h3>
+            <p className="text-lg text-blue-100 mb-8">
+              {project.ctaSection.subheadline}
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                to={project.ctaSection.primaryCta.link}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#2563EB] font-semibold rounded-lg hover:bg-blue-50 transition-colors shadow-lg"
+              >
+                {project.ctaSection.primaryCta.text}
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                to={project.ctaSection.secondaryCta.link}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-transparent text-white font-semibold rounded-lg border-2 border-white hover:bg-white/10 transition-colors"
+              >
+                {project.ctaSection.secondaryCta.text}
+              </Link>
             </div>
           </div>
         </section>

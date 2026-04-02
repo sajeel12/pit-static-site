@@ -123,7 +123,7 @@ const CloudHub = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[85vh] flex items-center bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 overflow-hidden">
         {/* 
           IMAGE PLACEHOLDER: Hero Background
           TYPE: Screenshot from AWS/Azure Console
@@ -158,12 +158,12 @@ const CloudHub = () => {
               Cloud Services
             </span>
             
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white mb-8 leading-[1.1] tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
               Cloud Infrastructure<br />
               <span className="text-blue-400">That Scales</span>
             </h1>
             
-            <p className="text-xl sm:text-2xl text-gray-400 mb-12 leading-relaxed max-w-2xl font-light">
+            <p className="text-xl sm:text-2xl text-gray-400 mb-12 font-light leading-relaxed max-w-2xl font-light">
               End-to-end cloud services from migration to optimisation. 
               AWS, Azure, and hybrid environments managed by certified experts.
             </p>
@@ -203,7 +203,7 @@ const CloudHub = () => {
       </section>
 
       {/* Cloud Hubs Grid */}
-      <section id="hubs" className="reveal-section py-24 lg:py-32">
+      <section id="hubs" className="reveal-section py-20">
         <div className={`max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 transition-all duration-700 ${isVisible['hubs'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-blue-500 mb-4 block">
@@ -222,7 +222,7 @@ const CloudHub = () => {
               <Link
                 key={hub.id}
                 to={hub.link}
-                className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-blue-200 hover:shadow-xl transition-all duration-500"
+                className="group bg-white rounded-lg border border-gray-100 overflow-hidden hover:border-blue-200 hover:shadow-xl transition-all duration-500"
               >
                 {/* Header */}
                 <div className="p-8">
@@ -283,7 +283,7 @@ const CloudHub = () => {
             ))}
             
             {/* CTA Card */}
-            <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-8 text-white flex flex-col justify-between">
+            <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-8 text-white flex flex-col justify-between">
               <div>
                 <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-6">
                   <CheckCircle2 className="w-7 h-7 text-white" />
@@ -308,7 +308,7 @@ const CloudHub = () => {
       </section>
 
       {/* Featured Case Studies */}
-      <section id="case-studies" className="reveal-section py-24 lg:py-32 bg-white">
+      <section id="case-studies" className="reveal-section py-20 bg-white">
         <div className={`max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 transition-all duration-700 ${isVisible['case-studies'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
             <div className="max-w-2xl">
@@ -387,7 +387,7 @@ const CloudHub = () => {
               <Link
                 key={idx}
                 to={`/projects/case-study/${study.slug}`}
-                className="group bg-gray-50 rounded-2xl overflow-hidden hover:bg-white hover:shadow-xl hover:border hover:border-gray-100 transition-all duration-300"
+                className="group bg-gray-50 rounded-lg overflow-hidden hover:bg-white hover:shadow-xl hover:border hover:border-gray-100 transition-all duration-300"
               >
                 {/* 
                   IMAGE PLACEHOLDER: Case Study Thumbnail
@@ -452,7 +452,7 @@ const CloudHub = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="cta" className="reveal-section py-24 lg:py-32 bg-[#0F172A]">
+      <section id="cta" className="reveal-section py-20 bg-[#0F172A]">
         <div className={`max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center transition-all duration-700 ${isVisible['cta'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-blue-400 mb-6 block">
             Get Started

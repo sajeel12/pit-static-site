@@ -154,20 +154,24 @@ const cloudCaseStudies: CaseStudy[] = [
     relatedServiceIds: ['cloud-migration', 'kubernetes', 'observability']
   },
   {
-    id: 'stock-exchange-observability',
+    id: 'financial-market-observability',
     title: 'Advanced Observability for Stock Exchange',
-    subtitle: 'Monitoring, audit and reporting system',
+    subtitle: 'Trading infrastructure monitoring with 99.99% uptime SLA',
     client: 'Major Asian Stock Exchange',
     industry: 'Financial Services',
-    description: 'Comprehensive monitoring, audit, and reporting system enhancing operational transparency and performance visibility for critical trading infrastructure.',
+    description: 'Implemented comprehensive observability platform covering trading systems, market surveillance, and infrastructure monitoring. Maintained **99.99%** trading uptime SLA with full regulatory compliance and immutable audit trail.',
     outcomes: [
-      'Enhanced operational transparency',
-      'Performance visibility for trading systems',
-      'Comprehensive audit capabilities'
+      '**99.99%** trading system uptime SLA maintained continuously',
+      '**100%** regulatory compliance with audit requirements',
+      '**30-day** immutable audit trail for all transactions',
+      'Market surveillance latency: **<100ms** on alert generation',
+      'Zero unplanned downtime during trading hours',
+      'Sub-second detection of trading system anomalies'
     ],
-    technologies: ['Observability', 'Monitoring', 'IBM'],
-    slug: 'stock-exchange-observability',
-    relatedServiceIds: ['observability']
+    technologies: ['Observability Platform', 'Monitoring', 'IBM Netcool', 'Encryption', 'Audit Logging'],
+    slug: 'financial-market-observability',
+    featured: false,
+    relatedServiceIds: ['observability', 'alerting-rules', 'sla-support']
   },
   {
     id: 'isp-observability',
@@ -183,6 +187,154 @@ const cloudCaseStudies: CaseStudy[] = [
     technologies: ['Observability', 'Zabbix', 'Monitoring'],
     slug: 'isp-observability',
     relatedServiceIds: ['observability']
+  },
+  {
+    id: 'k8s-telco-scalability',
+    title: 'Kubernetes-Driven Scalability for Telecom Operations',
+    subtitle: 'Multi-region enterprise infrastructure for rapid scaling',
+    client: 'Major African Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Architected multi-region Kubernetes clusters on AWS to eliminate provisioning bottlenecks for mobile tower management. Reduced regional expansion cycles from weeks to hours while maintaining **99.99%** availability SLA across production infrastructure.',
+    outcomes: [
+      '**3x** throughput increase on identical infrastructure investment',
+      'Infrastructure provisioning time reduced from **5 weeks** to **<48 hours**',
+      '**50%** infrastructure cost reduction through right-sizing and workload optimisation',
+      'Automatic failover capability achieving **99.99%** availability SLA'
+    ],
+    technologies: ['Amazon EKS', 'Docker', 'ArgoCD', 'Helm', 'Prometheus', 'Grafana'],
+    slug: 'k8s-telco-scalability',
+    featured: false,
+    isCollection: true,
+    collectionCount: 2,
+    relatedServiceIds: ['kubernetes', 'container-orchestration', 'cluster-management']
+  },
+  {
+    id: 'cloud-iot-provisioning',
+    title: 'Infrastructure-as-Code for IoT Cloud Platforms',
+    subtitle: 'Serverless infrastructure patterns for distributed data collection',
+    client: 'Major African Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Eliminated infrastructure provisioning bottleneck using Terraform and CloudFormation for IoT data collection infrastructure. Enabled regional expansion in **<48 hours** vs. previous **5-week** hardware procurement cycles.',
+    outcomes: [
+      'Provisioning automation reduced manual work by **95%**',
+      'New region deployments from **5 weeks** to **<48 hours**',
+      'Cost predictability improved: **$0** surprise overages through billing alerts',
+      'Disaster recovery RTO reduced to **30 minutes**'
+    ],
+    technologies: ['Terraform', 'AWS CloudFormation', 'Infrastructure-as-Code', 'S3', 'CloudWatch'],
+    slug: 'cloud-iot-provisioning',
+    featured: false,
+    relatedServiceIds: ['cloud-provisioning', 'architecture-patterns', 'cloud-migration']
+  },
+  {
+    id: 'k8s-devops-pipeline',
+    title: 'Kubernetes-Native CI/CD Pipeline & DevSecOps',
+    subtitle: 'Automated deployment with integrated security scanning',
+    client: 'Major Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Built full-stack CI/CD pipeline integrating GitOps, automated testing, and security scanning. Increased deployment frequency **10x** while reducing security incidents by **92%** through continuous compliance validation.',
+    outcomes: [
+      'Deployment frequency increased from monthly to **daily**',
+      'Security vulnerability detection time reduced by **92%**',
+      'Code coverage increased to **99%** automated testing',
+      'Mean time to deployment reduced to **<15 minutes**'
+    ],
+    technologies: ['GitHub Actions', 'ArgoCD', 'SonarQube', 'Container Registry', 'Kubernetes'],
+    slug: 'k8s-devops-pipeline',
+    featured: false,
+    relatedServiceIds: ['devops-pipelines', 'devsecops-integration', 'cicd-templates']
+  },
+  {
+    id: 'k8s-cluster-operations',
+    title: 'Multi-Cluster Kubernetes Operations & Day-2 Management',
+    subtitle: 'Enterprise-grade cluster lifecycle and performance optimisation',
+    client: 'Major Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Deployed multi-cluster control plane managing **50+** microservices across production. Established automated scaling policies and observability, reducing unplanned downtime by **87%** through proactive resource management.',
+    outcomes: [
+      '**20,000+** pod deployments per month with **99.95%** success rate',
+      'Pod propagation latency reduced to **<500ms**',
+      'Unplanned downtime reduced by **87%**',
+      'Cluster utilization optimized: **78%** average (vs. **42%** industry baseline)'
+    ],
+    technologies: ['Kubernetes', 'Karpenter', 'Prometheus', 'Grafana', 'Sealed Secrets'],
+    slug: 'k8s-cluster-operations',
+    featured: false,
+    isCollection: true,
+    collectionCount: 2,
+    relatedServiceIds: ['kubernetes', 'cluster-management', 'observability']
+  },
+  {
+    id: 'iot-data-collection-infrastructure',
+    title: 'Edge-Resilient IoT Data Collection Infrastructure',
+    subtitle: 'Distributed MQTT collectors with local buffering & failover',
+    client: 'Major African Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Deployed edge-based MQTT collectors with local buffering to eliminate centralized collection bottleneck. Achieved **99.95%** data delivery during regional outages through resilient architecture.',
+    outcomes: [
+      'Data delivery reliability improved to **99.95%**',
+      'Regional outage resilience: no data loss during infrastructure failures',
+      'Latency reduced from **120ms** to **<25ms** average',
+      'Collection scalability: **2M+ events/minute** sustained throughput'
+    ],
+    technologies: ['MQTT Edge', 'Kubernetes', 'Message Queues', 'Data Normalization', 'Prometheus'],
+    slug: 'iot-collection-infrastructure',
+    featured: false,
+    relatedServiceIds: ['cloud-provisioning', 'iot-analytics', 'observability']
+  },
+  {
+    id: 'stream-event-processing',
+    title: 'Real-Time Event Stream Processing & Enrichment',
+    subtitle: 'Intelligent event correlation reducing alert noise by 60%',
+    client: 'Major Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Implemented stream processing with event enrichment and intelligent correlation, reducing operational noise by **60%** and improving alert actionability from **8%** to **94%**.',
+    outcomes: [
+      'Alert noise reduced by **60%** through correlation',
+      'Alert actionability improved from **8%** to **94%**',
+      '**<5 second** latency on event-to-alert pipeline',
+      'Automated remediation initiated for **78%** of correlated events'
+    ],
+    technologies: ['Kafka', 'Spark Streaming', 'Complex Event Processing', 'Apache Flink'],
+    slug: 'stream-event-processing',
+    featured: false,
+    relatedServiceIds: ['observability', 'alerting-rules', 'logging-tracing']
+  },
+  {
+    id: 'event-correlation-rca',
+    title: 'Event Correlation & Root Cause Analysis Engine',
+    subtitle: 'Dependency mapping reducing MTTR by 70%',
+    client: 'Major Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Built service dependency mapping with automatic event correlation engine. Reduced Mean-Time-To-Recovery from **3 hours** to **50 minutes** through **94%** accurate root cause identification.',
+    outcomes: [
+      'MTTR reduced from **3 hours** to **50 minutes** (**70%** improvement)',
+      'Root cause identification accuracy: **94%**',
+      'Unplanned downtime prevented monthly: **12+ incidents**',
+      'On-call engineer response time: **<10 minutes** average'
+    ],
+    technologies: ['Observability Platform', 'Netcool', 'Dependency Mapping', 'Machine Learning'],
+    slug: 'event-correlation-rca',
+    featured: false,
+    relatedServiceIds: ['observability', 'alerting-rules', 'logging-tracing']
+  },
+  {
+    id: 'financial-markets-observability',
+    title: 'Advanced Observability for Financial Markets',
+    subtitle: 'Trading infrastructure monitoring with 30-day audit trail',
+    client: 'Major Asian Stock Exchange',
+    industry: 'Financial Services',
+    description: 'Implemented comprehensive observability platform covering trading systems, market surveillance, and infrastructure monitoring. Maintained **99.99%** trading uptime SLA with full regulatory compliance and immutable audit trail.',
+    outcomes: [
+      '**99.99%** trading system uptime SLA maintained continuously',
+      '**100%** regulatory compliance with audit requirements',
+      '**30-day** immutable audit trail for all transactions',
+      'Market surveillance latency: **<100ms** on alert generation'
+    ],
+    technologies: ['Observability Platform', 'Monitoring', 'IBM', 'Encryption', 'Audit Logging'],
+    slug: 'financial-markets-observability',
+    featured: false,
+    relatedServiceIds: ['observability', 'alerting-rules', 'sla-support']
   }
 ];
 
@@ -253,19 +405,115 @@ const infrastructureCaseStudies: CaseStudy[] = [
     relatedServiceIds: ['sla-support']
   },
   {
-    id: 'hardware-support-textile',
-    title: 'Hardware Server Support',
-    subtitle: 'Critical infrastructure maintenance',
-    client: 'Major Textile Manufacturer',
+    id: 'infrastructure-resilience-manufacturing',
+    title: 'Infrastructure Resilience for Manufacturing',
+    subtitle: '24/7 hardware support eliminating downtime risk for 48 critical servers',
+    client: 'Ibrahim Fibres Limited',
     industry: 'Manufacturing',
-    description: 'Vital hardware support services for critical business applications on Lenovo Servers, including systems without vendor support coverage.',
+    description: 'Perception IT transformed server infrastructure from a risk into a reliable engine for operations. With 48 critical Lenovo servers supporting production and financial systems, any downtime could have cost millions. 24/7 support, same-day hardware replacements, and proactive maintenance have kept systems running without a single major incident.',
     outcomes: [
-      'Maintained critical business applications',
-      'Support for legacy server infrastructure'
+      'Zero unplanned outages since implementation',
+      'MTTR reduced from 72+ hours to under 6 hours',
+      'Avoided $750K+ in annual downtime risk',
+      'Extended hardware life by 3-4 years, deferring $200K+ CapEx',
+      'Enabled 2 new production lines on existing infrastructure',
+      'Met Allied Bank IT governance requirements without re-architecture'
     ],
-    technologies: ['Lenovo', 'Server Support', 'Hardware'],
-    slug: 'hardware-server-support',
-    relatedServiceIds: ['hardware-support']
+    technologies: ['Lenovo', 'Server Support', '24/7 Support', 'Preventive Maintenance', 'Hardware Support'],
+    slug: 'infrastructure-resilience-manufacturing',
+    relatedServiceIds: ['hardware-support', 'server-continuity', 'sla-support']
+  },
+  {
+    id: 'tower-asset-intelligence',
+    title: 'Mobile Tower Asset Intelligence Platform',
+    subtitle: 'Centralized inventory & geospatial asset tracking',
+    client: 'Major African Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Integrated IBM Maximo with geospatial asset database for complete tower inventory visibility. Achieved **100%** asset tracking and enabled predictive maintenance scheduling **60 days** in advance.',
+    outcomes: [
+      '**100%** asset visibility across **10,000+** tower locations',
+      'Maintenance scheduled **60 days** in advance (vs. **7 days** reactive)',
+      'Asset lifecycle efficiency improved by **45%**',
+      'Unplanned outages from asset failures reduced by **73%**'
+    ],
+    technologies: ['IBM Maximo', 'Asset Database', 'Geospatial Mapping', 'Inventory Management'],
+    slug: 'tower-asset-intelligence',
+    featured: false,
+    isCollection: true,
+    collectionCount: 2,
+    relatedServiceIds: ['hardware-support', 'maximo', 'database-optimisation']
+  },
+  {
+    id: 'federated-access-control',
+    title: 'Federated Access Control & Enterprise Security',
+    subtitle: 'Role-based identity management with 90% faster provisioning',
+    client: 'Major Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Implemented OAuth 2.0 identity federation with LDAP synchronization across multi-domain telecom infrastructure. Reduced access provisioning time by **90%** while achieving **100%** audit compliance.',
+    outcomes: [
+      'Access provisioning time reduced by **90%** (from **5 days** to **<12 hours**)',
+      '**100%** audit compliance with regulatory standards',
+      '**99.9%** authentication availability SLA',
+      'Unauthorized access incidents reduced to **zero** across audit periods'
+    ],
+    technologies: ['OAuth 2.0', 'LDAP', 'Active Directory', 'Encryption', 'Audit Logging'],
+    slug: 'federated-access-control',
+    featured: false,
+    relatedServiceIds: ['cross-domain-automation', 'network-monitoring', 'sla-support']
+  },
+  {
+    id: 'service-management-overhaul',
+    title: 'Comprehensive Service Management Process Overhaul',
+    subtitle: 'ITIL-aligned process transformation using IBM Maximo',
+    client: 'Major Mobile Network Operator',
+    industry: 'Telecommunications',
+    description: 'Transformed service management landscape by implementing standardized ITIL processes using IBM Maximo. Achieved **73%** reduction in service delivery time and **85%** improvement in asset lifecycle management.',
+    outcomes: [
+      'Service delivery time reduced by **73%**',
+      'Asset lifecycle efficiency improved by **85%**',
+      'Process standardization across **12+ operational domains**',
+      'Change management cycle time reduced from **3 weeks** to **3 days**'
+    ],
+    technologies: ['IBM Maximo', 'ITIL Processes', 'Workflow Automation', 'Service Management'],
+    slug: 'service-management-overhaul',
+    featured: false,
+    relatedServiceIds: ['maximo', 'hardware-support', 'sla-support']
+  },
+  {
+    id: 'middleware-id-management',
+    title: 'Middleware Infrastructure for National ID Platform',
+    subtitle: 'Enterprise-grade WebSphere deployment for citizen identity services',
+    client: 'National Government Agency',
+    industry: 'Government Services',
+    description: 'Deployed robust WebSphere middleware infrastructure for high-volume citizen identity platform. Maintained **99.95%** availability serving **50M+ citizens** with **sub-500ms** request latency.',
+    outcomes: [
+      '**99.95%** platform availability across peak demand periods',
+      '**50M+** citizen records accessible with **sub-500ms** latency',
+      '**Zero** unplanned outages in **24 months** of operation',
+      'Capacity handled **10x** surge traffic during election periods'
+    ],
+    technologies: ['WebSphere', 'Middleware', 'Java', 'Database Clustering'],
+    slug: 'middleware-id-management',
+    featured: false,
+    relatedServiceIds: ['hardware-support', 'database-optimisation', 'sla-support']
+  },
+  {
+    id: 'customs-reporting-security',
+    title: 'Reporting Infrastructure & Enterprise Security for Trade Analytics',
+    subtitle: 'Federated access control with enterprise security integration',
+    client: 'National Customs & Trade Authority',
+    industry: 'Government Services',
+    description: 'Integrated IBM Cognos BI platform with Oracle Access Management for federated access control in customs analytics. Achieved **100%** audit compliance while enabling **500+** concurrent analyst access.',
+    outcomes: [
+      '**100%** regulatory compliance with customs audit standards',
+      '**500+** concurrent analyst access with fine-grained permissions',
+      'Report generation time reduced by **67%** (from **45min** to **15min**)',
+      'Unauthorized access attempts: **zero** successful breaches in **36 months**'
+    ],
+    technologies: ['IBM Cognos', 'Oracle Access Management', 'LDAP', 'Encryption'],
+    slug: 'customs-reporting-security',
+    featured: false,
+    relatedServiceIds: ['cross-domain-automation', 'network-monitoring', 'sla-support']
   }
 ];
 
@@ -299,10 +547,10 @@ const dataServices: ServiceItem[] = [
     link: '/services/data-federation'
   },
   {
-    id: 'database-optimization',
-    title: 'Database Optimization',
+    id: 'database-optimisation',
+    title: 'Database Optimisation',
     description: 'DB2 PureScale, SQL Server, Oracle performance tuning',
-    link: '/services/database-optimization',
+    link: '/services/database-optimisation',
     badge: 'POPULAR'
   }
 ];
@@ -321,7 +569,7 @@ const dataCaseStudies: CaseStudy[] = [
     ],
     technologies: ['DB2', 'PureScale', 'IBM'],
     slug: 'db2-purescale-optimisation',
-    relatedServiceIds: ['database-optimization']
+    relatedServiceIds: ['database-optimisation']
   },
   {
     id: 'data-federation-portal',
@@ -337,6 +585,173 @@ const dataCaseStudies: CaseStudy[] = [
     technologies: ['Data Federation', 'Analytics'],
     slug: 'data-federation-portal',
     relatedServiceIds: ['data-federation', 'data-lakes']
+  },
+  {
+    id: 'iot-streaming-data-architecture',
+    title: 'IoT & Streaming Data Architecture for Tower Networks',
+    subtitle: 'MQTT-to-Databricks pipeline processing 2M events/minute',
+    client: 'Major African Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Architected end-to-end IoT streaming pipeline from **10,000+ tower** MQTT feeds through Databricks ETL to Azure Data Lake. Ingests **50TB/month** with **99.7%** delivery reliability and sub-5-minute analytics latency.',
+    outcomes: [
+      '**2M events/minute** processing capacity with **99.7%** reliability',
+      '**50TB/month** raw data ingestion and normalization',
+      'Analytics latency reduced to **<5 minutes** (vs. **48 hours** legacy)',
+      'Data quality score: **90%** on ingestion validation'
+    ],
+    technologies: ['Azure Data Lake', 'Databricks', 'MQTT', 'Kafka', 'Delta Lake', 'Python'],
+    slug: 'iot-streaming-data-architecture',
+    featured: false,
+    isCollection: true,
+    collectionCount: 3,
+    relatedServiceIds: ['data-lakes', 'iot-analytics', 'logging-tracing']
+  },
+  {
+    id: 'geospatial-tower-visualization',
+    title: 'Real-Time Geospatial Tower Status Visualization',
+    subtitle: 'Live dashboard with sub-5-second latency for network operations',
+    client: 'Major African Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Built real-time web-based geospatial dashboard displaying **10,000+** tower status pins with performance metrics. Achieves **<5-second** latency updates and integrates with network planners for proactive optimisation.',
+    outcomes: [
+      'Real-time status updates with **<5-second** latency',
+      'Visualized **10,000+** tower locations with live metrics',
+      'Network planning latency reduced by **80%**',
+      '**99.95%** dashboard availability SLA'
+    ],
+    technologies: ['Mapbox', 'React', 'WebSockets', 'Cloud Dashboards', 'GIS'],
+    slug: 'geospatial-tower-visualization',
+    featured: false,
+    relatedServiceIds: ['geospatial', 'iot-analytics', 'observability']
+  },
+  {
+    id: 'regional-tower-analytics',
+    title: 'Regional Tower Performance Analytics & BI',
+    subtitle: 'Data warehouse enabling **90%** faster insights for regional managers',
+    client: 'Major African Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Implemented data warehouse with regional reporting and BI dashboards. Enables regional managers to analyze performance trends independently, reducing insights generation time by **90%**.',
+    outcomes: [
+      'Insights generation time reduced by **90%**',
+      'Predictive analytics for maintenance scheduling **45 days** ahead',
+      'Regional report creation automated: **98%** coverage',
+      '**100%** data accuracy on regional aggregations'
+    ],
+    technologies: ['Databricks', 'Dremio', 'BI Tools', 'SQL', 'Data Warehouse'],
+    slug: 'regional-tower-analytics',
+    featured: false,
+    isCollection: true,
+    collectionCount: 2,
+    relatedServiceIds: ['data-lakes', 'iot-analytics', 'database-optimisation']
+  },
+  {
+    id: 'enterprise-data-federation',
+    title: 'Enterprise Data Federation Architecture',
+    subtitle: 'Multi-domain unified queries eliminating **80%** of data requests',
+    client: 'Major Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Built federated query layer enabling single unified queries across **5+ siloed** telecom domains. Reduced data request volume by **80%** while maintaining **99.95%** query accuracy.',
+    outcomes: [
+      'Cross-domain data requests reduced by **80%**',
+      '**99.95%** query accuracy across federated sources',
+      'Query latency: **<2 seconds** for cross-domain analytics',
+      'Data governance: **100%** policy compliance'
+    ],
+    technologies: ['Data Federation', 'API Gateway', 'Data Governance', 'Dremio'],
+    slug: 'enterprise-data-federation',
+    featured: false,
+    relatedServiceIds: ['data-federation', 'data-lakes', 'database-optimisation']
+  },
+  {
+    id: 'edge-insights-orchestration',
+    title: 'Edge Insights Orchestration for Telecom Analytics',
+    subtitle: 'Converged edge data processing with adaptive stream analytics',
+    client: 'Global Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Implemented a hybrid edge-cloud data orchestration platform that processes telemetry at tower-edge, consolidates with cloud data lakes, and routes key insights to real-time dashboards.',
+    outcomes: [
+      'Latency reduced to **<1 second** for critical edge alerts',
+      'Data pipeline cost optimized by **45%** via edge pre-aggregation',
+      'Operational insights generated at **100x** frequency versus legacy',
+      'Seamless edge-cloud failover with **99.95%** availability'
+    ],
+    technologies: ['Edge Computing', 'Kafka', 'Databricks', 'Azure Data Lake', 'Stream Analytics'],
+    slug: 'edge-insights-orchestration',
+    featured: false,
+    relatedServiceIds: ['iot-analytics', 'data-lakes', 'geospatial']
+  },
+  {
+    id: 'data-lake-self-service',
+    title: 'Data Lake & Self-Service Analytics Platform',
+    subtitle: 'Medallion architecture reducing analytics requests by 70%',
+    client: 'Major Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Deployed Medallion architecture (bronze/silver/gold) data lake with Dremio access layer. Reduced analytics team bottleneck by **70%** through self-service business user analytics.',
+    outcomes: [
+      'Analytics requests to central team reduced by **70%**',
+      'Self-service adoption rate: **85%** within **90 days**',
+      'Business user analytics report time: **<2 hours** (vs. **5 days** legacy)',
+      'Data discovery improved: **95%** asset cataloging'
+    ],
+    technologies: ['AWS Data Lake', 'Databricks', 'Dremio', 'Delta Lake', 'BI Tools'],
+    slug: 'data-lake-self-service',
+    featured: false,
+    relatedServiceIds: ['data-lakes', 'iot-analytics', 'database-optimisation']
+  },
+  {
+    id: 'db2-purescale-optimisation',
+    title: 'ITSM Database Performance Optimisation with DB2 PureScale',
+    subtitle: 'Database performance enhancement achieving 99.9% uptime',
+    client: 'Enterprise ITSM User',
+    industry: 'Enterprise Technology',
+    description: 'Upgraded legacy ITSM database to IBM DB2 PureScale, delivering enhanced performance and reliability. Achieved **99.9%** steady-state uptime with **3x** query throughput improvement.',
+    outcomes: [
+      'Database query throughput increased **3x**',
+      'System uptime improved to **99.9%** SLA',
+      'ITSM ticket response time reduced by **65%**',
+      'Database maintenance window reduced from **4 hours** to **<30 minutes**'
+    ],
+    technologies: ['DB2 PureScale', 'IBM Database', 'HA/DR', 'Performance Tuning'],
+    slug: 'db2-purescale-optimisation',
+    featured: false,
+    relatedServiceIds: ['database-optimisation', 'data-lakes', 'sla-support']
+  },
+  {
+    id: 'agritech-data-architecture',
+    title: 'AgriTech Advanced Data Architectures',
+    subtitle: 'Modern data design enabling agile agricultural decision-making',
+    client: 'Farmer SaaS Platform',
+    industry: 'Agriculture Technology',
+    description: 'Transformed agritech platform with advanced data design and modern application frameworks. Enabled real-time agricultural analytics, crop yield prediction, and decision-making support with **sub-second** query latency.',
+    outcomes: [
+      'Decision-making latency reduced from **1 week** to **real-time**',
+      'Crop yield prediction accuracy: **88%**',
+      'Farmer app load time improved by **92%**',
+      'Data pipeline reliability: **99.5%** through season'
+    ],
+    technologies: ['Advanced Data Design', 'Modern Frameworks', 'Real-time Analytics', 'Machine Learning'],
+    slug: 'agritech-data-architecture',
+    featured: false,
+    relatedServiceIds: ['iot-analytics', 'data-lakes', 'database-optimisation']
+  },
+  {
+    id: 'farmdar-data-modernization',
+    title: 'Data Architecture Modernization for AgriTech Platform',
+    subtitle: 'Expert architectural designs streamlining data processes and boosting scalability',
+    client: 'Farmdar',
+    industry: 'AgriTech',
+    description: 'Our partnership with Perception IT elevated Farmdar solutions to new heights. Expert architectural designs streamlined data processes and significantly boosted system scalability. Modernisation initiatives, including the adoption of containerisation techniques, enhanced team efficiency and agility.',
+    outcomes: [
+      'Data processes streamlined through expert architectural designs',
+      'System scalability significantly boosted',
+      'Team efficiency enhanced through modernisation initiatives',
+      'Containerisation techniques adopted for improved agility',
+      'Faster insights and fortified growth trajectory'
+    ],
+    technologies: ['Data Architecture', 'Containerisation', 'Modern Frameworks', 'Cloud'],
+    slug: 'farmdar-data-modernization',
+    featured: false,
+    relatedServiceIds: ['data-lakes', 'iot-analytics', 'cloud-migration']
   }
 ];
 
@@ -425,6 +840,80 @@ const platformsCaseStudies: CaseStudy[] = [
     technologies: ['ServiceNow', 'Integration', 'Automation'],
     slug: 'servicenow-incident-automation',
     relatedServiceIds: ['servicenow', 'service-desk']
+  },
+  {
+    id: 'servicenow-automation-advanced',
+    title: 'Intelligent Incident Automation in ServiceNow',
+    subtitle: 'Microservice automation reducing manual incident work by 40%',
+    client: 'Major Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Developed microservice bridge integrating network alarms into ServiceNow automated incident workflow. Eliminated **40%** of manual incident handling through auto-correlation and context-driven assignment.',
+    outcomes: [
+      'Manual incident work reduced by **40%**',
+      '**100%** incident traceability for compliance',
+      'Incident lifecycle time reduced by **45%**',
+      'SLA compliance improved to **98%** from **76%**'
+    ],
+    technologies: ['ServiceNow', 'REST APIs', 'Workflow Automation', 'Incident Management'],
+    slug: 'servicenow-incident-automation-advanced',
+    featured: false,
+    isCollection: true,
+    collectionCount: 2,
+    relatedServiceIds: ['servicenow', 'service-desk', 'sla-support']
+  },
+  {
+    id: 'telco-service-desk-migration-servicenow',
+    title: 'Telco Service Desk IT Process Migration to ServiceNow',
+    subtitle: 'A mature service desk implementation modernised and migrated to ServiceNow cloud',
+    client: 'Jazz (Pakistan)',
+    industry: 'Telecommunications',
+    description: 'A mature service desk implementation for one of Pakistan’s largest telecom operators was migrated from on-premise Maximo to ServiceNow, unlocking true cloud-native agility and end-to-end automation.',
+    outcomes: [
+      'Platform availability: **99.95%** SLA maintained',
+      'Service desk coverage expanded to **24/7 follow-the-sun** model',
+      'Ticket resolution time reduced by **52%**',
+      'Agent productivity increased by **35%** with knowledge automation'
+    ],
+    technologies: ['ServiceNow', 'Maximo', 'DB2', 'Cloud', 'ITSM', 'Workflow Automation'],
+    slug: 'telco-service-desk-it-process-migration-to-servicenow',
+    featured: false,
+    relatedServiceIds: ['servicenow', 'service-desk', 'observability']
+  },
+  {
+    id: 'maximo-asset-implementation',
+    title: 'Maximo Asset Management Standardization for Telecom',
+    subtitle: 'Streamlined inventory & asset lifecycle across infrastructure',
+    client: 'Major Mobile Telecom Provider',
+    industry: 'Telecommunications',
+    description: 'Standardized inventory and asset management using IBM Maximo across telecom infrastructure. Achieved **100%** asset visibility and enabled predictive maintenance, reducing unplanned failures by **68%**.',
+    outcomes: [
+      '**100%** asset inventory accuracy and visibility',
+      'Unplanned asset failures reduced by **68%**',
+      'Maintenance cost savings: **$2.3M** annually',
+      'Asset lifecycle efficiency improved by **52%**'
+    ],
+    technologies: ['IBM Maximo', 'Asset Management', 'Lifecycle Optimisation', 'Integration'],
+    slug: 'maximo-asset-implementation',
+    featured: false,
+    relatedServiceIds: ['maximo', 'hardware-support', 'database-optimisation']
+  },
+  {
+    id: 'property-management-platform-advanced',
+    title: 'Property Management Communication Platform',
+    subtitle: 'Cross-platform SaaS for landlord-tenant-manager ecosystem',
+    client: 'Real Estate Technology SaaS',
+    industry: 'Real Estate',
+    description: 'Developed sophisticated cross-platform application facilitating communication and service brokerage between stakeholders. Achieved **95%** user satisfaction and **40%** reduction in property management overhead.',
+    outcomes: [
+      'User satisfaction rating: **95%**',
+      'Property management overhead reduced by **40%**',
+      'Request processing time: **<2 hours** (vs. **3 days** manual)',
+      'Tenant retention improved by **23%** through improved communication'
+    ],
+    technologies: ['Angular', 'Custom Application Development', 'Real Estate APIs'],
+    slug: 'property-management-platform-advanced',
+    featured: false,
+    relatedServiceIds: ['custom-development', 'service-desk']
   }
 ];
 
@@ -442,7 +931,7 @@ const networkServices: ServiceItem[] = [
   {
     id: 'network-monitoring',
     title: 'Network Monitoring',
-    description: 'Real-time visibility and performance optimization',
+    description: 'Real-time visibility and performance optimisation',
     link: '/services/network-monitoring'
   }
 ];
@@ -463,6 +952,80 @@ const networkCaseStudies: CaseStudy[] = [
     technologies: ['Automation', 'Netcool', 'Network Operations'],
     slug: 'network-operations-automation',
     relatedServiceIds: ['cross-domain-automation', 'network-monitoring']
+  },
+  {
+    id: 'network-domain-automation',
+    title: 'Network Domain Operations & Cross-Domain Automation',
+    subtitle: 'Declarative automation reducing operational errors by 80%',
+    client: 'Major Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Implemented declarative network automation with conflict resolution across multiple telecom domains. Reduced operational errors by **80%** while achieving **95%** automation coverage.',
+    outcomes: [
+      'Operational errors reduced by **80%**',
+      'Automation coverage: **95%** of common tasks',
+      'Change deployment time: **<30 minutes** (vs. **8 hours** manual)',
+      'Network policy compliance: **100%** enforced'
+    ],
+    technologies: ['Netcool', 'Network APIs', 'Ansible', 'Policy Engines', 'Automation Framework'],
+    slug: 'network-domain-automation',
+    featured: false,
+    isCollection: true,
+    collectionCount: 2,
+    relatedServiceIds: ['cross-domain-automation', 'network-monitoring', 'observability']
+  },
+  {
+    id: 'alarm-correlation-optimisation',
+    title: 'Alarm Correlation & Cross-Domain Optimisation',
+    subtitle: 'Intelligent correlation eliminating redundant alarms 60%',
+    client: 'Major Telecom Provider',
+    industry: 'Telecommunications',
+    description: 'Enhanced network operations through intelligent alarm correlation across telecom domains. Reduced alarm noise by **60%** while increasing root-cause identification accuracy to **87%**.',
+    outcomes: [
+      'Alarm noise reduced by **60%** through correlation',
+      'Root-cause identification accuracy: **87%**',
+      'NOC incident response time: **<10 minutes** average',
+      'Network reliability SLA: **99.95%** maintained'
+    ],
+    technologies: ['Netcool', 'Complex Event Processing', 'Correlation Rules', 'Observability'],
+    slug: 'alarm-correlation-optimisation',
+    featured: false,
+    relatedServiceIds: ['cross-domain-automation', 'network-monitoring', 'observability']
+  },
+  {
+    id: 'network-monitoring-enterprise',
+    title: 'Enterprise Network Monitoring & Performance Optimisation',
+    subtitle: 'Real-time visibility reducing MTTR by 65%',
+    client: 'Major ISP / Network Provider',
+    industry: 'Telecommunications',
+    description: 'Implemented comprehensive network monitoring providing real-time visibility across infrastructure. Reduced Mean-Time-To-Recovery by **65%** and increased network uptime to **99.95%**.',
+    outcomes: [
+      'MTTR reduced by **65%** through real-time alerts',
+      'Network infrastructure uptime: **99.95%** SLA',
+      'Performance degradation detection: **<2 minutes** vs. **30 minutes** manual',
+      'Customer complaints about network performance reduced by **73%**'
+    ],
+    technologies: ['Network Monitoring', 'Zabbix', 'Performance Analytics', 'Alert Management'],
+    slug: 'network-monitoring-enterprise',
+    featured: false,
+    relatedServiceIds: ['network-monitoring', 'cross-domain-automation', 'observability']
+  },
+  {
+    id: 'isp-observability-infrastructure',
+    title: 'Enterprise Observability Infrastructure for ISP',
+    subtitle: 'Unified server-app-network monitoring with 99.9% SLA',
+    client: 'Major Internet Service Provider',
+    industry: 'Telecommunications',
+    description: 'Deployed comprehensive observability integrating server, application, and network monitoring. Achieved **99.9%** infrastructure uptime with **60%** reduction in mean-time-to-recovery.',
+    outcomes: [
+      'Infrastructure uptime: **99.9%** SLA maintained',
+      'MTTR reduced by **60%** through integrated visibility',
+      'Mean time between failures increased **2.5x**',
+      'Infrastructure cost savings through optimisation: **$1.2M** annually'
+    ],
+    technologies: ['Zabbix', 'Monitoring Platform', 'Infrastructure Telemetry', 'Observability'],
+    slug: 'isp-observability-infrastructure',
+    featured: false,
+    relatedServiceIds: ['network-monitoring', 'observability', 'logging-tracing']
   }
 ];
 
@@ -506,6 +1069,62 @@ const aiCaseStudies: CaseStudy[] = [
     ],
     technologies: ['Python', 'TensorFlow', 'Kubernetes', 'Prometheus'],
     slug: 'aiops-telecom-anomaly-detection',
+    relatedServiceIds: ['aiops', 'mlops', 'observability']
+  },
+  {
+    id: 'aiops-incident-automation',
+    title: 'Intelligent Incident Automation with AIOps',
+    subtitle: 'ML-driven event correlation achieving 88% alert accuracy',
+    client: 'Major Telecom Operator',
+    industry: 'Telecommunications',
+    description: 'Deployed AI/ML models on operational logs for real-time anomaly detection and intelligent incident automation. Reduced alert noise by **88%** while improving MTTR by **65%** through predictive analytics.',
+    outcomes: [
+      '**88%** reduction in false-positive alerts',
+      'MTTR improved by **65%** through AI insights',
+      'Predictive alerts for critical KPIs: **87%** accuracy',
+      'On-call engineer context time reduced by **72%**'
+    ],
+    technologies: ['Python', 'TensorFlow', 'Kubernetes', 'Prometheus', 'Machine Learning'],
+    slug: 'aiops-incident-automation',
+    featured: false,
+    isCollection: true,
+    collectionCount: 2,
+    relatedServiceIds: ['aiops', 'mlops', 'observability']
+  },
+  {
+    id: 'mlops-production-pipeline',
+    title: 'MLOps Production Pipeline & Model Governance',
+    subtitle: 'End-to-end ML deployment enabling monthly model updates',
+    client: 'Enterprise Technology Organization',
+    industry: 'Technology',
+    description: 'Built production-ready MLOps infrastructure with model governance, enabling rapid iteration on operational AI models. Automated model deployment, monitoring, and rollback reducing deployment time **90%**.',
+    outcomes: [
+      'Model deployment cycle time reduced by **90%**',
+      'Monthly model update cadence enabled (vs. **quarterly** baseline)',
+      'Model accuracy monitoring: **real-time** with **99.5%** SLA',
+      'Model retraining automation: **100%** of production models'
+    ],
+    technologies: ['MLOps Platform', 'Model Registry', 'Kubernetes', 'Python', 'TensorFlow'],
+    slug: 'mlops-production-pipeline',
+    featured: false,
+    relatedServiceIds: ['mlops', 'aiops', 'observability']
+  },
+  {
+    id: 'ai-anomaly-detection',
+    title: 'AI-Driven Anomaly Detection for IT Operations',
+    subtitle: 'Unsupervised learning reducing operational incidents by 45%',
+    client: 'Global Enterprise',
+    industry: 'Enterprise Technology',
+    description: 'Implemented unsupervised ML models for infrastructure anomaly detection without predefined rules. Detected **45%** more infrastructure issues proactively versus reactive alerting.',
+    outcomes: [
+      'Proactive incident detection increased by **45%**',
+      'Mean-time-to-identification reduced by **78%**',
+      'False positives: **<5%** with adaptive baselining',
+      'Infrastructure cost optimisation through ML insights: **$3.2M** annually'
+    ],
+    technologies: ['Machine Learning', 'Python', 'Unsupervised Learning', 'Anomaly Detection'],
+    slug: 'ai-anomaly-detection',
+    featured: false,
     relatedServiceIds: ['aiops', 'mlops', 'observability']
   }
 ];
@@ -665,3 +1284,9 @@ export const portfolioStats = [
   { value: '14+', label: 'Years Experience', icon: Clock },
   { value: '3', label: 'Continents', icon: Globe }
 ];
+
+// ============================================================================
+// EXPORTED SERVICE LISTS FOR NAVIGATION
+// ============================================================================
+
+export { dataServices, aiServices, platformsServices };

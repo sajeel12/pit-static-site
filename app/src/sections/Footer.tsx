@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   const footerLinks = {
     services: [
-      { name: 'Cloud & Cost', href: '/services/cloud-cost-optimization' },
+      { name: 'Cloud & Cost', href: '/services/cloud-cost-optimisation' },
       { name: 'Cloud Infrastructure', href: '#services' },
       { name: 'AI & Machine Learning', href: '#services' },
       { name: 'IT Service Management', href: '#services' },

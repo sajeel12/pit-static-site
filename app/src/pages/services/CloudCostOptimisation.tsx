@@ -64,12 +64,12 @@ const CloudCostOptimisation = () => {
               Cloud Services
             </span>
             
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white mb-8 leading-[1.1] tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
               Cloud & Cost<br />
               <span className="text-blue-400">Optimisation</span>
             </h1>
             
-            <p className="text-xl sm:text-2xl text-gray-400 mb-12 leading-relaxed max-w-2xl font-light">
+            <p className="text-xl sm:text-2xl text-gray-400 mb-12 font-light leading-relaxed max-w-2xl font-light">
               Cut AWS/Azure bills by 40%—without risking application uptime or performance.
             </p>
             
@@ -121,7 +121,7 @@ const CloudCostOptimisation = () => {
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
             {/* Photo */}
             <div className="relative flex-shrink-0">
-              <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+              <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-lg overflow-hidden shadow-xl border-4 border-white">
                 <img 
                   src="/david_headshot.jpg" 
                   alt="David Pridmore" 
@@ -166,7 +166,7 @@ const CloudCostOptimisation = () => {
       </section>
 
       {/* Problem Section */}
-      <section id="problem" className="reveal-section py-24 lg:py-32">
+      <section id="problem" className="reveal-section py-20">
         <div className={`max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 transition-all duration-700 ${isVisible['problem'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="max-w-2xl mb-16">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-blue-500 mb-4 block">
@@ -209,7 +209,7 @@ const CloudCostOptimisation = () => {
             ].map((item, idx) => (
               <div 
                 key={idx}
-                className="group p-8 bg-white rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300"
+                className="group p-8 bg-white rounded-lg border border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300"
               >
                 {/* 
                   ICON PLACEHOLDER: Problem Icons (4 total)
@@ -237,7 +237,7 @@ const CloudCostOptimisation = () => {
       </section>
 
       {/* Proof / Case Study Section */}
-      <section id="case-study" className="reveal-section py-24 lg:py-32 bg-white">
+      <section id="case-study" className="reveal-section py-20 bg-white">
         <div className={`max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 transition-all duration-700 delay-100 ${isVisible['case-study'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full mb-6">
@@ -262,8 +262,8 @@ const CloudCostOptimisation = () => {
           FORMAT: WebP with JPG fallback
           SOURCE: AWS Cost Explorer screenshots with annotation in Figma
         */}
-            <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center border border-gray-200">
-              {/* <img src="/images/case-studies/cost-optimization-dashboard.webp" alt="Cost Dashboard" className="w-full h-full object-cover rounded-2xl" loading="lazy" /> */}
+            <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center border border-gray-200">
+              {/* <img src="/images/case-studies/cost-optimization-dashboard.webp" alt="Cost Dashboard" className="w-full h-full object-cover rounded-lg" loading="lazy" /> */}
               <div className="text-center">
                 <div className="w-20 h-20 bg-gray-300 rounded-xl mx-auto mb-4 flex items-center justify-center">
                   <TrendingDown className="w-10 h-10 text-gray-400" />
@@ -348,7 +348,7 @@ const CloudCostOptimisation = () => {
       </section>
 
       {/* What We Deliver */}
-      <section id="outcomes" className="reveal-section py-24 lg:py-32">
+      <section id="outcomes" className="reveal-section py-20">
         <div className={`max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 transition-all duration-700 delay-200 ${isVisible['outcomes'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="text-center max-w-2xl mx-auto mb-20">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-blue-500 mb-4 block">
@@ -391,7 +391,7 @@ const CloudCostOptimisation = () => {
             ].map((item, idx) => (
               <div 
                 key={idx}
-                className="group relative p-10 bg-white rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all duration-500"
+                className="group relative p-10 bg-white rounded-lg border border-gray-100 hover:border-blue-200 hover:shadow-2xl transition-all duration-500"
               >
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-${item.color}-500 rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                 
@@ -415,7 +415,7 @@ const CloudCostOptimisation = () => {
       </section>
 
       {/* Who This Is For */}
-      <section id="audience" className="reveal-section py-24 lg:py-32 bg-white">
+      <section id="audience" className="reveal-section py-20 bg-white">
         <div className={`max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 transition-all duration-700 delay-300 ${isVisible['audience'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
@@ -479,7 +479,7 @@ const CloudCostOptimisation = () => {
       </section>
 
       {/* 3-Step Process */}
-      <section id="process" className="reveal-section py-24 lg:py-32">
+      <section id="process" className="reveal-section py-20">
         <div className={`max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 transition-all duration-700 delay-400 ${isVisible['process'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="text-center max-w-2xl mx-auto mb-20">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-blue-500 mb-4 block">
@@ -531,7 +531,7 @@ const CloudCostOptimisation = () => {
             ].map((item, idx) => (
               <div 
                 key={idx}
-                className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-blue-200 transition-colors duration-300"
+                className="bg-white rounded-lg border border-gray-100 overflow-hidden hover:border-blue-200 transition-colors duration-300"
               >
                 <button
                   onClick={() => item.setExpanded(!item.expanded)}
@@ -576,7 +576,7 @@ const CloudCostOptimisation = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="cta" className="reveal-section py-24 lg:py-32 bg-[#0F172A]">
+      <section id="cta" className="reveal-section py-20 bg-[#0F172A]">
         <div className={`max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 text-center transition-all duration-700 delay-500 ${isVisible['cta'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-blue-400 mb-6 block">
             Next Step
@@ -586,7 +586,7 @@ const CloudCostOptimisation = () => {
             Secure your free audit.
           </h2>
           
-          <div className="bg-white/5 backdrop-blur rounded-2xl p-8 mb-10 border border-white/10">
+          <div className="bg-white/5 backdrop-blur rounded-lg p-8 mb-10 border border-white/10">
             <p className="text-gray-400 mb-4">
               Email your last cloud bill to:
             </p>

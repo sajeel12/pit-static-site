@@ -28,7 +28,8 @@ import {
   Terminal,
   ArrowUpRight,
   HeadphonesIcon,
-  Search
+  Search,
+  AlertTriangle
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navigation from '../../components/Navigation';
@@ -62,6 +63,18 @@ const ServiceNow = () => {
     }
   };
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const brandColor = '#3B82F6';
 
   const highlights = [
@@ -80,7 +93,6 @@ const ServiceNow = () => {
     { id: 'testimonial', label: 'Client Testimonial' },
     { id: 'tco-calculator', label: 'TCO Calculator' },
     { id: 'framework', label: 'Success Framework' },
-    { id: 'risk-reversal', label: 'Risk Reversal' },
     { id: 'compliance', label: 'Compliance' },
     { id: 'next-steps', label: 'Next Steps' }
   ];
@@ -231,9 +243,6 @@ const ServiceNow = () => {
     <div className="min-h-screen bg-[#FAFAFA]">
       <Navigation />
       
-      {/* Sidebar Menu */}
-      <SidebarMenu items={sidebarItems} brandColor={brandColor} />
-
       {/* Breadcrumb */}
       <div className="bg-slate-100 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-3">
@@ -250,6 +259,162 @@ const ServiceNow = () => {
       </div>
 
       {/* Hero Section */}
+      <section id="overview" ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden" style={{ background: `linear-gradient(135deg, #0F172A 0%, #1E293B 50%, ${brandColor}20 100%)` }}>
+        {/* Abstract Background */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: brandColor }} />
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-slate-600 rounded-full blur-3xl" />
+        </div>
+        
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+          backgroundSize: '60px 60px'
+        }} />
+
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Content */}
+            <div>
+              <span 
+                className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-6"
+                style={{ backgroundColor: `${brandColor}30`, color: brandColor }}
+              >
+                ServiceNow Integration
+              </span>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.15] tracking-tight">
+                Secure Your ServiceNow Transition
+              </h1>
+          
+              <p className="text-lg sm:text-xl text-gray-300 mb-10 leading-relaxed">
+                Risk-mapped integrations that prevent SLA breaches and ensure data continuity 
+                during your ServiceNow migration. We don&apos;t just implement—we protect your operations.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button 
+                  onClick={() => scrollToSection('contact')}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-900 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300"
+                >
+                  Get Risk Assessment
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+                <button 
+                  onClick={() => scrollToSection('case-studies')}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300"
+                >
+                  View Case Studies
+                </button>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="mt-12 pt-8 border-t border-white/10">
+                <p className="text-sm text-gray-400 mb-4">Trusted by enterprise teams</p>
+                <div className="flex flex-wrap items-center gap-6">
+                  {['Fortune 500', 'SOC 2 Type II', 'ISO 27001'].map((badge) => (
+                    <div key={badge} className="flex items-center gap-2 text-gray-300">
+                      <Shield className="w-4 h-4" style={{ color: brandColor }} />
+                      <span className="text-sm">{badge}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Visual Diagram */}
+            <div className="relative lg:pl-8">
+              <div className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                {/* Animated Diagram */}
+                <div className="relative h-80">
+                  {/* Legacy System */}
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-28">
+                    <div className="bg-slate-700 rounded-lg p-4 border border-slate-600">
+                      <Server className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+                      <p className="text-xs text-center text-gray-300">Legacy ITSM</p>
+                    </div>
+                  </div>
+
+                  {/* Arrow with Animation */}
+                  <div className="absolute left-28 right-28 top-1/2 -translate-y-1/2">
+                    <div className="relative h-1 bg-gradient-to-r from-slate-600 via-blue-500 to-green-500 rounded-full overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 animate-shimmer" 
+                        style={{ 
+                          backgroundSize: '200% 100%',
+                          animation: 'shimmer 2s infinite linear'
+                        }} 
+                      />
+                    </div>
+                    {/* Risk Indicators */}
+                    <div className="absolute -top-8 left-1/4 flex items-center gap-1">
+                      <AlertTriangle className="w-4 h-4 text-amber-400" />
+                      <span className="text-xs text-amber-400">Data Loss Risk</span>
+                    </div>
+                    <div className="absolute -bottom-8 left-2/3 flex items-center gap-1">
+                      <Clock className="w-4 h-4 text-red-400" />
+                      <span className="text-xs text-red-400">Downtime</span>
+                    </div>
+                  </div>
+
+                  {/* ServiceNow */}
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-28">
+                    <div className="bg-gradient-to-br from-blue-900/50 to-green-900/50 rounded-lg p-4 border border-blue-500/30">
+                      <Settings className="w-8 h-8 mx-auto mb-2" style={{ color: brandColor }} />
+                      <p className="text-xs text-center text-white font-medium">ServiceNow</p>
+                    </div>
+                  </div>
+
+                  {/* Protective Shield Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 rounded-full flex items-center justify-center" style={{ backgroundColor: `${brandColor}20` }}>
+                      <Shield className="w-10 h-10" style={{ color: brandColor }} />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Stats Preview */}
+                <div className="mt-6 pt-6 border-t border-white/10 grid grid-cols-3 gap-4">
+                  {[
+                    { value: 'Zero', label: 'Data Loss' },
+                    { value: '99.9%', label: 'Uptime' },
+                    { value: '4x', label: 'Faster Recovery' }
+                  ].map((stat) => (
+                    <div key={stat.label} className="text-center">
+                      <p className="text-xl font-bold text-white">{stat.value}</p>
+                      <p className="text-xs text-gray-400">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Stats Bar */}
+        <div className="absolute bottom-0 left-0 right-0 bg-slate-900/80 backdrop-blur-sm border-t border-white/10">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
+            <div className="flex flex-wrap items-center justify-center gap-8 text-sm">
+              {highlights.map((stat, idx) => (
+                <div key={idx} className="flex items-center gap-2">
+                  <span className="font-semibold text-white">{stat.value}</span>
+                  <span className="text-gray-300">{stat.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Main content wrapper with sidebar - starts after hero */}
+      <div className="flex">
+        {/* Sidebar - Sticky, starts after hero */}
+        <div className="hidden xl:block flex-shrink-0">
+          <SidebarMenu items={sidebarItems} brandColor={brandColor} />
+        </div>
+        
+        {/* Main content */}
+        <div className="flex-1 min-w-0">
       <section id="overview" ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden" style={{ background: `linear-gradient(135deg, #0F172A 0%, #1E293B 50%, ${brandColor}20 100%)` }}>
         {/* Abstract Background */}
         <div className="absolute inset-0 opacity-20">
@@ -410,20 +575,17 @@ const ServiceNow = () => {
         </div>
       </section>
 
-      {/* Main Content with Sidebar Offset */}
-      <div className="xl:ml-[240px]">
-        
         {/* ServiceNow Offerings Section */}
         <section id="offerings" ref={servicesRef} className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Our Services
             </span>
             <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
               ServiceNow Offerings
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl">
               End-to-end ServiceNow services from strategy to ongoing support
             </p>
           </div>
@@ -483,14 +645,14 @@ const ServiceNow = () => {
       {/* Technological Expertise Section */}
       <section id="expertise" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-12">
+          <div className="mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Technical Capabilities
             </span>
             <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
               Technological Expertise
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl">
               Deep technical knowledge across the entire ServiceNow platform
             </p>
           </div>
@@ -693,7 +855,7 @@ const ServiceNow = () => {
       {/* TCO Calculator Section */}
       <section id="tco-calculator" className="py-24 bg-white border-y border-gray-200">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-10">
+          <div className="mb-10">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Financial Transparency
             </span>
@@ -812,11 +974,11 @@ const ServiceNow = () => {
       <section id="framework" className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Header */}
-          <div className="text-center mb-10">
+          <div className="mb-10">
             <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-2">
               The ServiceNow Success Framework
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl">
               Delivering ROI requires more than software installation. It demands Full-Stack integration across four critical dimensions.
             </p>
           </div>
@@ -1006,64 +1168,7 @@ const ServiceNow = () => {
         </div>
       </section>
 
-      {/* Risk Reversal Section */}
-      <section id="risk-reversal" className="py-24 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="bg-white rounded-xl border-2 border-gray-200 p-8 md:p-12 relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute top-0 right-0 w-64 h-64 opacity-5">
-              <Shield className="w-full h-full" />
-            </div>
 
-            <div className="relative z-10">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${brandColor}15` }}>
-                  <Shield className="w-8 h-8" style={{ color: brandColor }} />
-                </div>
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Our Risk, Not Yours</h2>
-                  <p className="text-gray-500">Backed by contractual guarantees</p>
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8 mt-8">
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: brandColor }} />
-                    <div>
-                      <p className="font-semibold text-gray-900">8-Week Go-Live Guarantee</p>
-                      <p className="text-sm text-gray-600">If we miss the deadline due to our execution, we absorb the overrun costs. No questions asked.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Activity className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: brandColor }} />
-                    <div>
-                      <p className="font-semibold text-gray-900">99.95% Uptime SLA</p>
-                      <p className="text-sm text-gray-600">If uptime drops below 99.95%, contractual penalties apply. We put skin in the game.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <Lock className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: brandColor }} />
-                    <div>
-                      <p className="font-semibold text-gray-900">Fixed-Price Commitment</p>
-                      <p className="text-sm text-gray-600">No hidden change orders. Your commercial model is locked before execution begins.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Users className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: brandColor }} />
-                    <div>
-                      <p className="font-semibold text-gray-900">Certified Consultants Only</p>
-                      <p className="text-sm text-gray-600">Only ServiceNow-certified architects lead your deployment. No junior learning on your dime.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Compliance Section */}
       <section id="compliance" className="py-24 bg-gray-50">
@@ -1097,7 +1202,7 @@ const ServiceNow = () => {
       {/* Next Steps Roadmap */}
       <section id="next-steps" className="py-24 bg-white border-y border-gray-200">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-12">
+          <div className="mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Your Path Forward
             </span>
@@ -1198,7 +1303,8 @@ const ServiceNow = () => {
         </div>
       </section>
 
-      </div>{/* End of main content with sidebar offset */}
+        </div>{/* End of main content */}
+      </div>{/* End of flex wrapper */}
 
       <Footer />
     </div>

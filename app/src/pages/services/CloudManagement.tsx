@@ -90,7 +90,7 @@ const CloudManagement = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 overflow-hidden">
+      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 overflow-hidden">
         {/* 
           IMAGE PLACEHOLDER: Hero Background
           TYPE: Screenshot
@@ -114,12 +114,12 @@ const CloudManagement = () => {
               <span className="text-gray-400">Cloud Management</span>
             </div>
             
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white mb-8 leading-[1.1] tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
               Cloud<br />
               <span className="text-blue-400">Management</span>
             </h1>
             
-            <p className="text-xl sm:text-2xl text-gray-400 mb-12 leading-relaxed max-w-2xl font-light">
+            <p className="text-xl sm:text-2xl text-gray-400 mb-12 font-light leading-relaxed max-w-2xl font-light">
               Strategic cloud adoption and migration services for seamless infrastructure transition.
             </p>
             
@@ -145,7 +145,7 @@ const CloudManagement = () => {
       </section>
 
       {/* Services Grid */}
-      <section id="services" className="reveal-section py-24 lg:py-32">
+      <section id="services" className="reveal-section py-20">
         <div className={`max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 transition-all duration-700 ${isVisible['services'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-blue-500 mb-4 block">
@@ -163,7 +163,7 @@ const CloudManagement = () => {
             {services.map((service, idx) => (
               <div
                 key={idx}
-                className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all duration-500"
+                className="group bg-white rounded-lg p-8 border border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all duration-500"
               >
                 {/* 
                   ICON PLACEHOLDER: Service Icons (3 total)
@@ -213,7 +213,7 @@ const CloudManagement = () => {
       </section>
 
       {/* Case Studies */}
-      <section id="case-studies" className="reveal-section py-24 lg:py-32 bg-white">
+      <section id="case-studies" className="reveal-section py-20 bg-white">
         <div className={`max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 transition-all duration-700 ${isVisible['case-studies'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
             <div className="max-w-2xl">
@@ -259,7 +259,7 @@ const CloudManagement = () => {
               <Link
                 key={idx}
                 to={`/projects/case-study/${study.slug}`}
-                className="group bg-gray-50 rounded-2xl overflow-hidden hover:bg-white hover:shadow-xl hover:border hover:border-gray-100 transition-all duration-300"
+                className="group bg-gray-50 rounded-lg overflow-hidden hover:bg-white hover:shadow-xl hover:border hover:border-gray-100 transition-all duration-300"
               >
                 {/* IMAGE PLACEHOLDER: Case Study Thumbnail */}
                 <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
@@ -316,7 +316,7 @@ const CloudManagement = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section id="why-us" className="reveal-section py-24 lg:py-32">
+      <section id="why-us" className="reveal-section py-20">
         <div className={`max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 transition-all duration-700 ${isVisible['why-us'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -359,7 +359,7 @@ const CloudManagement = () => {
           FORMAT: WebP with JPG fallback
           SOURCE: Company photo library or staged office shoot
         */}
-            <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-8 lg:p-12 text-white relative overflow-hidden">
+            <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-8 lg:p-12 text-white relative overflow-hidden">
               {/* <img src="/images/cta-background.webp" className="absolute inset-0 w-full h-full object-cover opacity-20" /> */}
               <div className="relative z-10">
                 <h3 className="text-2xl font-semibold mb-6">Ready to migrate?</h3>

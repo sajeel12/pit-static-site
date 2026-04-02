@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center bg-[#0F172A] overflow-hidden">
+    <section className="relative min-h-[calc(100vh-80px)] flex items-start pt-20 bg-[#0F172A] overflow-hidden">
       {/* Abstract Background */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500 rounded-full blur-[120px]" />
@@ -15,9 +15,9 @@ const Hero = () => {
         backgroundSize: '80px 80px'
       }} />
 
-      <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-32">
+      <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-32 pb-24">
         <div className="max-w-3xl">
-          <span className="inline-block text-xs font-medium uppercase tracking-[0.25em] text-blue-400 mb-6">
+          <span className="inline-block text-xs font-medium uppercase tracking-[0.25em] text-blue-300 mb-6">
             Enterprise IT Solutions
           </span>
           
@@ -73,7 +73,7 @@ const Hero = () => {
                 alt="David Pridmore" 
                 className="w-8 h-8 rounded-full object-cover border-2 border-blue-500"
               />
-              Meet David Pridmore, CTO
+              Meet David Pridmore, CEO & CTO
             </a>
           </div>
         </div>

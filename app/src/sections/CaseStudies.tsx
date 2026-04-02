@@ -38,13 +38,13 @@ const CaseStudies = () => {
     },
     {
       id: '2',
-      title: 'Elevating Financial Market Observability',
-      client: 'Regional Stock Exchange',
-      industry: 'Banking & Finance',
-      description: 'Delivered comprehensive market surveillance and infrastructure monitoring, ensuring trading continuity and regulatory compliance.',
+      title: 'Advanced Observability for Stock Exchange',
+      client: 'Major Asian Stock Exchange',
+      industry: 'Financial Services',
+      description: 'Comprehensive observability platform covering trading systems, market surveillance, and infrastructure monitoring with 99.99% uptime SLA.',
       metric: '99.99%',
-      metricLabel: 'Trading Uptime',
-      tags: ['Observability', 'Security', 'IBM'],
+      metricLabel: 'Uptime SLA',
+      tags: ['Observability', 'Netcool', 'Audit'],
       slug: 'financial-market-observability',
     },
     {
@@ -56,7 +56,7 @@ const CaseStudies = () => {
       metric: '70%',
       metricLabel: 'MTTR Reduction',
       tags: ['Observability', 'Automation', 'Netcool'],
-      slug: 'network-performance-optimization',
+      slug: 'network-performance-optimisation',
     },
     {
       id: '4',
@@ -68,6 +68,17 @@ const CaseStudies = () => {
       metricLabel: 'Throughput',
       tags: ['Cloud', 'Kubernetes', 'Java'],
       slug: 'high-performance-alarm-processing',
+    },
+    {
+      id: '5',
+      title: 'Data Architecture Modernization for AgriTech',
+      client: 'Farmdar',
+      industry: 'AgriTech',
+      description: 'Expert architectural designs streamlined data processes and significantly boosted system scalability for agricultural analytics platform.',
+      metric: 'Faster',
+      metricLabel: 'Insights',
+      tags: ['Data Architecture', 'Containerisation', 'Cloud'],
+      slug: 'farmdar-data-modernization',
     },
   ];
 
@@ -135,10 +146,15 @@ const CaseStudies = () => {
                   {project.description}
                 </p>
 
-                {/* Metric */}
-                <div className="flex items-center gap-4 mb-4 py-3 border-y border-gray-100">
-                  <div className="text-2xl font-light text-blue-500">{project.metric}</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wide">{project.metricLabel}</div>
+                {/* Metric with Arrow */}
+                <div className="flex items-center justify-between mb-4 py-3 border-y border-gray-100">
+                  <div className="flex items-center gap-4">
+                    <div className="text-2xl font-light text-blue-500">{project.metric}</div>
+                    <div className="text-xs text-gray-500 uppercase tracking-wide">{project.metricLabel}</div>
+                  </div>
+                  <div className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center group-hover:bg-blue-500 transition-colors">
+                    <ArrowRight className="w-4 h-4 text-blue-500 group-hover:text-white transition-colors" />
+                  </div>
                 </div>
 
                 {/* Tags */}

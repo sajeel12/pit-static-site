@@ -37,7 +37,7 @@ const Delivery = () => {
     {
       icon: Clock,
       title: 'Deliver',
-      description: 'We implement with full rollback plans, baselines, and daily dashboards.',
+      description: 'We procure global hardware and implement with full rollback plans, baselines, and daily dashboards.',
     },
     {
       icon: Check,
@@ -86,12 +86,27 @@ const Delivery = () => {
                 <div className="hidden lg:block absolute top-10 left-full w-full h-px bg-gray-200" />
               )}
               
-              <div className="p-8 bg-white rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
+              <div className="p-8 bg-white rounded-lg border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
                 <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-100 group-hover:scale-110 transition-all duration-300">
                   <step.icon className="w-6 h-6 text-blue-500" />
                 </div>
                 <h3 className="text-xl font-semibold text-[#0F172A] mb-3">{step.title}</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">{step.description}</p>
+                
+                {/* Huawei Badge on Deliver step */}
+                {step.title === 'Deliver' && (
+                  <div className="mt-4 pt-4 border-t border-gray-100">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
+                        <span className="text-white font-bold text-xs">H</span>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold text-red-600 uppercase tracking-wide">Authorized Partner</p>
+                        <p className="text-xs font-medium text-gray-700">Huawei Enterprise</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           ))}

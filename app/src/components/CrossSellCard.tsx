@@ -131,7 +131,7 @@ const CrossSellCard = ({
 };
 
 // Pre-configured cross-sell cards for specific contexts
-export const CloudCostCrossSell = () => (
+export const CloudCostOptimisationCrossSell = () => (
   <CrossSellCard
     variant="bundle"
     title="See Cloud Control — Our Bundled Solution"

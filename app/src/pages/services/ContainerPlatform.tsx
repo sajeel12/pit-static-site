@@ -101,7 +101,7 @@ const ContainerPlatform = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-slate-900 via-slate-800 to-cyan-900 overflow-hidden">
+      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 overflow-hidden">
         {/* 
           IMAGE PLACEHOLDER: Hero Background
           TYPE: Architecture Diagram
@@ -112,32 +112,32 @@ const ContainerPlatform = () => {
           SOURCE: Cloudcraft.co or AWS Architecture Diagram Tool, export as PNG then convert
         */}
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
         </div>
         
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-32">
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-8">
-              <Link to="/services/cloud" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+              <Link to="/services/cloud" className="text-blue-400 hover:text-blue-300 transition-colors">
                 Cloud Services
               </Link>
               <span className="text-gray-500">/</span>
               <span className="text-gray-400">Container Platform</span>
             </div>
             
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white mb-8 leading-[1.1] tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
               Container<br />
-              <span className="text-cyan-400">Platform</span>
+              <span className="text-blue-400">Platform</span>
             </h1>
             
-            <p className="text-xl sm:text-2xl text-gray-400 mb-12 leading-relaxed max-w-2xl font-light">
+            <p className="text-xl sm:text-2xl text-gray-400 mb-12 font-light leading-relaxed max-w-2xl font-light">
               Kubernetes and container orchestration for scalable, portable applications.
             </p>
             
             <div className="flex flex-wrap gap-4">
               <a
                 href="mailto:k8s@perception-it.com?subject=Kubernetes%20Inquiry"
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-cyan-500 text-white font-medium rounded-full hover:bg-cyan-400 transition-all duration-300"
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-blue-500 text-white font-medium rounded-full hover:bg-blue-400 transition-all duration-300"
               >
                 <Mail className="w-5 h-5" />
                 Get in Touch
@@ -156,10 +156,10 @@ const ContainerPlatform = () => {
       </section>
 
       {/* Services Grid */}
-      <section id="services" className="reveal-section py-24 lg:py-32">
+      <section id="services" className="reveal-section py-20">
         <div className={`max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 transition-all duration-700 ${isVisible['services'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-cyan-500 mb-4 block">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-blue-500 mb-4 block">
               What We Offer
             </span>
             <h2 className="text-4xl sm:text-5xl font-semibold text-[#0F172A] leading-tight tracking-tight mb-6">
@@ -174,7 +174,7 @@ const ContainerPlatform = () => {
             {services.map((service, idx) => (
               <div
                 key={idx}
-                className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-cyan-200 hover:shadow-xl transition-all duration-500"
+                className="group bg-white rounded-lg p-8 border border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all duration-500"
               >
                 {/* 
                   ICON PLACEHOLDER: Service Icons (3 total)
@@ -188,8 +188,8 @@ const ContainerPlatform = () => {
                   FORMAT: SVG
                   SOURCE: Kubernetes official icons (permissive license) or create in Figma
                 */}
-                <div className="w-14 h-14 bg-cyan-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cyan-500 transition-colors duration-300">
-                  <service.icon className="w-7 h-7 text-cyan-500 group-hover:text-white transition-colors duration-300" />
+                <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors duration-300">
+                  <service.icon className="w-7 h-7 text-blue-500 group-hover:text-white transition-colors duration-300" />
                   {/* <img src={`/icons/${service.title.toLowerCase().replace(/\s+/g, '-')}.svg`} alt={service.title} className="w-7 h-7" /> */}
                 </div>
                 
@@ -203,7 +203,7 @@ const ContainerPlatform = () => {
                 <ul className="space-y-3">
                   {service.features.map((feature, fidx) => (
                     <li key={fidx} className="flex items-center gap-3 text-sm text-gray-600">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-500 flex-shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-blue-500 flex-shrink-0" />
                       {feature}
                     </li>
                   ))}
@@ -215,11 +215,11 @@ const ContainerPlatform = () => {
       </section>
 
       {/* Case Studies */}
-      <section id="case-studies" className="reveal-section py-24 lg:py-32 bg-white">
+      <section id="case-studies" className="reveal-section py-20 bg-white">
         <div className={`max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 transition-all duration-700 ${isVisible['case-studies'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
             <div className="max-w-2xl">
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-cyan-500 mb-4 block">
+              <span className="text-xs font-medium uppercase tracking-[0.2em] text-blue-500 mb-4 block">
                 Case Studies
               </span>
               <h2 className="text-4xl sm:text-5xl font-semibold text-[#0F172A] leading-tight tracking-tight mb-4">
@@ -231,7 +231,7 @@ const ContainerPlatform = () => {
             </div>
             <Link
               to="/projects?category=cloud"
-              className="group inline-flex items-center gap-2 text-cyan-600 font-medium hover:text-cyan-700 transition-colors"
+              className="group inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 transition-colors"
             >
               View all projects
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -269,7 +269,7 @@ const ContainerPlatform = () => {
               <Link
                 key={idx}
                 to={`/projects/case-study/${study.slug}`}
-                className="group bg-gray-50 rounded-2xl overflow-hidden hover:bg-white hover:shadow-xl hover:border hover:border-gray-100 transition-all duration-300"
+                className="group bg-gray-50 rounded-lg overflow-hidden hover:bg-white hover:shadow-xl hover:border hover:border-gray-100 transition-all duration-300"
               >
                 {/* IMAGE PLACEHOLDER: Case Study Thumbnail
                     Size: 800x450px (16:9), Format: WebP
@@ -286,12 +286,12 @@ const ContainerPlatform = () => {
                 
                 <div className="p-8">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs font-semibold rounded-full">
+                    <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
                       {study.client}
                     </span>
                   </div>
                 
-                <h3 className="text-lg font-semibold text-[#0F172A] mb-3 group-hover:text-cyan-600 transition-colors">
+                <h3 className="text-lg font-semibold text-[#0F172A] mb-3 group-hover:text-blue-600 transition-colors">
                   {study.title}
                 </h3>
                 <p className="text-gray-600 text-sm mb-6 leading-relaxed">
@@ -327,7 +327,7 @@ const ContainerPlatform = () => {
       </section>
 
       {/* Stats */}
-      <section id="stats" className="reveal-section py-24 lg:py-32 bg-cyan-900 relative overflow-hidden">
+      <section id="stats" className="reveal-section py-20 bg-blue-900 relative overflow-hidden">
         {/* 
           IMAGE PLACEHOLDER: Stats Section Background
           TYPE: Abstract Pattern
@@ -347,7 +347,7 @@ const ContainerPlatform = () => {
             ].map((stat, idx) => (
               <div key={idx} className="text-center">
                 <div className="text-4xl font-light text-white mb-2">{stat.value}</div>
-                <div className="text-sm text-cyan-300">{stat.label}</div>
+                <div className="text-sm text-blue-300">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -355,7 +355,7 @@ const ContainerPlatform = () => {
       </section>
 
       {/* CTA */}
-      <section id="cta" className="reveal-section py-24 lg:py-32">
+      <section id="cta" className="reveal-section py-20">
         <div className={`max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center transition-all duration-700 ${isVisible['cta'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl sm:text-5xl font-semibold text-[#0F172A] mb-8">
             Ready to containerize?
@@ -365,7 +365,7 @@ const ContainerPlatform = () => {
           </p>
           <a 
             href="mailto:k8s@perception-it.com"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-cyan-500 text-white font-medium rounded-full hover:bg-cyan-400 transition-colors"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-blue-500 text-white font-medium rounded-full hover:bg-blue-400 transition-colors"
           >
             Request Assessment
             <ArrowRight className="w-5 h-5" />
