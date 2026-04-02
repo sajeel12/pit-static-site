@@ -2,3 +2,10 @@
 20260402_235804 | Before: icons/pictograms layout, case study photos, testimonial, sidebar width fix
 20260403_000202 | Before removing RECOMMENDED badge from Implementation
 20260403_000434 | Before layout refinements - typography, spacing, visual hierarchy
+20260403_001829 | Before Batch 2: Expertise categories + Case Study photos
+20260403_002354 | Batch 2 simplified - photo placeholder and view all link only
+20260403_003337 | Before adding View all case studies link
+20260403_003806 | Before adding photo placeholder to case studies
+20260403_003930 | Before adding hover lift effect to offerings cards
+20260403_004007 | Before increasing section spacing py-20 to py-24
+20260403_004103 | Before updating remaining py-20 sections

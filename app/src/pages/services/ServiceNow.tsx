@@ -481,7 +481,7 @@ const ServiceNow = () => {
       </section>
 
       {/* Technological Expertise Section */}
-      <section id="expertise" className="py-20 bg-gray-50">
+      <section id="expertise" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
@@ -534,7 +534,7 @@ const ServiceNow = () => {
       </section>
 
       {/* Case Studies Carousel */}
-      <section id="case-studies" className="py-20 bg-white">
+      <section id="case-studies" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div>
@@ -545,9 +545,17 @@ const ServiceNow = () => {
                 Case Studies
               </h2>
             </div>
-            <div className="flex items-center gap-3">
-              <button
-                onClick={prevCaseStudy}
+            <div className="flex items-center gap-4">
+              <Link 
+                to="/projects"
+                className="hidden md:inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 transition-colors mr-4"
+              >
+                View all case studies
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={prevCaseStudy}
                 className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:border-blue-300 hover:bg-blue-50 transition-all"
               >
                 <ChevronLeft className="w-5 h-5 text-gray-600" />
@@ -569,6 +577,7 @@ const ServiceNow = () => {
               >
                 <ChevronRight className="w-5 h-5 text-gray-600" />
               </button>
+              </div>
             </div>
           </div>
 
@@ -606,16 +615,29 @@ const ServiceNow = () => {
                           <ArrowUpRight className="w-4 h-4" />
                         </Link>
                       </div>
-                      <div className="grid grid-cols-3 gap-4">
-                        {study.stats.map((stat, idx) => (
-                          <div key={idx} className="bg-white rounded-xl p-6 text-center">
-                            <div className={`w-12 h-12 rounded-lg ${stat.iconBg} flex items-center justify-center mx-auto mb-4`}>
-                              <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
+                      <div className="space-y-6">
+                        {/* Photo Placeholder */}
+                        <div className="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                          <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                            <div className="text-center">
+                              <Building2 className="w-16 h-16 text-gray-300 mx-auto mb-2" />
+                              <span className="text-sm text-gray-400">Case Study Photo</span>
                             </div>
-                            <div className="text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
-                            <div className="text-xs text-gray-500">{stat.label}</div>
                           </div>
-                        ))}
+                        </div>
+                        
+                        {/* Stats */}
+                        <div className="grid grid-cols-3 gap-4">
+                          {study.stats.map((stat, idx) => (
+                            <div key={idx} className="bg-white rounded-xl p-5 text-center shadow-sm">
+                              <div className={`w-12 h-12 rounded-lg ${stat.iconBg} flex items-center justify-center mx-auto mb-3`}>
+                                <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
+                              </div>
+                              <div className="text-xl font-bold text-gray-900 mb-1">{stat.value}</div>
+                              <div className="text-xs text-gray-500">{stat.label}</div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -627,7 +649,7 @@ const ServiceNow = () => {
       </section>
 
       {/* Client Testimonial Section */}
-      <section id="testimonial" className="py-20 bg-gray-50">
+      <section id="testimonial" className="py-24 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
@@ -669,7 +691,7 @@ const ServiceNow = () => {
       </section>
 
       {/* TCO Calculator Section */}
-      <section id="tco-calculator" className="py-20 bg-white border-y border-gray-200">
+      <section id="tco-calculator" className="py-24 bg-white border-y border-gray-200">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-10">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
@@ -787,7 +809,7 @@ const ServiceNow = () => {
       </section>
 
       {/* ServiceNow Success Framework */}
-      <section id="framework" className="py-20 bg-gray-50">
+      <section id="framework" className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Header */}
           <div className="text-center mb-10">
@@ -985,7 +1007,7 @@ const ServiceNow = () => {
       </section>
 
       {/* Risk Reversal Section */}
-      <section id="risk-reversal" className="py-20 bg-gray-50">
+      <section id="risk-reversal" className="py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="bg-white rounded-xl border-2 border-gray-200 p-8 md:p-12 relative overflow-hidden">
             {/* Background Pattern */}
@@ -1044,7 +1066,7 @@ const ServiceNow = () => {
       </section>
 
       {/* Compliance Section */}
-      <section id="compliance" className="py-20 bg-gray-50">
+      <section id="compliance" className="py-24 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="bg-white rounded-xl border border-gray-200 p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center gap-8">
@@ -1073,7 +1095,7 @@ const ServiceNow = () => {
       </section>
 
       {/* Next Steps Roadmap */}
-      <section id="next-steps" className="py-20 bg-white border-y border-gray-200">
+      <section id="next-steps" className="py-24 bg-white border-y border-gray-200">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
@@ -1151,7 +1173,7 @@ const ServiceNow = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="contact" className="py-20" style={{ backgroundColor: brandColor }}>
+      <section id="contact" className="py-24" style={{ backgroundColor: brandColor }}>
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <span className="inline-block px-4 py-2 bg-white/10 rounded-full text-sm font-medium text-white/90 mb-6">
             8-Week Go-Live Guarantee
