@@ -1,0 +1,193 @@
+/* IBM Plex Font Import */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Serif:wght@300;400&display=swap');
+
+/* Carbon Design System - Expressive Type Set for Marketing Pages */
+
+/* Base font family */
+.carbon-font {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.carbon-font-serif {
+  font-family: 'IBM Plex Serif', Georgia, Times, serif;
+}
+
+/* Fluid Display Styles - Hero headlines */
+.carbon-fluid-display-03 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 3.75rem; /* 60px */
+  line-height: 4.375rem; /* 70px */
+  font-weight: 300; /* Light */
+  letter-spacing: -0.64px;
+}
+
+.carbon-fluid-display-04 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 5.75rem; /* 92px */
+  line-height: 6.375rem; /* 102px */
+  font-weight: 300; /* Light */
+  letter-spacing: -0.64px;
+}
+
+/* Fluid Heading Styles - Section headings */
+.carbon-fluid-heading-03 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
+  font-weight: 400; /* Regular */
+  letter-spacing: 0;
+}
+
+.carbon-fluid-heading-04 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.75rem; /* 28px */
+  line-height: 2.25rem; /* 36px */
+  font-weight: 400; /* Regular */
+  letter-spacing: 0;
+}
+
+.carbon-fluid-heading-05 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 2.625rem; /* 42px */
+  line-height: 3.125rem; /* 50px */
+  font-weight: 300; /* Light */
+  letter-spacing: 0;
+}
+
+.carbon-fluid-heading-06 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 2.625rem; /* 42px */
+  line-height: 3.125rem; /* 50px */
+  font-weight: 600; /* SemiBold */
+  letter-spacing: 0;
+}
+
+/* Fixed Heading Styles */
+.carbon-heading-02 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
+  font-weight: 600; /* SemiBold */
+  letter-spacing: 0;
+}
+
+.carbon-heading-03 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
+  font-weight: 400; /* Regular */
+  letter-spacing: 0;
+}
+
+/* Body Styles - Expressive */
+.carbon-body-02 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
+  font-weight: 400; /* Regular */
+  letter-spacing: 0;
+}
+
+.carbon-body-compact-02 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem; /* 16px */
+  line-height: 1.375rem; /* 22px */
+  font-weight: 400; /* Regular */
+  letter-spacing: 0;
+}
+
+/* Fluid Quotation Styles - For testimonials */
+.carbon-fluid-quotation-01 {
+  font-family: 'IBM Plex Serif', Georgia, Times, serif;
+  font-size: 1.5rem; /* 24px */
+  line-height: 1.875rem; /* 30px */
+  font-weight: 400; /* Regular */
+  letter-spacing: 0;
+}
+
+.carbon-fluid-quotation-02 {
+  font-family: 'IBM Plex Serif', Georgia, Times, serif;
+  font-size: 2.625rem; /* 42px */
+  line-height: 3.125rem; /* 50px */
+  font-weight: 300; /* Light */
+  letter-spacing: 0;
+}
+
+/* Label Styles */
+.carbon-label-02 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.125rem; /* 18px */
+  font-weight: 400; /* Regular */
+  letter-spacing: 0.16px;
+}
+
+/* Helper Text */
+.carbon-helper-text-02 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.125rem; /* 18px */
+  font-weight: 400; /* Regular */
+  letter-spacing: 0.16px;
+}
+
+/* Legal Text */
+.carbon-legal-02 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.125rem; /* 18px */
+  font-weight: 400; /* Regular */
+  letter-spacing: 0.16px;
+}
+
+/* Responsive adjustments for fluid typography */
+@media (max-width: 1056px) {
+  .carbon-fluid-display-03 {
+    font-size: 3rem; /* 48px */
+    line-height: 3.5rem; /* 56px */
+  }
+  
+  .carbon-fluid-display-04 {
+    font-size: 4rem; /* 64px */
+    line-height: 4.5rem; /* 72px */
+  }
+  
+  .carbon-fluid-heading-05,
+  .carbon-fluid-heading-06 {
+    font-size: 2rem; /* 32px */
+    line-height: 2.5rem; /* 40px */
+  }
+  
+  .carbon-fluid-quotation-02 {
+    font-size: 2rem; /* 32px */
+    line-height: 2.5rem; /* 40px */
+  }
+}
+
+@media (max-width: 672px) {
+  .carbon-fluid-display-03 {
+    font-size: 2.25rem; /* 36px */
+    line-height: 2.75rem; /* 44px */
+  }
+  
+  .carbon-fluid-display-04 {
+    font-size: 3rem; /* 48px */
+    line-height: 3.5rem; /* 56px */
+  }
+  
+  .carbon-fluid-heading-04 {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+  }
+  
+  .carbon-fluid-heading-05,
+  .carbon-fluid-heading-06 {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+  }
+  
+  .carbon-fluid-quotation-02 {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+  }
+}

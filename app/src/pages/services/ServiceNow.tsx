@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import '../../styles/carbon-typography.css';
 import {
   ArrowRight,
   MessageSquare,
@@ -54,14 +55,6 @@ const ServiceNow = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const scrollToServices = () => {
-    if (servicesRef.current) {
-      const yOffset = -80;
-      const y = servicesRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
-  };
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -245,7 +238,7 @@ const ServiceNow = () => {
       
       {/* Breadcrumb */}
       <div className="bg-slate-100 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-3">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-3">
           <nav className="flex items-center gap-2 text-sm text-gray-600">
             <Link to="/" className="hover:text-gray-900 transition-colors">Home</Link>
             <span className="text-gray-400">/</span>
@@ -272,7 +265,7 @@ const ServiceNow = () => {
           backgroundSize: '60px 60px'
         }} />
 
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
+        <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left: Content */}
             <div>
@@ -283,11 +276,11 @@ const ServiceNow = () => {
                 ServiceNow Integration
               </span>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.15] tracking-tight">
+              <h1 className="carbon-fluid-display-03 text-white mb-6">
                 Secure Your ServiceNow Transition
               </h1>
           
-              <p className="text-lg sm:text-xl text-gray-300 mb-10 leading-relaxed">
+              <p className="carbon-body-02 text-gray-300 mb-10">
                 Risk-mapped integrations that prevent SLA breaches and ensure data continuity 
                 during your ServiceNow migration. We don&apos;t just implement—we protect your operations.
               </p>
@@ -382,7 +375,7 @@ const ServiceNow = () => {
                   ].map((stat) => (
                     <div key={stat.label} className="text-center">
                       <p className="text-xl font-bold text-white">{stat.value}</p>
-                      <p className="text-xs text-gray-400">{stat.label}</p>
+                      <p className="carbon-helper-text-02 text-gray-400">{stat.label}</p>
                     </div>
                   ))}
                 </div>
@@ -393,7 +386,7 @@ const ServiceNow = () => {
 
         {/* Stats Bar */}
         <div className="absolute bottom-0 left-0 right-0 bg-slate-900/80 backdrop-blur-sm border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
+          <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
             <div className="flex flex-wrap items-center justify-center gap-8 text-sm">
               {highlights.map((stat, idx) => (
                 <div key={idx} className="flex items-center gap-2">
@@ -415,177 +408,17 @@ const ServiceNow = () => {
         
         {/* Main content */}
         <div className="flex-1 min-w-0">
-      <section id="overview" ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden" style={{ background: `linear-gradient(135deg, #0F172A 0%, #1E293B 50%, ${brandColor}20 100%)` }}>
-        {/* Abstract Background */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: brandColor }} />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-slate-600 rounded-full blur-3xl" />
-        </div>
-        
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-          backgroundSize: '60px 60px'
-        }} />
-
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left: Content */}
-            <div>
-              <span 
-                className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-6"
-                style={{ backgroundColor: `${brandColor}30`, color: brandColor }}
-              >
-                ServiceNow Integration
-              </span>
-
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.15] tracking-tight">
-                Secure Your ServiceNow Transition
-              </h1>
-          
-              <p className="text-lg sm:text-xl text-gray-300 mb-10 leading-relaxed">
-                Risk-mapped integrations that prevent SLA breaches and ensure data continuity 
-                between your core systems and ServiceNow workflows.
-              </p>
-          
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-medium transition-all hover:opacity-90"
-                  style={{ backgroundColor: brandColor }}
-                >
-                  Free Migration Assessment
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-                <button
-                  onClick={scrollToServices}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white/10 text-white font-medium hover:bg-white/20 transition-all"
-                >
-                  View Services
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-          
-              {/* Mobile: Key stats row */}
-              <div className="lg:hidden flex flex-wrap gap-4 mt-8 pt-8 border-t border-white/10">
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${brandColor}30` }}>
-                    <Server className="w-5 h-5" style={{ color: brandColor }} />
-                  </div>
-                  <span className="text-sm text-gray-300">Legacy Systems</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${brandColor}30` }}>
-                    <Network className="w-5 h-5" style={{ color: brandColor }} />
-                  </div>
-                  <span className="text-sm text-gray-300">ServiceNow</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${brandColor}30` }}>
-                    <Workflow className="w-5 h-5" style={{ color: brandColor }} />
-                  </div>
-                  <span className="text-sm text-gray-300">Automation</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Integration Diagram (Desktop only) */}
-            <div className="hidden lg:block relative">
-              <div className="relative w-full aspect-square max-w-lg mx-auto scale-110">
-                {/* Legacy Systems - Left */}
-                <div className="absolute left-0 top-1/4 flex flex-col gap-6">
-                  <div className="flex items-center gap-3 bg-slate-800/80 backdrop-blur rounded-lg px-4 py-3 border border-slate-700">
-                    <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${brandColor}30` }}>
-                      <Server className="w-5 h-5" style={{ color: brandColor }} />
-                    </div>
-                    <span className="text-sm text-gray-300">Legacy Servers</span>
-                  </div>
-                  <div className="flex items-center gap-3 bg-slate-800/80 backdrop-blur rounded-lg px-4 py-3 border border-slate-700">
-                    <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${brandColor}25` }}>
-                      <Database className="w-5 h-5" style={{ color: brandColor }} />
-                    </div>
-                    <span className="text-sm text-gray-300">Databases</span>
-                  </div>
-                  <div className="flex items-center gap-3 bg-slate-800/80 backdrop-blur rounded-lg px-4 py-3 border border-slate-700">
-                    <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${brandColor}20` }}>
-                      <Cloud className="w-5 h-5" style={{ color: brandColor }} />
-                    </div>
-                    <span className="text-sm text-gray-300">Cloud Apps</span>
-                  </div>
-                </div>
-
-                {/* Connection Lines - SVG */}
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400">
-                  <line x1="120" y1="100" x2="200" y2="200" stroke={brandColor} strokeWidth="2" strokeDasharray="5,5" opacity="0.6">
-                    <animate attributeName="stroke-dashoffset" from="20" to="0" dur="1.5s" repeatCount="indefinite" />
-                  </line>
-                  <line x1="120" y1="200" x2="200" y2="200" stroke={brandColor} strokeWidth="2" strokeDasharray="5,5" opacity="0.6">
-                    <animate attributeName="stroke-dashoffset" from="20" to="0" dur="1.5s" repeatCount="indefinite" />
-                  </line>
-                  <line x1="120" y1="300" x2="200" y2="200" stroke={brandColor} strokeWidth="2" strokeDasharray="5,5" opacity="0.6">
-                    <animate attributeName="stroke-dashoffset" from="20" to="0" dur="1.5s" repeatCount="indefinite" />
-                  </line>
-                </svg>
-
-                {/* ServiceNow Platform - Center */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <div className="relative flex flex-col items-center">
-                    <div className="w-20 h-20 rounded-xl flex items-center justify-center shadow-lg" style={{ backgroundColor: brandColor }}>
-                      <Network className="w-10 h-10 text-white" />
-                    </div>
-                    <div className="mt-3 bg-slate-800/90 backdrop-blur rounded-full px-3 py-1 border border-slate-700">
-                      <span className="text-xs font-medium text-white">ServiceNow</span>
-                    </div>
-                    <div className="absolute inset-0 rounded-xl animate-ping opacity-30" style={{ backgroundColor: brandColor }} />
-                  </div>
-                </div>
-
-                {/* Output - Right */}
-                <div className="absolute right-0 top-1/4 flex flex-col gap-3">
-                  <div className="flex items-center gap-2 bg-slate-800/80 backdrop-blur rounded-lg px-3 py-2 border border-slate-700">
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${brandColor}30` }}>
-                      <Workflow className="w-4 h-4" style={{ color: brandColor }} />
-                    </div>
-                    <span className="text-xs text-gray-300">Automated Workflows</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-slate-800/80 backdrop-blur rounded-lg px-3 py-2 border border-slate-700">
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${brandColor}25` }}>
-                      <Shield className="w-4 h-4" style={{ color: brandColor }} />
-                    </div>
-                    <span className="text-xs text-gray-300">SLA Compliance</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Stats Bar */}
-        <div className="absolute bottom-0 left-0 right-0 bg-slate-900/80 backdrop-blur-sm border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
-            <div className="flex flex-wrap items-center justify-center gap-8 text-sm">
-              {highlights.map((stat, idx) => (
-                <div key={idx} className="flex items-center gap-2">
-                  <span className="font-semibold text-white">{stat.value}</span>
-                  <span className="text-gray-300">{stat.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
         {/* ServiceNow Offerings Section */}
         <section id="offerings" ref={servicesRef} className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-16">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Our Services
             </span>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
+            <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
               ServiceNow Offerings
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl">
+            <p className="carbon-body-02 text-gray-600 max-w-2xl">
               End-to-end ServiceNow services from strategy to ongoing support
             </p>
           </div>
@@ -644,15 +477,15 @@ const ServiceNow = () => {
 
       {/* Technological Expertise Section */}
       <section id="expertise" className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-12">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Technical Capabilities
             </span>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
+            <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
               Technological Expertise
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl">
+            <p className="carbon-body-02 text-gray-600 max-w-2xl">
               Deep technical knowledge across the entire ServiceNow platform
             </p>
           </div>
@@ -664,7 +497,7 @@ const ServiceNow = () => {
                 className="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-gray-200 shadow-sm hover:border-blue-300 hover:shadow-md transition-all"
               >
                 <tech.icon className="w-4 h-4" style={{ color: brandColor }} />
-                <span className="text-sm font-medium text-gray-700">{tech.name}</span>
+                <span className="carbon-label-02 text-gray-700">{tech.name}</span>
               </div>
             ))}
           </div>
@@ -697,13 +530,13 @@ const ServiceNow = () => {
 
       {/* Case Studies Carousel */}
       <section id="case-studies" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div>
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+              <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
                 Success Stories
               </span>
-              <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900">
+              <h2 className="carbon-fluid-heading-05 text-gray-900">
                 Case Studies
               </h2>
             </div>
@@ -796,7 +629,7 @@ const ServiceNow = () => {
                                 <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                               </div>
                               <div className="text-xl font-bold text-gray-900 mb-1">{stat.value}</div>
-                              <div className="text-xs text-gray-500">{stat.label}</div>
+                              <div className="carbon-helper-text-02 text-gray-500">{stat.label}</div>
                             </div>
                           ))}
                         </div>
@@ -812,12 +645,12 @@ const ServiceNow = () => {
 
       {/* Client Testimonial Section */}
       <section id="testimonial" className="py-24 bg-gray-50">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-12">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
-              Client Feedback
+            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+              Feedback
             </span>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900">
+            <h2 className="carbon-fluid-heading-05 text-gray-900">
               Client Testimonial
             </h2>
           </div>
@@ -832,8 +665,7 @@ const ServiceNow = () => {
               <div className="flex-1">
                 <Quote className="w-10 h-10 text-blue-200 mb-4" />
                 <blockquote 
-                  className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-6"
-                  style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+                  className="carbon-fluid-quotation-01 text-gray-700 mb-6"
                 >
                   &quot;Perception IT transformed our IT operations with their ServiceNow expertise. 
                   Their team successfully migrated us from Maximo to ServiceNow with zero downtime, 
@@ -843,7 +675,7 @@ const ServiceNow = () => {
                 <div className="flex items-center gap-4">
                   <div>
                     <div className="font-semibold text-gray-900">Usman Ikram</div>
-                    <div className="text-sm text-gray-500">IT Operations Director, Major Telecom Provider</div>
+                    <div className="carbon-helper-text-02 text-gray-500">IT Operations Director, Major Telecom Provider</div>
                   </div>
                 </div>
               </div>
@@ -854,15 +686,15 @@ const ServiceNow = () => {
 
       {/* TCO Calculator Section */}
       <section id="tco-calculator" className="py-24 bg-white border-y border-gray-200">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-10">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Financial Transparency
             </span>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
+            <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
               Stop Guessing Your ITSM Budget
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="carbon-body-02 text-gray-600">
               See Your 3-Year TCO Now
             </p>
           </div>
@@ -915,7 +747,7 @@ const ServiceNow = () => {
                       className="w-4 h-4 rounded border-gray-300"
                       style={{ accentColor: brandColor }}
                     />
-                    <span className="text-sm text-gray-600">ITSM (Service Desk)</span>
+                    <span className="carbon-body-compact-02 text-gray-600">ITSM (Service Desk)</span>
                   </label>
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
@@ -931,7 +763,7 @@ const ServiceNow = () => {
                       className="w-4 h-4 rounded border-gray-300"
                       style={{ accentColor: brandColor }}
                     />
-                    <span className="text-sm text-gray-600">ITOM (Operations)</span>
+                    <span className="carbon-body-compact-02 text-gray-600">ITOM (Operations)</span>
                   </label>
                 </div>
               </div>
@@ -975,7 +807,7 @@ const ServiceNow = () => {
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Header */}
           <div className="mb-10">
-            <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-2">
+            <h2 className="carbon-fluid-heading-05 text-gray-900 mb-2">
               The ServiceNow Success Framework
             </h2>
             <p className="text-gray-600 max-w-2xl">
@@ -992,8 +824,8 @@ const ServiceNow = () => {
                   <Database className="w-4 h-4" style={{ color: brandColor }} />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold text-gray-900">Data Integrity</h3>
-                  <p className="text-xs text-gray-400">The Foundation</p>
+                  <h3 className="carbon-heading-02 text-gray-900">Data Integrity</h3>
+                  <p className="carbon-helper-text-02 text-gray-400">The Foundation</p>
                 </div>
               </div>
               
@@ -1021,8 +853,8 @@ const ServiceNow = () => {
                   <Server className="w-4 h-4" style={{ color: brandColor }} />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold text-gray-900">Total Visibility</h3>
-                  <p className="text-xs text-gray-400">The Engine</p>
+                  <h3 className="carbon-heading-02 text-gray-900">Total Visibility</h3>
+                  <p className="carbon-helper-text-02 text-gray-400">The Engine</p>
                 </div>
               </div>
               
@@ -1050,8 +882,8 @@ const ServiceNow = () => {
                   <TrendingUp className="w-4 h-4" style={{ color: brandColor }} />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold text-gray-900">Sustainable Architecture</h3>
-                  <p className="text-xs text-gray-400">The Long Game</p>
+                  <h3 className="carbon-heading-02 text-gray-900">Sustainable Architecture</h3>
+                  <p className="carbon-helper-text-02 text-gray-400">The Long Game</p>
                 </div>
               </div>
               
@@ -1079,8 +911,8 @@ const ServiceNow = () => {
                   <Shield className="w-4 h-4" style={{ color: brandColor }} />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold text-gray-900">Unified Accountability</h3>
-                  <p className="text-xs text-gray-400">The Guarantee</p>
+                  <h3 className="carbon-heading-02 text-gray-900">Unified Accountability</h3>
+                  <p className="carbon-helper-text-02 text-gray-400">The Guarantee</p>
                 </div>
               </div>
               
@@ -1172,7 +1004,7 @@ const ServiceNow = () => {
 
       {/* Compliance Section */}
       <section id="compliance" className="py-24 bg-gray-50">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="bg-white rounded-xl border border-gray-200 p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="flex-shrink-0">
@@ -1201,15 +1033,15 @@ const ServiceNow = () => {
 
       {/* Next Steps Roadmap */}
       <section id="next-steps" className="py-24 bg-white border-y border-gray-200">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-12">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Your Path Forward
             </span>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
+            <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
               Start Your Migration Audit
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="carbon-body-02 text-gray-600">
               A structured process with clear outcomes at every step
             </p>
           </div>
@@ -1279,11 +1111,11 @@ const ServiceNow = () => {
 
       {/* CTA Section */}
       <section id="contact" className="py-24" style={{ backgroundColor: brandColor }}>
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <span className="inline-block px-4 py-2 bg-white/10 rounded-full text-sm font-medium text-white/90 mb-6">
             8-Week Go-Live Guarantee
           </span>
-          <h2 className="text-3xl sm:text-4xl font-semibold text-white mb-6">
+          <h2 className="carbon-fluid-heading-05 text-white mb-6">
             Ready to Transform Your ITSM?
           </h2>
           <p className="text-lg text-white/80 mb-6 max-w-2xl mx-auto">

@@ -52,15 +52,15 @@ const SidebarMenu = ({
   return (
     <nav 
       className="sticky top-0 h-screen z-40 hidden xl:flex flex-col justify-center"
-      style={{ width: '240px' }}
+      style={{ width: '256px' }}
     >
-      <div className="bg-white border-r border-gray-200 py-6 w-full">
+      <div className="bg-white/70 backdrop-blur-md border-r border-gray-200 py-6 w-full">
         <ul className="space-y-0">
           {items.map((item) => (
             <li key={item.id}>
               <button
                 onClick={() => scrollToSection(item.id)}
-                className={`w-full text-left px-4 py-3 text-sm transition-all duration-200 border-l-2 ${
+                className={`w-full text-left px-4 py-3 text-sm transition-all duration-200 border-l-4 ${
                   activeSection === item.id
                     ? 'font-medium'
                     : 'text-gray-500 hover:text-gray-900 border-transparent'
