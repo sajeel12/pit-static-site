@@ -427,49 +427,52 @@ const ServiceNow = () => {
                 {/* Color accent bar - left side */}
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#0f62fe] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
                 
-                <div className="p-8 flex flex-col flex-grow">
-                  {/* Icon and Title */}
-                  <div className="flex items-start gap-4 mb-5">
-                    <div className="w-12 h-12 rounded-xl bg-[#edf5ff] flex items-center justify-center text-[#0f62fe] transition-colors group-hover:bg-[#0f62fe] group-hover:text-white">
-                      <offering.icon className="w-6 h-6" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-1">{offering.title}</h3>
-                      <div className="flex items-center gap-2 carbon-body-compact-01 text-[var(--cds-text-helper)]">
-                        <Time className="w-4 h-4 text-[#0f62fe]" />
-                        <span>{offering.duration}</span>
+                <div className="p-8 flex flex-col h-full">
+                  {/* Content area - grows to push CTA down */}
+                  <div className="flex-grow">
+                    {/* Icon and Title */}
+                    <div className="flex items-start gap-4 mb-5">
+                      <div className="w-12 h-12 rounded-xl bg-[#edf5ff] flex items-center justify-center text-[#0f62fe] transition-colors group-hover:bg-[#0f62fe] group-hover:text-white flex-shrink-0">
+                        <offering.icon className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-1">{offering.title}</h3>
+                        <div className="flex items-center gap-2 carbon-body-compact-01 text-[var(--cds-text-helper)]">
+                          <Time className="w-4 h-4 text-[#0f62fe]" />
+                          <span>{offering.duration}</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Description */}
-                  <p className="carbon-body-02 text-[var(--cds-text-secondary)] mb-5 leading-relaxed">
-                    {offering.description}
-                  </p>
-
-                  {/* Expandable detail description on hover */}
-                  <div className="max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-48 mb-0 group-hover:mb-5">
-                    <p className="carbon-body-02 text-[var(--cds-text-secondary)] leading-relaxed bg-[#f4f4f4] p-4 rounded-lg">
-                      {offering.detailDescription}
+                    {/* Description */}
+                    <p className="carbon-body-02 text-[var(--cds-text-secondary)] mb-5 leading-relaxed">
+                      {offering.description}
                     </p>
+
+                    {/* Expandable detail description on hover */}
+                    <div className="max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-48 mb-0 group-hover:mb-5">
+                      <p className="carbon-body-02 text-[var(--cds-text-secondary)] leading-relaxed bg-[#f4f4f4] p-4 rounded-lg">
+                        {offering.detailDescription}
+                      </p>
+                    </div>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {offering.shortTags.map((tag) => (
+                        <span 
+                          key={tag}
+                          className="px-3 py-1.5 text-xs font-medium text-[#525252] bg-[#f4f4f4] rounded-full border border-transparent group-hover:border-[#0f62fe]/20 transition-colors"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {offering.shortTags.map((tag) => (
-                      <span 
-                        key={tag}
-                        className="px-3 py-1.5 text-xs font-medium text-[#525252] bg-[#f4f4f4] rounded-full border border-transparent group-hover:border-[#0f62fe]/20 transition-colors"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* CTA */}
+                  {/* CTA - always at bottom */}
                   <a
                     href={offering.link}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0043ce] transition-all group-hover:gap-3 mt-auto pt-4 border-t border-gray-100"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0043ce] transition-all group-hover:gap-3 pt-4 border-t border-gray-100"
                   >
                     {offering.cta} <ArrowRight className="w-4 h-4" />
                   </a>
