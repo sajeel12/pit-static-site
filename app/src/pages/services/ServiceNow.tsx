@@ -713,8 +713,8 @@ const ServiceNow = () => {
 
           <div className="bg-[var(--cds-layer-01)] rounded-xl border border-[var(--cds-border-subtle)] p-8">
             {/* Inputs */}
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div>
+            <div className="cds--css-grid" style={{ padding: 0, marginBottom: '1.5rem' }}>
+              <div className="cds--col-span-5 cds--col-span-5--md">
                 <label className="block carbon-label-01 text-[var(--cds-text-secondary)] mb-2">Number of UserMultiple</label>
                 <input
                   type="range"
@@ -729,7 +729,7 @@ const ServiceNow = () => {
                 <div className="text-center mt-2 carbon-heading-02 text-[var(--cds-text-primary)]">{tcoUserMultiple.toLocaleString()}</div>
               </div>
 
-              <div>
+              <div className="cds--col-span-5 cds--col-span-5--md">
                 <label className="block carbon-label-01 text-[var(--cds-text-secondary)] mb-2">Current Toolset</label>
                 <select
                   value={tcoToolset}
@@ -742,7 +742,7 @@ const ServiceNow = () => {
                 </select>
               </div>
 
-              <div>
+              <div className="cds--col-span-5 cds--col-span-5--md">
                 <label className="block carbon-label-01 text-[var(--cds-text-secondary)] mb-2">Desired Modules</label>
                 <div className="space-y-2">
                   <label className="flex items-center gap-2 cursor-pointer">
@@ -782,18 +782,18 @@ const ServiceNow = () => {
             </div>
 
             {/* Results */}
-            <div className="grid md:grid-cols-3 gap-6 pt-8 border-t border-[var(--cds-border-subtle)]">
-              <div className="text-center">
+            <div className="cds--css-grid" style={{ padding: 0, paddingTop: '2rem', borderTop: '1px solid var(--cds-border-subtle)' }}>
+              <div className="cds--col-span-5 cds--col-span-5--md text-center">
                 <p className="carbon-helper-text-01 text-[var(--cds-text-helper)] mb-1">Current 3-Year Cost</p>
                 <p className="text-3xl font-bold text-[var(--cds-text-primary)]">${tcoResult.current}K</p>
                 <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)] mt-1">Including hidden costs</p>
               </div>
-              <div className="text-center">
+              <div className="cds--col-span-5 cds--col-span-5--md text-center">
                 <p className="carbon-helper-text-01 text-[var(--cds-text-helper)] mb-1">Perception-IT Fixed Cost</p>
                 <p className="carbon-fluid-heading-04" style={{ color: brandColor }}>${tcoResult.perception}K</p>
                 <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)] mt-1">Fixed-price guarantee</p>
               </div>
-              <div className="text-center">
+              <div className="cds--col-span-5 cds--col-span-5--md text-center">
                 <p className="carbon-helper-text-01 text-[var(--cds-text-helper)] mb-1">Your Savings</p>
                 <p className="text-3xl font-bold text-[var(--cds-link-primary)]">{tcoResult.savingsPercent}%</p>
                 <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)] mt-1">${tcoResult.savings}K saved</p>
