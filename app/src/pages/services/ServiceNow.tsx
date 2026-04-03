@@ -406,7 +406,7 @@ const ServiceNow = () => {
             {offerings.map((offering) => (
               <div 
                 key={offering.id}
-                className="relative bg-white rounded-xl border border-gray-200 p-10 transition-all duration-300 hover:shadow-xl hover:border-[#3B82F6] hover:-translate-y-1 flex flex-col h-full"
+                className="relative bg-white rounded-xl border border-[var(--cds-border-subtle)] p-10 transition-all duration-300 hover:shadow-xl hover:border-[#3B82F6] hover:-translate-y-1 flex flex-col h-full"
               >
                 
                 <div className="flex items-center gap-4 mb-6">
@@ -471,7 +471,7 @@ const ServiceNow = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Column 1: Core Platform */}
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <div className="bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
               <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-2">
                 <Layers className="w-5 h-5" style={{ color: brandColor }} />
                 Core Platform
@@ -484,7 +484,7 @@ const ServiceNow = () => {
             </div>
 
             {/* Column 2: Development */}
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <div className="bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
               <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-2">
                 <Code className="w-5 h-5" style={{ color: brandColor }} />
                 Development
@@ -497,7 +497,7 @@ const ServiceNow = () => {
             </div>
 
             {/* Column 3: Integration */}
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <div className="bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
               <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-2">
                 <Network_1 className="w-5 h-5" style={{ color: brandColor }} />
                 Integration
@@ -510,7 +510,7 @@ const ServiceNow = () => {
             </div>
 
             {/* Column 4: ITOM & Discovery */}
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <div className="bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
               <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-2">
                 <Activity className="w-5 h-5" style={{ color: brandColor }} />
                 ITOM & Discovery
@@ -548,7 +548,7 @@ const ServiceNow = () => {
               <div className="flex items-center gap-3">
                 <button
                   onClick={prevCaseStudy}
-                className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:border-blue-300 hover:bg-blue-50 transition-all"
+                className="w-10 h-10 rounded-full border border-[var(--cds-border-subtle)] flex items-center justify-center hover:border-blue-300 hover:bg-blue-50 transition-all"
               >
                 <ChevronLeft className="w-5 h-5 text-[var(--cds-text-secondary)]" />
               </button>
@@ -565,7 +565,7 @@ const ServiceNow = () => {
               </div>
               <button
                 onClick={nextCaseStudy}
-                className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:border-blue-300 hover:bg-blue-50 transition-all"
+                className="w-10 h-10 rounded-full border border-[var(--cds-border-subtle)] flex items-center justify-center hover:border-blue-300 hover:bg-blue-50 transition-all"
               >
                 <ChevronRight className="w-5 h-5 text-[var(--cds-text-secondary)]" />
               </button>
@@ -609,7 +609,7 @@ const ServiceNow = () => {
                       </div>
                       <div className="space-y-6">
                         {/* Photo Placeholder */}
-                        <div className="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                        <div className="bg-white rounded-xl overflow-hidden border border-[var(--cds-border-subtle)] shadow-sm">
                           <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
                             <div className="text-center">
                               <Building className="w-16 h-16 text-[var(--cds-text-disabled)] mx-auto mb-2" />
@@ -652,7 +652,7 @@ const ServiceNow = () => {
             </h2>
           </div>
 
-          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-gray-200">
+          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-[var(--cds-border-subtle)]">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-shrink-0">
                 <div className="w-20 h-20 rounded-full bg-[var(--cds-layer-03)] flex items-center justify-center">
@@ -682,7 +682,7 @@ const ServiceNow = () => {
       </section>
 
       {/* TCO Calculator Section */}
-      <section id="tco-calculator" className="py-24 bg-white border-y border-gray-200">
+      <section id="tco-calculator" className="py-24 bg-white border-y border-[var(--cds-border-subtle)]">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-10">
             <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
@@ -696,7 +696,7 @@ const ServiceNow = () => {
             </p>
           </div>
 
-          <div className="bg-[var(--cds-layer-01)] rounded-xl border border-gray-200 p-8">
+          <div className="bg-[var(--cds-layer-01)] rounded-xl border border-[var(--cds-border-subtle)] p-8">
             {/* Inputs */}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div>
@@ -719,7 +719,7 @@ const ServiceNow = () => {
                 <select
                   value={tcoToolset}
                   onChange={(e) => setTcoToolset(e.target.value as 'excel' | 'jira' | 'legacy')}
-                  className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400"
+                  className="w-full px-4 py-2 border border-[var(--cds-border-subtle)] rounded-lg focus:outline-none focus:border-[var(--cds-border-strong)]"
                 >
                   <option value="excel">Excel / Spreadsheets</option>
                   <option value="jira">Jira / Basic Tools</option>
@@ -741,7 +741,7 @@ const ServiceNow = () => {
                           setTcoModules(tcoModules.filter(m => m !== 'itsm'));
                         }
                       }}
-                      className="w-4 h-4 rounded border-gray-300"
+                      className="w-4 h-4 rounded border-[var(--cds-border-strong)]"
                       style={{ accentColor: brandColor }}
                     />
                     <span className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">ITSM (Service Desk)</span>
@@ -757,7 +757,7 @@ const ServiceNow = () => {
                           setTcoModules(tcoModules.filter(m => m !== 'itom'));
                         }
                       }}
-                      className="w-4 h-4 rounded border-gray-300"
+                      className="w-4 h-4 rounded border-[var(--cds-border-strong)]"
                       style={{ accentColor: brandColor }}
                     />
                     <span className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">ITOM (Operations)</span>
@@ -767,7 +767,7 @@ const ServiceNow = () => {
             </div>
 
             {/* Results */}
-            <div className="grid md:grid-cols-3 gap-6 pt-8 border-t border-gray-200">
+            <div className="grid md:grid-cols-3 gap-6 pt-8 border-t border-[var(--cds-border-subtle)]">
               <div className="text-center">
                 <p className="carbon-helper-text-01 text-[var(--cds-text-helper)] mb-1">Current 3-Year Cost</p>
                 <p className="text-3xl font-bold text-[var(--cds-text-primary)]">${tcoResult.current}K</p>
@@ -815,7 +815,7 @@ const ServiceNow = () => {
           {/* 4-Card Grid - Success Framework */}
           <div className="grid md:grid-cols-2 gap-4">
             {/* 1. Data Integrity (The Foundation) */}
-            <div className="bg-white rounded-xl p-5 border border-gray-200">
+            <div className="bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
                   <DataBase className="w-4 h-4" style={{ color: brandColor }} />
@@ -844,7 +844,7 @@ const ServiceNow = () => {
             </div>
 
             {/* 2. Total Visibility (The Engine) */}
-            <div className="bg-white rounded-xl p-5 border border-gray-200">
+            <div className="bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
                   <ServerDns className="w-4 h-4" style={{ color: brandColor }} />
@@ -873,7 +873,7 @@ const ServiceNow = () => {
             </div>
 
             {/* 3. Sustainable Architecture (The Long Game) */}
-            <div className="bg-white rounded-xl p-5 border border-gray-200">
+            <div className="bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
                   <ArrowUp className="w-4 h-4" style={{ color: brandColor }} />
@@ -902,7 +902,7 @@ const ServiceNow = () => {
             </div>
 
             {/* 4. Unified Accountability (The Guarantee) */}
-            <div className="bg-white rounded-xl p-5 border border-gray-200">
+            <div className="bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
                   <Security className="w-4 h-4" style={{ color: brandColor }} />
@@ -932,7 +932,7 @@ const ServiceNow = () => {
           </div>
 
           {/* Supporting Pillars */}
-          <div className="mt-8 bg-white rounded-xl p-6 border border-gray-200">
+          <div className="mt-8 bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
             <div className="grid md:grid-cols-2 gap-8">
               {/* Value Realization Card */}
               <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border border-blue-100">
@@ -1011,7 +1011,7 @@ const ServiceNow = () => {
       {/* Compliance Section */}
       <section id="compliance" className="py-24 bg-[var(--cds-layer-01)]">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="bg-white rounded-xl border border-gray-200 p-8 md:p-12">
+          <div className="bg-white rounded-xl border border-[var(--cds-border-subtle)] p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="flex-shrink-0">
                 <div className="w-24 h-24 rounded-full flex items-center justify-center" style={{ backgroundColor: `${brandColor}15` }}>
@@ -1038,7 +1038,7 @@ const ServiceNow = () => {
       </section>
 
       {/* Next Steps Roadmap */}
-      <section id="next-steps" className="py-24 bg-white border-y border-gray-200">
+      <section id="next-steps" className="py-24 bg-white border-y border-[var(--cds-border-subtle)]">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
