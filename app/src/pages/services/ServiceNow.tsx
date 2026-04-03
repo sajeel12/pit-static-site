@@ -474,14 +474,14 @@ const ServiceNow = () => {
                     <div className="max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-64 mb-0 group-hover:mb-6">
                       <div className="bg-[#f4f4f4] p-4 rounded-lg">
                         {offering.detailHeading && (
-                          <p className="carbon-body-02 font-semibold text-[var(--cds-text-primary)] leading-relaxed mb-3">
+                          <p className="carbon-label-02 font-semibold text-[var(--cds-text-primary)] leading-relaxed mb-2">
                             {offering.detailHeading}
                           </p>
                         )}
                         {offering.detailBullets && (
-                          <ul className="space-y-2">
+                          <ul className="space-y-1.5">
                             {offering.detailBullets.map((bullet, idx) => (
-                              <li key={idx} className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">
+                              <li key={idx} className="carbon-helper-text-02 text-[var(--cds-text-secondary)] leading-snug">
                                 <span className="font-semibold text-[var(--cds-text-primary)]">- {bullet.title}</span> {bullet.desc}
                               </li>
                             ))}
