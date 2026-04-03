@@ -139,12 +139,18 @@ const ServiceNow = () => {
     {
       id: 'support',
       icon: Headphones,
-      title: 'Support',
+      title: 'Managed Support & Optimization',
       duration: 'Ongoing',
-      description: '24/7 managed services with certified administrators to maximize platform performance.',
-      shortTags: ['24/7 Support', 'Optimization', 'Training', 'Upgrades'],
-      detailDescription: 'Round-the-clock monitoring & support, continuous platform optimization, user training & enablement, and version upgrades & enhancements.',
-      cta: 'Get Support',
+      descriptionBold: 'One partner for your software and underlying infrastructure.',
+      descriptionNormal: 'Stop managing multiple vendors. Our Lahore-based NOC provides 24/7 oversight of both your ServiceNow instance and the servers it runs on.',
+      shortTags: ['Unified 24/7 NOC', 'Proactive CMDB Health', 'Quarterly Business Reviews'],
+      detailHeading: 'SLA Backed: 99.95% uptime guarantee with contractual penalties.',
+      detailBullets: [
+        { title: 'Unified 24/7 NOC:', desc: 'Single point of contact for app AND infrastructure alerts.' },
+        { title: 'Proactive CMDB Health:', desc: 'Continuous data cleansing and asset reconciliation.' },
+        { title: 'Quarterly Business Reviews:', desc: 'Strategic optimization aligned with your growth.' }
+      ],
+      cta: 'View Support SLAs',
       color: 'bg-purple-500',
       link: '#contact'
     }
@@ -460,7 +466,7 @@ const ServiceNow = () => {
 
                     {/* Description */}
                     <div className="mb-6">
-                      {offering.descriptionBold ? (
+                      {offering.descriptionBold && (
                         <>
                           <p className="carbon-body-02 font-semibold text-[var(--cds-text-primary)] leading-relaxed">
                             {offering.descriptionBold}
@@ -468,12 +474,7 @@ const ServiceNow = () => {
                           <p className="carbon-body-compact-02 text-[var(--cds-text-helper)] leading-relaxed mt-2">
                             {offering.descriptionNormal}
                           </p>
-
                         </>
-                      ) : (
-                        <p className="carbon-body-02 text-[var(--cds-text-secondary)] leading-relaxed">
-                          {offering.description}
-                        </p>
                       )}
                     </div>
 
