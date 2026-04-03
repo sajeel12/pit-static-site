@@ -417,7 +417,7 @@ const ServiceNow = () => {
                     <offering.icon className="w-8 h-8" style={{ color: brandColor }} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900">{offering.title}</h3>
+                    <h3 className="carbon-heading-03 text-gray-900">{offering.title}</h3>
                     <div className="flex items-center gap-2 text-sm text-gray-500">
                       <Time className="w-4 h-4" />
                       <span>{offering.duration}</span>
@@ -593,7 +593,7 @@ const ServiceNow = () => {
                             </span>
                           ))}
                         </div>
-                        <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
+                        <h3 className="carbon-fluid-heading-04 text-gray-900 mb-4">
                           {study.title}
                         </h3>
                         <p className="text-gray-600 mb-8 leading-relaxed">
@@ -1019,10 +1019,10 @@ const ServiceNow = () => {
                 </div>
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                <h2 className="carbon-fluid-heading-04 text-gray-900 mb-4">
                   Aligned with SBP Guidelines & Local Data Sovereignty Laws
                 </h2>
-                <p className="text-gray-600 mb-6">
+                <p className="carbon-body-02 text-gray-600 mb-6">
                   Enable Your Regulatory Compliance with Local Data Control. Our Lahore delivery center ensures your sensitive data remains within Pakistan jurisdiction unless explicitly authorized for cross-border transfer. Unlike global SaaS-only providers, we provide the local oversight and audit trails required by Banking and Government sectors to meet their SBP obligations.
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start">
@@ -1064,11 +1064,11 @@ const ServiceNow = () => {
                     1
                   </div>
                   <div className="md:hidden flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900">Book a 30-min Technical Discovery Call</h3>
+                    <h3 className="carbon-heading-03 text-gray-900">Book a 30-min Technical Discovery Call</h3>
                   </div>
                 </div>
                 <div className="flex-1 bg-gray-50 rounded-xl p-6 md:ml-0 ml-0">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 hidden md:block">Book a 30-min Technical Discovery Call</h3>
+                  <h3 className="carbon-heading-03 text-gray-900 mb-2 hidden md:block">Book a 30-min Technical Discovery Call</h3>
                   <p className="text-gray-600">
                     We discuss your current setup, pain points, and goals. No sales pitch—just technical assessment.
                   </p>
@@ -1082,11 +1082,11 @@ const ServiceNow = () => {
                     2
                   </div>
                   <div className="md:hidden flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900">Receive a Preliminary Risk Assessment Report</h3>
+                    <h3 className="carbon-heading-03 text-gray-900">Receive a Preliminary Risk Assessment Report</h3>
                   </div>
                 </div>
                 <div className="flex-1 bg-gray-50 rounded-xl p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 hidden md:block">Receive a Preliminary Risk Assessment Report</h3>
+                  <h3 className="carbon-heading-03 text-gray-900 mb-2 hidden md:block">Receive a Preliminary Risk Assessment Report</h3>
                   <p className="text-gray-600">
                     Free detailed analysis of integration risks, data migration complexity, and recommended approach.
                   </p>
@@ -1100,11 +1100,11 @@ const ServiceNow = () => {
                     3
                   </div>
                   <div className="md:hidden flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900">Review Fixed-Scope Proposal within 48 Hours</h3>
+                    <h3 className="carbon-heading-03 text-gray-900">Review Fixed-Scope Proposal within 48 Hours</h3>
                   </div>
                 </div>
                 <div className="flex-1 bg-gray-50 rounded-xl p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 hidden md:block">Review Fixed-Scope Proposal within 48 Hours</h3>
+                  <h3 className="carbon-heading-03 text-gray-900 mb-2 hidden md:block">Review Fixed-Scope Proposal within 48 Hours</h3>
                   <p className="text-gray-600">
                     Clear timeline, fixed price, defined deliverables. No hidden costs. No surprises.
                   </p>
