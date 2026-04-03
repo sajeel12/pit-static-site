@@ -25,12 +25,16 @@ import {
   WarningAlt
 } from '@carbon/icons-react';
 
-// Batch 3-5: Lucide icons (to be migrated)
+// Batch 3: Carbon Icons (complex mappings)
 import {
-  Clock,
-  Server,
-  Database,
-  Network,
+  Time,
+  DataBase,
+  Network_1
+} from '@carbon/icons-react';
+import { Server } from 'lucide-react';
+
+// Batch 4-5: Lucide icons (no direct Carbon equivalent)
+import {
   TrendingUp,
   Clock3
 } from 'lucide-react';
@@ -157,7 +161,7 @@ const ServiceNow = () => {
       stats: [
         { icon: Lightning, iconBg: 'bg-amber-50', iconColor: 'text-amber-600', value: '40%', label: 'Less Manual Work' },
         { icon: Activity, iconBg: 'bg-blue-50', iconColor: 'text-blue-600', value: '98%', label: 'SLA Compliance' },
-        { icon: Clock, iconBg: 'bg-blue-50', iconColor: 'text-blue-600', value: '45%', label: 'Faster Resolution' }
+        { icon: Time, iconBg: 'bg-blue-50', iconColor: 'text-blue-600', value: '45%', label: 'Faster Resolution' }
       ]
     }
   ];
@@ -317,7 +321,7 @@ const ServiceNow = () => {
                       <span className="text-xs text-amber-400">Data Loss Risk</span>
                     </div>
                     <div className="absolute -bottom-8 left-2/3 flex items-center gap-1">
-                      <Clock className="w-4 h-4 text-red-400" />
+                      <Time className="w-4 h-4 text-red-400" />
                       <span className="text-xs text-red-400">Downtime</span>
                     </div>
                   </div>
@@ -412,7 +416,7 @@ const ServiceNow = () => {
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900">{offering.title}</h3>
                     <div className="flex items-center gap-2 text-sm text-gray-500">
-                      <Clock className="w-4 h-4" />
+                      <Time className="w-4 h-4" />
                       <span>{offering.duration}</span>
                     </div>
                   </div>
@@ -492,7 +496,7 @@ const ServiceNow = () => {
             {/* Column 3: Integration */}
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="carbon-heading-02 text-gray-900 mb-4 flex items-center gap-2">
-                <Network className="w-5 h-5" style={{ color: brandColor }} />
+                <Network_1 className="w-5 h-5" style={{ color: brandColor }} />
                 Integration
               </h3>
               <ul className="space-y-2">
@@ -811,7 +815,7 @@ const ServiceNow = () => {
             <div className="bg-white rounded-xl p-5 border border-gray-200">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
-                  <Database className="w-4 h-4" style={{ color: brandColor }} />
+                  <DataBase className="w-4 h-4" style={{ color: brandColor }} />
                 </div>
                 <div>
                   <h3 className="carbon-heading-02 text-gray-900">Data Integrity</h3>
@@ -960,7 +964,7 @@ const ServiceNow = () => {
               <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-slate-200">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-slate-700 flex items-center justify-center">
-                    <Network className="w-5 h-5 text-white" />
+                    <Network_1 className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <h3 className="carbon-heading-02 text-gray-900">The Delivery Backbone</h3>
