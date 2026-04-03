@@ -391,7 +391,7 @@ const ServiceNow = () => {
         <section id="offerings" ref={servicesRef} className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-16">
-            <span className="carbon-label-01 uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Our Services
             </span>
             <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
@@ -458,7 +458,7 @@ const ServiceNow = () => {
       <section id="expertise" className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-12">
-            <span className="carbon-label-01 uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Technical Capabilities
             </span>
             <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
@@ -530,7 +530,7 @@ const ServiceNow = () => {
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div>
-              <span className="carbon-label-01 uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+              <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
                 Success Stories
               </span>
               <h2 className="carbon-fluid-heading-05 text-gray-900">
@@ -644,7 +644,7 @@ const ServiceNow = () => {
       <section id="testimonial" className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-12">
-            <span className="carbon-label-01 uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Feedback
             </span>
             <h2 className="carbon-fluid-heading-05 text-gray-900">
@@ -685,7 +685,7 @@ const ServiceNow = () => {
       <section id="tco-calculator" className="py-24 bg-white border-y border-gray-200">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-10">
-            <span className="carbon-label-01 uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Financial Transparency
             </span>
             <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
@@ -1041,7 +1041,7 @@ const ServiceNow = () => {
       <section id="next-steps" className="py-24 bg-white border-y border-gray-200">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-12">
-            <span className="carbon-label-01 uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Your Path Forward
             </span>
             <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
