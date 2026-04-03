@@ -445,7 +445,7 @@ const ServiceNow = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="carbon-body-02 text-[var(--cds-text-secondary)] mb-6 leading-relaxed">
+                    <p className="carbon-body-02 font-semibold text-[var(--cds-text-primary)] mb-6 leading-relaxed">
                       {offering.description}
                     </p>
 
