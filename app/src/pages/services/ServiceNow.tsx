@@ -409,11 +409,11 @@ const ServiceNow = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="cds--css-grid" style={{ padding: 0 }}>
             {offerings.map((offering) => (
               <div 
                 key={offering.id}
-                className="relative bg-white rounded-xl border border-[var(--cds-border-subtle)] p-10 transition-all duration-300 hover:shadow-xl hover:border-[var(--cds-button-primary)] hover:-translate-y-1 flex flex-col h-full"
+                className="cds--col-span-5 cds--col-span-5--md relative bg-white rounded-xl border border-[var(--cds-border-subtle)] p-10 transition-all duration-300 hover:shadow-xl hover:border-[var(--cds-button-primary)] hover:-translate-y-1 flex flex-col h-full"
               >
                 
                 <div className="flex items-center gap-4 mb-6">
