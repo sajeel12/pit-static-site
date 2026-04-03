@@ -1133,7 +1133,7 @@ const ServiceNow = () => {
           </p>
           <a
             href="#footer"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-white text-slate-900 font-semibold rounded-full hover:bg-slate-100 transition-all duration-300 text-lg"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-white text-slate-900 carbon-heading-02 rounded-full hover:bg-slate-100 transition-all duration-300"
           >
             Get Your Free Assessment
             <ArrowRight className="w-5 h-5" />
