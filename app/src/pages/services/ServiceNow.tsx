@@ -136,15 +136,15 @@ const ServiceNow = () => {
       icon: Building,
       iconColor: brandColor,
       tags: [
-        { text: 'Telecom', class: 'bg-blue-100 text-blue-700' },
-        { text: 'Migration', class: 'bg-blue-100 text-blue-700' },
+        { text: 'Telecom', class: 'bg-blue-100 text-[var(--cds-link-primary-hover)]' },
+        { text: 'Migration', class: 'bg-blue-100 text-[var(--cds-link-primary-hover)]' },
         { text: 'ServiceNow', class: 'bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)]' }
       ],
       title: "Enabling 99.95% uptime and 24/7 follow-the-sun support for Pakistan's largest telecom through ServiceNow Cloud migration",
       description: "Pakistan's largest telecommunications provider modernised their service desk and migrated to ServiceNow Cloud, enabling 24/7 follow-the-sun support operations with 99.95% platform availability.",
       stats: [
-        { icon: ArrowUp, iconBg: 'bg-blue-50', iconColor: 'text-blue-600', value: '99.95%', label: 'Uptime SLA' },
-        { icon: Alarm, iconBg: 'bg-blue-50', iconColor: 'text-blue-600', value: '24/7', label: 'Coverage' },
+        { icon: ArrowUp, iconBg: 'bg-[var(--cds-layer-accent)]', iconColor: 'text-[var(--cds-link-primary)]', value: '99.95%', label: 'Uptime SLA' },
+        { icon: Alarm, iconBg: 'bg-[var(--cds-layer-accent)]', iconColor: 'text-[var(--cds-link-primary)]', value: '24/7', label: 'Coverage' },
         { icon: Activity, iconBg: `${brandColor}15`, iconColor: brandColor, value: '52%', label: 'Faster Resolution' }
       ]
     },
@@ -156,15 +156,15 @@ const ServiceNow = () => {
       bgGradient: 'linear-gradient(135deg, #F5F0EB, #EDE8E3)',
       tags: [
         { text: 'Automation', class: 'bg-amber-100 text-amber-700' },
-        { text: 'Integration', class: 'bg-blue-100 text-blue-700' },
+        { text: 'Integration', class: 'bg-blue-100 text-[var(--cds-link-primary-hover)]' },
         { text: 'ServiceNow', class: 'bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)]' }
       ],
       title: '40% faster incident resolution for major telecom through intelligent ServiceNow automation',
       description: 'Developed an intelligent microservice bridge integrating network alarms with ServiceNow, eliminating manual incident handling and reducing response times through automated correlation and smart routing.',
       stats: [
         { icon: Lightning, iconBg: 'bg-amber-50', iconColor: 'text-amber-600', value: '40%', label: 'Less Manual Work' },
-        { icon: Activity, iconBg: 'bg-blue-50', iconColor: 'text-blue-600', value: '98%', label: 'SLA Compliance' },
-        { icon: Time, iconBg: 'bg-blue-50', iconColor: 'text-blue-600', value: '45%', label: 'Faster Resolution' }
+        { icon: Activity, iconBg: 'bg-[var(--cds-layer-accent)]', iconColor: 'text-[var(--cds-link-primary)]', value: '98%', label: 'SLA Compliance' },
+        { icon: Time, iconBg: 'bg-[var(--cds-layer-accent)]', iconColor: 'text-[var(--cds-link-primary)]', value: '45%', label: 'Faster Resolution' }
       ]
     }
   ];
@@ -540,7 +540,7 @@ const ServiceNow = () => {
             <div className="flex items-center gap-4">
               <Link 
                 to="/projects"
-                className="hidden md:inline-flex items-center gap-2 text-blue-600 carbon-link-01 hover:text-blue-700 transition-colors mr-4"
+                className="hidden md:inline-flex items-center gap-2 text-[var(--cds-link-primary)] carbon-link-01 hover:text-[var(--cds-link-primary-hover)] transition-colors mr-4"
               >
                 View all case studies
                 <ArrowUpRight className="w-4 h-4" />
@@ -548,7 +548,7 @@ const ServiceNow = () => {
               <div className="flex items-center gap-3">
                 <button
                   onClick={prevCaseStudy}
-                className="w-10 h-10 rounded-full border border-[var(--cds-border-subtle)] flex items-center justify-center hover:border-blue-300 hover:bg-blue-50 transition-all"
+                className="w-10 h-10 rounded-full border border-[var(--cds-border-subtle)] flex items-center justify-center hover:border-blue-300 hover:bg-[var(--cds-layer-accent)] transition-all"
               >
                 <ChevronLeft className="w-5 h-5 text-[var(--cds-text-secondary)]" />
               </button>
@@ -558,14 +558,14 @@ const ServiceNow = () => {
                     key={idx}
                     onClick={() => setCurrentCaseStudy(idx)}
                     className={`w-2 h-2 rounded-full transition-all ${
-                      idx === currentCaseStudy ? 'bg-blue-500 w-6' : 'bg-gray-300'
+                      idx === currentCaseStudy ? 'bg-[var(--cds-layer-accent)]0 w-6' : 'bg-gray-300'
                     }`}
                   />
                 ))}
               </div>
               <button
                 onClick={nextCaseStudy}
-                className="w-10 h-10 rounded-full border border-[var(--cds-border-subtle)] flex items-center justify-center hover:border-blue-300 hover:bg-blue-50 transition-all"
+                className="w-10 h-10 rounded-full border border-[var(--cds-border-subtle)] flex items-center justify-center hover:border-blue-300 hover:bg-[var(--cds-layer-accent)] transition-all"
               >
                 <ChevronRight className="w-5 h-5 text-[var(--cds-text-secondary)]" />
               </button>
@@ -601,7 +601,7 @@ const ServiceNow = () => {
                         </p>
                         <Link
                           to={study.link}
-                          className="inline-flex items-center gap-2 text-blue-600 carbon-link-01 hover:text-blue-700 transition-colors"
+                          className="inline-flex items-center gap-2 text-[var(--cds-link-primary)] carbon-link-01 hover:text-[var(--cds-link-primary-hover)] transition-colors"
                         >
                           Read full case study
                           <ArrowUpRight className="w-4 h-4" />
@@ -780,7 +780,7 @@ const ServiceNow = () => {
               </div>
               <div className="text-center">
                 <p className="carbon-helper-text-01 text-[var(--cds-text-helper)] mb-1">Your Savings</p>
-                <p className="text-3xl font-bold text-blue-600">{tcoResult.savingsPercent}%</p>
+                <p className="text-3xl font-bold text-[var(--cds-link-primary)]">{tcoResult.savingsPercent}%</p>
                 <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)] mt-1">${tcoResult.savings}K saved</p>
               </div>
             </div>
@@ -817,7 +817,7 @@ const ServiceNow = () => {
             {/* 1. Data Integrity (The Foundation) */}
             <div className="bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-lg bg-[var(--cds-layer-accent)] flex items-center justify-center">
                   <DataBase className="w-4 h-4" style={{ color: brandColor }} />
                 </div>
                 <div>
@@ -846,7 +846,7 @@ const ServiceNow = () => {
             {/* 2. Total Visibility (The Engine) */}
             <div className="bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-lg bg-[var(--cds-layer-accent)] flex items-center justify-center">
                   <ServerDns className="w-4 h-4" style={{ color: brandColor }} />
                 </div>
                 <div>
@@ -875,7 +875,7 @@ const ServiceNow = () => {
             {/* 3. Sustainable Architecture (The Long Game) */}
             <div className="bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-lg bg-[var(--cds-layer-accent)] flex items-center justify-center">
                   <ArrowUp className="w-4 h-4" style={{ color: brandColor }} />
                 </div>
                 <div>
@@ -904,7 +904,7 @@ const ServiceNow = () => {
             {/* 4. Unified Accountability (The Guarantee) */}
             <div className="bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-lg bg-[var(--cds-layer-accent)] flex items-center justify-center">
                   <Security className="w-4 h-4" style={{ color: brandColor }} />
                 </div>
                 <div>
@@ -953,7 +953,7 @@ const ServiceNow = () => {
                     { title: 'Seamless Lifecycle', desc: 'Procurement data flows directly into Asset Management for perfect tracking' }
                   ].map((item) => (
                     <li key={item.title} className="flex gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--cds-layer-accent)]0 mt-2 flex-shrink-0" />
                       <div>
                         <span className="carbon-label-02 text-[var(--cds-text-primary)] block">{item.title}</span>
                         <span className="carbon-helper-text-02 text-[var(--cds-text-secondary)]">{item.desc}</span>
