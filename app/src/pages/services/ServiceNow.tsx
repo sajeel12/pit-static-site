@@ -267,143 +267,176 @@ const ServiceNow = () => {
       </div>
 
       {/* Hero Section */}
-      <section id="overview" ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden" style={{ background: `linear-gradient(135deg, var(--cds-background-inverse) 0%, var(--cds-background-inverse) 50%, ${brandColor}20 100%)` }}>
-        {/* Abstract Background */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: brandColor }} />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[var(--cds-background)] rounded-full blur-3xl" />
+      <section id="overview" ref={heroRef} className="relative min-h-[90vh] flex items-center overflow-hidden" style={{ background: `linear-gradient(135deg, var(--cds-background-inverse) 0%, #161616 50%, rgba(15, 98, 254, 0.15) 100%)` }}>
+        {/* Abstract Background Elements */}
+        <div className="absolute inset-0">
+          {/* Large gradient orb - top left */}
+          <div className="absolute -top-20 -left-20 w-[500px] h-[500px] opacity-30" style={{ background: 'radial-gradient(circle, rgba(15, 98, 254, 0.4) 0%, transparent 70%)' }} />
+          {/* Medium gradient orb - bottom right */}
+          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] opacity-20" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)' }} />
         </div>
         
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-          backgroundSize: '60px 60px'
+        {/* Carbon Grid Pattern Overlay */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)
+          `,
+          backgroundSize: '72px 72px'
         }} />
 
-        <div className="relative cds--css-grid py-16 lg:py-20" style={{ padding: 0 }}>
+        <div className="relative cds--css-grid py-20 lg:py-24" style={{ padding: 0 }}>
           {/* Column 1: Main Content (5 cols) */}
-          <div className="cds--col-span-5 cds--col-span-5--lg">
-            <span 
-              className="inline-block px-3 py-1 carbon-label-01 mb-6"
-              style={{ backgroundColor: `${brandColor}30`, color: brandColor }}
-            >
-              ServiceNow Integration
-            </span>
+          <div className="cds--col-span-5 cds--col-span-5--lg flex flex-col justify-center">
+            {/* Tag */}
+            <div className="inline-flex items-center gap-2 mb-6">
+              <span className="w-2 h-2 bg-[#0f62fe]" />
+              <span className="carbon-label-01 uppercase tracking-wider" style={{ color: '#78a9ff' }}>
+                ServiceNow Integration
+              </span>
+            </div>
 
-            <h1 className="carbon-fluid-display-03 text-white mb-6">
-              Secure Your ServiceNow Transition
+            {/* Headline */}
+            <h1 className="carbon-fluid-display-03 text-white mb-6 leading-tight">
+              Secure Your<br />
+              <span style={{ color: '#78a9ff' }}>ServiceNow</span><br />
+              Transition
             </h1>
         
-            <p className="carbon-body-02 text-[var(--cds-text-disabled)] mb-10">
-              Risk-mapped integrations that prevent SLA breaches and ensure data continuity 
-              during your ServiceNow migration. We don&apos;t just implement—we protect your operations.
+            {/* Subtext */}
+            <p className="carbon-body-02 text-[var(--cds-text-disabled)] mb-10 max-w-md">
+              Risk-mapped integrations that prevent SLA breaches and ensure data continuity during your migration.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col gap-4">
+            {/* CTA Buttons - Carbon Primary + Ghost */}
+            <div className="flex flex-col gap-3">
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[var(--cds-text-primary)] carbon-heading-01 hover:bg-[var(--cds-layer-02)] transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#0f62fe] text-white carbon-heading-01 hover:bg-[#0353e9] transition-colors"
               >
                 Get Risk Assessment
                 <ArrowRight className="w-5 h-5" />
               </button>
               <button 
                 onClick={() => scrollToSection('case-studies')}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/30 text-white carbon-heading-01 hover:bg-white/10 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-white carbon-heading-01 hover:text-[#78a9ff] transition-colors"
               >
                 View Case Studies
+                <ArrowUpRight className="w-5 h-5" />
               </button>
+            </div>
+
+            {/* Mini stats row */}
+            <div className="flex items-center gap-6 mt-10 pt-6 border-t border-white/10">
+              {[
+                { value: '14+', label: 'Years' },
+                { value: '50+', label: 'Projects' }
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <span className="carbon-heading-02 text-white">{stat.value}</span>
+                  <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)]">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Column 2: Visual Diagram (6 cols) */}
-          <div className="cds--col-span-6 cds--col-span-6--lg relative">
-            <div className="relative bg-[var(--cds-background)]/50 backdrop-blur-sm p-6 border border-white/10 h-full">
-              {/* Animated Diagram */}
-              <div className="relative h-64">
+          <div className="cds--col-span-6 cds--col-span-6--lg relative flex items-center">
+            <div className="relative w-full bg-[#262626]/80 backdrop-blur-sm border border-white/10 p-8">
+              {/* Header */}
+              <div className="flex items-center justify-between mb-8">
+                <span className="carbon-label-01 text-[var(--cds-text-placeholder)]">Migration Path</span>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-[#fa4d56]" />
+                  <span className="carbon-helper-text-01 text-[#fa4d56]">Risks Identified</span>
+                </div>
+              </div>
+
+              {/* Diagram */}
+              <div className="relative h-48">
                 {/* Legacy System */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-24">
-                  <div className="bg-[var(--cds-background)] p-3 border border-[var(--cds-border-strong)]">
-                    <ServerDns className="w-6 h-6 text-[var(--cds-text-secondary)] mx-auto mb-2" />
-                    <p className="carbon-helper-text-01 text-center text-[var(--cds-text-secondary)]">Legacy ITSM</p>
+                <div className="absolute left-0 top-1/2 -translate-y-1/2">
+                  <div className="bg-[#393939] p-4 border-l-4 border-[#fa4d56] w-28">
+                    <ServerDns className="w-8 h-8 text-[var(--cds-text-secondary)] mb-2" />
+                    <p className="carbon-label-01 text-[var(--cds-text-secondary)]">Legacy ITSM</p>
                   </div>
                 </div>
 
-                {/* Arrow with Animation */}
-                <div className="absolute left-24 right-24 top-1/2 -translate-y-1/2">
-                  <div className="relative h-1 bg-gradient-to-r from-slate-600 via-blue-500 to-green-500 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 animate-shimmer" 
-                      style={{ 
-                        backgroundSize: '200% 100%',
-                        animation: 'shimmer 2s infinite linear'
-                      }} 
-                    />
+                {/* Connection Line */}
+                <div className="absolute left-28 right-28 top-1/2 -translate-y-1/2">
+                  <div className="h-0.5 bg-gradient-to-r from-[#fa4d56] via-[#f1c21b] to-[#24a148] relative">
+                    {/* Animated pulse */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
                   </div>
-                  {/* Risk Indicators */}
-                  <div className="absolute -top-8 left-1/4 flex items-center gap-1">
-                    <WarningAlt className="w-4 h-4 text-[var(--cds-support-warning)]" />
-                    <span className="carbon-label-01 text-[var(--cds-support-warning)]">Data Loss Risk</span>
+                  
+                  {/* Risk Labels */}
+                  <div className="absolute -top-10 left-1/3 flex items-center gap-1.5 bg-[#393939] px-2 py-1">
+                    <WarningAlt className="w-3 h-3 text-[#f1c21b]" />
+                    <span className="carbon-helper-text-01 text-[#f1c21b]">Data Loss</span>
                   </div>
-                  <div className="absolute -bottom-8 left-2/3 flex items-center gap-1">
-                    <Time className="w-4 h-4 text-[var(--cds-support-error)]" />
-                    <span className="carbon-label-01 text-[var(--cds-support-error)]">Downtime</span>
+                  <div className="absolute -bottom-10 left-2/3 flex items-center gap-1.5 bg-[#393939] px-2 py-1">
+                    <Time className="w-3 h-3 text-[#fa4d56]" />
+                    <span className="carbon-helper-text-01 text-[#fa4d56]">Downtime</span>
                   </div>
                 </div>
 
-                {/* ServiceNow */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-24">
-                  <div className="bg-gradient-to-br from-blue-900/50 to-green-900/50 p-3 border border-[var(--cds-focus)]/30">
-                    <Settings className="w-6 h-6 mx-auto mb-2" style={{ color: brandColor }} />
-                    <p className="text-xs text-center text-white carbon-label-01">ServiceNow</p>
+                {/* ServiceNow Target */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2">
+                  <div className="bg-[#0f62fe]/20 p-4 border-l-4 border-[#0f62fe] w-28">
+                    <Settings className="w-8 h-8 text-[#78a9ff] mb-2" />
+                    <p className="carbon-label-01 text-white">ServiceNow</p>
                   </div>
                 </div>
 
-                {/* Protective Security Overlay */}
+                {/* Center Shield Icon */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 flex items-center justify-center" style={{ backgroundColor: `${brandColor}20` }}>
-                    <Security className="w-8 h-8" style={{ color: brandColor }} />
+                  <div className="w-14 h-14 bg-[#161616] border border-white/20 flex items-center justify-center">
+                    <Security className="w-7 h-7 text-[#0f62fe]" />
                   </div>
                 </div>
               </div>
 
-              {/* Stats Preview */}
-              <div className="mt-6 pt-6 border-t border-white/10 grid grid-cols-3 gap-4">
+              {/* Bottom Stats */}
+              <div className="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-white/10">
                 {[
-                  { value: 'Zero', label: 'Data Loss' },
-                  { value: '99.9%', label: 'Uptime' },
-                  { value: '4x', label: 'Faster Recovery' }
+                  { value: 'Zero', label: 'Data Loss', color: '#24a148' },
+                  { value: '99.9%', label: 'Uptime', color: '#0f62fe' },
+                  { value: '4x', label: 'Faster', color: '#f1c21b' }
                 ].map((stat) => (
                   <div key={stat.label} className="text-center">
-                    <p className="carbon-heading-03 text-white">{stat.value}</p>
-                    <p className="carbon-helper-text-02 text-[var(--cds-text-placeholder)]">{stat.label}</p>
+                    <p className="carbon-heading-02" style={{ color: stat.color }}>{stat.value}</p>
+                    <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)]">{stat.label}</p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Column 3: Stats & Trust (5 cols) */}
-          <div className="cds--col-span-5 cds--col-span-5--lg pl-8">
-            {/* Trust Indicators */}
-            <div className="mb-10">
-              <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)] mb-4">Trusted by enterprise teams</p>
+          {/* Column 3: Trust & Stats Cards (5 cols) */}
+          <div className="cds--col-span-5 cds--col-span-5--lg pl-8 flex flex-col gap-4">
+            {/* Trust Card */}
+            <div className="bg-[#262626]/60 border border-white/10 p-6">
+              <p className="carbon-label-01 uppercase tracking-wider text-[var(--cds-text-placeholder)] mb-4">Certifications</p>
               <div className="space-y-3">
-                {['Fortune 500', 'SOC 2 Type II', 'ISO 27001'].map((badge) => (
-                  <div key={badge} className="flex items-center gap-2 text-[var(--cds-text-disabled)]">
-                    <Security className="w-4 h-4" style={{ color: brandColor }} />
-                    <span className="carbon-body-compact-01">{badge}</span>
+                {[
+                  { icon: Locked, label: 'SOC 2 Type II' },
+                  { icon: Security, label: 'ISO 27001' },
+                  { icon: Building, label: 'Fortune 500 Ready' }
+                ].map((badge) => (
+                  <div key={badge.label} className="flex items-center gap-3 text-[var(--cds-text-secondary)]">
+                    <badge.icon className="w-5 h-5" style={{ color: '#78a9ff' }} />
+                    <span className="carbon-body-compact-01">{badge.label}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Highlights */}
-            <div className="space-y-6 border-t border-white/10 pt-8">
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-4">
               {highlights.slice(0, 4).map((stat, idx) => (
-                <div key={idx}>
-                  <span className="carbon-heading-02 text-white">{stat.value}</span>
-                  <p className="carbon-body-compact-01 text-[var(--cds-text-disabled)]">{stat.label}</p>
+                <div key={idx} className="bg-[#262626]/40 border border-white/5 p-4 text-center">
+                  <span className="carbon-heading-02 text-white block">{stat.value}</span>
+                  <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)]">{stat.label}</p>
                 </div>
               ))}
             </div>
