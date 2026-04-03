@@ -1117,27 +1117,29 @@ const ServiceNow = () => {
 
       {/* CTA Section */}
       <section id="contact" className="py-24" style={{ backgroundColor: brandColor }}>
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-          <span className="inline-block px-4 py-2 bg-white/10 rounded-full carbon-label-01 text-white/90 mb-6">
-            8-Week Go-Live Guarantee
-          </span>
-          <h2 className="carbon-fluid-heading-05 text-white mb-6">
-            Ready to Transform Your ITSM?
-          </h2>
-          <p className="text-lg text-white/80 mb-6 max-w-2xl mx-auto">
-            Get a free ServiceNow migration assessment. We&apos;ll analyse your current setup, 
-            identify risks, and provide a detailed roadmap—all at no cost.
-          </p>
-          <p className="carbon-body-compact-01 text-white/60 mb-10 max-w-2xl mx-auto">
-            Go live in 8 weeks guaranteed, or we work for free until you do.
-          </p>
-          <a
-            href="#footer"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-white text-[var(--cds-text-primary)] carbon-heading-02 rounded-full hover:bg-[var(--cds-layer-01)] transition-all duration-300"
-          >
-            Get Your Free Assessment
-            <ArrowRight className="w-5 h-5" />
-          </a>
+        <div className="cds--css-grid">
+          <div className="cds--col-span-16 cds--col-span-16--lg text-center">
+            <span className="inline-block px-4 py-2 bg-white/10 rounded-full carbon-label-01 text-white/90 mb-6">
+              8-Week Go-Live Guarantee
+            </span>
+            <h2 className="carbon-fluid-heading-05 text-white mb-6">
+              Ready to Transform Your ITSM?
+            </h2>
+            <p className="text-lg text-white/80 mb-6 max-w-2xl mx-auto">
+              Get a free ServiceNow migration assessment. We&apos;ll analyse your current setup, 
+              identify risks, and provide a detailed roadmap—all at no cost.
+            </p>
+            <p className="carbon-body-compact-01 text-white/60 mb-10 max-w-2xl mx-auto">
+              Go live in 8 weeks guaranteed, or we work for free until you do.
+            </p>
+            <a
+              href="#footer"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-white text-[var(--cds-text-primary)] carbon-heading-02 rounded-full hover:bg-[var(--cds-layer-01)] transition-all duration-300"
+            >
+              Get Your Free Assessment
+              <ArrowRight className="w-5 h-5" />
+            </a>
+          </div>
         </div>
       </section>
 
