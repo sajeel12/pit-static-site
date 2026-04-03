@@ -259,33 +259,33 @@ const ServiceNow = () => {
       </div>
 
       {/* Hero Section - Pure Carbon Design */}
-      <section id="overview" ref={heroRef} className="bg-[#161616] overflow-hidden mt-8">
+      <section id="overview" ref={heroRef} className="bg-[#161616] overflow-hidden" style={{ marginTop: 'var(--cds-spacing-09)' }}>
         {/* Top Accent Bar */}
         <div className="h-1 bg-[#0f62fe]" />
         
         {/* Main Hero Content */}
-        <div className="cds--css-grid py-16 px-4 md:px-6 lg:px-8">
+        <div className="cds--css-grid" style={{ paddingTop: 'var(--cds-spacing-10)', paddingBottom: 'var(--cds-spacing-10)' }}>
           {/* Left Content - 8 cols */}
           <div className="cds--col-span-8 cds--col-span-8--lg">
             {/* Tag */}
-            <div className="cds--tag cds--tag--blue mb-6">
+            <div className="cds--tag cds--tag--blue" style={{ marginBottom: 'var(--cds-spacing-06)' }}>
               <Settings className="w-4 h-4 mr-2" />
               ServiceNow Integration
             </div>
 
             {/* Headline */}
-            <h1 className="carbon-fluid-display-03 text-white mb-6" style={{ maxWidth: '600px' }}>
+            <h1 className="carbon-fluid-display-03 text-white" style={{ marginBottom: 'var(--cds-spacing-06)', maxWidth: '600px' }}>
               Secure Your ServiceNow Transition
             </h1>
 
             {/* Body */}
-            <p className="carbon-body-02 text-[#c6c6c6] mb-8" style={{ maxWidth: '560px' }}>
+            <p className="carbon-body-02 text-[#c6c6c6]" style={{ marginBottom: 'var(--cds-spacing-07)', maxWidth: '560px' }}>
               Risk-mapped integrations that prevent SLA breaches and ensure data continuity 
               during your ServiceNow migration. We don&apos;t just implement—we protect your operations.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap gap-4 mb-12">
+            <div className="flex flex-wrap" style={{ gap: 'var(--cds-spacing-05)', marginBottom: 'var(--cds-spacing-09)' }}>
               <button 
                 onClick={() => scrollToSection('contact')}
                 className="cds--btn cds--btn--primary"
@@ -303,10 +303,10 @@ const ServiceNow = () => {
             </div>
 
             {/* Horizontal Rule */}
-            <div className="h-px bg-[#393939] mb-8" />
+            <div className="h-px bg-[#393939]" style={{ marginBottom: 'var(--cds-spacing-07)' }} />
 
             {/* Quick Stats */}
-            <div className="flex gap-12">
+            <div className="flex" style={{ gap: 'var(--cds-spacing-09)' }}>
               {[
                 { value: '14+', label: 'Years Experience' },
                 { value: '50+', label: 'Projects Delivered' },
@@ -323,16 +323,16 @@ const ServiceNow = () => {
           {/* Right Content - 8 cols */}
           <div className="cds--col-span-8 cds--col-span-8--lg">
             {/* Value Proposition Tiles */}
-            <div className="space-y-4">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--cds-spacing-05)' }}>
               
               {/* Tile 1 */}
-              <div className="cds--tile bg-[#262626] p-6">
-                <div className="flex items-start gap-4">
+              <div className="cds--tile bg-[#262626]" style={{ padding: 'var(--cds-spacing-06)' }}>
+                <div className="flex items-start" style={{ gap: 'var(--cds-spacing-05)' }}>
                   <div className="w-12 h-12 bg-[#0f62fe] flex items-center justify-center flex-shrink-0">
                     <Security className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="carbon-heading-02 text-white mb-2">Risk-Mapped Approach</h3>
+                    <h3 className="carbon-heading-02 text-white" style={{ marginBottom: 'var(--cds-spacing-03)' }}>Risk-Mapped Approach</h3>
                     <p className="carbon-body-compact-01 text-[#c6c6c6]">
                       Identify and mitigate migration risks before they impact operations.
                     </p>
@@ -341,13 +341,13 @@ const ServiceNow = () => {
               </div>
 
               {/* Tile 2 */}
-              <div className="cds--tile bg-[#262626] p-6">
-                <div className="flex items-start gap-4">
+              <div className="cds--tile bg-[#262626]" style={{ padding: 'var(--cds-spacing-06)' }}>
+                <div className="flex items-start" style={{ gap: 'var(--cds-spacing-05)' }}>
                   <div className="w-12 h-12 bg-[#24a148] flex items-center justify-center flex-shrink-0">
                     <Time className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="carbon-heading-02 text-white mb-2">8-Week Deployment</h3>
+                    <h3 className="carbon-heading-02 text-white" style={{ marginBottom: 'var(--cds-spacing-03)' }}>8-Week Deployment</h3>
                     <p className="carbon-body-compact-01 text-[#c6c6c6]">
                       Fixed-scope implementations with guaranteed timelines.
                     </p>
@@ -356,13 +356,13 @@ const ServiceNow = () => {
               </div>
 
               {/* Tile 3 */}
-              <div className="cds--tile bg-[#262626] p-6">
-                <div className="flex items-start gap-4">
+              <div className="cds--tile bg-[#262626]" style={{ padding: 'var(--cds-spacing-06)' }}>
+                <div className="flex items-start" style={{ gap: 'var(--cds-spacing-05)' }}>
                   <div className="w-12 h-12 bg-[#f1c21b] flex items-center justify-center flex-shrink-0">
                     <Headphones className="w-6 h-6 text-[#161616]" />
                   </div>
                   <div>
-                    <h3 className="carbon-heading-02 text-white mb-2">24/7 Support</h3>
+                    <h3 className="carbon-heading-02 text-white" style={{ marginBottom: 'var(--cds-spacing-03)' }}>24/7 Support</h3>
                     <p className="carbon-body-compact-01 text-[#c6c6c6]">
                       Lahore-based NOC for continuous monitoring and response.
                     </p>
@@ -376,7 +376,7 @@ const ServiceNow = () => {
 
         {/* Trust Bar */}
         <div className="bg-[#262626]">
-          <div className="cds--css-grid py-6 px-4 md:px-6 lg:px-8">
+          <div className="cds--css-grid" style={{ paddingTop: 'var(--cds-spacing-06)', paddingBottom: 'var(--cds-spacing-06)' }}>
             <div className="cds--col-span-16 cds--col-span-16--lg">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <p className="carbon-label-01 text-[#a8a8a8] uppercase tracking-wide">Trusted by enterprise teams</p>
