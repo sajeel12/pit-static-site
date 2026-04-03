@@ -136,8 +136,8 @@ const ServiceNow = () => {
       icon: Building,
       iconColor: brandColor,
       tags: [
-        { text: 'Telecom', class: 'bg-blue-100 text-[var(--cds-link-primary-hover)]' },
-        { text: 'Migration', class: 'bg-blue-100 text-[var(--cds-link-primary-hover)]' },
+        { text: 'Telecom', class: 'bg-[var(--cds-layer-accent)] text-[var(--cds-link-primary-hover)]' },
+        { text: 'Migration', class: 'bg-[var(--cds-layer-accent)] text-[var(--cds-link-primary-hover)]' },
         { text: 'ServiceNow', class: 'bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)]' }
       ],
       title: "Enabling 99.95% uptime and 24/7 follow-the-sun support for Pakistan's largest telecom through ServiceNow Cloud migration",
@@ -156,7 +156,7 @@ const ServiceNow = () => {
       bgGradient: 'linear-gradient(135deg, #F5F0EB, #EDE8E3)',
       tags: [
         { text: 'Automation', class: 'bg-amber-100 text-[var(--cds-support-warning)]' },
-        { text: 'Integration', class: 'bg-blue-100 text-[var(--cds-link-primary-hover)]' },
+        { text: 'Integration', class: 'bg-[var(--cds-layer-accent)] text-[var(--cds-link-primary-hover)]' },
         { text: 'ServiceNow', class: 'bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)]' }
       ],
       title: '40% faster incident resolution for major telecom through intelligent ServiceNow automation',
@@ -548,7 +548,7 @@ const ServiceNow = () => {
               <div className="flex items-center gap-3">
                 <button
                   onClick={prevCaseStudy}
-                className="w-10 h-10 rounded-full border border-[var(--cds-border-subtle)] flex items-center justify-center hover:border-blue-300 hover:bg-[var(--cds-layer-accent)] transition-all"
+                className="w-10 h-10 rounded-full border border-[var(--cds-border-subtle)] flex items-center justify-center hover:border-[var(--cds-focus)] hover:bg-[var(--cds-layer-accent)] transition-all"
               >
                 <ChevronLeft className="w-5 h-5 text-[var(--cds-text-secondary)]" />
               </button>
@@ -565,7 +565,7 @@ const ServiceNow = () => {
               </div>
               <button
                 onClick={nextCaseStudy}
-                className="w-10 h-10 rounded-full border border-[var(--cds-border-subtle)] flex items-center justify-center hover:border-blue-300 hover:bg-[var(--cds-layer-accent)] transition-all"
+                className="w-10 h-10 rounded-full border border-[var(--cds-border-subtle)] flex items-center justify-center hover:border-[var(--cds-focus)] hover:bg-[var(--cds-layer-accent)] transition-all"
               >
                 <ChevronRight className="w-5 h-5 text-[var(--cds-text-secondary)]" />
               </button>
@@ -660,7 +660,7 @@ const ServiceNow = () => {
                 </div>
               </div>
               <div className="flex-1">
-                <Quotes className="w-10 h-10 text-blue-200 mb-4" />
+                <Quotes className="w-10 h-10 text-[var(--cds-link-secondary)] mb-4" />
                 <blockquote 
                   className="carbon-fluid-quotation-01 text-[var(--cds-text-secondary)] mb-6"
                 >
@@ -937,7 +937,7 @@ const ServiceNow = () => {
               {/* Value Realization Card */}
               <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border border-blue-100">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-[var(--cds-button-primary)] flex items-center justify-center">
                     <Lightning className="w-5 h-5 text-white" />
                   </div>
                   <div>
