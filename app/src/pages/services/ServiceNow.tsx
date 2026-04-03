@@ -218,7 +218,7 @@ const ServiceNow = () => {
       {/* Breadcrumb */}
       <div className="bg-slate-100 border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-3">
-          <nav className="flex items-center gap-2 text-sm text-gray-600">
+          <nav className="flex items-center gap-2 carbon-body-compact-01 text-gray-600">
             <Link to="/" className="hover:text-gray-900 transition-colors">Home</Link>
             <span className="text-gray-400">/</span>
             <Link to="/services" className="hover:text-gray-900 transition-colors">Services</Link>
@@ -369,8 +369,8 @@ const ServiceNow = () => {
             <div className="flex flex-wrap items-center justify-center gap-8 text-sm">
               {highlights.map((stat, idx) => (
                 <div key={idx} className="flex items-center gap-2">
-                  <span className="font-semibold text-white">{stat.value}</span>
-                  <span className="text-gray-300">{stat.label}</span>
+                  <span className="carbon-heading-01 text-white">{stat.value}</span>
+                  <span className="carbon-body-compact-01 text-gray-300">{stat.label}</span>
                 </div>
               ))}
             </div>
