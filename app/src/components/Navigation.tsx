@@ -247,7 +247,7 @@ const Navigation = () => {
       {/* Highlight Bar */}
       {showHighlightBar && (
         <div className="fixed top-0 left-0 right-0 z-[60] bg-slate-900 text-white">
-          <div className="max-w-[1400px] mx-auto px-4 py-2 flex items-center justify-center gap-2 text-sm">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-2 flex items-center justify-center gap-2 text-sm">
             <span className="px-2 py-0.5 bg-blue-500 text-white text-xs font-bold rounded">NEW</span>
             <Link to="/services" className="hover:underline">AI Accelerator — Deploy AI in 90 days</Link>
             <button 
@@ -263,7 +263,7 @@ const Navigation = () => {
 
       {/* Main Navigation */}
       <nav className={`fixed left-0 right-0 z-50 transition-all duration-300 ${showHighlightBar ? 'top-[36px]' : 'top-0'} ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-white border-b border-transparent'}`}>
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 sm:px-6 lg:px-8 relative">
           <div className="flex items-center h-16 lg:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center group flex-shrink-0">
@@ -288,12 +288,12 @@ const Navigation = () => {
                     <div className="absolute -top-4 left-0 right-0 h-4" />
                     <div className="bg-white border-b border-gray-200 shadow-2xl overflow-hidden w-full">
                       <div className="bg-gradient-to-r from-blue-500/10 to-blue-400/5 border-b border-blue-200">
-                        <div className="max-w-[1400px] mx-auto px-6 py-4">
+                        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-4">
                           <h3 className="text-base font-bold text-[#161616]">Integrated Solutions</h3>
                           <p className="text-sm text-[#525252] mt-1">From Hardware to Cloud — One Partner, Complete Accountability</p>
                         </div>
                       </div>
-                      <div className="py-6 max-w-[1400px] mx-auto px-6">
+                      <div className="py-6 max-w-7xl mx-auto px-6">
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                           {solutions.map((solution) => (
                             <Link key={solution.id} to={solution.link} className={`p-4 rounded-lg border-2 transition-all group ${solution.featured ? 'border-blue-500 bg-blue-50 shadow-md' : 'border-blue-200 bg-blue-50/30 hover:bg-blue-50 hover:border-blue-400'}`}>
@@ -309,7 +309,7 @@ const Navigation = () => {
                             </Link>
                           ))}
                         </div>
-                        <div className="mt-5 max-w-[1400px] mx-auto">
+                        <div className="mt-5 max-w-7xl mx-auto">
                           <div className="p-4 bg-gradient-to-r from-blue-50 to-white border border-blue-200 rounded-lg">
                             <div className="flex items-start gap-4">
                               <div className="flex-1">
@@ -323,7 +323,7 @@ const Navigation = () => {
                         </div>
                       </div>
                       <div className="border-t border-gray-200 bg-gray-50/50">
-                        <div className="max-w-[1400px] mx-auto px-6 py-4">
+                        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-4">
                           <Link to="/#contact" className="flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 hover:scale-[1.02] transition-all shadow-md">
                             Get Expert Advice — Schedule Free Consultation <ArrowRight className="w-5 h-5" />
                           </Link>
@@ -428,13 +428,13 @@ const Navigation = () => {
                     <div className="bg-white border-b border-gray-200 shadow-2xl overflow-hidden w-full">
                       {/* Header */}
                       <div className="bg-gradient-to-r from-blue-500/10 to-blue-400/5 border-b border-blue-200">
-                        <div className="max-w-[1400px] mx-auto px-6 py-4">
+                        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-4">
                           <h3 className="text-base font-bold text-[#161616]">{cloudCategory.label}</h3>
                           <p className="text-sm text-[#525252] mt-1">{cloudCategory.description}</p>
                         </div>
                       </div>
                       {/* Content */}
-                      <div className="max-w-[1400px] mx-auto flex">
+                      <div className="max-w-7xl mx-auto flex">
                         {/* Left Rail */}
                         <div className="w-[260px] bg-slate-100 p-5 flex-shrink-0 border-r border-gray-200">
                           <div className="space-y-1">
@@ -539,7 +539,7 @@ const Navigation = () => {
                       
                       {/* Footer */}
                       <div className="border-t border-blue-200 bg-blue-50/30 py-4">
-                        <div className="max-w-[1400px] mx-auto px-6">
+                        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                           <a href="#contact" className="flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 hover:scale-[1.02] transition-all shadow-md">
                             Talk to an Expert <ArrowRight className="w-5 h-5" />
                           </a>
@@ -568,13 +568,13 @@ const Navigation = () => {
                     <div className="bg-white border-b border-gray-200 shadow-2xl overflow-hidden w-full">
                       {/* Header */}
                       <div className="bg-gradient-to-r from-slate-500/10 to-slate-400/5 border-b border-slate-200">
-                        <div className="max-w-[1400px] mx-auto px-6 py-4">
+                        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-4">
                           <h3 className="text-base font-bold text-[#161616]">Infrastructure</h3>
                           <p className="text-sm text-[#525252] mt-1">Hardware support, data center services, and 24×7 SLA support</p>
                         </div>
                       </div>
                       {/* Content */}
-                      <div className="max-w-[1400px] mx-auto flex">
+                      <div className="max-w-7xl mx-auto flex">
                         {/* Left Rail */}
                         <div className="w-[260px] bg-slate-100 p-5 flex-shrink-0 border-r border-gray-200">
                           <div className="space-y-1">
@@ -700,7 +700,7 @@ const Navigation = () => {
                       
                       {/* Footer */}
                       <div className="border-t border-slate-200 bg-slate-50/30 py-4">
-                        <div className="max-w-[1400px] mx-auto px-6">
+                        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                           <a href="#contact" className="flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 hover:scale-[1.02] transition-all shadow-md">
                             Talk to an Infrastructure Expert <ArrowRight className="w-5 h-5" />
                           </a>
@@ -853,12 +853,12 @@ const Navigation = () => {
                     <div className="absolute -top-4 left-0 right-0 h-4" />
                     <div className="bg-white border-b border-gray-200 shadow-2xl overflow-hidden w-full">
                       <div className="bg-gradient-to-r from-blue-500/10 to-blue-400/5 border-b border-blue-200">
-                        <div className="max-w-[1400px] mx-auto px-6 py-4">
+                        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-4">
                           <h3 className="text-base font-bold text-[#161616]">About Perception IT</h3>
                           <p className="text-sm text-[#525252] mt-1">Your partner from hardware to cloud</p>
                         </div>
                       </div>
-                      <div className="max-w-[1400px] mx-auto flex">
+                      <div className="max-w-7xl mx-auto flex">
                         <div className="w-[260px] bg-slate-100 p-5 flex-shrink-0 border-r border-gray-200">
                           <div className="space-y-1">
                             {aboutCategories.map((category) => (
@@ -893,7 +893,7 @@ const Navigation = () => {
                         </div>
                       </div>
                       <div className="border-t border-blue-200 bg-blue-50/30">
-                        <div className="max-w-[1400px] mx-auto px-6 py-4">
+                        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-4">
                           <a href="#contact" className="flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 hover:scale-[1.02] transition-all shadow-md">
                             Start Your Project — Contact Us Today <ArrowRight className="w-5 h-5" />
                           </a>

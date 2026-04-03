@@ -8,9 +8,7 @@ import {
   Activity,
   Server,
   Database,
-  Cloud,
   Shield,
-  Workflow,
   Network,
   Building2,
   Zap,
@@ -22,14 +20,9 @@ import {
   ChevronRight,
   Quote,
   Code,
-  Cpu,
   Layers,
-  GitBranch,
-  FileCode,
-  Terminal,
   ArrowUpRight,
   HeadphonesIcon,
-  Search,
   AlertTriangle
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -40,9 +33,6 @@ import SidebarMenu from '../../components/SidebarMenu';
 const ServiceNow = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
-  
-  // Tech stack expansion state
-  const [techExpanded, setTechExpanded] = useState(false);
   
   // Case Studies Carousel State
   const [currentCaseStudy, setCurrentCaseStudy] = useState(0);
@@ -122,33 +112,6 @@ const ServiceNow = () => {
   ];
 
   // Technology Expertise Data
-  const technologies = [
-    { name: 'JavaScript', icon: Code },
-    { name: 'REST APIs', icon: Cloud },
-    { name: 'Glide API', icon: Terminal },
-    { name: 'Flow Designer', icon: Workflow },
-    { name: 'IntegrationHub', icon: Network },
-    { name: 'Service Portal', icon: Layers },
-    { name: 'Business Rules', icon: FileCode },
-    { name: 'Script Includes', icon: Code },
-    { name: 'UI Policies', icon: Shield },
-    { name: 'Client Scripts', icon: Terminal },
-    { name: 'Scheduled Jobs', icon: Clock },
-    { name: 'Import Sets', icon: Database },
-    { name: 'Transform Maps', icon: GitBranch },
-    { name: 'Notifications', icon: MessageSquare },
-    { name: 'SLA Definitions', icon: Clock3 },
-    { name: 'Workflow Editor', icon: Workflow },
-    { name: 'CMDB', icon: Database },
-    { name: 'Discovery', icon: Search },
-    { name: 'Service Mapping', icon: Network },
-    { name: 'Event Management', icon: Activity },
-    { name: 'Orchestration', icon: Cpu },
-    { name: 'MID Server', icon: Server },
-    { name: 'Update Sets', icon: Layers },
-    { name: 'Source Control', icon: GitBranch }
-  ];
-
   // Case Studies Data
   const caseStudies = [
     {
@@ -427,7 +390,7 @@ const ServiceNow = () => {
             {offerings.map((offering) => (
               <div 
                 key={offering.id}
-                className="relative bg-white rounded-xl border-2 border-gray-200 p-10 transition-all duration-300 hover:shadow-xl hover:border-blue-300 hover:-translate-y-1"
+                className="relative bg-white rounded-xl border border-gray-200 p-10 transition-all duration-300 hover:shadow-xl hover:border-[#3B82F6] hover:-translate-y-1 flex flex-col h-full"
               >
                 
                 <div className="flex items-center gap-4 mb-6">
@@ -463,7 +426,7 @@ const ServiceNow = () => {
 
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-medium transition-all hover:opacity-90 w-full justify-center"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-medium transition-all hover:opacity-90 w-full justify-center mt-auto"
                   style={{ backgroundColor: brandColor }}
                 >
                   {offering.cta}
@@ -475,7 +438,7 @@ const ServiceNow = () => {
         </div>
       </section>
 
-      {/* Technological Expertise Section */}
+      {/* Technological Expertise Section - Category Grouping */}
       <section id="expertise" className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-12">
@@ -490,41 +453,59 @@ const ServiceNow = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {(techExpanded ? technologies : technologies.slice(0, 12)).map((tech) => (
-              <div
-                key={tech.name}
-                className="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-gray-200 shadow-sm hover:border-blue-300 hover:shadow-md transition-all"
-              >
-                <tech.icon className="w-4 h-4" style={{ color: brandColor }} />
-                <span className="carbon-label-02 text-gray-700">{tech.name}</span>
-              </div>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Column 1: Core Platform */}
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="carbon-heading-02 text-gray-900 mb-4 flex items-center gap-2">
+                <Layers className="w-5 h-5" style={{ color: brandColor }} />
+                Core Platform
+              </h3>
+              <ul className="space-y-2">
+                {['ITSM', 'CMDB', 'Service Portal', 'Workflow Editor', 'Business Rules', 'SLA Definitions'].map((item) => (
+                  <li key={item} className="carbon-body-compact-02 text-gray-600">{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 2: Development */}
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="carbon-heading-02 text-gray-900 mb-4 flex items-center gap-2">
+                <Code className="w-5 h-5" style={{ color: brandColor }} />
+                Development
+              </h3>
+              <ul className="space-y-2">
+                {['JavaScript', 'Glide API', 'Script Includes', 'Client Scripts', 'UI Policies', 'Source Control'].map((item) => (
+                  <li key={item} className="carbon-body-compact-02 text-gray-600">{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 3: Integration */}
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="carbon-heading-02 text-gray-900 mb-4 flex items-center gap-2">
+                <Network className="w-5 h-5" style={{ color: brandColor }} />
+                Integration
+              </h3>
+              <ul className="space-y-2">
+                {['REST APIs', 'IntegrationHub', 'Flow Designer', 'Orchestration', 'MID Server', 'Import Sets'].map((item) => (
+                  <li key={item} className="carbon-body-compact-02 text-gray-600">{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 4: ITOM & Discovery */}
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="carbon-heading-02 text-gray-900 mb-4 flex items-center gap-2">
+                <Activity className="w-5 h-5" style={{ color: brandColor }} />
+                ITOM & Discovery
+              </h3>
+              <ul className="space-y-2">
+                {['Discovery', 'Service Mapping', 'Event Management', 'Cloud Operations', 'Transform Maps', 'Scheduled Jobs'].map((item) => (
+                  <li key={item} className="carbon-body-compact-02 text-gray-600">{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-
-          {!techExpanded && technologies.length > 12 && (
-            <div className="text-center">
-              <button
-                onClick={() => setTechExpanded(true)}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 rounded-lg text-gray-700 font-medium hover:border-blue-300 hover:text-blue-600 transition-all"
-              >
-                Show all technologies
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          )}
-
-          {techExpanded && (
-            <div className="text-center mt-6">
-              <button
-                onClick={() => setTechExpanded(false)}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 rounded-lg text-gray-700 font-medium hover:border-blue-300 hover:text-blue-600 transition-all"
-              >
-                Show less
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-            </div>
-          )}
         </div>
       </section>
 
@@ -936,53 +917,62 @@ const ServiceNow = () => {
 
           {/* Supporting Pillars */}
           <div className="mt-8 bg-white rounded-xl p-6 border border-gray-200">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                  <span className="text-base">🚀</span> Accelerating Your Value Realization
-                </h3>
-                <p className="text-xs text-gray-500 mb-3">How our full-stack capability speeds up your ROI:</p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex gap-2">
-                    <span className="font-medium text-gray-900 flex-shrink-0">Instant Trust:</span>
-                    <span className="text-gray-600">Real-time server health mapping keeps your CMDB accurate.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="font-medium text-gray-900 flex-shrink-0">Zero-Downtime Ops:</span>
-                    <span className="text-gray-600">Physical data center events trigger automated workflows pre-outage.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="font-medium text-gray-900 flex-shrink-0">Smart Correlation:</span>
-                    <span className="text-gray-600">Network alerts automatically prioritize incidents based on business impact.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="font-medium text-gray-900 flex-shrink-0">Seamless Lifecycle:</span>
-                    <span className="text-gray-600">Procurement data flows directly into Asset Management for perfect tracking.</span>
-                  </li>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Value Realization Card */}
+              <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border border-blue-100">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center">
+                    <Zap className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="carbon-heading-02 text-gray-900">Accelerating Your Value Realization</h3>
+                    <p className="carbon-helper-text-02 text-gray-500">How our full-stack capability speeds up your ROI</p>
+                  </div>
+                </div>
+                <ul className="space-y-4">
+                  {[
+                    { title: 'Instant Trust', desc: 'Real-time server health mapping keeps your CMDB accurate' },
+                    { title: 'Zero-Downtime Ops', desc: 'Physical data center events trigger automated workflows pre-outage' },
+                    { title: 'Smart Correlation', desc: 'Network alerts automatically prioritize incidents based on business impact' },
+                    { title: 'Seamless Lifecycle', desc: 'Procurement data flows directly into Asset Management for perfect tracking' }
+                  ].map((item) => (
+                    <li key={item.title} className="flex gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
+                      <div>
+                        <span className="carbon-label-02 text-gray-900 block">{item.title}</span>
+                        <span className="carbon-helper-text-02 text-gray-600">{item.desc}</span>
+                      </div>
+                    </li>
+                  ))}
                 </ul>
               </div>
-              <div>
-                <h3 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                  <span className="text-base">🤝</span> The Delivery Backbone
-                </h3>
-                <p className="text-xs text-gray-500 mb-3">Global alliances enabling local excellence:</p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex gap-2">
-                    <span className="font-medium text-gray-900 flex-shrink-0">Supply Chain Sync:</span>
-                    <span className="text-gray-600">Your CMDB matches deployed assets instantly via direct procurement channels.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="font-medium text-gray-900 flex-shrink-0">Rapid Readiness:</span>
-                    <span className="text-gray-600">Infrastructure staging aligns perfectly with ServiceNow deployment timelines.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="font-medium text-gray-900 flex-shrink-0">Deep Connectivity:</span>
-                    <span className="text-gray-600">Robust REST/SOAP integration ensures flawless data flow between hardware and ITSM.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="font-medium text-gray-900 flex-shrink-0">Unified Oversight:</span>
-                    <span className="text-gray-600">24/7 NOC/SOC monitoring feeds directly into your ServiceNow dashboards.</span>
-                  </li>
+
+              {/* Delivery Backbone Card */}
+              <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-slate-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-slate-700 flex items-center justify-center">
+                    <Network className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="carbon-heading-02 text-gray-900">The Delivery Backbone</h3>
+                    <p className="carbon-helper-text-02 text-gray-500">Global alliances enabling local excellence</p>
+                  </div>
+                </div>
+                <ul className="space-y-4">
+                  {[
+                    { title: 'Supply Chain Sync', desc: 'Your CMDB matches deployed assets instantly via direct procurement channels' },
+                    { title: 'Rapid Readiness', desc: 'Infrastructure staging aligns perfectly with ServiceNow deployment timelines' },
+                    { title: 'Deep Connectivity', desc: 'Robust REST/SOAP integration ensures flawless data flow between hardware and ITSM' },
+                    { title: 'Unified Oversight', desc: '24/7 NOC/SOC monitoring feeds directly into your ServiceNow dashboards' }
+                  ].map((item) => (
+                    <li key={item.title} className="flex gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-slate-500 mt-2 flex-shrink-0" />
+                      <div>
+                        <span className="carbon-label-02 text-gray-900 block">{item.title}</span>
+                        <span className="carbon-helper-text-02 text-gray-600">{item.desc}</span>
+                      </div>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

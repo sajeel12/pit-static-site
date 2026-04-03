@@ -51,10 +51,10 @@ const SidebarMenu = ({
 
   return (
     <nav 
-      className="sticky top-0 h-screen z-40 hidden xl:flex flex-col justify-center"
+      className="sticky top-0 h-screen z-40 hidden xl:flex flex-col"
       style={{ width: '256px' }}
     >
-      <div className="bg-white/70 backdrop-blur-md border-r border-gray-200 py-6 w-full">
+      <div className="bg-white/70 backdrop-blur-md border-r border-gray-200 pt-24 pb-6 w-full">
         <ul className="space-y-0">
           {items.map((item) => (
             <li key={item.id}>
