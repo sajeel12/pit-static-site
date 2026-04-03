@@ -333,7 +333,7 @@ const ServiceNow = () => {
                   <div className="absolute right-0 top-1/2 -translate-y-1/2 w-28">
                     <div className="bg-gradient-to-br from-blue-900/50 to-green-900/50 rounded-lg p-4 border border-blue-500/30">
                       <Settings className="w-8 h-8 mx-auto mb-2" style={{ color: brandColor }} />
-                      <p className="text-xs text-center text-white font-medium">ServiceNow</p>
+                      <p className="text-xs text-center text-white carbon-label-01">ServiceNow</p>
                     </div>
                   </div>
 
@@ -433,7 +433,7 @@ const ServiceNow = () => {
                   {offering.tags.map((tag) => (
                     <span 
                       key={tag}
-                      className="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full"
+                      className="px-3 py-1 bg-gray-100 text-gray-600 carbon-label-01 rounded-full"
                     >
                       {tag}
                     </span>
@@ -442,7 +442,7 @@ const ServiceNow = () => {
 
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-medium transition-all hover:opacity-90 w-full justify-center mt-auto"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white carbon-label-01 transition-all hover:opacity-90 w-full justify-center mt-auto"
                   style={{ backgroundColor: brandColor }}
                 >
                   {offering.cta}
@@ -788,7 +788,7 @@ const ServiceNow = () => {
             <div className="text-center mt-8">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 text-white font-medium rounded-lg transition-all hover:opacity-90"
+                className="inline-flex items-center gap-2 px-6 py-3 text-white carbon-label-01 rounded-lg transition-all hover:opacity-90"
                 style={{ backgroundColor: brandColor }}
               >
                 Download Detailed Commercial Model
@@ -999,7 +999,7 @@ const ServiceNow = () => {
             <p className="text-gray-300 mb-1">
               &quot;We don&apos;t just implement ServiceNow; we integrate it with your business reality.&quot;
             </p>
-            <p className="text-white font-medium" style={{ color: brandColor }}>
+            <p className="text-white carbon-label-01" style={{ color: brandColor }}>
               Our Risk-Mapped Framework identifies opportunities for optimization in Week 1, accelerating your time-to-value.
             </p>
           </div>
