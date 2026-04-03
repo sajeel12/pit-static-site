@@ -12,23 +12,27 @@ import {
   ChevronRight
 } from '@carbon/icons-react';
 
-// Batch 2-5: Lucide icons (to be migrated)
+// Batch 2: Carbon Icons (simple name changes)
 import {
-  MessageSquare,
+  Chat,
+  Building,
+  Security,
+  Lightning,
+  Locked,
+  UserMultiple,
+  Quotes,
+  Headphones,
+  WarningAlt
+} from '@carbon/icons-react';
+
+// Batch 3-5: Lucide icons (to be migrated)
+import {
   Clock,
   Server,
   Database,
-  Shield,
   Network,
-  Building2,
-  Zap,
   TrendingUp,
-  Clock3,
-  Lock,
-  Users,
-  Quote,
-  HeadphonesIcon,
-  AlertTriangle
+  Clock3
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navigation from '../../components/Navigation';
@@ -43,7 +47,7 @@ const ServiceNow = () => {
   const [currentCaseStudy, setCurrentCaseStudy] = useState(0);
   
   // TCO Calculator State
-  const [tcoUsers, setTcoUsers] = useState(500);
+  const [tcoUserMultiple, setTcoUserMultiple] = useState(500);
   const [tcoToolset, setTcoToolset] = useState<'excel' | 'jira' | 'legacy'>('excel');
   const [tcoModules, setTcoModules] = useState<string[]>(['itsm']);
 
@@ -89,7 +93,7 @@ const ServiceNow = () => {
   const offerings = [
     {
       id: 'consultation',
-      icon: MessageSquare,
+      icon: Chat,
       title: 'Consultation',
       duration: '2-4 weeks',
       description: 'Strategic assessment and roadmap development for your ServiceNow journey. We analyze your current ITSM maturity, identify gaps, and create a tailored implementation plan.',
@@ -107,7 +111,7 @@ const ServiceNow = () => {
     },
     {
       id: 'support',
-      icon: HeadphonesIcon,
+      icon: Headphones,
       title: 'Support',
       duration: 'Ongoing',
       description: '24/7 managed services with certified ServiceNow administrators. Continuous optimization, patch management, and platform evolution to maximize your investment.',
@@ -122,7 +126,7 @@ const ServiceNow = () => {
     {
       id: 'migration',
       link: '/projects/case-study/telco-service-desk-it-process-migration-to-servicenow',
-      icon: Building2,
+      icon: Building,
       iconColor: brandColor,
       tags: [
         { text: 'Telecom', class: 'bg-blue-100 text-blue-700' },
@@ -140,7 +144,7 @@ const ServiceNow = () => {
     {
       id: 'automation',
       link: '/projects/case-study/servicenow-incident-automation',
-      icon: Zap,
+      icon: Lightning,
       iconColor: '#F59E0B',
       bgGradient: 'linear-gradient(135deg, #F5F0EB, #EDE8E3)',
       tags: [
@@ -151,7 +155,7 @@ const ServiceNow = () => {
       title: '40% faster incident resolution for major telecom through intelligent ServiceNow automation',
       description: 'Developed an intelligent microservice bridge integrating network alarms with ServiceNow, eliminating manual incident handling and reducing response times through automated correlation and smart routing.',
       stats: [
-        { icon: Zap, iconBg: 'bg-amber-50', iconColor: 'text-amber-600', value: '40%', label: 'Less Manual Work' },
+        { icon: Lightning, iconBg: 'bg-amber-50', iconColor: 'text-amber-600', value: '40%', label: 'Less Manual Work' },
         { icon: Activity, iconBg: 'bg-blue-50', iconColor: 'text-blue-600', value: '98%', label: 'SLA Compliance' },
         { icon: Clock, iconBg: 'bg-blue-50', iconColor: 'text-blue-600', value: '45%', label: 'Faster Resolution' }
       ]
@@ -172,11 +176,11 @@ const ServiceNow = () => {
       itsm_itom: 1.8
     };
     
-    const currentAnnualCost = tcoUsers * baseCostPerUser[tcoToolset] * (tcoModules.includes('itom') && tcoModules.includes('itsm') ? moduleMultiplier.itsm_itom : tcoModules.includes('itom') ? moduleMultiplier.itom : moduleMultiplier.itsm);
+    const currentAnnualCost = tcoUserMultiple * baseCostPerUser[tcoToolset] * (tcoModules.includes('itom') && tcoModules.includes('itsm') ? moduleMultiplier.itsm_itom : tcoModules.includes('itom') ? moduleMultiplier.itom : moduleMultiplier.itsm);
     const hiddenCosts = currentAnnualCost * 0.35; // Downtime, manual labor
     const current3Year = (currentAnnualCost + hiddenCosts) * 3;
     
-    const perceptionCost = tcoUsers * 320 * (tcoModules.includes('itom') && tcoModules.includes('itsm') ? 1.6 : tcoModules.includes('itom') ? 1.3 : 1);
+    const perceptionCost = tcoUserMultiple * 320 * (tcoModules.includes('itom') && tcoModules.includes('itsm') ? 1.6 : tcoModules.includes('itom') ? 1.3 : 1);
     const perception3Year = perceptionCost * 3;
     
     const savings = current3Year - perception3Year;
@@ -276,7 +280,7 @@ const ServiceNow = () => {
                 <div className="flex flex-wrap items-center gap-6">
                   {['Fortune 500', 'SOC 2 Type II', 'ISO 27001'].map((badge) => (
                     <div key={badge} className="flex items-center gap-2 text-gray-300">
-                      <Shield className="w-4 h-4" style={{ color: brandColor }} />
+                      <Security className="w-4 h-4" style={{ color: brandColor }} />
                       <span className="text-sm">{badge}</span>
                     </div>
                   ))}
@@ -309,7 +313,7 @@ const ServiceNow = () => {
                     </div>
                     {/* Risk Indicators */}
                     <div className="absolute -top-8 left-1/4 flex items-center gap-1">
-                      <AlertTriangle className="w-4 h-4 text-amber-400" />
+                      <WarningAlt className="w-4 h-4 text-amber-400" />
                       <span className="text-xs text-amber-400">Data Loss Risk</span>
                     </div>
                     <div className="absolute -bottom-8 left-2/3 flex items-center gap-1">
@@ -326,10 +330,10 @@ const ServiceNow = () => {
                     </div>
                   </div>
 
-                  {/* Protective Shield Overlay */}
+                  {/* Protective Security Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-20 h-20 rounded-full flex items-center justify-center" style={{ backgroundColor: `${brandColor}20` }}>
-                      <Shield className="w-10 h-10" style={{ color: brandColor }} />
+                      <Security className="w-10 h-10" style={{ color: brandColor }} />
                     </div>
                   </div>
                 </div>
@@ -601,7 +605,7 @@ const ServiceNow = () => {
                         <div className="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm">
                           <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
                             <div className="text-center">
-                              <Building2 className="w-16 h-16 text-gray-300 mx-auto mb-2" />
+                              <Building className="w-16 h-16 text-gray-300 mx-auto mb-2" />
                               <span className="text-sm text-gray-400">Case Study Photo</span>
                             </div>
                           </div>
@@ -645,11 +649,11 @@ const ServiceNow = () => {
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-shrink-0">
                 <div className="w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center">
-                  <Users className="w-10 h-10 text-gray-400" />
+                  <UserMultiple className="w-10 h-10 text-gray-400" />
                 </div>
               </div>
               <div className="flex-1">
-                <Quote className="w-10 h-10 text-blue-200 mb-4" />
+                <Quotes className="w-10 h-10 text-blue-200 mb-4" />
                 <blockquote 
                   className="carbon-fluid-quotation-01 text-gray-700 mb-6"
                 >
@@ -689,18 +693,18 @@ const ServiceNow = () => {
             {/* Inputs */}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Number of Users</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Number of UserMultiple</label>
                 <input
                   type="range"
                   min="100"
                   max="5000"
                   step="100"
-                  value={tcoUsers}
-                  onChange={(e) => setTcoUsers(Number(e.target.value))}
+                  value={tcoUserMultiple}
+                  onChange={(e) => setTcoUserMultiple(Number(e.target.value))}
                   className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                   style={{ accentColor: brandColor }}
                 />
-                <div className="text-center mt-2 text-lg font-semibold text-gray-900">{tcoUsers.toLocaleString()}</div>
+                <div className="text-center mt-2 text-lg font-semibold text-gray-900">{tcoUserMultiple.toLocaleString()}</div>
               </div>
 
               <div>
@@ -894,7 +898,7 @@ const ServiceNow = () => {
             <div className="bg-white rounded-xl p-5 border border-gray-200">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
-                  <Shield className="w-4 h-4" style={{ color: brandColor }} />
+                  <Security className="w-4 h-4" style={{ color: brandColor }} />
                 </div>
                 <div>
                   <h3 className="carbon-heading-02 text-gray-900">Unified Accountability</h3>
@@ -927,7 +931,7 @@ const ServiceNow = () => {
               <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border border-blue-100">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center">
-                    <Zap className="w-5 h-5 text-white" />
+                    <Lightning className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <h3 className="carbon-heading-02 text-gray-900">Accelerating Your Value Realization</h3>
@@ -1004,7 +1008,7 @@ const ServiceNow = () => {
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="flex-shrink-0">
                 <div className="w-24 h-24 rounded-full flex items-center justify-center" style={{ backgroundColor: `${brandColor}15` }}>
-                  <Lock className="w-12 h-12" style={{ color: brandColor }} />
+                  <Locked className="w-12 h-12" style={{ color: brandColor }} />
                 </div>
               </div>
               <div className="flex-1 text-center md:text-left">
