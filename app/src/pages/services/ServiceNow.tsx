@@ -138,7 +138,7 @@ const ServiceNow = () => {
       tags: [
         { text: 'Telecom', class: 'bg-blue-100 text-blue-700' },
         { text: 'Migration', class: 'bg-blue-100 text-blue-700' },
-        { text: 'ServiceNow', class: 'bg-gray-100 text-[var(--cds-text-secondary)]' }
+        { text: 'ServiceNow', class: 'bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)]' }
       ],
       title: "Enabling 99.95% uptime and 24/7 follow-the-sun support for Pakistan's largest telecom through ServiceNow Cloud migration",
       description: "Pakistan's largest telecommunications provider modernised their service desk and migrated to ServiceNow Cloud, enabling 24/7 follow-the-sun support operations with 99.95% platform availability.",
@@ -157,7 +157,7 @@ const ServiceNow = () => {
       tags: [
         { text: 'Automation', class: 'bg-amber-100 text-amber-700' },
         { text: 'Integration', class: 'bg-blue-100 text-blue-700' },
-        { text: 'ServiceNow', class: 'bg-gray-100 text-[var(--cds-text-secondary)]' }
+        { text: 'ServiceNow', class: 'bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)]' }
       ],
       title: '40% faster incident resolution for major telecom through intelligent ServiceNow automation',
       description: 'Developed an intelligent microservice bridge integrating network alarms with ServiceNow, eliminating manual incident handling and reducing response times through automated correlation and smart routing.',
@@ -268,7 +268,7 @@ const ServiceNow = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-900 carbon-heading-01 rounded-lg hover:bg-gray-100 transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-900 carbon-heading-01 rounded-lg hover:bg-[var(--cds-layer-02)] transition-all duration-300"
                 >
                   Get Risk Assessment
                   <ArrowRight className="w-5 h-5" />
@@ -433,7 +433,7 @@ const ServiceNow = () => {
                   {offering.tags.map((tag) => (
                     <span 
                       key={tag}
-                      className="px-3 py-1 bg-gray-100 text-[var(--cds-text-secondary)] carbon-label-01 rounded-full"
+                      className="px-3 py-1 bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)] carbon-label-01 rounded-full"
                     >
                       {tag}
                     </span>
@@ -455,7 +455,7 @@ const ServiceNow = () => {
       </section>
 
       {/* Technological Expertise Section - Category Grouping */}
-      <section id="expertise" className="py-24 bg-gray-50">
+      <section id="expertise" className="py-24 bg-[var(--cds-layer-01)]">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
@@ -580,7 +580,7 @@ const ServiceNow = () => {
             >
               {caseStudies.map((study) => (
                 <div key={study.id} className="w-full flex-shrink-0">
-                  <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
+                  <div className="bg-[var(--cds-layer-01)] rounded-2xl p-8 md:p-12">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                       <div>
                         <div className="flex flex-wrap gap-2 mb-6">
@@ -641,7 +641,7 @@ const ServiceNow = () => {
       </section>
 
       {/* Client Testimonial Section */}
-      <section id="testimonial" className="py-24 bg-gray-50">
+      <section id="testimonial" className="py-24 bg-[var(--cds-layer-01)]">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
@@ -655,7 +655,7 @@ const ServiceNow = () => {
           <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-gray-200">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-shrink-0">
-                <div className="w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center">
+                <div className="w-20 h-20 rounded-full bg-[var(--cds-layer-03)] flex items-center justify-center">
                   <UserMultiple className="w-10 h-10 text-[var(--cds-text-placeholder)]" />
                 </div>
               </div>
@@ -696,7 +696,7 @@ const ServiceNow = () => {
             </p>
           </div>
 
-          <div className="bg-gray-50 rounded-xl border border-gray-200 p-8">
+          <div className="bg-[var(--cds-layer-01)] rounded-xl border border-gray-200 p-8">
             {/* Inputs */}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div>
@@ -708,7 +708,7 @@ const ServiceNow = () => {
                   step="100"
                   value={tcoUserMultiple}
                   onChange={(e) => setTcoUserMultiple(Number(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  className="w-full h-2 bg-[var(--cds-layer-03)] rounded-lg appearance-none cursor-pointer"
                   style={{ accentColor: brandColor }}
                 />
                 <div className="text-center mt-2 carbon-heading-02 text-[var(--cds-text-primary)]">{tcoUserMultiple.toLocaleString()}</div>
@@ -800,7 +800,7 @@ const ServiceNow = () => {
       </section>
 
       {/* ServiceNow Success Framework */}
-      <section id="framework" className="py-24 bg-gray-50">
+      <section id="framework" className="py-24 bg-[var(--cds-layer-01)]">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Header */}
           <div className="mb-10">
@@ -831,7 +831,7 @@ const ServiceNow = () => {
               </p>
               
               <div className="space-y-3">
-                <div className="bg-gray-50 rounded-lg p-3">
+                <div className="bg-[var(--cds-layer-01)] rounded-lg p-3">
                   <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-1">The Challenge</p>
                   <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">Legacy data schemas rarely match new models. Without deep auditing, relationships break, and adoption stalls by Week 4.</p>
                 </div>
@@ -860,7 +860,7 @@ const ServiceNow = () => {
               </p>
               
               <div className="space-y-3">
-                <div className="bg-gray-50 rounded-lg p-3">
+                <div className="bg-[var(--cds-layer-01)] rounded-lg p-3">
                   <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-1">The Challenge</p>
                   <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">Pure software integrators lack access to physical layer telemetry. Critical server or network events remain silent until users report an outage.</p>
                 </div>
@@ -889,7 +889,7 @@ const ServiceNow = () => {
               </p>
               
               <div className="space-y-3">
-                <div className="bg-gray-50 rounded-lg p-3">
+                <div className="bg-[var(--cds-layer-01)] rounded-lg p-3">
                   <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-1">The Challenge</p>
                   <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">Hard-coded customizations create technical debt that breaks during mandatory platform updates, causing downtime and rework.</p>
                 </div>
@@ -918,7 +918,7 @@ const ServiceNow = () => {
               </p>
               
               <div className="space-y-3">
-                <div className="bg-gray-50 rounded-lg p-3">
+                <div className="bg-[var(--cds-layer-01)] rounded-lg p-3">
                   <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-1">The Challenge</p>
                   <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">Fragmented vendors (software vs. hardware) create blame cycles that delay resolution and bleed SLAs.</p>
                 </div>
@@ -1009,7 +1009,7 @@ const ServiceNow = () => {
 
 
       {/* Compliance Section */}
-      <section id="compliance" className="py-24 bg-gray-50">
+      <section id="compliance" className="py-24 bg-[var(--cds-layer-01)]">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="bg-white rounded-xl border border-gray-200 p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center gap-8">
@@ -1026,10 +1026,10 @@ const ServiceNow = () => {
                   Enable Your Regulatory Compliance with Local Data Control. Our Lahore delivery center ensures your sensitive data remains within Pakistan jurisdiction unless explicitly authorized for cross-border transfer. Unlike global SaaS-only providers, we provide the local oversight and audit trails required by Banking and Government sectors to meet their SBP obligations.
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                  <span className="px-4 py-2 bg-gray-100 text-[var(--cds-text-secondary)] carbon-label-01 rounded-lg">SBP Guidelines Aligned</span>
-                  <span className="px-4 py-2 bg-gray-100 text-[var(--cds-text-secondary)] carbon-label-01 rounded-lg">Local Data Residency</span>
-                  <span className="px-4 py-2 bg-gray-100 text-[var(--cds-text-secondary)] carbon-label-01 rounded-lg">Audit-Ready Documentation</span>
-                  <span className="px-4 py-2 bg-gray-100 text-[var(--cds-text-secondary)] carbon-label-01 rounded-lg">24/7 Local Support Access</span>
+                  <span className="px-4 py-2 bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)] carbon-label-01 rounded-lg">SBP Guidelines Aligned</span>
+                  <span className="px-4 py-2 bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)] carbon-label-01 rounded-lg">Local Data Residency</span>
+                  <span className="px-4 py-2 bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)] carbon-label-01 rounded-lg">Audit-Ready Documentation</span>
+                  <span className="px-4 py-2 bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)] carbon-label-01 rounded-lg">24/7 Local Support Access</span>
                 </div>
               </div>
             </div>
@@ -1054,7 +1054,7 @@ const ServiceNow = () => {
 
           <div className="relative">
             {/* Connection Line */}
-            <div className="absolute left-8 top-12 bottom-12 w-0.5 bg-gray-200 hidden md:block" />
+            <div className="absolute left-8 top-12 bottom-12 w-0.5 bg-[var(--cds-layer-03)] hidden md:block" />
 
             <div className="space-y-8">
               {/* Step 1 */}
@@ -1067,7 +1067,7 @@ const ServiceNow = () => {
                     <h3 className="carbon-heading-03 text-[var(--cds-text-primary)]">Book a 30-min Technical Discovery Call</h3>
                   </div>
                 </div>
-                <div className="flex-1 bg-gray-50 rounded-xl p-6 md:ml-0 ml-0">
+                <div className="flex-1 bg-[var(--cds-layer-01)] rounded-xl p-6 md:ml-0 ml-0">
                   <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-2 hidden md:block">Book a 30-min Technical Discovery Call</h3>
                   <p className="carbon-body-02 text-[var(--cds-text-secondary)]">
                     We discuss your current setup, pain points, and goals. No sales pitch—just technical assessment.
@@ -1085,7 +1085,7 @@ const ServiceNow = () => {
                     <h3 className="carbon-heading-03 text-[var(--cds-text-primary)]">Receive a Preliminary Risk Assessment Report</h3>
                   </div>
                 </div>
-                <div className="flex-1 bg-gray-50 rounded-xl p-6">
+                <div className="flex-1 bg-[var(--cds-layer-01)] rounded-xl p-6">
                   <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-2 hidden md:block">Receive a Preliminary Risk Assessment Report</h3>
                   <p className="carbon-body-02 text-[var(--cds-text-secondary)]">
                     Free detailed analysis of integration risks, data migration complexity, and recommended approach.
@@ -1103,7 +1103,7 @@ const ServiceNow = () => {
                     <h3 className="carbon-heading-03 text-[var(--cds-text-primary)]">Review Fixed-Scope Proposal within 48 Hours</h3>
                   </div>
                 </div>
-                <div className="flex-1 bg-gray-50 rounded-xl p-6">
+                <div className="flex-1 bg-[var(--cds-layer-01)] rounded-xl p-6">
                   <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-2 hidden md:block">Review Fixed-Scope Proposal within 48 Hours</h3>
                   <p className="carbon-body-02 text-[var(--cds-text-secondary)]">
                     Clear timeline, fixed price, defined deliverables. No hidden costs. No surprises.
