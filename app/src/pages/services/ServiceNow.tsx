@@ -138,7 +138,7 @@ const ServiceNow = () => {
       tags: [
         { text: 'Telecom', class: 'bg-blue-100 text-blue-700' },
         { text: 'Migration', class: 'bg-blue-100 text-blue-700' },
-        { text: 'ServiceNow', class: 'bg-gray-100 text-gray-700' }
+        { text: 'ServiceNow', class: 'bg-gray-100 text-[var(--cds-text-secondary)]' }
       ],
       title: "Enabling 99.95% uptime and 24/7 follow-the-sun support for Pakistan's largest telecom through ServiceNow Cloud migration",
       description: "Pakistan's largest telecommunications provider modernised their service desk and migrated to ServiceNow Cloud, enabling 24/7 follow-the-sun support operations with 99.95% platform availability.",
@@ -157,7 +157,7 @@ const ServiceNow = () => {
       tags: [
         { text: 'Automation', class: 'bg-amber-100 text-amber-700' },
         { text: 'Integration', class: 'bg-blue-100 text-blue-700' },
-        { text: 'ServiceNow', class: 'bg-gray-100 text-gray-700' }
+        { text: 'ServiceNow', class: 'bg-gray-100 text-[var(--cds-text-secondary)]' }
       ],
       title: '40% faster incident resolution for major telecom through intelligent ServiceNow automation',
       description: 'Developed an intelligent microservice bridge integrating network alarms with ServiceNow, eliminating manual incident handling and reducing response times through automated correlation and smart routing.',
@@ -218,14 +218,14 @@ const ServiceNow = () => {
       {/* Breadcrumb */}
       <div className="bg-slate-100 border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-3">
-          <nav className="flex items-center gap-2 carbon-body-compact-01 text-gray-600">
-            <Link to="/" className="hover:text-gray-900 transition-colors">Home</Link>
+          <nav className="flex items-center gap-2 carbon-body-compact-01 text-[var(--cds-text-secondary)]">
+            <Link to="/" className="hover:text-[var(--cds-text-primary)] transition-colors">Home</Link>
             <span className="text-gray-400">/</span>
-            <Link to="/services" className="hover:text-gray-900 transition-colors">Services</Link>
+            <Link to="/services" className="hover:text-[var(--cds-text-primary)] transition-colors">Services</Link>
             <span className="text-gray-400">/</span>
-            <Link to="/services#platforms" className="hover:text-gray-900 transition-colors">IT Platforms</Link>
+            <Link to="/services#platforms" className="hover:text-[var(--cds-text-primary)] transition-colors">IT Platforms</Link>
             <span className="text-gray-400">/</span>
-            <span className="text-gray-900">ServiceNow</span>
+            <span className="text-[var(--cds-text-primary)]">ServiceNow</span>
           </nav>
         </div>
       </div>
@@ -394,10 +394,10 @@ const ServiceNow = () => {
             <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Our Services
             </span>
-            <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
+            <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-4">
               ServiceNow Offerings
             </h2>
-            <p className="carbon-body-02 text-gray-600 max-w-2xl">
+            <p className="carbon-body-02 text-[var(--cds-text-secondary)] max-w-2xl">
               End-to-end ServiceNow services from strategy to ongoing support
             </p>
           </div>
@@ -417,7 +417,7 @@ const ServiceNow = () => {
                     <offering.icon className="w-8 h-8" style={{ color: brandColor }} />
                   </div>
                   <div>
-                    <h3 className="carbon-heading-03 text-gray-900">{offering.title}</h3>
+                    <h3 className="carbon-heading-03 text-[var(--cds-text-primary)]">{offering.title}</h3>
                     <div className="flex items-center gap-2 carbon-body-compact-01 text-gray-500">
                       <Time className="w-4 h-4" />
                       <span>{offering.duration}</span>
@@ -425,7 +425,7 @@ const ServiceNow = () => {
                   </div>
                 </div>
 
-                <p className="carbon-body-02 text-gray-600 mb-6 leading-relaxed">
+                <p className="carbon-body-02 text-[var(--cds-text-secondary)] mb-6 leading-relaxed">
                   {offering.description}
                 </p>
 
@@ -433,7 +433,7 @@ const ServiceNow = () => {
                   {offering.tags.map((tag) => (
                     <span 
                       key={tag}
-                      className="px-3 py-1 bg-gray-100 text-gray-600 carbon-label-01 rounded-full"
+                      className="px-3 py-1 bg-gray-100 text-[var(--cds-text-secondary)] carbon-label-01 rounded-full"
                     >
                       {tag}
                     </span>
@@ -461,10 +461,10 @@ const ServiceNow = () => {
             <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Technical Capabilities
             </span>
-            <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
+            <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-4">
               Technological Expertise
             </h2>
-            <p className="carbon-body-02 text-gray-600 max-w-2xl">
+            <p className="carbon-body-02 text-[var(--cds-text-secondary)] max-w-2xl">
               Deep technical knowledge across the entire ServiceNow platform
             </p>
           </div>
@@ -472,52 +472,52 @@ const ServiceNow = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Column 1: Core Platform */}
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="carbon-heading-02 text-gray-900 mb-4 flex items-center gap-2">
+              <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-2">
                 <Layers className="w-5 h-5" style={{ color: brandColor }} />
                 Core Platform
               </h3>
               <ul className="space-y-2">
                 {['ITSM', 'CMDB', 'Service Portal', 'Workflow Editor', 'Business Rules', 'SLA Definitions'].map((item) => (
-                  <li key={item} className="carbon-body-compact-02 text-gray-600">{item}</li>
+                  <li key={item} className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">{item}</li>
                 ))}
               </ul>
             </div>
 
             {/* Column 2: Development */}
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="carbon-heading-02 text-gray-900 mb-4 flex items-center gap-2">
+              <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-2">
                 <Code className="w-5 h-5" style={{ color: brandColor }} />
                 Development
               </h3>
               <ul className="space-y-2">
                 {['JavaScript', 'Glide API', 'Script Includes', 'Client Scripts', 'UI Policies', 'Source Control'].map((item) => (
-                  <li key={item} className="carbon-body-compact-02 text-gray-600">{item}</li>
+                  <li key={item} className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">{item}</li>
                 ))}
               </ul>
             </div>
 
             {/* Column 3: Integration */}
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="carbon-heading-02 text-gray-900 mb-4 flex items-center gap-2">
+              <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-2">
                 <Network_1 className="w-5 h-5" style={{ color: brandColor }} />
                 Integration
               </h3>
               <ul className="space-y-2">
                 {['REST APIs', 'IntegrationHub', 'Flow Designer', 'Orchestration', 'MID Server', 'Import Sets'].map((item) => (
-                  <li key={item} className="carbon-body-compact-02 text-gray-600">{item}</li>
+                  <li key={item} className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">{item}</li>
                 ))}
               </ul>
             </div>
 
             {/* Column 4: ITOM & Discovery */}
             <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="carbon-heading-02 text-gray-900 mb-4 flex items-center gap-2">
+              <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-2">
                 <Activity className="w-5 h-5" style={{ color: brandColor }} />
                 ITOM & Discovery
               </h3>
               <ul className="space-y-2">
                 {['Discovery', 'Service Mapping', 'Event Management', 'Cloud Operations', 'Transform Maps', 'Scheduled Jobs'].map((item) => (
-                  <li key={item} className="carbon-body-compact-02 text-gray-600">{item}</li>
+                  <li key={item} className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">{item}</li>
                 ))}
               </ul>
             </div>
@@ -533,7 +533,7 @@ const ServiceNow = () => {
               <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
                 Success Stories
               </span>
-              <h2 className="carbon-fluid-heading-05 text-gray-900">
+              <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)]">
                 Case Studies
               </h2>
             </div>
@@ -550,7 +550,7 @@ const ServiceNow = () => {
                   onClick={prevCaseStudy}
                 className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:border-blue-300 hover:bg-blue-50 transition-all"
               >
-                <ChevronLeft className="w-5 h-5 text-gray-600" />
+                <ChevronLeft className="w-5 h-5 text-[var(--cds-text-secondary)]" />
               </button>
               <div className="flex gap-2">
                 {caseStudies.map((_, idx) => (
@@ -567,7 +567,7 @@ const ServiceNow = () => {
                 onClick={nextCaseStudy}
                 className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:border-blue-300 hover:bg-blue-50 transition-all"
               >
-                <ChevronRight className="w-5 h-5 text-gray-600" />
+                <ChevronRight className="w-5 h-5 text-[var(--cds-text-secondary)]" />
               </button>
               </div>
             </div>
@@ -593,10 +593,10 @@ const ServiceNow = () => {
                             </span>
                           ))}
                         </div>
-                        <h3 className="carbon-fluid-heading-04 text-gray-900 mb-4">
+                        <h3 className="carbon-fluid-heading-04 text-[var(--cds-text-primary)] mb-4">
                           {study.title}
                         </h3>
-                        <p className="carbon-body-02 text-gray-600 mb-8 leading-relaxed">
+                        <p className="carbon-body-02 text-[var(--cds-text-secondary)] mb-8 leading-relaxed">
                           {study.description}
                         </p>
                         <Link
@@ -625,7 +625,7 @@ const ServiceNow = () => {
                               <div className={`w-12 h-12 rounded-lg ${stat.iconBg} flex items-center justify-center mx-auto mb-3`}>
                                 <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                               </div>
-                              <div className="text-xl font-bold text-gray-900 mb-1">{stat.value}</div>
+                              <div className="text-xl font-bold text-[var(--cds-text-primary)] mb-1">{stat.value}</div>
                               <div className="carbon-helper-text-02 text-gray-500">{stat.label}</div>
                             </div>
                           ))}
@@ -647,7 +647,7 @@ const ServiceNow = () => {
             <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Feedback
             </span>
-            <h2 className="carbon-fluid-heading-05 text-gray-900">
+            <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)]">
               Client Testimonial
             </h2>
           </div>
@@ -662,7 +662,7 @@ const ServiceNow = () => {
               <div className="flex-1">
                 <Quotes className="w-10 h-10 text-blue-200 mb-4" />
                 <blockquote 
-                  className="carbon-fluid-quotation-01 text-gray-700 mb-6"
+                  className="carbon-fluid-quotation-01 text-[var(--cds-text-secondary)] mb-6"
                 >
                   &quot;Perception IT transformed our IT operations with their ServiceNow expertise. 
                   Their team successfully migrated us from Maximo to ServiceNow with zero downtime, 
@@ -671,7 +671,7 @@ const ServiceNow = () => {
                 </blockquote>
                 <div className="flex items-center gap-4">
                   <div>
-                    <div className="carbon-heading-01 text-gray-900">Usman Ikram</div>
+                    <div className="carbon-heading-01 text-[var(--cds-text-primary)]">Usman Ikram</div>
                     <div className="carbon-helper-text-02 text-gray-500">IT Operations Director, Major Telecom Provider</div>
                   </div>
                 </div>
@@ -688,10 +688,10 @@ const ServiceNow = () => {
             <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Financial Transparency
             </span>
-            <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
+            <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-4">
               Stop Guessing Your ITSM Budget
             </h2>
-            <p className="carbon-body-02 text-gray-600">
+            <p className="carbon-body-02 text-[var(--cds-text-secondary)]">
               See Your 3-Year TCO Now
             </p>
           </div>
@@ -700,7 +700,7 @@ const ServiceNow = () => {
             {/* Inputs */}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div>
-                <label className="block carbon-label-01 text-gray-700 mb-2">Number of UserMultiple</label>
+                <label className="block carbon-label-01 text-[var(--cds-text-secondary)] mb-2">Number of UserMultiple</label>
                 <input
                   type="range"
                   min="100"
@@ -711,11 +711,11 @@ const ServiceNow = () => {
                   className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                   style={{ accentColor: brandColor }}
                 />
-                <div className="text-center mt-2 carbon-heading-02 text-gray-900">{tcoUserMultiple.toLocaleString()}</div>
+                <div className="text-center mt-2 carbon-heading-02 text-[var(--cds-text-primary)]">{tcoUserMultiple.toLocaleString()}</div>
               </div>
 
               <div>
-                <label className="block carbon-label-01 text-gray-700 mb-2">Current Toolset</label>
+                <label className="block carbon-label-01 text-[var(--cds-text-secondary)] mb-2">Current Toolset</label>
                 <select
                   value={tcoToolset}
                   onChange={(e) => setTcoToolset(e.target.value as 'excel' | 'jira' | 'legacy')}
@@ -728,7 +728,7 @@ const ServiceNow = () => {
               </div>
 
               <div>
-                <label className="block carbon-label-01 text-gray-700 mb-2">Desired Modules</label>
+                <label className="block carbon-label-01 text-[var(--cds-text-secondary)] mb-2">Desired Modules</label>
                 <div className="space-y-2">
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
@@ -744,7 +744,7 @@ const ServiceNow = () => {
                       className="w-4 h-4 rounded border-gray-300"
                       style={{ accentColor: brandColor }}
                     />
-                    <span className="carbon-body-compact-02 text-gray-600">ITSM (Service Desk)</span>
+                    <span className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">ITSM (Service Desk)</span>
                   </label>
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
@@ -760,7 +760,7 @@ const ServiceNow = () => {
                       className="w-4 h-4 rounded border-gray-300"
                       style={{ accentColor: brandColor }}
                     />
-                    <span className="carbon-body-compact-02 text-gray-600">ITOM (Operations)</span>
+                    <span className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">ITOM (Operations)</span>
                   </label>
                 </div>
               </div>
@@ -770,7 +770,7 @@ const ServiceNow = () => {
             <div className="grid md:grid-cols-3 gap-6 pt-8 border-t border-gray-200">
               <div className="text-center">
                 <p className="carbon-helper-text-01 text-gray-500 mb-1">Current 3-Year Cost</p>
-                <p className="text-3xl font-bold text-gray-900">${tcoResult.current}K</p>
+                <p className="text-3xl font-bold text-[var(--cds-text-primary)]">${tcoResult.current}K</p>
                 <p className="carbon-helper-text-01 text-gray-400 mt-1">Including hidden costs</p>
               </div>
               <div className="text-center">
@@ -804,10 +804,10 @@ const ServiceNow = () => {
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Header */}
           <div className="mb-10">
-            <h2 className="carbon-fluid-heading-05 text-gray-900 mb-2">
+            <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-2">
               The ServiceNow Success Framework
             </h2>
-            <p className="text-gray-600 max-w-2xl">
+            <p className="text-[var(--cds-text-secondary)] max-w-2xl">
               Delivering ROI requires more than software installation. It demands Full-Stack integration across four critical dimensions.
             </p>
           </div>
@@ -821,24 +821,24 @@ const ServiceNow = () => {
                   <DataBase className="w-4 h-4" style={{ color: brandColor }} />
                 </div>
                 <div>
-                  <h3 className="carbon-heading-02 text-gray-900">Data Integrity</h3>
+                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Data Integrity</h3>
                   <p className="carbon-helper-text-02 text-gray-400">The Foundation</p>
                 </div>
               </div>
               
-              <p className="carbon-label-01 text-gray-700 mb-3">
+              <p className="carbon-label-01 text-[var(--cds-text-secondary)] mb-3">
                 Success depends on a CMDB you can trust.
               </p>
               
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-3">
                   <p className="carbon-label-01 text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
-                  <p className="carbon-body-compact-01 text-gray-600 leading-snug">Legacy data schemas rarely match new models. Without deep auditing, relationships break, and adoption stalls by Week 4.</p>
+                  <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">Legacy data schemas rarely match new models. Without deep auditing, relationships break, and adoption stalls by Week 4.</p>
                 </div>
                 
                 <div className="rounded-lg p-3" style={{ backgroundColor: `${brandColor}10` }}>
                   <p className="carbon-label-01 uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
-                  <p className="carbon-body-compact-01 text-gray-700 leading-snug">We perform Risk-Mapped Data Audits before migration. By reconciling schema conflicts in the planning phase, we deliver a 99% accurate CMDB from Day 1, ensuring immediate user trust.</p>
+                  <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">We perform Risk-Mapped Data Audits before migration. By reconciling schema conflicts in the planning phase, we deliver a 99% accurate CMDB from Day 1, ensuring immediate user trust.</p>
                 </div>
               </div>
             </div>
@@ -850,24 +850,24 @@ const ServiceNow = () => {
                   <ServerDns className="w-4 h-4" style={{ color: brandColor }} />
                 </div>
                 <div>
-                  <h3 className="carbon-heading-02 text-gray-900">Total Visibility</h3>
+                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Total Visibility</h3>
                   <p className="carbon-helper-text-02 text-gray-400">The Engine</p>
                 </div>
               </div>
               
-              <p className="carbon-label-01 text-gray-700 mb-3">
+              <p className="carbon-label-01 text-[var(--cds-text-secondary)] mb-3">
                 ServiceNow cannot automate what it cannot see.
               </p>
               
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-3">
                   <p className="carbon-label-01 text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
-                  <p className="carbon-body-compact-01 text-gray-600 leading-snug">Pure software integrators lack access to physical layer telemetry. Critical server or network events remain silent until users report an outage.</p>
+                  <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">Pure software integrators lack access to physical layer telemetry. Critical server or network events remain silent until users report an outage.</p>
                 </div>
                 
                 <div className="rounded-lg p-3" style={{ backgroundColor: `${brandColor}10` }}>
                   <p className="carbon-label-01 uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
-                  <p className="carbon-body-compact-01 text-gray-700 leading-snug">As a Huawei Certified Partner, we bridge hardware health metrics directly into ServiceNow ITOM. This enables proactive incident automation, resolving infrastructure issues before they impact business operations.</p>
+                  <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">As a Huawei Certified Partner, we bridge hardware health metrics directly into ServiceNow ITOM. This enables proactive incident automation, resolving infrastructure issues before they impact business operations.</p>
                 </div>
               </div>
             </div>
@@ -879,24 +879,24 @@ const ServiceNow = () => {
                   <ArrowUp className="w-4 h-4" style={{ color: brandColor }} />
                 </div>
                 <div>
-                  <h3 className="carbon-heading-02 text-gray-900">Sustainable Architecture</h3>
+                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Sustainable Architecture</h3>
                   <p className="carbon-helper-text-02 text-gray-400">The Long Game</p>
                 </div>
               </div>
               
-              <p className="carbon-label-01 text-gray-700 mb-3">
+              <p className="carbon-label-01 text-[var(--cds-text-secondary)] mb-3">
                 True speed means never having to rebuild.
               </p>
               
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-3">
                   <p className="carbon-label-01 text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
-                  <p className="carbon-body-compact-01 text-gray-600 leading-snug">Hard-coded customizations create technical debt that breaks during mandatory platform updates, causing downtime and rework.</p>
+                  <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">Hard-coded customizations create technical debt that breaks during mandatory platform updates, causing downtime and rework.</p>
                 </div>
                 
                 <div className="rounded-lg p-3" style={{ backgroundColor: `${brandColor}10` }}>
                   <p className="carbon-label-01 uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
-                  <p className="carbon-body-compact-01 text-gray-700 leading-snug">We architect using native ServiceNow capabilities (Flow Designer, Integration Hub). This upgrade-safe approach ensures your investment remains stable and adaptable through future patches without costly refactoring.</p>
+                  <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">We architect using native ServiceNow capabilities (Flow Designer, Integration Hub). This upgrade-safe approach ensures your investment remains stable and adaptable through future patches without costly refactoring.</p>
                 </div>
               </div>
             </div>
@@ -908,24 +908,24 @@ const ServiceNow = () => {
                   <Security className="w-4 h-4" style={{ color: brandColor }} />
                 </div>
                 <div>
-                  <h3 className="carbon-heading-02 text-gray-900">Unified Accountability</h3>
+                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Unified Accountability</h3>
                   <p className="carbon-helper-text-02 text-gray-400">The Guarantee</p>
                 </div>
               </div>
               
-              <p className="carbon-label-01 text-gray-700 mb-3">
+              <p className="carbon-label-01 text-[var(--cds-text-secondary)] mb-3">
                 One partner, one outcome.
               </p>
               
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-3">
                   <p className="carbon-label-01 text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
-                  <p className="carbon-body-compact-01 text-gray-600 leading-snug">Fragmented vendors (software vs. hardware) create blame cycles that delay resolution and bleed SLAs.</p>
+                  <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">Fragmented vendors (software vs. hardware) create blame cycles that delay resolution and bleed SLAs.</p>
                 </div>
                 
                 <div className="rounded-lg p-3" style={{ backgroundColor: `${brandColor}10` }}>
                   <p className="carbon-label-01 uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
-                  <p className="carbon-body-compact-01 text-gray-700 leading-snug">We provide Full-Stack Accountability. From the shipping dock to the cloud dashboard, one team owns the resolution, ensuring seamless coordination and guaranteed uptime.</p>
+                  <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">We provide Full-Stack Accountability. From the shipping dock to the cloud dashboard, one team owns the resolution, ensuring seamless coordination and guaranteed uptime.</p>
                 </div>
               </div>
             </div>
@@ -941,7 +941,7 @@ const ServiceNow = () => {
                     <Lightning className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="carbon-heading-02 text-gray-900">Accelerating Your Value Realization</h3>
+                    <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Accelerating Your Value Realization</h3>
                     <p className="carbon-helper-text-02 text-gray-500">How our full-stack capability speeds up your ROI</p>
                   </div>
                 </div>
@@ -955,8 +955,8 @@ const ServiceNow = () => {
                     <li key={item.title} className="flex gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
                       <div>
-                        <span className="carbon-label-02 text-gray-900 block">{item.title}</span>
-                        <span className="carbon-helper-text-02 text-gray-600">{item.desc}</span>
+                        <span className="carbon-label-02 text-[var(--cds-text-primary)] block">{item.title}</span>
+                        <span className="carbon-helper-text-02 text-[var(--cds-text-secondary)]">{item.desc}</span>
                       </div>
                     </li>
                   ))}
@@ -970,7 +970,7 @@ const ServiceNow = () => {
                     <Network_1 className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="carbon-heading-02 text-gray-900">The Delivery Backbone</h3>
+                    <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">The Delivery Backbone</h3>
                     <p className="carbon-helper-text-02 text-gray-500">Global alliances enabling local excellence</p>
                   </div>
                 </div>
@@ -984,8 +984,8 @@ const ServiceNow = () => {
                     <li key={item.title} className="flex gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-slate-500 mt-2 flex-shrink-0" />
                       <div>
-                        <span className="carbon-label-02 text-gray-900 block">{item.title}</span>
-                        <span className="carbon-helper-text-02 text-gray-600">{item.desc}</span>
+                        <span className="carbon-label-02 text-[var(--cds-text-primary)] block">{item.title}</span>
+                        <span className="carbon-helper-text-02 text-[var(--cds-text-secondary)]">{item.desc}</span>
                       </div>
                     </li>
                   ))}
@@ -1019,17 +1019,17 @@ const ServiceNow = () => {
                 </div>
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h2 className="carbon-fluid-heading-04 text-gray-900 mb-4">
+                <h2 className="carbon-fluid-heading-04 text-[var(--cds-text-primary)] mb-4">
                   Aligned with SBP Guidelines & Local Data Sovereignty Laws
                 </h2>
-                <p className="carbon-body-02 text-gray-600 mb-6">
+                <p className="carbon-body-02 text-[var(--cds-text-secondary)] mb-6">
                   Enable Your Regulatory Compliance with Local Data Control. Our Lahore delivery center ensures your sensitive data remains within Pakistan jurisdiction unless explicitly authorized for cross-border transfer. Unlike global SaaS-only providers, we provide the local oversight and audit trails required by Banking and Government sectors to meet their SBP obligations.
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                  <span className="px-4 py-2 bg-gray-100 text-gray-700 carbon-label-01 rounded-lg">SBP Guidelines Aligned</span>
-                  <span className="px-4 py-2 bg-gray-100 text-gray-700 carbon-label-01 rounded-lg">Local Data Residency</span>
-                  <span className="px-4 py-2 bg-gray-100 text-gray-700 carbon-label-01 rounded-lg">Audit-Ready Documentation</span>
-                  <span className="px-4 py-2 bg-gray-100 text-gray-700 carbon-label-01 rounded-lg">24/7 Local Support Access</span>
+                  <span className="px-4 py-2 bg-gray-100 text-[var(--cds-text-secondary)] carbon-label-01 rounded-lg">SBP Guidelines Aligned</span>
+                  <span className="px-4 py-2 bg-gray-100 text-[var(--cds-text-secondary)] carbon-label-01 rounded-lg">Local Data Residency</span>
+                  <span className="px-4 py-2 bg-gray-100 text-[var(--cds-text-secondary)] carbon-label-01 rounded-lg">Audit-Ready Documentation</span>
+                  <span className="px-4 py-2 bg-gray-100 text-[var(--cds-text-secondary)] carbon-label-01 rounded-lg">24/7 Local Support Access</span>
                 </div>
               </div>
             </div>
@@ -1044,10 +1044,10 @@ const ServiceNow = () => {
             <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Your Path Forward
             </span>
-            <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
+            <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-4">
               Start Your Migration Audit
             </h2>
-            <p className="carbon-body-02 text-gray-600">
+            <p className="carbon-body-02 text-[var(--cds-text-secondary)]">
               A structured process with clear outcomes at every step
             </p>
           </div>
@@ -1064,12 +1064,12 @@ const ServiceNow = () => {
                     1
                   </div>
                   <div className="md:hidden flex-1">
-                    <h3 className="carbon-heading-03 text-gray-900">Book a 30-min Technical Discovery Call</h3>
+                    <h3 className="carbon-heading-03 text-[var(--cds-text-primary)]">Book a 30-min Technical Discovery Call</h3>
                   </div>
                 </div>
                 <div className="flex-1 bg-gray-50 rounded-xl p-6 md:ml-0 ml-0">
-                  <h3 className="carbon-heading-03 text-gray-900 mb-2 hidden md:block">Book a 30-min Technical Discovery Call</h3>
-                  <p className="carbon-body-02 text-gray-600">
+                  <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-2 hidden md:block">Book a 30-min Technical Discovery Call</h3>
+                  <p className="carbon-body-02 text-[var(--cds-text-secondary)]">
                     We discuss your current setup, pain points, and goals. No sales pitch—just technical assessment.
                   </p>
                 </div>
@@ -1082,12 +1082,12 @@ const ServiceNow = () => {
                     2
                   </div>
                   <div className="md:hidden flex-1">
-                    <h3 className="carbon-heading-03 text-gray-900">Receive a Preliminary Risk Assessment Report</h3>
+                    <h3 className="carbon-heading-03 text-[var(--cds-text-primary)]">Receive a Preliminary Risk Assessment Report</h3>
                   </div>
                 </div>
                 <div className="flex-1 bg-gray-50 rounded-xl p-6">
-                  <h3 className="carbon-heading-03 text-gray-900 mb-2 hidden md:block">Receive a Preliminary Risk Assessment Report</h3>
-                  <p className="carbon-body-02 text-gray-600">
+                  <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-2 hidden md:block">Receive a Preliminary Risk Assessment Report</h3>
+                  <p className="carbon-body-02 text-[var(--cds-text-secondary)]">
                     Free detailed analysis of integration risks, data migration complexity, and recommended approach.
                   </p>
                 </div>
@@ -1100,12 +1100,12 @@ const ServiceNow = () => {
                     3
                   </div>
                   <div className="md:hidden flex-1">
-                    <h3 className="carbon-heading-03 text-gray-900">Review Fixed-Scope Proposal within 48 Hours</h3>
+                    <h3 className="carbon-heading-03 text-[var(--cds-text-primary)]">Review Fixed-Scope Proposal within 48 Hours</h3>
                   </div>
                 </div>
                 <div className="flex-1 bg-gray-50 rounded-xl p-6">
-                  <h3 className="carbon-heading-03 text-gray-900 mb-2 hidden md:block">Review Fixed-Scope Proposal within 48 Hours</h3>
-                  <p className="carbon-body-02 text-gray-600">
+                  <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-2 hidden md:block">Review Fixed-Scope Proposal within 48 Hours</h3>
+                  <p className="carbon-body-02 text-[var(--cds-text-secondary)]">
                     Clear timeline, fixed price, defined deliverables. No hidden costs. No surprises.
                   </p>
                 </div>
