@@ -220,11 +220,11 @@ const ServiceNow = () => {
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-3">
           <nav className="flex items-center gap-2 carbon-body-compact-01 text-[var(--cds-text-secondary)]">
             <Link to="/" className="hover:text-[var(--cds-text-primary)] transition-colors">Home</Link>
-            <span className="text-gray-400">/</span>
+            <span className="text-[var(--cds-text-placeholder)]">/</span>
             <Link to="/services" className="hover:text-[var(--cds-text-primary)] transition-colors">Services</Link>
-            <span className="text-gray-400">/</span>
+            <span className="text-[var(--cds-text-placeholder)]">/</span>
             <Link to="/services#platforms" className="hover:text-[var(--cds-text-primary)] transition-colors">IT Platforms</Link>
-            <span className="text-gray-400">/</span>
+            <span className="text-[var(--cds-text-placeholder)]">/</span>
             <span className="text-[var(--cds-text-primary)]">ServiceNow</span>
           </nav>
         </div>
@@ -259,7 +259,7 @@ const ServiceNow = () => {
                 Secure Your ServiceNow Transition
               </h1>
           
-              <p className="carbon-body-02 text-gray-300 mb-10">
+              <p className="carbon-body-02 text-[var(--cds-text-disabled)] mb-10">
                 Risk-mapped integrations that prevent SLA breaches and ensure data continuity 
                 during your ServiceNow migration. We don&apos;t just implement—we protect your operations.
               </p>
@@ -283,10 +283,10 @@ const ServiceNow = () => {
 
               {/* Trust Indicators */}
               <div className="mt-12 pt-8 border-t border-white/10">
-                <p className="carbon-helper-text-01 text-gray-400 mb-4">Trusted by enterprise teams</p>
+                <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)] mb-4">Trusted by enterprise teams</p>
                 <div className="flex flex-wrap items-center gap-6">
                   {['Fortune 500', 'SOC 2 Type II', 'ISO 27001'].map((badge) => (
-                    <div key={badge} className="flex items-center gap-2 text-gray-300">
+                    <div key={badge} className="flex items-center gap-2 text-[var(--cds-text-disabled)]">
                       <Security className="w-4 h-4" style={{ color: brandColor }} />
                       <span className="carbon-body-compact-01">{badge}</span>
                     </div>
@@ -303,8 +303,8 @@ const ServiceNow = () => {
                   {/* Legacy System */}
                   <div className="absolute left-0 top-1/2 -translate-y-1/2 w-28">
                     <div className="bg-slate-700 rounded-lg p-4 border border-slate-600">
-                      <ServerDns className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-                      <p className="carbon-helper-text-01 text-center text-gray-300">Legacy ITSM</p>
+                      <ServerDns className="w-8 h-8 text-[var(--cds-text-placeholder)] mx-auto mb-2" />
+                      <p className="carbon-helper-text-01 text-center text-[var(--cds-text-disabled)]">Legacy ITSM</p>
                     </div>
                   </div>
 
@@ -354,7 +354,7 @@ const ServiceNow = () => {
                   ].map((stat) => (
                     <div key={stat.label} className="text-center">
                       <p className="carbon-heading-03 text-white">{stat.value}</p>
-                      <p className="carbon-helper-text-02 text-gray-400">{stat.label}</p>
+                      <p className="carbon-helper-text-02 text-[var(--cds-text-placeholder)]">{stat.label}</p>
                     </div>
                   ))}
                 </div>
@@ -370,7 +370,7 @@ const ServiceNow = () => {
               {highlights.map((stat, idx) => (
                 <div key={idx} className="flex items-center gap-2">
                   <span className="carbon-heading-01 text-white">{stat.value}</span>
-                  <span className="carbon-body-compact-01 text-gray-300">{stat.label}</span>
+                  <span className="carbon-body-compact-01 text-[var(--cds-text-disabled)]">{stat.label}</span>
                 </div>
               ))}
             </div>
@@ -391,7 +391,7 @@ const ServiceNow = () => {
         <section id="offerings" ref={servicesRef} className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-16">
-            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
               Our Services
             </span>
             <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-4">
@@ -418,7 +418,7 @@ const ServiceNow = () => {
                   </div>
                   <div>
                     <h3 className="carbon-heading-03 text-[var(--cds-text-primary)]">{offering.title}</h3>
-                    <div className="flex items-center gap-2 carbon-body-compact-01 text-gray-500">
+                    <div className="flex items-center gap-2 carbon-body-compact-01 text-[var(--cds-text-helper)]">
                       <Time className="w-4 h-4" />
                       <span>{offering.duration}</span>
                     </div>
@@ -458,7 +458,7 @@ const ServiceNow = () => {
       <section id="expertise" className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-12">
-            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
               Technical Capabilities
             </span>
             <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-4">
@@ -530,7 +530,7 @@ const ServiceNow = () => {
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div>
-              <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+              <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
                 Success Stories
               </span>
               <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)]">
@@ -612,8 +612,8 @@ const ServiceNow = () => {
                         <div className="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm">
                           <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
                             <div className="text-center">
-                              <Building className="w-16 h-16 text-gray-300 mx-auto mb-2" />
-                              <span className="carbon-helper-text-01 text-gray-400">Case Study Photo</span>
+                              <Building className="w-16 h-16 text-[var(--cds-text-disabled)] mx-auto mb-2" />
+                              <span className="carbon-helper-text-01 text-[var(--cds-text-placeholder)]">Case Study Photo</span>
                             </div>
                           </div>
                         </div>
@@ -626,7 +626,7 @@ const ServiceNow = () => {
                                 <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                               </div>
                               <div className="text-xl font-bold text-[var(--cds-text-primary)] mb-1">{stat.value}</div>
-                              <div className="carbon-helper-text-02 text-gray-500">{stat.label}</div>
+                              <div className="carbon-helper-text-02 text-[var(--cds-text-helper)]">{stat.label}</div>
                             </div>
                           ))}
                         </div>
@@ -644,7 +644,7 @@ const ServiceNow = () => {
       <section id="testimonial" className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-12">
-            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
               Feedback
             </span>
             <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)]">
@@ -656,7 +656,7 @@ const ServiceNow = () => {
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-shrink-0">
                 <div className="w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center">
-                  <UserMultiple className="w-10 h-10 text-gray-400" />
+                  <UserMultiple className="w-10 h-10 text-[var(--cds-text-placeholder)]" />
                 </div>
               </div>
               <div className="flex-1">
@@ -672,7 +672,7 @@ const ServiceNow = () => {
                 <div className="flex items-center gap-4">
                   <div>
                     <div className="carbon-heading-01 text-[var(--cds-text-primary)]">Usman Ikram</div>
-                    <div className="carbon-helper-text-02 text-gray-500">IT Operations Director, Major Telecom Provider</div>
+                    <div className="carbon-helper-text-02 text-[var(--cds-text-helper)]">IT Operations Director, Major Telecom Provider</div>
                   </div>
                 </div>
               </div>
@@ -685,7 +685,7 @@ const ServiceNow = () => {
       <section id="tco-calculator" className="py-24 bg-white border-y border-gray-200">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-10">
-            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
               Financial Transparency
             </span>
             <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-4">
@@ -769,19 +769,19 @@ const ServiceNow = () => {
             {/* Results */}
             <div className="grid md:grid-cols-3 gap-6 pt-8 border-t border-gray-200">
               <div className="text-center">
-                <p className="carbon-helper-text-01 text-gray-500 mb-1">Current 3-Year Cost</p>
+                <p className="carbon-helper-text-01 text-[var(--cds-text-helper)] mb-1">Current 3-Year Cost</p>
                 <p className="text-3xl font-bold text-[var(--cds-text-primary)]">${tcoResult.current}K</p>
-                <p className="carbon-helper-text-01 text-gray-400 mt-1">Including hidden costs</p>
+                <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)] mt-1">Including hidden costs</p>
               </div>
               <div className="text-center">
-                <p className="carbon-helper-text-01 text-gray-500 mb-1">Perception-IT Fixed Cost</p>
+                <p className="carbon-helper-text-01 text-[var(--cds-text-helper)] mb-1">Perception-IT Fixed Cost</p>
                 <p className="carbon-fluid-heading-04" style={{ color: brandColor }}>${tcoResult.perception}K</p>
-                <p className="carbon-helper-text-01 text-gray-400 mt-1">Fixed-price guarantee</p>
+                <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)] mt-1">Fixed-price guarantee</p>
               </div>
               <div className="text-center">
-                <p className="carbon-helper-text-01 text-gray-500 mb-1">Your Savings</p>
+                <p className="carbon-helper-text-01 text-[var(--cds-text-helper)] mb-1">Your Savings</p>
                 <p className="text-3xl font-bold text-blue-600">{tcoResult.savingsPercent}%</p>
-                <p className="carbon-helper-text-01 text-gray-400 mt-1">${tcoResult.savings}K saved</p>
+                <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)] mt-1">${tcoResult.savings}K saved</p>
               </div>
             </div>
 
@@ -822,7 +822,7 @@ const ServiceNow = () => {
                 </div>
                 <div>
                   <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Data Integrity</h3>
-                  <p className="carbon-helper-text-02 text-gray-400">The Foundation</p>
+                  <p className="carbon-helper-text-02 text-[var(--cds-text-placeholder)]">The Foundation</p>
                 </div>
               </div>
               
@@ -832,7 +832,7 @@ const ServiceNow = () => {
               
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="carbon-label-01 text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
+                  <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-1">The Challenge</p>
                   <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">Legacy data schemas rarely match new models. Without deep auditing, relationships break, and adoption stalls by Week 4.</p>
                 </div>
                 
@@ -851,7 +851,7 @@ const ServiceNow = () => {
                 </div>
                 <div>
                   <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Total Visibility</h3>
-                  <p className="carbon-helper-text-02 text-gray-400">The Engine</p>
+                  <p className="carbon-helper-text-02 text-[var(--cds-text-placeholder)]">The Engine</p>
                 </div>
               </div>
               
@@ -861,7 +861,7 @@ const ServiceNow = () => {
               
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="carbon-label-01 text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
+                  <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-1">The Challenge</p>
                   <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">Pure software integrators lack access to physical layer telemetry. Critical server or network events remain silent until users report an outage.</p>
                 </div>
                 
@@ -880,7 +880,7 @@ const ServiceNow = () => {
                 </div>
                 <div>
                   <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Sustainable Architecture</h3>
-                  <p className="carbon-helper-text-02 text-gray-400">The Long Game</p>
+                  <p className="carbon-helper-text-02 text-[var(--cds-text-placeholder)]">The Long Game</p>
                 </div>
               </div>
               
@@ -890,7 +890,7 @@ const ServiceNow = () => {
               
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="carbon-label-01 text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
+                  <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-1">The Challenge</p>
                   <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">Hard-coded customizations create technical debt that breaks during mandatory platform updates, causing downtime and rework.</p>
                 </div>
                 
@@ -909,7 +909,7 @@ const ServiceNow = () => {
                 </div>
                 <div>
                   <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Unified Accountability</h3>
-                  <p className="carbon-helper-text-02 text-gray-400">The Guarantee</p>
+                  <p className="carbon-helper-text-02 text-[var(--cds-text-placeholder)]">The Guarantee</p>
                 </div>
               </div>
               
@@ -919,7 +919,7 @@ const ServiceNow = () => {
               
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="carbon-label-01 text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
+                  <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-1">The Challenge</p>
                   <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">Fragmented vendors (software vs. hardware) create blame cycles that delay resolution and bleed SLAs.</p>
                 </div>
                 
@@ -942,7 +942,7 @@ const ServiceNow = () => {
                   </div>
                   <div>
                     <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Accelerating Your Value Realization</h3>
-                    <p className="carbon-helper-text-02 text-gray-500">How our full-stack capability speeds up your ROI</p>
+                    <p className="carbon-helper-text-02 text-[var(--cds-text-helper)]">How our full-stack capability speeds up your ROI</p>
                   </div>
                 </div>
                 <ul className="space-y-4">
@@ -971,7 +971,7 @@ const ServiceNow = () => {
                   </div>
                   <div>
                     <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">The Delivery Backbone</h3>
-                    <p className="carbon-helper-text-02 text-gray-500">Global alliances enabling local excellence</p>
+                    <p className="carbon-helper-text-02 text-[var(--cds-text-helper)]">Global alliances enabling local excellence</p>
                   </div>
                 </div>
                 <ul className="space-y-4">
@@ -996,7 +996,7 @@ const ServiceNow = () => {
 
           {/* Bottom Line */}
           <div className="mt-8 bg-slate-900 rounded-xl p-6 text-center">
-            <p className="text-gray-300 mb-1">
+            <p className="text-[var(--cds-text-disabled)] mb-1">
               &quot;We don&apos;t just implement ServiceNow; we integrate it with your business reality.&quot;
             </p>
             <p className="text-white carbon-label-01" style={{ color: brandColor }}>
@@ -1041,7 +1041,7 @@ const ServiceNow = () => {
       <section id="next-steps" className="py-24 bg-white border-y border-gray-200">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-12">
-            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
               Your Path Forward
             </span>
             <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-4">
