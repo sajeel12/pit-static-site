@@ -63,12 +63,13 @@ const Navigation = () => {
   }, []);
 
   const handleMouseEnter = useCallback((menu: string) => {
+    console.log('Mouse enter:', menu);
     if (closeTimerRef.current) {
       clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
     }
     if (menu === 'cloud') setActiveCategory('cloud');
-    setActiveMegaMenu(prev => prev === menu ? prev : menu);
+    setActiveMegaMenu(menu);
   }, []);
 
   // Helper to get active hub or service for a category
@@ -224,44 +225,43 @@ const Navigation = () => {
                     <div style={{ backgroundColor: '#f4f4f4', borderBottom: '1px solid #e0e0e0', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
                       {/* Header */}
                       <div style={{ backgroundColor: '#e5e5e5', borderBottom: '1px solid #c6c6c6' }}>
-                        <div className="cds--css-grid" style={{ paddingTop: 'var(--cds-spacing-05)', paddingBottom: 'var(--cds-spacing-05)' }}>
+                        <div className="cds--css-grid" style={{ padding: 'var(--cds-spacing-05) var(--cds-spacing-07)' }}>
                           <div className="cds--col-span-16">
                             <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)' }}>Integrated Solutions</h3>
                             <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginTop: 'var(--cds-spacing-03)' }}>From Hardware to Cloud — One Partner, Complete Accountability</p>
                           </div>
                         </div>
                       </div>
-                      {/* Content */}
-                      <div className="cds--css-grid" style={{ paddingTop: 'var(--cds-spacing-06)', paddingBottom: 'var(--cds-spacing-06)' }}>
-                        <div className="cds--col-span-16">
-                          <div className="cds--css-grid" style={{ padding: 0 }}>
-                            {solutions.map((solution) => (
-                              <Link 
-                                key={solution.id} 
-                                to={solution.link} 
-                                className={`cds--col-span-4 cds--col-span-4--lg cds--tile ${solution.featured ? 'cds--tile--featured' : ''}`}
-                                style={{ 
-                                  backgroundColor: solution.featured ? '#edf5ff' : '#ffffff',
-                                  borderLeft: solution.featured ? '4px solid #0f62fe' : '4px solid transparent'
-                                }}
-                              >
-                                <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 'var(--cds-spacing-03)' }}>
-                                  <h4 className="cds--heading-01" style={{ color: 'var(--cds-text-primary)' }}>{solution.title}</h4>
-                                  {solution.featured && <span className="cds--tag cds--tag--blue">POPULAR</span>}
-                                </div>
-                                <p className="cds--label-01" style={{ color: 'var(--cds-link-primary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>{solution.subtitle}</p>
-                                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-04)' }}>{solution.description}</p>
-                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--cds-spacing-02)' }}>
-                                  {solution.combines.map((item, i) => <span key={i} className="cds--tag">{item}</span>)}
-                                </div>
-                              </Link>
-                            ))}
+                      {/* Content - 4 column grid */}
+                      <div className="cds--css-grid" style={{ padding: 'var(--cds-spacing-06) var(--cds-spacing-07)' }}>
+                        {solutions.map((solution) => (
+                          <div key={solution.id} className="cds--col-span-4 cds--col-span-4--md">
+                            <Link 
+                              to={solution.link} 
+                              className="cds--tile"
+                              style={{ 
+                                display: 'block',
+                                backgroundColor: solution.featured ? '#edf5ff' : '#ffffff',
+                                borderLeft: solution.featured ? '4px solid #0f62fe' : '4px solid transparent',
+                                height: '100%'
+                              }}
+                            >
+                              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 'var(--cds-spacing-03)' }}>
+                                <h4 className="cds--heading-01" style={{ color: 'var(--cds-text-primary)' }}>{solution.title}</h4>
+                                {solution.featured && <span className="cds--tag cds--tag--blue">POPULAR</span>}
+                              </div>
+                              <p className="cds--label-01" style={{ color: 'var(--cds-link-primary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>{solution.subtitle}</p>
+                              <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-04)' }}>{solution.description}</p>
+                              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--cds-spacing-02)' }}>
+                                {solution.combines.map((item, i) => <span key={i} className="cds--tag">{item}</span>)}
+                              </div>
+                            </Link>
                           </div>
-                        </div>
+                        ))}
                       </div>
                       {/* Footer */}
                       <div style={{ backgroundColor: '#e5e5e5', borderTop: '1px solid #c6c6c6' }}>
-                        <div className="cds--css-grid" style={{ paddingTop: 'var(--cds-spacing-05)', paddingBottom: 'var(--cds-spacing-05)' }}>
+                        <div className="cds--css-grid" style={{ padding: 'var(--cds-spacing-05) var(--cds-spacing-07)' }}>
                           <div className="cds--col-span-16">
                             <Link to="/#contact" className="cds--btn cds--btn--primary" style={{ width: '100%' }}>
                               Get Expert Advice — Schedule Free Consultation <ArrowRight className="w-5 h-5" />
@@ -378,17 +378,17 @@ const Navigation = () => {
                     <div style={{ backgroundColor: '#f4f4f4', borderBottom: '1px solid #e0e0e0', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
                       {/* Header */}
                       <div style={{ backgroundColor: '#e5e5e5', borderBottom: '1px solid #c6c6c6' }}>
-                        <div className="cds--css-grid" style={{ paddingTop: 'var(--cds-spacing-05)', paddingBottom: 'var(--cds-spacing-05)' }}>
+                        <div className="cds--css-grid" style={{ padding: 'var(--cds-spacing-05) var(--cds-spacing-07)' }}>
                           <div className="cds--col-span-16">
                             <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)' }}>{cloudCategory.label}</h3>
                             <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginTop: 'var(--cds-spacing-03)' }}>{cloudCategory.description}</p>
                           </div>
                         </div>
                       </div>
-                      {/* Content */}
-                      <div className="cds--css-grid" style={{ padding: 0 }}>
-                        {/* Left Rail */}
-                        <div className="cds--col-span-4 cds--col-span-4--lg" style={{ backgroundColor: '#e5e5e5', padding: 'var(--cds-spacing-05)', borderRight: '1px solid #c6c6c6' }}>
+                      {/* Content - 2 column layout */}
+                      <div style={{ display: 'flex', minHeight: '400px' }}>
+                        {/* Left Rail - 4 columns */}
+                        <div style={{ width: '25%', backgroundColor: '#e5e5e5', padding: 'var(--cds-spacing-05)', borderRight: '1px solid #c6c6c6' }}>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--cds-spacing-02)' }}>
                             {cloudCategory.hubs?.map((hub) => {
                               const isActive = activeServiceByCategory['cloud'] === hub.id;
@@ -422,8 +422,8 @@ const Navigation = () => {
                           </div>
                         </div>
                         
-                        {/* Right Content */}
-                        <div className="cds--col-span-12 cds--col-span-12--lg" style={{ padding: 'var(--cds-spacing-06)', backgroundColor: '#ffffff' }}>
+                        {/* Right Content - 12 columns */}
+                        <div style={{ width: '75%', padding: 'var(--cds-spacing-06)', backgroundColor: '#ffffff' }}>
                           {(() => {
                             const activeItem = getActiveItem('cloud');
                             if (!activeItem) return null;
@@ -445,19 +445,19 @@ const Navigation = () => {
                                 {'spokes' in activeItem && activeItem.spokes.length > 0 && (
                                   <div style={{ marginBottom: 'var(--cds-spacing-06)' }}>
                                     <h5 className="cds--label-01" style={{ color: 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-04)' }}>Services</h5>
-                                    <div className="cds--css-grid" style={{ padding: 0 }}>
+                                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 'var(--cds-spacing-03)' }}>
                                       {activeItem.spokes.map((spoke) => {
                                         const IconComponent = iconMap[spoke.icon];
                                         return (
                                           <a 
                                             key={spoke.id}
                                             href={spoke.link}
-                                            className="cds--col-span-8 cds--col-span-8--md cds--tile"
+                                            className="cds--tile"
                                             style={{ display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
                                           >
                                             {IconComponent && <div style={{ color: 'var(--cds-link-primary)' }}><IconComponent className="w-4 h-4" /></div>}
                                             <span className="cds--body-compact-01" style={{ color: 'var(--cds-link-primary)', flex: 1 }}>{spoke.title}</span>
-                                            <ArrowRight className="w-4 h-4" style={{ color: 'var(--cds-link-primary)', flexShrink: 0 }} />
+                                            <ArrowRight className="w-4 h-4" />
                                           </a>
                                         );
                                       })}
@@ -489,14 +489,10 @@ const Navigation = () => {
                       </div>
                       
                       {/* Footer */}
-                      <div style={{ backgroundColor: '#e5e5e5', borderTop: '1px solid #c6c6c6', padding: 'var(--cds-spacing-04) 0' }}>
-                        <div className="cds--css-grid">
-                          <div className="cds--col-span-16">
-                            <a href="#contact" className="cds--btn cds--btn--primary" style={{ width: '100%' }}>
-                              Talk to an Expert <ArrowRight className="w-5 h-5" />
-                            </a>
-                          </div>
-                        </div>
+                      <div style={{ backgroundColor: '#e5e5e5', borderTop: '1px solid #c6c6c6', padding: 'var(--cds-spacing-04) var(--cds-spacing-07)' }}>
+                        <a href="#contact" className="cds--btn cds--btn--primary" style={{ width: '100%' }}>
+                          Talk to an Expert <ArrowRight className="w-5 h-5" />
+                        </a>
                       </div>
                     </div>
                   </div>
