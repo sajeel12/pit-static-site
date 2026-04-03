@@ -349,13 +349,13 @@ const ServiceNow = () => {
                 </div>
 
                 {/* Stats Preview */}
-                <div className="mt-6 pt-6 border-t border-white/10 grid grid-cols-3 gap-4">
+                <div className="mt-6 pt-6 border-t border-white/10 cds--css-grid" style={{ padding: 0 }}>
                   {[
                     { value: 'Zero', label: 'Data Loss' },
                     { value: '99.9%', label: 'Uptime' },
                     { value: '4x', label: 'Faster Recovery' }
                   ].map((stat) => (
-                    <div key={stat.label} className="text-center">
+                    <div key={stat.label} className="cds--col-span-5 cds--col-span-5--md text-center">
                       <p className="carbon-heading-03 text-white">{stat.value}</p>
                       <p className="carbon-helper-text-02 text-[var(--cds-text-placeholder)]">{stat.label}</p>
                     </div>
@@ -592,8 +592,8 @@ const ServiceNow = () => {
               {caseStudies.map((study) => (
                 <div key={study.id} className="w-full flex-shrink-0">
                   <div className="bg-[var(--cds-layer-01)] rounded-2xl p-8 md:p-12">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                      <div>
+                    <div className="cds--css-grid" style={{ padding: 0 }}>
+                      <div className="cds--col-span-8 cds--col-span-8--lg">
                         <div className="flex flex-wrap gap-2 mb-6">
                           {study.tags.map((tag) => (
                             <span 
@@ -618,7 +618,7 @@ const ServiceNow = () => {
                           <ArrowUpRight className="w-4 h-4" />
                         </Link>
                       </div>
-                      <div className="space-y-6">
+                      <div className="cds--col-span-8 cds--col-span-8--lg space-y-6">
                         {/* Photo Placeholder */}
                         <div className="bg-white rounded-xl overflow-hidden border border-[var(--cds-border-subtle)] shadow-sm">
                           <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
@@ -630,9 +630,9 @@ const ServiceNow = () => {
                         </div>
                         
                         {/* Stats */}
-                        <div className="grid grid-cols-3 gap-4">
+                        <div className="cds--css-grid" style={{ padding: 0 }}>
                           {study.stats.map((stat, idx) => (
-                            <div key={idx} className="bg-white rounded-xl p-5 text-center shadow-sm">
+                            <div key={idx} className="cds--col-span-5 cds--col-span-5--md bg-white rounded-xl p-5 text-center shadow-sm">
                               <div className={`w-12 h-12 rounded-lg ${stat.iconBg} flex items-center justify-center mx-auto mb-3`}>
                                 <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
                               </div>
