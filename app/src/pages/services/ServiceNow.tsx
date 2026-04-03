@@ -353,7 +353,7 @@ const ServiceNow = () => {
                     { value: '4x', label: 'Faster Recovery' }
                   ].map((stat) => (
                     <div key={stat.label} className="text-center">
-                      <p className="text-xl font-bold text-white">{stat.value}</p>
+                      <p className="carbon-heading-03 text-white">{stat.value}</p>
                       <p className="carbon-helper-text-02 text-gray-400">{stat.label}</p>
                     </div>
                   ))}
@@ -425,7 +425,7 @@ const ServiceNow = () => {
                   </div>
                 </div>
 
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="carbon-body-02 text-gray-600 mb-6 leading-relaxed">
                   {offering.description}
                 </p>
 
@@ -596,7 +596,7 @@ const ServiceNow = () => {
                         <h3 className="carbon-fluid-heading-04 text-gray-900 mb-4">
                           {study.title}
                         </h3>
-                        <p className="text-gray-600 mb-8 leading-relaxed">
+                        <p className="carbon-body-02 text-gray-600 mb-8 leading-relaxed">
                           {study.description}
                         </p>
                         <Link
@@ -832,12 +832,12 @@ const ServiceNow = () => {
               
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
+                  <p className="carbon-label-01 text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
                   <p className="text-sm text-gray-600 leading-snug">Legacy data schemas rarely match new models. Without deep auditing, relationships break, and adoption stalls by Week 4.</p>
                 </div>
                 
                 <div className="rounded-lg p-3" style={{ backgroundColor: `${brandColor}10` }}>
-                  <p className="text-xs font-medium uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
+                  <p className="carbon-label-01 uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
                   <p className="text-sm text-gray-700 leading-snug">We perform Risk-Mapped Data Audits before migration. By reconciling schema conflicts in the planning phase, we deliver a 99% accurate CMDB from Day 1, ensuring immediate user trust.</p>
                 </div>
               </div>
@@ -861,12 +861,12 @@ const ServiceNow = () => {
               
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
+                  <p className="carbon-label-01 text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
                   <p className="text-sm text-gray-600 leading-snug">Pure software integrators lack access to physical layer telemetry. Critical server or network events remain silent until users report an outage.</p>
                 </div>
                 
                 <div className="rounded-lg p-3" style={{ backgroundColor: `${brandColor}10` }}>
-                  <p className="text-xs font-medium uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
+                  <p className="carbon-label-01 uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
                   <p className="text-sm text-gray-700 leading-snug">As a Huawei Certified Partner, we bridge hardware health metrics directly into ServiceNow ITOM. This enables proactive incident automation, resolving infrastructure issues before they impact business operations.</p>
                 </div>
               </div>
@@ -890,12 +890,12 @@ const ServiceNow = () => {
               
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
+                  <p className="carbon-label-01 text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
                   <p className="text-sm text-gray-600 leading-snug">Hard-coded customizations create technical debt that breaks during mandatory platform updates, causing downtime and rework.</p>
                 </div>
                 
                 <div className="rounded-lg p-3" style={{ backgroundColor: `${brandColor}10` }}>
-                  <p className="text-xs font-medium uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
+                  <p className="carbon-label-01 uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
                   <p className="text-sm text-gray-700 leading-snug">We architect using native ServiceNow capabilities (Flow Designer, Integration Hub). This upgrade-safe approach ensures your investment remains stable and adaptable through future patches without costly refactoring.</p>
                 </div>
               </div>
@@ -919,12 +919,12 @@ const ServiceNow = () => {
               
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
+                  <p className="carbon-label-01 text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
                   <p className="text-sm text-gray-600 leading-snug">Fragmented vendors (software vs. hardware) create blame cycles that delay resolution and bleed SLAs.</p>
                 </div>
                 
                 <div className="rounded-lg p-3" style={{ backgroundColor: `${brandColor}10` }}>
-                  <p className="text-xs font-medium uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
+                  <p className="carbon-label-01 uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
                   <p className="text-sm text-gray-700 leading-snug">We provide Full-Stack Accountability. From the shipping dock to the cloud dashboard, one team owns the resolution, ensuring seamless coordination and guaranteed uptime.</p>
                 </div>
               </div>
@@ -1069,7 +1069,7 @@ const ServiceNow = () => {
                 </div>
                 <div className="flex-1 bg-gray-50 rounded-xl p-6 md:ml-0 ml-0">
                   <h3 className="carbon-heading-03 text-gray-900 mb-2 hidden md:block">Book a 30-min Technical Discovery Call</h3>
-                  <p className="text-gray-600">
+                  <p className="carbon-body-02 text-gray-600">
                     We discuss your current setup, pain points, and goals. No sales pitch—just technical assessment.
                   </p>
                 </div>
@@ -1087,7 +1087,7 @@ const ServiceNow = () => {
                 </div>
                 <div className="flex-1 bg-gray-50 rounded-xl p-6">
                   <h3 className="carbon-heading-03 text-gray-900 mb-2 hidden md:block">Receive a Preliminary Risk Assessment Report</h3>
-                  <p className="text-gray-600">
+                  <p className="carbon-body-02 text-gray-600">
                     Free detailed analysis of integration risks, data migration complexity, and recommended approach.
                   </p>
                 </div>
@@ -1105,7 +1105,7 @@ const ServiceNow = () => {
                 </div>
                 <div className="flex-1 bg-gray-50 rounded-xl p-6">
                   <h3 className="carbon-heading-03 text-gray-900 mb-2 hidden md:block">Review Fixed-Scope Proposal within 48 Hours</h3>
-                  <p className="text-gray-600">
+                  <p className="carbon-body-02 text-gray-600">
                     Clear timeline, fixed price, defined deliverables. No hidden costs. No surprises.
                   </p>
                 </div>
