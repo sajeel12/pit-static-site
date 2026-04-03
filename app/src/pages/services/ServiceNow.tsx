@@ -418,45 +418,48 @@ const ServiceNow = () => {
             </p>
           </div>
 
-          <div className="cds--css-grid" style={{ padding: 0 }}>
+          <div className="cds--css-grid gap-6" style={{ padding: 0 }}>
             {offerings.map((offering) => (
               <div 
                 key={offering.id}
-                className="cds--col-span-5 cds--col-span-5--md group relative bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-blue-200 hover:-translate-y-1 flex flex-col h-full"
+                className="cds--col-span-5 cds--col-span-5--md group relative bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-[#0f62fe] hover:-translate-y-1 flex flex-col h-full"
               >
-                <div className="p-6 flex flex-col flex-grow">
+                {/* Color accent bar - left side */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#0f62fe] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+                
+                <div className="p-8 flex flex-col flex-grow">
                   {/* Icon and Title */}
-                  <div className="flex items-start gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-blue-500">
-                      <offering.icon className="w-5 h-5" />
+                  <div className="flex items-start gap-4 mb-5">
+                    <div className="w-12 h-12 rounded-xl bg-[#edf5ff] flex items-center justify-center text-[#0f62fe] transition-colors group-hover:bg-[#0f62fe] group-hover:text-white">
+                      <offering.icon className="w-6 h-6" />
                     </div>
-                    <div>
-                      <h3 className="carbon-heading-03 text-[var(--cds-text-primary)]">{offering.title}</h3>
-                      <div className="flex items-center gap-1 carbon-body-compact-01 text-[var(--cds-text-helper)]">
-                        <Time className="w-3 h-3" />
+                    <div className="flex-1">
+                      <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-1">{offering.title}</h3>
+                      <div className="flex items-center gap-2 carbon-body-compact-01 text-[var(--cds-text-helper)]">
+                        <Time className="w-4 h-4 text-[#0f62fe]" />
                         <span>{offering.duration}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Description */}
-                  <p className="carbon-body-02 text-[var(--cds-text-secondary)] mb-4 leading-relaxed">
+                  <p className="carbon-body-02 text-[var(--cds-text-secondary)] mb-5 leading-relaxed">
                     {offering.description}
                   </p>
 
                   {/* Expandable detail description on hover */}
-                  <div className="max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-40 mb-0 group-hover:mb-4">
-                    <p className="text-sm text-gray-600 leading-relaxed border-l-2 border-blue-200 pl-3">
+                  <div className="max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-48 mb-0 group-hover:mb-5">
+                    <p className="carbon-body-02 text-[var(--cds-text-secondary)] leading-relaxed bg-[#f4f4f4] p-4 rounded-lg">
                       {offering.detailDescription}
                     </p>
                   </div>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-5">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {offering.shortTags.map((tag) => (
                       <span 
                         key={tag}
-                        className="px-2.5 py-1 text-[10px] font-medium text-gray-500 bg-gray-100 rounded"
+                        className="px-3 py-1.5 text-xs font-medium text-[#525252] bg-[#f4f4f4] rounded-full border border-transparent group-hover:border-[#0f62fe]/20 transition-colors"
                       >
                         {tag}
                       </span>
@@ -466,7 +469,7 @@ const ServiceNow = () => {
                   {/* CTA */}
                   <a
                     href={offering.link}
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors group-hover:gap-2 mt-auto"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0043ce] transition-all group-hover:gap-3 mt-auto pt-4 border-t border-gray-100"
                   >
                     {offering.cta} <ArrowRight className="w-4 h-4" />
                   </a>
