@@ -30,8 +30,12 @@ import {
   Time,
   DataBase,
   Network_1,
-  ServerDns
+  ServerDns,
+  Cloud
 } from '@carbon/icons-react';
+
+// Pictogram for Automation
+import { IbmAutomationPlatform } from '@carbon/pictograms-react';
 
 // Batch 4: Final Lucide→Carbon migrations
 import {
@@ -1220,55 +1224,70 @@ const ServiceNow = () => {
 
             <div className="grid md:grid-cols-3 gap-6">
               {/* Infrastructure & Observability */}
-              <div className="bg-white rounded-xl p-8 border border-[var(--cds-border-subtle)] flex flex-col h-full">
-                <div className="w-12 h-12 rounded-xl bg-[#edf5ff] flex items-center justify-center text-[#0f62fe] mb-5">
-                  <span className="text-2xl">🏗️</span>
+              <a href="/services/infrastructure" className="cds--tile cds--tile--clickable group flex flex-col h-full">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="cds--tag cds--tag--blue">
+                    <Cloud className="w-4 h-4 mr-2" />
+                    Infrastructure
+                  </div>
+                  <ArrowUpRight className="w-5 h-5 text-[var(--cds-link-primary)] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-2">Infrastructure & Observability</h3>
-                <p className="carbon-body-compact-02 text-[var(--cds-text-secondary)] mb-4">Bridge physical reality to digital workflows.</p>
-                <ul className="space-y-2 mb-6 flex-grow">
-                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• Server Health Audits (MODSERVE) mapped to CMDB.</li>
-                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• Network alert correlation & unified monitoring.</li>
-                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• DCIM integration for real-time asset visibility.</li>
+                <h3 className="cds--tile-heading text-[var(--cds-text-primary)] mb-2">Infrastructure & Observability</h3>
+                <p className="cds--tile-caption text-[var(--cds-text-secondary)] mb-4">Bridge physical reality to digital workflows.</p>
+                <ul className="cds--list--unordered space-y-2 mb-6 flex-grow">
+                  <li className="cds--list__item text-[var(--cds-text-secondary)]">Server Health Audits (MODSERVE) mapped to CMDB</li>
+                  <li className="cds--list__item text-[var(--cds-text-secondary)]">Network alert correlation & unified monitoring</li>
+                  <li className="cds--list__item text-[var(--cds-text-secondary)]">DCIM integration for real-time asset visibility</li>
                 </ul>
-                <a href="/services/infrastructure" className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0043ce] transition-colors mt-auto">
-                  View Infra Services →
-                </a>
-              </div>
+                <span className="cds--link flex items-center gap-2 mt-auto">
+                  Explore Infrastructure Services
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </a>
 
               {/* Security & Compliance */}
-              <div className="bg-white rounded-xl p-8 border border-[var(--cds-border-subtle)] flex flex-col h-full">
-                <div className="w-12 h-12 rounded-xl bg-[#edf5ff] flex items-center justify-center text-[#0f62fe] mb-5">
-                  <span className="text-2xl">🛡️</span>
+              <a href="/services/security" className="cds--tile cds--tile--clickable group flex flex-col h-full">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="cds--tag cds--tag--red">
+                    <Security className="w-4 h-4 mr-2" />
+                    Security
+                  </div>
+                  <ArrowUpRight className="w-5 h-5 text-[var(--cds-link-primary)] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-2">Security & Compliance</h3>
-                <p className="carbon-body-compact-02 text-[var(--cds-text-secondary)] mb-4">Automate risk response for regulated sectors.</p>
-                <ul className="space-y-2 mb-6 flex-grow">
-                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• SecOps integration (SIEM to Ticket).</li>
-                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• Automated vulnerability remediation tasks.</li>
-                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• SBP-aligned compliance reporting & controls.</li>
+                <h3 className="cds--tile-heading text-[var(--cds-text-primary)] mb-2">Security & Compliance</h3>
+                <p className="cds--tile-caption text-[var(--cds-text-secondary)] mb-4">Automate risk response for regulated sectors.</p>
+                <ul className="cds--list--unordered space-y-2 mb-6 flex-grow">
+                  <li className="cds--list__item text-[var(--cds-text-secondary)]">SecOps integration (SIEM to Ticket)</li>
+                  <li className="cds--list__item text-[var(--cds-text-secondary)]">Automated vulnerability remediation tasks</li>
+                  <li className="cds--list__item text-[var(--cds-text-secondary)]">SBP-aligned compliance reporting & controls</li>
                 </ul>
-                <a href="/services/security" className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0043ce] transition-colors mt-auto">
-                  View Security Services →
-                </a>
-              </div>
+                <span className="cds--link flex items-center gap-2 mt-auto">
+                  Explore Security Services
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </a>
 
               {/* Enterprise Automation */}
-              <div className="bg-white rounded-xl p-8 border border-[var(--cds-border-subtle)] flex flex-col h-full">
-                <div className="w-12 h-12 rounded-xl bg-[#edf5ff] flex items-center justify-center text-[#0f62fe] mb-5">
-                  <span className="text-2xl">🚀</span>
+              <a href="/services/automation" className="cds--tile cds--tile--clickable group flex flex-col h-full">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="cds--tag cds--tag--green">
+                    <IbmAutomationPlatform className="w-4 h-4 mr-2" />
+                    Automation
+                  </div>
+                  <ArrowUpRight className="w-5 h-5 text-[var(--cds-link-primary)] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-2">Enterprise Automation</h3>
-                <p className="carbon-body-compact-02 text-[var(--cds-text-secondary)] mb-4">Scale workflows to HR, Facilities, and Customers.</p>
-                <ul className="space-y-2 mb-6 flex-grow">
-                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• ESM portals for internal service delivery.</li>
-                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• Customer Service Management (CSM) portals.</li>
-                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• ERP-linked procurement & custom App Engine apps.</li>
+                <h3 className="cds--tile-heading text-[var(--cds-text-primary)] mb-2">Enterprise Automation</h3>
+                <p className="cds--tile-caption text-[var(--cds-text-secondary)] mb-4">Scale workflows to HR, Facilities, and Customers.</p>
+                <ul className="cds--list--unordered space-y-2 mb-6 flex-grow">
+                  <li className="cds--list__item text-[var(--cds-text-secondary)]">ESM portals for internal service delivery</li>
+                  <li className="cds--list__item text-[var(--cds-text-secondary)]">Customer Service Management (CSM) portals</li>
+                  <li className="cds--list__item text-[var(--cds-text-secondary)]">ERP-linked procurement & custom App Engine apps</li>
                 </ul>
-                <a href="/services/automation" className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0043ce] transition-colors mt-auto">
-                  View Automation Services →
-                </a>
-              </div>
+                <span className="cds--link flex items-center gap-2 mt-auto">
+                  Explore Automation Services
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </a>
             </div>
           </div>
         </div>
