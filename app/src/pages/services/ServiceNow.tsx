@@ -280,142 +280,136 @@ const ServiceNow = () => {
           backgroundSize: '60px 60px'
         }} />
 
-        <div className="relative cds--css-grid py-16 lg:py-20">
-        <div className="cds--col-span-16 cds--col-span-16--lg">
-          <div className="cds--css-grid" style={{ padding: 0 }}>
-            {/* Left: Content */}
-            <div className="cds--col-span-8 cds--col-span-8--lg">
-              <span 
-                className="inline-block px-3 py-1 rounded-full carbon-label-01 mb-6"
-                style={{ backgroundColor: `${brandColor}30`, color: brandColor }}
+        <div className="relative cds--css-grid py-16 lg:py-20" style={{ padding: 0 }}>
+          {/* Column 1: Main Content (5 cols) */}
+          <div className="cds--col-span-5 cds--col-span-5--lg">
+            <span 
+              className="inline-block px-3 py-1 carbon-label-01 mb-6"
+              style={{ backgroundColor: `${brandColor}30`, color: brandColor }}
+            >
+              ServiceNow Integration
+            </span>
+
+            <h1 className="carbon-fluid-display-03 text-white mb-6">
+              Secure Your ServiceNow Transition
+            </h1>
+        
+            <p className="carbon-body-02 text-[var(--cds-text-disabled)] mb-10">
+              Risk-mapped integrations that prevent SLA breaches and ensure data continuity 
+              during your ServiceNow migration. We don&apos;t just implement—we protect your operations.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col gap-4">
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[var(--cds-text-primary)] carbon-heading-01 hover:bg-[var(--cds-layer-02)] transition-colors"
               >
-                ServiceNow Integration
-              </span>
-
-              <h1 className="carbon-fluid-display-03 text-white mb-6">
-                Secure Your ServiceNow Transition
-              </h1>
-          
-              <p className="carbon-body-02 text-[var(--cds-text-disabled)] mb-10">
-                Risk-mapped integrations that prevent SLA breaches and ensure data continuity 
-                during your ServiceNow migration. We don&apos;t just implement—we protect your operations.
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button 
-                  onClick={() => scrollToSection('contact')}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[var(--cds-text-primary)] carbon-heading-01 rounded-lg hover:bg-[var(--cds-layer-02)] transition-all duration-300"
-                >
-                  Get Risk Assessment
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-                <button 
-                  onClick={() => scrollToSection('case-studies')}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/30 text-white carbon-heading-01 rounded-lg hover:bg-white/10 transition-all duration-300"
-                >
-                  View Case Studies
-                </button>
-              </div>
-
-              {/* Trust Indicators */}
-              <div className="mt-12 pt-8 border-t border-white/10">
-                <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)] mb-4">Trusted by enterprise teams</p>
-                <div className="flex flex-wrap items-center gap-6">
-                  {['Fortune 500', 'SOC 2 Type II', 'ISO 27001'].map((badge) => (
-                    <div key={badge} className="flex items-center gap-2 text-[var(--cds-text-disabled)]">
-                      <Security className="w-4 h-4" style={{ color: brandColor }} />
-                      <span className="carbon-body-compact-01">{badge}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Visual Diagram */}
-            <div className="cds--col-span-8 cds--col-span-8--lg relative lg:pl-8">
-              <div className="relative bg-[var(--cds-background)]/50 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                {/* Animated Diagram */}
-                <div className="relative h-80">
-                  {/* Legacy System */}
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-28">
-                    <div className="bg-[var(--cds-background)] rounded-lg p-4 border border-[var(--cds-border-strong)]">
-                      <ServerDns className="w-8 h-8 text-[var(--cds-text-secondary)] mx-auto mb-2" />
-                      <p className="carbon-helper-text-01 text-center text-[var(--cds-text-secondary)]">Legacy ITSM</p>
-                    </div>
-                  </div>
-
-                  {/* Arrow with Animation */}
-                  <div className="absolute left-28 right-28 top-1/2 -translate-y-1/2">
-                    <div className="relative h-1 bg-gradient-to-r from-slate-600 via-blue-500 to-green-500 rounded-full overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 animate-shimmer" 
-                        style={{ 
-                          backgroundSize: '200% 100%',
-                          animation: 'shimmer 2s infinite linear'
-                        }} 
-                      />
-                    </div>
-                    {/* Risk Indicators */}
-                    <div className="absolute -top-8 left-1/4 flex items-center gap-1">
-                      <WarningAlt className="w-4 h-4 text-[var(--cds-support-warning)]" />
-                      <span className="carbon-label-01 text-[var(--cds-support-warning)]">Data Loss Risk</span>
-                    </div>
-                    <div className="absolute -bottom-8 left-2/3 flex items-center gap-1">
-                      <Time className="w-4 h-4 text-[var(--cds-support-error)]" />
-                      <span className="carbon-label-01 text-[var(--cds-support-error)]">Downtime</span>
-                    </div>
-                  </div>
-
-                  {/* ServiceNow */}
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-28">
-                    <div className="bg-gradient-to-br from-blue-900/50 to-green-900/50 rounded-lg p-4 border border-[var(--cds-focus)]/30">
-                      <Settings className="w-8 h-8 mx-auto mb-2" style={{ color: brandColor }} />
-                      <p className="text-xs text-center text-white carbon-label-01">ServiceNow</p>
-                    </div>
-                  </div>
-
-                  {/* Protective Security Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 rounded-full flex items-center justify-center" style={{ backgroundColor: `${brandColor}20` }}>
-                      <Security className="w-10 h-10" style={{ color: brandColor }} />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Stats Preview */}
-                <div className="mt-6 pt-6 border-t border-white/10 cds--css-grid" style={{ padding: 0 }}>
-                  {[
-                    { value: 'Zero', label: 'Data Loss' },
-                    { value: '99.9%', label: 'Uptime' },
-                    { value: '4x', label: 'Faster Recovery' }
-                  ].map((stat) => (
-                    <div key={stat.label} className="cds--col-span-5 cds--col-span-5--md text-center">
-                      <p className="carbon-heading-03 text-white">{stat.value}</p>
-                      <p className="carbon-helper-text-02 text-[var(--cds-text-placeholder)]">{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+                Get Risk Assessment
+                <ArrowRight className="w-5 h-5" />
+              </button>
+              <button 
+                onClick={() => scrollToSection('case-studies')}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/30 text-white carbon-heading-01 hover:bg-white/10 transition-colors"
+              >
+                View Case Studies
+              </button>
             </div>
           </div>
-        </div>
-        </div>
 
-        {/* Stats Bar */}
-        <div className="absolute bottom-0 left-0 right-0 bg-[var(--cds-background)]/80 backdrop-blur-sm border-t border-white/10">
-          <div className="cds--css-grid">
-            <div className="cds--col-span-16 cds--col-span-16--lg">
-              <div className="flex flex-wrap items-center justify-center gap-8 carbon-body-compact-01">
-                {highlights.map((stat, idx) => (
-                  <div key={idx} className="flex items-center gap-2">
-                    <span className="carbon-heading-01 text-white">{stat.value}</span>
-                    <span className="carbon-body-compact-01 text-[var(--cds-text-disabled)]">{stat.label}</span>
+          {/* Column 2: Visual Diagram (6 cols) */}
+          <div className="cds--col-span-6 cds--col-span-6--lg relative">
+            <div className="relative bg-[var(--cds-background)]/50 backdrop-blur-sm p-6 border border-white/10 h-full">
+              {/* Animated Diagram */}
+              <div className="relative h-64">
+                {/* Legacy System */}
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-24">
+                  <div className="bg-[var(--cds-background)] p-3 border border-[var(--cds-border-strong)]">
+                    <ServerDns className="w-6 h-6 text-[var(--cds-text-secondary)] mx-auto mb-2" />
+                    <p className="carbon-helper-text-01 text-center text-[var(--cds-text-secondary)]">Legacy ITSM</p>
+                  </div>
+                </div>
+
+                {/* Arrow with Animation */}
+                <div className="absolute left-24 right-24 top-1/2 -translate-y-1/2">
+                  <div className="relative h-1 bg-gradient-to-r from-slate-600 via-blue-500 to-green-500 overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 animate-shimmer" 
+                      style={{ 
+                        backgroundSize: '200% 100%',
+                        animation: 'shimmer 2s infinite linear'
+                      }} 
+                    />
+                  </div>
+                  {/* Risk Indicators */}
+                  <div className="absolute -top-8 left-1/4 flex items-center gap-1">
+                    <WarningAlt className="w-4 h-4 text-[var(--cds-support-warning)]" />
+                    <span className="carbon-label-01 text-[var(--cds-support-warning)]">Data Loss Risk</span>
+                  </div>
+                  <div className="absolute -bottom-8 left-2/3 flex items-center gap-1">
+                    <Time className="w-4 h-4 text-[var(--cds-support-error)]" />
+                    <span className="carbon-label-01 text-[var(--cds-support-error)]">Downtime</span>
+                  </div>
+                </div>
+
+                {/* ServiceNow */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-24">
+                  <div className="bg-gradient-to-br from-blue-900/50 to-green-900/50 p-3 border border-[var(--cds-focus)]/30">
+                    <Settings className="w-6 h-6 mx-auto mb-2" style={{ color: brandColor }} />
+                    <p className="text-xs text-center text-white carbon-label-01">ServiceNow</p>
+                  </div>
+                </div>
+
+                {/* Protective Security Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-16 h-16 flex items-center justify-center" style={{ backgroundColor: `${brandColor}20` }}>
+                    <Security className="w-8 h-8" style={{ color: brandColor }} />
+                  </div>
+                </div>
+              </div>
+
+              {/* Stats Preview */}
+              <div className="mt-6 pt-6 border-t border-white/10 grid grid-cols-3 gap-4">
+                {[
+                  { value: 'Zero', label: 'Data Loss' },
+                  { value: '99.9%', label: 'Uptime' },
+                  { value: '4x', label: 'Faster Recovery' }
+                ].map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <p className="carbon-heading-03 text-white">{stat.value}</p>
+                    <p className="carbon-helper-text-02 text-[var(--cds-text-placeholder)]">{stat.label}</p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
+
+          {/* Column 3: Stats & Trust (5 cols) */}
+          <div className="cds--col-span-5 cds--col-span-5--lg pl-8">
+            {/* Trust Indicators */}
+            <div className="mb-10">
+              <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)] mb-4">Trusted by enterprise teams</p>
+              <div className="space-y-3">
+                {['Fortune 500', 'SOC 2 Type II', 'ISO 27001'].map((badge) => (
+                  <div key={badge} className="flex items-center gap-2 text-[var(--cds-text-disabled)]">
+                    <Security className="w-4 h-4" style={{ color: brandColor }} />
+                    <span className="carbon-body-compact-01">{badge}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Highlights */}
+            <div className="space-y-6 border-t border-white/10 pt-8">
+              {highlights.slice(0, 4).map((stat, idx) => (
+                <div key={idx}>
+                  <span className="carbon-heading-02 text-white">{stat.value}</span>
+                  <p className="carbon-body-compact-01 text-[var(--cds-text-disabled)]">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
+
       </section>
 
       {/* Main content wrapper with sidebar - starts after hero */}
@@ -1222,72 +1216,79 @@ const ServiceNow = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Infrastructure & Observability */}
-              <a href="/services/infrastructure" className="cds--tile cds--tile--clickable group flex flex-col h-full">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="cds--tag cds--tag--blue">
-                    <Cloud className="w-4 h-4 mr-2" />
-                    Infrastructure
+            {/* Carbon 2x Grid: 5-6-5 columns to match Hero */}
+            <div className="cds--css-grid" style={{ padding: 0 }}>
+              {/* Infrastructure & Observability - 5 cols */}
+              <div className="cds--col-span-5 cds--col-span-5--lg">
+                <a href="/services/infrastructure" className="cds--tile cds--tile--clickable group flex flex-col h-full">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="cds--tag cds--tag--blue">
+                      <Cloud className="w-4 h-4 mr-2" />
+                      Infrastructure
+                    </div>
+                    <ArrowUpRight className="w-5 h-5 text-[var(--cds-link-primary)]" />
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-[var(--cds-link-primary)] opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-                <h3 className="cds--tile-heading text-[var(--cds-text-primary)] mb-2">Infrastructure & Observability</h3>
-                <p className="cds--tile-caption text-[var(--cds-text-secondary)] mb-4">Bridge physical reality to digital workflows.</p>
-                <ul className="cds--list--unordered space-y-2 mb-6 flex-grow min-h-[4.5rem]">
-                  <li className="cds--list__item text-[var(--cds-text-secondary)]">Server Health Audits (MODSERVE) mapped to CMDB</li>
-                  <li className="cds--list__item text-[var(--cds-text-secondary)]">Network alert correlation & unified monitoring</li>
-                  <li className="cds--list__item text-[var(--cds-text-secondary)]">DCIM integration for real-time asset visibility</li>
-                </ul>
-                <span className="cds--link flex items-center gap-2 mt-auto pt-4 border-t border-[var(--cds-border-subtle)]">
-                  Explore Infrastructure Services
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </a>
+                  <h3 className="cds--tile-heading text-[var(--cds-text-primary)] mb-2">Infrastructure & Observability</h3>
+                  <p className="cds--tile-caption text-[var(--cds-text-secondary)] mb-4">Bridge physical reality to digital workflows.</p>
+                  <ul className="cds--list--unordered space-y-2 mb-6 flex-grow">
+                    <li className="cds--list__item text-[var(--cds-text-secondary)]">Server Health Audits (MODSERVE) mapped to CMDB</li>
+                    <li className="cds--list__item text-[var(--cds-text-secondary)]">Network alert correlation & unified monitoring</li>
+                    <li className="cds--list__item text-[var(--cds-text-secondary)]">DCIM integration for real-time asset visibility</li>
+                  </ul>
+                  <span className="cds--link flex items-center gap-2 mt-auto">
+                    Explore Infrastructure Services
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
+                </a>
+              </div>
 
-              {/* Security & Compliance */}
-              <a href="/services/security" className="cds--tile cds--tile--clickable group flex flex-col h-full">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="cds--tag cds--tag--red">
-                    <Security className="w-4 h-4 mr-2" />
-                    Security
+              {/* Security & Compliance - 6 cols (center, slightly wider) */}
+              <div className="cds--col-span-6 cds--col-span-6--lg">
+                <a href="/services/security" className="cds--tile cds--tile--clickable group flex flex-col h-full">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="cds--tag cds--tag--red">
+                      <Security className="w-4 h-4 mr-2" />
+                      Security
+                    </div>
+                    <ArrowUpRight className="w-5 h-5 text-[var(--cds-link-primary)]" />
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-[var(--cds-link-primary)] opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-                <h3 className="cds--tile-heading text-[var(--cds-text-primary)] mb-2">Security & Compliance</h3>
-                <p className="cds--tile-caption text-[var(--cds-text-secondary)] mb-4">Automate risk response for regulated sectors.</p>
-                <ul className="cds--list--unordered space-y-2 mb-6 flex-grow min-h-[4.5rem]">
-                  <li className="cds--list__item text-[var(--cds-text-secondary)]">SecOps integration (SIEM to Ticket)</li>
-                  <li className="cds--list__item text-[var(--cds-text-secondary)]">Automated vulnerability remediation tasks</li>
-                  <li className="cds--list__item text-[var(--cds-text-secondary)]">SBP-aligned compliance reporting & controls</li>
-                </ul>
-                <span className="cds--link flex items-center gap-2 mt-auto pt-4 border-t border-[var(--cds-border-subtle)]">
-                  Explore Security Services
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </a>
+                  <h3 className="cds--tile-heading text-[var(--cds-text-primary)] mb-2">Security & Compliance</h3>
+                  <p className="cds--tile-caption text-[var(--cds-text-secondary)] mb-4">Automate risk response for regulated sectors.</p>
+                  <ul className="cds--list--unordered space-y-2 mb-6 flex-grow">
+                    <li className="cds--list__item text-[var(--cds-text-secondary)]">SecOps integration (SIEM to Ticket)</li>
+                    <li className="cds--list__item text-[var(--cds-text-secondary)]">Automated vulnerability remediation tasks</li>
+                    <li className="cds--list__item text-[var(--cds-text-secondary)]">SBP-aligned compliance reporting & controls</li>
+                  </ul>
+                  <span className="cds--link flex items-center gap-2 mt-auto">
+                    Explore Security Services
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
+                </a>
+              </div>
 
-              {/* Enterprise Automation */}
-              <a href="/services/automation" className="cds--tile cds--tile--clickable group flex flex-col h-full">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="cds--tag cds--tag--green">
-                    <IbmAutomationPlatform className="w-4 h-4 mr-2" />
-                    Automation
+              {/* Enterprise Automation - 5 cols */}
+              <div className="cds--col-span-5 cds--col-span-5--lg">
+                <a href="/services/automation" className="cds--tile cds--tile--clickable group flex flex-col h-full">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="cds--tag cds--tag--green">
+                      <IbmAutomationPlatform className="w-4 h-4 mr-2" />
+                      Automation
+                    </div>
+                    <ArrowUpRight className="w-5 h-5 text-[var(--cds-link-primary)]" />
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-[var(--cds-link-primary)] opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-                <h3 className="cds--tile-heading text-[var(--cds-text-primary)] mb-2">Enterprise Automation</h3>
-                <p className="cds--tile-caption text-[var(--cds-text-secondary)] mb-4">Scale workflows to HR, Facilities, and Customers.</p>
-                <ul className="cds--list--unordered space-y-2 mb-6 flex-grow min-h-[4.5rem]">
-                  <li className="cds--list__item text-[var(--cds-text-secondary)]">ESM portals for internal service delivery</li>
-                  <li className="cds--list__item text-[var(--cds-text-secondary)]">Customer Service Management (CSM) portals</li>
-                  <li className="cds--list__item text-[var(--cds-text-secondary)]">ERP-linked procurement & custom App Engine apps</li>
-                </ul>
-                <span className="cds--link flex items-center gap-2 mt-auto pt-4 border-t border-[var(--cds-border-subtle)]">
-                  Explore Automation Services
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </a>
+                  <h3 className="cds--tile-heading text-[var(--cds-text-primary)] mb-2">Enterprise Automation</h3>
+                  <p className="cds--tile-caption text-[var(--cds-text-secondary)] mb-4">Scale workflows to HR, Facilities, and Customers.</p>
+                  <ul className="cds--list--unordered space-y-2 mb-6 flex-grow">
+                    <li className="cds--list__item text-[var(--cds-text-secondary)]">ESM portals for internal service delivery</li>
+                    <li className="cds--list__item text-[var(--cds-text-secondary)]">Customer Service Management (CSM) portals</li>
+                    <li className="cds--list__item text-[var(--cds-text-secondary)]">ERP-linked procurement & custom App Engine apps</li>
+                  </ul>
+                  <span className="cds--link flex items-center gap-2 mt-auto">
+                    Explore Automation Services
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
