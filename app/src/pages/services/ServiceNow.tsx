@@ -106,7 +106,7 @@ const ServiceNow = () => {
       descriptionBold: "Don't build until you know the risks.",
       descriptionNormal: "Our risk-mapped approach ensures your business case is solid before a single line of code is written.",
       shortTags: ['Current State & Gap Analysis', 'SBP-Aligned Roadmap', 'TCO & ROI Modeling'],
-      detailDescription: "We don't just plan; we audit your readiness. Our risk-mapped approach ensures your business case is solid before a single line of code is written.",
+      detailHeading: "We cover:",
       detailBullets: [
         { title: 'Current State & Gap Analysis:', desc: 'Including legacy hardware assessment.' },
         { title: 'SBP-Aligned Roadmap:', desc: 'Compliance-ready architecture design.' },
@@ -473,9 +473,11 @@ const ServiceNow = () => {
                     {/* Expandable detail description on hover */}
                     <div className="max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-64 mb-0 group-hover:mb-6">
                       <div className="bg-[#f4f4f4] p-4 rounded-lg">
-                        <p className="carbon-body-02 text-[var(--cds-text-secondary)] leading-relaxed mb-3">
-                          {offering.detailDescription}
-                        </p>
+                        {offering.detailHeading && (
+                          <p className="carbon-body-02 font-semibold text-[var(--cds-text-primary)] leading-relaxed mb-3">
+                            {offering.detailHeading}
+                          </p>
+                        )}
                         {offering.detailBullets && (
                           <ul className="space-y-2">
                             {offering.detailBullets.map((bullet, idx) => (
