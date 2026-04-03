@@ -93,7 +93,8 @@ const ServiceNow = () => {
     { id: 'tco-calculator', label: 'TCO Calculator' },
     { id: 'framework', label: 'Success Framework' },
     { id: 'compliance', label: 'Compliance' },
-    { id: 'next-steps', label: 'Next Steps' }
+    { id: 'next-steps', label: 'Next Steps' },
+    { id: 'complementary', label: 'Complementary Solutions' }
   ];
 
   // ServiceNow Offerings Data
@@ -1198,6 +1199,78 @@ const ServiceNow = () => {
             </div>
           </div>
         </div>
+        </div>
+      </section>
+
+      {/* Complementary Solutions Section */}
+      <section id="complementary" className="py-24 bg-[var(--cds-layer-01)]">
+        <div className="cds--css-grid">
+          <div className="cds--col-span-16 cds--col-span-16--lg">
+            <div className="text-center mb-12">
+              <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
+                Extend Your Value
+              </span>
+              <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-4">
+                Complementary Solutions
+              </h2>
+              <p className="carbon-body-02 text-[var(--cds-text-secondary)] max-w-2xl mx-auto">
+                Extend your ServiceNow value beyond IT.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Infrastructure & Observability */}
+              <div className="bg-white rounded-xl p-8 border border-[var(--cds-border-subtle)] flex flex-col h-full">
+                <div className="w-12 h-12 rounded-xl bg-[#edf5ff] flex items-center justify-center text-[#0f62fe] mb-5">
+                  <span className="text-2xl">🏗️</span>
+                </div>
+                <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-2">Infrastructure & Observability</h3>
+                <p className="carbon-body-compact-02 text-[var(--cds-text-secondary)] mb-4">Bridge physical reality to digital workflows.</p>
+                <ul className="space-y-2 mb-6 flex-grow">
+                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• Server Health Audits (MODSERVE) mapped to CMDB.</li>
+                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• Network alert correlation & unified monitoring.</li>
+                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• DCIM integration for real-time asset visibility.</li>
+                </ul>
+                <a href="/services/infrastructure" className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0043ce] transition-colors mt-auto">
+                  View Infra Services →
+                </a>
+              </div>
+
+              {/* Security & Compliance */}
+              <div className="bg-white rounded-xl p-8 border border-[var(--cds-border-subtle)] flex flex-col h-full">
+                <div className="w-12 h-12 rounded-xl bg-[#edf5ff] flex items-center justify-center text-[#0f62fe] mb-5">
+                  <span className="text-2xl">🛡️</span>
+                </div>
+                <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-2">Security & Compliance</h3>
+                <p className="carbon-body-compact-02 text-[var(--cds-text-secondary)] mb-4">Automate risk response for regulated sectors.</p>
+                <ul className="space-y-2 mb-6 flex-grow">
+                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• SecOps integration (SIEM to Ticket).</li>
+                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• Automated vulnerability remediation tasks.</li>
+                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• SBP-aligned compliance reporting & controls.</li>
+                </ul>
+                <a href="/services/security" className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0043ce] transition-colors mt-auto">
+                  View Security Services →
+                </a>
+              </div>
+
+              {/* Enterprise Automation */}
+              <div className="bg-white rounded-xl p-8 border border-[var(--cds-border-subtle)] flex flex-col h-full">
+                <div className="w-12 h-12 rounded-xl bg-[#edf5ff] flex items-center justify-center text-[#0f62fe] mb-5">
+                  <span className="text-2xl">🚀</span>
+                </div>
+                <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-2">Enterprise Automation</h3>
+                <p className="carbon-body-compact-02 text-[var(--cds-text-secondary)] mb-4">Scale workflows to HR, Facilities, and Customers.</p>
+                <ul className="space-y-2 mb-6 flex-grow">
+                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• ESM portals for internal service delivery.</li>
+                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• Customer Service Management (CSM) portals.</li>
+                  <li className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">• ERP-linked procurement & custom App Engine apps.</li>
+                </ul>
+                <a href="/services/automation" className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0043ce] transition-colors mt-auto">
+                  View Automation Services →
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
