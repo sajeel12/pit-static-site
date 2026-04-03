@@ -801,7 +801,8 @@ const ServiceNow = () => {
 
       {/* ServiceNow Success Framework */}
       <section id="framework" className="py-24 bg-[var(--cds-layer-01)]">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="cds--css-grid">
+        <div className="cds--col-span-16 cds--col-span-16--lg">
           {/* Header */}
           <div className="mb-10">
             <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-2">
@@ -1003,6 +1004,7 @@ const ServiceNow = () => {
               Our Risk-Mapped Framework identifies opportunities for optimization in Week 1, accelerating your time-to-value.
             </p>
           </div>
+        </div>
         </div>
       </section>
 
