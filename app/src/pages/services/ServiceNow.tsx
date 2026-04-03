@@ -74,7 +74,7 @@ const ServiceNow = () => {
     }
   };
 
-  const brandColor = '#3B82F6';
+  const brandColor = 'var(--cds-button-primary)';
 
   const highlights = [
     { value: '14+', label: 'Years Experience' },
@@ -153,7 +153,7 @@ const ServiceNow = () => {
       link: '/projects/case-study/servicenow-incident-automation',
       icon: Lightning,
       iconColor: '#F59E0B',
-      bgGradient: 'linear-gradient(135deg, #F5F0EB, #EDE8E3)',
+      bgGradient: 'linear-gradient(135deg, var(--cds-layer-01), #EDE8E3)',
       tags: [
         { text: 'Automation', class: 'bg-[var(--cds-support-warning-subtle)] text-[var(--cds-support-warning)]' },
         { text: 'Integration', class: 'bg-[var(--cds-layer-accent)] text-[var(--cds-link-primary-hover)]' },
@@ -212,7 +212,7 @@ const ServiceNow = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA]">
+    <div className="min-h-screen bg-[var(--cds-background)]">
       <Navigation />
       
       {/* Breadcrumb */}
@@ -406,7 +406,7 @@ const ServiceNow = () => {
             {offerings.map((offering) => (
               <div 
                 key={offering.id}
-                className="relative bg-white rounded-xl border border-[var(--cds-border-subtle)] p-10 transition-all duration-300 hover:shadow-xl hover:border-[#3B82F6] hover:-translate-y-1 flex flex-col h-full"
+                className="relative bg-white rounded-xl border border-[var(--cds-border-subtle)] p-10 transition-all duration-300 hover:shadow-xl hover:border-[var(--cds-button-primary)] hover:-translate-y-1 flex flex-col h-full"
               >
                 
                 <div className="flex items-center gap-4 mb-6">
@@ -558,7 +558,7 @@ const ServiceNow = () => {
                     key={idx}
                     onClick={() => setCurrentCaseStudy(idx)}
                     className={`w-2 h-2 rounded-full transition-all ${
-                      idx === currentCaseStudy ? 'bg-[var(--cds-layer-accent)]0 w-6' : 'bg-gray-300'
+                      idx === currentCaseStudy ? 'bg-[var(--cds-layer-accent)]0 w-6' : 'bg-[var(--cds-layer-03)]'
                     }`}
                   />
                 ))}
