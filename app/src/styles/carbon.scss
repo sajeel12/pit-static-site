@@ -172,6 +172,72 @@
 }
 
 // ============================================================================
+// CARBON BUTTON COMPONENT
+// ============================================================================
+
+.cds--btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 calc(var(--cds-spacing-07) - 0.25rem); /* 14px 30px */
+  height: 3rem;
+  min-width: 10rem;
+  font-size: var(--cds-body-compact-01-font-size, 0.875rem);
+  font-weight: 400;
+  line-height: 1.28572;
+  letter-spacing: 0.16px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 150ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  white-space: nowrap;
+}
+
+.cds--btn--primary {
+  background-color: var(--cds-button-primary, #0f62fe);
+  color: var(--cds-text-on-color, #ffffff);
+}
+
+.cds--btn--primary:hover {
+  background-color: var(--cds-button-primary-hover, #0353e9);
+}
+
+.cds--btn--primary:focus {
+  outline: 2px solid var(--cds-focus, #ffffff);
+  outline-offset: -2px;
+}
+
+.cds--btn--secondary {
+  background-color: var(--cds-button-secondary, #393939);
+  color: var(--cds-text-on-color, #ffffff);
+}
+
+.cds--btn--secondary:hover {
+  background-color: var(--cds-button-secondary-hover, #4c4c4c);
+}
+
+.cds--btn--tertiary {
+  background-color: transparent;
+  border: 1px solid var(--cds-button-tertiary, #0f62fe);
+  color: var(--cds-button-tertiary, #0f62fe);
+}
+
+.cds--btn--tertiary:hover {
+  background-color: var(--cds-button-tertiary-hover, #0353e9);
+  color: var(--cds-text-on-color, #ffffff);
+}
+
+.cds--btn--ghost {
+  background-color: transparent;
+  color: var(--cds-link-primary, #0f62fe);
+}
+
+.cds--btn--ghost:hover {
+  background-color: var(--cds-background-hover, #e5e5e5);
+  color: var(--cds-link-primary-hover, #0043ce);
+}
+
+// ============================================================================
 // SPACING TOKENS
 // ============================================================================
 
