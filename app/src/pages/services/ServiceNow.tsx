@@ -478,9 +478,9 @@ const ServiceNow = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="cds--css-grid" style={{ padding: 0 }}>
             {/* Column 1: Core Platform */}
-            <div className="bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
+            <div className="cds--col-span-4 cds--col-span-4--md bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
               <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-2">
                 <Layers className="w-5 h-5" style={{ color: brandColor }} />
                 Core Platform
@@ -493,7 +493,7 @@ const ServiceNow = () => {
             </div>
 
             {/* Column 2: Development */}
-            <div className="bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
+            <div className="cds--col-span-4 cds--col-span-4--md bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
               <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-2">
                 <Code className="w-5 h-5" style={{ color: brandColor }} />
                 Development
@@ -506,7 +506,7 @@ const ServiceNow = () => {
             </div>
 
             {/* Column 3: Integration */}
-            <div className="bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
+            <div className="cds--col-span-4 cds--col-span-4--md bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
               <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-2">
                 <Network_1 className="w-5 h-5" style={{ color: brandColor }} />
                 Integration
@@ -519,7 +519,7 @@ const ServiceNow = () => {
             </div>
 
             {/* Column 4: ITOM & Discovery */}
-            <div className="bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
+            <div className="cds--col-span-4 cds--col-span-4--md bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
               <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-2">
                 <Activity className="w-5 h-5" style={{ color: brandColor }} />
                 ITOM & Discovery
