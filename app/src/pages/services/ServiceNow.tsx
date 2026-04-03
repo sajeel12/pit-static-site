@@ -365,14 +365,16 @@ const ServiceNow = () => {
 
         {/* Stats Bar */}
         <div className="absolute bottom-0 left-0 right-0 bg-[var(--cds-background)]/80 backdrop-blur-sm border-t border-white/10">
-          <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
-            <div className="flex flex-wrap items-center justify-center gap-8 carbon-body-compact-01">
-              {highlights.map((stat, idx) => (
-                <div key={idx} className="flex items-center gap-2">
-                  <span className="carbon-heading-01 text-white">{stat.value}</span>
-                  <span className="carbon-body-compact-01 text-[var(--cds-text-disabled)]">{stat.label}</span>
-                </div>
-              ))}
+          <div className="cds--css-grid">
+            <div className="cds--col-span-16 cds--col-span-16--lg">
+              <div className="flex flex-wrap items-center justify-center gap-8 carbon-body-compact-01">
+                {highlights.map((stat, idx) => (
+                  <div key={idx} className="flex items-center gap-2">
+                    <span className="carbon-heading-01 text-white">{stat.value}</span>
+                    <span className="carbon-body-compact-01 text-[var(--cds-text-disabled)]">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -389,7 +391,8 @@ const ServiceNow = () => {
         <div className="flex-1 min-w-0">
         {/* ServiceNow Offerings Section */}
         <section id="offerings" ref={servicesRef} className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="cds--css-grid">
+        <div className="cds--col-span-16 cds--col-span-16--lg">
           <div className="mb-16">
             <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
               Our Services
@@ -451,6 +454,7 @@ const ServiceNow = () => {
               </div>
             ))}
           </div>
+        </div>
         </div>
       </section>
 
@@ -642,7 +646,8 @@ const ServiceNow = () => {
 
       {/* Client Testimonial Section */}
       <section id="testimonial" className="py-24 bg-[var(--cds-layer-01)]">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="cds--css-grid">
+        <div className="cds--col-span-16 cds--col-span-16--lg">
           <div className="text-center mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
               Feedback
@@ -679,11 +684,13 @@ const ServiceNow = () => {
             </div>
           </div>
         </div>
+        </div>
       </section>
 
       {/* TCO Calculator Section */}
       <section id="tco-calculator" className="py-24 bg-white border-y border-[var(--cds-border-subtle)]">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="cds--css-grid">
+        <div className="cds--col-span-16 cds--col-span-16--lg">
           <div className="mb-10">
             <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
               Financial Transparency
@@ -796,6 +803,7 @@ const ServiceNow = () => {
               </a>
             </div>
           </div>
+        </div>
         </div>
       </section>
 
