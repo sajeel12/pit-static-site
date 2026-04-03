@@ -120,12 +120,19 @@ const ServiceNow = () => {
     {
       id: 'implementation',
       icon: Settings,
-      title: 'Implementation',
-      duration: '8 weeks',
-      description: 'End-to-end deployment with our proven 8-week go-live methodology for rapid value realization.',
-      shortTags: ['Configuration', 'Integration', 'Testing', 'Go-Live'],
-      detailDescription: 'Platform configuration & customization, third-party integrations, data migration & validation, and user acceptance testing & cutover.',
-      cta: 'Start Implementation',
+      title: 'Rapid Implementation',
+      duration: '8 Weeks',
+      descriptionBold: 'Go live faster, with zero integration blind spots.',
+      descriptionNormal: 'Our proven methodology deploys core ITSM modules in 8 weeks. Unlike pure software shops, we integrate your physical infrastructure (Huawei/Servers) from Day 1.',
+      shortTags: ['Native Configuration', 'Full-Stack Integration', 'Data Migration'],
+      detailHeading: 'We deliver:',
+      detailBullets: [
+        { title: 'Native Configuration:', desc: 'Upgrade-safe workflows using Flow Designer.' },
+        { title: 'Full-Stack Integration:', desc: 'Bridging hardware telemetry to ServiceNow ITOM.' },
+        { title: 'Data Migration:', desc: '99% accurate CMDB population via risk-mapped audits.' },
+        { title: 'Go Live:', desc: 'Go-live in 8 weeks' }
+      ],
+      cta: 'Start Your 8-Week Deployment',
       color: 'bg-green-500',
       link: '#contact'
     },
