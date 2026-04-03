@@ -422,56 +422,53 @@ const ServiceNow = () => {
             {offerings.map((offering) => (
               <div 
                 key={offering.id}
-                className="cds--col-span-5 cds--col-span-5--md group relative bg-white rounded-xl border border-[var(--cds-border-subtle)] overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-[var(--cds-button-primary)] hover:-translate-y-1 flex flex-col h-full"
+                className="cds--col-span-5 cds--col-span-5--md group relative bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-blue-200 hover:-translate-y-1 flex flex-col h-full"
               >
-                {/* Color bar at top */}
-                <div className={`h-2 ${offering.color}`} />
-                
-                <div className="p-8 flex flex-col flex-grow">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div 
-                      className={`w-14 h-14 rounded-xl flex items-center justify-center shadow-sm ${offering.color} bg-opacity-10`}
-                    >
-                      <offering.icon className={`w-7 h-7 ${offering.color.replace('bg-', 'text-')}`} />
+                <div className="p-6 flex flex-col flex-grow">
+                  {/* Icon and Title */}
+                  <div className="flex items-start gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-blue-500">
+                      <offering.icon className="w-5 h-5" />
                     </div>
                     <div>
                       <h3 className="carbon-heading-03 text-[var(--cds-text-primary)]">{offering.title}</h3>
-                      <div className="flex items-center gap-2 carbon-body-compact-01 text-[var(--cds-text-helper)]">
-                        <Time className="w-4 h-4" />
+                      <div className="flex items-center gap-1 carbon-body-compact-01 text-[var(--cds-text-helper)]">
+                        <Time className="w-3 h-3" />
                         <span>{offering.duration}</span>
                       </div>
                     </div>
                   </div>
 
+                  {/* Description */}
                   <p className="carbon-body-02 text-[var(--cds-text-secondary)] mb-4 leading-relaxed">
                     {offering.description}
                   </p>
 
                   {/* Expandable detail description on hover */}
                   <div className="max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-40 mb-0 group-hover:mb-4">
-                    <p className="carbon-body-02 text-[var(--cds-text-secondary)] leading-relaxed border-l-4 border-[var(--cds-button-primary)] pl-4">
+                    <p className="text-sm text-gray-600 leading-relaxed border-l-2 border-blue-200 pl-3">
                       {offering.detailDescription}
                     </p>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-5">
                     {offering.shortTags.map((tag) => (
                       <span 
                         key={tag}
-                        className="px-3 py-1 bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)] carbon-label-01 rounded-full"
+                        className="px-2.5 py-1 text-[10px] font-medium text-gray-500 bg-gray-100 rounded"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
+                  {/* CTA */}
                   <a
                     href={offering.link}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white carbon-label-01 transition-all hover:opacity-90 w-full justify-center mt-auto"
-                    style={{ backgroundColor: brandColor }}
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors group-hover:gap-2 mt-auto"
                   >
-                    {offering.cta}
-                    <ArrowRight className="w-4 h-4" />
+                    {offering.cta} <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
               </div>
