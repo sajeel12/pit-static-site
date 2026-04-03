@@ -259,7 +259,7 @@ const ServiceNow = () => {
       </div>
 
       {/* Hero Section - Pure Carbon Design */}
-      <section id="overview" ref={heroRef} className="bg-[#161616] overflow-hidden">
+      <section id="overview" ref={heroRef} className="bg-[#161616] overflow-hidden mt-8">
         {/* Top Accent Bar */}
         <div className="h-1 bg-[#0f62fe]" />
         
