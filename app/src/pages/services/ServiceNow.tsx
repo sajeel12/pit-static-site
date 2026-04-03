@@ -248,9 +248,9 @@ const ServiceNow = () => {
 
         <div className="relative cds--css-grid py-16 lg:py-20">
         <div className="cds--col-span-16 cds--col-span-16--lg">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="cds--css-grid" style={{ padding: 0 }}>
             {/* Left: Content */}
-            <div>
+            <div className="cds--col-span-8 cds--col-span-8--lg">
               <span 
                 className="inline-block px-3 py-1 rounded-full carbon-label-01 mb-6"
                 style={{ backgroundColor: `${brandColor}30`, color: brandColor }}
@@ -299,7 +299,7 @@ const ServiceNow = () => {
             </div>
 
             {/* Right: Visual Diagram */}
-            <div className="relative lg:pl-8">
+            <div className="cds--col-span-8 cds--col-span-8--lg relative lg:pl-8">
               <div className="relative bg-[var(--cds-background)]/50 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
                 {/* Animated Diagram */}
                 <div className="relative h-80">
