@@ -249,7 +249,7 @@ const ServiceNow = () => {
             {/* Left: Content */}
             <div>
               <span 
-                className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-6"
+                className="inline-block px-3 py-1 rounded-full carbon-label-01 mb-6"
                 style={{ backgroundColor: `${brandColor}30`, color: brandColor }}
               >
                 ServiceNow Integration
@@ -366,7 +366,7 @@ const ServiceNow = () => {
         {/* Stats Bar */}
         <div className="absolute bottom-0 left-0 right-0 bg-slate-900/80 backdrop-blur-sm border-t border-white/10">
           <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
-            <div className="flex flex-wrap items-center justify-center gap-8 text-sm">
+            <div className="flex flex-wrap items-center justify-center gap-8 carbon-body-compact-01">
               {highlights.map((stat, idx) => (
                 <div key={idx} className="flex items-center gap-2">
                   <span className="carbon-heading-01 text-white">{stat.value}</span>
@@ -418,7 +418,7 @@ const ServiceNow = () => {
                   </div>
                   <div>
                     <h3 className="carbon-heading-03 text-gray-900">{offering.title}</h3>
-                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <div className="flex items-center gap-2 carbon-body-compact-01 text-gray-500">
                       <Time className="w-4 h-4" />
                       <span>{offering.duration}</span>
                     </div>
@@ -587,7 +587,7 @@ const ServiceNow = () => {
                           {study.tags.map((tag) => (
                             <span 
                               key={tag.text}
-                              className={`px-3 py-1 rounded-full text-xs font-medium ${tag.class}`}
+                              className={`px-3 py-1 rounded-full carbon-label-01 ${tag.class}`}
                             >
                               {tag.text}
                             </span>
