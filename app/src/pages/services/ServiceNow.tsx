@@ -1010,7 +1010,8 @@ const ServiceNow = () => {
 
       {/* Compliance Section */}
       <section id="compliance" className="py-24 bg-[var(--cds-layer-01)]">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="cds--css-grid">
+        <div className="cds--col-span-16 cds--col-span-16--lg">
           <div className="bg-white rounded-xl border border-[var(--cds-border-subtle)] p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="flex-shrink-0">
@@ -1034,6 +1035,7 @@ const ServiceNow = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </section>
 
