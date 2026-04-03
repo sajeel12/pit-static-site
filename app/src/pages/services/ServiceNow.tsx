@@ -101,7 +101,7 @@ const ServiceNow = () => {
     {
       id: 'consultation',
       icon: Chat,
-      title: "Don't build until you know the risks.",
+      title: 'Consultation',
       duration: '2-4 weeks',
       description: "We don't just plan; we audit your readiness. Our risk-mapped approach ensures your business case is solid before a single line of code is written.",
       shortTags: ['Current State & Gap Analysis', 'SBP-Aligned Roadmap', 'TCO & ROI Modeling'],
