@@ -103,7 +103,8 @@ const ServiceNow = () => {
       icon: Chat,
       title: 'Consultation',
       duration: '2-4 weeks',
-      description: "Don't build until you know the risks.",
+      descriptionBold: "Don't build until you know the risks.",
+      descriptionNormal: "We don't just plan; we audit your readiness.",
       shortTags: ['Current State & Gap Analysis', 'SBP-Aligned Roadmap', 'TCO & ROI Modeling'],
       detailDescription: "We don't just plan; we audit your readiness. Our risk-mapped approach ensures your business case is solid before a single line of code is written.",
       detailBullets: [
@@ -451,9 +452,22 @@ const ServiceNow = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="carbon-body-02 font-semibold text-[var(--cds-text-primary)] mb-6 leading-relaxed">
-                      {offering.description}
-                    </p>
+                    <div className="mb-6">
+                      {offering.descriptionBold ? (
+                        <>
+                          <p className="carbon-body-02 font-semibold text-[var(--cds-text-primary)] leading-relaxed">
+                            {offering.descriptionBold}
+                          </p>
+                          <p className="carbon-body-02 text-[var(--cds-text-secondary)] leading-relaxed mt-1">
+                            {offering.descriptionNormal}
+                          </p>
+                        </>
+                      ) : (
+                        <p className="carbon-body-02 text-[var(--cds-text-secondary)] leading-relaxed">
+                          {offering.description}
+                        </p>
+                      )}
+                    </div>
 
                     {/* Expandable detail description on hover */}
                     <div className="max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-64 mb-0 group-hover:mb-6">
