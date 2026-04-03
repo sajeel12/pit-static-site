@@ -152,8 +152,8 @@ const ServiceNow = () => {
       id: 'automation',
       link: '/projects/case-study/servicenow-incident-automation',
       icon: Lightning,
-      iconColor: '#F59E0B',
-      bgGradient: 'linear-gradient(135deg, var(--cds-layer-01), #EDE8E3)',
+      iconColor: 'var(--cds-support-warning)',
+      bgGradient: 'linear-gradient(135deg, var(--cds-layer-01), var(--cds-layer-02))',
       tags: [
         { text: 'Automation', class: 'bg-[var(--cds-support-warning-subtle)] text-[var(--cds-support-warning)]' },
         { text: 'Integration', class: 'bg-[var(--cds-layer-accent)] text-[var(--cds-link-primary-hover)]' },
@@ -231,7 +231,7 @@ const ServiceNow = () => {
       </div>
 
       {/* Hero Section */}
-      <section id="overview" ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden" style={{ background: `linear-gradient(135deg, #0F172A 0%, #1E293B 50%, ${brandColor}20 100%)` }}>
+      <section id="overview" ref={heroRef} className="relative min-h-[85vh] flex items-center overflow-hidden" style={{ background: `linear-gradient(135deg, var(--cds-background-inverse) 0%, var(--cds-background-inverse) 50%, ${brandColor}20 100%)` }}>
         {/* Abstract Background */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: brandColor }} />
