@@ -268,14 +268,14 @@ const ServiceNow = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-900 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-900 carbon-heading-01 rounded-lg hover:bg-gray-100 transition-all duration-300"
                 >
                   Get Risk Assessment
                   <ArrowRight className="w-5 h-5" />
                 </button>
                 <button 
                   onClick={() => scrollToSection('case-studies')}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/30 text-white carbon-heading-01 rounded-lg hover:bg-white/10 transition-all duration-300"
                 >
                   View Case Studies
                 </button>
@@ -1026,10 +1026,10 @@ const ServiceNow = () => {
                   Enable Your Regulatory Compliance with Local Data Control. Our Lahore delivery center ensures your sensitive data remains within Pakistan jurisdiction unless explicitly authorized for cross-border transfer. Unlike global SaaS-only providers, we provide the local oversight and audit trails required by Banking and Government sectors to meet their SBP obligations.
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                  <span className="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg">SBP Guidelines Aligned</span>
-                  <span className="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg">Local Data Residency</span>
-                  <span className="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg">Audit-Ready Documentation</span>
-                  <span className="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg">24/7 Local Support Access</span>
+                  <span className="px-4 py-2 bg-gray-100 text-gray-700 carbon-label-01 rounded-lg">SBP Guidelines Aligned</span>
+                  <span className="px-4 py-2 bg-gray-100 text-gray-700 carbon-label-01 rounded-lg">Local Data Residency</span>
+                  <span className="px-4 py-2 bg-gray-100 text-gray-700 carbon-label-01 rounded-lg">Audit-Ready Documentation</span>
+                  <span className="px-4 py-2 bg-gray-100 text-gray-700 carbon-label-01 rounded-lg">24/7 Local Support Access</span>
                 </div>
               </div>
             </div>
@@ -1118,7 +1118,7 @@ const ServiceNow = () => {
       {/* CTA Section */}
       <section id="contact" className="py-24" style={{ backgroundColor: brandColor }}>
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-          <span className="inline-block px-4 py-2 bg-white/10 rounded-full text-sm font-medium text-white/90 mb-6">
+          <span className="inline-block px-4 py-2 bg-white/10 rounded-full carbon-label-01 text-white/90 mb-6">
             8-Week Go-Live Guarantee
           </span>
           <h2 className="carbon-fluid-heading-05 text-white mb-6">
@@ -1128,7 +1128,7 @@ const ServiceNow = () => {
             Get a free ServiceNow migration assessment. We&apos;ll analyse your current setup, 
             identify risks, and provide a detailed roadmap—all at no cost.
           </p>
-          <p className="text-sm text-white/60 mb-10 max-w-2xl mx-auto">
+          <p className="carbon-body-compact-01 text-white/60 mb-10 max-w-2xl mx-auto">
             Go live in 8 weeks guaranteed, or we work for free until you do.
           </p>
           <a
