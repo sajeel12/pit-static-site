@@ -1234,12 +1234,12 @@ const ServiceNow = () => {
                 </div>
                 <h3 className="cds--tile-heading text-[var(--cds-text-primary)] mb-2">Infrastructure & Observability</h3>
                 <p className="cds--tile-caption text-[var(--cds-text-secondary)] mb-4">Bridge physical reality to digital workflows.</p>
-                <ul className="cds--list--unordered space-y-2 mb-6 flex-grow">
+                <ul className="cds--list--unordered space-y-2 mb-6 flex-grow min-h-[4.5rem]">
                   <li className="cds--list__item text-[var(--cds-text-secondary)]">Server Health Audits (MODSERVE) mapped to CMDB</li>
                   <li className="cds--list__item text-[var(--cds-text-secondary)]">Network alert correlation & unified monitoring</li>
                   <li className="cds--list__item text-[var(--cds-text-secondary)]">DCIM integration for real-time asset visibility</li>
                 </ul>
-                <span className="cds--link flex items-center gap-2 mt-auto">
+                <span className="cds--link flex items-center gap-2 mt-auto pt-4 border-t border-[var(--cds-border-subtle)]">
                   Explore Infrastructure Services
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
@@ -1256,12 +1256,12 @@ const ServiceNow = () => {
                 </div>
                 <h3 className="cds--tile-heading text-[var(--cds-text-primary)] mb-2">Security & Compliance</h3>
                 <p className="cds--tile-caption text-[var(--cds-text-secondary)] mb-4">Automate risk response for regulated sectors.</p>
-                <ul className="cds--list--unordered space-y-2 mb-6 flex-grow">
+                <ul className="cds--list--unordered space-y-2 mb-6 flex-grow min-h-[4.5rem]">
                   <li className="cds--list__item text-[var(--cds-text-secondary)]">SecOps integration (SIEM to Ticket)</li>
                   <li className="cds--list__item text-[var(--cds-text-secondary)]">Automated vulnerability remediation tasks</li>
                   <li className="cds--list__item text-[var(--cds-text-secondary)]">SBP-aligned compliance reporting & controls</li>
                 </ul>
-                <span className="cds--link flex items-center gap-2 mt-auto">
+                <span className="cds--link flex items-center gap-2 mt-auto pt-4 border-t border-[var(--cds-border-subtle)]">
                   Explore Security Services
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
@@ -1278,12 +1278,12 @@ const ServiceNow = () => {
                 </div>
                 <h3 className="cds--tile-heading text-[var(--cds-text-primary)] mb-2">Enterprise Automation</h3>
                 <p className="cds--tile-caption text-[var(--cds-text-secondary)] mb-4">Scale workflows to HR, Facilities, and Customers.</p>
-                <ul className="cds--list--unordered space-y-2 mb-6 flex-grow">
+                <ul className="cds--list--unordered space-y-2 mb-6 flex-grow min-h-[4.5rem]">
                   <li className="cds--list__item text-[var(--cds-text-secondary)]">ESM portals for internal service delivery</li>
                   <li className="cds--list__item text-[var(--cds-text-secondary)]">Customer Service Management (CSM) portals</li>
                   <li className="cds--list__item text-[var(--cds-text-secondary)]">ERP-linked procurement & custom App Engine apps</li>
                 </ul>
-                <span className="cds--link flex items-center gap-2 mt-auto">
+                <span className="cds--link flex items-center gap-2 mt-auto pt-4 border-t border-[var(--cds-border-subtle)]">
                   Explore Automation Services
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
