@@ -104,8 +104,7 @@ const ServiceNow = () => {
       title: 'Consultation',
       duration: '2-4 weeks',
       descriptionBold: "Don't build until you know the risks.",
-      descriptionNormal: "We don't just plan; we audit your readiness.",
-      descriptionSmall: "Our risk-mapped approach ensures your business case is solid before a single line of code is written.",
+      descriptionNormal: "Our risk-mapped approach ensures your business case is solid before a single line of code is written.",
       shortTags: ['Current State & Gap Analysis', 'SBP-Aligned Roadmap', 'TCO & ROI Modeling'],
       detailDescription: "We don't just plan; we audit your readiness. Our risk-mapped approach ensures your business case is solid before a single line of code is written.",
       detailBullets: [
@@ -462,11 +461,7 @@ const ServiceNow = () => {
                           <p className="carbon-body-02 text-[var(--cds-text-secondary)] leading-relaxed mt-1">
                             {offering.descriptionNormal}
                           </p>
-                          {offering.descriptionSmall && (
-                            <p className="carbon-body-compact-02 text-[var(--cds-text-secondary)] leading-relaxed mt-2">
-                              {offering.descriptionSmall}
-                            </p>
-                          )}
+
                         </>
                       ) : (
                         <p className="carbon-body-02 text-[var(--cds-text-secondary)] leading-relaxed">
