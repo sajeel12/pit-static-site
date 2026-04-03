@@ -700,7 +700,7 @@ const ServiceNow = () => {
             {/* Inputs */}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Number of UserMultiple</label>
+                <label className="block carbon-label-01 text-gray-700 mb-2">Number of UserMultiple</label>
                 <input
                   type="range"
                   min="100"
@@ -711,11 +711,11 @@ const ServiceNow = () => {
                   className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                   style={{ accentColor: brandColor }}
                 />
-                <div className="text-center mt-2 text-lg font-semibold text-gray-900">{tcoUserMultiple.toLocaleString()}</div>
+                <div className="text-center mt-2 carbon-heading-02 text-gray-900">{tcoUserMultiple.toLocaleString()}</div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Current Toolset</label>
+                <label className="block carbon-label-01 text-gray-700 mb-2">Current Toolset</label>
                 <select
                   value={tcoToolset}
                   onChange={(e) => setTcoToolset(e.target.value as 'excel' | 'jira' | 'legacy')}
@@ -728,7 +728,7 @@ const ServiceNow = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Desired Modules</label>
+                <label className="block carbon-label-01 text-gray-700 mb-2">Desired Modules</label>
                 <div className="space-y-2">
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
@@ -826,19 +826,19 @@ const ServiceNow = () => {
                 </div>
               </div>
               
-              <p className="text-sm font-medium text-gray-700 mb-3">
+              <p className="carbon-label-01 text-gray-700 mb-3">
                 Success depends on a CMDB you can trust.
               </p>
               
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-3">
                   <p className="carbon-label-01 text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
-                  <p className="text-sm text-gray-600 leading-snug">Legacy data schemas rarely match new models. Without deep auditing, relationships break, and adoption stalls by Week 4.</p>
+                  <p className="carbon-body-compact-01 text-gray-600 leading-snug">Legacy data schemas rarely match new models. Without deep auditing, relationships break, and adoption stalls by Week 4.</p>
                 </div>
                 
                 <div className="rounded-lg p-3" style={{ backgroundColor: `${brandColor}10` }}>
                   <p className="carbon-label-01 uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
-                  <p className="text-sm text-gray-700 leading-snug">We perform Risk-Mapped Data Audits before migration. By reconciling schema conflicts in the planning phase, we deliver a 99% accurate CMDB from Day 1, ensuring immediate user trust.</p>
+                  <p className="carbon-body-compact-01 text-gray-700 leading-snug">We perform Risk-Mapped Data Audits before migration. By reconciling schema conflicts in the planning phase, we deliver a 99% accurate CMDB from Day 1, ensuring immediate user trust.</p>
                 </div>
               </div>
             </div>
@@ -855,19 +855,19 @@ const ServiceNow = () => {
                 </div>
               </div>
               
-              <p className="text-sm font-medium text-gray-700 mb-3">
+              <p className="carbon-label-01 text-gray-700 mb-3">
                 ServiceNow cannot automate what it cannot see.
               </p>
               
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-3">
                   <p className="carbon-label-01 text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
-                  <p className="text-sm text-gray-600 leading-snug">Pure software integrators lack access to physical layer telemetry. Critical server or network events remain silent until users report an outage.</p>
+                  <p className="carbon-body-compact-01 text-gray-600 leading-snug">Pure software integrators lack access to physical layer telemetry. Critical server or network events remain silent until users report an outage.</p>
                 </div>
                 
                 <div className="rounded-lg p-3" style={{ backgroundColor: `${brandColor}10` }}>
                   <p className="carbon-label-01 uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
-                  <p className="text-sm text-gray-700 leading-snug">As a Huawei Certified Partner, we bridge hardware health metrics directly into ServiceNow ITOM. This enables proactive incident automation, resolving infrastructure issues before they impact business operations.</p>
+                  <p className="carbon-body-compact-01 text-gray-700 leading-snug">As a Huawei Certified Partner, we bridge hardware health metrics directly into ServiceNow ITOM. This enables proactive incident automation, resolving infrastructure issues before they impact business operations.</p>
                 </div>
               </div>
             </div>
@@ -884,19 +884,19 @@ const ServiceNow = () => {
                 </div>
               </div>
               
-              <p className="text-sm font-medium text-gray-700 mb-3">
+              <p className="carbon-label-01 text-gray-700 mb-3">
                 True speed means never having to rebuild.
               </p>
               
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-3">
                   <p className="carbon-label-01 text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
-                  <p className="text-sm text-gray-600 leading-snug">Hard-coded customizations create technical debt that breaks during mandatory platform updates, causing downtime and rework.</p>
+                  <p className="carbon-body-compact-01 text-gray-600 leading-snug">Hard-coded customizations create technical debt that breaks during mandatory platform updates, causing downtime and rework.</p>
                 </div>
                 
                 <div className="rounded-lg p-3" style={{ backgroundColor: `${brandColor}10` }}>
                   <p className="carbon-label-01 uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
-                  <p className="text-sm text-gray-700 leading-snug">We architect using native ServiceNow capabilities (Flow Designer, Integration Hub). This upgrade-safe approach ensures your investment remains stable and adaptable through future patches without costly refactoring.</p>
+                  <p className="carbon-body-compact-01 text-gray-700 leading-snug">We architect using native ServiceNow capabilities (Flow Designer, Integration Hub). This upgrade-safe approach ensures your investment remains stable and adaptable through future patches without costly refactoring.</p>
                 </div>
               </div>
             </div>
@@ -913,19 +913,19 @@ const ServiceNow = () => {
                 </div>
               </div>
               
-              <p className="text-sm font-medium text-gray-700 mb-3">
+              <p className="carbon-label-01 text-gray-700 mb-3">
                 One partner, one outcome.
               </p>
               
               <div className="space-y-3">
                 <div className="bg-gray-50 rounded-lg p-3">
                   <p className="carbon-label-01 text-gray-500 uppercase tracking-wide mb-1">The Challenge</p>
-                  <p className="text-sm text-gray-600 leading-snug">Fragmented vendors (software vs. hardware) create blame cycles that delay resolution and bleed SLAs.</p>
+                  <p className="carbon-body-compact-01 text-gray-600 leading-snug">Fragmented vendors (software vs. hardware) create blame cycles that delay resolution and bleed SLAs.</p>
                 </div>
                 
                 <div className="rounded-lg p-3" style={{ backgroundColor: `${brandColor}10` }}>
                   <p className="carbon-label-01 uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
-                  <p className="text-sm text-gray-700 leading-snug">We provide Full-Stack Accountability. From the shipping dock to the cloud dashboard, one team owns the resolution, ensuring seamless coordination and guaranteed uptime.</p>
+                  <p className="carbon-body-compact-01 text-gray-700 leading-snug">We provide Full-Stack Accountability. From the shipping dock to the cloud dashboard, one team owns the resolution, ensuring seamless coordination and guaranteed uptime.</p>
                 </div>
               </div>
             </div>
