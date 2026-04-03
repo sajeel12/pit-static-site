@@ -259,150 +259,142 @@ const ServiceNow = () => {
       </div>
 
       {/* Hero Section - Pure Carbon Design */}
-      <section id="overview" ref={heroRef} className="bg-[#161616]" style={{ minHeight: '90vh' }}>
-        <div className="cds--css-grid" style={{ padding: 0 }}>
-          
-          {/* Top Accent Bar */}
-          <div className="cds--col-span-16 cds--col-span-16--lg h-1 bg-[#0f62fe]" />
-          
-          {/* Main Hero Content */}
-          <div className="cds--col-span-16 cds--col-span-16--lg py-16">
-            <div className="cds--css-grid" style={{ padding: 0 }}>
+      <section id="overview" ref={heroRef} className="bg-[#161616] overflow-hidden">
+        {/* Top Accent Bar */}
+        <div className="h-1 bg-[#0f62fe]" />
+        
+        {/* Main Hero Content */}
+        <div className="cds--css-grid py-16">
+          {/* Left Content - 8 cols */}
+          <div className="cds--col-span-8 cds--col-span-8--lg">
+            {/* Tag */}
+            <div className="cds--tag cds--tag--blue mb-6">
+              <Settings className="w-4 h-4 mr-2" />
+              ServiceNow Integration
+            </div>
+
+            {/* Headline */}
+            <h1 className="carbon-fluid-display-03 text-white mb-6" style={{ maxWidth: '600px' }}>
+              Secure Your ServiceNow Transition
+            </h1>
+
+            {/* Body */}
+            <p className="carbon-body-02 text-[#c6c6c6] mb-8" style={{ maxWidth: '560px' }}>
+              Risk-mapped integrations that prevent SLA breaches and ensure data continuity 
+              during your ServiceNow migration. We don&apos;t just implement—we protect your operations.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-4 mb-12">
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="cds--btn cds--btn--primary"
+              >
+                Get Risk Assessment
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </button>
+              <button 
+                onClick={() => scrollToSection('case-studies')}
+                className="cds--btn cds--btn--ghost text-white hover:text-[#a8a8a8]"
+              >
+                View Case Studies
+                <ArrowUpRight className="w-4 h-4 ml-2" />
+              </button>
+            </div>
+
+            {/* Horizontal Rule */}
+            <div className="h-px bg-[#393939] mb-8" />
+
+            {/* Quick Stats */}
+            <div className="flex gap-12">
+              {[
+                { value: '14+', label: 'Years Experience' },
+                { value: '50+', label: 'Projects Delivered' },
+                { value: '99.9%', label: 'SLA Uptime' }
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <p className="carbon-heading-02 text-white">{stat.value}</p>
+                  <p className="carbon-helper-text-01 text-[#a8a8a8]">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Content - 8 cols */}
+          <div className="cds--col-span-8 cds--col-span-8--lg">
+            {/* Value Proposition Tiles */}
+            <div className="space-y-4">
               
-              {/* Left Content - 8 cols */}
-              <div className="cds--col-span-8 cds--col-span-8--lg">
-                {/* Tag */}
-                <div className="cds--tag cds--tag--blue mb-6">
-                  <Settings className="w-4 h-4 mr-2" />
-                  ServiceNow Integration
+              {/* Tile 1 */}
+              <div className="cds--tile bg-[#262626] p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-[#0f62fe] flex items-center justify-center flex-shrink-0">
+                    <Security className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="carbon-heading-02 text-white mb-2">Risk-Mapped Approach</h3>
+                    <p className="carbon-body-compact-01 text-[#c6c6c6]">
+                      Identify and mitigate migration risks before they impact operations.
+                    </p>
+                  </div>
                 </div>
+              </div>
 
-                {/* Headline */}
-                <h1 className="carbon-fluid-display-03 text-white mb-6" style={{ maxWidth: '600px' }}>
-                  Secure Your ServiceNow Transition
-                </h1>
-
-                {/* Body */}
-                <p className="carbon-body-02 text-[#c6c6c6] mb-8" style={{ maxWidth: '560px' }}>
-                  Risk-mapped integrations that prevent SLA breaches and ensure data continuity 
-                  during your ServiceNow migration. We don&apos;t just implement—we protect your operations.
-                </p>
-
-                {/* CTAs */}
-                <div className="flex flex-wrap gap-4 mb-12">
-                  <button 
-                    onClick={() => scrollToSection('contact')}
-                    className="cds--btn cds--btn--primary"
-                  >
-                    Get Risk Assessment
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </button>
-                  <button 
-                    onClick={() => scrollToSection('case-studies')}
-                    className="cds--btn cds--btn--ghost text-white hover:text-[#a8a8a8]"
-                  >
-                    View Case Studies
-                    <ArrowUpRight className="w-4 h-4 ml-2" />
-                  </button>
+              {/* Tile 2 */}
+              <div className="cds--tile bg-[#262626] p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-[#24a148] flex items-center justify-center flex-shrink-0">
+                    <Time className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="carbon-heading-02 text-white mb-2">8-Week Deployment</h3>
+                    <p className="carbon-body-compact-01 text-[#c6c6c6]">
+                      Fixed-scope implementations with guaranteed timelines.
+                    </p>
+                  </div>
                 </div>
+              </div>
 
-                {/* Horizontal Rule */}
-                <div className="h-px bg-[#393939] mb-8" />
+              {/* Tile 3 */}
+              <div className="cds--tile bg-[#262626] p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-[#f1c21b] flex items-center justify-center flex-shrink-0">
+                    <Headphones className="w-6 h-6 text-[#161616]" />
+                  </div>
+                  <div>
+                    <h3 className="carbon-heading-02 text-white mb-2">24/7 Support</h3>
+                    <p className="carbon-body-compact-01 text-[#c6c6c6]">
+                      Lahore-based NOC for continuous monitoring and response.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-                {/* Quick Stats */}
-                <div className="flex gap-12">
+            </div>
+          </div>
+        </div>
+
+        {/* Trust Bar */}
+        <div className="bg-[#262626]">
+          <div className="cds--css-grid py-6">
+            <div className="cds--col-span-16 cds--col-span-16--lg">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <p className="carbon-label-01 text-[#a8a8a8] uppercase tracking-wide">Trusted by enterprise teams</p>
+                <div className="flex flex-wrap items-center gap-8">
                   {[
-                    { value: '14+', label: 'Years Experience' },
-                    { value: '50+', label: 'Projects Delivered' },
-                    { value: '99.9%', label: 'SLA Uptime' }
-                  ].map((stat) => (
-                    <div key={stat.label}>
-                      <p className="carbon-heading-02 text-white">{stat.value}</p>
-                      <p className="carbon-helper-text-01 text-[#a8a8a8]">{stat.label}</p>
+                    { icon: Locked, text: 'SOC 2 Type II' },
+                    { icon: Security, text: 'ISO 27001' },
+                    { icon: Building, text: 'Fortune 500 Ready' }
+                  ].map((item) => (
+                    <div key={item.text} className="flex items-center gap-2 text-[#c6c6c6]">
+                      <item.icon className="w-4 h-4" />
+                      <span className="carbon-body-compact-01">{item.text}</span>
                     </div>
                   ))}
                 </div>
               </div>
-
-              {/* Right Content - 8 cols */}
-              <div className="cds--col-span-8 cds--col-span-8--lg">
-                {/* Value Proposition Tiles */}
-                <div className="space-y-4">
-                  
-                  {/* Tile 1 */}
-                  <div className="cds--tile bg-[#262626] p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-[#0f62fe] flex items-center justify-center flex-shrink-0">
-                        <Security className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="carbon-heading-02 text-white mb-2">Risk-Mapped Approach</h3>
-                        <p className="carbon-body-compact-01 text-[#c6c6c6]">
-                          Identify and mitigate migration risks before they impact operations.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Tile 2 */}
-                  <div className="cds--tile bg-[#262626] p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-[#24a148] flex items-center justify-center flex-shrink-0">
-                        <Time className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="carbon-heading-02 text-white mb-2">8-Week Deployment</h3>
-                        <p className="carbon-body-compact-01 text-[#c6c6c6]">
-                          Fixed-scope implementations with guaranteed timelines.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Tile 3 */}
-                  <div className="cds--tile bg-[#262626] p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-[#f1c21b] flex items-center justify-center flex-shrink-0">
-                        <Headphones className="w-6 h-6 text-[#161616]" />
-                      </div>
-                      <div>
-                        <h3 className="carbon-heading-02 text-white mb-2">24/7 Support</h3>
-                        <p className="carbon-body-compact-01 text-[#c6c6c6]">
-                          Lahore-based NOC for continuous monitoring and response.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
             </div>
           </div>
-
-          {/* Trust Bar */}
-          <div className="cds--col-span-16 cds--col-span-16--lg bg-[#262626] py-6">
-            <div className="cds--css-grid" style={{ padding: 0 }}>
-              <div className="cds--col-span-16 cds--col-span-16--lg">
-                <div className="flex items-center justify-between">
-                  <p className="carbon-label-01 text-[#a8a8a8] uppercase tracking-wide">Trusted by enterprise teams</p>
-                  <div className="flex items-center gap-8">
-                    {[
-                      { icon: Locked, text: 'SOC 2 Type II' },
-                      { icon: Security, text: 'ISO 27001' },
-                      { icon: Building, text: 'Fortune 500 Ready' }
-                    ].map((item) => (
-                      <div key={item.text} className="flex items-center gap-2 text-[#c6c6c6]">
-                        <item.icon className="w-4 h-4" />
-                        <span className="carbon-body-compact-01">{item.text}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 
