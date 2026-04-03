@@ -540,7 +540,7 @@ const ServiceNow = () => {
             <div className="flex items-center gap-4">
               <Link 
                 to="/projects"
-                className="hidden md:inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 transition-colors mr-4"
+                className="hidden md:inline-flex items-center gap-2 text-blue-600 carbon-link-01 hover:text-blue-700 transition-colors mr-4"
               >
                 View all case studies
                 <ArrowUpRight className="w-4 h-4" />
@@ -601,7 +601,7 @@ const ServiceNow = () => {
                         </p>
                         <Link
                           to={study.link}
-                          className="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 transition-colors"
+                          className="inline-flex items-center gap-2 text-blue-600 carbon-link-01 hover:text-blue-700 transition-colors"
                         >
                           Read full case study
                           <ArrowUpRight className="w-4 h-4" />
@@ -671,7 +671,7 @@ const ServiceNow = () => {
                 </blockquote>
                 <div className="flex items-center gap-4">
                   <div>
-                    <div className="font-semibold text-gray-900">Usman Ikram</div>
+                    <div className="carbon-heading-01 text-gray-900">Usman Ikram</div>
                     <div className="carbon-helper-text-02 text-gray-500">IT Operations Director, Major Telecom Provider</div>
                   </div>
                 </div>
