@@ -260,11 +260,16 @@ const ServiceNow = () => {
 
       {/* Hero Section - Pure Carbon Design */}
       <section id="overview" ref={heroRef} className="bg-[#161616] overflow-hidden" style={{ marginTop: 'var(--cds-spacing-09)' }}>
-        {/* Top Accent Bar */}
+        {/* Top Accent Bar - full bleed, no grid */}
         <div className="h-1 bg-[#0f62fe]" />
         
-        {/* Main Hero Content */}
-        <div className="cds--css-grid" style={{ paddingTop: 'var(--cds-spacing-10)', paddingBottom: 'var(--cds-spacing-10)' }}>
+        {/* Main Hero Content - Carbon Grid with default 32px gutters */}
+        <div className="cds--css-grid" style={{ 
+          paddingTop: 'var(--cds-spacing-10)', 
+          paddingBottom: 'var(--cds-spacing-10)',
+          paddingLeft: 'var(--cds-spacing-07)',
+          paddingRight: 'var(--cds-spacing-07)'
+        }}>
           {/* Left Content - 8 cols */}
           <div className="cds--col-span-8 cds--col-span-8--lg">
             {/* Tag */}
@@ -376,7 +381,12 @@ const ServiceNow = () => {
 
         {/* Trust Bar */}
         <div className="bg-[#262626]">
-          <div className="cds--css-grid" style={{ paddingTop: 'var(--cds-spacing-06)', paddingBottom: 'var(--cds-spacing-06)' }}>
+          <div className="cds--css-grid" style={{ 
+            paddingTop: 'var(--cds-spacing-06)', 
+            paddingBottom: 'var(--cds-spacing-06)',
+            paddingLeft: 'var(--cds-spacing-07)',
+            paddingRight: 'var(--cds-spacing-07)'
+          }}>
             <div className="cds--col-span-16 cds--col-span-16--lg">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <p className="carbon-label-01 text-[#a8a8a8] uppercase tracking-wide">Trusted by enterprise teams</p>
