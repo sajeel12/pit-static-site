@@ -830,9 +830,9 @@ const ServiceNow = () => {
           </div>
 
           {/* 4-Card Grid - Success Framework */}
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="cds--css-grid" style={{ padding: 0 }}>
             {/* 1. Data Integrity (The Foundation) */}
-            <div className="bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
+            <div className="cds--col-span-8 cds--col-span-8--md bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-9 h-9 rounded-lg bg-[var(--cds-layer-accent)] flex items-center justify-center">
                   <DataBase className="w-4 h-4" style={{ color: brandColor }} />
@@ -861,7 +861,7 @@ const ServiceNow = () => {
             </div>
 
             {/* 2. Total Visibility (The Engine) */}
-            <div className="bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
+            <div className="cds--col-span-8 cds--col-span-8--md bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-9 h-9 rounded-lg bg-[var(--cds-layer-accent)] flex items-center justify-center">
                   <ServerDns className="w-4 h-4" style={{ color: brandColor }} />
@@ -890,7 +890,7 @@ const ServiceNow = () => {
             </div>
 
             {/* 3. Sustainable Architecture (The Long Game) */}
-            <div className="bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
+            <div className="cds--col-span-8 cds--col-span-8--md bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-9 h-9 rounded-lg bg-[var(--cds-layer-accent)] flex items-center justify-center">
                   <ArrowUp className="w-4 h-4" style={{ color: brandColor }} />
@@ -919,7 +919,7 @@ const ServiceNow = () => {
             </div>
 
             {/* 4. Unified Accountability (The Guarantee) */}
-            <div className="bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
+            <div className="cds--col-span-8 cds--col-span-8--md bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-9 h-9 rounded-lg bg-[var(--cds-layer-accent)] flex items-center justify-center">
                   <Security className="w-4 h-4" style={{ color: brandColor }} />
@@ -950,9 +950,9 @@ const ServiceNow = () => {
 
           {/* Supporting Pillars */}
           <div className="mt-8 bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="cds--css-grid" style={{ padding: 0 }}>
               {/* Value Realization Card */}
-              <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
+              <div className="cds--col-span-8 cds--col-span-8--md bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-[var(--cds-button-primary)] flex items-center justify-center">
                     <Lightning className="w-5 h-5 text-white" />
@@ -981,7 +981,7 @@ const ServiceNow = () => {
               </div>
 
               {/* Delivery Backbone Card */}
-              <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
+              <div className="cds--col-span-8 cds--col-span-8--md bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-[var(--cds-background)] flex items-center justify-center">
                     <Network_1 className="w-5 h-5 text-white" />
