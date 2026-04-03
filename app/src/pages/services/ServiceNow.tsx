@@ -613,7 +613,7 @@ const ServiceNow = () => {
                           <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
                             <div className="text-center">
                               <Building className="w-16 h-16 text-gray-300 mx-auto mb-2" />
-                              <span className="text-sm text-gray-400">Case Study Photo</span>
+                              <span className="carbon-helper-text-01 text-gray-400">Case Study Photo</span>
                             </div>
                           </div>
                         </div>
@@ -769,19 +769,19 @@ const ServiceNow = () => {
             {/* Results */}
             <div className="grid md:grid-cols-3 gap-6 pt-8 border-t border-gray-200">
               <div className="text-center">
-                <p className="text-sm text-gray-500 mb-1">Current 3-Year Cost</p>
+                <p className="carbon-helper-text-01 text-gray-500 mb-1">Current 3-Year Cost</p>
                 <p className="text-3xl font-bold text-gray-900">${tcoResult.current}K</p>
-                <p className="text-xs text-gray-400 mt-1">Including hidden costs</p>
+                <p className="carbon-helper-text-01 text-gray-400 mt-1">Including hidden costs</p>
               </div>
               <div className="text-center">
-                <p className="text-sm text-gray-500 mb-1">Perception-IT Fixed Cost</p>
-                <p className="text-3xl font-bold" style={{ color: brandColor }}>${tcoResult.perception}K</p>
-                <p className="text-xs text-gray-400 mt-1">Fixed-price guarantee</p>
+                <p className="carbon-helper-text-01 text-gray-500 mb-1">Perception-IT Fixed Cost</p>
+                <p className="carbon-fluid-heading-04" style={{ color: brandColor }}>${tcoResult.perception}K</p>
+                <p className="carbon-helper-text-01 text-gray-400 mt-1">Fixed-price guarantee</p>
               </div>
               <div className="text-center">
-                <p className="text-sm text-gray-500 mb-1">Your Savings</p>
+                <p className="carbon-helper-text-01 text-gray-500 mb-1">Your Savings</p>
                 <p className="text-3xl font-bold text-blue-600">{tcoResult.savingsPercent}%</p>
-                <p className="text-xs text-gray-400 mt-1">${tcoResult.savings}K saved</p>
+                <p className="carbon-helper-text-01 text-gray-400 mt-1">${tcoResult.savings}K saved</p>
               </div>
             </div>
 
