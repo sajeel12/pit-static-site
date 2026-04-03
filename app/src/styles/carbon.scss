@@ -107,9 +107,9 @@
   
   // Border
   --cds-border-subtle-00: #e0e0e0;
-  --cds-border-subtle-01: #c6c6c6;
+  --cds-border-subtle-01: #e5e7eb;  // Lighter, matches Tailwind gray-200
   --cds-border-subtle-02: #e0e0e0;
-  --cds-border-subtle-03: #c6c6c6;
+  --cds-border-subtle-03: #e5e7eb;
   --cds-border-subtle-selected-01: #a8a8a8;
   --cds-border-subtle-selected-02: #c6c6c6;
   --cds-border-subtle-selected-03: #a8a8a8;
@@ -174,8 +174,9 @@
   --cds-highlight: #d0e2ff;
   
   // Brand colors
-  --cds-brand-primary: #0f62fe;
-  --cds-brand-secondary: #0043ce;
+  --cds-brand-primary: #3b82f6;  // Brand blue
+  --cds-brand-secondary: #2563eb;
+  --cds-button-primary: #3b82f6;  // Match brand for hover effects
 }
 
 // ----------------------------------------------------------------------------
