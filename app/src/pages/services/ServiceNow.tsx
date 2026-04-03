@@ -264,7 +264,7 @@ const ServiceNow = () => {
         <div className="h-1 bg-[#0f62fe]" />
         
         {/* Main Hero Content */}
-        <div className="cds--css-grid py-16">
+        <div className="cds--css-grid py-16 px-4 md:px-6 lg:px-8">
           {/* Left Content - 8 cols */}
           <div className="cds--col-span-8 cds--col-span-8--lg">
             {/* Tag */}
@@ -376,7 +376,7 @@ const ServiceNow = () => {
 
         {/* Trust Bar */}
         <div className="bg-[#262626]">
-          <div className="cds--css-grid py-6">
+          <div className="cds--css-grid py-6 px-4 md:px-6 lg:px-8">
             <div className="cds--col-span-16 cds--col-span-16--lg">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <p className="carbon-label-01 text-[#a8a8a8] uppercase tracking-wide">Trusted by enterprise teams</p>
