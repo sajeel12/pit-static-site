@@ -105,7 +105,13 @@ const ServiceNow = () => {
       duration: '2-4 weeks',
       description: "Don't build until you know the risks.",
       shortTags: ['Current State & Gap Analysis', 'SBP-Aligned Roadmap', 'TCO & ROI Modeling'],
-      detailDescription: 'Including legacy hardware assessment. Compliance-ready architecture design. Fixed-scope financial projections. Outcome: A de-risked blueprint ready for immediate execution.',
+      detailDescription: "We don't just plan; we audit your readiness. Our risk-mapped approach ensures your business case is solid before a single line of code is written.",
+      detailBullets: [
+        { title: 'Current State & Gap Analysis:', desc: 'Including legacy hardware assessment.' },
+        { title: 'SBP-Aligned Roadmap:', desc: 'Compliance-ready architecture design.' },
+        { title: 'TCO & ROI Modeling:', desc: 'Fixed-scope financial projections.' },
+        { title: 'Outcome:', desc: 'A de-risked blueprint ready for immediate execution.' }
+      ],
       cta: 'Get Your Risk Assessment',
       color: 'bg-blue-500',
       link: '#contact'
@@ -450,10 +456,21 @@ const ServiceNow = () => {
                     </p>
 
                     {/* Expandable detail description on hover */}
-                    <div className="max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-48 mb-0 group-hover:mb-6">
-                      <p className="carbon-body-02 text-[var(--cds-text-secondary)] leading-relaxed bg-[#f4f4f4] p-4 rounded-lg">
-                        {offering.detailDescription}
-                      </p>
+                    <div className="max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-64 mb-0 group-hover:mb-6">
+                      <div className="bg-[#f4f4f4] p-4 rounded-lg">
+                        <p className="carbon-body-02 text-[var(--cds-text-secondary)] leading-relaxed mb-3">
+                          {offering.detailDescription}
+                        </p>
+                        {offering.detailBullets && (
+                          <ul className="space-y-2">
+                            {offering.detailBullets.map((bullet, idx) => (
+                              <li key={idx} className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">
+                                <span className="font-semibold text-[var(--cds-text-primary)]">- {bullet.title}</span> {bullet.desc}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
                     </div>
 
                     {/* Tags */}
