@@ -103,7 +103,7 @@ const ServiceNow = () => {
       icon: Chat,
       title: 'Consultation',
       duration: '2-4 weeks',
-      description: "We don't just plan; we audit your readiness. Our risk-mapped approach ensures your business case is solid before a single line of code is written.",
+      description: "Don't build until you know the risks.",
       shortTags: ['Current State & Gap Analysis', 'SBP-Aligned Roadmap', 'TCO & ROI Modeling'],
       detailDescription: 'Including legacy hardware assessment. Compliance-ready architecture design. Fixed-scope financial projections. Outcome: A de-risked blueprint ready for immediate execution.',
       cta: 'Get Your Risk Assessment',
@@ -445,7 +445,7 @@ const ServiceNow = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="carbon-label-02 font-semibold text-[var(--cds-text-primary)] mb-6 leading-relaxed">
+                    <p className="carbon-body-02 font-semibold text-[var(--cds-text-primary)] mb-6 leading-relaxed">
                       {offering.description}
                     </p>
 
