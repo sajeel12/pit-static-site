@@ -445,19 +445,19 @@ const ServiceNow = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="carbon-body-02 text-[var(--cds-text-secondary)] mb-5 leading-relaxed">
+                    <p className="carbon-body-02 text-[var(--cds-text-secondary)] mb-6 leading-relaxed">
                       {offering.description}
                     </p>
 
                     {/* Expandable detail description on hover */}
-                    <div className="max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-48 mb-0 group-hover:mb-5">
+                    <div className="max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-48 mb-0 group-hover:mb-6">
                       <p className="carbon-body-02 text-[var(--cds-text-secondary)] leading-relaxed bg-[#f4f4f4] p-4 rounded-lg">
                         {offering.detailDescription}
                       </p>
                     </div>
 
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-x-2 gap-y-3 mb-8">
                       {offering.shortTags.map((tag) => (
                         <span 
                           key={tag}
@@ -472,7 +472,7 @@ const ServiceNow = () => {
                   {/* CTA - always at bottom */}
                   <a
                     href={offering.link}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0043ce] transition-all group-hover:gap-3 pt-4 border-t border-gray-100"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0043ce] transition-all group-hover:gap-3 pt-5 border-t border-gray-100"
                   >
                     {offering.cta} <ArrowRight className="w-4 h-4" />
                   </a>
