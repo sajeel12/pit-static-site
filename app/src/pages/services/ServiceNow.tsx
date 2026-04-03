@@ -155,14 +155,14 @@ const ServiceNow = () => {
       iconColor: '#F59E0B',
       bgGradient: 'linear-gradient(135deg, #F5F0EB, #EDE8E3)',
       tags: [
-        { text: 'Automation', class: 'bg-amber-100 text-[var(--cds-support-warning)]' },
+        { text: 'Automation', class: 'bg-[var(--cds-support-warning-subtle)] text-[var(--cds-support-warning)]' },
         { text: 'Integration', class: 'bg-[var(--cds-layer-accent)] text-[var(--cds-link-primary-hover)]' },
         { text: 'ServiceNow', class: 'bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)]' }
       ],
       title: '40% faster incident resolution for major telecom through intelligent ServiceNow automation',
       description: 'Developed an intelligent microservice bridge integrating network alarms with ServiceNow, eliminating manual incident handling and reducing response times through automated correlation and smart routing.',
       stats: [
-        { icon: Lightning, iconBg: 'bg-amber-50', iconColor: 'text-[var(--cds-support-warning)]', value: '40%', label: 'Less Manual Work' },
+        { icon: Lightning, iconBg: 'bg-[var(--cds-support-warning-subtle)]', iconColor: 'text-[var(--cds-support-warning)]', value: '40%', label: 'Less Manual Work' },
         { icon: Activity, iconBg: 'bg-[var(--cds-layer-accent)]', iconColor: 'text-[var(--cds-link-primary)]', value: '98%', label: 'SLA Compliance' },
         { icon: Time, iconBg: 'bg-[var(--cds-layer-accent)]', iconColor: 'text-[var(--cds-link-primary)]', value: '45%', label: 'Faster Resolution' }
       ]
@@ -302,7 +302,7 @@ const ServiceNow = () => {
                 <div className="relative h-80">
                   {/* Legacy System */}
                   <div className="absolute left-0 top-1/2 -translate-y-1/2 w-28">
-                    <div className="bg-[var(--cds-background)] rounded-lg p-4 border border-slate-600">
+                    <div className="bg-[var(--cds-background)] rounded-lg p-4 border border-[var(--cds-border-strong)]">
                       <ServerDns className="w-8 h-8 text-[var(--cds-text-placeholder)] mx-auto mb-2" />
                       <p className="carbon-helper-text-01 text-center text-[var(--cds-text-disabled)]">Legacy ITSM</p>
                     </div>
@@ -331,7 +331,7 @@ const ServiceNow = () => {
 
                   {/* ServiceNow */}
                   <div className="absolute right-0 top-1/2 -translate-y-1/2 w-28">
-                    <div className="bg-gradient-to-br from-blue-900/50 to-green-900/50 rounded-lg p-4 border border-blue-500/30">
+                    <div className="bg-gradient-to-br from-blue-900/50 to-green-900/50 rounded-lg p-4 border border-[var(--cds-focus)]/30">
                       <Settings className="w-8 h-8 mx-auto mb-2" style={{ color: brandColor }} />
                       <p className="text-xs text-center text-white carbon-label-01">ServiceNow</p>
                     </div>
@@ -935,7 +935,7 @@ const ServiceNow = () => {
           <div className="mt-8 bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
             <div className="grid md:grid-cols-2 gap-8">
               {/* Value Realization Card */}
-              <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border border-blue-100">
+              <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-[var(--cds-button-primary)] flex items-center justify-center">
                     <Lightning className="w-5 h-5 text-white" />
