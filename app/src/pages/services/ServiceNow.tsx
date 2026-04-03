@@ -458,7 +458,7 @@ const ServiceNow = () => {
                           <p className="carbon-body-02 font-semibold text-[var(--cds-text-primary)] leading-relaxed">
                             {offering.descriptionBold}
                           </p>
-                          <p className="carbon-body-02 text-[var(--cds-text-secondary)] leading-relaxed mt-1">
+                          <p className="carbon-body-compact-02 text-[var(--cds-text-helper)] leading-relaxed mt-2">
                             {offering.descriptionNormal}
                           </p>
 
