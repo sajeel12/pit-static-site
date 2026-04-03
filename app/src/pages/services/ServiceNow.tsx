@@ -103,27 +103,36 @@ const ServiceNow = () => {
       icon: Chat,
       title: 'Consultation',
       duration: '2-4 weeks',
-      description: 'Strategic assessment and roadmap development for your ServiceNow journey. We analyze your current ITSM maturity, identify gaps, and create a tailored implementation plan.',
-      tags: ['ITSM Assessment', 'Roadmap Planning', 'ROI Analysis'],
-      cta: 'Book Consultation'
+      description: 'Strategic planning and roadmap development to ensure your ServiceNow investment delivers maximum ROI.',
+      shortTags: ['Assessment', 'Architecture', 'Roadmap', 'ROI Analysis'],
+      detailDescription: 'Current state assessment & gap analysis, module selection & architecture design, risk-mapped migration roadmap, and ROI projection & business case.',
+      cta: 'Get Consultation',
+      color: 'bg-blue-500',
+      link: '#contact'
     },
     {
       id: 'implementation',
       icon: Settings,
       title: 'Implementation',
       duration: '8 weeks',
-      description: 'End-to-end ServiceNow deployment with our proven 8-week go-live methodology. Includes configuration, customization, integration, and comprehensive testing.',
-      tags: ['ITSM', 'ITOM', 'HRSD', 'CSM'],
-      cta: 'Start Implementation'
+      description: 'End-to-end deployment with our proven 8-week go-live methodology for rapid value realization.',
+      shortTags: ['Configuration', 'Integration', 'Testing', 'Go-Live'],
+      detailDescription: 'Platform configuration & customization, third-party integrations, data migration & validation, and user acceptance testing & cutover.',
+      cta: 'Start Implementation',
+      color: 'bg-green-500',
+      link: '#contact'
     },
     {
       id: 'support',
       icon: Headphones,
       title: 'Support',
       duration: 'Ongoing',
-      description: '24/7 managed services with certified ServiceNow administrators. Continuous optimization, patch management, and platform evolution to maximize your investment.',
-      tags: ['24/7 Support', 'Platform Optimization', 'Training'],
-      cta: 'Learn More'
+      description: '24/7 managed services with certified administrators to maximize platform performance.',
+      shortTags: ['24/7 Support', 'Optimization', 'Training', 'Upgrades'],
+      detailDescription: 'Round-the-clock monitoring & support, continuous platform optimization, user training & enablement, and version upgrades & enhancements.',
+      cta: 'Get Support',
+      color: 'bg-purple-500',
+      link: '#contact'
     }
   ];
 
@@ -413,48 +422,58 @@ const ServiceNow = () => {
             {offerings.map((offering) => (
               <div 
                 key={offering.id}
-                className="cds--col-span-5 cds--col-span-5--md relative bg-white rounded-xl border border-[var(--cds-border-subtle)] p-10 transition-all duration-300 hover:shadow-xl hover:border-[var(--cds-button-primary)] hover:-translate-y-1 flex flex-col h-full"
+                className="cds--col-span-5 cds--col-span-5--md group relative bg-white rounded-xl border border-[var(--cds-border-subtle)] overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-[var(--cds-button-primary)] hover:-translate-y-1 flex flex-col h-full"
               >
+                {/* Color bar at top */}
+                <div className={`h-2 ${offering.color}`} />
                 
-                <div className="flex items-center gap-4 mb-6">
-                  <div 
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm"
-                    style={{ backgroundColor: `${brandColor}15` }}
-                  >
-                    <offering.icon className="w-8 h-8" style={{ color: brandColor }} />
-                  </div>
-                  <div>
-                    <h3 className="carbon-heading-03 text-[var(--cds-text-primary)]">{offering.title}</h3>
-                    <div className="flex items-center gap-2 carbon-body-compact-01 text-[var(--cds-text-helper)]">
-                      <Time className="w-4 h-4" />
-                      <span>{offering.duration}</span>
+                <div className="p-8 flex flex-col flex-grow">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div 
+                      className={`w-14 h-14 rounded-xl flex items-center justify-center shadow-sm ${offering.color} bg-opacity-10`}
+                    >
+                      <offering.icon className={`w-7 h-7 ${offering.color.replace('bg-', 'text-')}`} />
+                    </div>
+                    <div>
+                      <h3 className="carbon-heading-03 text-[var(--cds-text-primary)]">{offering.title}</h3>
+                      <div className="flex items-center gap-2 carbon-body-compact-01 text-[var(--cds-text-helper)]">
+                        <Time className="w-4 h-4" />
+                        <span>{offering.duration}</span>
+                      </div>
                     </div>
                   </div>
+
+                  <p className="carbon-body-02 text-[var(--cds-text-secondary)] mb-4 leading-relaxed">
+                    {offering.description}
+                  </p>
+
+                  {/* Expandable detail description on hover */}
+                  <div className="max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-40 mb-0 group-hover:mb-4">
+                    <p className="carbon-body-02 text-[var(--cds-text-secondary)] leading-relaxed border-l-4 border-[var(--cds-button-primary)] pl-4">
+                      {offering.detailDescription}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {offering.shortTags.map((tag) => (
+                      <span 
+                        key={tag}
+                        className="px-3 py-1 bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)] carbon-label-01 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <a
+                    href={offering.link}
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white carbon-label-01 transition-all hover:opacity-90 w-full justify-center mt-auto"
+                    style={{ backgroundColor: brandColor }}
+                  >
+                    {offering.cta}
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
                 </div>
-
-                <p className="carbon-body-02 text-[var(--cds-text-secondary)] mb-6 leading-relaxed">
-                  {offering.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {offering.tags.map((tag) => (
-                    <span 
-                      key={tag}
-                      className="px-3 py-1 bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)] carbon-label-01 rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white carbon-label-01 transition-all hover:opacity-90 w-full justify-center mt-auto"
-                  style={{ backgroundColor: brandColor }}
-                >
-                  {offering.cta}
-                  <ArrowRight className="w-4 h-4" />
-                </a>
               </div>
             ))}
           </div>
