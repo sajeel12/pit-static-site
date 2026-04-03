@@ -33,11 +33,14 @@ import {
 } from '@carbon/icons-react';
 import { Server } from 'lucide-react';
 
-// Batch 4-5: Lucide icons (no direct Carbon equivalent)
+// Batch 4: Final Lucide→Carbon migrations
 import {
-  TrendingUp,
-  Clock3
-} from 'lucide-react';
+  ArrowUp,
+  Alarm
+} from '@carbon/icons-react';
+
+// Batch 5: Remaining Lucide icons (no Carbon equivalent)
+// Server kept from Batch 3
 import { Link } from 'react-router-dom';
 import Navigation from '../../components/Navigation';
 import Footer from '../../sections/Footer';
@@ -140,8 +143,8 @@ const ServiceNow = () => {
       title: "Enabling 99.95% uptime and 24/7 follow-the-sun support for Pakistan's largest telecom through ServiceNow Cloud migration",
       description: "Pakistan's largest telecommunications provider modernised their service desk and migrated to ServiceNow Cloud, enabling 24/7 follow-the-sun support operations with 99.95% platform availability.",
       stats: [
-        { icon: TrendingUp, iconBg: 'bg-blue-50', iconColor: 'text-blue-600', value: '99.95%', label: 'Uptime SLA' },
-        { icon: Clock3, iconBg: 'bg-blue-50', iconColor: 'text-blue-600', value: '24/7', label: 'Coverage' },
+        { icon: ArrowUp, iconBg: 'bg-blue-50', iconColor: 'text-blue-600', value: '99.95%', label: 'Uptime SLA' },
+        { icon: Alarm, iconBg: 'bg-blue-50', iconColor: 'text-blue-600', value: '24/7', label: 'Coverage' },
         { icon: Activity, iconBg: `${brandColor}15`, iconColor: brandColor, value: '52%', label: 'Faster Resolution' }
       ]
     },
@@ -873,7 +876,7 @@ const ServiceNow = () => {
             <div className="bg-white rounded-xl p-5 border border-gray-200">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
-                  <TrendingUp className="w-4 h-4" style={{ color: brandColor }} />
+                  <ArrowUp className="w-4 h-4" style={{ color: brandColor }} />
                 </div>
                 <div>
                   <h3 className="carbon-heading-02 text-gray-900">Sustainable Architecture</h3>
