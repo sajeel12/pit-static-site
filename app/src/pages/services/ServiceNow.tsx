@@ -217,7 +217,8 @@ const ServiceNow = () => {
       
       {/* Breadcrumb */}
       <div className="bg-[var(--cds-layer-01)] border-b border-[var(--cds-border-subtle)]">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-3">
+        <div className="cds--css-grid">
+        <div className="cds--col-span-16 cds--col-span-16--lg py-3">
           <nav className="flex items-center gap-2 carbon-body-compact-01 text-[var(--cds-text-secondary)]">
             <Link to="/" className="hover:text-[var(--cds-text-primary)] transition-colors">Home</Link>
             <span className="text-[var(--cds-text-placeholder)]">/</span>
@@ -227,6 +228,7 @@ const ServiceNow = () => {
             <span className="text-[var(--cds-text-placeholder)]">/</span>
             <span className="text-[var(--cds-text-primary)]">ServiceNow</span>
           </nav>
+        </div>
         </div>
       </div>
 
@@ -460,7 +462,8 @@ const ServiceNow = () => {
 
       {/* Technological Expertise Section - Category Grouping */}
       <section id="expertise" className="py-24 bg-[var(--cds-layer-01)]">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="cds--css-grid">
+        <div className="cds--col-span-16 cds--col-span-16--lg">
           <div className="mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
               Technical Capabilities
@@ -527,11 +530,13 @@ const ServiceNow = () => {
             </div>
           </div>
         </div>
+        </div>
       </section>
 
       {/* Case Studies Carousel */}
       <section id="case-studies" className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="cds--css-grid">
+        <div className="cds--col-span-16 cds--col-span-16--lg">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div>
               <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
@@ -641,6 +646,7 @@ const ServiceNow = () => {
               ))}
             </div>
           </div>
+        </div>
         </div>
       </section>
 
