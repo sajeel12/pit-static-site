@@ -246,7 +246,8 @@ const ServiceNow = () => {
           backgroundSize: '60px 60px'
         }} />
 
-        <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
+        <div className="relative cds--css-grid py-16 lg:py-20">
+        <div className="cds--col-span-16 cds--col-span-16--lg">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left: Content */}
             <div>
@@ -363,6 +364,7 @@ const ServiceNow = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
 
         {/* Stats Bar */}
