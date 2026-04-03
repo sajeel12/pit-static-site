@@ -29,9 +29,9 @@ import {
 import {
   Time,
   DataBase,
-  Network_1
+  Network_1,
+  ServerDns
 } from '@carbon/icons-react';
-import { Server } from 'lucide-react';
 
 // Batch 4: Final Lucide→Carbon migrations
 import {
@@ -303,7 +303,7 @@ const ServiceNow = () => {
                   {/* Legacy System */}
                   <div className="absolute left-0 top-1/2 -translate-y-1/2 w-28">
                     <div className="bg-slate-700 rounded-lg p-4 border border-slate-600">
-                      <Server className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+                      <ServerDns className="w-8 h-8 text-gray-400 mx-auto mb-2" />
                       <p className="text-xs text-center text-gray-300">Legacy ITSM</p>
                     </div>
                   </div>
@@ -847,7 +847,7 @@ const ServiceNow = () => {
             <div className="bg-white rounded-xl p-5 border border-gray-200">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center">
-                  <Server className="w-4 h-4" style={{ color: brandColor }} />
+                  <ServerDns className="w-4 h-4" style={{ color: brandColor }} />
                 </div>
                 <div>
                   <h3 className="carbon-heading-02 text-gray-900">Total Visibility</h3>
