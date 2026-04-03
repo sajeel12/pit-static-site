@@ -1041,7 +1041,8 @@ const ServiceNow = () => {
 
       {/* Next Steps Roadmap */}
       <section id="next-steps" className="py-24 bg-white border-y border-[var(--cds-border-subtle)]">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="cds--css-grid">
+        <div className="cds--col-span-16 cds--col-span-16--lg">
           <div className="mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
               Your Path Forward
@@ -1114,6 +1115,7 @@ const ServiceNow = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </section>
 
