@@ -431,7 +431,7 @@ const ServiceNow = () => {
                   {/* Content area - grows to push CTA down */}
                   <div className="flex-grow">
                     {/* Icon and Title */}
-                    <div className="flex items-start gap-4 mb-7">
+                    <div className="flex items-start gap-4 mb-8">
                       <div className="w-12 h-12 rounded-xl bg-[#edf5ff] flex items-center justify-center text-[#0f62fe] transition-colors group-hover:bg-[#0f62fe] group-hover:text-white flex-shrink-0">
                         <offering.icon className="w-6 h-6" />
                       </div>
