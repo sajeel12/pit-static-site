@@ -155,14 +155,14 @@ const ServiceNow = () => {
       iconColor: '#F59E0B',
       bgGradient: 'linear-gradient(135deg, #F5F0EB, #EDE8E3)',
       tags: [
-        { text: 'Automation', class: 'bg-amber-100 text-amber-700' },
+        { text: 'Automation', class: 'bg-amber-100 text-[var(--cds-support-warning)]' },
         { text: 'Integration', class: 'bg-blue-100 text-[var(--cds-link-primary-hover)]' },
         { text: 'ServiceNow', class: 'bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)]' }
       ],
       title: '40% faster incident resolution for major telecom through intelligent ServiceNow automation',
       description: 'Developed an intelligent microservice bridge integrating network alarms with ServiceNow, eliminating manual incident handling and reducing response times through automated correlation and smart routing.',
       stats: [
-        { icon: Lightning, iconBg: 'bg-amber-50', iconColor: 'text-amber-600', value: '40%', label: 'Less Manual Work' },
+        { icon: Lightning, iconBg: 'bg-amber-50', iconColor: 'text-[var(--cds-support-warning)]', value: '40%', label: 'Less Manual Work' },
         { icon: Activity, iconBg: 'bg-[var(--cds-layer-accent)]', iconColor: 'text-[var(--cds-link-primary)]', value: '98%', label: 'SLA Compliance' },
         { icon: Time, iconBg: 'bg-[var(--cds-layer-accent)]', iconColor: 'text-[var(--cds-link-primary)]', value: '45%', label: 'Faster Resolution' }
       ]
@@ -320,12 +320,12 @@ const ServiceNow = () => {
                     </div>
                     {/* Risk Indicators */}
                     <div className="absolute -top-8 left-1/4 flex items-center gap-1">
-                      <WarningAlt className="w-4 h-4 text-amber-400" />
-                      <span className="carbon-label-01 text-amber-400">Data Loss Risk</span>
+                      <WarningAlt className="w-4 h-4 text-[var(--cds-support-warning)]" />
+                      <span className="carbon-label-01 text-[var(--cds-support-warning)]">Data Loss Risk</span>
                     </div>
                     <div className="absolute -bottom-8 left-2/3 flex items-center gap-1">
-                      <Time className="w-4 h-4 text-red-400" />
-                      <span className="carbon-label-01 text-red-400">Downtime</span>
+                      <Time className="w-4 h-4 text-[var(--cds-support-error)]" />
+                      <span className="carbon-label-01 text-[var(--cds-support-error)]">Downtime</span>
                     </div>
                   </div>
 
