@@ -216,7 +216,7 @@ const ServiceNow = () => {
       <Navigation />
       
       {/* Breadcrumb */}
-      <div className="bg-slate-100 border-b border-slate-200">
+      <div className="bg-[var(--cds-layer-01)] border-b border-[var(--cds-border-subtle)]">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-3">
           <nav className="flex items-center gap-2 carbon-body-compact-01 text-[var(--cds-text-secondary)]">
             <Link to="/" className="hover:text-[var(--cds-text-primary)] transition-colors">Home</Link>
@@ -268,7 +268,7 @@ const ServiceNow = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-900 carbon-heading-01 rounded-lg hover:bg-[var(--cds-layer-02)] transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[var(--cds-text-primary)] carbon-heading-01 rounded-lg hover:bg-[var(--cds-layer-02)] transition-all duration-300"
                 >
                   Get Risk Assessment
                   <ArrowRight className="w-5 h-5" />
@@ -964,7 +964,7 @@ const ServiceNow = () => {
               </div>
 
               {/* Delivery Backbone Card */}
-              <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-slate-200">
+              <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-[var(--cds-background)] flex items-center justify-center">
                     <Network_1 className="w-5 h-5 text-white" />
@@ -982,7 +982,7 @@ const ServiceNow = () => {
                     { title: 'Unified Oversight', desc: '24/7 NOC/SOC monitoring feeds directly into your ServiceNow dashboards' }
                   ].map((item) => (
                     <li key={item.title} className="flex gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-slate-500 mt-2 flex-shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--cds-layer-02)] mt-2 flex-shrink-0" />
                       <div>
                         <span className="carbon-label-02 text-[var(--cds-text-primary)] block">{item.title}</span>
                         <span className="carbon-helper-text-02 text-[var(--cds-text-secondary)]">{item.desc}</span>
@@ -1133,7 +1133,7 @@ const ServiceNow = () => {
           </p>
           <a
             href="#footer"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-white text-slate-900 carbon-heading-02 rounded-full hover:bg-slate-100 transition-all duration-300"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-white text-[var(--cds-text-primary)] carbon-heading-02 rounded-full hover:bg-[var(--cds-layer-01)] transition-all duration-300"
           >
             Get Your Free Assessment
             <ArrowRight className="w-5 h-5" />
