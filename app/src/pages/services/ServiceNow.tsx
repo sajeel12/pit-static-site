@@ -306,8 +306,8 @@ const ServiceNow = () => {
                   {/* Legacy System */}
                   <div className="absolute left-0 top-1/2 -translate-y-1/2 w-28">
                     <div className="bg-[var(--cds-background)] rounded-lg p-4 border border-[var(--cds-border-strong)]">
-                      <ServerDns className="w-8 h-8 text-[var(--cds-text-placeholder)] mx-auto mb-2" />
-                      <p className="carbon-helper-text-01 text-center text-[var(--cds-text-disabled)]">Legacy ITSM</p>
+                      <ServerDns className="w-8 h-8 text-[var(--cds-text-secondary)] mx-auto mb-2" />
+                      <p className="carbon-helper-text-01 text-center text-[var(--cds-text-secondary)]">Legacy ITSM</p>
                     </div>
                   </div>
 
@@ -623,8 +623,8 @@ const ServiceNow = () => {
                         <div className="bg-white rounded-xl overflow-hidden border border-[var(--cds-border-subtle)] shadow-sm">
                           <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
                             <div className="text-center">
-                              <Building className="w-16 h-16 text-[var(--cds-text-disabled)] mx-auto mb-2" />
-                              <span className="carbon-helper-text-01 text-[var(--cds-text-placeholder)]">Case Study Photo</span>
+                              <Building className="w-16 h-16 text-[var(--cds-text-secondary)] mx-auto mb-2" />
+                              <span className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Case Study Photo</span>
                             </div>
                           </div>
                         </div>
@@ -1013,7 +1013,7 @@ const ServiceNow = () => {
 
           {/* Bottom Line */}
           <div className="mt-8 bg-[var(--cds-background)] rounded-xl p-6 text-center">
-            <p className="text-[var(--cds-text-disabled)] mb-1">
+            <p className="text-[var(--cds-text-secondary)] mb-1">
               &quot;We don&apos;t just implement ServiceNow; we integrate it with your business reality.&quot;
             </p>
             <p className="text-white carbon-label-01" style={{ color: brandColor }}>
