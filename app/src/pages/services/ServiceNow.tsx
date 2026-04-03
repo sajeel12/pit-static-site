@@ -283,12 +283,12 @@ const ServiceNow = () => {
 
               {/* Trust Indicators */}
               <div className="mt-12 pt-8 border-t border-white/10">
-                <p className="text-sm text-gray-400 mb-4">Trusted by enterprise teams</p>
+                <p className="carbon-helper-text-01 text-gray-400 mb-4">Trusted by enterprise teams</p>
                 <div className="flex flex-wrap items-center gap-6">
                   {['Fortune 500', 'SOC 2 Type II', 'ISO 27001'].map((badge) => (
                     <div key={badge} className="flex items-center gap-2 text-gray-300">
                       <Security className="w-4 h-4" style={{ color: brandColor }} />
-                      <span className="text-sm">{badge}</span>
+                      <span className="carbon-body-compact-01">{badge}</span>
                     </div>
                   ))}
                 </div>
@@ -304,7 +304,7 @@ const ServiceNow = () => {
                   <div className="absolute left-0 top-1/2 -translate-y-1/2 w-28">
                     <div className="bg-slate-700 rounded-lg p-4 border border-slate-600">
                       <ServerDns className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-                      <p className="text-xs text-center text-gray-300">Legacy ITSM</p>
+                      <p className="carbon-helper-text-01 text-center text-gray-300">Legacy ITSM</p>
                     </div>
                   </div>
 
@@ -321,11 +321,11 @@ const ServiceNow = () => {
                     {/* Risk Indicators */}
                     <div className="absolute -top-8 left-1/4 flex items-center gap-1">
                       <WarningAlt className="w-4 h-4 text-amber-400" />
-                      <span className="text-xs text-amber-400">Data Loss Risk</span>
+                      <span className="carbon-label-01 text-amber-400">Data Loss Risk</span>
                     </div>
                     <div className="absolute -bottom-8 left-2/3 flex items-center gap-1">
                       <Time className="w-4 h-4 text-red-400" />
-                      <span className="text-xs text-red-400">Downtime</span>
+                      <span className="carbon-label-01 text-red-400">Downtime</span>
                     </div>
                   </div>
 
@@ -391,7 +391,7 @@ const ServiceNow = () => {
         <section id="offerings" ref={servicesRef} className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-16">
-            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="carbon-label-01 uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Our Services
             </span>
             <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
@@ -458,7 +458,7 @@ const ServiceNow = () => {
       <section id="expertise" className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-12">
-            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="carbon-label-01 uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Technical Capabilities
             </span>
             <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
@@ -530,7 +530,7 @@ const ServiceNow = () => {
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div>
-              <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+              <span className="carbon-label-01 uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
                 Success Stories
               </span>
               <h2 className="carbon-fluid-heading-05 text-gray-900">
@@ -644,7 +644,7 @@ const ServiceNow = () => {
       <section id="testimonial" className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-12">
-            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="carbon-label-01 uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Feedback
             </span>
             <h2 className="carbon-fluid-heading-05 text-gray-900">
@@ -685,7 +685,7 @@ const ServiceNow = () => {
       <section id="tco-calculator" className="py-24 bg-white border-y border-gray-200">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-10">
-            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="carbon-label-01 uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Financial Transparency
             </span>
             <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
@@ -1041,7 +1041,7 @@ const ServiceNow = () => {
       <section id="next-steps" className="py-24 bg-white border-y border-gray-200">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-12">
-            <span className="text-xs font-medium uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
+            <span className="carbon-label-01 uppercase tracking-[0.1em] text-gray-500 mb-4 block" style={{ color: brandColor }}>
               Your Path Forward
             </span>
             <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
