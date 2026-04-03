@@ -1,11 +1,21 @@
 import { useEffect, useRef, useState } from 'react';
 import '../../styles/carbon-typography.css';
+// Batch 1: Carbon Icons (exact name matches)
 import {
   ArrowRight,
-  MessageSquare,
   Settings,
-  Clock,
   Activity,
+  Code,
+  Layers,
+  ArrowUpRight,
+  ChevronLeft,
+  ChevronRight
+} from '@carbon/icons-react';
+
+// Batch 2-5: Lucide icons (to be migrated)
+import {
+  MessageSquare,
+  Clock,
   Server,
   Database,
   Shield,
@@ -16,12 +26,7 @@ import {
   Clock3,
   Lock,
   Users,
-  ChevronLeft,
-  ChevronRight,
   Quote,
-  Code,
-  Layers,
-  ArrowUpRight,
   HeadphonesIcon,
   AlertTriangle
 } from 'lucide-react';
