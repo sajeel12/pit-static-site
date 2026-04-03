@@ -198,7 +198,7 @@ const Navigation = () => {
               <img src="/logo_icon.png" alt="Perception IT" style={{ height: '32px', width: 'auto' }} />
             </Link>
 
-            <div className="hidden lg:flex items-center flex-1" ref={megaMenuRef} style={{ gap: 'var(--cds-spacing-02)' }}>
+            <div className="hidden lg:flex items-center" ref={megaMenuRef} style={{ gap: 'var(--cds-spacing-02)', flex: 1, overflow: 'visible' }}>
               
               {/* SOLUTIONS */}
               <div 
