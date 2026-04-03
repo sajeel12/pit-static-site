@@ -208,7 +208,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--cds-spacing-05); // 16px gutter
-  max-width: 99rem; // 1584px
+  max-width: 72rem; // 1152px - matches original max-w-6xl
   margin: 0 auto;
   padding: 0 var(--cds-spacing-05);
   
