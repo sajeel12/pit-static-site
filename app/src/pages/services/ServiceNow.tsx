@@ -242,9 +242,9 @@ const ServiceNow = () => {
       <Navigation />
       
       {/* Hero Section - Pure Carbon Design */}
-      <section id="overview" ref={heroRef} className="bg-[#161616] overflow-hidden" style={{ marginTop: 'var(--cds-spacing-09)' }}>
+      <section id="overview" ref={heroRef} className="overflow-hidden" style={{ marginTop: '120px', background: 'linear-gradient(180deg, #0a0a0a 0%, #161616 100%)' }}>
         {/* Top Accent Bar - full bleed, no grid */}
-        <div className="h-1 bg-[#0f62fe]" />
+        <div style={{ height: '4px', backgroundColor: 'var(--cds-link-primary)' }} />
         
         {/* Main Hero Content - Combined Grid */}
         <div className="cds--css-grid" style={{ 
@@ -254,35 +254,35 @@ const ServiceNow = () => {
           paddingRight: 'var(--cds-spacing-07)'
         }}>
           {/* Breadcrumb - full width */}
-          <div className="cds--col-span-16 cds--col-span-16--lg" style={{ marginBottom: 'var(--cds-spacing-06)' }}>
-            <nav className="flex items-center gap-2 carbon-body-compact-01" style={{ color: '#a8a8a8' }}>
-              <Link to="/" className="hover:text-white transition-colors" style={{ color: '#a8a8a8' }}>Home</Link>
-              <span style={{ color: '#525252' }}>/</span>
-              <Link to="/services" className="hover:text-white transition-colors" style={{ color: '#a8a8a8' }}>Services</Link>
-              <span style={{ color: '#525252' }}>/</span>
-              <Link to="/services#platforms" className="hover:text-white transition-colors" style={{ color: '#a8a8a8' }}>IT Platforms</Link>
-              <span style={{ color: '#525252' }}>/</span>
-              <span style={{ color: '#ffffff' }}>ServiceNow</span>
+          <div className="cds--col-span-16 cds--col-span-16--lg" style={{ marginTop: '48px', marginBottom: 'var(--cds-spacing-06)' }}>
+            <nav className="flex items-center gap-2">
+              <Link to="/" className="hover:text-white transition-colors cds--label-01" style={{ color: '#c6c6c6' }}>Home</Link>
+              <ChevronRight className="w-3 h-3" style={{ color: '#8d8d8d' }} />
+              <Link to="/services" className="hover:text-white transition-colors cds--label-01" style={{ color: '#c6c6c6' }}>Services</Link>
+              <ChevronRight className="w-3 h-3" style={{ color: '#8d8d8d' }} />
+              <Link to="/services#platforms" className="hover:text-white transition-colors cds--label-01" style={{ color: '#c6c6c6' }}>IT Platforms</Link>
+              <ChevronRight className="w-3 h-3" style={{ color: '#8d8d8d' }} />
+              <span className="cds--label-01" style={{ color: 'var(--cds-text-inverse)' }}>ServiceNow</span>
             </nav>
           </div>
 
           {/* Left Content - 8 cols */}
           <div className="cds--col-span-8 cds--col-span-8--lg">
             {/* Tag -->
-            <div className="cds--tag cds--tag--blue" style={{ marginBottom: 'var(--cds-spacing-06)' }}>
+            <div className="cds--tag" style={{ marginBottom: 'var(--cds-spacing-06)', backgroundColor: 'var(--cds-layer-02)', color: 'var(--cds-text-inverse)' }}>
               <Settings className="w-4 h-4 mr-2" />
               ServiceNow Integration
             </div>
 
             {/* Headline */}
-            <h1 className="carbon-fluid-display-03 text-white" style={{ marginBottom: 'var(--cds-spacing-06)', maxWidth: '600px' }}>
+            <h1 style={{ marginBottom: 'var(--cds-spacing-06)', maxWidth: '700px', color: 'var(--cds-text-inverse)', fontSize: '60px', lineHeight: '1.2', fontWeight: 300, letterSpacing: '-0.64px' }}>
               Secure Your ServiceNow Transition
             </h1>
 
             {/* Body */}
-            <p className="carbon-body-02 text-[#c6c6c6]" style={{ marginBottom: 'var(--cds-spacing-07)', maxWidth: '560px' }}>
+            <p className="carbon-body-02" style={{ marginBottom: 'var(--cds-spacing-07)', maxWidth: '560px', color: '#c6c6c6' }}>
               Risk-mapped integrations that prevent SLA breaches and ensure data continuity 
-              during your ServiceNow migration. We don&apos;t just implement—we protect your operations.
+              during your ServiceNow migration. We don&apos;t just implement, we protect your operations.
             </p>
 
             {/* CTAs */}
@@ -299,7 +299,7 @@ const ServiceNow = () => {
                 className="cds--btn"
                 style={{ 
                   backgroundColor: 'transparent',
-                  border: '1px solid rgba(255,255,255,0.3)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
                   color: '#ffffff'
                 }}
               >
@@ -308,21 +308,30 @@ const ServiceNow = () => {
               </button>
             </div>
 
-            {/* Horizontal Rule */}
-            <div className="h-px bg-[#393939]" style={{ marginBottom: 'var(--cds-spacing-07)' }} />
-
-            {/* Quick Stats */}
-            <div className="flex" style={{ gap: 'var(--cds-spacing-09)' }}>
-              {[
-                { value: '14+', label: 'Years Experience' },
-                { value: '50+', label: 'Projects Delivered' },
-                { value: '99.9%', label: 'SLA Uptime' }
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="carbon-heading-02 text-white">{stat.value}</p>
-                  <p className="carbon-helper-text-01 text-[#a8a8a8]">{stat.label}</p>
-                </div>
-              ))}
+            {/* Stats Section */}
+            <div style={{ position: 'relative', paddingTop: 'var(--cds-spacing-07)' }}>
+              {/* Subtle Line */}
+              <div style={{ 
+                position: 'absolute', 
+                top: 0, 
+                left: 0, 
+                width: '60px', 
+                height: '1px', 
+                backgroundColor: '#525252'
+              }} />
+              {/* Quick Stats */}
+              <div style={{ display: 'flex', gap: '48px' }}>
+                {[
+                  { value: '14+', label: 'Years Experience' },
+                  { value: '50+', label: 'Projects Delivered' },
+                  { value: '99.9%', label: 'SLA Uptime' }
+                ].map((stat) => (
+                  <div key={stat.label}>
+                    <p style={{ fontSize: '36px', fontWeight: 300, lineHeight: '1.2', color: '#ffffff', marginBottom: '8px', letterSpacing: '-0.64px' }}>{stat.value}</p>
+                    <p style={{ fontSize: '12px', lineHeight: '1.3', color: '#6f6f6f', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{stat.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -332,14 +341,17 @@ const ServiceNow = () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--cds-spacing-05)' }}>
               
               {/* Tile 1 */}
-              <div className="cds--tile bg-[#262626]" style={{ padding: 'var(--cds-spacing-06)' }}>
-                <div className="flex items-start" style={{ gap: 'var(--cds-spacing-05)' }}>
-                  <div className="w-12 h-12 bg-[#0f62fe] flex items-center justify-center flex-shrink-0">
-                    <Security className="w-6 h-6 text-white" />
+              <div className="group" style={{ padding: '24px', backgroundColor: '#1f1f1f', borderLeft: '3px solid #0f62fe', transition: 'all 0.15s ease' }}>
+                <div className="flex items-start" style={{ gap: '16px' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '8px', backgroundColor: 'rgba(15, 98, 254, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Security style={{ width: '20px', height: '20px', color: '#0f62fe' }} />
                   </div>
-                  <div>
-                    <h3 className="carbon-heading-02 text-white" style={{ marginBottom: 'var(--cds-spacing-03)' }}>Risk-Mapped Approach</h3>
-                    <p className="carbon-body-compact-01 text-[#c6c6c6]">
+                  <div style={{ flex: 1 }}>
+                    <div className="flex items-center justify-between" style={{ marginBottom: '6px' }}>
+                      <h3 style={{ fontSize: '16px', fontWeight: 600, lineHeight: '1.5', color: '#ffffff' }}>Risk-Mapped Approach</h3>
+                      <ArrowRight className="w-4 h-4" style={{ color: '#525252', opacity: 0, transition: 'all 0.15s ease' }} />
+                    </div>
+                    <p style={{ fontSize: '14px', lineHeight: '1.5', color: '#8d8d8d' }}>
                       Identify and mitigate migration risks before they impact operations.
                     </p>
                   </div>
@@ -347,14 +359,17 @@ const ServiceNow = () => {
               </div>
 
               {/* Tile 2 */}
-              <div className="cds--tile bg-[#262626]" style={{ padding: 'var(--cds-spacing-06)' }}>
-                <div className="flex items-start" style={{ gap: 'var(--cds-spacing-05)' }}>
-                  <div className="w-12 h-12 bg-[#24a148] flex items-center justify-center flex-shrink-0">
-                    <Time className="w-6 h-6 text-white" />
+              <div className="group" style={{ padding: '24px', backgroundColor: '#1f1f1f', borderLeft: '3px solid #24a148', transition: 'all 0.15s ease' }}>
+                <div className="flex items-start" style={{ gap: '16px' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '8px', backgroundColor: 'rgba(36, 161, 72, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Time style={{ width: '20px', height: '20px', color: '#24a148' }} />
                   </div>
-                  <div>
-                    <h3 className="carbon-heading-02 text-white" style={{ marginBottom: 'var(--cds-spacing-03)' }}>8-Week Deployment</h3>
-                    <p className="carbon-body-compact-01 text-[#c6c6c6]">
+                  <div style={{ flex: 1 }}>
+                    <div className="flex items-center justify-between" style={{ marginBottom: '6px' }}>
+                      <h3 style={{ fontSize: '16px', fontWeight: 600, lineHeight: '1.5', color: '#ffffff' }}>8-Week Deployment</h3>
+                      <ArrowRight className="w-4 h-4" style={{ color: '#525252', opacity: 0, transition: 'all 0.15s ease' }} />
+                    </div>
+                    <p style={{ fontSize: '14px', lineHeight: '1.5', color: '#8d8d8d' }}>
                       Fixed-scope implementations with guaranteed timelines.
                     </p>
                   </div>
@@ -362,14 +377,17 @@ const ServiceNow = () => {
               </div>
 
               {/* Tile 3 */}
-              <div className="cds--tile bg-[#262626]" style={{ padding: 'var(--cds-spacing-06)' }}>
-                <div className="flex items-start" style={{ gap: 'var(--cds-spacing-05)' }}>
-                  <div className="w-12 h-12 bg-[#f1c21b] flex items-center justify-center flex-shrink-0">
-                    <Headphones className="w-6 h-6 text-[#161616]" />
+              <div className="group" style={{ padding: '24px', backgroundColor: '#1f1f1f', borderLeft: '3px solid #f1c21b', transition: 'all 0.15s ease' }}>
+                <div className="flex items-start" style={{ gap: '16px' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '8px', backgroundColor: 'rgba(241, 194, 27, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Headphones style={{ width: '20px', height: '20px', color: '#f1c21b' }} />
                   </div>
-                  <div>
-                    <h3 className="carbon-heading-02 text-white" style={{ marginBottom: 'var(--cds-spacing-03)' }}>24/7 Support</h3>
-                    <p className="carbon-body-compact-01 text-[#c6c6c6]">
+                  <div style={{ flex: 1 }}>
+                    <div className="flex items-center justify-between" style={{ marginBottom: '6px' }}>
+                      <h3 style={{ fontSize: '16px', fontWeight: 600, lineHeight: '1.5', color: '#ffffff' }}>24/7 Support</h3>
+                      <ArrowRight className="w-4 h-4" style={{ color: '#525252', opacity: 0, transition: 'all 0.15s ease' }} />
+                    </div>
+                    <p style={{ fontSize: '14px', lineHeight: '1.5', color: '#8d8d8d' }}>
                       Lahore-based NOC for continuous monitoring and response.
                     </p>
                   </div>
@@ -381,7 +399,7 @@ const ServiceNow = () => {
         </div>
 
         {/* Trust Bar */}
-        <div className="bg-[#262626]">
+        <div style={{ backgroundColor: '#0a0a0a' }}>
           <div className="cds--css-grid" style={{ 
             paddingTop: 'var(--cds-spacing-06)', 
             paddingBottom: 'var(--cds-spacing-06)',
@@ -389,17 +407,20 @@ const ServiceNow = () => {
             paddingRight: 'var(--cds-spacing-07)'
           }}>
             <div className="cds--col-span-16 cds--col-span-16--lg">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <p className="carbon-label-01 text-[#a8a8a8] uppercase tracking-wide">Trusted by enterprise teams</p>
-                <div className="flex flex-wrap items-center gap-8">
+              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '32px', flexWrap: 'wrap' }}>
+                {/* Label */}
+                <p style={{ fontSize: '12px', fontWeight: 400, color: '#6f6f6f', textTransform: 'uppercase', letterSpacing: '0.5px', margin: 0 }}>Trusted by enterprise teams</p>
+                
+                {/* Badges */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '40px', flexWrap: 'wrap' }}>
                   {[
                     { icon: Locked, text: 'SOC 2 Type II' },
                     { icon: Security, text: 'ISO 27001' },
                     { icon: Building, text: 'Fortune 500 Ready' }
                   ].map((item) => (
-                    <div key={item.text} className="flex items-center gap-2 text-[#c6c6c6]">
-                      <item.icon className="w-4 h-4" />
-                      <span className="carbon-body-compact-01">{item.text}</span>
+                    <div key={item.text} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <item.icon style={{ width: '18px', height: '18px', color: '#8d8d8d' }} />
+                      <span style={{ fontSize: '15px', fontWeight: 400, color: '#8d8d8d' }}>{item.text}</span>
                     </div>
                   ))}
                 </div>
@@ -438,23 +459,23 @@ const ServiceNow = () => {
             {offerings.map((offering) => (
               <div 
                 key={offering.id}
-                className="cds--col-span-5 cds--col-span-5--md group relative bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-[#0f62fe] hover:-translate-y-1 flex flex-col h-full"
+                className="cds--col-span-5 cds--col-span-5--md group relative bg-[var(--cds-layer-01)] rounded-lg border border-[var(--cds-border-subtle)] overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-[var(--cds-link-primary)] hover:-translate-y-1 flex flex-col h-full"
               >
                 {/* Color accent bar - left side */}
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#0f62fe] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[var(--cds-link-primary)] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
                 
                 <div className="p-8 flex flex-col h-full">
                   {/* Content area - grows to push CTA down */}
                   <div className="flex-grow">
                     {/* Icon and Title */}
                     <div className="flex items-start gap-4 mb-8">
-                      <div className="w-12 h-12 rounded-xl bg-[#edf5ff] flex items-center justify-center text-[#0f62fe] transition-colors group-hover:bg-[#0f62fe] group-hover:text-white flex-shrink-0">
+                      <div className="w-12 h-12 rounded-xl bg-[var(--cds-layer-accent)] flex items-center justify-center text-[var(--cds-link-primary)] transition-colors group-hover:bg-[var(--cds-link-primary)] group-hover:text-[var(--cds-text-inverse)] flex-shrink-0">
                         <offering.icon className="w-6 h-6" />
                       </div>
                       <div>
                         <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-1">{offering.title}</h3>
                         <div className="flex items-center gap-2 carbon-body-compact-01 text-[var(--cds-text-helper)]">
-                          <Time className="w-4 h-4 text-[#0f62fe]" />
+                          <Time className="w-4 h-4 text-[var(--cds-link-primary)]" />
                           <span>{offering.duration}</span>
                         </div>
                       </div>
@@ -476,7 +497,7 @@ const ServiceNow = () => {
 
                     {/* Expandable detail description on hover */}
                     <div className="max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-64 mb-0 group-hover:mb-6">
-                      <div className="bg-[#f4f4f4] p-4 rounded-lg">
+                      <div className="bg-[var(--cds-layer-02)] p-4 rounded-lg">
                         {offering.detailHeading && (
                           <p className="carbon-label-02 font-semibold text-[var(--cds-text-primary)] leading-relaxed mb-2">
                             {offering.detailHeading}
@@ -499,7 +520,7 @@ const ServiceNow = () => {
                       {offering.shortTags.map((tag) => (
                         <span 
                           key={tag}
-                          className="px-3 py-1.5 text-xs font-medium text-[#525252] bg-[#f4f4f4] rounded-full border border-transparent group-hover:border-[#0f62fe]/20 transition-colors"
+                          className="px-3 py-1.5 text-xs font-medium text-[var(--cds-text-secondary)] bg-[var(--cds-layer-02)] rounded-full border border-transparent group-hover:border-[var(--cds-link-primary)]/20 transition-colors"
                         >
                           {tag}
                         </span>
@@ -510,7 +531,7 @@ const ServiceNow = () => {
                   {/* CTA - always at bottom */}
                   <a
                     href={offering.link}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0043ce] transition-all group-hover:gap-3 pt-5 border-t border-gray-100"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--cds-link-primary)] hover:text-[var(--cds-link-primary-hover)] transition-all group-hover:gap-3 pt-5 border-t border-[var(--cds-border-subtle)]"
                   >
                     {offering.cta} <ArrowRight className="w-4 h-4" />
                   </a>
@@ -547,7 +568,7 @@ const ServiceNow = () => {
               <div className="cds--col-span-4 cds--col-span-4--md">
                 <div className="cds--tile bg-white h-full" style={{ padding: 'var(--cds-spacing-06)' }}>
                   <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#0f62fe] flex items-center justify-center">
+                    <div className="w-10 h-10 bg-[var(--cds-link-primary)] flex items-center justify-center">
                       <Layers className="w-5 h-5 text-white" />
                     </div>
                     Core Platform
@@ -564,7 +585,7 @@ const ServiceNow = () => {
               <div className="cds--col-span-4 cds--col-span-4--md">
                 <div className="cds--tile bg-white h-full" style={{ padding: 'var(--cds-spacing-06)' }}>
                   <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#24a148] flex items-center justify-center">
+                    <div className="w-10 h-10 bg-[var(--cds-support-success)] flex items-center justify-center">
                       <Code className="w-5 h-5 text-white" />
                     </div>
                     Development
@@ -581,8 +602,8 @@ const ServiceNow = () => {
               <div className="cds--col-span-4 cds--col-span-4--md">
                 <div className="cds--tile bg-white h-full" style={{ padding: 'var(--cds-spacing-06)' }}>
                   <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#f1c21b] flex items-center justify-center">
-                      <Network_1 className="w-5 h-5 text-[#161616]" />
+                    <div className="w-10 h-10 bg-[var(--cds-support-warning)] flex items-center justify-center">
+                      <Network_1 className="w-5 h-5 text-[var(--cds-text-primary)]" />
                     </div>
                     Integration
                   </h3>
@@ -598,7 +619,7 @@ const ServiceNow = () => {
               <div className="cds--col-span-4 cds--col-span-4--md">
                 <div className="cds--tile bg-white h-full" style={{ padding: 'var(--cds-spacing-06)' }}>
                   <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#fa4d56] flex items-center justify-center">
+                    <div className="w-10 h-10 bg-[var(--cds-support-error)] flex items-center justify-center">
                       <Activity className="w-5 h-5 text-white" />
                     </div>
                     ITOM & Discovery
@@ -649,7 +670,7 @@ const ServiceNow = () => {
                     key={idx}
                     onClick={() => setCurrentCaseStudy(idx)}
                     className={`w-2 h-2 rounded-full transition-all ${
-                      idx === currentCaseStudy ? 'bg-[var(--cds-layer-accent)]0 w-6' : 'bg-[var(--cds-layer-03)]'
+                      idx === currentCaseStudy ? 'bg-[var(--cds-layer-accent)] w-6' : 'bg-[var(--cds-layer-03)]'
                     }`}
                   />
                 ))}
@@ -1064,7 +1085,7 @@ const ServiceNow = () => {
               <div className="cds--col-span-8 cds--col-span-8--md bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-[var(--cds-background)] flex items-center justify-center">
-                    <Network_1 className="w-5 h-5 text-white" />
+                    <Network_1 className="w-5 h-5 text-[var(--cds-text-primary)]" />
                   </div>
                   <div>
                     <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">The Delivery Backbone</h3>
@@ -1330,7 +1351,7 @@ const ServiceNow = () => {
             </p>
             <a
               href="#footer"
-              className="inline-flex items-center gap-3 px-10 py-5 bg-white text-[var(--cds-text-primary)] carbon-heading-02 rounded-full hover:bg-[var(--cds-layer-01)] transition-all duration-300"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-[var(--cds-background)] text-[var(--cds-text-primary)] carbon-heading-02 rounded-full hover:bg-[var(--cds-layer-01)] transition-all duration-300"
             >
               Get Your Free Assessment
               <ArrowRight className="w-5 h-5" />

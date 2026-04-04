@@ -963,7 +963,7 @@ const Navigation = () => {
           </div>
           
           {/* Mobile Content */}
-          <div className="px-4 py-4 h-[calc(100vh-180px)] overflow-y-auto">
+          <div className="px-4 py-4 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 140px)' }}>
             {/* Solutions Mobile - Preserved */}
             {mobileActiveTab === 'solutions' && (
               <div className="space-y-4">
