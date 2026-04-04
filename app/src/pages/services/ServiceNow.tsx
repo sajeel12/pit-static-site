@@ -100,7 +100,7 @@ const ServiceNow = () => {
       icon: Chat,
       title: 'Consultation',
       duration: '2-4 weeks',
-      descriptionBold: "Don't build until you know the risks.",
+      descriptionBold: "Secure your build by identifying integration risks on Day 1.",
       descriptionNormal: "Our risk-mapped approach ensures your business case is solid before a single line of code is written.",
       shortTags: ['Current State & Gap Analysis', 'SBP-Aligned Roadmap', 'TCO & ROI Modeling'],
       detailHeading: "We cover:",
@@ -300,7 +300,10 @@ const ServiceNow = () => {
               </button>
               <button 
                 onClick={() => scrollToSection('case-studies')}
-                className="cds--btn cds--btn--ghost text-white hover:text-[#a8a8a8]"
+                className="cds--btn cds--btn--ghost"
+                style={{ color: '#ffffff' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#a8a8a8'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#ffffff'}
               >
                 View Case Studies
                 <ArrowUpRight className="w-4 h-4 ml-2" />
@@ -522,75 +525,95 @@ const ServiceNow = () => {
       </section>
 
       {/* Technological Expertise Section - Category Grouping */}
+      {/* Technological Expertise Section */}
       <section id="expertise" className="py-24 bg-[var(--cds-layer-01)]">
         <div className="cds--css-grid">
-        <div className="cds--col-span-16 cds--col-span-16--lg">
-          <div className="mb-12">
-            <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
-              Technical Capabilities
-            </span>
-            <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-4">
-              Technological Expertise
-            </h2>
-            <p className="carbon-body-02 text-[var(--cds-text-secondary)] max-w-2xl">
-              Deep technical knowledge across the entire ServiceNow platform
-            </p>
+          <div className="cds--col-span-16 cds--col-span-16--lg">
+            {/* Section Header */}
+            <div className="mb-12">
+              <div className="cds--tag cds--tag--blue mb-4">
+                <Settings className="w-4 h-4 mr-2" />
+                Technical Capabilities
+              </div>
+              <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-4">
+                Technological Expertise
+              </h2>
+              <p className="carbon-body-02 text-[var(--cds-text-secondary)] max-w-2xl">
+                Deep technical knowledge across the entire ServiceNow platform
+              </p>
+            </div>
+
+            {/* Expertise Grid - 4 Column Layout */}
+            <div className="cds--css-grid" style={{ padding: 0 }}>
+              {/* Column 1: Core Platform */}
+              <div className="cds--col-span-4 cds--col-span-4--md">
+                <div className="cds--tile bg-white h-full" style={{ padding: 'var(--cds-spacing-06)' }}>
+                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#0f62fe] flex items-center justify-center">
+                      <Layers className="w-5 h-5 text-white" />
+                    </div>
+                    Core Platform
+                  </h3>
+                  <ul className="cds--list--unordered space-y-2">
+                    {['ITSM', 'CMDB', 'Service Portal', 'Workflow Editor', 'Business Rules', 'SLA Definitions'].map((item) => (
+                      <li key={item} className="cds--list__item">{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Column 2: Development */}
+              <div className="cds--col-span-4 cds--col-span-4--md">
+                <div className="cds--tile bg-white h-full" style={{ padding: 'var(--cds-spacing-06)' }}>
+                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#24a148] flex items-center justify-center">
+                      <Code className="w-5 h-5 text-white" />
+                    </div>
+                    Development
+                  </h3>
+                  <ul className="cds--list--unordered space-y-2">
+                    {['JavaScript', 'Glide API', 'Script Includes', 'Client Scripts', 'UI Policies', 'Source Control'].map((item) => (
+                      <li key={item} className="cds--list__item">{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Column 3: Integration */}
+              <div className="cds--col-span-4 cds--col-span-4--md">
+                <div className="cds--tile bg-white h-full" style={{ padding: 'var(--cds-spacing-06)' }}>
+                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#f1c21b] flex items-center justify-center">
+                      <Network_1 className="w-5 h-5 text-[#161616]" />
+                    </div>
+                    Integration
+                  </h3>
+                  <ul className="cds--list--unordered space-y-2">
+                    {['REST APIs', 'IntegrationHub', 'Flow Designer', 'Orchestration', 'MID Server', 'Import Sets'].map((item) => (
+                      <li key={item} className="cds--list__item">{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Column 4: ITOM & Discovery */}
+              <div className="cds--col-span-4 cds--col-span-4--md">
+                <div className="cds--tile bg-white h-full" style={{ padding: 'var(--cds-spacing-06)' }}>
+                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#fa4d56] flex items-center justify-center">
+                      <Activity className="w-5 h-5 text-white" />
+                    </div>
+                    ITOM & Discovery
+                  </h3>
+                  <ul className="cds--list--unordered space-y-2">
+                    {['Discovery', 'Service Mapping', 'Event Management', 'Cloud Operations', 'Transform Maps', 'Scheduled Jobs'].map((item) => (
+                      <li key={item} className="cds--list__item">{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div className="cds--css-grid" style={{ padding: 0 }}>
-            {/* Column 1: Core Platform */}
-            <div className="cds--col-span-4 cds--col-span-4--md bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
-              <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-2">
-                <Layers className="w-5 h-5" style={{ color: brandColor }} />
-                Core Platform
-              </h3>
-              <ul className="space-y-2">
-                {['ITSM', 'CMDB', 'Service Portal', 'Workflow Editor', 'Business Rules', 'SLA Definitions'].map((item) => (
-                  <li key={item} className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">{item}</li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Column 2: Development */}
-            <div className="cds--col-span-4 cds--col-span-4--md bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
-              <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-2">
-                <Code className="w-5 h-5" style={{ color: brandColor }} />
-                Development
-              </h3>
-              <ul className="space-y-2">
-                {['JavaScript', 'Glide API', 'Script Includes', 'Client Scripts', 'UI Policies', 'Source Control'].map((item) => (
-                  <li key={item} className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">{item}</li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Column 3: Integration */}
-            <div className="cds--col-span-4 cds--col-span-4--md bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
-              <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-2">
-                <Network_1 className="w-5 h-5" style={{ color: brandColor }} />
-                Integration
-              </h3>
-              <ul className="space-y-2">
-                {['REST APIs', 'IntegrationHub', 'Flow Designer', 'Orchestration', 'MID Server', 'Import Sets'].map((item) => (
-                  <li key={item} className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">{item}</li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Column 4: ITOM & Discovery */}
-            <div className="cds--col-span-4 cds--col-span-4--md bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
-              <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-2">
-                <Activity className="w-5 h-5" style={{ color: brandColor }} />
-                ITOM & Discovery
-              </h3>
-              <ul className="space-y-2">
-                {['Discovery', 'Service Mapping', 'Event Management', 'Cloud Operations', 'Transform Maps', 'Scheduled Jobs'].map((item) => (
-                  <li key={item} className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
         </div>
       </section>
 
