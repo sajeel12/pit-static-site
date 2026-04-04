@@ -241,25 +241,22 @@ const ServiceNow = () => {
     <div className="min-h-screen bg-[var(--cds-background)]">
       <Navigation />
       
-      {/* Breadcrumb */}
-      <div className="bg-[#161616] border-b border-[#393939]" style={{ marginTop: '48px' }}>
-        <div className="cds--css-grid">
-        <div className="cds--col-span-16 cds--col-span-16--lg py-3">
-          <nav className="flex items-center gap-2 carbon-body-compact-01" style={{ color: '#a8a8a8' }}>
-            <Link to="/" className="hover:text-white transition-colors" style={{ color: '#a8a8a8' }}>Home</Link>
-            <span style={{ color: '#525252' }}>/</span>
-            <Link to="/services" className="hover:text-white transition-colors" style={{ color: '#a8a8a8' }}>Services</Link>
-            <span style={{ color: '#525252' }}>/</span>
-            <Link to="/services#platforms" className="hover:text-white transition-colors" style={{ color: '#a8a8a8' }}>IT Platforms</Link>
-            <span style={{ color: '#525252' }}>/</span>
-            <span style={{ color: '#ffffff' }}>ServiceNow</span>
-          </nav>
-        </div>
-        </div>
-      </div>
-
       {/* Hero Section - Pure Carbon Design */}
       <section id="overview" ref={heroRef} className="bg-[#161616] overflow-hidden" style={{ marginTop: 'var(--cds-spacing-09)' }}>
+        {/* Breadcrumb - inside hero */}
+        <div className="cds--css-grid" style={{ paddingTop: 'var(--cds-spacing-05)', paddingBottom: 0 }}>
+          <div className="cds--col-span-16 cds--col-span-16--lg">
+            <nav className="flex items-center gap-2 carbon-body-compact-01" style={{ color: '#a8a8a8' }}>
+              <Link to="/" className="hover:text-white transition-colors" style={{ color: '#a8a8a8' }}>Home</Link>
+              <span style={{ color: '#525252' }}>/</span>
+              <Link to="/services" className="hover:text-white transition-colors" style={{ color: '#a8a8a8' }}>Services</Link>
+              <span style={{ color: '#525252' }}>/</span>
+              <Link to="/services#platforms" className="hover:text-white transition-colors" style={{ color: '#a8a8a8' }}>IT Platforms</Link>
+              <span style={{ color: '#525252' }}>/</span>
+              <span style={{ color: '#ffffff' }}>ServiceNow</span>
+            </nav>
+          </div>
+        </div>
         {/* Top Accent Bar - full bleed, no grid */}
         <div className="h-1 bg-[#0f62fe]" />
         
