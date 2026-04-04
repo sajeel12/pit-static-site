@@ -242,17 +242,17 @@ const ServiceNow = () => {
       <Navigation />
       
       {/* Breadcrumb */}
-      <div className="bg-[var(--cds-layer-01)] border-b border-[var(--cds-border-subtle)]">
+      <div className="bg-[#161616] border-b border-[#393939]" style={{ marginTop: '48px' }}>
         <div className="cds--css-grid">
         <div className="cds--col-span-16 cds--col-span-16--lg py-3">
-          <nav className="flex items-center gap-2 carbon-body-compact-01 text-[var(--cds-text-secondary)]">
-            <Link to="/" className="hover:text-[var(--cds-text-primary)] transition-colors">Home</Link>
-            <span className="text-[var(--cds-text-placeholder)]">/</span>
-            <Link to="/services" className="hover:text-[var(--cds-text-primary)] transition-colors">Services</Link>
-            <span className="text-[var(--cds-text-placeholder)]">/</span>
-            <Link to="/services#platforms" className="hover:text-[var(--cds-text-primary)] transition-colors">IT Platforms</Link>
-            <span className="text-[var(--cds-text-placeholder)]">/</span>
-            <span className="text-[var(--cds-text-primary)]">ServiceNow</span>
+          <nav className="flex items-center gap-2 carbon-body-compact-01" style={{ color: '#a8a8a8' }}>
+            <Link to="/" className="hover:text-white transition-colors" style={{ color: '#a8a8a8' }}>Home</Link>
+            <span style={{ color: '#525252' }}>/</span>
+            <Link to="/services" className="hover:text-white transition-colors" style={{ color: '#a8a8a8' }}>Services</Link>
+            <span style={{ color: '#525252' }}>/</span>
+            <Link to="/services#platforms" className="hover:text-white transition-colors" style={{ color: '#a8a8a8' }}>IT Platforms</Link>
+            <span style={{ color: '#525252' }}>/</span>
+            <span style={{ color: '#ffffff' }}>ServiceNow</span>
           </nav>
         </div>
         </div>
@@ -303,7 +303,7 @@ const ServiceNow = () => {
                 className="cds--btn"
                 style={{ 
                   backgroundColor: 'transparent',
-                  border: '1px solid #ffffff',
+                  border: '1px solid rgba(255,255,255,0.3)',
                   color: '#ffffff'
                 }}
               >
