@@ -300,10 +300,12 @@ const ServiceNow = () => {
               </button>
               <button 
                 onClick={() => scrollToSection('case-studies')}
-                className="cds--btn cds--btn--ghost"
-                style={{ color: '#ffffff' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#a8a8a8'}
-                onMouseLeave={(e) => e.currentTarget.style.color = '#ffffff'}
+                className="cds--btn"
+                style={{ 
+                  backgroundColor: 'transparent',
+                  border: '1px solid #ffffff',
+                  color: '#ffffff'
+                }}
               >
                 View Case Studies
                 <ArrowUpRight className="w-4 h-4 ml-2" />
