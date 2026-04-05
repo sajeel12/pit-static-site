@@ -256,7 +256,7 @@ const ServiceNow = () => {
       {/* Main content wrapper with sidebar - starts after hero */}
       <div className="flex">
         {/* Sidebar - Sticky, IBM-style 256px width with 32px gap */}
-        <div className="hidden xl:block flex-shrink-0 pt-16" style={{ marginRight: '32px' }}>
+        <div className="hidden xl:block flex-shrink-0" style={{ marginRight: '32px' }}>
           <SidebarMenu items={sidebarItems} brandColor={brandColor} />
         </div>
         
