@@ -925,31 +925,28 @@ const ServiceNow = () => {
               </h2>
             </div>
 
-            {/* Testimonial Card - Asymmetric Layout */}
+            {/* Testimonial Card - Enhanced Layout */}
             <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] overflow-hidden">
               <div className="cds--css-grid gap-0" style={{ padding: 0 }}>
-                {/* Left: Large Quote Mark & Visual */}
-                <div className="cds--col-span-5 cds--col-span-5--lg relative p-8 md:p-10 flex flex-col justify-between" style={{ backgroundColor: '#f4f4f4' }}>
-                  {/* Large Quote */}
-                  <div>
-                    <Quotes className="w-16 h-16 text-[#8d8d8d] opacity-30 mb-4" />
-                    <p className="carbon-heading-02 text-[var(--cds-text-primary)]">
-                      Trusted by Pakistan&apos;s Largest Telecom
+                {/* Left: Logo & Trust Indicator */}
+                <div className="cds--col-span-5 cds--col-span-5--lg relative" style={{ backgroundColor: '#f4f4f4' }}>
+                  {/* Top Section: Logo Placeholder */}
+                  <div className="p-8 pb-6 border-b border-[var(--cds-border-subtle)]">
+                    <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-4">
+                      Trusted By
+                    </p>
+                    {/* Logo Placeholder */}
+                    <div className="w-full h-20 bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] flex items-center justify-center mb-3">
+                      <Building className="w-10 h-10 text-[var(--cds-text-placeholder)]" />
+                    </div>
+                    <p className="carbon-heading-01 text-[var(--cds-text-primary)] text-center">
+                      Pakistan&apos;s Largest Telecom
                     </p>
                   </div>
                   
-                  {/* Client Avatar */}
-                  <div className="mt-8">
-                    <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 bg-[var(--cds-layer-02)] border-2 border-[var(--cds-border-subtle)] flex items-center justify-center">
-                        <UserMultiple className="w-8 h-8 text-[var(--cds-text-placeholder)]" />
-                      </div>
-                      <div>
-                        <div className="carbon-heading-01 text-[var(--cds-text-primary)]">Usman Ikram</div>
-                        <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">IT Operations Director</div>
-                        <div className="carbon-helper-text-02 text-[var(--cds-text-helper)] mt-1">Major Telecom Provider</div>
-                      </div>
-                    </div>
+                  {/* Bottom Section: Large Quote Icon */}
+                  <div className="p-8 flex items-center justify-center">
+                    <Quotes className="w-24 h-24 text-[#0f62fe] opacity-20" />
                   </div>
                   
                   {/* Accent Line */}
@@ -957,32 +954,54 @@ const ServiceNow = () => {
                 </div>
                 
                 {/* Right: Quote Content */}
-                <div className="cds--col-span-11 cds--col-span-11--lg p-8 md:p-10 flex flex-col justify-center">
-                  <blockquote className="relative">
-                    <span className="absolute -top-2 -left-2 text-6xl text-[#0f62fe] opacity-10 font-serif">&ldquo;</span>
-                    <p className="carbon-fluid-quotation-01 text-[var(--cds-text-primary)] leading-relaxed relative z-10">
-                      Perception IT transformed our IT operations with their ServiceNow expertise. 
-                      Their team successfully migrated us from Maximo to ServiceNow with zero downtime, 
-                      and the automation they implemented has reduced our incident resolution time by 45%. 
-                      Their deep understanding of both the technical and business aspects made all the difference.
-                    </p>
-                    <span className="absolute -bottom-8 -right-2 text-6xl text-[#0f62fe] opacity-10 font-serif">&rdquo;</span>
-                  </blockquote>
+                <div className="cds--col-span-11 cds--col-span-11--lg flex flex-col">
+                  {/* Quote Area */}
+                  <div className="p-8 md:p-10 flex-1 flex flex-col justify-center">
+                    <blockquote className="relative">
+                      <span className="absolute -top-4 -left-4 text-7xl text-[#0f62fe] opacity-10 font-serif">&ldquo;</span>
+                      <p className="carbon-fluid-quotation-01 text-[var(--cds-text-primary)] leading-relaxed relative z-10">
+                        Perception IT transformed our IT operations with their ServiceNow expertise. 
+                        Their team successfully migrated us from Maximo to ServiceNow with zero downtime, 
+                        and the automation they implemented has reduced our incident resolution time by 45%. 
+                        Their deep understanding of both the technical and business aspects made all the difference.
+                      </p>
+                      <span className="absolute -bottom-8 -right-2 text-7xl text-[#0f62fe] opacity-10 font-serif">&rdquo;</span>
+                    </blockquote>
+                  </div>
                   
-                  {/* Metrics Row */}
-                  <div className="mt-8 pt-6 border-t border-[var(--cds-border-subtle)]">
-                    <div className="flex flex-wrap gap-8">
-                      <div>
-                        <div className="carbon-heading-02 text-[#24a148]">Zero</div>
-                        <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Downtime Migration</div>
+                  {/* Bottom Bar: Author & Metrics - Clean Separation */}
+                  <div className="border-t border-[var(--cds-border-subtle)] bg-[var(--cds-layer-02)]">
+                    <div className="cds--css-grid gap-0" style={{ padding: 0 }}>
+                      {/* Author Info - Left */}
+                      <div className="cds--col-span-6 cds--col-span-6--lg p-6 border-r border-[var(--cds-border-subtle)]">
+                        <div className="flex items-center gap-4">
+                          <div className="w-12 h-12 bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] flex items-center justify-center flex-shrink-0">
+                            <UserMultiple className="w-6 h-6 text-[var(--cds-text-placeholder)]" />
+                          </div>
+                          <div>
+                            <div className="carbon-heading-01 text-[var(--cds-text-primary)]">Usman Ikram</div>
+                            <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">IT Operations Director</div>
+                            <div className="carbon-helper-text-02 text-[var(--cds-text-helper)]">Major Telecom Provider</div>
+                          </div>
+                        </div>
                       </div>
-                      <div>
-                        <div className="carbon-heading-02 text-[#0f62fe]">45%</div>
-                        <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Faster Resolution</div>
-                      </div>
-                      <div>
-                        <div className="carbon-heading-02 text-[var(--cds-text-primary)]">99.95%</div>
-                        <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Uptime Achieved</div>
+                      
+                      {/* Metrics - Right */}
+                      <div className="cds--col-span-6 cds--col-span-6--lg p-6 flex items-center">
+                        <div className="flex gap-8">
+                          <div className="text-center">
+                            <div className="carbon-heading-02 text-[#24a148]">Zero</div>
+                            <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Downtime</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="carbon-heading-02 text-[#0f62fe]">45%</div>
+                            <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Faster</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="carbon-heading-02 text-[var(--cds-text-primary)]">99.95%</div>
+                            <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Uptime</div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
