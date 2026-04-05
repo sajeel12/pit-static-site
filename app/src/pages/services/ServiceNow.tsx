@@ -42,7 +42,9 @@ import {
   Terminal,
   ChartLine,
   Chip,
-  EdgeNode
+  EdgeNode,
+  Money,
+  ArrowDown
 } from '@carbon/icons-react';
 
 // Batch 5: Remaining Lucide icons (no Carbon equivalent)
@@ -992,123 +994,189 @@ const ServiceNow = () => {
         </div>
       </section>
 
-      {/* TCO Calculator Section */}
-      <section id="tco-calculator" className="py-16 bg-white border-y border-[var(--cds-border-subtle)]">
+      {/* TCO Calculator Section - Enhanced Design */}
+      <section id="tco-calculator" className="py-16 bg-[var(--cds-background)]">
         <div className="cds--css-grid">
-        <div className="cds--col-span-16 cds--col-span-16--lg">
-          <div className="mb-10">
-            <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
-              Financial Transparency
-            </span>
-            <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-4">
-              Stop Guessing Your ITSM Budget
-            </h2>
-            <p className="carbon-body-02 text-[var(--cds-text-secondary)]">
-              See Your 3-Year TCO Now
-            </p>
-          </div>
-
-          <div className="bg-[var(--cds-layer-01)] rounded-xl border border-[var(--cds-border-subtle)] p-8">
-            {/* Inputs */}
-            <div className="cds--css-grid" style={{ padding: 0, marginBottom: '1.5rem' }}>
-              <div className="cds--col-span-5 cds--col-span-5--md">
-                <label className="block carbon-label-01 text-[var(--cds-text-secondary)] mb-2">Number of UserMultiple</label>
-                <input
-                  type="range"
-                  min="100"
-                  max="5000"
-                  step="100"
-                  value={tcoUserMultiple}
-                  onChange={(e) => setTcoUserMultiple(Number(e.target.value))}
-                  className="w-full h-2 bg-[var(--cds-layer-03)] rounded-lg appearance-none cursor-pointer"
-                  style={{ accentColor: brandColor }}
-                />
-                <div className="text-center mt-2 carbon-heading-02 text-[var(--cds-text-primary)]">{tcoUserMultiple.toLocaleString()}</div>
+          <div className="cds--col-span-16 cds--col-span-16--lg">
+            {/* Section Header */}
+            <div className="text-center mb-10">
+              <div className="cds--tag cds--tag--green mb-3">
+                <Money className="w-3 h-3 mr-1" />
+                Financial Transparency
               </div>
+              <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-3">
+                Stop Guessing Your ITSM Budget
+              </h2>
+              <p className="carbon-body-02 text-[var(--cds-text-secondary)] max-w-2xl mx-auto">
+                See your 3-Year TCO comparison instantly. No email required.
+              </p>
+            </div>
 
-              <div className="cds--col-span-5 cds--col-span-5--md">
-                <label className="block carbon-label-01 text-[var(--cds-text-secondary)] mb-2">Current Toolset</label>
-                <select
-                  value={tcoToolset}
-                  onChange={(e) => setTcoToolset(e.target.value as 'excel' | 'jira' | 'legacy')}
-                  className="w-full px-4 py-2 border border-[var(--cds-border-subtle)] rounded-lg focus:outline-none focus:border-[var(--cds-border-strong)]"
-                >
-                  <option value="excel">Excel / Spreadsheets</option>
-                  <option value="jira">Jira / Basic Tools</option>
-                  <option value="legacy">Legacy ITSM Platform</option>
-                </select>
-              </div>
-
-              <div className="cds--col-span-5 cds--col-span-5--md">
-                <label className="block carbon-label-01 text-[var(--cds-text-secondary)] mb-2">Desired Modules</label>
-                <div className="space-y-2">
-                  <label className="flex items-center gap-2 cursor-pointer">
+            {/* Calculator Card - Split Layout */}
+            <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] overflow-hidden">
+              <div className="cds--css-grid gap-0" style={{ padding: 0 }}>
+                {/* Left: Inputs (7 cols) */}
+                <div className="cds--col-span-7 cds--col-span-7--lg p-8 border-r border-[var(--cds-border-subtle)]">
+                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-6 flex items-center gap-2">
+                    <Settings className="w-5 h-5 text-[var(--cds-link-primary)]" />
+                    Configure Your Environment
+                  </h3>
+                  
+                  {/* User Count Slider */}
+                  <div className="mb-8">
+                    <div className="flex items-center justify-between mb-3">
+                      <label className="carbon-label-01 text-[var(--cds-text-secondary)]">Number of Users</label>
+                      <span className="carbon-heading-02 text-[var(--cds-link-primary)]">{tcoUserMultiple.toLocaleString()}</span>
+                    </div>
                     <input
-                      type="checkbox"
-                      checked={tcoModules.includes('itsm')}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          setTcoModules([...tcoModules, 'itsm']);
-                        } else {
-                          setTcoModules(tcoModules.filter(m => m !== 'itsm'));
-                        }
-                      }}
-                      className="w-4 h-4 rounded border-[var(--cds-border-strong)]"
+                      type="range"
+                      min="100"
+                      max="5000"
+                      step="100"
+                      value={tcoUserMultiple}
+                      onChange={(e) => setTcoUserMultiple(Number(e.target.value))}
+                      className="w-full h-2 bg-[var(--cds-layer-03)] appearance-none cursor-pointer"
                       style={{ accentColor: brandColor }}
                     />
-                    <span className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">ITSM (Service Desk)</span>
-                  </label>
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={tcoModules.includes('itom')}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          setTcoModules([...tcoModules, 'itom']);
-                        } else {
-                          setTcoModules(tcoModules.filter(m => m !== 'itom'));
-                        }
-                      }}
-                      className="w-4 h-4 rounded border-[var(--cds-border-strong)]"
-                      style={{ accentColor: brandColor }}
-                    />
-                    <span className="carbon-body-compact-02 text-[var(--cds-text-secondary)]">ITOM (Operations)</span>
-                  </label>
+                    <div className="flex justify-between mt-2 carbon-helper-text-01 text-[var(--cds-text-placeholder)]">
+                      <span>100</span>
+                      <span>5,000</span>
+                    </div>
+                  </div>
+
+                  {/* Current Toolset */}
+                  <div className="mb-8">
+                    <label className="carbon-label-01 text-[var(--cds-text-secondary)] mb-3 block">Current Toolset</label>
+                    <div className="grid grid-cols-3 gap-3">
+                      {[
+                        { value: 'excel', label: 'Excel / Sheets', icon: '?' },
+                        { value: 'jira', label: 'Jira / Basic', icon: '?' },
+                        { value: 'legacy', label: 'Legacy ITSM', icon: '?' }
+                      ].map((tool) => (
+                        <button
+                          key={tool.value}
+                          onClick={() => setTcoToolset(tool.value as 'excel' | 'jira' | 'legacy')}
+                          className={`p-4 border text-left transition-all ${
+                            tcoToolset === tool.value
+                              ? 'border-[var(--cds-link-primary)] bg-[var(--cds-layer-hover)]'
+                              : 'border-[var(--cds-border-subtle)] hover:border-[var(--cds-border-strong)]'
+                          }`}
+                        >
+                          <div className={`carbon-label-01 ${tcoToolset === tool.value ? 'text-[var(--cds-link-primary)]' : 'text-[var(--cds-text-secondary)]'}`}>
+                            {tool.label}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Desired Modules */}
+                  <div>
+                    <label className="carbon-label-01 text-[var(--cds-text-secondary)] mb-3 block">Desired Modules</label>
+                    <div className="space-y-3">
+                      {[
+                        { id: 'itsm', label: 'ITSM (Service Desk)', desc: 'Incident, Problem, Change Management' },
+                        { id: 'itom', label: 'ITOM (Operations)', desc: 'Discovery, Event Management, Cloud' }
+                      ].map((module) => (
+                        <label
+                          key={module.id}
+                          className={`flex items-start gap-4 p-4 border cursor-pointer transition-all ${
+                            tcoModules.includes(module.id)
+                              ? 'border-[var(--cds-link-primary)] bg-[var(--cds-layer-hover)]'
+                              : 'border-[var(--cds-border-subtle)] hover:border-[var(--cds-border-strong)]'
+                          }`}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={tcoModules.includes(module.id)}
+                            onChange={(e) => {
+                              if (e.target.checked) {
+                                setTcoModules([...tcoModules, module.id]);
+                              } else {
+                                setTcoModules(tcoModules.filter(m => m !== module.id));
+                              }
+                            }}
+                            className="w-5 h-5 mt-0.5 flex-shrink-0"
+                          />
+                          <div>
+                            <div className={`carbon-label-01 ${tcoModules.includes(module.id) ? 'text-[var(--cds-text-primary)]' : 'text-[var(--cds-text-secondary)]'}`}>
+                              {module.label}
+                            </div>
+                            <div className="carbon-helper-text-01 text-[var(--cds-text-placeholder)]">
+                              {module.desc}
+                            </div>
+                          </div>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right: Results (9 cols) */}
+                <div className="cds--col-span-9 cds--col-span-9--lg bg-[var(--cds-layer-02)] p-8 flex flex-col justify-center">
+                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-6 flex items-center gap-2">
+                    <ChartLine className="w-5 h-5 text-[var(--cds-support-success)]" />
+                    Your 3-Year TCO Analysis
+                  </h3>
+
+                  {/* Comparison Cards */}
+                  <div className="space-y-4 mb-8">
+                    {/* Current Cost */}
+                    <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] p-5 flex items-center justify-between">
+                      <div>
+                        <p className="carbon-label-01 text-[var(--cds-text-helper)]">Current Setup Cost</p>
+                        <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)]">Including hidden costs & inefficiencies</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="carbon-fluid-heading-04 text-[var(--cds-text-primary)]">${tcoResult.current}K</p>
+                      </div>
+                    </div>
+
+                    {/* Perception Cost */}
+                    <div className="bg-[var(--cds-layer-01)] border-2 border-[var(--cds-link-primary)] p-5 flex items-center justify-between relative overflow-hidden">
+                      <div className="absolute top-0 right-0 bg-[var(--cds-link-primary)] text-white carbon-label-01 px-3 py-1">
+                        RECOMMENDED
+                      </div>
+                      <div>
+                        <p className="carbon-label-01 text-[var(--cds-link-primary)]">Perception-IT Fixed Cost</p>
+                        <p className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Fixed-price guarantee, no surprises</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="carbon-fluid-heading-03" style={{ color: brandColor }}>${tcoResult.perception}K</p>
+                      </div>
+                    </div>
+
+                    {/* Savings */}
+                    <div className="bg-[#24a148] bg-opacity-10 border border-[#24a148] p-5 flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-[#24a148] flex items-center justify-center">
+                          <ArrowDown className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <p className="carbon-label-01 text-[#24a148]">Your Total Savings</p>
+                          <p className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Over 3 years</p>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <p className="carbon-fluid-heading-03 text-[#24a148]">{tcoResult.savingsPercent}%</p>
+                        <p className="carbon-heading-02 text-[#24a148]">${tcoResult.savings}K</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* CTA */}
+                  <a
+                    href="#contact"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-4 text-white carbon-heading-02 transition-all hover:opacity-90"
+                    style={{ backgroundColor: brandColor }}
+                  >
+                    Get Your Detailed Quote
+                    <ArrowRight className="w-5 h-5" />
+                  </a>
                 </div>
               </div>
             </div>
-
-            {/* Results */}
-            <div className="cds--css-grid" style={{ padding: 0, paddingTop: '2rem', borderTop: '1px solid var(--cds-border-subtle)' }}>
-              <div className="cds--col-span-5 cds--col-span-5--md text-center">
-                <p className="carbon-helper-text-01 text-[var(--cds-text-helper)] mb-1">Current 3-Year Cost</p>
-                <p className="text-3xl font-bold text-[var(--cds-text-primary)]">${tcoResult.current}K</p>
-                <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)] mt-1">Including hidden costs</p>
-              </div>
-              <div className="cds--col-span-5 cds--col-span-5--md text-center">
-                <p className="carbon-helper-text-01 text-[var(--cds-text-helper)] mb-1">Perception-IT Fixed Cost</p>
-                <p className="carbon-fluid-heading-04" style={{ color: brandColor }}>${tcoResult.perception}K</p>
-                <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)] mt-1">Fixed-price guarantee</p>
-              </div>
-              <div className="cds--col-span-5 cds--col-span-5--md text-center">
-                <p className="carbon-helper-text-01 text-[var(--cds-text-helper)] mb-1">Your Savings</p>
-                <p className="text-3xl font-bold text-[var(--cds-link-primary)]">{tcoResult.savingsPercent}%</p>
-                <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)] mt-1">${tcoResult.savings}K saved</p>
-              </div>
-            </div>
-
-            <div className="text-center mt-8">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 text-white carbon-label-01 rounded-lg transition-all hover:opacity-90"
-                style={{ backgroundColor: brandColor }}
-              >
-                Download Detailed Commercial Model
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
           </div>
-        </div>
         </div>
       </section>
 
