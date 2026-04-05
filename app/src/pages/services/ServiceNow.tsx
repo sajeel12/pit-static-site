@@ -1389,34 +1389,124 @@ const ServiceNow = () => {
 
 
 
-      {/* Compliance Section */}
-      <section id="compliance" className="py-16 bg-[var(--cds-layer-01)]">
+      {/* Compliance Section - Enhanced Design */}
+      <section id="compliance" className="py-16 bg-[var(--cds-background)]">
         <div className="cds--css-grid">
-        <div className="cds--col-span-16 cds--col-span-16--lg">
-          <div className="bg-white rounded-xl border border-[var(--cds-border-subtle)] p-8 md:p-12">
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="flex-shrink-0">
-                <div className="w-24 h-24 rounded-full flex items-center justify-center" style={{ backgroundColor: `${brandColor}15` }}>
-                  <Locked className="w-12 h-12" style={{ color: brandColor }} />
+          <div className="cds--col-span-16 cds--col-span-16--lg">
+            {/* Section Header */}
+            <div className="text-center mb-10">
+              <div className="cds--tag cds--tag--purple mb-3">
+                <Locked className="w-3 h-3 mr-1" />
+                Data Sovereignty & Compliance
+              </div>
+              <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-3">
+                Your Data Stays in Pakistan
+              </h2>
+              <p className="carbon-body-02 text-[var(--cds-text-secondary)] max-w-3xl mx-auto">
+                SBP-aligned compliance with local data residency. No cross-border transfers without explicit authorization.
+              </p>
+            </div>
+
+            {/* Main Compliance Card */}
+            <div className="bg-white border border-[var(--cds-border-subtle)] overflow-hidden">
+              <div className="cds--css-grid gap-0" style={{ padding: 0 }}>
+                {/* Left: Visual & Key Stats */}
+                <div className="cds--col-span-6 cds--col-span-6--lg p-8 md:p-10 border-b md:border-b-0 md:border-r border-[var(--cds-border-subtle)] bg-[#f4f4f4]">
+                  {/* Large Icon */}
+                  <div className="w-20 h-20 bg-[#6929c4] bg-opacity-10 flex items-center justify-center mb-6">
+                    <Locked className="w-10 h-10 text-[#6929c4]" />
+                  </div>
+                  
+                  <h3 className="carbon-heading-02 text-[#161616] mb-4">
+                    Why Local Data Residency Matters
+                  </h3>
+                  
+                  <p className="carbon-body-01 text-[#525252] mb-6">
+                    Banking and Government sectors require strict data sovereignty. Our Lahore delivery center ensures complete compliance.
+                  </p>
+                  
+                  {/* Key Stats */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-white p-4 border border-[#e0e0e0]">
+                      <p className="carbon-heading-02 text-[#6929c4]">100%</p>
+                      <p className="carbon-helper-text-01 text-[#6f6f6f]">SBP Guidelines Aligned</p>
+                    </div>
+                    <div className="bg-white p-4 border border-[#e0e0e0]">
+                      <p className="carbon-heading-02 text-[#6929c4]">24/7</p>
+                      <p className="carbon-helper-text-01 text-[#6f6f6f]">Local Support Access</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Right: Compliance Features */}
+                <div className="cds--col-span-10 cds--col-span-10--lg p-8 md:p-10">
+                  <h3 className="carbon-heading-02 text-[#161616] mb-6">
+                    Compliance Framework
+                  </h3>
+                  
+                  <div className="space-y-4">
+                    {/* Feature 1 */}
+                    <div className="flex items-start gap-4 p-4 bg-[#f4f4f4] border-l-2 border-[#6929c4]">
+                      <div className="w-10 h-10 bg-[#6929c4] flex items-center justify-center flex-shrink-0">
+                        <span className="text-white carbon-heading-01">1</span>
+                      </div>
+                      <div>
+                        <p className="carbon-heading-01 text-[#161616]">SBP Guidelines Aligned</p>
+                        <p className="carbon-body-01 text-[#525252]">Full compliance with State Bank of Pakistan regulations for financial institutions.</p>
+                      </div>
+                    </div>
+                    
+                    {/* Feature 2 */}
+                    <div className="flex items-start gap-4 p-4 bg-[#f4f4f4] border-l-2 border-[#6929c4]">
+                      <div className="w-10 h-10 bg-[#6929c4] flex items-center justify-center flex-shrink-0">
+                        <span className="text-white carbon-heading-01">2</span>
+                      </div>
+                      <div>
+                        <p className="carbon-heading-01 text-[#161616]">Local Data Residency</p>
+                        <p className="carbon-body-01 text-[#525252]">Data never leaves Pakistan jurisdiction. Lahore-based infrastructure with local oversight.</p>
+                      </div>
+                    </div>
+                    
+                    {/* Feature 3 */}
+                    <div className="flex items-start gap-4 p-4 bg-[#f4f4f4] border-l-2 border-[#6929c4]">
+                      <div className="w-10 h-10 bg-[#6929c4] flex items-center justify-center flex-shrink-0">
+                        <span className="text-white carbon-heading-01">3</span>
+                      </div>
+                      <div>
+                        <p className="carbon-heading-01 text-[#161616]">Audit-Ready Documentation</p>
+                        <p className="carbon-body-01 text-[#525252]">Complete audit trails and compliance documentation for regulatory inspections.</p>
+                      </div>
+                    </div>
+                    
+                    {/* Feature 4 */}
+                    <div className="flex items-start gap-4 p-4 bg-[#f4f4f4] border-l-2 border-[#6929c4]">
+                      <div className="w-10 h-10 bg-[#6929c4] flex items-center justify-center flex-shrink-0">
+                        <span className="text-white carbon-heading-01">4</span>
+                      </div>
+                      <div>
+                        <p className="carbon-heading-01 text-[#161616]">No Cross-Border Transfers</p>
+                        <p className="carbon-body-01 text-[#525252]">Explicit authorization required for any data transfer outside Pakistan.</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="flex-1 text-center md:text-left">
-                <h2 className="carbon-fluid-heading-04 text-[var(--cds-text-primary)] mb-4">
-                  Aligned with SBP Guidelines & Local Data Sovereignty Laws
-                </h2>
-                <p className="carbon-body-02 text-[var(--cds-text-secondary)] mb-6">
-                  Enable Your Regulatory Compliance with Local Data Control. Our Lahore delivery center ensures your sensitive data remains within Pakistan jurisdiction unless explicitly authorized for cross-border transfer. Unlike global SaaS-only providers, we provide the local oversight and audit trails required by Banking and Government sectors to meet their SBP obligations.
+              
+              {/* Bottom Banner */}
+              <div className="bg-[#6929c4] px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p className="text-white carbon-body-01">
+                  Trusted by Banking & Government sectors across Pakistan
                 </p>
-                <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                  <span className="px-4 py-2 bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)] carbon-label-01 rounded-lg">SBP Guidelines Aligned</span>
-                  <span className="px-4 py-2 bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)] carbon-label-01 rounded-lg">Local Data Residency</span>
-                  <span className="px-4 py-2 bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)] carbon-label-01 rounded-lg">Audit-Ready Documentation</span>
-                  <span className="px-4 py-2 bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)] carbon-label-01 rounded-lg">24/7 Local Support Access</span>
-                </div>
+                <a 
+                  href="#contact" 
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-white text-[#6929c4] carbon-label-01 hover:bg-[#f4f4f4] transition-colors"
+                >
+                  Request Compliance Documentation
+                  <ArrowRight className="w-4 h-4" />
+                </a>
               </div>
             </div>
           </div>
-        </div>
         </div>
       </section>
 
