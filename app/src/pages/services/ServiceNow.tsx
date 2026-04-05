@@ -1170,138 +1170,146 @@ const ServiceNow = () => {
         </div>
       </section>
 
-      {/* ServiceNow Success Framework */}
-      <section id="framework" className="py-16 bg-[var(--cds-layer-01)]">
+      {/* ServiceNow Success Framework - Enhanced Design */}
+      <section id="framework" className="py-16 bg-[var(--cds-background)]">
         <div className="cds--css-grid">
-        <div className="cds--col-span-16 cds--col-span-16--lg">
-          {/* Header */}
-          <div className="mb-10">
-            <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-2">
-              The ServiceNow Success Framework
-            </h2>
-            <p className="text-[var(--cds-text-secondary)] max-w-2xl">
-              Delivering ROI requires more than software installation. It demands Full-Stack integration across four critical dimensions.
-            </p>
-          </div>
-
-          {/* 4-Card Grid - Success Framework */}
-          <div className="cds--css-grid" style={{ padding: 0 }}>
-            {/* 1. Data Integrity (The Foundation) */}
-            <div className="cds--col-span-8 cds--col-span-8--md bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-9 h-9 rounded-lg bg-[var(--cds-layer-accent)] flex items-center justify-center">
-                  <DataBase className="w-4 h-4" style={{ color: brandColor }} />
-                </div>
-                <div>
-                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Data Integrity</h3>
-                  <p className="carbon-helper-text-02 text-[var(--cds-text-placeholder)]">The Foundation</p>
-                </div>
+          <div className="cds--col-span-16 cds--col-span-16--lg">
+            {/* Section Header */}
+            <div className="text-center mb-12">
+              <div className="cds--tag cds--tag--blue mb-3">
+                <IbmAutomationPlatform className="w-4 h-4 mr-1" />
+                Our Methodology
               </div>
-              
-              <p className="carbon-label-01 text-[var(--cds-text-secondary)] mb-3">
-                Success depends on a CMDB you can trust.
+              <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-3">
+                The ServiceNow Success Framework
+              </h2>
+              <p className="carbon-body-02 text-[var(--cds-text-secondary)] max-w-3xl mx-auto">
+                Delivering ROI requires more than software installation. It demands Full-Stack integration across four critical dimensions.
               </p>
-              
-              <div className="space-y-3">
-                <div className="bg-[var(--cds-layer-01)] rounded-lg p-3">
-                  <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-1">The Challenge</p>
-                  <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">Legacy data schemas rarely match new models. Without deep auditing, relationships break, and adoption stalls by Week 4.</p>
+            </div>
+
+            {/* 4-Pillar Grid */}
+            <div className="cds--css-grid gap-4" style={{ padding: 0 }}>
+              {/* 1. Data Integrity */}
+              <div className="cds--col-span-8 cds--col-span-8--md bg-white border border-[var(--cds-border-subtle)] p-6 hover:border-[#0f62fe] transition-colors">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 bg-[#0f62fe] bg-opacity-10 flex items-center justify-center flex-shrink-0">
+                    <DataBase className="w-6 h-6 text-[#0f62fe]" />
+                  </div>
+                  <div>
+                    <span className="carbon-label-01 text-[#0f62fe] uppercase tracking-wide">01</span>
+                    <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Data Integrity</h3>
+                    <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)]">The Foundation</p>
+                  </div>
                 </div>
                 
-                <div className="rounded-lg p-3" style={{ backgroundColor: `${brandColor}10` }}>
-                  <p className="carbon-label-01 uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
-                  <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">We perform Risk-Mapped Data Audits before migration. By reconciling schema conflicts in the planning phase, we deliver a 99% accurate CMDB from Day 1, ensuring immediate user trust.</p>
+                <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-4">
+                  Success depends on a CMDB you can trust.
+                </p>
+                
+                <div className="space-y-3">
+                  <div className="bg-[#f4f4f4] p-4 border-l-2 border-[#8d8d8d]">
+                    <p className="carbon-label-01 text-[#525252] mb-1">The Challenge</p>
+                    <p className="carbon-body-compact-01 text-[#6f6f6f]">Legacy data schemas rarely match new models. Without deep auditing, relationships break.</p>
+                  </div>
+                  
+                  <div className="bg-[#0f62fe] bg-opacity-5 p-4 border-l-2 border-[#0f62fe]">
+                    <p className="carbon-label-01 text-[#0f62fe] mb-1">Our Standard</p>
+                    <p className="carbon-body-compact-01 text-[#525252]">Risk-Mapped Data Audits deliver 99% accurate CMDB from Day 1.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 2. Total Visibility */}
+              <div className="cds--col-span-8 cds--col-span-8--md bg-white border border-[var(--cds-border-subtle)] p-6 hover:border-[#24a148] transition-colors">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 bg-[#24a148] bg-opacity-10 flex items-center justify-center flex-shrink-0">
+                    <ServerDns className="w-6 h-6 text-[#24a148]" />
+                  </div>
+                  <div>
+                    <span className="carbon-label-01 text-[#24a148] uppercase tracking-wide">02</span>
+                    <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Total Visibility</h3>
+                    <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)]">The Engine</p>
+                  </div>
+                </div>
+                
+                <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-4">
+                  ServiceNow cannot automate what it cannot see.
+                </p>
+                
+                <div className="space-y-3">
+                  <div className="bg-[#f4f4f4] p-4 border-l-2 border-[#8d8d8d]">
+                    <p className="carbon-label-01 text-[#525252] mb-1">The Challenge</p>
+                    <p className="carbon-body-compact-01 text-[#6f6f6f]">Pure software integrators lack physical layer telemetry access.</p>
+                  </div>
+                  
+                  <div className="bg-[#24a148] bg-opacity-5 p-4 border-l-2 border-[#24a148]">
+                    <p className="carbon-label-01 text-[#24a148] mb-1">Our Standard</p>
+                    <p className="carbon-body-compact-01 text-[#525252]">Huawei Certified Partner bridges hardware metrics into ITOM.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 3. Sustainable Architecture */}
+              <div className="cds--col-span-8 cds--col-span-8--md bg-white border border-[var(--cds-border-subtle)] p-6 hover:border-[#f1c21b] transition-colors">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 bg-[#f1c21b] bg-opacity-15 flex items-center justify-center flex-shrink-0">
+                    <ArrowUp className="w-6 h-6 text-[#b28600]" />
+                  </div>
+                  <div>
+                    <span className="carbon-label-01 text-[#b28600] uppercase tracking-wide">03</span>
+                    <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Sustainable Architecture</h3>
+                    <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)]">The Long Game</p>
+                  </div>
+                </div>
+                
+                <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-4">
+                  True speed means never having to rebuild.
+                </p>
+                
+                <div className="space-y-3">
+                  <div className="bg-[#f4f4f4] p-4 border-l-2 border-[#8d8d8d]">
+                    <p className="carbon-label-01 text-[#525252] mb-1">The Challenge</p>
+                    <p className="carbon-body-compact-01 text-[#6f6f6f]">Hard-coded customizations break during platform updates.</p>
+                  </div>
+                  
+                  <div className="bg-[#f1c21b] bg-opacity-10 p-4 border-l-2 border-[#f1c21b]">
+                    <p className="carbon-label-01 text-[#b28600] mb-1">Our Standard</p>
+                    <p className="carbon-body-compact-01 text-[#525252]">Native capabilities (Flow Designer) ensure upgrade safety.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 4. Unified Accountability */}
+              <div className="cds--col-span-8 cds--col-span-8--md bg-white border border-[var(--cds-border-subtle)] p-6 hover:border-[#da1e28] transition-colors">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 bg-[#da1e28] bg-opacity-10 flex items-center justify-center flex-shrink-0">
+                    <Security className="w-6 h-6 text-[#da1e28]" />
+                  </div>
+                  <div>
+                    <span className="carbon-label-01 text-[#da1e28] uppercase tracking-wide">04</span>
+                    <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Unified Accountability</h3>
+                    <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)]">The Guarantee</p>
+                  </div>
+                </div>
+                
+                <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-4">
+                  One partner, one outcome.
+                </p>
+                
+                <div className="space-y-3">
+                  <div className="bg-[#f4f4f4] p-4 border-l-2 border-[#8d8d8d]">
+                    <p className="carbon-label-01 text-[#525252] mb-1">The Challenge</p>
+                    <p className="carbon-body-compact-01 text-[#6f6f6f]">Fragmented vendors create blame cycles that bleed SLAs.</p>
+                  </div>
+                  
+                  <div className="bg-[#da1e28] bg-opacity-5 p-4 border-l-2 border-[#da1e28]">
+                    <p className="carbon-label-01 text-[#da1e28] mb-1">Our Standard</p>
+                    <p className="carbon-body-compact-01 text-[#525252]">Full-Stack Accountability from dock to dashboard.</p>
+                  </div>
                 </div>
               </div>
             </div>
-
-            {/* 2. Total Visibility (The Engine) */}
-            <div className="cds--col-span-8 cds--col-span-8--md bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-9 h-9 rounded-lg bg-[var(--cds-layer-accent)] flex items-center justify-center">
-                  <ServerDns className="w-4 h-4" style={{ color: brandColor }} />
-                </div>
-                <div>
-                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Total Visibility</h3>
-                  <p className="carbon-helper-text-02 text-[var(--cds-text-placeholder)]">The Engine</p>
-                </div>
-              </div>
-              
-              <p className="carbon-label-01 text-[var(--cds-text-secondary)] mb-3">
-                ServiceNow cannot automate what it cannot see.
-              </p>
-              
-              <div className="space-y-3">
-                <div className="bg-[var(--cds-layer-01)] rounded-lg p-3">
-                  <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-1">The Challenge</p>
-                  <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">Pure software integrators lack access to physical layer telemetry. Critical server or network events remain silent until users report an outage.</p>
-                </div>
-                
-                <div className="rounded-lg p-3" style={{ backgroundColor: `${brandColor}10` }}>
-                  <p className="carbon-label-01 uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
-                  <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">As a Huawei Certified Partner, we bridge hardware health metrics directly into ServiceNow ITOM. This enables proactive incident automation, resolving infrastructure issues before they impact business operations.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* 3. Sustainable Architecture (The Long Game) */}
-            <div className="cds--col-span-8 cds--col-span-8--md bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-9 h-9 rounded-lg bg-[var(--cds-layer-accent)] flex items-center justify-center">
-                  <ArrowUp className="w-4 h-4" style={{ color: brandColor }} />
-                </div>
-                <div>
-                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Sustainable Architecture</h3>
-                  <p className="carbon-helper-text-02 text-[var(--cds-text-placeholder)]">The Long Game</p>
-                </div>
-              </div>
-              
-              <p className="carbon-label-01 text-[var(--cds-text-secondary)] mb-3">
-                True speed means never having to rebuild.
-              </p>
-              
-              <div className="space-y-3">
-                <div className="bg-[var(--cds-layer-01)] rounded-lg p-3">
-                  <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-1">The Challenge</p>
-                  <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">Hard-coded customizations create technical debt that breaks during mandatory platform updates, causing downtime and rework.</p>
-                </div>
-                
-                <div className="rounded-lg p-3" style={{ backgroundColor: `${brandColor}10` }}>
-                  <p className="carbon-label-01 uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
-                  <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">We architect using native ServiceNow capabilities (Flow Designer, Integration Hub). This upgrade-safe approach ensures your investment remains stable and adaptable through future patches without costly refactoring.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* 4. Unified Accountability (The Guarantee) */}
-            <div className="cds--col-span-8 cds--col-span-8--md bg-white rounded-xl p-5 border border-[var(--cds-border-subtle)]">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-9 h-9 rounded-lg bg-[var(--cds-layer-accent)] flex items-center justify-center">
-                  <Security className="w-4 h-4" style={{ color: brandColor }} />
-                </div>
-                <div>
-                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Unified Accountability</h3>
-                  <p className="carbon-helper-text-02 text-[var(--cds-text-placeholder)]">The Guarantee</p>
-                </div>
-              </div>
-              
-              <p className="carbon-label-01 text-[var(--cds-text-secondary)] mb-3">
-                One partner, one outcome.
-              </p>
-              
-              <div className="space-y-3">
-                <div className="bg-[var(--cds-layer-01)] rounded-lg p-3">
-                  <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-1">The Challenge</p>
-                  <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">Fragmented vendors (software vs. hardware) create blame cycles that delay resolution and bleed SLAs.</p>
-                </div>
-                
-                <div className="rounded-lg p-3" style={{ backgroundColor: `${brandColor}10` }}>
-                  <p className="carbon-label-01 uppercase tracking-wide mb-1" style={{ color: brandColor }}>The Perception-IT Standard</p>
-                  <p className="carbon-body-compact-01 text-[var(--cds-text-secondary)] leading-snug">We provide Full-Stack Accountability. From the shipping dock to the cloud dashboard, one team owns the resolution, ensuring seamless coordination and guaranteed uptime.</p>
-                </div>
-              </div>
-            </div>
-          </div>
 
           {/* Supporting Pillars */}
           <div className="mt-8 bg-white rounded-xl p-6 border border-[var(--cds-border-subtle)]">
