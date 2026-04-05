@@ -467,8 +467,15 @@ const ServiceNow = () => {
                       </div>
 
                       {/* Dashboard Chart - Solid Bars */}
-                      <div className="h-36 border border-[var(--cds-border-subtle)] relative overflow-hidden" style={{ backgroundColor: 'var(--cds-layer-01)' }}>
-                        <div className="absolute inset-0 flex items-end justify-around px-4 pb-4">
+                      <div className="h-36 border border-[var(--cds-border-subtle)] relative" style={{ backgroundColor: 'var(--cds-layer-01)' }}>
+                        {/* Chart Label - Bottom Left */}
+                        <div className="absolute bottom-3 left-3 flex items-center gap-2 bg-white px-2 py-1 border border-[var(--cds-border-subtle)] z-10">
+                          <div className="w-2 h-2 bg-[#24a148]"></div>
+                          <span className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Incident Resolution Trend</span>
+                        </div>
+                        
+                        {/* Bars */}
+                        <div className="absolute inset-0 flex items-end justify-around px-4 pb-10 pt-4">
                           {[40, 65, 45, 80, 55, 90, 75, 85, 70, 95, 88, 92].map((h, i) => (
                             <div 
                               key={i} 
@@ -481,10 +488,6 @@ const ServiceNow = () => {
                               ></div>
                             </div>
                           ))}
-                        </div>
-                        <div className="absolute top-3 left-3 flex items-center gap-2">
-                          <div className="w-2 h-2 bg-[#24a148]"></div>
-                          <span className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Incident Resolution Trend</span>
                         </div>
                       </div>
                     </div>
