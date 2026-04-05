@@ -52,12 +52,12 @@ const SidebarMenu = ({
 
   return (
     <nav 
-      className="sticky top-24 self-start z-40 hidden xl:flex flex-col"
+      className="sticky top-16 self-start z-40 hidden xl:flex flex-col"
       style={{ width: '256px' }}
     >
       {/* IBM-style minimal sidebar with Carbon tokens */}
       <div 
-        className="pt-4 pb-6 w-full"
+        className="w-full"
         style={{ 
           backgroundColor: 'var(--cds-layer-01)',
           borderRight: '1px solid var(--cds-border-subtle)'
