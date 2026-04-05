@@ -82,7 +82,6 @@ const ServiceNow = () => {
 
   // Sidebar menu items
   const sidebarItems = [
-    { id: 'overview', label: 'Overview' },
     { id: 'offerings', label: 'ServiceNow Offerings' },
     { id: 'expertise', label: 'Technological Expertise' },
     { id: 'case-studies', label: 'Case Studies' },
@@ -123,7 +122,8 @@ const ServiceNow = () => {
       descriptionBold: 'Go live faster, with zero integration blind spots.',
       descriptionNormal: 'Our proven methodology deploys core ITSM modules in 8 weeks. Unlike pure software shops, we integrate your physical infrastructure (Huawei/Servers) from Day 1.',
       shortTags: ['Native Configuration', 'Full-Stack Integration', 'Data Migration'],
-      detailHeading: 'We deliver:',
+      detailHeadingBold: 'We deliver:',
+      detailHeadingNormal: null,
       detailBullets: [
         { title: 'Native Configuration:', desc: 'Upgrade-safe workflows using Flow Designer.' },
         { title: 'Full-Stack Integration:', desc: 'Bridging hardware telemetry to ServiceNow ITOM.' },
@@ -142,7 +142,8 @@ const ServiceNow = () => {
       descriptionBold: 'One partner for your software and underlying infrastructure.',
       descriptionNormal: 'Stop managing multiple vendors. Our Lahore-based NOC provides 24/7 oversight of both your ServiceNow instance and the servers it runs on.',
       shortTags: ['Unified 24/7 NOC', 'Proactive CMDB Health', 'Quarterly Business Reviews'],
-      detailHeading: 'SLA Backed: 99.95% uptime guarantee with contractual penalties.',
+      detailHeadingBold: 'SLA Backed:',
+      detailHeadingNormal: '99.95% uptime guarantee with contractual penalties.',
       detailBullets: [
         { title: 'Unified 24/7 NOC:', desc: 'Single point of contact for app AND infrastructure alerts.' },
         { title: 'Proactive CMDB Health:', desc: 'Continuous data cleansing and asset reconciliation.' },
@@ -276,7 +277,7 @@ const ServiceNow = () => {
             {offerings.map((offering) => (
               <div 
                 key={offering.id}
-                className="cds--col-span-5 cds--col-span-5--md group relative bg-[var(--cds-layer-01)] rounded-lg border border-[var(--cds-border-subtle)] overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-[var(--cds-link-primary)] hover:-translate-y-1 flex flex-col h-full"
+                className="cds--col-span-5 cds--col-span-5--md group relative bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-[var(--cds-link-primary)] hover:-translate-y-1 flex flex-col h-full"
               >
                 {/* Color accent bar - left side */}
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-[var(--cds-link-primary)] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
@@ -315,9 +316,16 @@ const ServiceNow = () => {
                     {/* Expandable detail description on hover */}
                     <div className="max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-64 mb-0 group-hover:mb-6">
                       <div className="bg-[var(--cds-layer-02)] p-4 rounded-lg">
-                        {offering.detailHeading && (
-                          <p className="carbon-label-02 font-semibold text-[var(--cds-text-primary)] leading-relaxed mb-2">
-                            {offering.detailHeading}
+                        {offering.detailHeadingBold && (
+                          <p className="leading-relaxed mb-2">
+                            <span className="carbon-label-02 font-bold text-[var(--cds-text-primary)]">
+                              {offering.detailHeadingBold}
+                            </span>
+                            {offering.detailHeadingNormal && (
+                              <span className="carbon-body-compact-01 text-[var(--cds-text-secondary)] ml-1">
+                                {offering.detailHeadingNormal}
+                              </span>
+                            )}
                           </p>
                         )}
                         {offering.detailBullets && (
