@@ -129,7 +129,7 @@ export const CarbonHeroDark = ({
         {/* Breadcrumb - full width */}
         <div className="cds--col-span-16 cds--col-span-16--lg" style={{ marginTop: '48px', marginBottom: '24px' }}>
           <nav className="flex items-center gap-2">
-            {breadcrumb.map((item, index) => (
+            {breadcrumb.map((item) => (
               <div key={item.href} className="flex items-center gap-2">
                 <Link 
                   to={item.href} 
