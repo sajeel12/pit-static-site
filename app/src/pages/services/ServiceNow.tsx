@@ -263,7 +263,7 @@ const ServiceNow = () => {
         {/* Main content */}
         <div className="flex-1 min-w-0">
         {/* ServiceNow Offerings Section */}
-        <section id="offerings" ref={servicesRef} className="py-24 bg-white">
+        <section id="offerings" ref={servicesRef} className="py-16 bg-white">
         <div className="cds--css-grid">
         <div className="cds--col-span-16 cds--col-span-16--lg">
           <div className="mb-16">
@@ -301,7 +301,7 @@ const ServiceNow = () => {
       </section>
 
       {/* Technological Expertise Section - Code-to-Dashboard Visualization */}
-      <section id="expertise" className="py-24 bg-[var(--cds-background)]">
+      <section id="expertise" className="py-16 bg-[var(--cds-background)]">
         <div className="cds--css-grid">
           <div className="cds--col-span-16 cds--col-span-16--lg">
             {/* Section Header */}
@@ -751,7 +751,7 @@ const ServiceNow = () => {
       </section>
 
       {/* Case Studies Carousel */}
-      <section id="case-studies" className="py-24 bg-white">
+      <section id="case-studies" className="py-16 bg-white">
         <div className="cds--css-grid">
         <div className="cds--col-span-16 cds--col-span-16--lg">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
@@ -868,7 +868,7 @@ const ServiceNow = () => {
       </section>
 
       {/* Client Testimonial Section */}
-      <section id="testimonial" className="py-24 bg-[var(--cds-layer-01)]">
+      <section id="testimonial" className="py-16 bg-[var(--cds-layer-01)]">
         <div className="cds--css-grid">
         <div className="cds--col-span-16 cds--col-span-16--lg">
           <div className="text-center mb-12">
@@ -911,7 +911,7 @@ const ServiceNow = () => {
       </section>
 
       {/* TCO Calculator Section */}
-      <section id="tco-calculator" className="py-24 bg-white border-y border-[var(--cds-border-subtle)]">
+      <section id="tco-calculator" className="py-16 bg-white border-y border-[var(--cds-border-subtle)]">
         <div className="cds--css-grid">
         <div className="cds--col-span-16 cds--col-span-16--lg">
           <div className="mb-10">
@@ -1031,7 +1031,7 @@ const ServiceNow = () => {
       </section>
 
       {/* ServiceNow Success Framework */}
-      <section id="framework" className="py-24 bg-[var(--cds-layer-01)]">
+      <section id="framework" className="py-16 bg-[var(--cds-layer-01)]">
         <div className="cds--css-grid">
         <div className="cds--col-span-16 cds--col-span-16--lg">
           {/* Header */}
@@ -1242,7 +1242,7 @@ const ServiceNow = () => {
 
 
       {/* Compliance Section */}
-      <section id="compliance" className="py-24 bg-[var(--cds-layer-01)]">
+      <section id="compliance" className="py-16 bg-[var(--cds-layer-01)]">
         <div className="cds--css-grid">
         <div className="cds--col-span-16 cds--col-span-16--lg">
           <div className="bg-white rounded-xl border border-[var(--cds-border-subtle)] p-8 md:p-12">
@@ -1273,7 +1273,7 @@ const ServiceNow = () => {
       </section>
 
       {/* Next Steps Roadmap */}
-      <section id="next-steps" className="py-24 bg-white border-y border-[var(--cds-border-subtle)]">
+      <section id="next-steps" className="py-16 bg-white border-y border-[var(--cds-border-subtle)]">
         <div className="cds--css-grid">
         <div className="cds--col-span-16 cds--col-span-16--lg">
           <div className="mb-12">
@@ -1353,7 +1353,7 @@ const ServiceNow = () => {
       </section>
 
       {/* Complementary Solutions Section */}
-      <section id="complementary" className="py-24 bg-[var(--cds-layer-01)]">
+      <section id="complementary" className="py-16 bg-[var(--cds-layer-01)]">
         <div className="cds--css-grid">
           <div className="cds--col-span-16 cds--col-span-16--lg">
             <div className="text-center mb-12">
@@ -1447,7 +1447,7 @@ const ServiceNow = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="contact" className="py-24" style={{ backgroundColor: brandColor }}>
+      <section id="contact" className="py-16" style={{ backgroundColor: brandColor }}>
         <div className="cds--css-grid">
           <div className="cds--col-span-16 cds--col-span-16--lg text-center">
             <span className="inline-block px-4 py-2 bg-white/10 rounded-full carbon-label-01 text-white/90 mb-6">
