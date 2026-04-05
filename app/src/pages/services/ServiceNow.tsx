@@ -7,7 +7,9 @@ import {
   Activity,
   Code,
   Layers,
-  ArrowUpRight
+  ArrowUpRight,
+  ChevronLeft,
+  ChevronRight
 } from '@carbon/icons-react';
 
 // Batch 2: Carbon Icons (simple name changes)
@@ -57,7 +59,8 @@ import OfferingCard from '../../components/OfferingCard';
 const ServiceNow = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
   
-  // Case Studies Data
+  // Case Studies State
+  const [currentCaseStudy, setCurrentCaseStudy] = useState(0);
   
   // TCO Calculator State
   const [tcoUserMultiple, setTcoUserMultiple] = useState(500);
@@ -765,16 +768,27 @@ const ServiceNow = () => {
               </Link>
             </div>
 
-            {/* Case Study Cards - Horizontal Layout */}
-            <div className="space-y-6">
-              {caseStudies.map((study) => (
-                <div 
-                  key={study.id}
-                  className="group bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] overflow-hidden hover:border-[var(--cds-link-primary)] transition-all duration-300 hover:shadow-lg"
-                >
-                  <div className="cds--css-grid gap-0" style={{ padding: 0 }}>
-                    {/* Left: Content */}
-                    <div className="cds--col-span-10 cds--col-span-10--lg p-6 md:p-8 flex flex-col justify-between">
+            {/* Case Study Card with Image - Single View with Pagination */}
+            <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] overflow-hidden">
+              {caseStudies.map((study, index) => (
+                index === currentCaseStudy && (
+                  <div key={study.id} className="cds--css-grid gap-0" style={{ padding: 0 }}>
+                    {/* Left: Image (4 cols) */}
+                    <div className="cds--col-span-4 cds--col-span-4--lg relative">
+                      <div className="h-full min-h-[300px] bg-[var(--cds-layer-02)] flex items-center justify-center">
+                        <div className="text-center p-6">
+                          <study.icon className="w-20 h-20 text-[var(--cds-text-placeholder)] mx-auto mb-4" />
+                          <span className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Case Study Image</span>
+                        </div>
+                      </div>
+                      {/* Case Study Number Badge */}
+                      <div className="absolute top-4 left-4 px-3 py-1 bg-[var(--cds-background)] border border-[var(--cds-border-subtle)]">
+                        <span className="carbon-label-01 text-[var(--cds-text-primary)]">Case Study {currentCaseStudy + 1} of {caseStudies.length}</span>
+                      </div>
+                    </div>
+                    
+                    {/* Middle: Content (8 cols) */}
+                    <div className="cds--col-span-8 cds--col-span-8--lg p-6 md:p-8 flex flex-col justify-between border-l border-r border-[var(--cds-border-subtle)]">
                       <div>
                         {/* Tags */}
                         <div className="flex flex-wrap gap-2 mb-4">
@@ -795,12 +809,12 @@ const ServiceNow = () => {
                         </div>
                         
                         {/* Title */}
-                        <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-3 group-hover:text-[var(--cds-link-primary)] transition-colors">
+                        <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-4">
                           {study.title}
                         </h3>
                         
                         {/* Description */}
-                        <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-6 line-clamp-2">
+                        <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-6">
                           {study.description}
                         </p>
                       </div>
@@ -815,21 +829,21 @@ const ServiceNow = () => {
                       </Link>
                     </div>
                     
-                    {/* Right: Stats Column */}
-                    <div className="cds--col-span-6 cds--col-span-6--lg bg-[var(--cds-layer-02)] border-l border-[var(--cds-border-subtle)] p-6 md:p-8">
-                      <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-4">
+                    {/* Right: Stats (4 cols) */}
+                    <div className="cds--col-span-4 cds--col-span-4--lg bg-[var(--cds-layer-02)] p-6 md:p-8">
+                      <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-5">
                         Key Results
                       </p>
                       
-                      <div className="space-y-4">
+                      <div className="space-y-5">
                         {study.stats.map((stat, idx) => (
-                          <div key={idx} className="flex items-center gap-4">
+                          <div key={idx} className="flex items-center gap-3">
                             <div 
-                              className="w-12 h-12 flex items-center justify-center flex-shrink-0"
+                              className="w-10 h-10 flex items-center justify-center flex-shrink-0"
                               style={{ backgroundColor: idx === 0 ? '#24a14815' : idx === 1 ? '#0f62fe15' : '#f1c21b15' }}
                             >
                               <stat.icon 
-                                className="w-6 h-6" 
+                                className="w-5 h-5" 
                                 style={{ 
                                   color: idx === 0 ? '#24a148' : idx === 1 ? '#0f62fe' : '#b28600' 
                                 }} 
@@ -837,7 +851,7 @@ const ServiceNow = () => {
                             </div>
                             <div>
                               <div 
-                                className="carbon-heading-02"
+                                className="carbon-heading-01"
                                 style={{ 
                                   color: idx === 0 ? '#24a148' : idx === 1 ? '#0f62fe' : 'var(--cds-text-primary)' 
                                 }}
@@ -853,13 +867,44 @@ const ServiceNow = () => {
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Bottom Accent Bar */}
-                  <div 
-                    className="h-1 bg-gradient-to-r from-[#0f62fe] via-[#24a148] to-[#0f62fe] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
-                  ></div>
-                </div>
+                )
               ))}
+            </div>
+            
+            {/* Pagination Controls */}
+            <div className="flex items-center justify-center gap-3 mt-8">
+              <button
+                onClick={() => setCurrentCaseStudy((prev) => (prev - 1 + caseStudies.length) % caseStudies.length)}
+                className="w-10 h-10 border border-[var(--cds-border-subtle)] flex items-center justify-center hover:border-[var(--cds-link-primary)] hover:bg-[var(--cds-layer-hover)] transition-all"
+                aria-label="Previous case study"
+              >
+                <ChevronLeft className="w-5 h-5 text-[var(--cds-text-secondary)]" />
+              </button>
+              
+              <div className="flex items-center gap-2">
+                {caseStudies.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentCaseStudy(idx)}
+                    className={`w-10 h-10 flex items-center justify-center transition-all ${
+                      idx === currentCaseStudy 
+                        ? 'bg-[var(--cds-link-primary)] text-white' 
+                        : 'border border-[var(--cds-border-subtle)] text-[var(--cds-text-secondary)] hover:border-[var(--cds-link-primary)]'
+                    }`}
+                    aria-label={`Go to case study ${idx + 1}`}
+                  >
+                    {idx + 1}
+                  </button>
+                ))}
+              </div>
+              
+              <button
+                onClick={() => setCurrentCaseStudy((prev) => (prev + 1) % caseStudies.length)}
+                className="w-10 h-10 border border-[var(--cds-border-subtle)] flex items-center justify-center hover:border-[var(--cds-link-primary)] hover:bg-[var(--cds-layer-hover)] transition-all"
+                aria-label="Next case study"
+              >
+                <ChevronRight className="w-5 h-5 text-[var(--cds-text-secondary)]" />
+              </button>
             </div>
           </div>
         </div>
