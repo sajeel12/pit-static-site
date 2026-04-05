@@ -971,10 +971,6 @@ const ServiceNow = () => {
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between p-6 gap-4">
                       {/* Author Info - Clean */}
                       <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 rounded-full bg-[#24a148]"></div>
-                          <span className="carbon-helper-text-01 text-[#24a148] uppercase tracking-wide">Verified Client</span>
-                        </div>
                         <div className="carbon-heading-01 text-[var(--cds-text-primary)]">Usman Ikram</div>
                         <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">IT Operations Director, Major Telecom Provider</div>
                       </div>
