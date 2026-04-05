@@ -12,18 +12,19 @@ interface SidebarMenuProps {
 
 const SidebarMenu = ({ 
   items, 
-  brandColor = '#0f62fe'
+  brandColor = 'var(--cds-button-primary)'
 }: SidebarMenuProps) => {
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
-      // Determine active section
+      // Determine active section based on scroll position
       for (const item of items) {
         const element = document.getElementById(item.id);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 200 && rect.bottom >= 200) {
+          // Offset for header (120px) + buffer
+          if (rect.top <= 150 && rect.bottom >= 150) {
             setActiveSection(item.id);
             break;
           }
@@ -40,7 +41,7 @@ const SidebarMenu = ({
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 100;
+      const offset = 120; // Account for fixed header
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
         top: elementPosition - offset,
@@ -54,27 +55,50 @@ const SidebarMenu = ({
       className="sticky top-0 h-screen z-40 hidden xl:flex flex-col"
       style={{ width: '256px' }}
     >
-      <div className="bg-white/70 backdrop-blur-md border-r border-gray-200 pt-24 pb-6 w-full">
+      {/* IBM-style minimal sidebar with Carbon tokens */}
+      <div 
+        className="pt-28 pb-6 w-full h-full"
+        style={{ 
+          backgroundColor: 'var(--cds-layer-01)',
+          borderRight: '1px solid var(--cds-border-subtle)'
+        }}
+      >
         <ul className="space-y-0">
-          {items.map((item) => (
-            <li key={item.id}>
-              <button
-                onClick={() => scrollToSection(item.id)}
-                className={`w-full text-left px-4 py-3 text-sm transition-all duration-200 border-l-4 ${
-                  activeSection === item.id
-                    ? 'font-medium'
-                    : 'text-gray-500 hover:text-gray-900 border-transparent'
-                }`}
-                style={{
-                  borderLeftColor: activeSection === item.id ? brandColor : 'transparent',
-                  color: activeSection === item.id ? brandColor : undefined,
-                  backgroundColor: activeSection === item.id ? `${brandColor}08` : 'transparent'
-                }}
-              >
-                {item.label}
-              </button>
-            </li>
-          ))}
+          {items.map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <li key={item.id}>
+                <button
+                  onClick={() => scrollToSection(item.id)}
+                  className="w-full text-left transition-all duration-200"
+                  style={{
+                    padding: 'var(--cds-spacing-04) var(--cds-spacing-05)',
+                    fontSize: '14px',
+                    fontWeight: isActive ? 600 : 400,
+                    lineHeight: '18px',
+                    letterSpacing: '0.01em',
+                    color: isActive ? 'var(--cds-text-primary)' : 'var(--cds-text-secondary)',
+                    backgroundColor: isActive ? 'var(--cds-layer-hover)' : 'transparent',
+                    borderLeft: `4px solid ${isActive ? brandColor : 'transparent'}`,
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.backgroundColor = 'var(--cds-layer-hover)';
+                      e.currentTarget.style.color = 'var(--cds-text-primary)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.backgroundColor = 'transparent';
+                      e.currentTarget.style.color = 'var(--cds-text-secondary)';
+                    }
+                  }}
+                >
+                  {item.label}
+                </button>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </nav>

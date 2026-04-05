@@ -48,6 +48,7 @@ import { Link } from 'react-router-dom';
 import Navigation from '../../components/Navigation';
 import Footer from '../../sections/Footer';
 import SidebarMenu from '../../components/SidebarMenu';
+import SectionTabs from '../../components/SectionTabs';
 import ServiceNowHero from '../../components/ServiceNowHero';
 
 const ServiceNow = () => {
@@ -243,10 +244,13 @@ const ServiceNow = () => {
       
       <ServiceNowHero onScrollToSection={scrollToSection} />
 
+      {/* Mobile Section Tabs - Horizontal scroll */}
+      <SectionTabs items={sidebarItems} brandColor={brandColor} />
+
       {/* Main content wrapper with sidebar - starts after hero */}
       <div className="flex">
-        {/* Sidebar - Sticky, starts after hero */}
-        <div className="hidden xl:block flex-shrink-0">
+        {/* Sidebar - Sticky, IBM-style 256px width with 32px gap */}
+        <div className="hidden xl:block flex-shrink-0" style={{ marginRight: '32px' }}>
           <SidebarMenu items={sidebarItems} brandColor={brandColor} />
         </div>
         
