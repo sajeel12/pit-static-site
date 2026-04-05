@@ -1013,7 +1013,7 @@ const ServiceNow = () => {
             </div>
 
             {/* Calculator Card - Connected Flow Layout */}
-            <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] overflow-hidden">
+            <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] overflow-hidden relative">
               {/* Header Row */}
               <div className="cds--css-grid gap-0 border-b border-[var(--cds-border-subtle)]" style={{ padding: 0 }}>
                 <div className="cds--col-span-7 cds--col-span-7--lg p-6 bg-[#f4f4f4] border-r border-[var(--cds-border-subtle)]">
