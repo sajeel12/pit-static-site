@@ -19,7 +19,6 @@ import {
   Security,
   Lightning,
   Locked,
-  UserMultiple,
   Quotes,
   Headphones
 } from '@carbon/icons-react';
@@ -925,28 +924,26 @@ const ServiceNow = () => {
               </h2>
             </div>
 
-            {/* Testimonial Card - Enhanced Layout */}
+            {/* Testimonial Card - Refined Design */}
             <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] overflow-hidden">
               <div className="cds--css-grid gap-0" style={{ padding: 0 }}>
-                {/* Left: Logo & Trust Indicator */}
-                <div className="cds--col-span-5 cds--col-span-5--lg relative" style={{ backgroundColor: '#f4f4f4' }}>
-                  {/* Top Section: Logo Placeholder */}
-                  <div className="p-8 pb-6 border-b border-[var(--cds-border-subtle)]">
-                    <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-4">
-                      Trusted By
-                    </p>
-                    {/* Logo Placeholder */}
-                    <div className="w-full h-20 bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] flex items-center justify-center mb-3">
-                      <Building className="w-10 h-10 text-[var(--cds-text-placeholder)]" />
-                    </div>
-                    <p className="carbon-heading-01 text-[var(--cds-text-primary)] text-center">
-                      Pakistan&apos;s Largest Telecom
+                {/* Left: Company Logo & Trust Indicator */}
+                <div className="cds--col-span-4 cds--col-span-4--lg relative flex flex-col" style={{ backgroundColor: '#f4f4f4' }}>
+                  {/* Top Label */}
+                  <div className="p-6 pb-4">
+                    <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide">
+                      Trusted Partner
                     </p>
                   </div>
                   
-                  {/* Bottom Section: Large Quote Icon */}
-                  <div className="p-8 flex items-center justify-center">
-                    <Quotes className="w-24 h-24 text-[#0f62fe] opacity-20" />
+                  {/* Center: Large Round Logo Placeholder */}
+                  <div className="flex-1 flex flex-col items-center justify-center p-6">
+                    <div className="w-32 h-32 rounded-full bg-[var(--cds-layer-01)] border-2 border-[var(--cds-border-subtle)] flex items-center justify-center mb-4 shadow-sm">
+                      <Building className="w-14 h-14 text-[var(--cds-text-placeholder)]" />
+                    </div>
+                    <p className="carbon-heading-02 text-[var(--cds-text-primary)] text-center">
+                      Pakistan&apos;s Largest Telecom
+                    </p>
                   </div>
                   
                   {/* Accent Line */}
@@ -954,7 +951,7 @@ const ServiceNow = () => {
                 </div>
                 
                 {/* Right: Quote Content */}
-                <div className="cds--col-span-11 cds--col-span-11--lg flex flex-col">
+                <div className="cds--col-span-12 cds--col-span-12--lg flex flex-col">
                   {/* Quote Area */}
                   <div className="p-8 md:p-10 flex-1 flex flex-col justify-center">
                     <blockquote className="relative">
@@ -969,38 +966,32 @@ const ServiceNow = () => {
                     </blockquote>
                   </div>
                   
-                  {/* Bottom Bar: Author & Metrics - Clean Separation */}
+                  {/* Bottom Bar: Author & Metrics */}
                   <div className="border-t border-[var(--cds-border-subtle)] bg-[var(--cds-layer-02)]">
-                    <div className="cds--css-grid gap-0" style={{ padding: 0 }}>
-                      {/* Author Info - Left */}
-                      <div className="cds--col-span-6 cds--col-span-6--lg p-6 border-r border-[var(--cds-border-subtle)]">
-                        <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] flex items-center justify-center flex-shrink-0">
-                            <UserMultiple className="w-6 h-6 text-[var(--cds-text-placeholder)]" />
-                          </div>
-                          <div>
-                            <div className="carbon-heading-01 text-[var(--cds-text-primary)]">Usman Ikram</div>
-                            <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">IT Operations Director</div>
-                            <div className="carbon-helper-text-02 text-[var(--cds-text-helper)]">Major Telecom Provider</div>
-                          </div>
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between p-6 gap-4">
+                      {/* Author Info - Clean */}
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="w-2 h-2 rounded-full bg-[#24a148]"></div>
+                          <span className="carbon-helper-text-01 text-[#24a148] uppercase tracking-wide">Verified Client</span>
                         </div>
+                        <div className="carbon-heading-01 text-[var(--cds-text-primary)]">Usman Ikram</div>
+                        <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">IT Operations Director, Major Telecom Provider</div>
                       </div>
                       
-                      {/* Metrics - Right */}
-                      <div className="cds--col-span-6 cds--col-span-6--lg p-6 flex items-center">
-                        <div className="flex gap-8">
-                          <div className="text-center">
-                            <div className="carbon-heading-02 text-[#24a148]">Zero</div>
-                            <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Downtime</div>
-                          </div>
-                          <div className="text-center">
-                            <div className="carbon-heading-02 text-[#0f62fe]">45%</div>
-                            <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Faster</div>
-                          </div>
-                          <div className="text-center">
-                            <div className="carbon-heading-02 text-[var(--cds-text-primary)]">99.95%</div>
-                            <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Uptime</div>
-                          </div>
+                      {/* Metrics - Compact */}
+                      <div className="flex gap-6">
+                        <div className="text-right">
+                          <div className="carbon-heading-02 text-[#24a148]">Zero</div>
+                          <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Downtime</div>
+                        </div>
+                        <div className="text-right">
+                          <div className="carbon-heading-02 text-[#0f62fe]">45%</div>
+                          <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Faster</div>
+                        </div>
+                        <div className="text-right">
+                          <div className="carbon-heading-02 text-[var(--cds-text-primary)]">99.95%</div>
+                          <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Uptime</div>
                         </div>
                       </div>
                     </div>
