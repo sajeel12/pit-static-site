@@ -471,23 +471,18 @@ const ServiceNow = () => {
                         ))}
                       </div>
 
-                      {/* Dashboard Chart with Gradient */}
+                      {/* Dashboard Chart - Solid Bars */}
                       <div className="h-36 border border-[var(--cds-border-subtle)] relative overflow-hidden" style={{ backgroundColor: 'var(--cds-layer-01)' }}>
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#24a148] opacity-5 to-transparent"></div>
                         <div className="absolute inset-0 flex items-end justify-around px-4 pb-4">
                           {[40, 65, 45, 80, 55, 90, 75, 85, 70, 95, 88, 92].map((h, i) => (
                             <div 
                               key={i} 
-                              className="w-8 relative group"
-                              style={{ height: `${h}%` }}
+                              className="w-8 relative group flex items-end"
+                              style={{ height: '100%' }}
                             >
                               <div 
-                                className="absolute bottom-0 left-0 right-0 transition-all duration-500 group-hover:opacity-100"
-                                style={{ 
-                                  height: '100%',
-                                  background: `linear-gradient(to top, #24a148 ${h}%, transparent)`,
-                                  opacity: 0.8
-                                }}
+                                className="w-full bg-[#24a148] transition-all duration-300 group-hover:bg-[#198038]"
+                                style={{ height: `${h}%` }}
                               ></div>
                             </div>
                           ))}
