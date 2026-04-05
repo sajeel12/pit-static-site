@@ -75,12 +75,12 @@ const OfferingCard = ({
           <div className="max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-64 mb-0 group-hover:mb-6">
             <div className="bg-[var(--cds-layer-02)] p-4 rounded-lg">
               {detailHeadingBold && (
-                <p className="leading-relaxed mb-2">
-                  <span className="carbon-label-02 font-bold text-[var(--cds-text-primary)]">
+                <p className="carbon-helper-text-02 leading-relaxed mb-2">
+                  <span className="font-semibold text-[var(--cds-text-primary)]">
                     {detailHeadingBold}
                   </span>
                   {detailHeadingNormal && (
-                    <span className="carbon-body-compact-01 text-[var(--cds-text-secondary)] ml-1">
+                    <span className="text-[var(--cds-text-secondary)] ml-1">
                       {detailHeadingNormal}
                     </span>
                   )}
