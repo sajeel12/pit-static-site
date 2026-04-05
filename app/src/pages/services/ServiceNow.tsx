@@ -1012,23 +1012,32 @@ const ServiceNow = () => {
               </p>
             </div>
 
-            {/* Calculator Card - Split Layout */}
+            {/* Calculator Card - Connected Flow Layout */}
             <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] overflow-hidden">
-              <div className="cds--css-grid gap-0" style={{ padding: 0 }}>
-                {/* Left: Inputs (7 cols) */}
-                <div className="cds--col-span-7 cds--col-span-7--lg p-8 border-r border-[var(--cds-border-subtle)]">
-                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-6 flex items-center gap-2">
-                    <Settings className="w-5 h-5 text-[var(--cds-link-primary)]" />
-                    Configure Your Environment
+              {/* Header Row */}
+              <div className="cds--css-grid gap-0 border-b border-[var(--cds-border-subtle)]" style={{ padding: 0 }}>
+                <div className="cds--col-span-7 cds--col-span-7--lg p-6 bg-[#f4f4f4] border-r border-[var(--cds-border-subtle)]">
+                  <h3 className="carbon-heading-02 text-[#161616] flex items-center gap-2">
+                    <Settings className="w-5 h-5 text-[#0f62fe]" />
+                    Your Current Setup
                   </h3>
-                  
-                  {/* User Count Slider */}
-                  <div className="mb-8">
-                    <div className="flex items-center justify-between mb-3">
-                      <label className="carbon-label-01 text-[var(--cds-text-secondary)]">Number of Users</label>
-                      <span className="px-3 py-1 bg-[#0f62fe] text-white carbon-heading-02">{tcoUserMultiple.toLocaleString()}</span>
-                    </div>
-                    <div className="relative">
+                </div>
+                <div className="cds--col-span-9 cds--col-span-9--lg p-6 bg-[#0f62fe] bg-opacity-5">
+                  <h3 className="carbon-heading-02 text-[#0f62fe] flex items-center gap-2">
+                    <ChartLine className="w-5 h-5 text-[#0f62fe]" />
+                    With Perception-IT
+                  </h3>
+                </div>
+              </div>
+
+              {/* Content Row */}
+              <div className="cds--css-grid gap-0" style={{ padding: 0 }}>
+                {/* Left: Inputs */}
+                <div className="cds--col-span-7 cds--col-span-7--lg p-6 md:p-8 border-r border-[var(--cds-border-subtle)]">
+                  {/* User Count */}
+                  <div className="mb-6">
+                    <label className="carbon-label-01 text-[#525252] mb-2 block">Number of Users</label>
+                    <div className="flex items-center gap-4">
                       <input
                         type="range"
                         min="100"
@@ -1036,58 +1045,58 @@ const ServiceNow = () => {
                         step="100"
                         value={tcoUserMultiple}
                         onChange={(e) => setTcoUserMultiple(Number(e.target.value))}
-                        className="w-full h-1 bg-[#e0e0e0] appearance-none cursor-pointer relative z-10"
+                        className="flex-1 h-2 bg-[#e0e0e0] appearance-none cursor-pointer"
                         style={{
                           background: `linear-gradient(to right, #0f62fe 0%, #0f62fe ${((tcoUserMultiple - 100) / 4900) * 100}%, #e0e0e0 ${((tcoUserMultiple - 100) / 4900) * 100}%, #e0e0e0 100%)`
                         }}
                       />
-                    </div>
-                    <div className="flex justify-between mt-2 carbon-helper-text-01 text-[var(--cds-text-placeholder)]">
-                      <span>100</span>
-                      <span>5,000</span>
+                      <span className="px-3 py-1 bg-[#0f62fe] text-white carbon-heading-02 min-w-[80px] text-center">{tcoUserMultiple.toLocaleString()}</span>
                     </div>
                   </div>
 
-                  {/* Current Toolset */}
-                  <div className="mb-8">
-                    <label className="carbon-label-01 text-[var(--cds-text-secondary)] mb-3 block">Current Toolset</label>
-                    <div className="grid grid-cols-3 gap-3">
+                  {/* Toolset */}
+                  <div className="mb-6">
+                    <label className="carbon-label-01 text-[#525252] mb-2 block">Current Toolset</label>
+                    <div className="space-y-2">
                       {[
-                        { value: 'excel', label: 'Excel / Sheets', color: '#198038' },
-                        { value: 'jira', label: 'Jira / Basic', color: '#0f62fe' },
-                        { value: 'legacy', label: 'Legacy ITSM', color: '#8d8d8d' }
+                        { value: 'excel', label: 'Excel / Spreadsheets' },
+                        { value: 'jira', label: 'Jira / Basic Tools' },
+                        { value: 'legacy', label: 'Legacy ITSM Platform' }
                       ].map((tool) => (
                         <button
                           key={tool.value}
                           onClick={() => setTcoToolset(tool.value as 'excel' | 'jira' | 'legacy')}
-                          className={`p-4 border-2 text-left transition-all ${
+                          className={`w-full p-3 text-left border transition-all flex items-center justify-between ${
                             tcoToolset === tool.value
-                              ? 'border-[#0f62fe] bg-[#0f62fe] bg-opacity-5'
-                              : 'border-[#e0e0e0] hover:border-[#0f62fe] hover:bg-[#f4f4f4]'
+                              ? 'border-[#0f62fe] bg-white'
+                              : 'border-[#e0e0e0] hover:border-[#0f62fe]'
                           }`}
                         >
-                          <div className={`carbon-label-01 font-semibold ${tcoToolset === tool.value ? 'text-[#0f62fe]' : 'text-[#525252]'}`}>
+                          <span className={`carbon-body-01 ${tcoToolset === tool.value ? 'text-[#0f62fe] font-semibold' : 'text-[#525252]'}`}>
                             {tool.label}
-                          </div>
+                          </span>
+                          {tcoToolset === tool.value && (
+                            <div className="w-2 h-2 bg-[#0f62fe]"></div>
+                          )}
                         </button>
                       ))}
                     </div>
                   </div>
 
-                  {/* Desired Modules */}
+                  {/* Modules */}
                   <div>
-                    <label className="carbon-label-01 text-[var(--cds-text-secondary)] mb-3 block">Desired Modules</label>
-                    <div className="space-y-3">
+                    <label className="carbon-label-01 text-[#525252] mb-2 block">Modules Needed</label>
+                    <div className="space-y-2">
                       {[
-                        { id: 'itsm', label: 'ITSM (Service Desk)', desc: 'Incident, Problem, Change Management', color: '#0f62fe' },
-                        { id: 'itom', label: 'ITOM (Operations)', desc: 'Discovery, Event Management, Cloud', color: '#24a148' }
+                        { id: 'itsm', label: 'ITSM (Service Desk)' },
+                        { id: 'itom', label: 'ITOM (Operations)' }
                       ].map((module) => (
                         <label
                           key={module.id}
-                          className={`flex items-start gap-4 p-4 border-2 cursor-pointer transition-all ${
+                          className={`flex items-center gap-3 p-3 border cursor-pointer transition-all ${
                             tcoModules.includes(module.id)
-                              ? 'border-[#0f62fe] bg-[#0f62fe] bg-opacity-5'
-                              : 'border-[#e0e0e0] hover:border-[#0f62fe] hover:bg-[#f4f4f4]'
+                              ? 'border-[#0f62fe] bg-white'
+                              : 'border-[#e0e0e0] hover:border-[#0f62fe]'
                           }`}
                         >
                           <input
@@ -1100,70 +1109,72 @@ const ServiceNow = () => {
                                 setTcoModules(tcoModules.filter(m => m !== module.id));
                               }
                             }}
-                            className="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#0f62fe]"
+                            className="w-4 h-4 accent-[#0f62fe]"
                           />
-                          <div>
-                            <div className={`carbon-label-01 font-semibold ${tcoModules.includes(module.id) ? 'text-[#161616]' : 'text-[#525252]'}`}>
-                              {module.label}
-                            </div>
-                            <div className="carbon-helper-text-01 text-[#6f6f6f]">
-                              {module.desc}
-                            </div>
-                          </div>
+                          <span className={`carbon-body-01 ${tcoModules.includes(module.id) ? 'text-[#161616]' : 'text-[#525252]'}`}>
+                            {module.label}
+                          </span>
                         </label>
                       ))}
                     </div>
                   </div>
                 </div>
 
-                {/* Right: Results (9 cols) */}
-                <div className="cds--col-span-9 cds--col-span-9--lg bg-[var(--cds-layer-02)] p-8 flex flex-col justify-center">
-                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-6 flex items-center gap-2">
-                    <ChartLine className="w-5 h-5 text-[var(--cds-support-success)]" />
-                    Your 3-Year TCO Analysis
-                  </h3>
+                {/* Connection Arrow - Visual Only */}
+                <div className="hidden xl:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                  <div className="w-12 h-12 bg-[#0f62fe] flex items-center justify-center shadow-lg">
+                    <ArrowRight className="w-6 h-6 text-white" />
+                  </div>
+                </div>
 
-                  {/* Comparison Cards */}
-                  <div className="space-y-4 mb-8">
-                    {/* Current Cost - Gray */}
-                    <div className="bg-white border border-[#c6c6c6] p-5 flex items-center justify-between">
-                      <div>
-                        <p className="carbon-label-01 text-[#525252]">Current Setup Cost</p>
-                        <p className="carbon-helper-text-01 text-[#8d8d8d]">Including hidden costs & inefficiencies</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="carbon-fluid-heading-04 text-[#525252]">${tcoResult.current}K</p>
-                      </div>
+                {/* Right: Results */}
+                <div className="cds--col-span-9 cds--col-span-9--lg p-6 md:p-8 bg-[#0f62fe] bg-opacity-5 flex flex-col justify-center">
+                  {/* Current Cost */}
+                  <div className="bg-white border border-[#c6c6c6] p-4 mb-4 flex items-center justify-between">
+                    <div>
+                      <p className="carbon-label-01 text-[#525252]">Current 3-Year Cost</p>
+                      <p className="carbon-helper-text-01 text-[#8d8d8d]">With inefficiencies</p>
                     </div>
+                    <p className="carbon-fluid-heading-04 text-[#525252]">${tcoResult.current}K</p>
+                  </div>
 
-                    {/* Perception Cost - Blue Highlight */}
-                    <div className="bg-white border-2 border-[#0f62fe] p-5 flex items-center justify-between relative overflow-hidden shadow-sm">
-                      <div className="absolute top-0 right-0 bg-[#0f62fe] text-white carbon-label-01 px-3 py-1 font-semibold">
-                        RECOMMENDED
-                      </div>
-                      <div>
-                        <p className="carbon-label-01 text-[#0f62fe] font-semibold">Perception-IT Fixed Cost</p>
-                        <p className="carbon-helper-text-01 text-[#6f6f6f]">Fixed-price guarantee, no surprises</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="carbon-fluid-heading-03 text-[#0f62fe]">${tcoResult.perception}K</p>
-                      </div>
+                  {/* Connection Line */}
+                  <div className="flex items-center justify-center my-2">
+                    <div className="w-px h-6 bg-[#0f62fe]"></div>
+                  </div>
+
+                  {/* Perception Cost */}
+                  <div className="bg-white border-2 border-[#0f62fe] p-4 mb-4 shadow-sm relative">
+                    <div className="absolute -top-3 left-4 bg-[#0f62fe] text-white carbon-label-01 px-2 py-0.5">
+                      FIXED PRICE
                     </div>
+                    <div className="flex items-center justify-between pt-2">
+                      <div>
+                        <p className="carbon-label-01 text-[#0f62fe] font-semibold">Perception-IT Cost</p>
+                        <p className="carbon-helper-text-01 text-[#6f6f6f]">No hidden fees</p>
+                      </div>
+                      <p className="carbon-fluid-heading-03 text-[#0f62fe]">${tcoResult.perception}K</p>
+                    </div>
+                  </div>
 
-                    {/* Savings - Green Highlight */}
-                    <div className="bg-[#24a148] text-white p-5 flex items-center justify-between">
+                  {/* Connection Line */}
+                  <div className="flex items-center justify-center my-2">
+                    <div className="w-px h-6 bg-[#24a148]"></div>
+                  </div>
+
+                  {/* Savings */}
+                  <div className="bg-[#24a148] text-white p-5 mb-6">
+                    <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-white bg-opacity-20 flex items-center justify-center">
-                          <ArrowDown className="w-6 h-6 text-white" />
-                        </div>
+                        <ArrowDown className="w-6 h-6" />
                         <div>
-                          <p className="carbon-label-01 text-white font-semibold">Your Total Savings</p>
-                          <p className="carbon-helper-text-01 text-white text-opacity-80">Over 3 years</p>
+                          <p className="carbon-label-01 text-white font-semibold">Your Savings</p>
+                          <p className="carbon-helper-text-01 text-white text-opacity-80">3-Year Total</p>
                         </div>
                       </div>
                       <div className="text-right">
                         <p className="carbon-fluid-heading-03 text-white">{tcoResult.savingsPercent}%</p>
-                        <p className="carbon-heading-02 text-white text-opacity-90">${tcoResult.savings}K</p>
+                        <p className="carbon-heading-02 text-white">${tcoResult.savings}K</p>
                       </div>
                     </div>
                   </div>
@@ -1171,7 +1182,7 @@ const ServiceNow = () => {
                   {/* CTA */}
                   <a
                     href="#contact"
-                    className="w-full flex items-center justify-center gap-2 px-6 py-4 text-white carbon-heading-02 transition-all bg-[#0f62fe] hover:bg-[#0353e9]"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-4 text-white carbon-heading-01 bg-[#0f62fe] hover:bg-[#0353e9] transition-colors"
                   >
                     Get Your Detailed Quote
                     <ArrowRight className="w-5 h-5" />
