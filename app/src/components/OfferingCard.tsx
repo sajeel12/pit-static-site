@@ -20,7 +20,7 @@ interface ServiceCardProps {
   link: string;
 }
 
-const ServiceCard = ({
+const OfferingCard = ({
   icon: Icon,
   title,
   duration,
@@ -123,4 +123,4 @@ const ServiceCard = ({
   );
 };
 
-export default ServiceCard;
+export default OfferingCard;

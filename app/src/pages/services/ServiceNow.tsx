@@ -50,7 +50,7 @@ import Footer from '../../sections/Footer';
 import SidebarMenu from '../../components/SidebarMenu';
 import SectionTabs from '../../components/SectionTabs';
 import ServiceNowHero from '../../components/ServiceNowHero';
-import ServiceCard from '../../components/ServiceCard';
+import OfferingCard from '../../components/OfferingCard';
 
 const ServiceNow = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
@@ -276,7 +276,7 @@ const ServiceNow = () => {
 
           <div className="cds--css-grid gap-6" style={{ padding: 0 }}>
             {offerings.map((offering) => (
-              <ServiceCard
+              <OfferingCard
                 key={offering.id}
                 icon={offering.icon}
                 title={offering.title}
