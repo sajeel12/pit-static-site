@@ -1012,28 +1012,16 @@ const ServiceNow = () => {
               </p>
             </div>
 
-            {/* Calculator Card - Connected Flow Layout */}
-            <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] overflow-hidden relative">
-              {/* Header Row */}
-              <div className="cds--css-grid gap-0 border-b border-[var(--cds-border-subtle)]" style={{ padding: 0 }}>
-                <div className="cds--col-span-7 cds--col-span-7--lg p-6 bg-[#f4f4f4] border-r border-[var(--cds-border-subtle)]">
-                  <h3 className="carbon-heading-02 text-[#161616] flex items-center gap-2">
-                    <Settings className="w-5 h-5 text-[#0f62fe]" />
-                    Your Current Setup
-                  </h3>
-                </div>
-                <div className="cds--col-span-9 cds--col-span-9--lg p-6 bg-[#0f62fe] bg-opacity-5">
-                  <h3 className="carbon-heading-02 text-[#0f62fe] flex items-center gap-2">
-                    <ChartLine className="w-5 h-5 text-[#0f62fe]" />
-                    With Perception-IT
-                  </h3>
-                </div>
-              </div>
-
-              {/* Content Row */}
+            {/* Calculator Card - Clean Unified Layout */}
+            <div className="bg-white border border-[var(--cds-border-subtle)] overflow-hidden">
               <div className="cds--css-grid gap-0" style={{ padding: 0 }}>
                 {/* Left: Inputs */}
                 <div className="cds--col-span-7 cds--col-span-7--lg p-6 md:p-8 border-r border-[var(--cds-border-subtle)]">
+                  <h3 className="carbon-heading-02 text-[#161616] mb-6 flex items-center gap-2">
+                    <Settings className="w-5 h-5 text-[#0f62fe]" />
+                    Your Current Setup
+                  </h3>
+                  
                   {/* User Count */}
                   <div className="mb-6">
                     <label className="carbon-label-01 text-[#525252] mb-2 block">Number of Users</label>
@@ -1068,7 +1056,7 @@ const ServiceNow = () => {
                           onClick={() => setTcoToolset(tool.value as 'excel' | 'jira' | 'legacy')}
                           className={`w-full p-3 text-left border transition-all flex items-center justify-between ${
                             tcoToolset === tool.value
-                              ? 'border-[#0f62fe] bg-white'
+                              ? 'border-[#0f62fe] bg-[#f4f4f4]'
                               : 'border-[#e0e0e0] hover:border-[#0f62fe]'
                           }`}
                         >
@@ -1095,7 +1083,7 @@ const ServiceNow = () => {
                           key={module.id}
                           className={`flex items-center gap-3 p-3 border cursor-pointer transition-all ${
                             tcoModules.includes(module.id)
-                              ? 'border-[#0f62fe] bg-white'
+                              ? 'border-[#0f62fe] bg-[#f4f4f4]'
                               : 'border-[#e0e0e0] hover:border-[#0f62fe]'
                           }`}
                         >
@@ -1120,15 +1108,13 @@ const ServiceNow = () => {
                   </div>
                 </div>
 
-                {/* Connection Arrow - Visual Only */}
-                <div className="hidden xl:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                  <div className="w-12 h-12 bg-[#0f62fe] flex items-center justify-center shadow-lg">
-                    <ArrowRight className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-
                 {/* Right: Results */}
-                <div className="cds--col-span-9 cds--col-span-9--lg p-6 md:p-8 bg-[#0f62fe] bg-opacity-5 flex flex-col justify-center">
+                <div className="cds--col-span-9 cds--col-span-9--lg p-6 md:p-8 bg-[#f4f4f4] flex flex-col justify-center">
+                  <h3 className="carbon-heading-02 text-[#0f62fe] mb-6 flex items-center gap-2">
+                    <ChartLine className="w-5 h-5 text-[#0f62fe]" />
+                    Your 3-Year TCO Analysis
+                  </h3>
+
                   {/* Current Cost */}
                   <div className="bg-white border border-[#c6c6c6] p-4 mb-4 flex items-center justify-between">
                     <div>
@@ -1138,28 +1124,18 @@ const ServiceNow = () => {
                     <p className="carbon-fluid-heading-04 text-[#525252]">${tcoResult.current}K</p>
                   </div>
 
-                  {/* Connection Line */}
-                  <div className="flex items-center justify-center my-2">
-                    <div className="w-px h-6 bg-[#0f62fe]"></div>
-                  </div>
-
                   {/* Perception Cost */}
                   <div className="bg-white border-2 border-[#0f62fe] p-4 mb-4 shadow-sm relative">
-                    <div className="absolute -top-3 left-4 bg-[#0f62fe] text-white carbon-label-01 px-2 py-0.5">
-                      FIXED PRICE
+                    <div className="absolute -top-3 left-4 bg-[#0f62fe] text-white carbon-label-01 px-2 py-0.5 font-semibold">
+                      RECOMMENDED
                     </div>
                     <div className="flex items-center justify-between pt-2">
                       <div>
                         <p className="carbon-label-01 text-[#0f62fe] font-semibold">Perception-IT Cost</p>
-                        <p className="carbon-helper-text-01 text-[#6f6f6f]">No hidden fees</p>
+                        <p className="carbon-helper-text-01 text-[#6f6f6f]">Fixed-price, no surprises</p>
                       </div>
                       <p className="carbon-fluid-heading-03 text-[#0f62fe]">${tcoResult.perception}K</p>
                     </div>
-                  </div>
-
-                  {/* Connection Line */}
-                  <div className="flex items-center justify-center my-2">
-                    <div className="w-px h-6 bg-[#24a148]"></div>
                   </div>
 
                   {/* Savings */}
@@ -1168,8 +1144,8 @@ const ServiceNow = () => {
                       <div className="flex items-center gap-3">
                         <ArrowDown className="w-6 h-6" />
                         <div>
-                          <p className="carbon-label-01 text-white font-semibold">Your Savings</p>
-                          <p className="carbon-helper-text-01 text-white text-opacity-80">3-Year Total</p>
+                          <p className="carbon-label-01 text-white font-semibold">Your Total Savings</p>
+                          <p className="carbon-helper-text-01 text-white text-opacity-80">Over 3 years</p>
                         </div>
                       </div>
                       <div className="text-right">
