@@ -1026,18 +1026,22 @@ const ServiceNow = () => {
                   <div className="mb-8">
                     <div className="flex items-center justify-between mb-3">
                       <label className="carbon-label-01 text-[var(--cds-text-secondary)]">Number of Users</label>
-                      <span className="carbon-heading-02 text-[var(--cds-link-primary)]">{tcoUserMultiple.toLocaleString()}</span>
+                      <span className="px-3 py-1 bg-[#0f62fe] text-white carbon-heading-02">{tcoUserMultiple.toLocaleString()}</span>
                     </div>
-                    <input
-                      type="range"
-                      min="100"
-                      max="5000"
-                      step="100"
-                      value={tcoUserMultiple}
-                      onChange={(e) => setTcoUserMultiple(Number(e.target.value))}
-                      className="w-full h-2 bg-[var(--cds-layer-03)] appearance-none cursor-pointer"
-                      style={{ accentColor: brandColor }}
-                    />
+                    <div className="relative">
+                      <input
+                        type="range"
+                        min="100"
+                        max="5000"
+                        step="100"
+                        value={tcoUserMultiple}
+                        onChange={(e) => setTcoUserMultiple(Number(e.target.value))}
+                        className="w-full h-1 bg-[#e0e0e0] appearance-none cursor-pointer relative z-10"
+                        style={{
+                          background: `linear-gradient(to right, #0f62fe 0%, #0f62fe ${((tcoUserMultiple - 100) / 4900) * 100}%, #e0e0e0 ${((tcoUserMultiple - 100) / 4900) * 100}%, #e0e0e0 100%)`
+                        }}
+                      />
+                    </div>
                     <div className="flex justify-between mt-2 carbon-helper-text-01 text-[var(--cds-text-placeholder)]">
                       <span>100</span>
                       <span>5,000</span>
@@ -1049,20 +1053,20 @@ const ServiceNow = () => {
                     <label className="carbon-label-01 text-[var(--cds-text-secondary)] mb-3 block">Current Toolset</label>
                     <div className="grid grid-cols-3 gap-3">
                       {[
-                        { value: 'excel', label: 'Excel / Sheets', icon: '?' },
-                        { value: 'jira', label: 'Jira / Basic', icon: '?' },
-                        { value: 'legacy', label: 'Legacy ITSM', icon: '?' }
+                        { value: 'excel', label: 'Excel / Sheets', color: '#198038' },
+                        { value: 'jira', label: 'Jira / Basic', color: '#0f62fe' },
+                        { value: 'legacy', label: 'Legacy ITSM', color: '#8d8d8d' }
                       ].map((tool) => (
                         <button
                           key={tool.value}
                           onClick={() => setTcoToolset(tool.value as 'excel' | 'jira' | 'legacy')}
-                          className={`p-4 border text-left transition-all ${
+                          className={`p-4 border-2 text-left transition-all ${
                             tcoToolset === tool.value
-                              ? 'border-[var(--cds-link-primary)] bg-[var(--cds-layer-hover)]'
-                              : 'border-[var(--cds-border-subtle)] hover:border-[var(--cds-border-strong)]'
+                              ? 'border-[#0f62fe] bg-[#0f62fe] bg-opacity-5'
+                              : 'border-[#e0e0e0] hover:border-[#0f62fe] hover:bg-[#f4f4f4]'
                           }`}
                         >
-                          <div className={`carbon-label-01 ${tcoToolset === tool.value ? 'text-[var(--cds-link-primary)]' : 'text-[var(--cds-text-secondary)]'}`}>
+                          <div className={`carbon-label-01 font-semibold ${tcoToolset === tool.value ? 'text-[#0f62fe]' : 'text-[#525252]'}`}>
                             {tool.label}
                           </div>
                         </button>
@@ -1075,15 +1079,15 @@ const ServiceNow = () => {
                     <label className="carbon-label-01 text-[var(--cds-text-secondary)] mb-3 block">Desired Modules</label>
                     <div className="space-y-3">
                       {[
-                        { id: 'itsm', label: 'ITSM (Service Desk)', desc: 'Incident, Problem, Change Management' },
-                        { id: 'itom', label: 'ITOM (Operations)', desc: 'Discovery, Event Management, Cloud' }
+                        { id: 'itsm', label: 'ITSM (Service Desk)', desc: 'Incident, Problem, Change Management', color: '#0f62fe' },
+                        { id: 'itom', label: 'ITOM (Operations)', desc: 'Discovery, Event Management, Cloud', color: '#24a148' }
                       ].map((module) => (
                         <label
                           key={module.id}
-                          className={`flex items-start gap-4 p-4 border cursor-pointer transition-all ${
+                          className={`flex items-start gap-4 p-4 border-2 cursor-pointer transition-all ${
                             tcoModules.includes(module.id)
-                              ? 'border-[var(--cds-link-primary)] bg-[var(--cds-layer-hover)]'
-                              : 'border-[var(--cds-border-subtle)] hover:border-[var(--cds-border-strong)]'
+                              ? 'border-[#0f62fe] bg-[#0f62fe] bg-opacity-5'
+                              : 'border-[#e0e0e0] hover:border-[#0f62fe] hover:bg-[#f4f4f4]'
                           }`}
                         >
                           <input
@@ -1096,13 +1100,13 @@ const ServiceNow = () => {
                                 setTcoModules(tcoModules.filter(m => m !== module.id));
                               }
                             }}
-                            className="w-5 h-5 mt-0.5 flex-shrink-0"
+                            className="w-5 h-5 mt-0.5 flex-shrink-0 accent-[#0f62fe]"
                           />
                           <div>
-                            <div className={`carbon-label-01 ${tcoModules.includes(module.id) ? 'text-[var(--cds-text-primary)]' : 'text-[var(--cds-text-secondary)]'}`}>
+                            <div className={`carbon-label-01 font-semibold ${tcoModules.includes(module.id) ? 'text-[#161616]' : 'text-[#525252]'}`}>
                               {module.label}
                             </div>
-                            <div className="carbon-helper-text-01 text-[var(--cds-text-placeholder)]">
+                            <div className="carbon-helper-text-01 text-[#6f6f6f]">
                               {module.desc}
                             </div>
                           </div>
@@ -1121,45 +1125,45 @@ const ServiceNow = () => {
 
                   {/* Comparison Cards */}
                   <div className="space-y-4 mb-8">
-                    {/* Current Cost */}
-                    <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] p-5 flex items-center justify-between">
+                    {/* Current Cost - Gray */}
+                    <div className="bg-white border border-[#c6c6c6] p-5 flex items-center justify-between">
                       <div>
-                        <p className="carbon-label-01 text-[var(--cds-text-helper)]">Current Setup Cost</p>
-                        <p className="carbon-helper-text-01 text-[var(--cds-text-placeholder)]">Including hidden costs & inefficiencies</p>
+                        <p className="carbon-label-01 text-[#525252]">Current Setup Cost</p>
+                        <p className="carbon-helper-text-01 text-[#8d8d8d]">Including hidden costs & inefficiencies</p>
                       </div>
                       <div className="text-right">
-                        <p className="carbon-fluid-heading-04 text-[var(--cds-text-primary)]">${tcoResult.current}K</p>
+                        <p className="carbon-fluid-heading-04 text-[#525252]">${tcoResult.current}K</p>
                       </div>
                     </div>
 
-                    {/* Perception Cost */}
-                    <div className="bg-[var(--cds-layer-01)] border-2 border-[var(--cds-link-primary)] p-5 flex items-center justify-between relative overflow-hidden">
-                      <div className="absolute top-0 right-0 bg-[var(--cds-link-primary)] text-white carbon-label-01 px-3 py-1">
+                    {/* Perception Cost - Blue Highlight */}
+                    <div className="bg-white border-2 border-[#0f62fe] p-5 flex items-center justify-between relative overflow-hidden shadow-sm">
+                      <div className="absolute top-0 right-0 bg-[#0f62fe] text-white carbon-label-01 px-3 py-1 font-semibold">
                         RECOMMENDED
                       </div>
                       <div>
-                        <p className="carbon-label-01 text-[var(--cds-link-primary)]">Perception-IT Fixed Cost</p>
-                        <p className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Fixed-price guarantee, no surprises</p>
+                        <p className="carbon-label-01 text-[#0f62fe] font-semibold">Perception-IT Fixed Cost</p>
+                        <p className="carbon-helper-text-01 text-[#6f6f6f]">Fixed-price guarantee, no surprises</p>
                       </div>
                       <div className="text-right">
-                        <p className="carbon-fluid-heading-03" style={{ color: brandColor }}>${tcoResult.perception}K</p>
+                        <p className="carbon-fluid-heading-03 text-[#0f62fe]">${tcoResult.perception}K</p>
                       </div>
                     </div>
 
-                    {/* Savings */}
-                    <div className="bg-[#24a148] bg-opacity-10 border border-[#24a148] p-5 flex items-center justify-between">
+                    {/* Savings - Green Highlight */}
+                    <div className="bg-[#24a148] text-white p-5 flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-[#24a148] flex items-center justify-center">
-                          <ArrowDown className="w-5 h-5 text-white" />
+                        <div className="w-12 h-12 bg-white bg-opacity-20 flex items-center justify-center">
+                          <ArrowDown className="w-6 h-6 text-white" />
                         </div>
                         <div>
-                          <p className="carbon-label-01 text-[#24a148]">Your Total Savings</p>
-                          <p className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Over 3 years</p>
+                          <p className="carbon-label-01 text-white font-semibold">Your Total Savings</p>
+                          <p className="carbon-helper-text-01 text-white text-opacity-80">Over 3 years</p>
                         </div>
                       </div>
                       <div className="text-right">
-                        <p className="carbon-fluid-heading-03 text-[#24a148]">{tcoResult.savingsPercent}%</p>
-                        <p className="carbon-heading-02 text-[#24a148]">${tcoResult.savings}K</p>
+                        <p className="carbon-fluid-heading-03 text-white">{tcoResult.savingsPercent}%</p>
+                        <p className="carbon-heading-02 text-white text-opacity-90">${tcoResult.savings}K</p>
                       </div>
                     </div>
                   </div>
@@ -1167,8 +1171,7 @@ const ServiceNow = () => {
                   {/* CTA */}
                   <a
                     href="#contact"
-                    className="w-full flex items-center justify-center gap-2 px-6 py-4 text-white carbon-heading-02 transition-all hover:opacity-90"
-                    style={{ backgroundColor: brandColor }}
+                    className="w-full flex items-center justify-center gap-2 px-6 py-4 text-white carbon-heading-02 transition-all bg-[#0f62fe] hover:bg-[#0353e9]"
                   >
                     Get Your Detailed Quote
                     <ArrowRight className="w-5 h-5" />
