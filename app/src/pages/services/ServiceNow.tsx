@@ -929,13 +929,6 @@ const ServiceNow = () => {
               <div className="cds--css-grid gap-0" style={{ padding: 0 }}>
                 {/* Left: Company Logo & Trust Indicator */}
                 <div className="cds--col-span-4 cds--col-span-4--lg relative flex flex-col" style={{ backgroundColor: '#f4f4f4' }}>
-                  {/* Top Label */}
-                  <div className="p-6 pb-4">
-                    <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide">
-                      Trusted Partner
-                    </p>
-                  </div>
-                  
                   {/* Center: Large Round Logo Placeholder */}
                   <div className="flex-1 flex flex-col items-center justify-center p-6">
                     <div className="w-32 h-32 rounded-full bg-[var(--cds-layer-01)] border-2 border-[var(--cds-border-subtle)] flex items-center justify-center mb-4 shadow-sm">
