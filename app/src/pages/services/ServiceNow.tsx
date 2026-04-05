@@ -541,9 +541,11 @@ const ServiceNow = () => {
                 <div className="w-32 h-px bg-gradient-to-r from-transparent to-[#0f62fe] relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-pulse"></div>
                 </div>
-                <div className="w-16 h-16 rounded-full border-2 border-[var(--cds-border-subtle)] flex items-center justify-center relative">
+                <div className="w-16 h-16 flex items-center justify-center relative">
                   <div className="absolute inset-0 rounded-full border-2 border-[#0f62fe] opacity-20 animate-ping"></div>
-                  <EdgeNode className="w-8 h-8 text-[#0f62fe]" />
+                  <div className="w-12 h-12 bg-[#0f62fe] bg-opacity-10 flex items-center justify-center">
+                    <EdgeNode className="w-7 h-7 text-[#0f62fe]" />
+                  </div>
                 </div>
                 <div className="w-32 h-px bg-gradient-to-l from-transparent to-[#24a148] relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
