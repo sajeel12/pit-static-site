@@ -39,7 +39,11 @@ import { IbmAutomationPlatform } from '@carbon/pictograms-react';
 // Batch 4: Final Lucide→Carbon migrations
 import {
   ArrowUp,
-  Alarm
+  Alarm,
+  Terminal,
+  ChartLine,
+  Chip,
+  EdgeNode
 } from '@carbon/icons-react';
 
 // Batch 5: Remaining Lucide icons (no Carbon equivalent)
@@ -296,92 +300,276 @@ const ServiceNow = () => {
         </div>
       </section>
 
-      {/* Technological Expertise Section - Category Grouping */}
-      {/* Technological Expertise Section */}
-      <section id="expertise" className="py-24 bg-[var(--cds-layer-01)]">
+      {/* Technological Expertise Section - Code-to-Dashboard Visualization */}
+      <section id="expertise" className="py-24 bg-[var(--cds-background)]">
         <div className="cds--css-grid">
           <div className="cds--col-span-16 cds--col-span-16--lg">
             {/* Section Header */}
-            <div className="mb-12">
-              <div className="cds--tag cds--tag--blue mb-4">
+            <div className="mb-16 text-center">
+              <div className="cds--tag cds--tag--blue mb-4 inline-flex">
                 <Settings className="w-4 h-4 mr-2" />
-                Technical Capabilities
+                Technical Architecture
               </div>
               <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-4">
-                Technological Expertise
+                Engineering the Bridge Between Technical Depth and Business Clarity
               </h2>
-              <p className="carbon-body-02 text-[var(--cds-text-secondary)] max-w-2xl">
-                Deep technical knowledge across the entire ServiceNow platform
+              <p className="carbon-body-02 text-[var(--cds-text-secondary)] max-w-3xl mx-auto">
+                We don&apos;t just configure modules; we architect data flows that turn raw system events into executive decision-making tools.
               </p>
             </div>
 
-            {/* Expertise Grid - 4 Column Layout */}
-            <div className="cds--css-grid" style={{ padding: 0 }}>
-              {/* Column 1: Core Platform */}
-              <div className="cds--col-span-4 cds--col-span-4--md">
-                <div className="cds--tile bg-white h-full" style={{ padding: 'var(--cds-spacing-06)' }}>
-                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[var(--cds-link-primary)] flex items-center justify-center">
-                      <Layers className="w-5 h-5 text-white" />
+            {/* Split-Screen Visualization */}
+            <div className="cds--css-grid gap-8" style={{ padding: 0 }}>
+              {/* Left Side: Engineering Layer (The "How") */}
+              <div className="cds--col-span-8 cds--col-span-8--lg">
+                <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] h-full">
+                  {/* Code Editor Header */}
+                  <div className="bg-[var(--cds-layer-02)] px-4 py-3 border-b border-[var(--cds-border-subtle)] flex items-center gap-2">
+                    <Terminal className="w-4 h-4 text-[var(--cds-text-secondary)]" />
+                    <span className="carbon-label-01 text-[var(--cds-text-secondary)]">GlideRecord.js</span>
+                  </div>
+                  
+                  {/* Code Content */}
+                  <div className="p-6 font-mono text-sm">
+                    <div className="flex gap-4">
+                      <div className="text-[var(--cds-text-placeholder)] select-none">
+                        {['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'].map(n => (
+                          <div key={n} className="leading-6">{n}</div>
+                        ))}
+                      </div>
+                      <div className="flex-1">
+                        <div className="leading-6"><span className="text-purple-500">class</span> <span className="text-yellow-600">ServiceNowIntegration</span> {'{'}</div>
+                        <div className="leading-6 pl-4"><span className="text-purple-500">constructor</span>() {'{'}</div>
+                        <div className="leading-6 pl-8 text-[var(--cds-text-secondary)]">// Risk-mapped data architecture</div>
+                        <div className="leading-6 pl-8"><span className="text-blue-600">this</span>.cmdb = <span className="text-green-600">new</span> <span className="text-yellow-600">CMDBValidator</span>();</div>
+                        <div className="leading-6 pl-4">{'}'}</div>
+                        <div className="leading-6 pl-4"><span className="text-purple-500">async</span> <span className="text-yellow-600">syncInfrastructure</span>() {'{'}</div>
+                        <div className="leading-6 pl-8"><span className="text-purple-500">const</span> telemetry = <span className="text-purple-500">await</span> <span className="text-blue-600">this</span>.midServer.poll();</div>
+                        <div className="leading-6 pl-8"><span className="text-purple-500">return</span> <span className="text-blue-600">this</span>.cmdb.reconcile(telemetry);</div>
+                        <div className="leading-6 pl-4">{'}'}</div>
+                        <div className="leading-6">{'}'}</div>
+                      </div>
                     </div>
-                    Core Platform
-                  </h3>
-                  <ul className="cds--list--unordered space-y-2">
-                    {['ITSM', 'CMDB', 'Service Portal', 'Workflow Editor', 'Business Rules', 'SLA Definitions'].map((item) => (
-                      <li key={item} className="cds--list__item">{item}</li>
-                    ))}
-                  </ul>
+                  </div>
+
+                  {/* Engineering Overlay */}
+                  <div className="px-6 pb-6">
+                    <div className="border-t border-[var(--cds-border-subtle)] pt-4">
+                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2 flex items-center gap-2">
+                        <Chip className="w-5 h-5 text-[var(--cds-link-primary)]" />
+                        High-Performance Development
+                      </h3>
+                      <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-4">
+                        Clean, upgrade-safe JavaScript following ServiceNow&apos;s Scoped Application standards. We build for the long game—minimizing technical debt while maximizing platform agility.
+                      </p>
+                      
+                      {/* Technical Tags (The "Bridge") */}
+                      <div className="flex flex-wrap gap-2">
+                        {['Glide API', 'Script Includes', 'Asynchronous Integration', 'Flow Designer'].map((tag) => (
+                          <span 
+                            key={tag}
+                            className="px-3 py-1 text-xs font-medium bg-[var(--cds-layer-02)] text-[var(--cds-text-secondary)] border border-[var(--cds-border-subtle)]"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Column 2: Development */}
-              <div className="cds--col-span-4 cds--col-span-4--md">
-                <div className="cds--tile bg-white h-full" style={{ padding: 'var(--cds-spacing-06)' }}>
-                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[var(--cds-support-success)] flex items-center justify-center">
-                      <Code className="w-5 h-5 text-white" />
+              {/* Right Side: Outcome Layer (The "What") */}
+              <div className="cds--col-span-8 cds--col-span-8--lg">
+                <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] h-full">
+                  {/* Dashboard Header */}
+                  <div className="bg-[var(--cds-layer-02)] px-4 py-3 border-b border-[var(--cds-border-subtle)] flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <ChartLine className="w-4 h-4 text-[var(--cds-support-success)]" />
+                      <span className="carbon-label-01 text-[var(--cds-text-secondary)]">Executive Dashboard</span>
                     </div>
-                    Development
-                  </h3>
-                  <ul className="cds--list--unordered space-y-2">
-                    {['JavaScript', 'Glide API', 'Script Includes', 'Client Scripts', 'UI Policies', 'Source Control'].map((item) => (
-                      <li key={item} className="cds--list__item">{item}</li>
-                    ))}
-                  </ul>
+                    <div className="flex items-center gap-1">
+                      <div className="w-2 h-2 rounded-full bg-[var(--cds-support-success)]"></div>
+                      <span className="carbon-helper-text-01 text-[var(--cds-support-success)]">99.95% Uptime</span>
+                    </div>
+                  </div>
+                  
+                  {/* Dashboard Content */}
+                  <div className="p-6">
+                    {/* Dashboard Metrics */}
+                    <div className="grid grid-cols-3 gap-4 mb-6">
+                      <div className="text-center p-4 bg-[var(--cds-layer-02)]">
+                        <div className="carbon-fluid-heading-04 text-[var(--cds-support-success)]">99.95%</div>
+                        <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Uptime SLA</div>
+                      </div>
+                      <div className="text-center p-4 bg-[var(--cds-layer-02)]">
+                        <div className="carbon-fluid-heading-04 text-[var(--cds-link-primary)]">52%</div>
+                        <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Faster Resolution</div>
+                      </div>
+                      <div className="text-center p-4 bg-[var(--cds-layer-02)]">
+                        <div className="carbon-fluid-heading-04 text-[var(--cds-text-primary)]">24/7</div>
+                        <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Coverage</div>
+                      </div>
+                    </div>
+
+                    {/* Dashboard Chart Placeholder */}
+                    <div className="h-32 bg-gradient-to-r from-[var(--cds-layer-02)] to-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] relative overflow-hidden">
+                      <div className="absolute inset-0 flex items-end justify-around px-4 pb-4">
+                        {[40, 65, 45, 80, 55, 90, 75, 85, 70, 95, 88, 92].map((h, i) => (
+                          <div 
+                            key={i} 
+                            className="w-6 bg-[var(--cds-support-success)] opacity-80"
+                            style={{ height: `${h}%` }}
+                          ></div>
+                        ))}
+                      </div>
+                      <div className="absolute top-2 left-2">
+                        <span className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Incident Trend</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Outcome Overlay */}
+                  <div className="px-6 pb-6">
+                    <div className="border-t border-[var(--cds-border-subtle)] pt-4">
+                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2 flex items-center gap-2">
+                        <ChartLine className="w-5 h-5 text-[var(--cds-support-success)]" />
+                        Predictive Business Intelligence
+                      </h3>
+                      <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-4">
+                        Raw telemetry converted into real-time operational truth. Your leadership team sees the health of the entire enterprise on a single pane of glass, backed by data they can actually trust.
+                      </p>
+                      
+                      {/* Business Tags (The "Result") */}
+                      <div className="flex flex-wrap gap-2">
+                        {['Fixed TCO', 'SLA Compliance', 'Risk-Mapped Operations'].map((tag) => (
+                          <span 
+                            key={tag}
+                            className="px-3 py-1 text-xs font-medium bg-[var(--cds-support-success-subtle)] text-[var(--cds-support-success)] border border-[var(--cds-support-success)]"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              {/* Column 3: Integration */}
-              <div className="cds--col-span-4 cds--col-span-4--md">
-                <div className="cds--tile bg-white h-full" style={{ padding: 'var(--cds-spacing-06)' }}>
-                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[var(--cds-support-warning)] flex items-center justify-center">
-                      <Network_1 className="w-5 h-5 text-[var(--cds-text-primary)]" />
+            {/* The Bridge - Center Connection */}
+            <div className="mt-12 text-center">
+              <div className="inline-flex items-center gap-4 mb-6">
+                <div className="h-px w-24 bg-[var(--cds-border-subtle)]"></div>
+                <EdgeNode className="w-6 h-6 text-[var(--cds-link-primary)]" />
+                <div className="h-px w-24 bg-[var(--cds-border-subtle)]"></div>
+              </div>
+              <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-4">
+                Where Logic Becomes Value
+              </h3>
+              <div className="cds--css-grid gap-8" style={{ padding: 0 }}>
+                <div className="cds--col-span-8 cds--col-span-8--lg cds--col-start-5">
+                  <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] p-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <p className="carbon-label-01 text-[var(--cds-link-primary)] mb-2 uppercase tracking-wide">The Logic</p>
+                        <p className="carbon-body-01 text-[var(--cds-text-secondary)]">
+                          Our developers utilize Flow Designer and IntegrationHub to automate the mundane.
+                        </p>
+                      </div>
+                      <div>
+                        <p className="carbon-label-01 text-[var(--cds-support-success)] mb-2 uppercase tracking-wide">The Value</p>
+                        <p className="carbon-body-01 text-[var(--cds-text-secondary)]">
+                          Your IT team saves 40+ hours a month on manual reporting, shifting focus from &quot;keeping the lights on&quot; to strategic growth.
+                        </p>
+                      </div>
                     </div>
-                    Integration
-                  </h3>
-                  <ul className="cds--list--unordered space-y-2">
-                    {['REST APIs', 'IntegrationHub', 'Flow Designer', 'Orchestration', 'MID Server', 'Import Sets'].map((item) => (
-                      <li key={item} className="cds--list__item">{item}</li>
-                    ))}
-                  </ul>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              {/* Column 4: ITOM & Discovery */}
-              <div className="cds--col-span-4 cds--col-span-4--md">
-                <div className="cds--tile bg-white h-full" style={{ padding: 'var(--cds-spacing-06)' }}>
-                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[var(--cds-support-error)] flex items-center justify-center">
-                      <Activity className="w-5 h-5 text-white" />
+            {/* Four Technical Categories */}
+            <div className="mt-16">
+              <div className="cds--css-grid gap-6" style={{ padding: 0 }}>
+                {/* Platform Foundations */}
+                <div className="cds--col-span-4 cds--col-span-4--md">
+                  <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] p-6 h-full hover:border-[var(--cds-link-primary)] transition-colors">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-[var(--cds-link-primary)] flex items-center justify-center">
+                        <Layers className="w-5 h-5 text-white" />
+                      </div>
+                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Platform Foundations</h3>
                     </div>
-                    ITOM & Discovery
-                  </h3>
-                  <ul className="cds--list--unordered space-y-2">
-                    {['Discovery', 'Service Mapping', 'Event Management', 'Cloud Operations', 'Transform Maps', 'Scheduled Jobs'].map((item) => (
-                      <li key={item} className="cds--list__item">{item}</li>
-                    ))}
-                  </ul>
+                    <ul className="space-y-2 carbon-body-01 text-[var(--cds-text-secondary)]">
+                      {['ITSM Architecture', 'CMDB Governance', 'Service Portal Design', 'Workflow Orchestration'].map((item) => (
+                        <li key={item} className="flex items-center gap-2">
+                          <div className="w-1 h-1 bg-[var(--cds-link-primary)]"></div>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Engineered Customization */}
+                <div className="cds--col-span-4 cds--col-span-4--md">
+                  <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] p-6 h-full hover:border-[var(--cds-support-success)] transition-colors">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-[var(--cds-support-success)] flex items-center justify-center">
+                        <Code className="w-5 h-5 text-white" />
+                      </div>
+                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Engineered Customization</h3>
+                    </div>
+                    <ul className="space-y-2 carbon-body-01 text-[var(--cds-text-secondary)]">
+                      {['Scoped Applications', 'Glide API Mastery', 'Script Optimization', 'Source Control Integration'].map((item) => (
+                        <li key={item} className="flex items-center gap-2">
+                          <div className="w-1 h-1 bg-[var(--cds-support-success)]"></div>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Systems Interconnectivity */}
+                <div className="cds--col-span-4 cds--col-span-4--md">
+                  <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] p-6 h-full hover:border-[var(--cds-support-warning)] transition-colors">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-[var(--cds-support-warning)] flex items-center justify-center">
+                        <Network_1 className="w-5 h-5 text-[var(--cds-text-primary)]" />
+                      </div>
+                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Systems Interconnectivity</h3>
+                    </div>
+                    <ul className="space-y-2 carbon-body-01 text-[var(--cds-text-secondary)]">
+                      {['REST/SOAP APIs', 'IntegrationHub', 'MID Server Config', 'Enterprise Connectors'].map((item) => (
+                        <li key={item} className="flex items-center gap-2">
+                          <div className="w-1 h-1 bg-[var(--cds-support-warning)]"></div>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Infrastructure Observability */}
+                <div className="cds--col-span-4 cds--col-span-4--md">
+                  <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] p-6 h-full hover:border-[var(--cds-support-error)] transition-colors">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-[var(--cds-support-error)] flex items-center justify-center">
+                        <Activity className="w-5 h-5 text-white" />
+                      </div>
+                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Infrastructure Observability</h3>
+                    </div>
+                    <ul className="space-y-2 carbon-body-01 text-[var(--cds-text-secondary)]">
+                      {['Discovery & Mapping', 'Event Correlation', 'Cloud Operations', 'Predictive Analytics'].map((item) => (
+                        <li key={item} className="flex items-center gap-2">
+                          <div className="w-1 h-1 bg-[var(--cds-support-error)]"></div>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
