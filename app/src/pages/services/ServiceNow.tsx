@@ -7,9 +7,7 @@ import {
   Activity,
   Code,
   Layers,
-  ArrowUpRight,
-  ChevronLeft,
-  ChevronRight
+  ArrowUpRight
 } from '@carbon/icons-react';
 
 // Batch 2: Carbon Icons (simple name changes)
@@ -59,8 +57,7 @@ import OfferingCard from '../../components/OfferingCard';
 const ServiceNow = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
   
-  // Case Studies Carousel State
-  const [currentCaseStudy, setCurrentCaseStudy] = useState(0);
+  // Case Studies Data
   
   // TCO Calculator State
   const [tcoUserMultiple, setTcoUserMultiple] = useState(500);
@@ -236,13 +233,7 @@ const ServiceNow = () => {
   
   const tcoResult = calculateTCO();
 
-  const nextCaseStudy = () => {
-    setCurrentCaseStudy((prev) => (prev + 1) % caseStudies.length);
-  };
 
-  const prevCaseStudy = () => {
-    setCurrentCaseStudy((prev) => (prev - 1 + caseStudies.length) % caseStudies.length);
-  };
 
   return (
     <div className="min-h-screen bg-[var(--cds-background)]">
@@ -750,120 +741,127 @@ const ServiceNow = () => {
         </div>
       </section>
 
-      {/* Case Studies Carousel */}
-      <section id="case-studies" className="py-16 bg-white">
+      {/* Case Studies Section - Improved Design */}
+      <section id="case-studies" className="py-16 bg-[var(--cds-background)]">
         <div className="cds--css-grid">
-        <div className="cds--col-span-16 cds--col-span-16--lg">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-            <div>
-              <span className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--cds-text-helper)] mb-4 block" style={{ color: brandColor }}>
-                Success Stories
-              </span>
-              <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)]">
-                Case Studies
-              </h2>
-            </div>
-            <div className="flex items-center gap-4">
+          <div className="cds--col-span-16 cds--col-span-16--lg">
+            {/* Section Header - Compact */}
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+              <div>
+                <div className="cds--tag cds--tag--green mb-3">
+                  <Building className="w-3 h-3 mr-1" />
+                  Success Stories
+                </div>
+                <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)]">
+                  Case Studies
+                </h2>
+              </div>
               <Link 
                 to="/projects"
-                className="hidden md:inline-flex items-center gap-2 text-[var(--cds-link-primary)] carbon-link-01 hover:text-[var(--cds-link-primary-hover)] transition-colors mr-4"
+                className="inline-flex items-center gap-2 text-[var(--cds-link-primary)] carbon-link-01 hover:text-[var(--cds-link-primary-hover)] transition-colors"
               >
                 View all case studies
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={prevCaseStudy}
-                className="w-10 h-10 rounded-full border border-[var(--cds-border-subtle)] flex items-center justify-center hover:border-[var(--cds-focus)] hover:bg-[var(--cds-layer-accent)] transition-all"
-              >
-                <ChevronLeft className="w-5 h-5 text-[var(--cds-text-secondary)]" />
-              </button>
-              <div className="flex gap-2">
-                {caseStudies.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentCaseStudy(idx)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      idx === currentCaseStudy ? 'bg-[var(--cds-layer-accent)] w-6' : 'bg-[var(--cds-layer-03)]'
-                    }`}
-                  />
-                ))}
-              </div>
-              <button
-                onClick={nextCaseStudy}
-                className="w-10 h-10 rounded-full border border-[var(--cds-border-subtle)] flex items-center justify-center hover:border-[var(--cds-focus)] hover:bg-[var(--cds-layer-accent)] transition-all"
-              >
-                <ChevronRight className="w-5 h-5 text-[var(--cds-text-secondary)]" />
-              </button>
-              </div>
             </div>
-          </div>
 
-          <div className="overflow-hidden">
-            <div 
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentCaseStudy * 100}%)` }}
-            >
+            {/* Case Study Cards - Horizontal Layout */}
+            <div className="space-y-6">
               {caseStudies.map((study) => (
-                <div key={study.id} className="w-full flex-shrink-0">
-                  <div className="bg-[var(--cds-layer-01)] rounded-2xl p-8 md:p-12">
-                    <div className="cds--css-grid" style={{ padding: 0 }}>
-                      <div className="cds--col-span-8 cds--col-span-8--lg">
-                        <div className="flex flex-wrap gap-2 mb-6">
+                <div 
+                  key={study.id}
+                  className="group bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] overflow-hidden hover:border-[var(--cds-link-primary)] transition-all duration-300 hover:shadow-lg"
+                >
+                  <div className="cds--css-grid gap-0" style={{ padding: 0 }}>
+                    {/* Left: Content */}
+                    <div className="cds--col-span-10 cds--col-span-10--lg p-6 md:p-8 flex flex-col justify-between">
+                      <div>
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-2 mb-4">
                           {study.tags.map((tag) => (
                             <span 
                               key={tag.text}
-                              className={`px-3 py-1 rounded-full carbon-label-01 ${tag.class}`}
+                              className="cds--tag"
+                              style={{ 
+                                backgroundColor: tag.text === 'Telecom' ? 'var(--cds-tag-background-blue)' : 
+                                                tag.text === 'Automation' ? 'var(--cds-tag-background-green)' :
+                                                'var(--cds-layer-02)',
+                                color: 'var(--cds-text-primary)'
+                              }}
                             >
                               {tag.text}
                             </span>
                           ))}
                         </div>
-                        <h3 className="carbon-fluid-heading-04 text-[var(--cds-text-primary)] mb-4">
+                        
+                        {/* Title */}
+                        <h3 className="carbon-heading-03 text-[var(--cds-text-primary)] mb-3 group-hover:text-[var(--cds-link-primary)] transition-colors">
                           {study.title}
                         </h3>
-                        <p className="carbon-body-02 text-[var(--cds-text-secondary)] mb-8 leading-relaxed">
+                        
+                        {/* Description */}
+                        <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-6 line-clamp-2">
                           {study.description}
                         </p>
-                        <Link
-                          to={study.link}
-                          className="inline-flex items-center gap-2 text-[var(--cds-link-primary)] carbon-link-01 hover:text-[var(--cds-link-primary-hover)] transition-colors"
-                        >
-                          Read full case study
-                          <ArrowUpRight className="w-4 h-4" />
-                        </Link>
                       </div>
-                      <div className="cds--col-span-8 cds--col-span-8--lg space-y-6">
-                        {/* Photo Placeholder */}
-                        <div className="bg-white rounded-xl overflow-hidden border border-[var(--cds-border-subtle)] shadow-sm">
-                          <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                            <div className="text-center">
-                              <Building className="w-16 h-16 text-[var(--cds-text-secondary)] mx-auto mb-2" />
-                              <span className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Case Study Photo</span>
+                      
+                      {/* CTA */}
+                      <Link
+                        to={study.link}
+                        className="inline-flex items-center gap-2 text-[var(--cds-link-primary)] carbon-link-01 hover:gap-3 transition-all"
+                      >
+                        Read full case study
+                        <ArrowUpRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                    
+                    {/* Right: Stats Column */}
+                    <div className="cds--col-span-6 cds--col-span-6--lg bg-[var(--cds-layer-02)] border-l border-[var(--cds-border-subtle)] p-6 md:p-8">
+                      <p className="carbon-label-01 text-[var(--cds-text-helper)] uppercase tracking-wide mb-4">
+                        Key Results
+                      </p>
+                      
+                      <div className="space-y-4">
+                        {study.stats.map((stat, idx) => (
+                          <div key={idx} className="flex items-center gap-4">
+                            <div 
+                              className="w-12 h-12 flex items-center justify-center flex-shrink-0"
+                              style={{ backgroundColor: idx === 0 ? '#24a14815' : idx === 1 ? '#0f62fe15' : '#f1c21b15' }}
+                            >
+                              <stat.icon 
+                                className="w-6 h-6" 
+                                style={{ 
+                                  color: idx === 0 ? '#24a148' : idx === 1 ? '#0f62fe' : '#b28600' 
+                                }} 
+                              />
+                            </div>
+                            <div>
+                              <div 
+                                className="carbon-heading-02"
+                                style={{ 
+                                  color: idx === 0 ? '#24a148' : idx === 1 ? '#0f62fe' : 'var(--cds-text-primary)' 
+                                }}
+                              >
+                                {stat.value}
+                              </div>
+                              <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">
+                                {stat.label}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        
-                        {/* Stats */}
-                        <div className="cds--css-grid" style={{ padding: 0 }}>
-                          {study.stats.map((stat, idx) => (
-                            <div key={idx} className="cds--col-span-5 cds--col-span-5--md bg-white rounded-xl p-5 text-center shadow-sm">
-                              <div className={`w-12 h-12 rounded-lg ${stat.iconBg} flex items-center justify-center mx-auto mb-3`}>
-                                <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
-                              </div>
-                              <div className="text-xl font-bold text-[var(--cds-text-primary)] mb-1">{stat.value}</div>
-                              <div className="carbon-helper-text-02 text-[var(--cds-text-helper)]">{stat.label}</div>
-                            </div>
-                          ))}
-                        </div>
+                        ))}
                       </div>
                     </div>
                   </div>
+                  
+                  {/* Bottom Accent Bar */}
+                  <div 
+                    className="h-1 bg-gradient-to-r from-[#0f62fe] via-[#24a148] to-[#0f62fe] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+                  ></div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
         </div>
       </section>
 
