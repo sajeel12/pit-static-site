@@ -42,6 +42,7 @@ import Geospatial from './pages/services/Geospatial';
 import DataFederation from './pages/services/DataFederation';
 import DatabaseOptimisation from './pages/services/DatabaseOptimisation';
 import Maximo from './pages/services/Maximo';
+import InfrastructureHub from './pages/services/InfrastructureHub';
 import JiraServiceManagement from './pages/services/JiraServiceManagement';
 import CustomDevelopment from './pages/services/CustomDevelopment';
 import ServiceDesk from './pages/services/ServiceDesk';
@@ -99,6 +100,9 @@ function App() {
             <Route path="/services/digital-transformation" element={<DigitalTransformation />} />
             <Route path="/services/it-assessment" element={<ITAssessment />} />
             <Route path="/services/technology-roadmap" element={<TechnologyRoadmap />} />
+            
+            {/* Infrastructure Hub - Landing Page */}
+            <Route path="/services/infrastructure" element={<InfrastructureHub />} />
             
             {/* Infrastructure Services */}
             <Route path="/services/server-continuity" element={<ServerContinuity />} />

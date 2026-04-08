@@ -605,9 +605,9 @@ const Navigation = () => {
                               Network Operations
                             </button>
                             <div className="border-t border-slate-300 my-3" />
-                            <a href="/services#infrastructure" className="flex items-center gap-2 px-4 py-3 text-sm font-bold text-blue-600 hover:text-blue-700">
+                            <Link to="/services/infrastructure" className="flex items-center gap-2 px-4 py-3 text-sm font-bold text-blue-600 hover:text-blue-700">
                               View All Infrastructure <ArrowRight className="w-4 h-4" />
-                            </a>
+                            </Link>
                             <Link to="/projects/infrastructure" className="flex items-center gap-2 px-4 py-3 text-sm font-bold text-blue-600 hover:text-blue-700">
                               See Client Success Stories <ArrowRight className="w-4 h-4" />
                             </Link>

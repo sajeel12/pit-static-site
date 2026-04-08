@@ -17,6 +17,7 @@ import {
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../sections/Footer';
+import HeroGraphics from '../components/HeroGraphics';
 import ClientLogos from '../sections/ClientLogos';
 import Testimonials from '../sections/Testimonials';
 import CaseStudies from '../sections/CaseStudies';
@@ -485,78 +486,67 @@ const ServicesVariant = () => {
 
 const HeroVariant = () => {
   return (
-    <section className="relative min-h-screen flex items-center bg-[#0F172A] overflow-hidden pt-20">
-      {/* Abstract Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-cyan-500 rounded-full blur-[100px]" />
-      </div>
-      
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)',
-        backgroundSize: '80px 80px'
-      }} />
+    <section className="relative min-h-screen flex items-center bg-white overflow-hidden pt-20">
+      {/* IBM-Style Hero Graphics */}
+      <HeroGraphics />
 
       <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
         <div className="max-w-3xl">
           {/* Eyebrow */}
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.3em] text-blue-400 mb-6">
+          <span className="inline-block text-xs font-semibold uppercase tracking-[0.3em] text-[#0f62fe] mb-6">
             Enterprise IT Solutions
           </span>
           
           {/* Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#161616] mb-6 leading-[1.1] tracking-tight">
             <span className="block">Unified Systems</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Absolute Accountability</span>
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0f62fe] to-[#8a3ffc]">Absolute Accountability</span>
           </h1>
           
           {/* Sub-Heading */}
-          {/* ORIGINAL: font-semibold tracking-tight, multi-color: text-white + text-blue-300 + text-cyan-300 */}
-          <p className="text-lg sm:text-xl text-gray-300 mb-5 font-light tracking-wide">
-            Hardware Infrastructure. <span className="text-blue-300">Cloud Scalability.</span> <span className="text-cyan-300">AI Intelligence.</span>
+          <p className="text-lg sm:text-xl text-[#525252] mb-5 font-light tracking-wide">
+            Hardware Infrastructure. <span className="text-[#0f62fe]">Cloud Scalability.</span> <span className="text-[#6929c4]">AI Intelligence.</span>
           </p>
           
           {/* Body Text */}
-          {/* ORIGINAL: text-gray-400 */}
           <div className="max-w-2xl mb-8">
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+            <p className="text-base sm:text-lg text-[#525252] leading-relaxed">
               By bridging global supply chains with on-the-ground expertise, we engineer the infrastructure that powers your transformation with absolute accountability
             </p>
           </div>
           
           {/* Process Steps */}
-          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-8">
+          <div className="flex flex-wrap items-center gap-3 text-sm text-[#6f6f6f] mb-8">
             <span>Design</span>
-            <span className="text-gray-600">→</span>
+            <span className="text-[#c6c6c6]">→</span>
             <span>Procure</span>
-            <span className="text-gray-600">→</span>
+            <span className="text-[#c6c6c6]">→</span>
             <span>Deploy</span>
-            <span className="text-gray-600">→</span>
+            <span className="text-[#c6c6c6]">→</span>
             <span>Integrate</span>
-            <span className="text-gray-600">→</span>
+            <span className="text-[#c6c6c6]">→</span>
             <span>Manage</span>
-            <span className="text-gray-600">→</span>
-            <span className="text-blue-400 font-medium">Optimise</span>
+            <span className="text-[#c6c6c6]">→</span>
+            <span className="text-[#0f62fe] font-medium">Optimise</span>
           </div>
           
           {/* CTAs */}
           <div className="flex flex-wrap gap-4">
             <a
               href="#services"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-full hover:from-blue-400 hover:to-blue-500 transition-all duration-300 shadow-lg shadow-blue-500/25"
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-[#0f62fe] text-white font-semibold hover:bg-[#0353e9] transition-all duration-300"
             >
               Explore Services
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <Link
               to="/about"
-              className="group inline-flex items-center gap-3 px-8 py-4 border border-white/20 text-white font-medium rounded-full hover:bg-white/10 transition-all duration-300"
+              className="group inline-flex items-center gap-3 px-8 py-4 border border-[#161616] text-[#161616] font-medium hover:bg-[#f4f4f4] transition-all duration-300"
             >
               <img 
                 src="/david_headshot.jpg" 
                 alt="David Pridmore" 
-                className="w-8 h-8 rounded-full object-cover border-2 border-blue-500"
+                className="w-8 h-8 rounded-full object-cover border-2 border-[#0f62fe]"
               />
               Meet David Pridmore, CEO & CTO
             </Link>

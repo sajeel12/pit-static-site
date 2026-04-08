@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { ArrowRight, Server, Cloud, Brain, Eye, Headphones } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
@@ -510,110 +511,295 @@ const ServicesVariant = () => {
   );
 };
 
+// The Live Network SVG Animation Component
+const LiveNetworkAnimation = () => {
+  const [hoveredNode, setHoveredNode] = useState<number | null>(null);
+  const [tooltip, setTooltip] = useState<{x: number, y: number, text: string} | null>(null);
+
+  const nodes = [
+    { id: 0, x: 150, y: 150, type: 'core', label: 'Core NOC', metric: 'Status: Active' },
+    { id: 1, x: 280, y: 80, type: 'secondary', label: 'Karachi Hub', metric: 'Latency: 12ms' },
+    { id: 2, x: 320, y: 180, type: 'secondary', label: 'Lahore DC', metric: 'Latency: 18ms' },
+    { id: 3, x: 260, y: 260, type: 'secondary', label: 'Islamabad', metric: 'Latency: 24ms' },
+    { id: 4, x: 100, y: 280, type: 'secondary', label: 'Client A', metric: 'Status: Secure' },
+    { id: 5, x: 40, y: 200, type: 'secondary', label: 'Client B', metric: 'Status: Secure' },
+    { id: 6, x: 60, y: 100, type: 'secondary', label: 'Cloud GW', metric: 'Throughput: 10Gbps' },
+  ];
+
+  const connections = [
+    { from: 0, to: 1 },
+    { from: 0, to: 2 },
+    { from: 0, to: 3 },
+    { from: 0, to: 4 },
+    { from: 0, to: 5 },
+    { from: 0, to: 6 },
+  ];
+
+  const handleNodeHover = (e: React.MouseEvent, nodeId: number) => {
+    setHoveredNode(nodeId);
+    const node = nodes.find(n => n.id === nodeId);
+    if (node) {
+      setTooltip({
+        x: e.clientX,
+        y: e.clientY - 40,
+        text: `${node.label} • ${node.metric}`
+      });
+    }
+  };
+
+  const handleNodeLeave = () => {
+    setHoveredNode(null);
+    setTooltip(null);
+  };
+
+  return (
+    <div className="relative w-full h-full flex items-center justify-center">
+      <svg 
+        viewBox="0 0 360 360" 
+        className="w-full max-w-md h-auto"
+        style={{ filter: 'drop-shadow(0 0 20px rgba(6, 182, 212, 0.2))' }}
+      >
+        <defs>
+          {/* Glow filter for core node */}
+          <filter id="coreGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          
+          {/* Pulse animation */}
+          <style>{`
+            @keyframes pulse {
+              0%, 100% { opacity: 0.6; transform: scale(1); }
+              50% { opacity: 1; transform: scale(1.05); }
+            }
+            .core-pulse {
+              animation: pulse 3s ease-in-out infinite;
+              transform-origin: center;
+            }
+            @keyframes packet-flow {
+              0% { offset-distance: 0%; opacity: 0; }
+              10% { opacity: 1; }
+              90% { opacity: 1; }
+              100% { offset-distance: 100%; opacity: 0; }
+            }
+            .packet {
+              animation: packet-flow 2s linear infinite;
+            }
+            .packet-delay-1 { animation-delay: 0.3s; }
+            .packet-delay-2 { animation-delay: 0.6s; }
+            .packet-delay-3 { animation-delay: 0.9s; }
+            .packet-delay-4 { animation-delay: 1.2s; }
+            .packet-delay-5 { animation-delay: 1.5s; }
+            .packet-delay-6 { animation-delay: 1.8s; }
+          `}</style>
+        </defs>
+
+        {/* Connection Lines */}
+        {connections.map((conn, idx) => {
+          const fromNode = nodes.find(n => n.id === conn.from);
+          const toNode = nodes.find(n => n.id === conn.to);
+          if (!fromNode || !toNode) return null;
+          
+          return (
+            <g key={`conn-${idx}`}>
+              {/* Static line */}
+              <line
+                x1={fromNode.x}
+                y1={fromNode.y}
+                x2={toNode.x}
+                y2={toNode.y}
+                stroke="#3B82F6"
+                strokeWidth="1"
+                opacity="0.2"
+              />
+              {/* Animated packet path */}
+              <path
+                id={`path-${idx}`}
+                d={`M${fromNode.x},${fromNode.y} L${toNode.x},${toNode.y}`}
+                fill="none"
+                stroke="none"
+              />
+              {/* Data packet */}
+              <circle
+                r="3"
+                fill="#06B6D4"
+                className={`packet packet-delay-${idx}`}
+                style={{
+                  offsetPath: `path('M${fromNode.x},${fromNode.y} L${toNode.x},${toNode.y}')`,
+                }}
+              />
+              {/* Return packet */}
+              <circle
+                r="2"
+                fill="#3B82F6"
+                className={`packet packet-delay-${idx}`}
+                style={{
+                  offsetPath: `path('M${toNode.x},${toNode.y} L${fromNode.x},${fromNode.y}')`,
+                  animationDelay: `${0.3 + idx * 0.3}s`,
+                }}
+              />
+            </g>
+          );
+        })}
+
+        {/* Secondary Nodes */}
+        {nodes.filter(n => n.type === 'secondary').map(node => (
+          <g 
+            key={node.id}
+            onMouseEnter={(e) => handleNodeHover(e, node.id)}
+            onMouseLeave={handleNodeLeave}
+            className="cursor-pointer"
+          >
+            <circle
+              cx={node.x}
+              cy={node.y}
+              r="8"
+              fill="#1E293B"
+              stroke={hoveredNode === node.id ? '#06B6D4' : '#3B82F6'}
+              strokeWidth={hoveredNode === node.id ? '2' : '1'}
+              className="transition-all duration-200"
+            />
+            <circle
+              cx={node.x}
+              cy={node.y}
+              r="4"
+              fill={hoveredNode === node.id ? '#06B6D4' : '#3B82F6'}
+              opacity={hoveredNode === node.id ? '1' : '0.6'}
+              className="transition-all duration-200"
+            />
+          </g>
+        ))}
+
+        {/* Core Node */}
+        <g 
+          className="core-pulse cursor-pointer"
+          onMouseEnter={(e) => handleNodeHover(e, 0)}
+          onMouseLeave={handleNodeLeave}
+        >
+          <circle
+            cx={nodes[0].x}
+            cy={nodes[0].y}
+            r="20"
+            fill="#0F172A"
+            stroke="#06B6D4"
+            strokeWidth="2"
+            filter="url(#coreGlow)"
+          />
+          <circle
+            cx={nodes[0].x}
+            cy={nodes[0].y}
+            r="12"
+            fill="#06B6D4"
+            opacity="0.3"
+          />
+          <circle
+            cx={nodes[0].x}
+            cy={nodes[0].y}
+            r="6"
+            fill="#06B6D4"
+          />
+        </g>
+      </svg>
+
+      {/* Tooltip */}
+      {tooltip && (
+        <div 
+          className="fixed z-50 px-3 py-2 bg-gray-900 border border-cyan-500/30 rounded text-xs text-white whitespace-nowrap pointer-events-none"
+          style={{ 
+            left: tooltip.x, 
+            top: tooltip.y,
+            transform: 'translateX(-50%)'
+          }}
+        >
+          {tooltip.text}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900" />
+        </div>
+      )}
+    </div>
+  );
+};
+
 const HeroVariant = () => {
   return (
-    <section className="relative min-h-screen flex items-center bg-[#0F172A] overflow-hidden pt-20">
-      {/* Abstract Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-cyan-500 rounded-full blur-[100px]" />
-      </div>
-      
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)',
-        backgroundSize: '80px 80px'
-      }} />
-
-      <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
-        <div className="max-w-3xl">
-          {/* Eyebrow */}
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.3em] text-blue-400 mb-6">
-            Enterprise IT Solutions
-          </span>
+    <section 
+      className="relative min-h-screen overflow-hidden pt-20"
+      style={{
+        background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)'
+      }}
+    >
+      {/* 12-Column Grid Layout */}
+      <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-24">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[70vh]">
           
-          {/* Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
-            <span className="block">Unified Systems</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Absolute Accountability</span>
-          </h1>
-          
-          {/* Sub-Heading */}
-          {/* ORIGINAL: font-semibold tracking-tight, multi-color: text-white + text-blue-300 + text-cyan-300 */}
-          <p className="text-lg sm:text-xl text-gray-300 mb-5 font-normal">
-            Hardware Infrastructure. Cloud Scalability. AI Intelligence.
-          </p>
-          
-          {/* Body Text */}
-          {/* ORIGINAL: text-gray-400 */}
-          <div className="max-w-2xl mb-8">
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              By bridging global supply chains with on-the-ground expertise, we engineer the infrastructure that powers your transformation with absolute accountability
-            </p>
-          </div>
-          
-          {/* Process Steps */}
-          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-8">
-            <span>Design</span>
-            <span className="text-gray-600">→</span>
-            <span>Procure</span>
-            <span className="text-gray-600">→</span>
-            <span>Deploy</span>
-            <span className="text-gray-600">→</span>
-            <span>Integrate</span>
-            <span className="text-gray-600">→</span>
-            <span>Manage</span>
-            <span className="text-gray-600">→</span>
-            <span className="text-blue-400 font-medium">Optimise</span>
-          </div>
-          
-          {/* Trust Bar - REMOVED (redundant with David CTA) */}
-          {/* ORIGINAL: British-certified technologists | Huawei Enterprise Partner | EZY Distribution Alliance */}
-          
-          {/* CTAs */}
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#services"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-full hover:from-blue-400 hover:to-blue-500 transition-all duration-300 shadow-lg shadow-blue-500/25"
+          {/* Left: Content (6 columns) */}
+          <div className="lg:col-span-6 relative z-10">
+            {/* Eyebrow */}
+            <span className="inline-block text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 mb-6">
+              24/7 Network Operations Center
+            </span>
+            
+            {/* Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-[48px] font-bold text-white mb-6 leading-[1.1] tracking-tight">
+              Controlled Complexity.
+              <br />
+              <span className="text-cyan-400">Absolute Governance.</span>
+            </h1>
+            
+            {/* Sub-head */}
+            <p 
+              className="text-lg leading-relaxed mb-8 max-w-[500px]"
+              style={{ color: '#94A3B8' }}
             >
-              Explore Services
+              Enterprise infrastructure monitoring with millisecond precision. 
+              We maintain the systems that power your business—so you never have to worry about them.
+            </p>
+            
+            {/* CTA Button */}
+            <a
+              href="#contact"
+              className="group inline-flex items-center gap-3 px-8 py-4 text-white font-semibold rounded transition-all duration-300 hover:brightness-110 hover:-translate-y-0.5"
+              style={{ 
+                backgroundColor: '#2563EB',
+                boxShadow: '0 4px 14px rgba(37, 99, 235, 0.4)'
+              }}
+            >
+              Schedule NOC Consultation
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
-            <Link
-              to="/about"
-              className="group inline-flex items-center gap-3 px-8 py-4 border border-white/20 text-white font-medium rounded-full hover:bg-white/10 transition-all duration-300"
-            >
-              <img 
-                src="/david_headshot.jpg" 
-                alt="David Pridmore" 
-                className="w-8 h-8 rounded-full object-cover border-2 border-blue-500"
-              />
-              Meet David Pridmore, CEO & CTO
-            </Link>
           </div>
-        </div>
-        
-        {/* Stats */}
-        <div className="absolute bottom-24 right-8 lg:right-12 hidden lg:flex gap-12">
-          <div className="text-center">
-            <div className="text-4xl font-bold text-white">14+</div>
-            <div className="text-xs text-gray-500 uppercase tracking-wide mt-1">Years Experience</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-white">50+</div>
-            <div className="text-xs text-gray-500 uppercase tracking-wide mt-1">Platforms Deployed</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-white">24/7</div>
-            <div className="text-xs text-gray-500 uppercase tracking-wide mt-1">Support Coverage</div>
+          
+          {/* Right: Visual (6 columns) */}
+          <div className="lg:col-span-6 relative h-[400px] lg:h-[500px]">
+            <LiveNetworkAnimation />
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500">
-        <span className="text-xs uppercase tracking-widest">Scroll</span>
-        <div className="w-px h-6 bg-gradient-to-b from-gray-500 to-transparent" />
+      {/* Stats Bar */}
+      <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-white/5 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div>
+              <div className="text-3xl font-bold text-white">99.99%</div>
+              <div className="text-xs uppercase tracking-wider mt-1" style={{ color: '#94A3B8' }}>Uptime SLA</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-white">&lt;5min</div>
+              <div className="text-xs uppercase tracking-wider mt-1" style={{ color: '#94A3B8' }}>Alert Response</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-white">24/7</div>
+              <div className="text-xs uppercase tracking-wider mt-1" style={{ color: '#94A3B8' }}>NOC Coverage</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-white">50+</div>
+              <div className="text-xs uppercase tracking-wider mt-1" style={{ color: '#94A3B8' }}>Enterprise Clients</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
