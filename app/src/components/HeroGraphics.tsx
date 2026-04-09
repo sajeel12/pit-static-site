@@ -1,11 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 /**
- * IBM Consulting-style Hero Graphics
- * Abstract geometric shapes with subtle animations
+ * Carbon Design System Hero Background
+ * Parallax, texture, and data flow visualization
  */
 const HeroGraphics = () => {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const rafRef = useRef<number | null>(null);
+  const lastScrollRef = useRef<number>(0);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -19,7 +22,31 @@ const HeroGraphics = () => {
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
+  // Parallax scroll handler with RAF
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
+    const handleScroll = () => {
+      lastScrollRef.current = window.scrollY;
+      
+      if (rafRef.current !== null) return;
+      
+      rafRef.current = requestAnimationFrame(() => {
+        setScrollY(lastScrollRef.current);
+        rafRef.current = null;
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+    };
+  }, [prefersReducedMotion]);
+
   const animationClass = prefersReducedMotion ? '' : 'animate';
+  const parallaxOffset = prefersReducedMotion ? 0 : scrollY * 0.15;
+  const parallaxSlow = prefersReducedMotion ? 0 : scrollY * 0.08;
 
   return (
     <div 
@@ -27,70 +54,131 @@ const HeroGraphics = () => {
       aria-hidden="true"
     >
       <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(2deg); }
-        }
-        
-        @keyframes floatReverse {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(20px) rotate(-2deg); }
-        }
-        
-        @keyframes pulse {
-          0%, 100% { opacity: 0.3; }
+        @keyframes slow-breathe {
+          0%, 100% { opacity: 1; }
           50% { opacity: 0.6; }
         }
         
-        @keyframes rotate {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
+        @keyframes square-pulse {
+          0%, 100% { opacity: 0.9; transform: scale(1); }
+          50% { opacity: 0.5; transform: scale(1.05); }
         }
         
-        @keyframes dash {
-          to { stroke-dashoffset: -100; }
-        }
-        
-        @keyframes drift {
+        @keyframes grid-move-h-1 {
           0% { transform: translateX(0); }
-          50% { transform: translateX(30px); }
-          100% { transform: translateX(0); }
+          100% { transform: translateX(1300px); }
         }
         
-        .hero-graphics .float-1 {
-          animation: float 8s ease-in-out infinite;
+        @keyframes dot-h {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(80px); }
         }
         
-        .hero-graphics .float-2 {
-          animation: floatReverse 10s ease-in-out infinite;
+        @keyframes dot-h-reverse {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(-60px); }
         }
         
-        .hero-graphics .float-3 {
-          animation: float 12s ease-in-out infinite;
+        @keyframes dot-v {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-80px); }
         }
         
-        .hero-graphics .pulse {
-          animation: pulse 6s ease-in-out infinite;
+        @keyframes dot-simple {
+          /* Simple up-down path with fewer turns, slower speed */
+          0% { transform: translate(0, 0); }
+          50% { transform: translate(0, -160px); }
+          100% { transform: translate(0, 0); }
         }
         
-        .hero-graphics .rotate-slow {
-          animation: rotate 60s linear infinite;
+        @keyframes dot-v-reverse {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(50px); }
         }
         
-        .hero-graphics .dash-animate {
-          animation: dash 20s linear infinite;
+        @keyframes dot-grid-path {
+          /* Path strictly on grid lines: up, right, down to y=400, left, down, right back */
+          0% { transform: translate(0, 0); }
+          /* Go up vertical grid line x=700: 480 -> 320 (160px) */
+          15% { transform: translate(0, -160px); }
+          /* Go right horizontal grid line y=320: 700 -> 900 (200px) */
+          30% { transform: translate(200px, -160px); }
+          /* Go down vertical grid line x=900: 320 -> 400 (80px down - past halfway) */
+          45% { transform: translate(200px, -80px); }
+          /* Take left horizontal grid line y=400: 900 -> 600 (300px left) */
+          60% { transform: translate(-100px, -80px); }
+          /* Go down vertical grid line x=600: 400 -> 480 (80px down) */
+          75% { transform: translate(-100px, 0); }
+          /* Go right horizontal grid line y=480: 600 -> 700 (100px right) back to start */
+          100% { transform: translate(0, 0); }
         }
         
-        .hero-graphics .drift {
-          animation: drift 15s ease-in-out infinite;
+        .hero-graphics .slow-breathe {
+          animation: slow-breathe 12s ease-in-out infinite;
+        }
+        
+        .hero-graphics .square-pulse {
+          animation: square-pulse 5s ease-in-out infinite;
+          transform-origin: center;
+        }
+        
+        .hero-graphics .grid-move-h-1 {
+          animation: grid-move-h-1 180s linear infinite;
+        }
+        
+        .hero-graphics .dot-h {
+          animation: dot-h 20s ease-in-out infinite;
+        }
+        
+        .hero-graphics .dot-h-reverse {
+          animation: dot-h-reverse 25s ease-in-out infinite;
+        }
+        
+        .hero-graphics .dot-v {
+          animation: dot-v 35s ease-in-out infinite;
+        }
+        
+        .hero-graphics .dot-v-reverse {
+          animation: dot-v-reverse 40s ease-in-out infinite;
+        }
+        
+        .hero-graphics .dot-simple {
+          animation: dot-simple 30s ease-in-out infinite;
+        }
+        
+        .hero-graphics .dot-grid-path {
+          animation: dot-grid-path 20s ease-in-out infinite;
+        }
+        
+        .hero-graphics .parallax-layer-1 {
+          transform: translateY(${parallaxOffset}px);
+          transition: transform 0.1s linear;
+        }
+        
+        .hero-graphics .parallax-layer-2 {
+          transform: translateY(${parallaxSlow}px);
+          transition: transform 0.1s linear;
         }
         
         @media (prefers-reduced-motion: reduce) {
           .hero-graphics * {
             animation: none !important;
           }
+          .hero-graphics .parallax-layer-1,
+          .hero-graphics .parallax-layer-2 {
+            transform: none !important;
+          }
         }
       `}</style>
+
+      {/* Texture Overlay - Noise at 3% */}
+      <div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          backgroundRepeat: 'repeat',
+        }}
+      />
 
       <svg 
         className={`hero-graphics w-full h-full ${animationClass}`}
@@ -99,202 +187,127 @@ const HeroGraphics = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          {/* Gradient definitions */}
-          <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#0f62fe" stopOpacity="0.8" />
-            <stop offset="50%" stopColor="#4589ff" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#8a3ffc" stopOpacity="0.4" />
-          </linearGradient>
-          
-          <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#8a3ffc" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#0f62fe" stopOpacity="0.3" />
-          </linearGradient>
-          
-          <radialGradient id="orbGradient1" cx="50%" cy="50%" r="50%">
+          {/* Square gradients */}
+          <linearGradient id="carbonSquare1" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#0f62fe" stopOpacity="0.15" />
-            <stop offset="70%" stopColor="#4589ff" stopOpacity="0.05" />
-            <stop offset="100%" stopColor="#0f62fe" stopOpacity="0" />
-          </radialGradient>
+            <stop offset="50%" stopColor="#4589ff" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#8a3ffc" stopOpacity="0.04" />
+          </linearGradient>
           
-          <radialGradient id="orbGradient2" cx="50%" cy="50%" r="50%">
+          <linearGradient id="carbonSquare2" x1="100%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stopColor="#8a3ffc" stopOpacity="0.12" />
-            <stop offset="70%" stopColor="#0f62fe" stopOpacity="0.04" />
-            <stop offset="100%" stopColor="#8a3ffc" stopOpacity="0" />
-          </radialGradient>
-          
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-            <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
+            <stop offset="100%" stopColor="#0f62fe" stopOpacity="0.05" />
+          </linearGradient>
         </defs>
 
-        {/* Background grid pattern */}
-        <g className="pulse" opacity="0.3">
-          {[...Array(8)].map((_, i) => (
+        {/* Grid lines - visible */}
+        <g opacity="0.15" className="parallax-layer-2">
+          {[...Array(10)].map((_, i) => (
             <line
               key={`h-${i}`}
               x1="0"
-              y1={100 + i * 80}
+              y1={80 + i * 80}
               x2="1200"
-              y2={100 + i * 80}
-              stroke="#e0e0e0"
+              y2={80 + i * 80}
+              stroke="#c6c6c6"
               strokeWidth="1"
             />
           ))}
-          {[...Array(12)].map((_, i) => (
+          {[...Array(13)].map((_, i) => (
             <line
               key={`v-${i}`}
-              x1={100 + i * 100}
+              x1={i * 100}
               y1="0"
-              x2={100 + i * 100}
+              x2={i * 100}
               y2="800"
-              stroke="#e0e0e0"
+              stroke="#c6c6c6"
               strokeWidth="1"
             />
           ))}
         </g>
 
-        {/* Large floating orb - top right */}
-        <circle
-          className="float-1"
-          cx="950"
-          cy="200"
-          r="180"
-          fill="url(#orbGradient1)"
-        />
-
-        {/* Secondary orb - bottom left */}
-        <circle
-          className="float-2"
-          cx="200"
-          cy="600"
-          r="120"
-          fill="url(#orbGradient2)"
-        />
-
-        {/* Small accent orb - middle right */}
-        <circle
-          className="float-3"
-          cx="1050"
-          cy="500"
-          r="80"
-          fill="url(#orbGradient1)"
-          opacity="0.6"
-        />
-
-        {/* Geometric rings */}
-        <g className="rotate-slow" transform-origin="900 300">
-          <ellipse
-            cx="900"
-            cy="300"
-            rx="200"
-            ry="120"
-            fill="none"
-            stroke="url(#blueGradient)"
-            strokeWidth="1"
-            opacity="0.4"
+        {/* Parallax Layer 1 - Main squares */}
+        <g className="parallax-layer-1">
+          {/* Largest square - pulsates, aligned to grid */}
+          <rect
+            className="square-pulse"
+            x="600"
+            y="80"
+            width="350"
+            height="300"
+            fill="url(#carbonSquare1)"
           />
-          <ellipse
-            cx="900"
-            cy="300"
-            rx="240"
-            ry="150"
-            fill="none"
-            stroke="url(#blueGradient)"
-            strokeWidth="0.5"
-            opacity="0.2"
+          <rect
+            className="slow-breathe"
+            x="900"
+            y="320"
+            width="200"
+            height="180"
+            fill="url(#carbonSquare2)"
+            style={{ animationDelay: '4s' }}
+          />
+          <rect
+            className="slow-breathe"
+            x="80"
+            y="620"
+            width="180"
+            height="120"
+            fill="url(#carbonSquare1)"
+            style={{ animationDelay: '8s' }}
           />
         </g>
 
-        {/* Flowing curved lines */}
-        <g className="drift" opacity="0.5">
-          <path
-            d="M-100 400 Q 200 200, 500 400 T 1100 400"
-            fill="none"
-            stroke="url(#blueGradient)"
-            strokeWidth="2"
-            strokeLinecap="round"
+        {/* Parallax Layer 2 - Secondary squares */}
+        <g className="parallax-layer-2">
+          {/* Static pulsating squares */}
+          <rect
+            className="slow-breathe"
+            x="1000"
+            y="100"
+            width="120"
+            height="120"
+            fill="url(#carbonSquare2)"
+            style={{ animationDelay: '2s' }}
           />
-          <path
-            d="M-100 450 Q 200 250, 500 450 T 1100 450"
-            fill="none"
-            stroke="url(#blueGradient)"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            opacity="0.7"
+          <rect
+            className="slow-breathe"
+            x="50"
+            y="400"
+            width="80"
+            height="80"
+            fill="url(#carbonSquare1)"
+            style={{ animationDelay: '6s' }}
           />
-          <path
-            d="M-100 350 Q 200 150, 500 350 T 1100 350"
-            fill="none"
-            stroke="url(#purpleGradient)"
-            strokeWidth="1"
-            strokeLinecap="round"
-            opacity="0.6"
-          />
-        </g>
-
-        {/* Dashed arc lines */}
-        <g className="float-1" opacity="0.4">
-          <path
-            d="M 600 100 A 300 300 0 0 1 900 400"
-            fill="none"
-            stroke="#0f62fe"
-            strokeWidth="2"
-            strokeDasharray="10 5"
-          />
-          <path
-            d="M 650 150 A 250 250 0 0 1 880 380"
-            fill="none"
-            stroke="#8a3ffc"
-            strokeWidth="1.5"
-            strokeDasharray="5 10"
-            opacity="0.6"
+          <rect
+            className="slow-breathe"
+            x="1100"
+            y="600"
+            width="60"
+            height="60"
+            fill="url(#carbonSquare2)"
+            style={{ animationDelay: '10s' }}
           />
         </g>
 
-        {/* Small accent dots */}
-        <g className="pulse">
-          <circle cx="700" cy="150" r="4" fill="#0f62fe" opacity="0.6" />
-          <circle cx="800" cy="250" r="6" fill="#8a3ffc" opacity="0.4" />
-          <circle cx="1000" cy="350" r="3" fill="#0f62fe" opacity="0.8" />
-          <circle cx="750" cy="450" r="5" fill="#4589ff" opacity="0.5" />
-          <circle cx="1100" cy="200" r="4" fill="#8a3ffc" opacity="0.6" />
-          <circle cx="600" cy="300" r="3" fill="#0f62fe" opacity="0.7" />
+        {/* Grid mover - horizontal (no parallax) */}
+        <g opacity="0.12">
+          <rect x="-50" y="240" width="80" height="25" fill="url(#carbonSquare1)" className="grid-move-h-1" />
         </g>
 
-        {/* Hexagon shapes */}
-        <g className="float-2" opacity="0.3" transform="translate(1000, 100)">
-          <polygon
-            points="30,0 60,15 60,45 30,60 0,45 0,15"
-            fill="none"
-            stroke="#0f62fe"
-            strokeWidth="1.5"
-          />
-        </g>
+        {/* Oscillating Dots - half horizontal, half vertical */}
+        <g opacity="0.5">
+          {/* Horizontal movers (3 dots) - back and forth along horizontal grid lines */}
+          <circle cx="150" cy="240" r="3.5" fill="#0f62fe" className="dot-h" />
+          <circle cx="500" cy="400" r="3" fill="#4589ff" className="dot-h-reverse" />
+          <circle cx="850" cy="560" r="3.5" fill="#8a3ffc" className="dot-h" />
+          
+          {/* Vertical movers (3 dots) - back and forth along vertical grid lines */}
+          <circle cx="300" cy="150" r="3" fill="#0f62fe" className="dot-v" />
+          {/* Grid-following dot - starts on grid intersection, follows grid lines */}
+          <circle cx="700" cy="480" r="3.5" fill="#4589ff" className="dot-grid-path" />
+          
 
-        <g className="float-1" opacity="0.2" transform="translate(150, 200)">
-          <polygon
-            points="20,0 40,10 40,30 20,40 0,30 0,10"
-            fill="none"
-            stroke="#8a3ffc"
-            strokeWidth="1"
-          />
-        </g>
-
-        {/* Corner accents */}
-        <g opacity="0.15">
-          <path
-            d="M 0 0 L 100 0 L 0 100 Z"
-            fill="url(#blueGradient)"
-          />
-          <path
-            d="M 1200 800 L 1100 800 L 1200 700 Z"
-            fill="url(#purpleGradient)"
-          />
+          <circle cx="1100" cy="320" r="3" fill="#8a3ffc" className="dot-v" />
         </g>
       </svg>
     </div>

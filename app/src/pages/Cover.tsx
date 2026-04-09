@@ -29,6 +29,8 @@ import Closing from '../sections/Closing';
 import Contact from '../sections/Contact';
 import Differentiator from '../sections/Differentiator';
 import ErrorBoundary from '../components/ErrorBoundary';
+import FloatingPipNav from '../components/FloatingPipNav';
+import '../styles/carbon-typography.css';
 
 /**
  * Cover - Main Homepage Layout
@@ -41,7 +43,7 @@ const TrustBar = () => {
   return (
     <section className="py-6 bg-[#0F172A] border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-gray-400">
+        <div className="flex flex-wrap items-center justify-center gap-4 text-gray-400 carbon-font carbon-label-02">
           <span>British-certified technologists</span>
           <span className="text-gray-600">|</span>
           <span>Huawei Enterprise Partner</span>
@@ -66,16 +68,16 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ icon, title, description, tags, cta, ctaLink, badge }: ServiceCardProps) => {
   return (
-    <div className="group bg-white rounded-lg border border-gray-100 p-6 hover:border-blue-200 hover:shadow-xl transition-all duration-300">
+    <div className="group bg-white rounded-lg border border-gray-100 p-6 hover:border-blue-200 hover:shadow-xl transition-all duration-300 carbon-font">
       {/* Icon and Title */}
       <div className="flex items-start gap-3 mb-4">
         <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-blue-500">
           {icon}
         </div>
         <div>
-          <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+          <h3 className="carbon-heading-02 text-gray-900">{title}</h3>
           {badge && (
-            <span className={`inline-block px-2 py-0.5 text-[10px] font-semibold uppercase rounded mt-1 ${
+            <span className={`inline-block px-2 py-0.5 carbon-label-02 mt-1 ${
               badge === 'Emerging' ? 'bg-amber-100 text-amber-700' : 'bg-green-100 text-green-700'
             }`}>
               {badge}
@@ -85,14 +87,14 @@ const ServiceCard = ({ icon, title, description, tags, cta, ctaLink, badge }: Se
       </div>
       
       {/* Description with hover reveal */}
-      <div className="text-sm text-gray-600 leading-relaxed">
+      <div className="carbon-body-02 text-gray-600">
         {description}
       </div>
       
       {/* Tags */}
       <div className="flex flex-wrap gap-2 mb-5 mt-4">
         {tags.map((tag) => (
-          <span key={tag} className="px-2.5 py-1 text-[10px] font-medium text-gray-500 bg-gray-100 rounded">
+          <span key={tag} className="px-2.5 py-1 carbon-label-02 text-gray-500 bg-gray-100">
             {tag}
           </span>
         ))}
@@ -101,7 +103,7 @@ const ServiceCard = ({ icon, title, description, tags, cta, ctaLink, badge }: Se
       {/* CTA */}
       <Link 
         to={ctaLink}
-        className="inline-flex items-center gap-1 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors group-hover:gap-2"
+        className="inline-flex items-center gap-1 carbon-heading-02 text-blue-600 hover:text-blue-700 transition-colors group-hover:gap-2"
       >
         {cta} <ArrowRight className="w-4 h-4" />
       </Link>
@@ -139,15 +141,15 @@ const FlipCard = ({ pattern, title, description, tags, ctaLink, badge }: FlipCar
   return (
     <Link 
       to={ctaLink}
-      className="group relative h-56 bg-white hover:bg-blue-600 transition-all duration-300 p-4 rounded-sm overflow-hidden cursor-pointer block text-blue-600 group-hover:text-white"
+      className="group relative h-56 bg-white hover:bg-blue-600 transition-all duration-300 p-4 rounded-sm overflow-hidden cursor-pointer block text-blue-600 group-hover:text-white carbon-font"
     >
       {/* Header - Always visible */}
       <div className="flex items-start justify-between gap-2 relative z-10">
-        <h3 className="text-base font-semibold text-gray-900 group-hover:text-white transition-colors leading-tight">
+        <h3 className="carbon-heading-02 text-gray-900 group-hover:text-white transition-colors leading-tight">
           {title}
         </h3>
         {badge && (
-          <span className="text-[9px] px-1.5 py-0.5 rounded-sm transition-colors whitespace-nowrap flex-shrink-0 bg-gray-100 text-gray-600 group-hover:bg-white/20 group-hover:text-white">
+          <span className="carbon-label-02 px-1.5 py-0.5 transition-colors whitespace-nowrap flex-shrink-0 bg-gray-100 text-gray-600 group-hover:bg-white/20 group-hover:text-white">
             {badge}
           </span>
         )}
@@ -159,7 +161,7 @@ const FlipCard = ({ pattern, title, description, tags, ctaLink, badge }: FlipCar
           {tags.map((tag) => (
             <span 
               key={tag} 
-              className="px-2 py-0.5 bg-gray-100 text-gray-600 text-[10px] rounded-sm"
+              className="px-2 py-0.5 bg-gray-100 text-gray-600 carbon-label-02"
             >
               {tag}
             </span>
@@ -181,7 +183,7 @@ const FlipCard = ({ pattern, title, description, tags, ctaLink, badge }: FlipCar
       
       {/* Description - Hover state only (no tags) */}
       <div className="absolute inset-x-4 top-14 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <p className="text-xs text-white leading-relaxed">
+        <p className="carbon-helper-text-02 text-white">
           {description}
         </p>
       </div>
@@ -196,15 +198,15 @@ const ServicesVariant = () => {
       {/* SECTION 1: Strategic Pillars */}
       <section className="py-20 bg-[#FAFAFA]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-blue-500 mb-4 block">
+          {/* Header - Carbon Typography */}
+          <div className="text-center mb-16 carbon-font">
+            <span className="carbon-label-02 uppercase tracking-[0.16px] text-blue-500 mb-4 block">
               Built for What Matters
             </span>
-            <h2 className="text-4xl sm:text-5xl font-semibold text-[#0F172A] leading-tight tracking-tight mb-4">
+            <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">
               One Partner. Complete Accountability.
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="carbon-body-02 text-gray-600 max-w-2xl mx-auto">
               From foundational hardware to AI-driven intelligence.
             </p>
           </div>
@@ -255,17 +257,17 @@ const ServicesVariant = () => {
       </section>
 
       {/* SECTION 2: Engineering for the Future */}
-      <section className="py-20 bg-[#0A2C50]">
+      <section id="future" className="py-20 bg-[#0A2C50]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-blue-400 mb-4 block">
+          {/* Header - Carbon Typography */}
+          <div className="text-center mb-12 carbon-font">
+            <span className="carbon-label-02 uppercase tracking-[0.16px] text-blue-400 mb-4 block">
               Extend Your Partnership
             </span>
-            <h2 className="text-4xl sm:text-5xl font-semibold text-white leading-tight tracking-tight mb-4">
+            <h2 className="carbon-fluid-heading-05 text-white mb-4">
               Engineering for the Future
             </h2>
-            <p className="text-lg text-blue-200 max-w-2xl mx-auto">
+            <p className="carbon-body-02 text-blue-200 max-w-2xl mx-auto">
               Scaling capabilities without scaling complexity.
             </p>
           </div>
@@ -343,18 +345,18 @@ const ServicesVariant = () => {
       {/* SECTION 3: Operations */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-indigo-600 mb-4 block">
+          {/* Header - Carbon Typography */}
+          <div className="text-center mb-16 carbon-font">
+            <span className="carbon-label-02 uppercase tracking-[0.16px] text-indigo-600 mb-4 block">
               24/7 Operations
             </span>
-            <h2 className="text-4xl sm:text-5xl font-semibold text-[#0F172A] leading-tight tracking-tight mb-4">
+            <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">
               Observability & Support
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="carbon-body-02 text-gray-600 max-w-2xl mx-auto">
               Full-stack monitoring with guaranteed response times.
             </p>
-            <p className="text-xl text-indigo-600 font-semibold max-w-2xl mx-auto mt-2">
+            <p className="carbon-fluid-heading-04 text-indigo-600 max-w-2xl mx-auto mt-2">
               We keep your systems running.
             </p>
           </div>
@@ -362,86 +364,86 @@ const ServicesVariant = () => {
           {/* Operations Cards - Two Column */}
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             {/* Observability Card - Left */}
-            <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-8">
+            <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-8 carbon-font">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-indigo-100 flex items-center justify-center">
                   <View className="w-6 h-6 text-indigo-600" />
                 </div>
                 <div>
-                  <p className="text-xs font-medium text-indigo-600 uppercase tracking-wide">Platform</p>
-                  <h3 className="text-xl font-semibold text-gray-900">Full-Stack Observability</h3>
+                  <p className="carbon-label-02 uppercase text-indigo-600">Platform</p>
+                  <h3 className="carbon-fluid-heading-03 text-gray-900">Full-Stack Observability</h3>
                 </div>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="carbon-body-02 text-gray-600 mb-6">
                 Real-time visibility into infrastructure, applications, and logs. Distributed tracing and intelligent alerting across your entire stack.
               </p>
               <div className="space-y-2 mb-4">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
+                <div className="flex items-center gap-2 carbon-body-02 text-gray-600">
                   <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
                   Infrastructure monitoring
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
+                <div className="flex items-center gap-2 carbon-body-02 text-gray-600">
                   <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
                   Application tracing
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
+                <div className="flex items-center gap-2 carbon-body-02 text-gray-600">
                   <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
                   Log aggregation
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
+                <div className="flex items-center gap-2 carbon-body-02 text-gray-600">
                   <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
                   Custom dashboards
                 </div>
               </div>
               <div className="flex flex-wrap gap-2">
                 {['Observability', 'Logging', 'Tracing', 'Alerting'].map(tag => (
-                  <span key={tag} className="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs rounded-full">{tag}</span>
+                  <span key={tag} className="px-3 py-1 bg-indigo-100 text-indigo-700 carbon-label-02">{tag}</span>
                 ))}
               </div>
             </div>
 
             {/* Support Card - Right */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-8">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-8 carbon-font">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
                   <Headphones className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-xs font-medium text-blue-600 uppercase tracking-wide">Service</p>
-                  <h3 className="text-xl font-semibold text-gray-900">24/7 SLA Support</h3>
+                  <p className="carbon-label-02 uppercase text-blue-600">Service</p>
+                  <h3 className="carbon-fluid-heading-03 text-gray-900">24/7 SLA Support</h3>
                 </div>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="carbon-body-02 text-gray-600 mb-6">
                 Round-the-clock NOC with guaranteed response times. Cross-domain automation and incident management with escalation procedures.
               </p>
               <div className="space-y-2 mb-4">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
+                <div className="flex items-center gap-2 carbon-body-02 text-gray-600">
                   <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
                   24/7 NOC coverage
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
+                <div className="flex items-center gap-2 carbon-body-02 text-gray-600">
                   <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
                   Guaranteed response times
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
+                <div className="flex items-center gap-2 carbon-body-02 text-gray-600">
                   <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
                   Cross-domain automation
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
+                <div className="flex items-center gap-2 carbon-body-02 text-gray-600">
                   <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
                   Incident management
                 </div>
               </div>
               <div className="flex flex-wrap gap-2">
                 {['24/7 Support', 'AIOps', 'Network Monitoring', 'SLA'].map(tag => (
-                  <span key={tag} className="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">{tag}</span>
+                  <span key={tag} className="px-3 py-1 bg-blue-100 text-blue-700 carbon-label-02">{tag}</span>
                 ))}
               </div>
             </div>
           </div>
 
           {/* Featured Case Study - Dark contrast with thumbnail */}
-          <div className="bg-slate-900 rounded-xl p-6 md:p-8 relative overflow-hidden">
+          <div className="bg-slate-900 rounded-xl p-6 md:p-8 relative overflow-hidden carbon-font">
             {/* Subtle gradient accent */}
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-indigo-600/10 to-transparent" />
             
@@ -456,11 +458,11 @@ const ServicesVariant = () => {
               {/* Middle: Content */}
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 text-xs font-medium rounded-full">Featured Case Study</span>
+                  <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 carbon-label-02">Featured Case Study</span>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Advanced Observability for Stock Exchange</h3>
-                <p className="text-slate-400 text-sm mb-4 leading-relaxed">Trading infrastructure monitoring with 99.99% uptime SLA and 30-day immutable audit trail.</p>
-                <Link to="/projects/case-study/financial-market-observability" className="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 text-sm font-medium transition-colors">
+                <h3 className="carbon-heading-03 text-white mb-2">Advanced Observability for Stock Exchange</h3>
+                <p className="text-slate-400 carbon-body-02 mb-4">Trading infrastructure monitoring with 99.99% uptime SLA and 30-day immutable audit trail.</p>
+                <Link to="/projects/case-study/financial-market-observability" className="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 carbon-heading-02 transition-colors">
                   Read the full story <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -468,12 +470,12 @@ const ServicesVariant = () => {
               {/* Right: Stats */}
               <div className="flex gap-8 md:gap-10 border-l border-slate-700 pl-8">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-white">99.99%</div>
-                  <div className="text-xs text-indigo-400 uppercase tracking-wide mt-1">Uptime SLA</div>
+                  <div className="carbon-fluid-heading-03 text-white">99.99%</div>
+                  <div className="carbon-label-02 text-indigo-400 uppercase mt-1">Uptime SLA</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-white">30d</div>
-                  <div className="text-xs text-indigo-400 uppercase tracking-wide mt-1">Audit Trail</div>
+                  <div className="carbon-fluid-heading-03 text-white">30d</div>
+                  <div className="carbon-label-02 text-indigo-400 uppercase mt-1">Audit Trail</div>
                 </div>
               </div>
             </div>
@@ -486,37 +488,40 @@ const ServicesVariant = () => {
 
 const HeroVariant = () => {
   return (
-    <section className="relative min-h-screen flex items-center bg-white overflow-hidden pt-20">
+    <section id="hero" className="relative min-h-screen flex items-center bg-white overflow-hidden pt-20 carbon-font">
       {/* IBM-Style Hero Graphics */}
       <HeroGraphics />
 
       <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
-        <div className="max-w-3xl">
-          {/* Eyebrow */}
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.3em] text-[#0f62fe] mb-6">
+        <div className="max-w-3xl lg:pl-6 relative">
+          {/* Slot Accent Line - IBM signature element, closer to heading on grid */}
+          <div className="absolute -left-2 top-[3.2rem] h-[130px] w-0.5 bg-[#0f62fe] animate-slot-draw hidden lg:block" />
+          
+          {/* Eyebrow - Carbon Label */}
+          <span className="inline-block carbon-label-02 uppercase tracking-[0.16px] text-[#0f62fe] mb-6">
             Enterprise IT Solutions
           </span>
           
-          {/* Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#161616] mb-6 leading-[1.1] tracking-tight">
+          {/* Heading - Carbon Fluid Display */}
+          <h1 className="carbon-fluid-display-03 text-[#161616] mb-6 relative">
             <span className="block">Unified Systems</span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0f62fe] to-[#8a3ffc]">Absolute Accountability</span>
           </h1>
           
-          {/* Sub-Heading */}
-          <p className="text-lg sm:text-xl text-[#525252] mb-5 font-light tracking-wide">
+          {/* Sub-Heading - Carbon Fluid Heading */}
+          <p className="carbon-fluid-heading-03 text-[#525252] mb-5">
             Hardware Infrastructure. <span className="text-[#0f62fe]">Cloud Scalability.</span> <span className="text-[#6929c4]">AI Intelligence.</span>
           </p>
           
-          {/* Body Text */}
+          {/* Body Text - Carbon Body */}
           <div className="max-w-2xl mb-8">
-            <p className="text-base sm:text-lg text-[#525252] leading-relaxed">
+            <p className="carbon-body-02 text-[#525252]">
               By bridging global supply chains with on-the-ground expertise, we engineer the infrastructure that powers your transformation with absolute accountability
             </p>
           </div>
           
-          {/* Process Steps */}
-          <div className="flex flex-wrap items-center gap-3 text-sm text-[#6f6f6f] mb-8">
+          {/* Process Steps - Carbon Label */}
+          <div className="flex flex-wrap items-center gap-3 carbon-label-02 text-[#6f6f6f] mb-8">
             <span>Design</span>
             <span className="text-[#c6c6c6]">→</span>
             <span>Procure</span>
@@ -527,68 +532,97 @@ const HeroVariant = () => {
             <span className="text-[#c6c6c6]">→</span>
             <span>Manage</span>
             <span className="text-[#c6c6c6]">→</span>
-            <span className="text-[#0f62fe] font-medium">Optimise</span>
+            <span className="text-[#0f62fe]">Optimise</span>
           </div>
           
-          {/* CTAs */}
-          <div className="flex flex-wrap gap-4">
+          {/* CTAs - Primary prominent, Secondary border button */}
+          <div className="flex flex-wrap items-stretch gap-4">
             <a
               href="#services"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-[#0f62fe] text-white font-semibold hover:bg-[#0353e9] transition-all duration-300"
+              className="group inline-flex items-center gap-3 px-8 h-14 bg-[#0f62fe] text-white carbon-heading-02 hover:bg-[#0353e9] transition-all duration-300 shadow-md hover:shadow-lg"
             >
               Explore Services
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <Link
               to="/about"
-              className="group inline-flex items-center gap-3 px-8 py-4 border border-[#161616] text-[#161616] font-medium hover:bg-[#f4f4f4] transition-all duration-300"
+              className="group inline-flex items-center gap-3 px-6 h-14 border border-[#c6c6c6] text-[#525252] carbon-body-02 hover:bg-[#f4f4f4] hover:border-[#8d8d8d] transition-all duration-300"
             >
               <img 
                 src="/david_headshot.jpg" 
                 alt="David Pridmore" 
-                className="w-8 h-8 rounded-full object-cover border-2 border-[#0f62fe]"
+                className="w-8 h-8 rounded-full object-cover border-2 border-[#c6c6c6] group-hover:border-[#0f62fe] transition-colors"
               />
               Meet David Pridmore, CEO & CTO
             </Link>
           </div>
         </div>
         
-        {/* Stats */}
-        <div className="absolute bottom-24 right-8 lg:right-12 hidden lg:flex gap-12">
+        {/* Slot line animation styles */}
+        <style>{`
+          @keyframes slot-draw {
+            from { transform: scaleY(0); }
+            to { transform: scaleY(1); }
+          }
+          .animate-slot-draw {
+            animation: slot-draw 1.5s ease-out forwards;
+            transform-origin: top;
+          }
+        `}</style>
+        
+        {/* Stats - reduced hierarchy with Carbon Gray 50 */}
+        <div className="absolute bottom-24 right-8 lg:right-12 hidden lg:flex gap-12 carbon-font">
           <div className="text-center">
-            <div className="text-4xl font-bold text-white">14+</div>
-            <div className="text-xs text-gray-500 uppercase tracking-wide mt-1">Years Experience</div>
+            <div className="carbon-fluid-heading-05 text-[#8d8d8d]">14+</div>
+            <div className="carbon-label-02 text-[#a8a8a8] uppercase mt-1">Years Experience</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-white">50+</div>
-            <div className="text-xs text-gray-500 uppercase tracking-wide mt-1">Platforms Deployed</div>
+            <div className="carbon-fluid-heading-05 text-[#8d8d8d]">50+</div>
+            <div className="carbon-label-02 text-[#a8a8a8] uppercase mt-1">Platforms Deployed</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-white">24/7</div>
-            <div className="text-xs text-gray-500 uppercase tracking-wide mt-1">Support Coverage</div>
+            <div className="carbon-fluid-heading-05 text-[#8d8d8d]">24/7</div>
+            <div className="carbon-label-02 text-[#a8a8a8] uppercase mt-1">Support Coverage</div>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500">
-        <span className="text-xs uppercase tracking-widest">Scroll</span>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 carbon-font">
+        <span className="carbon-label-02 uppercase">Scroll</span>
         <div className="w-px h-6 bg-gradient-to-b from-gray-500 to-transparent" />
       </div>
     </section>
   );
 };
 
+const sections = [
+  { id: 'hero', label: 'Home' },
+  { id: 'services', label: 'Solutions' },
+  { id: 'future', label: 'Emerging' },
+  { id: 'testimonials', label: 'Clients' },
+  { id: 'differentiator', label: 'Accountability' },
+  { id: 'case-studies', label: 'Projects' },
+  { id: 'about', label: 'About' },
+  { id: 'delivery', label: 'Delivery' },
+  { id: 'reliability', label: 'Support' },
+  { id: 'partnerships', label: 'Partners' },
+  { id: 'contact', label: 'Contact' },
+];
+
 const Cover = () => {
   return (
     <>
       <Navigation />
+      <FloatingPipNav sections={sections} />
       <main>
         <ErrorBoundary fallback={<div className="h-96 bg-gray-50" />}>
           <HeroVariant />
         </ErrorBoundary>
         <ErrorBoundary fallback={<div className="h-32 bg-gray-50" />}>
-          <ClientLogos />
+          <div id="clients">
+            <ClientLogos />
+          </div>
         </ErrorBoundary>
         <ErrorBoundary>
           <TrustBar />
@@ -597,31 +631,47 @@ const Cover = () => {
           <ServicesVariant />
         </ErrorBoundary>
         <ErrorBoundary>
-          <Testimonials />
+          <div id="testimonials">
+            <Testimonials />
+          </div>
         </ErrorBoundary>
         <ErrorBoundary>
-          <Differentiator />
+          <div id="differentiator">
+            <Differentiator />
+          </div>
         </ErrorBoundary>
         <ErrorBoundary>
-          <CaseStudies />
+          <div id="case-studies">
+            <CaseStudies />
+          </div>
         </ErrorBoundary>
         <ErrorBoundary>
-          <About />
+          <div id="about">
+            <About />
+          </div>
         </ErrorBoundary>
         <ErrorBoundary>
-          <Delivery />
+          <div id="delivery">
+            <Delivery />
+          </div>
         </ErrorBoundary>
         <ErrorBoundary>
-          <Reliability />
+          <div id="reliability">
+            <Reliability />
+          </div>
         </ErrorBoundary>
         <ErrorBoundary>
-          <Partnerships />
+          <div id="partnerships">
+            <Partnerships />
+          </div>
         </ErrorBoundary>
         <ErrorBoundary>
           <Closing />
         </ErrorBoundary>
         <ErrorBoundary>
-          <Contact />
+          <div id="contact">
+            <Contact />
+          </div>
         </ErrorBoundary>
       </main>
       <Footer />
