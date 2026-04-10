@@ -1223,7 +1223,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                       <div className="bg-[#0f62fe] border-b border-[#0353e9]">
                         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
                           <div>
-                            <h3 className="text-lg font-bold text-white">IT Platforms</h3>
+                            <h3 className="text-sm font-bold text-white">IT Platforms</h3>
                             <p className="text-sm text-blue-100 mt-1">ServiceNow, IBM Maximo, and custom platform implementations</p>
                           </div>
                           <button 
