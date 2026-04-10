@@ -318,8 +318,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
 
             <div className="hidden lg:flex items-center ml-8" ref={megaMenuRef}>
               
-              {/* SOLUTIONS - Hybrid Style with Divider */}
-              <div className="h-6 w-px bg-gray-300" />
+              {/* SOLUTIONS - Hybrid Style */}
               <div 
                 className="relative" 
                 onMouseEnter={() => handleMouseEnter('solutions')}
@@ -327,34 +326,22 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all rounded-sm ${activeMegaMenu === 'solutions' ? 'text-[#0f62fe] bg-[#f4f4f4]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all mx-1 ${activeMegaMenu === 'solutions' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   Solutions
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'solutions' ? 'rotate-90' : ''}`} />
                 </button>
                 {activeMegaMenu === 'solutions' && (
                   <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
-                    <div className="bg-white border-b border-[#c6c6c6] shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto">
-                      {/* Header */}
-                      <div className="bg-[#f4f4f4] border-b border-[#e0e0e0]">
-                        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-                          <Link 
-                            to="/services" 
-                            onClick={() => setActiveMegaMenu(null)}
-                            className="group"
-                          >
-                            <h3 className="text-sm font-semibold text-[#161616] group-hover:text-[#0f62fe] transition-colors">Solutions</h3>
-                            <p className="text-xs text-[#525252] mt-1 group-hover:text-[#0f62fe]/70 transition-colors">From Hardware to Cloud: One Partner, Complete Accountability</p>
-                          </Link>
-                          <button 
-                            onClick={() => setActiveMegaMenu(null)}
-                            className="p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
-                            aria-label="Close menu"
-                          >
-                            <X className="w-6 h-6 text-[#161616] group-hover:text-white transition-colors" />
-                          </button>
-                        </div>
-                      </div>
+                    <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
+                      {/* Floating Close Button */}
+                      <button 
+                        onClick={() => setActiveMegaMenu(null)}
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
+                        aria-label="Close menu"
+                      >
+                        <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
+                      </button>
                       
                       {/* Content - Three Panel Layout */}
                       <div className="max-w-6xl mx-auto flex pb-8">
@@ -541,7 +528,6 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               </div>
 
               {/* CONSULTANCY - Hybrid Style */}
-              <div className="h-6 w-px bg-gray-300 mx-1" />
               <div 
                 className="relative" 
                 onMouseEnter={() => handleMouseEnter('consultancy')}
@@ -549,7 +535,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all rounded-sm ${activeMegaMenu === 'consultancy' ? 'text-[#0f62fe] bg-[#f4f4f4]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all mx-1 ${activeMegaMenu === 'consultancy' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   Consultancy
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'consultancy' ? 'rotate-90' : ''}`} />
@@ -557,23 +543,15 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 
                 {activeMegaMenu === 'consultancy' && (
                   <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
-                    <div className="bg-white border-b border-[#c6c6c6] shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto">
-                      {/* Header */}
-                      <div className="bg-[#f4f4f4] border-b border-[#e0e0e0]">
-                        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-                          <div>
-                            <h3 className="text-sm font-semibold text-[#161616]">Consultancy</h3>
-                            <p className="text-xs text-[#525252] mt-1">Strategic technology advisory and digital transformation services</p>
-                          </div>
-                          <button 
-                            onClick={() => setActiveMegaMenu(null)}
-                            className="p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
-                            aria-label="Close menu"
-                          >
-                            <X className="w-6 h-6 text-[#161616] group-hover:text-white transition-colors" />
-                          </button>
-                        </div>
-                      </div>
+                    <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
+                      {/* Floating Close Button */}
+                      <button 
+                        onClick={() => setActiveMegaMenu(null)}
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
+                        aria-label="Close menu"
+                      >
+                        <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
+                      </button>
                       
                       {/* Content - Two Column Layout */}
                       <div className="max-w-7xl mx-auto px-6 py-6 pb-10">
@@ -640,7 +618,6 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               </div>
 
               {/* CLOUD - Hybrid Style */}
-              <div className="h-6 w-px bg-gray-300 mx-1" />
               <div 
                 className="relative" 
                 onMouseEnter={() => handleMouseEnter('cloud')}
@@ -649,7 +626,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 <Link 
                   to="/services/cloud"
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all rounded-sm ${activeMegaMenu === 'cloud' ? 'text-[#0f62fe] bg-[#f4f4f4]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all mx-1 ${activeMegaMenu === 'cloud' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   Cloud
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'cloud' ? 'rotate-90' : ''}`} />
@@ -657,23 +634,15 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 
                 {activeMegaMenu === 'cloud' && cloudCategory && (
                   <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
-                    <div className="bg-white border-b border-[#c6c6c6] shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto">
-                      {/* Header */}
-                      <div className="bg-[#f4f4f4] border-b border-[#e0e0e0]">
-                        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-                          <div>
-                            <h3 className="text-sm font-semibold text-[#161616]">{cloudCategory.label}</h3>
-                            <p className="text-xs text-[#525252] mt-1">{cloudCategory.description}</p>
-                          </div>
-                          <button 
-                            onClick={() => setActiveMegaMenu(null)}
-                            className="p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
-                            aria-label="Close menu"
-                          >
-                            <X className="w-6 h-6 text-[#161616] group-hover:text-white transition-colors" />
-                          </button>
-                        </div>
-                      </div>
+                    <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
+                      {/* Floating Close Button */}
+                      <button 
+                        onClick={() => setActiveMegaMenu(null)}
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
+                        aria-label="Close menu"
+                      >
+                        <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
+                      </button>
                       
                       {/* Content - Three Panel Layout */}
                       <div className="max-w-6xl mx-auto flex pb-8">
@@ -777,7 +746,6 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               </div>
 
               {/* INFRASTRUCTURE - Full Width Two Panel */}
-              <div className="h-6 w-px bg-gray-300 mx-1" />
               <div 
                 className="relative" 
                 onMouseEnter={() => handleMouseEnter('infrastructure')}
@@ -786,7 +754,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 <Link 
                   to="/services/infrastructure"
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all rounded-sm ${activeMegaMenu === 'infrastructure' ? 'text-[#0f62fe] bg-[#f4f4f4]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all mx-1 ${activeMegaMenu === 'infrastructure' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   Infrastructure
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'infrastructure' ? 'rotate-90' : ''}`} />
@@ -794,23 +762,15 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 
                 {activeMegaMenu === 'infrastructure' && (
                   <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
-                    <div className="bg-white border-b border-[#c6c6c6] shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto">
-                      {/* Header */}
-                      <div className="bg-[#f4f4f4] border-b border-[#e0e0e0]">
-                        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-                          <div>
-                            <h3 className="text-sm font-semibold text-[#161616]">Infrastructure</h3>
-                            <p className="text-xs text-[#525252] mt-1">Hardware support, data center services, and 24×7 SLA support</p>
-                          </div>
-                          <button 
-                            onClick={() => setActiveMegaMenu(null)}
-                            className="p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
-                            aria-label="Close menu"
-                          >
-                            <X className="w-6 h-6 text-[#161616] group-hover:text-white transition-colors" />
-                          </button>
-                        </div>
-                      </div>
+                    <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
+                      {/* Floating Close Button */}
+                      <button 
+                        onClick={() => setActiveMegaMenu(null)}
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
+                        aria-label="Close menu"
+                      >
+                        <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
+                      </button>
                       
                       {/* Content - Three Panel Layout */}
                       <div className="max-w-6xl mx-auto flex pb-8">
@@ -937,7 +897,6 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               </div>
 
               {/* DATA AND ANALYTICS - Full Width Two Panel */}
-              <div className="h-6 w-px bg-gray-300 mx-1" />
               <div 
                 className="relative" 
                 onMouseEnter={() => handleMouseEnter('data')}
@@ -945,7 +904,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all rounded-sm ${activeMegaMenu === 'data' ? 'text-[#0f62fe] bg-[#f4f4f4]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all mx-1 ${activeMegaMenu === 'data' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   Data and Analytics
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'data' ? 'rotate-90' : ''}`} />
@@ -953,23 +912,15 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 
                 {activeMegaMenu === 'data' && (
                   <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
-                    <div className="bg-white border-b border-[#c6c6c6] shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto">
-                      {/* Header */}
-                      <div className="bg-[#f4f4f4] border-b border-[#e0e0e0]">
-                        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-                          <div>
-                            <h3 className="text-sm font-semibold text-[#161616]">Data & Analytics</h3>
-                            <p className="text-xs text-[#525252] mt-1">Transform data into actionable insights with modern analytics platforms</p>
-                          </div>
-                          <button 
-                            onClick={() => setActiveMegaMenu(null)}
-                            className="p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
-                            aria-label="Close menu"
-                          >
-                            <X className="w-6 h-6 text-[#161616] group-hover:text-white transition-colors" />
-                          </button>
-                        </div>
-                      </div>
+                    <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
+                      {/* Floating Close Button */}
+                      <button 
+                        onClick={() => setActiveMegaMenu(null)}
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
+                        aria-label="Close menu"
+                      >
+                        <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
+                      </button>
                       
                       {/* Content - Three Panel Layout */}
                       <div className="max-w-6xl mx-auto flex pb-8">
@@ -1075,7 +1026,6 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               </div>
 
               {/* AI - Three Panel */}
-              <div className="h-6 w-px bg-gray-300 mx-1" />
               <div 
                 className="relative" 
                 onMouseEnter={() => handleMouseEnter('ai')}
@@ -1083,7 +1033,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all rounded-sm ${activeMegaMenu === 'ai' ? 'text-[#0f62fe] bg-[#f4f4f4]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all mx-1 ${activeMegaMenu === 'ai' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   AI
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'ai' ? 'rotate-90' : ''}`} />
@@ -1091,23 +1041,15 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 
                 {activeMegaMenu === 'ai' && (
                   <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
-                    <div className="bg-white border-b border-[#c6c6c6] shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto">
-                      {/* Header */}
-                      <div className="bg-[#f4f4f4] border-b border-[#e0e0e0]">
-                        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-                          <div>
-                            <h3 className="text-sm font-semibold text-[#161616]">AI Services</h3>
-                            <p className="text-xs text-[#525252] mt-1">AI-first services including MLOps, AIOps and platform engineering</p>
-                          </div>
-                          <button 
-                            onClick={() => setActiveMegaMenu(null)}
-                            className="p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
-                            aria-label="Close menu"
-                          >
-                            <X className="w-6 h-6 text-[#161616] group-hover:text-white transition-colors" />
-                          </button>
-                        </div>
-                      </div>
+                    <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
+                      {/* Floating Close Button */}
+                      <button 
+                        onClick={() => setActiveMegaMenu(null)}
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
+                        aria-label="Close menu"
+                      >
+                        <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
+                      </button>
                       
                       {/* Content - Three Panel Layout */}
                       <div className="max-w-6xl mx-auto flex pb-8">
@@ -1333,14 +1275,13 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               <div className="relative">
                 <Link
                   to="/projects"
-                  className="flex items-center px-3 py-2 text-[13px] font-medium transition-colors text-[#161616] hover:text-blue-600"
+                  className="flex items-center px-3 py-2 text-[13px] font-bold transition-all text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50 mx-1"
                 >
                   Projects
                 </Link>
               </div>
 
               {/* ABOUT - Hybrid Style */}
-              <div className="h-6 w-px bg-gray-300 mx-1" />
               <div 
                 className="relative" 
                 onMouseEnter={() => handleMouseEnter('about')}
@@ -1348,30 +1289,22 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all rounded-sm ${activeMegaMenu === 'about' ? 'text-[#0f62fe] bg-[#f4f4f4]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all mx-1 ${activeMegaMenu === 'about' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   About
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'about' ? 'rotate-90' : ''}`} />
                 </button>
                 {activeMegaMenu === 'about' && (
                   <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
-                    <div className="bg-white border-b border-[#c6c6c6] shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto">
-                      {/* Header */}
-                      <div className="bg-[#f4f4f4] border-b border-[#e0e0e0]">
-                        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-                          <div>
-                            <h3 className="text-sm font-semibold text-[#161616]">About Perception IT</h3>
-                            <p className="text-xs text-[#525252] mt-1">Your partner from hardware to cloud</p>
-                          </div>
-                          <button 
-                            onClick={() => setActiveMegaMenu(null)}
-                            className="p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
-                            aria-label="Close menu"
-                          >
-                            <X className="w-6 h-6 text-[#161616] group-hover:text-white transition-colors" />
-                          </button>
-                        </div>
-                      </div>
+                    <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
+                      {/* Floating Close Button */}
+                      <button 
+                        onClick={() => setActiveMegaMenu(null)}
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
+                        aria-label="Close menu"
+                      >
+                        <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
+                      </button>
                       
                       {/* Content - Three Panel Layout */}
                       <div className="max-w-6xl mx-auto flex pb-8">
