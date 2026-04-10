@@ -98,6 +98,11 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       updateNavBottom();
+      
+      // Close mega menu on scroll
+      if (activeMegaMenu) {
+        setActiveMegaMenu(null);
+      }
     };
     
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -109,7 +114,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(timeoutId);
     };
-  }, [showHighlightBar]);
+  }, [showHighlightBar, activeMegaMenu, setActiveMegaMenu]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -1205,7 +1210,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all rounded-sm ${activeMegaMenu === 'platforms' ? 'text-[#0f62fe] bg-[#f4f4f4]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all rounded-sm ${activeMegaMenu === 'platforms' ? 'text-white bg-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   IT Platforms
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'platforms' ? 'rotate-90' : ''}`} />
