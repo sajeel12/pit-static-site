@@ -1215,19 +1215,11 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                   <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
                     <div className="bg-white border-b border-[#c6c6c6] shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto">
                       {/* Header */}
-                      <div className="bg-[#f4f4f4] border-b border-[#e0e0e0]">
+                      <div className="bg-[#0f62fe] border-b border-[#0353e9]">
                         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-                          <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 bg-[#0f62fe] rounded-lg flex items-center justify-center flex-shrink-0">
-                              <Star className="w-6 h-6 text-white" />
-                            </div>
-                            <div>
-                              <div className="flex items-center gap-2 mb-1">
-                                <h3 className="text-lg font-bold text-[#161616]">IT Platforms</h3>
-                                <span className="px-2 py-0.5 bg-[#0f62fe] text-white text-[10px] font-bold uppercase tracking-wider rounded">Core Service</span>
-                              </div>
-                              <p className="text-sm text-[#525252]">ServiceNow, IBM Maximo, and custom platform implementations</p>
-                            </div>
+                          <div>
+                            <h3 className="text-lg font-bold text-white">IT Platforms</h3>
+                            <p className="text-sm text-blue-100 mt-1">ServiceNow, IBM Maximo, and custom platform implementations</p>
                           </div>
                           <button 
                             onClick={() => setActiveMegaMenu(null)}
