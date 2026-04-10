@@ -1325,7 +1325,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                         <div className="w-[280px] bg-white pt-6 pr-6 pb-6 flex-shrink-0">
                           <div className="pl-4 pr-0 py-0 border-l-2 border-[#0f62fe]">
                             <p className="text-[11px] font-semibold text-[#6f6f6f] uppercase tracking-[0.16px] mb-3">Featured Case Study</p>
-                            <h4 className="text-sm font-semibold text-[#161616] mb-3">ServiceNow ITSM Transformation — African Telecom</h4>
+                            <h4 className="text-sm font-bold text-[#0f62fe] mb-3">ServiceNow ITSM Transformation — African Telecom</h4>
                             <p className="text-sm text-[#525252] mb-4 leading-relaxed">Complete IT service management overhaul with automated workflows, reducing resolution times by 60%.</p>
                             <Link to="/projects" onClick={() => setActiveMegaMenu(null)} className="inline-flex items-center gap-1 text-sm font-semibold text-[#525252] hover:text-[#0f62fe]">
                               View case study <ArrowRight className="w-4 h-4" />
