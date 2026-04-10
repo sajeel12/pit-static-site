@@ -1218,7 +1218,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 
                 {activeMegaMenu === 'platforms' && (
                   <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
-                    <div className="bg-white border-b-4 border-[#0f62fe] shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
+                    <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
                       {/* Blue connection bar */}
                       <div className="h-1 bg-[#0f62fe] w-full"></div>
                       {/* Floating Close Button */}
