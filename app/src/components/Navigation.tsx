@@ -1210,7 +1210,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all rounded-sm ${activeMegaMenu === 'platforms' ? 'text-white bg-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all ${activeMegaMenu === 'platforms' ? 'text-white bg-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   IT Platforms
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'platforms' ? 'rotate-90' : ''}`} />
@@ -1218,11 +1218,13 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 
                 {activeMegaMenu === 'platforms' && (
                   <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
-                    <div className="bg-white border-b border-[#c6c6c6] shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
+                    <div className="bg-white border-b-4 border-[#0f62fe] shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
+                      {/* Blue connection bar */}
+                      <div className="h-1 bg-[#0f62fe] w-full"></div>
                       {/* Floating Close Button */}
                       <button 
                         onClick={() => setActiveMegaMenu(null)}
-                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group rounded-sm"
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
                         aria-label="Close menu"
                       >
                         <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
