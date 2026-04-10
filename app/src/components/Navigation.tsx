@@ -1202,7 +1202,6 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               </div>
 
               {/* IT PLATFORMS - Full Width Two Panel */}
-              <div className="h-6 w-px bg-gray-300 mx-1" />
               <div 
                 className="relative" 
                 onMouseEnter={() => handleMouseEnter('platforms')}
@@ -1210,7 +1209,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all ${activeMegaMenu === 'platforms' ? 'text-white bg-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all mx-1 ${activeMegaMenu === 'platforms' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   IT Platforms
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'platforms' ? 'rotate-90' : ''}`} />
@@ -1219,8 +1218,6 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 {activeMegaMenu === 'platforms' && (
                   <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
                     <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
-                      {/* Blue connection bar */}
-                      <div className="h-1 bg-[#0f62fe] w-full"></div>
                       {/* Floating Close Button */}
                       <button 
                         onClick={() => setActiveMegaMenu(null)}
@@ -1333,7 +1330,6 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               </div>
 
               {/* PROJECTS - Hybrid Style */}
-              <div className="h-6 w-px bg-gray-300 mx-1" />
               <div className="relative">
                 <Link
                   to="/projects"
