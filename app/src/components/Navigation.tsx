@@ -1218,23 +1218,15 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 
                 {activeMegaMenu === 'platforms' && (
                   <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
-                    <div className="bg-white border-b border-[#c6c6c6] shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto">
-                      {/* Header */}
-                      <div className="bg-[#0f62fe] border-b border-[#0353e9]">
-                        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-                          <div>
-                            <h3 className="text-sm font-bold text-white">IT Platforms</h3>
-                            <p className="text-sm text-blue-100 mt-1">ServiceNow, IBM Maximo, and custom platform implementations</p>
-                          </div>
-                          <button 
-                            onClick={() => setActiveMegaMenu(null)}
-                            className="p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
-                            aria-label="Close menu"
-                          >
-                            <X className="w-6 h-6 text-[#161616] group-hover:text-white transition-colors" />
-                          </button>
-                        </div>
-                      </div>
+                    <div className="bg-white border-b border-[#c6c6c6] shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
+                      {/* Floating Close Button */}
+                      <button 
+                        onClick={() => setActiveMegaMenu(null)}
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group rounded-sm"
+                        aria-label="Close menu"
+                      >
+                        <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
+                      </button>
                       
                       {/* Content - Three Panel Layout */}
                       <div className="max-w-6xl mx-auto flex pb-8">
