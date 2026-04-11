@@ -105,7 +105,7 @@ const Testimonials = () => {
                 {t.hasLogo ? (
                   <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center bg-white rounded-2xl p-4 shadow-sm">
                     <img 
-                      src="/jazz_logo.png" 
+                      src="/logos/clients/jazz_logo.png" 
                       alt={t.company} 
                       className="max-w-full max-h-full object-contain"
                     />

@@ -662,7 +662,7 @@ const HeroVariant = () => {
               className="group inline-flex items-center gap-3 px-6 h-14 bg-white/80 backdrop-blur-sm border border-gray-200 text-[#525252] carbon-body-02 hover:bg-white hover:border-[#0f62fe]/30 hover:shadow-lg transition-all duration-300"
             >
               <img 
-                src="/david_headshot.jpg" 
+                src="/team/david_headshot.jpg" 
                 alt="David Pridmore" 
                 className="w-8 h-8 rounded-full object-cover border-2 border-[#c6c6c6] group-hover:border-[#0f62fe] transition-colors"
               />

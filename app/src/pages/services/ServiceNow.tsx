@@ -1660,7 +1660,7 @@ const ServiceNow = () => {
                 <div className="relative">
                   <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden border-4 border-[#00b4d8] shadow-lg shadow-[#00b4d8]/20">
                     <img 
-                      src="/david_headshot.jpg" 
+                      src="/team/david_headshot.jpg" 
                       alt="David Pridmore" 
                       className="w-full h-full object-cover"
                     />

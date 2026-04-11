@@ -24,7 +24,7 @@ const ServerContinuity = () => {
       ],
       title: 'Ibrahim Fibres — ServerLife Extend™ Deployment',
       description: 'Extended life of 7-year-old MES servers with same-day spare availability, eliminating forced PKR 8M refresh and maintaining 99.9% production uptime.',
-      logo: '/ibrahim-fibres-logo.svg',
+      logo: '/logos/clients/ibrahim-fibres-logo.svg',
       companyName: 'Ibrahim Fibres',
       stats: [
         { value: 'PKR 8M', label: 'CapEx Deferred', icon: Money, color: '#f97316' },

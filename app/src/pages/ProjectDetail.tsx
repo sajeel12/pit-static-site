@@ -428,7 +428,7 @@ const projectsData: Project[] = [
       author: 'Mr. Usman Zafar',
       role: 'Head of IT, Ibrahim Fibres Limited',
     },
-    logo: '/ibrahim-fibres-logo.svg',
+    logo: '/logos/clients/ibrahim-fibres-logo.svg',
     relatedServices: [
       { name: 'Hardware Support', link: '/services/hardware-support' },
       { name: 'Server Continuity', link: '/services/server-continuity' },

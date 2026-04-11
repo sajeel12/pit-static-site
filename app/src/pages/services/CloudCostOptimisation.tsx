@@ -123,7 +123,7 @@ const CloudCostOptimisation = () => {
             <div className="relative flex-shrink-0">
               <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-lg overflow-hidden shadow-xl border-4 border-white">
                 <img 
-                  src="/david_headshot.jpg" 
+                  src="/team/david_headshot.jpg" 
                   alt="David Pridmore" 
                   className="w-full h-full object-cover"
                 />
