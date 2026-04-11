@@ -58,8 +58,8 @@ const GradientPlane = ({ position, rotation, color1, color2, opacity, speed }: G
 
   const uniforms = useMemo(() => ({
     uTime: { value: 0 },
-    uColor1: { value: [0.059, 0.384, 0.996] }, // #0f62fe
-    uColor2: { value: [0.541, 0.247, 0.988] }, // #8a3ffc
+    uColor1: { value: [0.0, 0.706, 0.847] }, // #00b4d8
+    uColor2: { value: [0.035, 0.569, 0.698] }, // #0891b2
     uOpacity: { value: opacity },
   }), [opacity]);
 
@@ -128,36 +128,27 @@ const Scene = () => {
       <GradientPlane
         position={[-2, 0, -3]}
         rotation={[0.2, 0.3, 0]}
-        color1="#0f62fe"
-        color2="#4589ff"
-        opacity={0.15}
+        color1="#00b4d8"
+        color2="#22d3ee"
+        opacity={0.04}
         speed={0.5}
       />
       <GradientPlane
         position={[2, -1, -4]}
         rotation={[-0.1, -0.4, 0.1]}
-        color1="#8a3ffc"
-        color2="#0f62fe"
-        opacity={0.12}
+        color1="#0891b2"
+        color2="#00b4d8"
+        opacity={0.06}
         speed={0.7}
       />
       <GradientPlane
         position={[0, 1.5, -5]}
         rotation={[0.3, 0.2, -0.1]}
-        color1="#4589ff"
-        color2="#8a3ffc"
-        opacity={0.1}
+        color1="#22d3ee"
+        color2="#0891b2"
+        opacity={0.05}
         speed={0.4}
       />
-      <GradientPlane
-        position={[-3, -2, -6]}
-        rotation={[-0.2, 0.5, 0.2]}
-        color1="#0f62fe"
-        color2="#6929c4"
-        opacity={0.08}
-        speed={0.6}
-      />
-      
       {/* Ambient Light */}
       <ambientLight intensity={0.5} />
     </group>

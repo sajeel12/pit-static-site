@@ -1,11 +1,13 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Shield, Clock, Award, Users, Globe } from 'lucide-react';
 import { 
   BareMetalServer, 
   Cloud, 
   Ai, 
   View, 
   Headphones, 
-  Activity 
+  Activity,
+  CheckmarkFilled,
+  WarningAlt
 } from '@carbon/icons-react';
 import { 
   DataScience,
@@ -15,9 +17,11 @@ import {
 } from '@carbon/pictograms-react';
 
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../sections/Footer';
 import HeroGraphics from '../components/HeroGraphics';
+import PartnerLogos from '../sections/PartnerLogos';
 import ClientLogos from '../sections/ClientLogos';
 import Testimonials from '../sections/Testimonials';
 import CaseStudies from '../sections/CaseStudies';
@@ -38,17 +42,128 @@ import '../styles/carbon-typography.css';
  * Strategic Services layout with custom Hero and Observability-style cards.
  */
 
-// Trust Bar Component
-const TrustBar = () => {
+// Trust Tiles Component (inspired by Maximo trust bar)
+const TrustTiles = () => {
+  const tiles = [
+    { icon: Shield, headline: 'Absolute Accountability', subtext: 'One partner, end-to-end ownership', color: '#0f62fe' },
+    { icon: Clock, headline: '24/7 Operations', subtext: 'Guaranteed response times', color: '#24a148' },
+    { icon: Award, headline: 'Certified Experts', subtext: 'British-trained technologists', color: '#6929c4' },
+    { icon: Users, headline: '50+ Platforms Deployed', subtext: 'Proven enterprise scale', color: '#0f62fe' },
+    { icon: Globe, headline: 'Global Supply Chain', subtext: 'Local deployment expertise', color: '#6929c4' },
+    { icon: CheckmarkFilled, headline: 'Zero-Downtime Proven', subtext: 'Complex migrations delivered', color: '#24a148' },
+  ];
+
   return (
-    <section className="py-6 bg-[#0F172A] border-t border-gray-800">
+    <section className="py-8 bg-white border-y border-gray-100">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex flex-wrap items-center justify-center gap-4 text-gray-400 carbon-font carbon-label-02">
-          <span>British-certified technologists</span>
-          <span className="text-gray-600">|</span>
-          <span>Huawei Enterprise Partner</span>
-          <span className="text-gray-600">|</span>
-          <span>EZY Distribution Alliance</span>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {tiles.map((tile) => (
+            <div key={tile.headline} className="group p-4 bg-gray-50 border border-gray-100 hover:border-[#0f62fe] hover:shadow-md transition-all cursor-default">
+              <div className="w-10 h-10 bg-white flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                <tile.icon className="w-5 h-5" style={{ color: tile.color }} />
+              </div>
+              <p className="text-[13px] text-gray-900 font-semibold leading-tight mb-1">{tile.headline}</p>
+              <p className="text-[11px] text-gray-500">{tile.subtext}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Attention Block Component
+const AttentionBlock = () => {
+  return (
+    <section className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-3xl mb-8">
+          <span className="inline-block carbon-label-02 uppercase tracking-[0.16px] text-[#da1e28] mb-4">
+            The Integration Gap
+          </span>
+          <h2 className="carbon-fluid-heading-04 text-gray-900 mb-4">
+            Most enterprises work with <span className="text-[#da1e28]">5+ vendors</span> for a single deployment
+          </h2>
+          <p className="carbon-body-02 text-gray-600">
+            Hardware from one. Cloud from another. AI from a third. When something breaks, everyone points fingers.
+          </p>
+        </div>
+        
+        <div className="p-6 border-l-4 border-[#da1e28] bg-red-50">
+          <div className="flex items-start gap-4">
+            <WarningAlt className="w-6 h-6 text-[#da1e28] flex-shrink-0 mt-0.5" />
+            <div>
+              <p className="carbon-heading-02 text-gray-900 mb-2">The Risk</p>
+              <p className="carbon-body-02 text-gray-600">
+                Fragmented accountability leads to delayed projects, budget overruns, and systems that don't talk to each other. 
+                By the time issues surface, you're locked into contracts with no clear path forward.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// How We Work Component
+const HowWeWork = () => {
+  const steps = [
+    { step: '01', title: 'Discovery', desc: 'Deep-dive into your infrastructure, workflows, and strategic goals.', color: '#0f62fe' },
+    { step: '02', title: 'Design', desc: 'Architect unified solutions spanning hardware, cloud, and AI.', color: '#6929c4' },
+    { step: '03', title: 'Deliver', desc: 'End-to-end deployment with 24/7 accountability and optimisation.', color: '#24a148' },
+  ];
+
+  return (
+    <section className="py-16 bg-[#FAFAFA]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="text-center mb-12">
+          <span className="carbon-label-02 uppercase tracking-[0.16px] text-[#0f62fe] mb-4 block">Engagement Model</span>
+          <h2 className="carbon-fluid-heading-04 text-gray-900 mb-4">How We Work</h2>
+          <p className="carbon-body-02 text-gray-600 max-w-2xl mx-auto">
+            Risk-oriented approach with clear deliverables at each phase.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {steps.map((item) => (
+            <div key={item.step} className="relative p-6 bg-white border border-gray-100 hover:border-[#0f62fe] transition-colors">
+              <span className="absolute top-4 right-4 carbon-heading-02" style={{ color: item.color }}>{item.step}</span>
+              <h3 className="carbon-heading-02 text-gray-900 mb-2">{item.title}</h3>
+              <p className="carbon-body-02 text-gray-600">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// CTA Banner Component
+const CTABanner = () => {
+  return (
+    <section className="py-16 bg-[#0f62fe]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+        <h2 className="carbon-fluid-heading-04 text-white mb-4">
+          Ready to eliminate vendor fragmentation?
+        </h2>
+        <p className="carbon-body-02 text-white/80 mb-8 max-w-2xl mx-auto">
+          Schedule a discovery call. We'll assess your current infrastructure and show you how unified accountability reduces risk and accelerates delivery.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a 
+            href="#contact"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#0f62fe] carbon-heading-02 hover:bg-gray-100 transition-colors"
+          >
+            Schedule Discovery Call
+            <ArrowRight className="w-4 h-4" />
+          </a>
+          <a 
+            href="tel:+442012345678"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white carbon-heading-02 hover:bg-white/10 transition-colors"
+          >
+            Call Us Now
+          </a>
         </div>
       </div>
     </section>
@@ -494,13 +609,14 @@ const HeroVariant = () => {
 
       <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
         <div className="max-w-3xl lg:pl-6 relative">
-          {/* Slot Accent Line - IBM signature element, closer to heading on grid */}
-          <div className="absolute -left-2 top-[3.2rem] h-[130px] w-0.5 bg-[#0f62fe] animate-slot-draw hidden lg:block" />
+          {/* Slot Accent Line */}
+          <div className="absolute -left-2 top-[3.2rem] h-[130px] w-0.5 bg-gradient-to-b from-[#0f62fe] to-[#8a3ffc] animate-slot-draw hidden lg:block" />
           
-          {/* Eyebrow - Carbon Label */}
-          <span className="inline-block carbon-label-02 uppercase tracking-[0.16px] text-[#0f62fe] mb-6">
-            Enterprise IT Solutions
-          </span>
+          {/* Animated Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-100 rounded-full mb-6">
+            <span className="w-2 h-2 bg-[#24a148] rounded-full animate-pulse" />
+            <span className="carbon-label-02 text-[#0f62fe]">Now accepting enterprise engagements for Q3</span>
+          </div>
           
           {/* Heading - Carbon Fluid Display */}
           <h1 className="carbon-fluid-display-03 text-[#161616] mb-6 relative">
@@ -520,33 +636,30 @@ const HeroVariant = () => {
             </p>
           </div>
           
-          {/* Process Steps - Carbon Label */}
-          <div className="flex flex-wrap items-center gap-3 carbon-label-02 text-[#6f6f6f] mb-8">
-            <span>Design</span>
-            <span className="text-[#c6c6c6]">→</span>
-            <span>Procure</span>
-            <span className="text-[#c6c6c6]">→</span>
-            <span>Deploy</span>
-            <span className="text-[#c6c6c6]">→</span>
-            <span>Integrate</span>
-            <span className="text-[#c6c6c6]">→</span>
-            <span>Manage</span>
-            <span className="text-[#c6c6c6]">→</span>
-            <span className="text-[#0f62fe]">Optimise</span>
+          {/* Process Steps - Visual Pathway */}
+          <div className="flex flex-wrap items-center gap-1 carbon-label-02 mb-8">
+            {['Design', 'Procure', 'Deploy', 'Integrate', 'Manage', 'Optimise'].map((step, i) => (
+              <div key={step} className="flex items-center">
+                <span className={`px-2 py-1 transition-colors ${i === 5 ? 'bg-[#0f62fe] text-white rounded' : 'text-[#6f6f6f]'}`}>
+                  {step}
+                </span>
+                {i < 5 && <span className="text-[#c6c6c6] mx-1">→</span>}
+              </div>
+            ))}
           </div>
           
-          {/* CTAs - Primary prominent, Secondary border button */}
+          {/* CTAs - Enhanced with depth and glow */}
           <div className="flex flex-wrap items-stretch gap-4">
             <a
               href="#services"
-              className="group inline-flex items-center gap-3 px-8 h-14 bg-[#0f62fe] text-white carbon-heading-02 hover:bg-[#0353e9] transition-all duration-300 shadow-md hover:shadow-lg"
+              className="group inline-flex items-center gap-3 px-8 h-14 bg-gradient-to-r from-[#0f62fe] to-[#4589ff] text-white carbon-heading-02 hover:from-[#0353e9] hover:to-[#0f62fe] transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5"
             >
               Explore Services
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <Link
               to="/about"
-              className="group inline-flex items-center gap-3 px-6 h-14 border border-[#c6c6c6] text-[#525252] carbon-body-02 hover:bg-[#f4f4f4] hover:border-[#8d8d8d] transition-all duration-300"
+              className="group inline-flex items-center gap-3 px-6 h-14 bg-white/80 backdrop-blur-sm border border-gray-200 text-[#525252] carbon-body-02 hover:bg-white hover:border-[#0f62fe]/30 hover:shadow-lg transition-all duration-300"
             >
               <img 
                 src="/david_headshot.jpg" 
@@ -558,7 +671,7 @@ const HeroVariant = () => {
           </div>
         </div>
         
-        {/* Slot line animation styles */}
+        {/* Animation styles */}
         <style>{`
           @keyframes slot-draw {
             from { transform: scaleY(0); }
@@ -568,20 +681,68 @@ const HeroVariant = () => {
             animation: slot-draw 1.5s ease-out forwards;
             transform-origin: top;
           }
+          
+          @keyframes float-slow {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(-10px) translateX(-10px); }
+            75% { transform: translateY(-30px) translateX(5px); }
+          }
+          
+          @keyframes float-medium {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            33% { transform: translateY(15px) translateX(-15px); }
+            66% { transform: translateY(-10px) translateX(10px); }
+          }
+          
+          @keyframes float-fast {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+          }
+          
+          @keyframes float-card {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+          }
+          
+          @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+          
+          .animate-float-slow {
+            animation: float-slow 12s ease-in-out infinite;
+          }
+          
+          .animate-float-medium {
+            animation: float-medium 8s ease-in-out infinite;
+          }
+          
+          .animate-float-fast {
+            animation: float-fast 4s ease-in-out infinite;
+          }
+          
+          .animate-float-card {
+            animation: float-card 6s ease-in-out infinite;
+          }
+          
+          .animate-spin-slow {
+            animation: spin-slow 20s linear infinite;
+          }
         `}</style>
         
-        {/* Stats - reduced hierarchy with Carbon Gray 50 */}
+        {/* Stats - Plain text with colored numbers */}
         <div className="absolute bottom-24 right-8 lg:right-12 hidden lg:flex gap-12 carbon-font">
           <div className="text-center">
-            <div className="carbon-fluid-heading-05 text-[#8d8d8d]">14+</div>
+            <div className="carbon-fluid-heading-05 text-[#0f62fe]">14+</div>
             <div className="carbon-label-02 text-[#a8a8a8] uppercase mt-1">Years Experience</div>
           </div>
           <div className="text-center">
-            <div className="carbon-fluid-heading-05 text-[#8d8d8d]">50+</div>
+            <div className="carbon-fluid-heading-05 text-[#8a3ffc]">50+</div>
             <div className="carbon-label-02 text-[#a8a8a8] uppercase mt-1">Platforms Deployed</div>
           </div>
           <div className="text-center">
-            <div className="carbon-fluid-heading-05 text-[#8d8d8d]">24/7</div>
+            <div className="carbon-fluid-heading-05 text-[#24a148]">24/7</div>
             <div className="carbon-label-02 text-[#a8a8a8] uppercase mt-1">Support Coverage</div>
           </div>
         </div>
@@ -611,21 +772,26 @@ const sections = [
 ];
 
 const Cover = () => {
+  const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
+  
   return (
     <>
-      <Navigation />
-      <FloatingPipNav sections={sections} />
+      <Navigation activeMegaMenu={activeMegaMenu} setActiveMegaMenu={setActiveMegaMenu} />
+      <FloatingPipNav sections={sections} hidden={!!activeMegaMenu} />
       <main>
         <ErrorBoundary fallback={<div className="h-96 bg-gray-50" />}>
           <HeroVariant />
         </ErrorBoundary>
         <ErrorBoundary fallback={<div className="h-32 bg-gray-50" />}>
-          <div id="clients">
-            <ClientLogos />
+          <div id="partners-ticker">
+            <PartnerLogos />
           </div>
         </ErrorBoundary>
         <ErrorBoundary>
-          <TrustBar />
+          <TrustTiles />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <AttentionBlock />
         </ErrorBoundary>
         <ErrorBoundary>
           <ServicesVariant />
@@ -633,6 +799,11 @@ const Cover = () => {
         <ErrorBoundary>
           <div id="testimonials">
             <Testimonials />
+          </div>
+        </ErrorBoundary>
+        <ErrorBoundary fallback={<div className="h-32 bg-gray-50" />}>
+          <div id="clients-ticker">
+            <ClientLogos />
           </div>
         </ErrorBoundary>
         <ErrorBoundary>
@@ -664,6 +835,12 @@ const Cover = () => {
           <div id="partnerships">
             <Partnerships />
           </div>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <HowWeWork />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <CTABanner />
         </ErrorBoundary>
         <ErrorBoundary>
           <Closing />

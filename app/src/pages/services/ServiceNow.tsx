@@ -288,9 +288,9 @@ const ServiceNow = () => {
             
             {/* Breadcrumb - with explicit z-index */}
             <nav className="relative z-10 flex items-center gap-2 text-xs mb-6" aria-label="Breadcrumb">
-              <a href="/" className="text-[#0f62fe] hover:underline">Home</a>
+              <a href="/" className="text-[#00b4d8] hover:underline">Home</a>
               <ArrowRight className="w-3 h-3 text-gray-400 rotate-180" />
-              <a href="/services" className="text-[#0f62fe] hover:underline">Services</a>
+              <a href="/services" className="text-[#00b4d8] hover:underline">Services</a>
               <ArrowRight className="w-3 h-3 text-gray-400 rotate-180" />
               <span className="text-gray-400">ServiceNow</span>
             </nav>
@@ -313,9 +313,11 @@ const ServiceNow = () => {
 
             {/* Hero Content */}
             <div className="max-w-3xl">
+              <span className="inline-block carbon-label-01 text-[#00b4d8] uppercase tracking-wider mb-3">
+                SERVICENOW
+              </span>
               <h1 className="carbon-fluid-heading-05 text-white mb-6">
-                <span className="block">ServiceNow</span>
-                <span className="block text-blue-300">Implementation & Migration</span>
+                Implementation & Migration
               </h1>
               
               <p className="carbon-body-02 text-gray-300 mb-6">
@@ -339,7 +341,7 @@ const ServiceNow = () => {
                 <button
                   onClick={() => scrollToSection('case-studies')}
                   className="cds--btn cds--btn--tertiary"
-                  style={{ borderColor: 'white', color: 'white', borderWidth: '1px' }}
+                  style={{ borderColor: 'rgba(255,255,255,0.5)', color: 'white', borderWidth: '1px' }}
                 >
                   View Case Studies
                 </button>
@@ -391,7 +393,7 @@ const ServiceNow = () => {
                   className="cds--tile bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] p-4 flex flex-col gap-3"
                 >
                   <div className="w-10 h-10 bg-[var(--cds-layer-02)] flex items-center justify-center">
-                    <item.icon className="w-5 h-5 text-[#0f62fe]" />
+                    <item.icon className="w-5 h-5 text-[#00b4d8]" />
                   </div>
                   <div>
                     <p className="carbon-label-01 text-[var(--cds-text-primary)] font-semibold">{item.headline}</p>
@@ -410,7 +412,7 @@ const ServiceNow = () => {
           <div className="flex">
             
             {/* Desktop Side Menu - Hidden on mobile */}
-            <aside className="hidden xl:block w-64 flex-shrink-0">
+            <aside className="hidden xl:block w-64 flex-shrink-0 pl-4">
               <nav className="sticky top-20 pt-8 pb-8 border-r border-[var(--cds-border-subtle)] h-[calc(100vh-5rem)]">
                 <ul className="space-y-0.5">
                   {SECTIONS.map((item) => (
@@ -419,7 +421,7 @@ const ServiceNow = () => {
                         onClick={() => scrollToSection(item.id)}
                         className={`w-full text-left px-4 py-2 text-sm transition-colors border-l-[3px] ${
                           activeSection === item.id
-                            ? 'text-[var(--cds-text-primary)] border-[#0f62fe] bg-[#0f62fe]/5 font-semibold'
+                            ? 'text-[var(--cds-text-primary)] border-[#00b4d8] bg-[#00b4d8]/5 font-semibold'
                             : 'text-[var(--cds-text-secondary)] border-transparent hover:text-[var(--cds-text-primary)] hover:bg-[var(--cds-layer-hover)]'
                         }`}
                       >
@@ -496,8 +498,8 @@ const ServiceNow = () => {
                 <svg className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-20" viewBox="0 0 800 400">
                   <defs>
                     <linearGradient id="dataFlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#0f62fe" stopOpacity="0" />
-                      <stop offset="50%" stopColor="#0f62fe" stopOpacity="1" />
+                      <stop offset="0%" stopColor="#00b4d8" stopOpacity="0" />
+                      <stop offset="50%" stopColor="#00b4d8" stopOpacity="1" />
                       <stop offset="100%" stopColor="#24a148" stopOpacity="0" />
                     </linearGradient>
                   </defs>
@@ -561,11 +563,11 @@ const ServiceNow = () => {
 
                     {/* Engineering Overlay with Accent */}
                     <div className="relative">
-                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0f62fe] to-transparent opacity-50"></div>
+                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00b4d8] to-transparent opacity-50"></div>
                       <div className="px-6 py-5 bg-[var(--cds-layer-01)]">
                         <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 bg-[#0f62fe] bg-opacity-10 flex items-center justify-center flex-shrink-0">
-                            <Chip className="w-6 h-6 text-[#0f62fe]" />
+                          <div className="w-12 h-12 bg-[#00b4d8] bg-opacity-10 flex items-center justify-center flex-shrink-0">
+                            <Chip className="w-6 h-6 text-[#00b4d8]" />
                           </div>
                           <div className="flex-1">
                             <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">
@@ -623,7 +625,7 @@ const ServiceNow = () => {
                       <div className="grid grid-cols-3 gap-3 mb-6">
                         {[
                           { value: '99.95%', label: 'Uptime SLA', color: '#24a148' },
-                          { value: '52%', label: 'Faster Resolution', color: '#0f62fe' },
+                          { value: '52%', label: 'Faster Resolution', color: '#00b4d8' },
                           { value: '24/7', label: 'Coverage', color: '#f4f4f4' }
                         ].map((metric, i) => (
                           <div 
@@ -712,13 +714,13 @@ const ServiceNow = () => {
             <div className="mt-16 text-center relative">
               {/* Animated Data Flow Arrows */}
               <div className="flex items-center justify-center gap-4 mb-8">
-                <div className="w-32 h-px bg-gradient-to-r from-transparent to-[#0f62fe] relative overflow-hidden">
+                <div className="w-32 h-px bg-gradient-to-r from-transparent to-[#00b4d8] relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-50 animate-pulse"></div>
                 </div>
                 <div className="w-16 h-16 flex items-center justify-center relative">
-                  <div className="absolute inset-0 rounded-full border-2 border-[#0f62fe] opacity-20 animate-ping"></div>
-                  <div className="w-12 h-12 bg-[#0f62fe] bg-opacity-10 flex items-center justify-center">
-                    <EdgeNode className="w-7 h-7 text-[#0f62fe]" />
+                  <div className="absolute inset-0 rounded-full border-2 border-[#00b4d8] opacity-20 animate-ping"></div>
+                  <div className="w-12 h-12 bg-[#00b4d8] bg-opacity-10 flex items-center justify-center">
+                    <EdgeNode className="w-7 h-7 text-[#00b4d8]" />
                   </div>
                 </div>
                 <div className="w-32 h-px bg-gradient-to-l from-transparent to-[#24a148] relative overflow-hidden">
@@ -736,12 +738,12 @@ const ServiceNow = () => {
                     <div className="grid md:grid-cols-2">
                       {/* The Logic Side */}
                       <div className="p-6 border-b md:border-b-0 md:border-r border-[var(--cds-border-subtle)] relative">
-                        <div className="absolute top-0 left-0 w-1 h-full bg-[#0f62fe]"></div>
+                        <div className="absolute top-0 left-0 w-1 h-full bg-[#00b4d8]"></div>
                         <div className="flex items-center gap-3 mb-3">
-                          <div className="w-10 h-10 bg-[#0f62fe] bg-opacity-10 flex items-center justify-center">
-                            <Terminal className="w-5 h-5 text-[#0f62fe]" />
+                          <div className="w-10 h-10 bg-[#00b4d8] bg-opacity-10 flex items-center justify-center">
+                            <Terminal className="w-5 h-5 text-[#00b4d8]" />
                           </div>
-                          <p className="carbon-label-01 text-[#0f62fe] uppercase tracking-wide">The Logic</p>
+                          <p className="carbon-label-01 text-[#00b4d8] uppercase tracking-wide">The Logic</p>
                         </div>
                         <p className="carbon-body-01 text-[var(--cds-text-secondary)] pl-13">
                           Our developers utilize Flow Designer and IntegrationHub to automate the mundane. Scoped applications built to ServiceNow standards.
@@ -795,19 +797,19 @@ const ServiceNow = () => {
               <div className="cds--css-grid gap-4" style={{ padding: 0 }}>
                 {/* Platform Foundations */}
                 <div className="cds--col-span-4 cds--col-span-4--md">
-                  <div className="group relative bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] p-0 h-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-[#0f62fe]">
+                  <div className="group relative bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] p-0 h-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-[#00b4d8]">
                     {/* Top Accent Bar */}
-                    <div className="h-1 bg-[#0f62fe] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                    <div className="h-1 bg-[#00b4d8] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                     
                     <div className="p-6">
                       {/* Icon with Background Animation */}
                       <div className="flex items-center gap-4 mb-5">
-                        <div className="relative w-14 h-14 flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#0f62fe15' }}>
-                          <div className="absolute inset-0 bg-[#0f62fe] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-                          <Layers className="w-7 h-7 text-[#0f62fe] relative z-10 group-hover:text-white transition-colors duration-300" />
+                        <div className="relative w-14 h-14 flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#00b4d815' }}>
+                          <div className="absolute inset-0 bg-[#00b4d8] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                          <Layers className="w-7 h-7 text-[#00b4d8] relative z-10 group-hover:text-white transition-colors duration-300" />
                         </div>
                         <div>
-                          <span className="carbon-label-01 text-[#0f62fe] uppercase tracking-wider">01</span>
+                          <span className="carbon-label-01 text-[#00b4d8] uppercase tracking-wider">01</span>
                           <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">Platform Foundations</h3>
                         </div>
                       </div>
@@ -815,7 +817,7 @@ const ServiceNow = () => {
                       <ul className="space-y-3 carbon-body-01 text-[var(--cds-text-secondary)]">
                         {['ITSM Architecture', 'CMDB Governance', 'Service Portal Design', 'Workflow Orchestration'].map((item, i) => (
                           <li key={item} className="flex items-center gap-3 group/item">
-                            <div className="w-6 h-6 flex items-center justify-center border border-[var(--cds-border-subtle)] text-[var(--cds-text-helper)] carbon-helper-text-01 group-hover/item:border-[#0f62fe] group-hover/item:text-[#0f62fe] transition-colors">
+                            <div className="w-6 h-6 flex items-center justify-center border border-[var(--cds-border-subtle)] text-[var(--cds-text-helper)] carbon-helper-text-01 group-hover/item:border-[#00b4d8] group-hover/item:text-[#00b4d8] transition-colors">
                               {String(i + 1).padStart(2, '0')}
                             </div>
                             <span className="group-hover/item:text-[var(--cds-text-primary)] transition-colors">{item}</span>
@@ -1020,12 +1022,12 @@ const ServiceNow = () => {
                           <div key={idx} className="flex items-center gap-3">
                             <div 
                               className="w-10 h-10 flex items-center justify-center flex-shrink-0"
-                              style={{ backgroundColor: idx === 0 ? '#24a14815' : idx === 1 ? '#0f62fe15' : '#f1c21b15' }}
+                              style={{ backgroundColor: idx === 0 ? '#24a14815' : idx === 1 ? '#00b4d815' : '#f1c21b15' }}
                             >
                               <stat.icon 
                                 className="w-5 h-5" 
                                 style={{ 
-                                  color: idx === 0 ? '#24a148' : idx === 1 ? '#0f62fe' : '#b28600' 
+                                  color: idx === 0 ? '#24a148' : idx === 1 ? '#00b4d8' : '#b28600' 
                                 }} 
                               />
                             </div>
@@ -1033,7 +1035,7 @@ const ServiceNow = () => {
                               <div 
                                 className="carbon-heading-01"
                                 style={{ 
-                                  color: idx === 0 ? '#24a148' : idx === 1 ? '#0f62fe' : 'var(--cds-text-primary)' 
+                                  color: idx === 0 ? '#24a148' : idx === 1 ? '#00b4d8' : 'var(--cds-text-primary)' 
                                 }}
                               >
                                 {stat.value}
@@ -1121,7 +1123,7 @@ const ServiceNow = () => {
                   </div>
                   
                   {/* Accent Line */}
-                  <div className="absolute top-0 right-0 w-1 h-full bg-[#0f62fe]"></div>
+                  <div className="absolute top-0 right-0 w-1 h-full bg-[#00b4d8]"></div>
                 </div>
                 
                 {/* Right: Quote Content */}
@@ -1129,14 +1131,14 @@ const ServiceNow = () => {
                   {/* Quote Area */}
                   <div className="p-8 md:p-10 flex-1 flex flex-col justify-center">
                     <blockquote className="relative">
-                      <span className="absolute -top-4 -left-4 text-7xl text-[#0f62fe] opacity-10 font-serif">&ldquo;</span>
+                      <span className="absolute -top-4 -left-4 text-7xl text-[#00b4d8] opacity-10 font-serif">&ldquo;</span>
                       <p className="carbon-fluid-quotation-01 text-[var(--cds-text-primary)] leading-relaxed relative z-10">
                         Perception IT transformed our IT operations with their ServiceNow expertise. 
                         Their team successfully migrated us from Maximo to ServiceNow with zero downtime, 
                         and the automation they implemented has reduced our incident resolution time by 45%. 
                         Their deep understanding of both the technical and business aspects made all the difference.
                       </p>
-                      <span className="absolute -bottom-8 -right-2 text-7xl text-[#0f62fe] opacity-10 font-serif">&rdquo;</span>
+                      <span className="absolute -bottom-8 -right-2 text-7xl text-[#00b4d8] opacity-10 font-serif">&rdquo;</span>
                     </blockquote>
                   </div>
                   
@@ -1156,7 +1158,7 @@ const ServiceNow = () => {
                           <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Downtime</div>
                         </div>
                         <div className="text-right">
-                          <div className="carbon-heading-02 text-[#0f62fe]">45%</div>
+                          <div className="carbon-heading-02 text-[#00b4d8]">45%</div>
                           <div className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Faster</div>
                         </div>
                         <div className="text-right">
@@ -1197,7 +1199,7 @@ const ServiceNow = () => {
                 {/* Left: Inputs */}
                 <div className="cds--col-span-7 cds--col-span-7--lg p-6 md:p-8 border-r border-[var(--cds-border-subtle)]">
                   <h3 className="carbon-heading-02 text-[#161616] mb-6 flex items-center gap-2">
-                    <Settings className="w-5 h-5 text-[#0f62fe]" />
+                    <Settings className="w-5 h-5 text-[#00b4d8]" />
                     Your Current Setup
                   </h3>
                   
@@ -1214,10 +1216,10 @@ const ServiceNow = () => {
                         onChange={(e) => setTcoUserMultiple(Number(e.target.value))}
                         className="flex-1 h-2 bg-[#e0e0e0] appearance-none cursor-pointer"
                         style={{
-                          background: `linear-gradient(to right, #0f62fe 0%, #0f62fe ${((tcoUserMultiple - 100) / 4900) * 100}%, #e0e0e0 ${((tcoUserMultiple - 100) / 4900) * 100}%, #e0e0e0 100%)`
+                          background: `linear-gradient(to right, #00b4d8 0%, #00b4d8 ${((tcoUserMultiple - 100) / 4900) * 100}%, #e0e0e0 ${((tcoUserMultiple - 100) / 4900) * 100}%, #e0e0e0 100%)`
                         }}
                       />
-                      <span className="px-3 py-1 bg-[#0f62fe] text-white carbon-heading-02 min-w-[80px] text-center">{tcoUserMultiple.toLocaleString()}</span>
+                      <span className="px-3 py-1 bg-[#00b4d8] text-white carbon-heading-02 min-w-[80px] text-center">{tcoUserMultiple.toLocaleString()}</span>
                     </div>
                   </div>
 
@@ -1235,15 +1237,15 @@ const ServiceNow = () => {
                           onClick={() => setTcoToolset(tool.value as 'excel' | 'jira' | 'legacy')}
                           className={`w-full p-3 text-left border transition-all flex items-center justify-between ${
                             tcoToolset === tool.value
-                              ? 'border-[#0f62fe] bg-[#f4f4f4]'
-                              : 'border-[#e0e0e0] hover:border-[#0f62fe]'
+                              ? 'border-[#00b4d8] bg-[#f4f4f4]'
+                              : 'border-[#e0e0e0] hover:border-[#00b4d8]'
                           }`}
                         >
-                          <span className={`carbon-body-01 ${tcoToolset === tool.value ? 'text-[#0f62fe] font-semibold' : 'text-[#525252]'}`}>
+                          <span className={`carbon-body-01 ${tcoToolset === tool.value ? 'text-[#00b4d8] font-semibold' : 'text-[#525252]'}`}>
                             {tool.label}
                           </span>
                           {tcoToolset === tool.value && (
-                            <div className="w-2 h-2 bg-[#0f62fe]"></div>
+                            <div className="w-2 h-2 bg-[#00b4d8]"></div>
                           )}
                         </button>
                       ))}
@@ -1262,8 +1264,8 @@ const ServiceNow = () => {
                           key={module.id}
                           className={`flex items-center gap-3 p-3 border cursor-pointer transition-all ${
                             tcoModules.includes(module.id)
-                              ? 'border-[#0f62fe] bg-[#f4f4f4]'
-                              : 'border-[#e0e0e0] hover:border-[#0f62fe]'
+                              ? 'border-[#00b4d8] bg-[#f4f4f4]'
+                              : 'border-[#e0e0e0] hover:border-[#00b4d8]'
                           }`}
                         >
                           <input
@@ -1276,7 +1278,7 @@ const ServiceNow = () => {
                                 setTcoModules(tcoModules.filter(m => m !== module.id));
                               }
                             }}
-                            className="w-4 h-4 accent-[#0f62fe]"
+                            className="w-4 h-4 accent-[#00b4d8]"
                           />
                           <span className={`carbon-body-01 ${tcoModules.includes(module.id) ? 'text-[#161616]' : 'text-[#525252]'}`}>
                             {module.label}
@@ -1289,8 +1291,8 @@ const ServiceNow = () => {
 
                 {/* Right: Results */}
                 <div className="cds--col-span-9 cds--col-span-9--lg p-6 md:p-8 bg-[#f4f4f4] flex flex-col justify-center">
-                  <h3 className="carbon-heading-02 text-[#0f62fe] mb-6 flex items-center gap-2">
-                    <ChartLine className="w-5 h-5 text-[#0f62fe]" />
+                  <h3 className="carbon-heading-02 text-[#00b4d8] mb-6 flex items-center gap-2">
+                    <ChartLine className="w-5 h-5 text-[#00b4d8]" />
                     Your 3-Year TCO Analysis
                   </h3>
 
@@ -1304,16 +1306,16 @@ const ServiceNow = () => {
                   </div>
 
                   {/* Perception Cost */}
-                  <div className="bg-white border-2 border-[#0f62fe] p-4 mb-4 shadow-sm relative">
-                    <div className="absolute -top-3 left-4 bg-[#0f62fe] text-white carbon-label-01 px-2 py-0.5 font-semibold">
+                  <div className="bg-white border-2 border-[#00b4d8] p-4 mb-4 shadow-sm relative">
+                    <div className="absolute -top-3 left-4 bg-[#00b4d8] text-white carbon-label-01 px-2 py-0.5 font-semibold">
                       RECOMMENDED
                     </div>
                     <div className="flex items-center justify-between pt-2">
                       <div>
-                        <p className="carbon-label-01 text-[#0f62fe] font-semibold">Perception-IT Cost</p>
+                        <p className="carbon-label-01 text-[#00b4d8] font-semibold">Perception-IT Cost</p>
                         <p className="carbon-helper-text-01 text-[#6f6f6f]">Fixed-price, no surprises</p>
                       </div>
-                      <p className="carbon-fluid-heading-03 text-[#0f62fe]">${tcoResult.perception}K</p>
+                      <p className="carbon-fluid-heading-03 text-[#00b4d8]">${tcoResult.perception}K</p>
                     </div>
                   </div>
 
@@ -1337,7 +1339,7 @@ const ServiceNow = () => {
                   {/* CTA */}
                   <a
                     href="#contact"
-                    className="w-full flex items-center justify-center gap-2 px-6 py-4 text-white carbon-heading-01 bg-[#0f62fe] hover:bg-[#0353e9] transition-colors"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-4 text-white carbon-heading-01 bg-[#00b4d8] hover:bg-[#0353e9] transition-colors"
                   >
                     Get Your Detailed Quote
                     <ArrowRight className="w-5 h-5" />
@@ -1375,15 +1377,15 @@ const ServiceNow = () => {
               <div className="cds--css-grid gap-4" style={{ padding: 0 }}>
                 {/* 1. Data Integrity */}
                 <div className="cds--col-span-4 cds--col-span-4--lg relative">
-                  <div className="bg-white border border-[#e0e0e0] p-6 h-full hover:border-[#0f62fe] transition-all hover:shadow-lg">
+                  <div className="bg-white border border-[#e0e0e0] p-6 h-full hover:border-[#00b4d8] transition-all hover:shadow-lg">
                     {/* Step Number */}
-                    <div className="absolute -top-3 left-6 w-6 h-6 bg-[#0f62fe] text-white flex items-center justify-center text-sm font-bold">
+                    <div className="absolute -top-3 left-6 w-6 h-6 bg-[#00b4d8] text-white flex items-center justify-center text-sm font-bold">
                       1
                     </div>
                     
                     <div className="pt-4">
-                      <div className="w-12 h-12 bg-[#0f62fe] bg-opacity-10 flex items-center justify-center mb-4">
-                        <DataBase className="w-6 h-6 text-[#0f62fe]" />
+                      <div className="w-12 h-12 bg-[#00b4d8] bg-opacity-10 flex items-center justify-center mb-4">
+                        <DataBase className="w-6 h-6 text-[#00b4d8]" />
                       </div>
                       <h3 className="carbon-heading-02 text-[#161616] mb-1">Data Integrity</h3>
                       <p className="carbon-helper-text-01 text-[#8d8d8d] mb-4">The Foundation</p>
@@ -1393,7 +1395,7 @@ const ServiceNow = () => {
                       </p>
                       
                       <div className="pt-4 border-t border-[#e0e0e0]">
-                        <p className="carbon-label-01 text-[#0f62fe]">Eliminates</p>
+                        <p className="carbon-label-01 text-[#00b4d8]">Eliminates</p>
                         <p className="carbon-helper-text-01 text-[#6f6f6f]">Relationship breakages, adoption stalls</p>
                       </div>
                     </div>
@@ -1489,7 +1491,7 @@ const ServiceNow = () => {
               
               <div className="cds--css-grid gap-4" style={{ padding: 0 }}>
                 {[
-                  { icon: Lightning, title: 'Instant Trust', desc: 'Real-time server health mapping keeps CMDB accurate', color: '#0f62fe' },
+                  { icon: Lightning, title: 'Instant Trust', desc: 'Real-time server health mapping keeps CMDB accurate', color: '#00b4d8' },
                   { icon: Activity, title: 'Zero-Downtime Ops', desc: 'Physical events trigger automated workflows pre-outage', color: '#24a148' },
                   { icon: Network_1, title: 'Smart Correlation', desc: 'Network alerts prioritize incidents by business impact', color: '#6929c4' },
                   { icon: ArrowRight, title: 'Seamless Lifecycle', desc: 'Procurement flows directly into Asset Management', color: '#b28600' }
@@ -1514,7 +1516,7 @@ const ServiceNow = () => {
               </p>
               <a 
                 href="#contact" 
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#0f62fe] text-white carbon-label-01 hover:bg-[#0353e9] transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#00b4d8] text-white carbon-label-01 hover:bg-[#0353e9] transition-colors"
               >
                 Start Your Framework Assessment
                 <ArrowRight className="w-4 h-4" />
@@ -1656,7 +1658,7 @@ const ServiceNow = () => {
               {/* Left: Photo & Stats */}
               <div className="flex-shrink-0 flex flex-col items-center lg:items-start">
                 <div className="relative">
-                  <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden border-4 border-[#0f62fe] shadow-lg shadow-[#0f62fe]/20">
+                  <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden border-4 border-[#00b4d8] shadow-lg shadow-[#00b4d8]/20">
                     <img 
                       src="/david_headshot.jpg" 
                       alt="David Pridmore" 
@@ -1664,7 +1666,7 @@ const ServiceNow = () => {
                     />
                   </div>
                   {/* Experience Badge */}
-                  <div className="absolute -bottom-2 -right-2 bg-[#0f62fe] text-white px-3 py-1.5 rounded-sm">
+                  <div className="absolute -bottom-2 -right-2 bg-[#00b4d8] text-white px-3 py-1.5 rounded-sm">
                     <span className="text-lg font-bold">24</span>
                     <span className="text-xs block -mt-1">Years Exp.</span>
                   </div>
@@ -1674,7 +1676,7 @@ const ServiceNow = () => {
               {/* Right: Content */}
               <div className="flex-1">
                 {/* Section Label */}
-                <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#0f62fe] mb-3 block">
+                <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#00b4d8] mb-3 block">
                   CEO Oversight & Strategic Accountability
                 </span>
                 
@@ -1684,7 +1686,7 @@ const ServiceNow = () => {
                 </h2>
                 
                 {/* Quote Block */}
-                <blockquote className="border-l-2 border-[#0f62fe] pl-6 mb-6">
+                <blockquote className="border-l-2 border-[#00b4d8] pl-6 mb-6">
                   <p className="carbon-body-01 text-gray-300 leading-relaxed mb-4 italic">
                     "In critical infrastructure, weak assumptions cost millions. At Perception-IT, I don't just sign the contracts; 
                     I personally oversee the architectural risk mapping for every major migration.
@@ -1707,7 +1709,7 @@ const ServiceNow = () => {
                     href="https://www.linkedin.com/in/david-pridmore-31379217/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-[#0f62fe] hover:text-[#4589ff] text-sm flex items-center gap-1"
+                    className="text-[#00b4d8] hover:text-[#4589ff] text-sm flex items-center gap-1"
                   >
                     <LinkedIn className="w-4 h-4" />
                     LinkedIn
@@ -1863,7 +1865,7 @@ const ServiceNow = () => {
           <div className="cds--col-span-16 lg:cds--col-span-14 lg:cds--col-start-2">
             {/* Section Header */}
             <div className="mb-12">
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#0f62fe] mb-4 block">
+              <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#00b4d8] mb-4 block">
                 The Perception-IT Performance Commitment
               </span>
               <h2 className="carbon-fluid-heading-04 text-white mb-4">
@@ -1879,8 +1881,8 @@ const ServiceNow = () => {
               {/* 8-Week Go-Live */}
               <div className="bg-[#1E293B] border border-gray-700 p-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#0f62fe]/10 flex items-center justify-center flex-shrink-0">
-                    <Time className="w-6 h-6 text-[#0f62fe]" />
+                  <div className="w-12 h-12 bg-[#00b4d8]/10 flex items-center justify-center flex-shrink-0">
+                    <Time className="w-6 h-6 text-[#00b4d8]" />
                   </div>
                   <div>
                     <h3 className="carbon-heading-02 text-white mb-2">8-Week Go-Live Target</h3>
@@ -1941,7 +1943,7 @@ const ServiceNow = () => {
             </div>
 
             {/* Why This Matters */}
-            <div className="border-l-2 border-[#0f62fe] pl-6">
+            <div className="border-l-2 border-[#00b4d8] pl-6">
               <p className="carbon-body-01 text-gray-300 italic">
                 <strong className="text-white">Why This Matters:</strong> Most vendors sell &quot;effort.&quot; We sell outcomes. By tying our commercial terms to specific performance metrics, we ensure our incentives are 100% aligned with your business continuity.
               </p>
@@ -1956,7 +1958,7 @@ const ServiceNow = () => {
           <div className="cds--col-span-16 lg:cds--col-span-14 lg:cds--col-start-2">
             {/* Section Header */}
             <div className="mb-12">
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#0f62fe] mb-4 block">
+              <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#00b4d8] mb-4 block">
                 Your Path Forward
               </span>
               <h2 className="carbon-fluid-heading-04 text-[var(--cds-text-primary)] mb-4">
@@ -1971,7 +1973,7 @@ const ServiceNow = () => {
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               {/* Step 1 */}
               <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] p-6">
-                <div className="w-12 h-12 bg-[#0f62fe] text-white flex items-center justify-center font-bold text-xl mb-4">
+                <div className="w-12 h-12 bg-[#00b4d8] text-white flex items-center justify-center font-bold text-xl mb-4">
                   1
                 </div>
                 <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">
@@ -1984,7 +1986,7 @@ const ServiceNow = () => {
 
               {/* Step 2 */}
               <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] p-6">
-                <div className="w-12 h-12 bg-[#0f62fe] text-white flex items-center justify-center font-bold text-xl mb-4">
+                <div className="w-12 h-12 bg-[#00b4d8] text-white flex items-center justify-center font-bold text-xl mb-4">
                   2
                 </div>
                 <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">
@@ -1997,7 +1999,7 @@ const ServiceNow = () => {
 
               {/* Step 3 */}
               <div className="bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] p-6">
-                <div className="w-12 h-12 bg-[#0f62fe] text-white flex items-center justify-center font-bold text-xl mb-4">
+                <div className="w-12 h-12 bg-[#00b4d8] text-white flex items-center justify-center font-bold text-xl mb-4">
                   3
                 </div>
                 <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">
@@ -2013,7 +2015,7 @@ const ServiceNow = () => {
             <div className="text-center">
               <a
                 href="#footer"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-[#0f62fe] text-white font-semibold rounded hover:bg-[#0353e9] transition-all duration-300"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-[#00b4d8] text-white font-semibold rounded hover:bg-[#0353e9] transition-all duration-300"
               >
                 Get Your Free Assessment & Risk Report
                 <ArrowRight className="w-5 h-5" />

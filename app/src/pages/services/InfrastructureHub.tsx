@@ -1,20 +1,12 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight } from 'lucide-react';
-import { 
-  Network_4,
-  Security,
-  View,
-  Cloud,
-  DataBase
-} from '@carbon/icons-react';
-import { 
-  CloudStorage
-} from '@carbon/pictograms-react';
+import { ArrowRight, CheckCircle, Server, Phone, Clock, Shield, AlertTriangle } from 'lucide-react';
+import { View } from '@carbon/icons-react';
 
 import { Link } from 'react-router-dom';
 import Navigation from '../../components/Navigation';
 import Footer from '../../sections/Footer';
 import ClientLogos from '../../sections/ClientLogos';
+import PartnerLogos from '../../sections/PartnerLogos';
 import ErrorBoundary from '../../components/ErrorBoundary';
 import InfrastructureHeroGraphics from '../../components/InfrastructureHeroGraphics';
 import '../../styles/carbon-typography.css';
@@ -22,219 +14,100 @@ import '../../styles/carbon-typography.css';
 /**
  * Infrastructure Hub Landing Page
  * 
- * Hero Section: Carbon Pictogram graphics with Blue/Purple theme
- * - White background with InfrastructurePictogramGraphics
- * - IBM Plex Sans typography
- * - Blue accent colors (matching main Cover page)
- * - Left side navigation menu
+ * High-conversion page for Server Continuity Suite + Data Centre Services
+ * Built from uploaded content documents
  */
 
-// Section Registry - Single source of truth
+// Section Registry
 const SECTIONS = [
   { id: 'infrastructure-hero', label: 'Overview' },
-  { id: 'capabilities', label: 'Capabilities' },
-  { id: 'solutions', label: 'Solutions' },
-  { id: 'process', label: 'Our Process' },
+  { id: 'problem', label: 'The Problem' },
+  { id: 'suite', label: 'Server Suite' },
+  { id: 'datacentre', label: 'Data Centre' },
+  { id: 'process', label: 'How It Works' },
   { id: 'cases', label: 'Case Studies' },
   { id: 'contact', label: 'Contact' }
 ] as const;
 
-// Hero Section Component - Three-Layer Graphics with Floating Pictograms
+// HERO SECTION
 const HeroVariant = () => {
   return (
-    <section id="infrastructure-hero" className="relative min-h-screen flex items-center bg-white overflow-hidden pt-20 font-['IBM_Plex_Sans']">
-      {/* IBM Plex Sans Font Import */}
+    <section id="infrastructure-hero" className="relative min-h-screen flex items-center bg-white overflow-hidden pt-20 carbon-font">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
-        
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-20px); }
         }
-        
-        @keyframes floatSlow {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-15px) rotate(2deg); }
-        }
-        
         .animate-float {
           animation: float 8s ease-in-out infinite;
         }
-        
-        .animate-float-slow {
-          animation: floatSlow 12s ease-in-out infinite;
-        }
       `}</style>
       
-      {/* Infrastructure Hero Graphics - Three-Layer Visual Logic */}
       <InfrastructureHeroGraphics />
 
-      <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20 carbon-font">
+      <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
         <div className="max-w-3xl">
-          {/* Eyebrow - Carbon Label Style */}
-          <span className="inline-block carbon-label-02 uppercase tracking-[0.2em] text-[#0f62fe] mb-6">
-            Infrastructure Services
-          </span>
-          
-          {/* Heading - Carbon Fluid Display */}
-          <h1 className="carbon-fluid-display-03 text-[#161616] mb-6">
-            <span className="block">Enterprise Infrastructure.</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0f62fe] to-[#8a3ffc]">Absolute Reliability.</span>
-          </h1>
-          
-          {/* Sub-Heading - Carbon Fluid Heading */}
-          <p className="carbon-fluid-heading-03 text-[#525252] mb-5">
-            Server Continuity. <span className="text-[#0f62fe]">Data Center Operations.</span> <span className="text-[#8a3ffc]">24/7 Hardware Support.</span>
-          </p>
-          
-          {/* Body Text - Carbon Body */}
-          <div className="max-w-2xl mb-8">
-            <p className="carbon-body-02 text-[#525252]">
-              From procurement to deployment, management to optimisation—we provide end-to-end infrastructure services that keep your enterprise running. No gaps, no surprises, absolute accountability.
-            </p>
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-100 rounded-full mb-6">
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+            <span className="text-xs font-medium text-blue-600 uppercase tracking-wide">THE SERVER EXPERTS</span>
           </div>
           
-          {/* Process Steps */}
-          <div className="flex flex-wrap items-center gap-3 text-sm text-[#6f6f6f] mb-8">
-            <span>Assess</span>
-            <span className="text-[#c6c6c6]">→</span>
-            <span>Design</span>
-            <span className="text-[#c6c6c6]">→</span>
-            <span>Procure</span>
-            <span className="text-[#c6c6c6]">→</span>
-            <span>Deploy</span>
-            <span className="text-[#c6c6c6]">→</span>
-            <span>Manage</span>
-            <span className="text-[#c6c6c6]">→</span>
-            <span className="text-[#0f62fe] font-medium">Optimise</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            Server Continuity
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+              Without Compromise
+            </span>
+          </h1>
+          
+          <p className="text-xl text-gray-600 mb-6 leading-relaxed">
+            From uncertainty to continuity—one partner across your entire server lifecycle. 
+            Audit, support, extend, or refresh. All with local engineers and same-day spares.
+          </p>
+          
+          {/* 4-Stage Portfolio */}
+          <div className="flex flex-wrap gap-3 mb-8">
+            {['ServerAudit™', 'ServerSure™', 'ServerLife Extend™', 'ModServe™'].map((service, i) => (
+              <span key={service} className={`px-3 py-1.5 rounded-full text-sm font-medium ${
+                i === 0 ? 'bg-green-100 text-green-700' :
+                i === 1 ? 'bg-blue-100 text-blue-700' :
+                i === 2 ? 'bg-purple-100 text-purple-700' :
+                'bg-orange-100 text-orange-700'
+              }`}>
+                {service}
+              </span>
+            ))}
           </div>
           
           {/* CTAs */}
           <div className="flex flex-wrap gap-4">
             <a
-              href="#capabilities"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-[#0f62fe] text-white font-semibold hover:bg-[#0353e9] transition-all duration-300"
+              href="#suite"
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/25"
             >
-              Explore Infrastructure
+              Explore Server Suite
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-3 px-8 py-4 border border-[#161616] text-[#161616] font-medium hover:bg-[#f4f4f4] transition-all duration-300"
+              className="inline-flex items-center gap-3 px-8 py-4 border-2 border-gray-300 text-gray-700 font-semibold hover:border-blue-600 hover:text-blue-600 transition-all"
             >
-              <img 
-                src="/david_headshot.jpg" 
-                alt="David Pridmore" 
-                className="w-8 h-8 rounded-full object-cover border-2 border-[#0f62fe]"
-              />
-              Speak with an Infrastructure Expert
+              <Phone className="w-5 h-5" />
+              Call an Expert
             </Link>
           </div>
         </div>
         
-        {/* Stats - Positioned absolute bottom right */}
-        <div className="absolute bottom-24 right-8 lg:right-12 hidden lg:flex gap-12">
-          <div className="text-center">
-            <div className="text-4xl font-bold text-[#161616]">99.99%</div>
-            <div className="text-xs text-[#6f6f6f] uppercase tracking-wide mt-1">Uptime SLA</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-[#161616]">24/7</div>
-            <div className="text-xs text-[#6f6f6f] uppercase tracking-wide mt-1">NOC Coverage</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-[#161616]">&lt;4hrs</div>
-            <div className="text-xs text-[#6f6f6f] uppercase tracking-wide mt-1">Response Time</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#6f6f6f]">
-        <span className="text-xs uppercase tracking-widest">Scroll</span>
-        <div className="w-px h-6 bg-gradient-to-b from-[#6f6f6f] to-transparent" />
-      </div>
-    </section>
-  );
-};
-
-// Capabilities Section - 6-Icon Grid with Carbon Icons
-const CapabilitiesSection = () => {
-  const capabilities = [
-    {
-      icon: <DataBase className="w-6 h-6" />,
-      title: 'Hardware',
-      description: 'Proactive monitoring and maintenance of physical and virtual server infrastructure. We prevent failures before they impact your operations.',
-      tags: ['Server Continuity', 'Virtualization', 'Backup Systems']
-    },
-    {
-      icon: <Cloud className="w-6 h-6" />,
-      title: 'Hybrid',
-      description: 'Seamless integration of on-premise and cloud infrastructure. Bridge the gap between legacy systems and modern cloud services.',
-      tags: ['Cloud Migration', 'Hybrid Architecture', 'Multi-Cloud']
-    },
-    {
-      icon: <CloudStorage className="w-8 h-8" />,
-      title: 'Storage',
-      description: 'Enterprise-grade storage solutions with redundancy, backup, and disaster recovery. Your data is always protected and accessible.',
-      tags: ['SAN/NAS', 'Backup', 'Disaster Recovery']
-    },
-    {
-      icon: <Network_4 className="w-6 h-6" />,
-      title: 'Connectivity',
-      description: 'High-performance networking infrastructure design, implementation, and management. Reliable connectivity for your entire organization.',
-      tags: ['LAN/WAN', 'SD-WAN', 'Network Security']
-    },
-    {
-      icon: <Security className="w-6 h-6" />,
-      title: 'Firewall',
-      description: 'Comprehensive security infrastructure including firewalls, intrusion detection, and access control. Protect your perimeter and internal networks.',
-      tags: ['Perimeter Security', 'IDS/IPS', 'Access Control']
-    },
-    {
-      icon: <View className="w-6 h-6" />,
-      title: 'Audit',
-      description: 'Complete visibility and audit capabilities across your infrastructure. Track changes, monitor compliance, and generate comprehensive reports.',
-      tags: ['Compliance', 'Change Management', 'Reporting']
-    }
-  ];
-
-  return (
-    <section id="capabilities" className="py-20 bg-[#FAFAFA]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Section Header - Carbon Typography */}
-        <div className="text-center mb-16 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] text-[#0f62fe] mb-4 block">
-            What We Deliver
-          </span>
-          <h2 className="carbon-fluid-heading-05 text-[#161616] mb-4">
-            Infrastructure Capabilities
-          </h2>
-          <p className="carbon-body-02 text-[#525252] max-w-2xl mx-auto">
-            End-to-end services that cover every aspect of your infrastructure lifecycle.
-          </p>
-        </div>
-
-        {/* Capabilities Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {capabilities.map((cap, idx) => (
-            <div key={idx} className="bg-white rounded-lg border border-gray-100 p-8 hover:border-blue-200 hover:shadow-xl transition-all duration-300">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-[#0f62fe]">
-                  {cap.icon}
-                </div>
-                <div>
-                  <h3 className="carbon-heading-02 text-[#161616] mb-2">{cap.title}</h3>
-                  <p className="carbon-body-02 text-[#525252]">{cap.description}</p>
-                </div>
-              </div>
-              <div className="flex flex-wrap gap-2 mt-4">
-                {cap.tags.map(tag => (
-                  <span key={tag} className="carbon-label-02 text-[#525252] bg-gray-100 px-2 py-1">
-                    {tag}
-                  </span>
-                ))}
-              </div>
+        {/* Stats */}
+        <div className="absolute bottom-24 right-8 lg:right-12 hidden lg:flex gap-8">
+          {[
+            { value: '99.99%', label: 'Uptime SLA' },
+            { value: '4hrs', label: 'Response Time' },
+            { value: '6+', label: 'Enterprise Clients' }
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <div className="text-3xl font-bold text-blue-600">{stat.value}</div>
+              <div className="text-xs text-gray-500 uppercase tracking-wide mt-1">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -243,94 +116,459 @@ const CapabilitiesSection = () => {
   );
 };
 
-// Solutions Section
-const SolutionsSection = () => {
-  const solutions = [
+// PROBLEM SECTION
+const ProblemSection = () => {
+  return (
+    <section id="problem" className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">The Reality</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-6">
+              Fragmented Accountability Leaves You Exposed
+            </h2>
+            <p className="text-gray-600 text-lg mb-8">
+              OEMs stop supporting hardware after 3-5 years. Generic MSPs lack local spares. 
+              Internal teams fight fires. Who owns continuity when everything fails at 2 AM?
+            </p>
+            
+            <div className="space-y-4">
+              {[
+                { icon: AlertTriangle, text: 'Forced refreshes from OEMs at end-of-warranty' },
+                { icon: AlertTriangle, text: 'Break-fix chaos with unpredictable costs' },
+                { icon: AlertTriangle, text: 'Downtime during peak production hours' },
+                { icon: AlertTriangle, text: 'No local support when you need it most' }
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <item.icon className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">{item.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+            <h3 className="text-xl font-bold text-gray-900 mb-6">The Cost of Inaction</h3>
+            <div className="space-y-6">
+              <div className="flex items-center justify-between pb-4 border-b border-gray-100">
+                <span className="text-gray-600">Emergency callout</span>
+                <span className="text-red-600 font-bold">PKR 50K–150K</span>
+              </div>
+              <div className="flex items-center justify-between pb-4 border-b border-gray-100">
+                <span className="text-gray-600">Production downtime (per hour)</span>
+                <span className="text-red-600 font-bold">PKR 500K+</span>
+              </div>
+              <div className="flex items-center justify-between pb-4 border-b border-gray-100">
+                <span className="text-gray-600">Forced early refresh</span>
+                <span className="text-red-600 font-bold">PKR 2M–10M</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-gray-600">Data loss / compliance gap</span>
+                <span className="text-red-600 font-bold">Priceless</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// SERVER SUITE SECTION
+const ServerSuiteSection = () => {
+  const services = [
     {
-      title: 'Huawei Enterprise Infrastructure',
-      description: 'As a certified Huawei Enterprise Partner, we design, deploy, and manage Huawei server, storage, and networking solutions.',
-      features: ['Certified Engineers', 'Direct Vendor Support', 'Spare Parts Inventory']
+      id: 'audit',
+      name: 'ServerAudit™',
+      tagline: 'The Trusted Advisor Entry Point',
+      price: 'FREE',
+      priceNote: 'for 3 servers (remote)',
+      description: 'Data-driven assessment that answers: "Should we refresh or can we safely extend?"',
+      features: [
+        'Health diagnostics across firmware, OS, and hardware',
+        'Patch gap analysis and CVE exposure',
+        'Refresh vs. extend recommendation',
+        'No obligation, no sales pressure'
+      ],
+      cta: 'Get Free Assessment',
+      color: 'green',
+      icon: View
     },
     {
-      title: 'Multi-Vendor Support',
-      description: 'One partner for all your hardware—Dell, HP, IBM, Cisco, and more. Simplified support, single point of accountability.',
-      features: ['Unified SLAs', 'Cross-Platform Expertise', 'Consolidated Reporting']
+      id: 'sure',
+      name: 'ServerSure™',
+      tagline: 'The Volume Engine',
+      price: 'PKR 45K',
+      priceNote: '/month per server',
+      description: 'Managed utility for non-critical servers. Predictable OpEx instead of break-fix chaos.',
+      features: [
+        '24/7 remote monitoring with health sensors',
+        '9-5 PKT support during business hours',
+        'Managed patching and security updates',
+        'Monthly health summary reports'
+      ],
+      cta: 'Start ServerSure',
+      color: 'blue',
+      icon: Shield
     },
     {
-      title: 'Cloud-Ready Infrastructure',
-      description: 'Infrastructure designed for hybrid and multi-cloud deployments. Seamless integration with AWS, Azure, and private cloud.',
-      features: ['Hybrid Architecture', 'Cloud Connect', 'Workload Portability']
+      id: 'extend',
+      name: 'ServerLife Extend™',
+      tagline: 'Mission-Critical Continuity',
+      price: 'Custom',
+      priceNote: 'quote based on risk profile',
+      description: 'Enterprise-grade support for out-of-warranty mission-critical systems.',
+      features: [
+        'Same-day spare parts availability',
+        'Shift-aligned engineer response',
+        'Firmware and security patching',
+        '99.95% uptime SLA'
+      ],
+      cta: 'Request Quote',
+      color: 'purple',
+      icon: Clock
+    },
+    {
+      id: 'modserve',
+      name: 'ModServe™',
+      tagline: 'Zero-Downtime Deployment',
+      price: 'PKR 250K–600K',
+      priceNote: 'per server (all-inclusive)',
+      description: 'New server procurement, staging, migration, and validation—all in one outcome.',
+      features: [
+        'Hardware sourcing (Dell, HPE, Huawei)',
+        'Pre-deployment staging and config',
+        'Zero-downtime migration',
+        'Day-1 managed support handover'
+      ],
+      cta: 'Plan Your Refresh',
+      color: 'orange',
+      icon: Server
     }
   ];
 
   return (
-    <section id="solutions" className="py-20 bg-white">
+    <section id="suite" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="text-center mb-16 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] text-[#0f62fe] mb-4 block">
-            Solutions
-          </span>
-          <h2 className="carbon-fluid-heading-05 text-[#161616] mb-4">
-            Infrastructure Solutions
+        <div className="text-center mb-16">
+          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Server Continuity Suite</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-4">
+            Four Stages. One Accountability Point.
           </h2>
-          <p className="carbon-body-02 text-[#525252] max-w-2xl mx-auto">
-            Tailored solutions for enterprise-grade infrastructure challenges.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            From uncertainty to continuity—each service designed to naturally evolve into the next stage of your server lifecycle.
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-8">
+          {services.map((service) => (
+            <div key={service.id} className={`group bg-white rounded-2xl border-2 border-gray-100 p-8 hover:border-${service.color}-500 hover:shadow-xl transition-all`}>
+              <div className="flex items-start justify-between mb-6">
+                <div className={`w-14 h-14 rounded-xl bg-${service.color}-100 flex items-center justify-center`}>
+                  <service.icon className={`w-7 h-7 text-${service.color}-600`} />
+                </div>
+                <div className="text-right">
+                  <div className={`text-2xl font-bold text-${service.color}-600`}>{service.price}</div>
+                  <div className="text-sm text-gray-500">{service.priceNote}</div>
+                </div>
+              </div>
+              
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.name}</h3>
+              <p className={`text-sm font-semibold text-${service.color}-600 mb-4`}>{service.tagline}</p>
+              <p className="text-gray-600 mb-6">{service.description}</p>
+              
+              <ul className="space-y-3 mb-8">
+                {service.features.map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle className={`w-5 h-5 text-${service.color}-500 flex-shrink-0 mt-0.5`} />
+                    <span className="text-gray-700 text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              
+              <a
+                href="#contact"
+                className={`inline-flex items-center gap-2 w-full justify-center px-6 py-3 bg-${service.color}-600 text-white font-semibold rounded-lg hover:bg-${service.color}-700 transition-all group-hover:gap-3`}
+              >
+                {service.cta}
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          ))}
+        </div>
+        
+        {/* Cross-sell banner */}
+        <div className="mt-16 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Need Facility-Layer Continuity?</h3>
+              <p className="text-gray-600">
+                Server continuity is incomplete without power, cooling, and physical environment protection.
+              </p>
+            </div>
+            <a
+              href="#datacentre"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all whitespace-nowrap"
+            >
+              Explore Data Centre Services
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// DATA CENTRE SECTION (Detailed Cooling Services)
+const DataCentreSection = () => {
+  const coolingServices = [
+    {
+      category: "Server Room Air Conditioners",
+      service: "AC Unit Supply & Installation",
+      outcome: "Precision Thermal Environment Control — Tiered cooling deployment with load-matched capacity, thermal mapping, and failover validation for 24/7 temperature stability"
+    },
+    {
+      category: "Data Centre Cooling Systems",
+      service: "Cooling System Supply",
+      outcome: "Engineered Thermal Resilience — In-row precision cooling, CRAC, and liquid cooling integration with airflow management, hot/cold aisle containment, and PUE optimization to 1.15 or below"
+    },
+    {
+      category: "Air Conditioner Sizing",
+      service: "AC Sizing Service",
+      outcome: "Thermal Capacity Planning — Load-profiled cooling design with 30% headroom for growth, seasonal variation modeling, and cooling-compatibility validation with power infrastructure"
+    },
+    {
+      category: "Cooling Site Surveys",
+      service: "Site Survey",
+      outcome: "Thermal Resilience Audits — Infrared thermal mapping, airflow analysis, cooling capacity validation, and single-point-of-failure identification across the thermal chain"
+    },
+    {
+      category: "Validation Testing",
+      service: "Cooling Load Testing",
+      outcome: "Thermal Failure Simulation — Full-capacity testing with staged cooling failure scenarios (primary → secondary → portable) and temperature ramp validation"
+    },
+    {
+      category: "Monitoring",
+      service: "Cooling Monitoring Setup",
+      outcome: "24/7 Thermal Surveillance — Real-time temperature/humidity monitoring with predictive alerts, automatic failover triggering, and historical trending for capacity forecasting"
+    },
+    {
+      category: "Maintenance",
+      service: "AC Servicing",
+      outcome: "Predictive Thermal Maintenance — Coil cleaning, refrigerant checks, filter replacement, and component health monitoring with lifecycle forecasting"
+    },
+    {
+      category: "Environment-Specific",
+      service: "Cooling for Data Centres",
+      outcome: "Context-Aware Thermal Continuity — Right-sized cooling stacks for edge sites (portable units), enterprise DCs (in-row precision), and high-density facilities (liquid cooling)"
+    },
+    {
+      category: "Emergency Response",
+      service: "Emergency AC Hire",
+      outcome: "Thermal Continuity Bridging — Rapid-deployment cooling rental with certified engineers on-site within 4 hours for outage recovery or capacity gaps"
+    },
+    {
+      category: "Energy Efficiency",
+      service: "PUE Optimization",
+      outcome: "Thermal Energy Intelligence — Cooling system optimization with VFD control, free-cooling integration, and AI-driven setpoint adjustments to reduce energy consumption by 25-40%"
+    },
+    {
+      category: "Airflow Management",
+      service: "Aisle Containment",
+      outcome: "Precision Airflow Engineering — Hot/cold aisle containment design with Containment Integrity Validation (pressure decay testing) to eliminate hotspots and ensure fire suppression efficacy"
+    }
+  ];
+
+  return (
+    <section id="datacentre" className="py-20 bg-gray-900 text-white">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <span className="text-blue-400 font-semibold text-sm uppercase tracking-wide">Data Centre Services</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
+            Thermal Integrity as the Foundation of Operational Continuity
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Server continuity is incomplete without facility continuity. You cannot credibly promise "99.95% uptime" 
+            while outsourcing the power and cooling that keeps servers alive.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 carbon-font">
-          {solutions.map((sol, idx) => (
-            <div key={idx} className="border-t-4 border-[#0f62fe] pt-8">
-              <h3 className="carbon-heading-03 text-[#161616] mb-4">{sol.title}</h3>
-              <p className="carbon-body-02 text-[#525252] mb-6">{sol.description}</p>
-              <ul className="space-y-2">
-                {sol.features.map(feat => (
-                  <li key={feat} className="flex items-center gap-2 carbon-label-02 text-[#525252]">
-                    <span className="w-1.5 h-1.5 bg-[#0f62fe]" />
-                    {feat}
+        {/* Two Column Layout */}
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          {/* Left: Service Tiers */}
+          <div className="lg:col-span-1">
+            <h3 className="text-xl font-bold mb-6">Four-Tier Service Model</h3>
+            <div className="space-y-4">
+              {[
+                { tier: 'Tier 0', title: 'Advisory', desc: 'Strategy & Roadmap — Business-aligned Tier + TCO model. No over/under-spend.', price: 'PKR 42K–120K/mo' },
+                { tier: 'Tier 1', title: 'Build', desc: 'Design & Build — Sovereign hardware, precision cooling, integrated telemetry. Built for Pakistan.', price: 'PKR 120K–480K/mo' },
+                { tier: 'Tier 2', title: 'Operate', desc: 'Ongoing Services — 24/7 Lahore NOC, predictive maintenance, 99.98%+ uptime.', price: 'PKR 480K–2.1M/mo' },
+                { tier: 'Tier 3', title: 'Optimise', desc: 'Proactive Value — PUE tuning, refresh planning, DR validation. ROI proven year after year.', price: 'Custom' }
+              ].map((item) => (
+                <div key={item.tier} className="bg-white/5 p-4 rounded-lg border border-white/10">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-blue-400 font-bold">{item.tier}</span>
+                    <span className="text-xs text-gray-400">{item.price}</span>
+                  </div>
+                  <h4 className="font-semibold text-white mb-1">{item.title}</h4>
+                  <p className="text-gray-400 text-sm">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+            
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all mt-6 w-full justify-center"
+            >
+              Schedule Data Centre Assessment
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+
+          {/* Right: Pakistan Reality */}
+          <div className="lg:col-span-2 bg-white/5 p-8 rounded-2xl border border-white/10">
+            <h3 className="text-xl font-bold mb-8">Pakistan-Specific Engineering</h3>
+            <div className="space-y-6">
+              <div className="pb-6 border-b border-white/10">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-red-400 font-semibold">Global Standard:</span>
+                  <span className="text-gray-400">"Design for 35°C ambient"</span>
+                </div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-yellow-400 font-semibold">Pakistan Reality:</span>
+                  <span className="text-gray-300">45°C+ sustained (Lahore summer peaks)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-green-400 font-semibold">Our Response:</span>
+                  <span className="text-white">Cooling capacity derated 40% at 45°C → oversize by 60%</span>
+                </div>
+              </div>
+              
+              <div className="pb-6 border-b border-white/10">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-red-400 font-semibold">Global Standard:</span>
+                  <span className="text-gray-400">"Annual maintenance"</span>
+                </div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-yellow-400 font-semibold">Pakistan Reality:</span>
+                  <span className="text-gray-300">Monsoon degradation in weeks (June–Sept = 80-95% RH)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-green-400 font-semibold">Our Response:</span>
+                  <span className="text-white">Quarterly validation protocols; precision CRAC/CRAH mandatory</span>
+                </div>
+              </div>
+
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-red-400 font-semibold">Standard AC Units:</span>
+                  <span className="text-gray-400">Fail at &gt;70% RH</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-green-400 font-semibold">Our Solution:</span>
+                  <span className="text-white">Residential-grade units rejected; precision cooling only</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Cooling Services Grid */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-bold mb-8 text-center">Complete Cooling Service Translation</h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {coolingServices.map((service, index) => (
+              <div key={index} className="bg-white/5 p-5 rounded-lg border border-white/10 hover:border-blue-500/50 transition-colors">
+                <h4 className="font-semibold text-blue-400 text-sm mb-1">{service.category}</h4>
+                <h5 className="font-bold text-white mb-2">{service.service}</h5>
+                <p className="text-gray-400 text-sm leading-relaxed">{service.outcome}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Business Model */}
+        <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 p-8 rounded-2xl border border-blue-500/20">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4">Two-Tier Business Strategy</h3>
+              <div className="space-y-4">
+                <div className="bg-white/5 p-4 rounded-lg">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-bold text-green-400">Tier 1: SLA-Backed Continuity</span>
+                    <span className="text-sm text-gray-400">Core Engine</span>
+                  </div>
+                  <p className="text-gray-300 text-sm mb-2">Continuity assurance with engineered validation, monsoon/dust hardening</p>
+                  <div className="flex items-center gap-4 text-sm">
+                    <span className="text-green-400">45-60% margin</span>
+                    <span className="text-gray-500">|</span>
+                    <span className="text-gray-400">24-36 month contracts</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white/5 p-4 rounded-lg">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-bold text-blue-400">Tier 2: Product Suppliers</span>
+                    <span className="text-sm text-gray-400">Strategic Gateway</span>
+                  </div>
+                  <p className="text-gray-300 text-sm mb-2">Hardware components with installation and basic maintenance</p>
+                  <div className="flex items-center gap-4 text-sm">
+                    <span className="text-blue-400">12-18% margin</span>
+                    <span className="text-gray-500">|</span>
+                    <span className="text-gray-400">0-12 months transactional</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-bold mb-4">Target Clients</h3>
+              <ul className="space-y-3">
+                {[
+                  'Banks (SBP-regulated) — where downtime &gt; PKR 500K/hour',
+                  'Government & PSDP-funded units',
+                  'Manufacturing — production continuity critical',
+                  'Telecommunications — subscriber-facing infrastructure'
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-300">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-// Process Section
+// PROCESS SECTION
 const ProcessSection = () => {
-  const steps = [
-    { num: '01', title: 'Assessment', desc: 'Audit current infrastructure, identify risks, document requirements.' },
-    { num: '02', title: 'Design', desc: 'Architecture planning, vendor selection, capacity forecasting.' },
-    { num: '03', title: 'Procurement', desc: 'Leverage our Huawei and vendor partnerships for best pricing.' },
-    { num: '04', title: 'Deployment', desc: 'Professional installation, configuration, and integration.' },
-    { num: '05', title: 'Management', desc: '24/7 monitoring, proactive maintenance, break-fix support.' },
-    { num: '06', title: 'Optimisation', desc: 'Continuous improvement, capacity planning, lifecycle management.' }
-  ];
-
   return (
-    <section id="process" className="py-20 bg-[#0F172A]">
+    <section id="process" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="text-center mb-16 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] text-[#0f62fe] mb-4 block">
-            How We Work
-          </span>
-          <h2 className="carbon-fluid-heading-05 text-white mb-4">
-            Our Process
+        <div className="text-center mb-16">
+          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">How It Works</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-4">
+            From Assessment to Continuous Operations
           </h2>
-          <p className="carbon-body-02 text-gray-400 max-w-2xl mx-auto">
-            A proven methodology that ensures consistent, reliable outcomes.
-          </p>
         </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 carbon-font">
-          {steps.map((step, idx) => (
-            <div key={idx} className="bg-white/5 border border-white/10 p-6 hover:border-[#0f62fe]/50 transition-colors">
-              <span className="carbon-fluid-display-03 text-[#0f62fe]">{step.num}</span>
-              <h3 className="carbon-heading-03 text-white mt-4 mb-2">{step.title}</h3>
-              <p className="carbon-body-02 text-gray-400">{step.desc}</p>
+        
+        <div className="grid md:grid-cols-4 gap-8">
+          {[
+            { step: '01', title: 'Free ServerAudit™', desc: 'Remote health snapshot of 3 servers. No obligation.', color: 'green' },
+            { step: '02', title: 'Right-Sized Support', desc: 'ServerSure™ for non-critical. ServerLife Extend™ for mission-critical.', color: 'blue' },
+            { step: '03', title: 'Extend Life Safely', desc: 'Defer CapEx with confidence. Same-day spares, local engineers.', color: 'purple' },
+            { step: '04', title: 'Planned Refresh', desc: 'When ready, ModServe™ delivers new hardware with zero downtime.', color: 'orange' }
+          ].map((item) => (
+            <div key={item.step} className="relative">
+              <div className={`text-5xl font-bold text-${item.color}-100 mb-4`}>{item.step}</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+              <p className="text-gray-600">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -339,46 +577,47 @@ const ProcessSection = () => {
   );
 };
 
-// Case Study Teaser
+// CASE STUDY SECTION
 const CaseStudySection = () => {
   return (
-    <section id="cases" className="py-20 bg-[#FAFAFA]">
+    <section id="cases" className="py-20 bg-blue-50">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="bg-white rounded-lg border border-gray-100 p-8 lg:p-12">
+        <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="carbon-font">
-              <span className="carbon-label-02 uppercase tracking-[0.16px] text-[#0f62fe] mb-4 block">
-                Featured Case Study
-              </span>
-              <h2 className="carbon-fluid-heading-04 text-[#161616] mb-4">
+            <div>
+              <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Featured Case Study</span>
+              <h2 className="text-3xl font-bold text-gray-900 mt-4 mb-4">
                 99.99% Uptime for Pakistan's Largest Telecom
               </h2>
-              <p className="carbon-body-02 text-[#525252] mb-6">
+              <p className="text-gray-600 text-lg mb-8">
                 Deployed and manage a multi-site infrastructure spanning 3 data centers, 
                 supporting 60+ million subscribers with zero unplanned downtime in 3 years.
               </p>
-              <div className="flex flex-wrap gap-6 mb-8">
+              
+              <div className="grid grid-cols-3 gap-6 mb-8">
                 <div>
-                  <span className="carbon-fluid-heading-04 text-[#0f62fe]">99.99%</span>
-                  <p className="carbon-label-02 text-[#6f6f6f]">Uptime Achieved</p>
+                  <div className="text-3xl font-bold text-blue-600">99.99%</div>
+                  <div className="text-sm text-gray-500">Uptime Achieved</div>
                 </div>
                 <div>
-                  <span className="carbon-fluid-heading-04 text-[#0f62fe]">3</span>
-                  <p className="carbon-label-02 text-[#6f6f6f]">Data Centers</p>
+                  <div className="text-3xl font-bold text-blue-600">3</div>
+                  <div className="text-sm text-gray-500">Data Centers</div>
                 </div>
                 <div>
-                  <span className="carbon-fluid-heading-04 text-[#0f62fe]">60M+</span>
-                  <p className="carbon-label-02 text-[#6f6f6f]">Subscribers Supported</p>
+                  <div className="text-3xl font-bold text-blue-600">60M+</div>
+                  <div className="text-sm text-gray-500">Subscribers</div>
                 </div>
               </div>
+              
               <Link 
                 to="/projects"
-                className="inline-flex items-center gap-2 carbon-heading-02 text-[#0f62fe] hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all"
               >
                 View All Case Studies <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-            <div className="bg-gray-100 rounded-lg h-64 flex items-center justify-center">
+            
+            <div className="bg-gray-100 rounded-xl h-80 flex items-center justify-center">
               <span className="text-gray-400">Case Study Image</span>
             </div>
           </div>
@@ -388,37 +627,47 @@ const CaseStudySection = () => {
   );
 };
 
-// CTA Section
+// CTA SECTION
 const CTASection = () => {
   return (
-    <section id="contact" className="py-20 bg-[#24a148]">
-      <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center carbon-font">
-        <h2 className="carbon-fluid-heading-04 text-white mb-6">
-          Ready to Strengthen Your Infrastructure?
+    <section id="contact" className="py-20 bg-blue-600">
+      <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          Start With a Free Server Health Snapshot
         </h2>
-        <p className="carbon-body-02 text-white/80 mb-8 max-w-2xl mx-auto">
-          Schedule a free infrastructure assessment. We'll identify risks, gaps, and 
-          optimisation opportunities—no obligation.
+        <p className="text-xl text-blue-100 mb-8">
+          No obligation. No sales pressure. Just clarity on whether your servers need refresh—or can safely extend.
         </p>
+        
         <div className="flex flex-wrap justify-center gap-4">
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#0f62fe] font-semibold hover:bg-gray-100 transition-all"
+          <a
+            href="/contact"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 transition-colors"
           >
-            Schedule Infrastructure Assessment
+            Request Free ServerAudit™
             <ArrowRight className="w-5 h-5" />
-          </Link>
+          </a>
+          <a
+            href="tel:+924211111111"
+            className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-colors"
+          >
+            <Phone className="w-5 h-5" />
+            Call Now
+          </a>
         </div>
+        
+        <p className="text-blue-200 text-sm mt-6">
+          Response within 4 hours. Lahore-based engineers. Same-day site visits available.
+        </p>
       </div>
     </section>
   );
 };
 
-// Main Infrastructure Hub Page
+// MAIN PAGE
 const InfrastructureHub = () => {
-  const [activeSection, setActiveSection] = useState('overview');
+  const [activeSection, setActiveSection] = useState('infrastructure-hero');
   
-  // Scroll spy for navigation
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 150;
@@ -453,24 +702,20 @@ const InfrastructureHub = () => {
       <Navigation />
       
       <main>
-        {/* Hero - Full width, no side menu */}
         <ErrorBoundary fallback={<div className="h-96 bg-gray-50" />}>
           <HeroVariant />
         </ErrorBoundary>
 
-        {/* Client Logos */}
         <ErrorBoundary fallback={<div className="h-32 bg-gray-50" />}>
-          <ClientLogos />
+          <PartnerLogos />
         </ErrorBoundary>
 
-        {/* Main Content with Side Navigation */}
-        <div className="border-t border-[var(--cds-border-subtle)]">
+        <div className="border-t border-gray-100">
           <div className="max-w-[1584px] mx-auto">
             <div className="flex">
               
-              {/* Desktop Side Menu */}
-              <aside className="hidden xl:block w-64 flex-shrink-0">
-                <nav className="sticky top-20 pt-8 pb-8 border-r border-[var(--cds-border-subtle)] h-[calc(100vh-5rem)]">
+              <aside className="hidden xl:block w-64 flex-shrink-0 pl-4">
+                <nav className="sticky top-20 pt-8 pb-8 border-r border-gray-100 h-[calc(100vh-5rem)]">
                   <ul className="space-y-0.5">
                     {SECTIONS.map((item) => (
                       <li key={item.id}>
@@ -478,8 +723,8 @@ const InfrastructureHub = () => {
                           onClick={() => scrollToSection(item.id)}
                           className={`w-full text-left px-4 py-2 text-sm transition-colors border-l-[3px] ${
                             activeSection === item.id
-                              ? 'text-[var(--cds-text-primary)] border-[#24a148] bg-[#24a148]/5 font-semibold'
-                              : 'text-[var(--cds-text-secondary)] border-transparent hover:text-[var(--cds-text-primary)] hover:bg-[var(--cds-layer-hover)]'
+                              ? 'text-gray-900 border-blue-600 bg-blue-50 font-semibold'
+                              : 'text-gray-500 border-transparent hover:text-gray-900 hover:bg-gray-50'
                           }`}
                         >
                           {item.label}
@@ -490,14 +735,17 @@ const InfrastructureHub = () => {
                 </nav>
               </aside>
 
-              {/* Content Area */}
               <div className="flex-1 min-w-0">
                 <ErrorBoundary fallback={<div className="h-96 bg-gray-50" />}>
-                  <CapabilitiesSection />
+                  <ProblemSection />
                 </ErrorBoundary>
                 
                 <ErrorBoundary fallback={<div className="h-96 bg-gray-50" />}>
-                  <SolutionsSection />
+                  <ServerSuiteSection />
+                </ErrorBoundary>
+                
+                <ErrorBoundary fallback={<div className="h-96 bg-gray-50" />}>
+                  <DataCentreSection />
                 </ErrorBoundary>
                 
                 <ErrorBoundary fallback={<div className="h-96 bg-gray-50" />}>
@@ -506,6 +754,10 @@ const InfrastructureHub = () => {
                 
                 <ErrorBoundary fallback={<div className="h-96 bg-gray-50" />}>
                   <CaseStudySection />
+                </ErrorBoundary>
+                
+                <ErrorBoundary fallback={<div className="h-32 bg-gray-50" />}>
+                  <ClientLogos />
                 </ErrorBoundary>
                 
                 <ErrorBoundary fallback={<div className="h-96 bg-gray-50" />}>

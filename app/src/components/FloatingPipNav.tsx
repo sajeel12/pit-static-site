@@ -8,9 +8,10 @@ interface Section {
 
 interface FloatingPipNavProps {
   sections: Section[];
+  hidden?: boolean;
 }
 
-export function FloatingPipNav({ sections }: FloatingPipNavProps) {
+export function FloatingPipNav({ sections, hidden }: FloatingPipNavProps) {
   const [activeSection, setActiveSection] = useState<string>('');
   const [hoveredSection, setHoveredSection] = useState<string | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -67,7 +68,7 @@ export function FloatingPipNav({ sections }: FloatingPipNavProps) {
     }
   }, [handleClick]);
 
-  if (sections.length === 0) {
+  if (sections.length === 0 || hidden) {
     return null;
   }
 
