@@ -582,59 +582,49 @@ const ServerContinuity = () => {
                     {caseStudies.map((study, index) => (
                       index === currentCaseStudy && (
                         <div key={study.id} className="grid grid-cols-12 gap-0">
-                          {/* Left: Image + Trust Badge (4 cols) */}
-                          <div className="col-span-12 md:col-span-4 relative bg-gray-100 min-h-[300px] flex flex-col">
-                            {/* Main Image */}
-                            <div className="flex-1 relative">
-                              {study.image ? (
-                                <div className="absolute inset-0">
-                                  <img 
-                                    src={study.image} 
-                                    alt={study.title}
-                                    className="w-full h-full object-cover"
-                                  />
-                                </div>
-                              ) : (
-                                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
-                                  <div className="text-center p-6">
-                                    <Building className="w-16 h-16 text-gray-300 mx-auto mb-3" />
-                                    <span className="text-gray-400 text-sm">Company/Industry Photo</span>
+                          {/* Left: Image (4 cols) */}
+                          <div className="col-span-12 md:col-span-4 relative bg-gray-100 min-h-[300px]">
+                            {/* Company Logo - Top Left */}
+                            <div className="absolute top-4 left-4 px-4 py-3 bg-white rounded-lg shadow-md border border-gray-200 flex items-center gap-2 z-10">
+                              {study.logo ? (
+                                <>
+                                  <div className="w-10 h-10 flex items-center justify-center">
+                                    <img 
+                                      src={study.logo} 
+                                      alt={`${study.companyName} logo`}
+                                      className="max-w-full max-h-full object-contain"
+                                    />
                                   </div>
-                                </div>
+                                  <span className="text-xs font-medium text-gray-600">{study.companyName}</span>
+                                </>
+                              ) : (
+                                <>
+                                  <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
+                                    <span className="text-xs text-gray-400">LOGO</span>
+                                  </div>
+                                  <span className="text-xs font-medium text-gray-600">Company Name</span>
+                                </>
                               )}
                             </div>
                             
-                            {/* Trust Badge - Prominent Logo Strip */}
-                            <div className="bg-white border-t border-gray-200 p-4">
-                              <p className="text-[10px] uppercase tracking-wider text-gray-400 mb-2 font-medium">Trusted Client</p>
-                              <div className="flex items-center gap-3">
-                                {study.logo ? (
-                                  <>
-                                    <div className="w-14 h-14 bg-gray-50 rounded-lg border border-gray-100 flex items-center justify-center p-2 shadow-sm">
-                                      <img 
-                                        src={study.logo} 
-                                        alt={`${study.companyName} logo`}
-                                        className="max-w-full max-h-full object-contain"
-                                      />
-                                    </div>
-                                    <div>
-                                      <p className="text-sm font-semibold text-gray-900">{study.companyName}</p>
-                                      <p className="text-xs text-gray-500">Verified Deployment</p>
-                                    </div>
-                                  </>
-                                ) : (
-                                  <>
-                                    <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
-                                      <span className="text-xs text-gray-400">LOGO</span>
-                                    </div>
-                                    <div>
-                                      <p className="text-sm font-semibold text-gray-900">{study.companyName}</p>
-                                      <p className="text-xs text-gray-500">Verified Deployment</p>
-                                    </div>
-                                  </>
-                                )}
+                            {/* Main Image */}
+                            {study.image ? (
+                              <div className="absolute inset-0">
+                                <img 
+                                  src={study.image} 
+                                  alt={study.title}
+                                  className="w-full h-full object-cover"
+                                />
                               </div>
-                            </div>
+                            ) : (
+                              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+                                <div className="text-center p-6">
+                                  <Building className="w-16 h-16 text-gray-300 mx-auto mb-3" />
+                                  <span className="text-gray-400 text-sm">Company/Industry Photo</span>
+                                </div>
+                              </div>
+                            )}
+                            
                           </div>
                           
                           {/* Middle: Content (5 cols) */}
