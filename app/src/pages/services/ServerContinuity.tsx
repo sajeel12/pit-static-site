@@ -7,7 +7,7 @@ import HeroGradientPlanesOrange from '../../components/HeroGradientPlanesOrange'
 import {
   ArrowRight, CheckmarkFilled, WarningAlt,
   Tools, Calendar, Activity, Money, View,
-  ChevronRight, Building, DataBase, Group
+  ChevronRight, Building, DataBase
 } from '@carbon/icons-react';
 
 const ServerContinuity = () => {
@@ -55,17 +55,19 @@ const ServerContinuity = () => {
       ]
     },
     {
-      id: 'jazz',
+      id: 'descon',
       tags: [
-        { text: 'Telecom', color: 'purple' },
-        { text: 'Multi-Site', color: 'blue' }
+        { text: 'Manufacturing', color: 'orange' },
+        { text: 'ServerLife Extend', color: 'blue' }
       ],
-      title: 'Jazz — Multi-Site Infrastructure Continuity',
-      description: 'Deployed and manage multi-site infrastructure spanning 3 data centers with zero unplanned downtime in 3 years supporting 60+ million subscribers.',
+      title: 'Descon — ServerLife Extend™ Deployment',
+      description: 'Deployed and manage multi-site infrastructure spanning 3 data centers with zero unplanned downtime in 3 years supporting critical manufacturing operations.',
+      companyName: 'Descon',
+      image: '/case-studies/DESCON- Casestudy- pre-view.jpg',
       stats: [
         { value: '99.99%', label: 'Uptime SLA', icon: Activity, color: '#f97316' },
         { value: '3', label: 'Data Centers', icon: Building, color: '#24a148' },
-        { value: '60M+', label: 'Subscribers', icon: Group, color: '#6929c4' }
+        { value: 'Zero', label: 'Unplanned Downtime', icon: CheckmarkFilled, color: '#6929c4' }
       ]
     }
   ];
