@@ -26,6 +26,7 @@ const ServerContinuity = () => {
       description: 'Extended life of 7-year-old MES servers with same-day spare availability, eliminating forced PKR 8M refresh and maintaining 99.9% production uptime.',
       logo: '/logos/clients/ibrahim-fibres-logo.svg',
       companyName: 'Ibrahim Fibres',
+      image: '/case-studies/ibrahim-fibres-serverextend.jpg',
       stats: [
         { value: 'PKR 8M', label: 'CapEx Deferred', icon: Money, color: '#f97316' },
         { value: '99.9%', label: 'Uptime Maintained', icon: Activity, color: '#24a148' },
@@ -606,13 +607,23 @@ const ServerContinuity = () => {
                               )}
                             </div>
                             
-                            {/* Main Image Placeholder */}
-                            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
-                              <div className="text-center p-6">
-                                <Building className="w-16 h-16 text-gray-300 mx-auto mb-3" />
-                                <span className="text-gray-400 text-sm">Company/Industry Photo</span>
+                            {/* Main Image */}
+                            {study.image ? (
+                              <div className="absolute inset-0">
+                                <img 
+                                  src={study.image} 
+                                  alt={study.title}
+                                  className="w-full h-full object-cover"
+                                />
                               </div>
-                            </div>
+                            ) : (
+                              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+                                <div className="text-center p-6">
+                                  <Building className="w-16 h-16 text-gray-300 mx-auto mb-3" />
+                                  <span className="text-gray-400 text-sm">Company/Industry Photo</span>
+                                </div>
+                              </div>
+                            )}
                             
                           </div>
                           
