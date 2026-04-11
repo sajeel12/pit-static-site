@@ -71,7 +71,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
 
   const [activeServiceByCategory, setActiveServiceByCategory] = useState<Record<ServiceCategoryId, string>>(initialServiceState);
   const [activeInfrastructureItem, setActiveInfrastructureItem] = useState<string>('server-continuity');
-  const [activeAboutCategory, setActiveAboutCategory] = useState<string>('company-overview');
+
   const [activeSolution, setActiveSolution] = useState<string>('ai-accelerator');
   const [activeDataItem, setActiveDataItem] = useState<string>('iot-analytics');
   const [activeAIItem, setActiveAIItem] = useState<string>('mlops');
@@ -270,7 +270,6 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
     }
   ];
 
-  const getActiveAboutCategory = () => aboutCategories.find(c => c.id === activeAboutCategory) || aboutCategories[0];
 
   // Mobile tabs - updated for new structure
   const mobileTabs = [
@@ -1308,40 +1307,41 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                       
                       {/* Content - Three Panel Layout */}
                       <div className="max-w-6xl mx-auto flex pb-8">
-                        {/* Left Rail */}
+                        {/* Left Rail - Only Company Overview */}
                         <div className="w-[240px] bg-white p-4 flex-shrink-0 border-r border-[#e0e0e0]">
                           <div className="space-y-1">
-                            {aboutCategories.map((category) => {
-                              const isActive = activeAboutCategory === category.id;
-                              return (
-                                <Link 
-                                  key={category.id} 
-                                  to="/about"
-                                  onMouseEnter={() => setActiveAboutCategory(category.id)} 
-                                  onClick={() => handleCategoryClick()}
-                                  className={`block w-full text-left px-3 py-2 text-sm transition-all border-l-2 ${
-                                    isActive 
-                                      ? 'bg-[#f4f4f4] text-[#161616] border-[#0f62fe] font-semibold' 
-                                      : 'text-[#161616] hover:bg-[#f4f4f4] border-transparent'
-                                  }`}
-                                >
-                                  <span className="font-normal">{category.name}</span>
-                                </Link>
-                              );
-                            })}
+                            <Link 
+                              to="/about"
+                              onClick={() => handleCategoryClick()}
+                              className="block w-full text-left px-3 py-2 text-sm transition-all border-l-2 bg-[#f4f4f4] text-[#161616] border-[#0f62fe] font-semibold"
+                            >
+                              <span className="font-normal">Company Overview</span>
+                            </Link>
                             <div className="border-t border-[#e0e0e0] my-2" />
                             <Link to="/projects" className="block px-3 py-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0353e9] hover:bg-[#f4f4f4] transition-colors" onClick={() => setActiveMegaMenu(null)}>Projects</Link>
                             <Link to="/contact" className="block px-3 py-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0353e9] hover:bg-[#f4f4f4] transition-colors" onClick={() => setActiveMegaMenu(null)}>Contact Us</Link>
                           </div>
                         </div>
                         
-                        {/* Middle - Active Category Content */}
+                        {/* Middle - Company Overview Content */}
                         <div className="flex-1 p-6 bg-white">
                           <Link to="/about" onClick={() => setActiveMegaMenu(null)} className="group flex items-center gap-2 text-sm font-semibold text-[#161616] mb-2 hover:text-[#0f62fe] transition-colors">
-                            {getActiveAboutCategory().name}
+                            Company Overview
                             <ArrowRight className="w-4 h-4 text-[#8d8d8d] group-hover:text-[#0f62fe] transition-colors" />
                           </Link>
-                          <div className="text-sm text-[#525252] mb-6">{getActiveAboutCategory().content}</div>
+                          <div className="text-sm text-[#525252] mb-6">
+                            <p className="mb-4">Perception IT is your trusted partner from hardware to cloud, delivering enterprise-grade solutions across Pakistan, UK, and GCC markets.</p>
+                            <div className="grid grid-cols-2 gap-4 mb-4">
+                              <div className="p-3 bg-slate-50 rounded-lg">
+                                <p className="text-2xl font-bold text-blue-600">14+</p>
+                                <p className="text-xs text-[#525252]">Years Experience</p>
+                              </div>
+                              <div className="p-3 bg-slate-50 rounded-lg">
+                                <p className="text-2xl font-bold text-blue-600">50+</p>
+                                <p className="text-xs text-[#525252]">Platforms Deployed</p>
+                              </div>
+                            </div>
+                          </div>
                           
                           {/* CTA */}
                           <a href="#contact" onClick={() => setActiveMegaMenu(null)} className="inline-flex items-center gap-2 px-4 py-3 bg-[#0f62fe] text-white text-sm font-semibold hover:bg-[#0353e9] transition-colors">
@@ -1350,8 +1350,18 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                           <div className="h-8" />
                         </div>
                         
-                        {/* Right Rail - Success Stats */}
+                        {/* Right Rail - Includes & Success Stats */}
                         <div className="w-[280px] bg-white pt-6 pr-6 pb-6 flex-shrink-0">
+                          {/* Includes Section */}
+                          <div className="pl-4 pr-0 py-0 border-l-2 border-[#0f62fe] mb-8">
+                            <p className="text-[11px] font-medium text-[#6f6f6f] uppercase tracking-[0.16px] mb-3">Includes</p>
+                            <div className="flex flex-wrap gap-2 mb-4">
+                              <Link to="/about" onClick={() => setActiveMegaMenu(null)} className="px-2 py-0.5 border border-[#e0e0e0] text-[#525252] text-xs font-medium rounded-full hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors">Our Approach</Link>
+                              <Link to="/about" onClick={() => setActiveMegaMenu(null)} className="px-2 py-0.5 border border-[#e0e0e0] text-[#525252] text-xs font-medium rounded-full hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors">Leadership Team</Link>
+                            </div>
+                          </div>
+                          
+                          {/* Success Stats */}
                           <div className="pl-4 pr-0 py-0 border-l-2 border-[#c6c6c6]">
                             <p className="text-[11px] font-semibold text-[#6f6f6f] uppercase tracking-[0.16px] mb-3">Client Success</p>
                             <h4 className="text-sm font-semibold text-[#161616] mb-3">14+ Years of Enterprise Excellence</h4>
