@@ -70,6 +70,23 @@ const ServerContinuity = () => {
         { value: '3', label: 'Data Centers', icon: Building, color: '#24a148' },
         { value: 'Zero', label: 'Unplanned Downtime', icon: CheckmarkFilled, color: '#6929c4' }
       ]
+    },
+    {
+      id: 'sefam',
+      tags: [
+        { text: 'Manufacturing', color: 'orange' },
+        { text: 'ServerSure', color: 'blue' }
+      ],
+      title: 'Sefam — ServerSure™ for Manufacturing Operations',
+      description: 'Comprehensive server support for manufacturing operations ensuring continuous production with proactive monitoring and rapid response.',
+      logo: '/logos/clients/client-Sefam.jpeg',
+      companyName: 'Sefam',
+      image: '/case-studies/Client-Sefam-casestudy.jpg',
+      stats: [
+        { value: '99.9%', label: 'Uptime Maintained', icon: Activity, color: '#f97316' },
+        { value: '4hrs', label: 'Response Time', icon: Calendar, color: '#24a148' },
+        { value: '24/7', label: 'Monitoring', icon: CheckmarkFilled, color: '#6929c4' }
+      ]
     }
   ];
   
