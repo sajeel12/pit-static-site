@@ -585,7 +585,7 @@ const ServerContinuity = () => {
                           {/* Left: Image (4 cols) */}
                           <div className="col-span-12 md:col-span-4 relative bg-gray-900 min-h-[300px]">
                             {/* Company Logo - Top Left - Prominent */}
-                            <div className="absolute top-4 left-4 px-5 py-4 bg-white shadow-lg border-2 border-gray-100 flex items-center gap-3 z-10">
+                            <div className="absolute top-4 left-4 px-5 py-4 bg-white shadow-lg flex items-center gap-3 z-10">
                               {study.logo ? (
                                 <>
                                   <div className="w-14 h-14 flex items-center justify-center bg-gray-50 p-1">
