@@ -78,10 +78,14 @@ const ServerContinuity = () => {
         { text: 'ServerSure', color: 'blue' }
       ],
       title: 'Sefam — ServerSure™ for Manufacturing Operations',
-      description: 'Comprehensive server support for manufacturing operations ensuring continuous production with proactive monitoring and rapid response.',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
       logo: '/logos/clients/client-Sefam.jpeg',
       companyName: 'Sefam',
       image: '/case-studies/Client-Sefam-casestudy.jpg',
+      quote: {
+        text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        author: "IT Manager, Sefam"
+      },
       stats: [
         { value: '99.9%', label: 'Uptime Maintained', icon: Activity, color: '#f97316' },
         { value: '4hrs', label: 'Response Time', icon: Calendar, color: '#24a148' },
