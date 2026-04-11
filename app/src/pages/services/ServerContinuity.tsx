@@ -712,6 +712,20 @@ const ServerContinuity = () => {
                                 </div>
                               ))}
                             </div>
+                            
+                            {/* CTA under stats */}
+                            <div className="mt-8 pt-6 border-t border-gray-800">
+                              <a
+                                href="#contact"
+                                
+                                className="block w-full text-center px-4 py-3 bg-[#f97316] text-white text-sm font-semibold hover:bg-[#ea580c] transition-colors"
+                              >
+                                Get Similar Results
+                              </a>
+                              <p className="text-xs text-gray-500 text-center mt-3">
+                                Free ServerAudit™ assessment
+                              </p>
+                            </div>
                           </div>
                         </div>
                       )
