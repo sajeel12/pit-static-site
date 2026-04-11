@@ -62,6 +62,7 @@ const ServerContinuity = () => {
       ],
       title: 'Descon — ServerLife Extend™ Deployment',
       description: 'Deployed and manage multi-site infrastructure spanning 3 data centers with zero unplanned downtime in 3 years supporting critical manufacturing operations.',
+      logo: '/logos/clients/Descon-logo.png',
       companyName: 'Descon',
       image: '/case-studies/DESCON- Casestudy- pre-view.jpg',
       stats: [
