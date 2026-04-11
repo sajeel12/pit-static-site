@@ -283,6 +283,49 @@ Each hub card has:
 
 ---
 
+## Testimonial Section
+
+### Layout Structure
+```
+[TESTIMONIAL CARD]
+├─ [IMAGE PLACECARD 1] - Company/Industry Photo
+│   └─ SUGGESTION: 
+│       - Office building or facility
+│       - Industry-specific imagery (tower, factory, campus)
+│       - Abstract technology background
+│   └─ SIZE: 400x300px (4:3)
+│   └─ FORMAT: WebP/JPG
+│
+├─ [IMAGE PLACECARD 2] - Person Photo (Optional)
+│   └─ SUGGESTION:
+│       - Professional headshot
+│       - Candid workplace photo
+│       - Leave empty/placeholder if unavailable
+│   └─ SIZE: 200x200px (1:1)
+│   └─ FORMAT: WebP/JPG with fallback
+│   └─ NOTE: Circular crop, neutral background preferred
+│
+├─ [IMAGE PLACECARD 3] - Company Logo
+│   └─ SUGGESTION:
+│       - Official company logo
+│       - Monochrome version for consistency
+│       - SVG preferred for scalability
+│   └─ SIZE: 120x60px
+│   └─ FORMAT: SVG or PNG with transparency
+│
+├─ Quote text
+├─ Author name and title
+└─ Company name
+```
+
+### Design Notes
+- Placecard 1 serves as the main visual anchor (largest)
+- Placecard 2 is smaller, positioned near quote attribution
+- Placecard 3 is subtle, positioned as a trust indicator
+- If Placecard 2 (person photo) is unavailable, expand Placecard 1 or use a larger logo
+
+---
+
 ## Image Specifications
 
 ### Hero Images
