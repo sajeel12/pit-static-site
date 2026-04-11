@@ -283,6 +283,39 @@ Each hub card has:
 
 ---
 
+## Case Study Section
+
+### Image Requirements
+```
+[CASE STUDY CARD]
+├─ [IMAGE TYPE] - Company or Industry Photo
+│   └─ PURPOSE: Visual context for the case study
+│   └─ SUGGESTION:
+│       - Company facility or office building
+│       - Industry-specific equipment or infrastructure
+│       - Project site or implementation location
+│       - Team at work (with permission)
+│   └─ SIZE: 800x600px (4:3) or 1200x675px (16:9)
+│   └─ FORMAT: WebP with JPG fallback
+│   └─ STYLE: Professional photography, well-lit, relevant to story
+│
+├─ Client badge/logo
+├─ Title and description
+├─ Key metrics/stats
+└─ Technology tags
+```
+
+### Examples by Industry
+| Industry | Photo Suggestion |
+|----------|------------------|
+| Telecom | Mobile tower, data center, network operations center |
+| Manufacturing | Production line, facility exterior, machinery |
+| Financial | Trading floor, bank building, secure facility |
+| Real Estate | Property exterior, smart building, management office |
+| Academic | University campus, data center, research facility |
+
+---
+
 ## Testimonial Section
 
 ### Layout Structure
