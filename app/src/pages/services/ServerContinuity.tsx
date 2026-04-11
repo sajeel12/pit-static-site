@@ -584,10 +584,10 @@ const ServerContinuity = () => {
                         <div key={study.id} className="grid grid-cols-12 gap-0">
                           {/* Left: Image (4 cols) */}
                           <div className="col-span-12 md:col-span-4 relative bg-gray-900 min-h-[300px]">
-                            {/* Company Logo - Top Left - Clean */}
-                            <div className="absolute top-4 left-4 flex flex-col gap-1 z-10">
+                            {/* Company Logo - Top Left */}
+                            <div className="absolute top-4 left-4 z-10">
                               {study.logo ? (
-                                <div className="w-20 h-20 bg-white flex items-center justify-center p-2">
+                                <div className="w-20 h-20 bg-white rounded-lg flex items-center justify-center p-2">
                                   <img 
                                     src={study.logo} 
                                     alt={`${study.companyName} logo`}
@@ -595,13 +595,10 @@ const ServerContinuity = () => {
                                   />
                                 </div>
                               ) : (
-                                <div className="w-20 h-20 bg-white flex items-center justify-center p-2">
+                                <div className="w-20 h-20 bg-white rounded-lg flex items-center justify-center p-2">
                                   <span className="text-xs text-gray-400">LOGO</span>
                                 </div>
                               )}
-                              <div className="bg-white px-2 py-1">
-                                <p className="text-xs font-medium text-gray-700">{study.companyName}</p>
-                              </div>
                             </div>
                             
                             {/* Main Image */}
