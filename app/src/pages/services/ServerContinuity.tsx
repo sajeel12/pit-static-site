@@ -627,24 +627,25 @@ const ServerContinuity = () => {
                             
                           </div>
                           
-                          {/* Middle: Content (5 cols) */}
-                          <div className="col-span-12 md:col-span-5 p-6 md:p-8 flex flex-col justify-between border-r border-gray-200">
+                          {/* Middle: Content (5 cols) - Dark BG */}
+                          <div className="col-span-12 md:col-span-5 p-6 md:p-8 flex flex-col justify-between border-r border-gray-700 bg-black text-white">
                             <div>
                               {/* Tags */}
                               <div className="flex flex-wrap gap-2 mb-4">
                                 {study.tags.map((tag) => (
                                   <span 
                                     key={tag.text}
-                                    className="px-2 py-1 text-xs font-medium rounded-sm"
+                                    className="px-2 py-1 text-xs font-medium rounded-sm border"
                                     style={{ 
-                                      backgroundColor: tag.color === 'blue' ? '#e5f6ff' : 
-                                                      tag.color === 'green' ? '#ddefe5' :
-                                                      tag.color === 'orange' ? '#fff2e5' :
-                                                      '#f0e6ff',
-                                      color: tag.color === 'blue' ? '#0066cc' : 
-                                             tag.color === 'green' ? '#198038' :
+                                      backgroundColor: 'transparent',
+                                      borderColor: tag.color === 'blue' ? '#0066cc' : 
+                                                   tag.color === 'green' ? '#198038' :
+                                                   tag.color === 'orange' ? '#f97316' :
+                                                   '#6929c4',
+                                      color: tag.color === 'blue' ? '#60a5fa' : 
+                                             tag.color === 'green' ? '#4ade80' :
                                              tag.color === 'orange' ? '#f97316' :
-                                             '#6929c4'
+                                             '#a78bfa'
                                     }}
                                   >
                                     {tag.text}
@@ -653,19 +654,19 @@ const ServerContinuity = () => {
                               </div>
                               
                               {/* Title */}
-                              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                              <h3 className="text-xl font-semibold text-white mb-4">
                                 {study.title}
                               </h3>
                               
                               {/* Description */}
-                              <p className="text-gray-600 mb-6">
+                              <p className="text-gray-300 mb-6">
                                 {study.description}
                               </p>
                               
                               {/* Quote if available */}
                               {study.quote && (
-                                <div className="bg-gray-50 p-4 border-l-4 border-[#f97316] mb-4">
-                                  <p className="text-gray-700 italic text-sm mb-2">"{study.quote.text}"</p>
+                                <div className="bg-gray-900 p-4 border-l-4 border-[#f97316] mb-4">
+                                  <p className="text-gray-300 italic text-sm mb-2">"{study.quote.text}"</p>
                                   <p className="text-xs text-gray-500">— {study.quote.author}</p>
                                 </div>
                               )}
