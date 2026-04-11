@@ -568,17 +568,17 @@ const ServerContinuity = () => {
               </section>
 
               {/* Case Studies Section */}
-              <section id="cases" className="py-16 border-b border-gray-800 bg-black">
+              <section id="cases" className="py-16 border-b border-gray-200 bg-white">
                 <div className="max-w-6xl mx-auto px-6">
                   <div className="flex items-center justify-between mb-8">
-                    <h2 className="text-3xl font-bold text-white">Case Studies</h2>
-                    <span className="text-sm text-gray-400">
+                    <h2 className="text-3xl font-bold text-gray-900">Case Studies</h2>
+                    <span className="text-sm text-gray-500">
                       {currentCaseStudy + 1} of {caseStudies.length}
                     </span>
                   </div>
 
-                  {/* Case Study Card - Dark Mode */}
-                  <div className="bg-black border border-gray-800 overflow-hidden">
+                  {/* Case Study Card */}
+                  <div className="bg-white border border-gray-200 overflow-hidden">
                     {caseStudies.map((study, index) => (
                       index === currentCaseStudy && (
                         <div key={study.id} className="grid grid-cols-12 gap-0">
@@ -628,7 +628,7 @@ const ServerContinuity = () => {
                           </div>
                           
                           {/* Middle: Content (5 cols) */}
-                          <div className="col-span-12 md:col-span-5 p-6 md:p-8 flex flex-col justify-between border-r border-gray-800 bg-black">
+                          <div className="col-span-12 md:col-span-5 p-6 md:p-8 flex flex-col justify-between border-r border-gray-200">
                             <div>
                               {/* Tags */}
                               <div className="flex flex-wrap gap-2 mb-4">
@@ -653,19 +653,19 @@ const ServerContinuity = () => {
                               </div>
                               
                               {/* Title */}
-                              <h3 className="text-xl font-semibold text-white mb-4">
+                              <h3 className="text-xl font-semibold text-gray-900 mb-4">
                                 {study.title}
                               </h3>
                               
                               {/* Description */}
-                              <p className="text-gray-400 mb-6">
+                              <p className="text-gray-600 mb-6">
                                 {study.description}
                               </p>
                               
                               {/* Quote if available */}
                               {study.quote && (
-                                <div className="bg-gray-900 p-4 border-l-4 border-[#f97316] mb-4">
-                                  <p className="text-gray-300 italic text-sm mb-2">"{study.quote.text}"</p>
+                                <div className="bg-gray-50 p-4 border-l-4 border-[#f97316] mb-4">
+                                  <p className="text-gray-700 italic text-sm mb-2">"{study.quote.text}"</p>
                                   <p className="text-xs text-gray-500">— {study.quote.author}</p>
                                 </div>
                               )}
@@ -682,8 +682,8 @@ const ServerContinuity = () => {
                           </div>
                           
                           {/* Right: Stats (3 cols) */}
-                          <div className="col-span-12 md:col-span-3 bg-gray-900 p-6 md:p-8">
-                            <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-5">
+                          <div className="col-span-12 md:col-span-3 bg-gray-50 p-6 md:p-8">
+                            <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-5">
                               Key Results
                             </p>
                             
@@ -700,7 +700,7 @@ const ServerContinuity = () => {
                                     <div className="text-lg font-bold" style={{ color: stat.color }}>
                                       {stat.value}
                                     </div>
-                                    <div className="text-xs text-gray-400">{stat.label}</div>
+                                    <div className="text-xs text-gray-500">{stat.label}</div>
                                   </div>
                                 </div>
                               ))}
@@ -715,10 +715,10 @@ const ServerContinuity = () => {
                   <div className="flex items-center justify-center gap-3 mt-8">
                     <button
                       onClick={prevCaseStudy}
-                      className="w-10 h-10 border border-gray-700 flex items-center justify-center hover:border-[#f97316] hover:bg-gray-900 transition-all"
+                      className="w-10 h-10 border border-gray-200 flex items-center justify-center hover:border-[#f97316] hover:bg-gray-50 transition-all"
                       aria-label="Previous case study"
                     >
-                      <ChevronRight className="w-5 h-5 text-gray-400 rotate-180" />
+                      <ChevronRight className="w-5 h-5 text-gray-500 rotate-180" />
                     </button>
                     
                     <div className="flex items-center gap-2">
@@ -727,7 +727,7 @@ const ServerContinuity = () => {
                           key={idx}
                           onClick={() => setCurrentCaseStudy(idx)}
                           className={`w-2 h-2 rounded-full transition-colors ${
-                            idx === currentCaseStudy ? 'bg-[#f97316]' : 'bg-gray-600'
+                            idx === currentCaseStudy ? 'bg-[#f97316]' : 'bg-gray-300'
                           }`}
                           aria-label={`Go to case study ${idx + 1}`}
                         />
@@ -736,10 +736,10 @@ const ServerContinuity = () => {
 
                     <button
                       onClick={nextCaseStudy}
-                      className="w-10 h-10 border border-gray-700 flex items-center justify-center hover:border-[#f97316] hover:bg-gray-900 transition-all"
+                      className="w-10 h-10 border border-gray-200 flex items-center justify-center hover:border-[#f97316] hover:bg-gray-50 transition-all"
                       aria-label="Next case study"
                     >
-                      <ChevronRight className="w-5 h-5 text-gray-400" />
+                      <ChevronRight className="w-5 h-5 text-gray-500" />
                     </button>
                   </div>
                 </div>
