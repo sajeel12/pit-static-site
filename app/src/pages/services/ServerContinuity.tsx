@@ -682,9 +682,9 @@ const ServerContinuity = () => {
                             </a>
                           </div>
                           
-                          {/* Right: Stats (3 cols) */}
-                          <div className="col-span-12 md:col-span-3 bg-gray-50 p-6 md:p-8">
-                            <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-5">
+                          {/* Right: Stats (3 cols) - Dark BG */}
+                          <div className="col-span-12 md:col-span-3 bg-black p-6 md:p-8">
+                            <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-5">
                               Key Results
                             </p>
                             
@@ -701,7 +701,7 @@ const ServerContinuity = () => {
                                     <div className="text-lg font-bold" style={{ color: stat.color }}>
                                       {stat.value}
                                     </div>
-                                    <div className="text-xs text-gray-500">{stat.label}</div>
+                                    <div className="text-xs text-gray-400">{stat.label}</div>
                                   </div>
                                 </div>
                               ))}
