@@ -568,24 +568,24 @@ const ServerContinuity = () => {
               </section>
 
               {/* Case Studies Section */}
-              <section id="cases" className="py-16 border-b border-gray-200">
+              <section id="cases" className="py-16 border-b border-gray-800 bg-black">
                 <div className="max-w-6xl mx-auto px-6">
                   <div className="flex items-center justify-between mb-8">
-                    <h2 className="text-3xl font-bold text-gray-900">Case Studies</h2>
-                    <span className="text-sm text-gray-500">
+                    <h2 className="text-3xl font-bold text-white">Case Studies</h2>
+                    <span className="text-sm text-gray-400">
                       {currentCaseStudy + 1} of {caseStudies.length}
                     </span>
                   </div>
 
-                  {/* Case Study Card - ServiceNow Style */}
-                  <div className="bg-white border border-gray-200 overflow-hidden">
+                  {/* Case Study Card - Dark Mode */}
+                  <div className="bg-black border border-gray-800 overflow-hidden">
                     {caseStudies.map((study, index) => (
                       index === currentCaseStudy && (
                         <div key={study.id} className="grid grid-cols-12 gap-0">
                           {/* Left: Image (4 cols) */}
-                          <div className="col-span-12 md:col-span-4 relative bg-gray-100 min-h-[300px]">
+                          <div className="col-span-12 md:col-span-4 relative bg-gray-900 min-h-[300px]">
                             {/* Company Logo - Top Left */}
-                            <div className="absolute top-4 left-4 px-4 py-3 bg-white rounded-lg shadow-md border border-gray-200 flex items-center gap-2 z-10">
+                            <div className="absolute top-4 left-4 px-4 py-3 bg-black rounded-lg shadow-md border border-gray-700 flex items-center gap-2 z-10">
                               {study.logo ? (
                                 <>
                                   <div className="w-10 h-10 flex items-center justify-center">
@@ -595,14 +595,14 @@ const ServerContinuity = () => {
                                       className="max-w-full max-h-full object-contain"
                                     />
                                   </div>
-                                  <span className="text-xs font-medium text-gray-600">{study.companyName}</span>
+                                  <span className="text-xs font-medium text-gray-300">{study.companyName}</span>
                                 </>
                               ) : (
                                 <>
                                   <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
                                     <span className="text-xs text-gray-400">LOGO</span>
                                   </div>
-                                  <span className="text-xs font-medium text-gray-600">Company Name</span>
+                                  <span className="text-xs font-medium text-gray-300">Company Name</span>
                                 </>
                               )}
                             </div>
@@ -617,10 +617,10 @@ const ServerContinuity = () => {
                                 />
                               </div>
                             ) : (
-                              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+                              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
                                 <div className="text-center p-6">
-                                  <Building className="w-16 h-16 text-gray-300 mx-auto mb-3" />
-                                  <span className="text-gray-400 text-sm">Company/Industry Photo</span>
+                                  <Building className="w-16 h-16 text-gray-600 mx-auto mb-3" />
+                                  <span className="text-gray-500 text-sm">Company/Industry Photo</span>
                                 </div>
                               </div>
                             )}
@@ -628,7 +628,7 @@ const ServerContinuity = () => {
                           </div>
                           
                           {/* Middle: Content (5 cols) */}
-                          <div className="col-span-12 md:col-span-5 p-6 md:p-8 flex flex-col justify-between border-r border-gray-200">
+                          <div className="col-span-12 md:col-span-5 p-6 md:p-8 flex flex-col justify-between border-r border-gray-800 bg-black">
                             <div>
                               {/* Tags */}
                               <div className="flex flex-wrap gap-2 mb-4">
@@ -653,19 +653,19 @@ const ServerContinuity = () => {
                               </div>
                               
                               {/* Title */}
-                              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                              <h3 className="text-xl font-semibold text-white mb-4">
                                 {study.title}
                               </h3>
                               
                               {/* Description */}
-                              <p className="text-gray-600 mb-6">
+                              <p className="text-gray-400 mb-6">
                                 {study.description}
                               </p>
                               
                               {/* Quote if available */}
                               {study.quote && (
-                                <div className="bg-gray-50 p-4 border-l-4 border-[#f97316] mb-4">
-                                  <p className="text-gray-700 italic text-sm mb-2">"{study.quote.text}"</p>
+                                <div className="bg-gray-900 p-4 border-l-4 border-[#f97316] mb-4">
+                                  <p className="text-gray-300 italic text-sm mb-2">"{study.quote.text}"</p>
                                   <p className="text-xs text-gray-500">— {study.quote.author}</p>
                                 </div>
                               )}
@@ -682,8 +682,8 @@ const ServerContinuity = () => {
                           </div>
                           
                           {/* Right: Stats (3 cols) */}
-                          <div className="col-span-12 md:col-span-3 bg-gray-50 p-6 md:p-8">
-                            <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-5">
+                          <div className="col-span-12 md:col-span-3 bg-gray-900 p-6 md:p-8">
+                            <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-5">
                               Key Results
                             </p>
                             
@@ -700,7 +700,7 @@ const ServerContinuity = () => {
                                     <div className="text-lg font-bold" style={{ color: stat.color }}>
                                       {stat.value}
                                     </div>
-                                    <div className="text-xs text-gray-500">{stat.label}</div>
+                                    <div className="text-xs text-gray-400">{stat.label}</div>
                                   </div>
                                 </div>
                               ))}
@@ -715,10 +715,10 @@ const ServerContinuity = () => {
                   <div className="flex items-center justify-center gap-3 mt-8">
                     <button
                       onClick={prevCaseStudy}
-                      className="w-10 h-10 border border-gray-200 flex items-center justify-center hover:border-[#f97316] hover:bg-gray-50 transition-all"
+                      className="w-10 h-10 border border-gray-700 flex items-center justify-center hover:border-[#f97316] hover:bg-gray-900 transition-all"
                       aria-label="Previous case study"
                     >
-                      <ChevronRight className="w-5 h-5 text-gray-500 rotate-180" />
+                      <ChevronRight className="w-5 h-5 text-gray-400 rotate-180" />
                     </button>
                     
                     <div className="flex items-center gap-2">
@@ -727,7 +727,7 @@ const ServerContinuity = () => {
                           key={idx}
                           onClick={() => setCurrentCaseStudy(idx)}
                           className={`w-2 h-2 rounded-full transition-colors ${
-                            idx === currentCaseStudy ? 'bg-[#f97316]' : 'bg-gray-300'
+                            idx === currentCaseStudy ? 'bg-[#f97316]' : 'bg-gray-600'
                           }`}
                           aria-label={`Go to case study ${idx + 1}`}
                         />
@@ -736,10 +736,10 @@ const ServerContinuity = () => {
 
                     <button
                       onClick={nextCaseStudy}
-                      className="w-10 h-10 border border-gray-200 flex items-center justify-center hover:border-[#f97316] hover:bg-gray-50 transition-all"
+                      className="w-10 h-10 border border-gray-700 flex items-center justify-center hover:border-[#f97316] hover:bg-gray-900 transition-all"
                       aria-label="Next case study"
                     >
-                      <ChevronRight className="w-5 h-5 text-gray-500" />
+                      <ChevronRight className="w-5 h-5 text-gray-400" />
                     </button>
                   </div>
                 </div>
