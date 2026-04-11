@@ -587,7 +587,7 @@ const ServerContinuity = () => {
                             {/* Company Logo - Top Left */}
                             <div className="absolute top-4 left-4 z-10">
                               {study.logo ? (
-                                <div className="w-20 h-20 bg-white rounded-lg flex items-center justify-center p-2">
+                                <div className="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center p-2">
                                   <img 
                                     src={study.logo} 
                                     alt={`${study.companyName} logo`}
@@ -595,7 +595,7 @@ const ServerContinuity = () => {
                                   />
                                 </div>
                               ) : (
-                                <div className="w-20 h-20 bg-white rounded-lg flex items-center justify-center p-2">
+                                <div className="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center p-2">
                                   <span className="text-xs text-gray-400">LOGO</span>
                                 </div>
                               )}
