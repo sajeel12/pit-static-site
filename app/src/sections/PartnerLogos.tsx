@@ -63,12 +63,12 @@ const PartnerLogos = () => {
           {allPartners.map((partner, idx) => (
             <div
               key={idx}
-              className="flex items-center justify-center mx-8 flex-shrink-0 w-24 h-12"
+              className="flex items-center justify-center mx-8 flex-shrink-0 w-24 h-12 overflow-hidden"
             >
               <img 
                 src={partner.logo} 
                 alt={partner.name}
-                className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+                className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
               />
             </div>
           ))}
