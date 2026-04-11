@@ -597,6 +597,17 @@ const JiraServiceManagement = () => {
 
                   {/* Case Study Content */}
                   <div className="bg-white border border-gray-200 mb-6">
+                    {/* Case Study Image & Logo */}
+                    <div className="relative h-48 bg-gray-100 border-b border-gray-200">
+                      {/* Main Image - Company/Industry Photo */}
+                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+                        <span className="text-gray-400 text-sm">Company/Industry Photo (800x400)</span>
+                      </div>
+                      {/* Company Logo - Top Right */}
+                      <div className="absolute top-4 right-4 w-16 h-16 bg-white rounded-lg shadow-md flex items-center justify-center border border-gray-200">
+                        <span className="text-xs text-gray-400 text-center">Logo</span>
+                      </div>
+                    </div>
                     <div className="p-6">
                       <span className={`inline-block px-2 py-1 text-xs font-semibold mb-3 ${
                         caseStudies[currentCaseStudy].tagColor === 'blue' ? 'bg-blue-100 text-blue-700' :
