@@ -592,25 +592,19 @@ const ServerContinuity = () => {
                           <div className="col-span-12 md:col-span-4 relative bg-gray-900 min-h-[300px]">
                             {/* Company Logo - Top Left */}
                             <div className="absolute top-4 left-4 z-10">
-                              <div className="relative">
-                                {/* Featured indicator dot for Ibrahim Fibres */}
-                                {study.id === 'ibrahim' && (
-                                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#f97316] rounded-full border-2 border-gray-900 z-20" title="Featured Case Study" />
-                                )}
-                                {study.logo ? (
-                                  <div className="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center p-2">
-                                    <img 
-                                      src={study.logo} 
-                                      alt={`${study.companyName} logo`}
-                                      className="max-w-full max-h-full object-contain"
-                                    />
-                                  </div>
-                                ) : (
-                                  <div className="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center p-2">
-                                    <span className="text-xs text-gray-400">LOGO</span>
-                                  </div>
-                                )}
-                              </div>
+                              {study.logo ? (
+                                <div className="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center p-2">
+                                  <img 
+                                    src={study.logo} 
+                                    alt={`${study.companyName} logo`}
+                                    className="max-w-full max-h-full object-contain"
+                                  />
+                                </div>
+                              ) : (
+                                <div className="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center p-2">
+                                  <span className="text-xs text-gray-400">LOGO</span>
+                                </div>
+                              )}
                             </div>
                             
                             {/* Main Image */}
