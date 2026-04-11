@@ -9,6 +9,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['IBM Plex Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        mono: ['IBM Plex Mono', 'monospace'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
