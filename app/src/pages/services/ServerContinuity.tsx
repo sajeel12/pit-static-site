@@ -45,6 +45,9 @@ const ServerContinuity = () => {
       ],
       title: 'LUMS — ServerSure™ for Departmental Systems',
       description: 'Converted break-fix chaos to managed utility across 40+ departmental servers. Predictable PKR 45K/month per server vs. emergency callouts averaging PKR 150K each.',
+      logo: '/logos/clients/LUMS-Logo.png',
+      companyName: 'LUMS',
+      image: '/case-studies/LUMS-1.jpg',
       stats: [
         { value: '40+', label: 'Servers Managed', icon: DataBase, color: '#f97316' },
         { value: '70%', label: 'Cost Reduction', icon: Money, color: '#24a148' },
