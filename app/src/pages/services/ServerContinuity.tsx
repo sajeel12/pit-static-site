@@ -592,14 +592,8 @@ const ServerContinuity = () => {
                           <div className="col-span-12 md:col-span-4 relative bg-gray-900 min-h-[300px]">
                             {/* Company Logo - Top Left */}
                             <div className="absolute top-4 left-4 z-10">
-                              {/* Featured Badge for Ibrahim Fibres */}
-                              {study.id === 'ibrahim' && (
-                                <div className="mb-2 px-3 py-1 bg-[#f97316] text-white text-xs font-bold uppercase tracking-wider rounded-sm shadow-md">
-                                  Featured Case Study
-                                </div>
-                              )}
                               {study.logo ? (
-                                <div className={`bg-white rounded-lg shadow-lg flex items-center justify-center p-2 ${study.id === 'ibrahim' ? 'w-24 h-24 border-2 border-[#f97316]' : 'w-20 h-20'}`}>
+                                <div className="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center p-2">
                                   <img 
                                     src={study.logo} 
                                     alt={`${study.companyName} logo`}
@@ -607,7 +601,7 @@ const ServerContinuity = () => {
                                   />
                                 </div>
                               ) : (
-                                <div className={`bg-white rounded-lg shadow-lg flex items-center justify-center p-2 ${study.id === 'ibrahim' ? 'w-24 h-24 border-2 border-[#f97316]' : 'w-20 h-20'}`}>
+                                <div className="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center p-2">
                                   <span className="text-xs text-gray-400">LOGO</span>
                                 </div>
                               )}
