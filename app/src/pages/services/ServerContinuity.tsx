@@ -584,25 +584,31 @@ const ServerContinuity = () => {
                         <div key={study.id} className="grid grid-cols-12 gap-0">
                           {/* Left: Image (4 cols) */}
                           <div className="col-span-12 md:col-span-4 relative bg-gray-900 min-h-[300px]">
-                            {/* Company Logo - Top Left */}
-                            <div className="absolute top-4 left-4 px-4 py-3 bg-white rounded-lg shadow-md border border-gray-200 flex items-center gap-2 z-10">
+                            {/* Company Logo - Top Left - Prominent */}
+                            <div className="absolute top-4 left-4 px-5 py-4 bg-white shadow-lg border-2 border-gray-100 flex items-center gap-3 z-10">
                               {study.logo ? (
                                 <>
-                                  <div className="w-10 h-10 flex items-center justify-center">
+                                  <div className="w-14 h-14 flex items-center justify-center bg-gray-50 p-1">
                                     <img 
                                       src={study.logo} 
                                       alt={`${study.companyName} logo`}
                                       className="max-w-full max-h-full object-contain"
                                     />
                                   </div>
-                                  <span className="text-xs font-medium text-gray-600">{study.companyName}</span>
+                                  <div>
+                                    <p className="text-sm font-semibold text-gray-900">{study.companyName}</p>
+                                    <p className="text-[10px] text-gray-500 uppercase tracking-wide">Verified Client</p>
+                                  </div>
                                 </>
                               ) : (
                                 <>
-                                  <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
+                                  <div className="w-12 h-12 bg-gray-100 flex items-center justify-center">
                                     <span className="text-xs text-gray-400">LOGO</span>
                                   </div>
-                                  <span className="text-xs font-medium text-gray-600">Company Name</span>
+                                  <div>
+                                    <p className="text-sm font-semibold text-gray-900">{study.companyName}</p>
+                                    <p className="text-[10px] text-gray-500 uppercase tracking-wide">Verified Client</p>
+                                  </div>
                                 </>
                               )}
                             </div>
