@@ -7,7 +7,7 @@ import HeroGradientPlanesOrange from '../../components/HeroGradientPlanesOrange'
 import {
   ArrowRight, CheckmarkFilled, WarningAlt,
   Tools, Calendar, Activity, Money, View,
-  ChevronRight, Building, DataBase
+  ChevronRight, Building, DataBase, Group
 } from '@carbon/icons-react';
 
 const ServerContinuity = () => {
@@ -18,14 +18,16 @@ const ServerContinuity = () => {
   const caseStudies = [
     {
       id: 'ibrahim',
-      tag: 'Manufacturing',
-      tagColor: 'blue',
+      tags: [
+        { text: 'Manufacturing', color: 'blue' },
+        { text: 'ServerLife Extend', color: 'orange' }
+      ],
       title: 'Ibrahim Fibres — ServerLife Extend™ Deployment',
       description: 'Extended life of 7-year-old MES servers with same-day spare availability, eliminating forced PKR 8M refresh and maintaining 99.9% production uptime.',
       stats: [
-        { value: 'PKR 8M', label: 'CapEx Deferred', color: '#f97316' },
-        { value: '99.9%', label: 'Uptime Maintained', color: '#24a148' },
-        { value: '4hrs', label: 'Spare Response', color: '#6929c4' }
+        { value: 'PKR 8M', label: 'CapEx Deferred', icon: Money, color: '#f97316' },
+        { value: '99.9%', label: 'Uptime Maintained', icon: Activity, color: '#24a148' },
+        { value: '4hrs', label: 'Spare Response', icon: Calendar, color: '#6929c4' }
       ],
       quote: {
         text: "Perception IT gave us clarity on what was actually at risk. We extended our servers confidently without gambling on production continuity.",
@@ -34,26 +36,30 @@ const ServerContinuity = () => {
     },
     {
       id: 'lumhs',
-      tag: 'Academic',
-      tagColor: 'green',
+      tags: [
+        { text: 'Academic', color: 'green' },
+        { text: 'ServerSure', color: 'blue' }
+      ],
       title: 'LUMS — ServerSure™ for Departmental Systems',
       description: 'Converted break-fix chaos to managed utility across 40+ departmental servers. Predictable PKR 45K/month per server vs. emergency callouts averaging PKR 150K each.',
       stats: [
-        { value: '40+', label: 'Servers Managed', color: '#f97316' },
-        { value: '70%', label: 'Cost Reduction', color: '#24a148' },
-        { value: 'Zero', label: 'Emergency Downtime', color: '#6929c4' }
+        { value: '40+', label: 'Servers Managed', icon: DataBase, color: '#f97316' },
+        { value: '70%', label: 'Cost Reduction', icon: Money, color: '#24a148' },
+        { value: 'Zero', label: 'Emergency Downtime', icon: CheckmarkFilled, color: '#6929c4' }
       ]
     },
     {
       id: 'jazz',
-      tag: 'Telecom',
-      tagColor: 'purple',
+      tags: [
+        { text: 'Telecom', color: 'purple' },
+        { text: 'Multi-Site', color: 'blue' }
+      ],
       title: 'Jazz — Multi-Site Infrastructure Continuity',
       description: 'Deployed and manage multi-site infrastructure spanning 3 data centers with zero unplanned downtime in 3 years supporting 60+ million subscribers.',
       stats: [
-        { value: '99.99%', label: 'Uptime SLA', color: '#f97316' },
-        { value: '3', label: 'Data Centers', color: '#24a148' },
-        { value: '60M+', label: 'Subscribers', color: '#6929c4' }
+        { value: '99.99%', label: 'Uptime SLA', icon: Activity, color: '#f97316' },
+        { value: '3', label: 'Data Centers', icon: Building, color: '#24a148' },
+        { value: '60M+', label: 'Subscribers', icon: Group, color: '#6929c4' }
       ]
     }
   ];
@@ -560,7 +566,7 @@ const ServerContinuity = () => {
 
               {/* Case Studies Section */}
               <section id="cases" className="py-16 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto px-6">
+                <div className="max-w-6xl mx-auto px-6">
                   <div className="flex items-center justify-between mb-8">
                     <h2 className="text-3xl font-bold text-gray-900">Case Studies</h2>
                     <span className="text-sm text-gray-500">
@@ -568,83 +574,149 @@ const ServerContinuity = () => {
                     </span>
                   </div>
 
-                  {/* Case Study Content */}
-                  <div className="bg-white border border-gray-200 mb-6">
-                    {/* Case Study Image & Logo */}
-                    <div className="relative h-48 bg-gray-100 border-b border-gray-200">
-                      {/* Main Image - Company/Industry Photo */}
-                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
-                        <span className="text-gray-400 text-sm">Company/Industry Photo (800x400)</span>
-                      </div>
-                      {/* Company Logo - Top Right */}
-                      <div className="absolute top-4 right-4 w-16 h-16 bg-white rounded-lg shadow-md flex items-center justify-center border border-gray-200">
-                        <span className="text-xs text-gray-400 text-center">Logo</span>
-                      </div>
-                    </div>
-                    <div className="p-6">
-                      <span className={`inline-block px-2 py-1 text-xs font-semibold mb-3 ${
-                        caseStudies[currentCaseStudy].tagColor === 'blue' ? 'bg-blue-100 text-blue-700' :
-                        caseStudies[currentCaseStudy].tagColor === 'green' ? 'bg-green-100 text-green-700' :
-                        'bg-purple-100 text-purple-700'
-                      }`}>
-                        {caseStudies[currentCaseStudy].tag}
-                      </span>
-                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-3">
-                        {caseStudies[currentCaseStudy].title}
-                      </h3>
-                      <p className="text-gray-600 mb-4">
-                        {caseStudies[currentCaseStudy].description}
-                      </p>
-                      
-                      {caseStudies[currentCaseStudy].stats && (
-                        <div className="grid grid-cols-3 gap-4 mb-4">
-                          {caseStudies[currentCaseStudy].stats.map((stat) => (
-                            <div key={stat.label}>
-                              <p className="carbon-fluid-heading-04" style={{ color: stat.color }}>{stat.value}</p>
-                              <p className="text-xs text-gray-500">{stat.label}</p>
+                  {/* Case Study Card - ServiceNow Style */}
+                  <div className="bg-white border border-gray-200 overflow-hidden">
+                    {caseStudies.map((study, index) => (
+                      index === currentCaseStudy && (
+                        <div key={study.id} className="grid grid-cols-12 gap-0">
+                          {/* Left: Image (4 cols) */}
+                          <div className="col-span-12 md:col-span-4 relative bg-gray-100 min-h-[300px]">
+                            {/* Main Image Placeholder */}
+                            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+                              <div className="text-center p-6">
+                                <Building className="w-16 h-16 text-gray-300 mx-auto mb-3" />
+                                <span className="text-gray-400 text-sm">Company/Industry Photo</span>
+                              </div>
                             </div>
-                          ))}
+                            
+                            {/* Case Study Number Badge */}
+                            <div className="absolute top-4 left-4 px-3 py-1 bg-white border border-gray-200 shadow-sm">
+                              <span className="text-xs font-medium text-gray-700">Case Study {currentCaseStudy + 1} of {caseStudies.length}</span>
+                            </div>
+                            
+                            {/* Company Logo - Bottom Left */}
+                            <div className="absolute bottom-4 left-4 px-4 py-3 bg-white rounded-lg shadow-md border border-gray-200 flex items-center gap-2">
+                              <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
+                                <span className="text-xs text-gray-400">LOGO</span>
+                              </div>
+                              <span className="text-xs font-medium text-gray-600">Company Name</span>
+                            </div>
+                          </div>
+                          
+                          {/* Middle: Content (5 cols) */}
+                          <div className="col-span-12 md:col-span-5 p-6 md:p-8 flex flex-col justify-between border-r border-gray-200">
+                            <div>
+                              {/* Tags */}
+                              <div className="flex flex-wrap gap-2 mb-4">
+                                {study.tags.map((tag) => (
+                                  <span 
+                                    key={tag.text}
+                                    className="px-2 py-1 text-xs font-medium rounded-sm"
+                                    style={{ 
+                                      backgroundColor: tag.color === 'blue' ? '#e5f6ff' : 
+                                                      tag.color === 'green' ? '#ddefe5' :
+                                                      tag.color === 'orange' ? '#fff2e5' :
+                                                      '#f0e6ff',
+                                      color: tag.color === 'blue' ? '#0066cc' : 
+                                             tag.color === 'green' ? '#198038' :
+                                             tag.color === 'orange' ? '#f97316' :
+                                             '#6929c4'
+                                    }}
+                                  >
+                                    {tag.text}
+                                  </span>
+                                ))}
+                              </div>
+                              
+                              {/* Title */}
+                              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                                {study.title}
+                              </h3>
+                              
+                              {/* Description */}
+                              <p className="text-gray-600 mb-6">
+                                {study.description}
+                              </p>
+                              
+                              {/* Quote if available */}
+                              {study.quote && (
+                                <div className="bg-gray-50 p-4 border-l-4 border-[#f97316] mb-4">
+                                  <p className="text-gray-700 italic text-sm mb-2">"{study.quote.text}"</p>
+                                  <p className="text-xs text-gray-500">— {study.quote.author}</p>
+                                </div>
+                              )}
+                            </div>
+                            
+                            {/* CTA */}
+                            <a
+                              href="#contact"
+                              className="inline-flex items-center gap-2 text-[#f97316] font-medium hover:gap-3 transition-all"
+                            >
+                              Read full case study
+                              <ArrowRight className="w-4 h-4" />
+                            </a>
+                          </div>
+                          
+                          {/* Right: Stats (3 cols) */}
+                          <div className="col-span-12 md:col-span-3 bg-gray-50 p-6 md:p-8">
+                            <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-5">
+                              Key Results
+                            </p>
+                            
+                            <div className="space-y-5">
+                              {study.stats.map((stat, idx) => (
+                                <div key={idx} className="flex items-center gap-3">
+                                  <div 
+                                    className="w-10 h-10 flex items-center justify-center flex-shrink-0 rounded-sm"
+                                    style={{ backgroundColor: `${stat.color}15` }}
+                                  >
+                                    <stat.icon className="w-5 h-5" style={{ color: stat.color }} />
+                                  </div>
+                                  <div>
+                                    <div className="text-lg font-bold" style={{ color: stat.color }}>
+                                      {stat.value}
+                                    </div>
+                                    <div className="text-xs text-gray-500">{stat.label}</div>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                         </div>
-                      )}
-
-                      {caseStudies[currentCaseStudy].quote && (
-                        <div className="bg-gray-50 p-4 border-l-4 border-[#f97316] mt-4">
-                          <p className="text-gray-700 italic mb-2">"{caseStudies[currentCaseStudy].quote.text}"</p>
-                          <p className="text-sm text-gray-500">— {caseStudies[currentCaseStudy].quote.author}</p>
-                        </div>
-                      )}
+                      )
+                    ))}
+                  </div>
+                  
+                  {/* Pagination Controls */}
+                  <div className="flex items-center justify-center gap-3 mt-8">
+                    <button
+                      onClick={prevCaseStudy}
+                      className="w-10 h-10 border border-gray-200 flex items-center justify-center hover:border-[#f97316] hover:bg-gray-50 transition-all"
+                      aria-label="Previous case study"
+                    >
+                      <ChevronRight className="w-5 h-5 text-gray-500 rotate-180" />
+                    </button>
+                    
+                    <div className="flex items-center gap-2">
+                      {caseStudies.map((_, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setCurrentCaseStudy(idx)}
+                          className={`w-2 h-2 rounded-full transition-colors ${
+                            idx === currentCaseStudy ? 'bg-[#f97316]' : 'bg-gray-300'
+                          }`}
+                          aria-label={`Go to case study ${idx + 1}`}
+                        />
+                      ))}
                     </div>
 
-                    {/* Pagination Controls */}
-                    <div className="flex items-center justify-between px-6 py-4 border-t border-gray-200 bg-gray-50">
-                      <button
-                        onClick={prevCaseStudy}
-                        className="flex items-center gap-2 text-gray-600 hover:text-gray-900"
-                      >
-                        <ArrowRight className="w-4 h-4 rotate-180" />
-                        Previous
-                      </button>
-                      
-                      <div className="flex items-center gap-2">
-                        {caseStudies.map((_, index) => (
-                          <button
-                            key={index}
-                            onClick={() => setCurrentCaseStudy(index)}
-                            className={`w-2 h-2 rounded-full transition-colors ${
-                              index === currentCaseStudy ? 'bg-[#f97316]' : 'bg-gray-300'
-                            }`}
-                          />
-                        ))}
-                      </div>
-
-                      <button
-                        onClick={nextCaseStudy}
-                        className="flex items-center gap-2 text-gray-600 hover:text-gray-900"
-                      >
-                        Next
-                        <ArrowRight className="w-4 h-4" />
-                      </button>
-                    </div>
+                    <button
+                      onClick={nextCaseStudy}
+                      className="w-10 h-10 border border-gray-200 flex items-center justify-center hover:border-[#f97316] hover:bg-gray-50 transition-all"
+                      aria-label="Next case study"
+                    >
+                      <ChevronRight className="w-5 h-5 text-gray-500" />
+                    </button>
                   </div>
                 </div>
               </section>
