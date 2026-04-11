@@ -24,6 +24,8 @@ const ServerContinuity = () => {
       ],
       title: 'Ibrahim Fibres — ServerLife Extend™ Deployment',
       description: 'Extended life of 7-year-old MES servers with same-day spare availability, eliminating forced PKR 8M refresh and maintaining 99.9% production uptime.',
+      logo: '/ibrahim-fibres-logo.svg',
+      companyName: 'Ibrahim Fibres',
       stats: [
         { value: 'PKR 8M', label: 'CapEx Deferred', icon: Money, color: '#f97316' },
         { value: '99.9%', label: 'Uptime Maintained', icon: Activity, color: '#24a148' },
@@ -596,10 +598,25 @@ const ServerContinuity = () => {
                             
                             {/* Company Logo - Bottom Left */}
                             <div className="absolute bottom-4 left-4 px-4 py-3 bg-white rounded-lg shadow-md border border-gray-200 flex items-center gap-2">
-                              <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
-                                <span className="text-xs text-gray-400">LOGO</span>
-                              </div>
-                              <span className="text-xs font-medium text-gray-600">Company Name</span>
+                              {study.logo ? (
+                                <>
+                                  <div className="w-10 h-10 flex items-center justify-center">
+                                    <img 
+                                      src={study.logo} 
+                                      alt={`${study.companyName} logo`}
+                                      className="max-w-full max-h-full object-contain"
+                                    />
+                                  </div>
+                                  <span className="text-xs font-medium text-gray-600">{study.companyName}</span>
+                                </>
+                              ) : (
+                                <>
+                                  <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
+                                    <span className="text-xs text-gray-400">LOGO</span>
+                                  </div>
+                                  <span className="text-xs font-medium text-gray-600">Company Name</span>
+                                </>
+                              )}
                             </div>
                           </div>
                           
