@@ -32,7 +32,7 @@ const PartnerLogos = () => {
     { name: 'Dell', logo: '/logos/partners/Partner-Dell-logo.svg' },
     { name: 'HP', logo: '/logos/partners/Partner- Hewlett-Packard-Logo.svg' },
     { name: 'VMware', logo: '/logos/partners/Partner-vmware-logo.svg' },
-    { name: 'Broadcom', logo: '/logos/partners/Partner-Broadcom-Logo.svg' },
+    { name: 'Broadcom', logo: '/logos/partners/Broadcom.-Logo.png' },
     { name: 'Lenovo', logo: '/logos/partners/Partner-Lenovo-Logo.svg' },
     { name: 'EZY', logo: '/logos/partners/Partner-EZY-logo.svg' },
     { name: 'Fortinet', logo: '/logos/partners/Partner-Fortinet-Logo.svg' },
