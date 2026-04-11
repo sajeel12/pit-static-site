@@ -68,7 +68,7 @@ const PartnerLogos = () => {
               <img 
                 src={partner.logo} 
                 alt={partner.name}
-                className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0 mix-blend-multiply"
+                className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
               />
             </div>
           ))}
