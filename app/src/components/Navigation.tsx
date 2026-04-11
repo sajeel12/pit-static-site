@@ -326,7 +326,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all mx-1 ${activeMegaMenu === 'solutions' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'solutions' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   Solutions
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'solutions' ? 'rotate-90' : ''}`} />
@@ -535,7 +535,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all mx-1 ${activeMegaMenu === 'consultancy' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'consultancy' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   Consultancy
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'consultancy' ? 'rotate-90' : ''}`} />
@@ -626,7 +626,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 <Link 
                   to="/services/cloud"
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all mx-1 ${activeMegaMenu === 'cloud' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'cloud' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   Cloud
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'cloud' ? 'rotate-90' : ''}`} />
@@ -754,7 +754,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 <Link 
                   to="/services/infrastructure"
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all mx-1 ${activeMegaMenu === 'infrastructure' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'infrastructure' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   Infrastructure
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'infrastructure' ? 'rotate-90' : ''}`} />
@@ -904,7 +904,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all mx-1 ${activeMegaMenu === 'data' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'data' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   Data and Analytics
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'data' ? 'rotate-90' : ''}`} />
@@ -1033,7 +1033,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all mx-1 ${activeMegaMenu === 'ai' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'ai' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   AI
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'ai' ? 'rotate-90' : ''}`} />
@@ -1151,7 +1151,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all mx-1 ${activeMegaMenu === 'platforms' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'platforms' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   IT Platforms
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'platforms' ? 'rotate-90' : ''}`} />
@@ -1275,7 +1275,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               <div className="relative">
                 <Link
                   to="/projects"
-                  className="flex items-center px-3 py-2 text-[13px] font-bold transition-all text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50 mx-1"
+                  className="flex items-center px-3 py-2 text-[13px] font-medium transition-all text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50 mx-1"
                 >
                   Projects
                 </Link>
@@ -1289,7 +1289,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all mx-1 ${activeMegaMenu === 'about' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'about' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   About
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'about' ? 'rotate-90' : ''}`} />
