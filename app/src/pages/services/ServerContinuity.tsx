@@ -648,9 +648,11 @@ const ServerContinuity = () => {
                               </div>
                               
                               {/* Title */}
-                              <h3 className="text-xl font-semibold text-white mb-4">
-                                {study.title}
-                              </h3>
+                              <div className="mb-4">
+                                <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Client</p>
+                                <p className="text-lg font-semibold text-white">{study.companyName}</p>
+                                <p className="text-sm text-[#f97316] mt-1">ServerLife Extend™ Deployment</p>
+                              </div>
                               
                               {/* Description */}
                               <p className="text-gray-300 mb-6">
