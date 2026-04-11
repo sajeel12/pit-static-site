@@ -600,8 +600,7 @@ const ServerContinuity = () => {
                                 </div>
                               )}
                               <div className="bg-white px-2 py-1">
-                                <p className="text-sm font-semibold text-gray-900">{study.companyName}</p>
-                                <p className="text-[10px] text-gray-500 uppercase tracking-wide">Verified Client</p>
+                                <p className="text-xs font-medium text-gray-700">{study.companyName}</p>
                               </div>
                             </div>
                             
