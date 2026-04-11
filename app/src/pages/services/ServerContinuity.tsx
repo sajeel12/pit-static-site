@@ -583,21 +583,8 @@ const ServerContinuity = () => {
                         <div key={study.id} className="grid grid-cols-12 gap-0">
                           {/* Left: Image (4 cols) */}
                           <div className="col-span-12 md:col-span-4 relative bg-gray-100 min-h-[300px]">
-                            {/* Main Image Placeholder */}
-                            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
-                              <div className="text-center p-6">
-                                <Building className="w-16 h-16 text-gray-300 mx-auto mb-3" />
-                                <span className="text-gray-400 text-sm">Company/Industry Photo</span>
-                              </div>
-                            </div>
-                            
-                            {/* Case Study Number Badge */}
-                            <div className="absolute top-4 left-4 px-3 py-1 bg-white border border-gray-200 shadow-sm">
-                              <span className="text-xs font-medium text-gray-700">Case Study {currentCaseStudy + 1} of {caseStudies.length}</span>
-                            </div>
-                            
-                            {/* Company Logo - Bottom Left */}
-                            <div className="absolute bottom-4 left-4 px-4 py-3 bg-white rounded-lg shadow-md border border-gray-200 flex items-center gap-2">
+                            {/* Company Logo - Top Left */}
+                            <div className="absolute top-4 left-4 px-4 py-3 bg-white rounded-lg shadow-md border border-gray-200 flex items-center gap-2 z-10">
                               {study.logo ? (
                                 <>
                                   <div className="w-10 h-10 flex items-center justify-center">
@@ -618,6 +605,15 @@ const ServerContinuity = () => {
                                 </>
                               )}
                             </div>
+                            
+                            {/* Main Image Placeholder */}
+                            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+                              <div className="text-center p-6">
+                                <Building className="w-16 h-16 text-gray-300 mx-auto mb-3" />
+                                <span className="text-gray-400 text-sm">Company/Industry Photo</span>
+                              </div>
+                            </div>
+                            
                           </div>
                           
                           {/* Middle: Content (5 cols) */}
