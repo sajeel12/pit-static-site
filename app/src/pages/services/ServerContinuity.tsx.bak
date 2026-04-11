@@ -502,6 +502,98 @@ const ServerContinuity = () => {
                   </div>
                 </div>
               </section>
+
+              {/* Technical Depth Section */}
+              <section id="technical" className="py-16 border-b border-gray-200">
+                <div className="max-w-4xl mx-auto px-6">
+                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
+                    Technical Depth
+                  </h2>
+                  <p className="text-gray-600 mb-8">
+                    Backend expertise that ensures your server environment scales with your business demands.
+                  </p>
+
+                  <div className="space-y-4">
+                    <div className="p-6 bg-white border border-gray-200">
+                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-3">
+                        Same-Day Spare Availability
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-3">
+                        Lahore-based spare inventory for Dell, HPE, and Huawei servers. 
+                        Critical components (drives, power supplies, memory) available within 
+                        4 hours—not 4 days from Dubai.
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {['Drive Controllers', 'Power Supplies', 'Memory', 'Network Cards'].map((tag) => (
+                          <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-600 text-xs">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="p-6 bg-white border border-gray-200">
+                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-3">
+                        Shift-Aligned Engineering
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-3">
+                        Engineers available during your peak operational hours—not just 
+                        during their convenience. Morning-shift critical work, 
+                        evening-shift maintenance windows.
+                      </p>
+                    </div>
+
+                    <div className="p-6 bg-white border border-gray-200">
+                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-3">
+                        Firmware & Security Lifecycle
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-3">
+                        Comprehensive patch validation and deployment. Not just OS updates—
+                        BIOS, RAID controllers, network firmware, and management interfaces. 
+                        Full CVE tracking and compliance documentation.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Comparison Section */}
+              <section id="comparison" className="py-16 border-b border-gray-200">
+                <div className="max-w-4xl mx-auto px-6">
+                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
+                    Perception IT vs. Alternatives
+                  </h2>
+                  
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="border-b-2 border-gray-200">
+                          <th className="text-left py-3 px-4 carbon-label-01 text-[var(--cds-text-primary)]">Capability</th>
+                          <th className="text-center py-3 px-4 carbon-label-01 text-[#f97316]">Perception IT</th>
+                          <th className="text-center py-3 px-4 carbon-label-01 text-gray-500">OEM</th>
+                          <th className="text-center py-3 px-4 carbon-label-01 text-gray-500">Generic MSP</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {[
+                          { cap: 'Local Spare Inventory', pit: '✓ Same day', oem: '✗ 3-5 days', msp: '✗ Order on demand' },
+                          { cap: 'Warranty Extension', pit: '✓ Beyond Year 5', oem: '✗ Ends Year 3', msp: '✗ Limited' },
+                          { cap: 'Shift-Aligned Support', pit: '✓ Your hours', oem: '✗ Their hours', msp: '✗ Ticket logging only' },
+                          { cap: 'Firmware Lifecycle', pit: '✓ Comprehensive', oem: '✓ While supported', msp: '✗ OS only' },
+                          { cap: 'Hardware Agnostic', pit: '✓ Dell/HPE/Huawei', oem: '✗ Their brand only', msp: '✓ (limited depth)' },
+                          { cap: 'Accountability', pit: '✓ One partner', oem: '✗ +MSP gaps', msp: '✗ No hardware ownership' }
+                        ].map((row, i) => (
+                          <tr key={i} className="border-b border-gray-100">
+                            <td className="py-3 px-4 text-gray-900">{row.cap}</td>
+                            <td className="py-3 px-4 text-center text-green-600 font-medium">{row.pit}</td>
+                            <td className="py-3 px-4 text-center text-gray-400">{row.oem}</td>
+                            <td className="py-3 px-4 text-center text-gray-400">{row.msp}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </section>
+
               {/* Case Studies Section */}
               <section id="cases" className="py-16 border-b border-gray-200 bg-white">
                 <div className="max-w-6xl mx-auto px-6">
@@ -690,98 +782,6 @@ const ServerContinuity = () => {
                   </div>
                 </div>
               </section>
-
-              {/* Technical Depth Section */}
-              <section id="technical" className="py-16 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto px-6">
-                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
-                    Technical Depth
-                  </h2>
-                  <p className="text-gray-600 mb-8">
-                    Backend expertise that ensures your server environment scales with your business demands.
-                  </p>
-
-                  <div className="space-y-4">
-                    <div className="p-6 bg-white border border-gray-200">
-                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-3">
-                        Same-Day Spare Availability
-                      </h3>
-                      <p className="text-gray-600 text-sm mb-3">
-                        Lahore-based spare inventory for Dell, HPE, and Huawei servers. 
-                        Critical components (drives, power supplies, memory) available within 
-                        4 hours—not 4 days from Dubai.
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {['Drive Controllers', 'Power Supplies', 'Memory', 'Network Cards'].map((tag) => (
-                          <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-600 text-xs">{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="p-6 bg-white border border-gray-200">
-                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-3">
-                        Shift-Aligned Engineering
-                      </h3>
-                      <p className="text-gray-600 text-sm mb-3">
-                        Engineers available during your peak operational hours—not just 
-                        during their convenience. Morning-shift critical work, 
-                        evening-shift maintenance windows.
-                      </p>
-                    </div>
-
-                    <div className="p-6 bg-white border border-gray-200">
-                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-3">
-                        Firmware & Security Lifecycle
-                      </h3>
-                      <p className="text-gray-600 text-sm mb-3">
-                        Comprehensive patch validation and deployment. Not just OS updates—
-                        BIOS, RAID controllers, network firmware, and management interfaces. 
-                        Full CVE tracking and compliance documentation.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              {/* Comparison Section */}
-              <section id="comparison" className="py-16 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto px-6">
-                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
-                    Perception IT vs. Alternatives
-                  </h2>
-                  
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
-                      <thead>
-                        <tr className="border-b-2 border-gray-200">
-                          <th className="text-left py-3 px-4 carbon-label-01 text-[var(--cds-text-primary)]">Capability</th>
-                          <th className="text-center py-3 px-4 carbon-label-01 text-[#f97316]">Perception IT</th>
-                          <th className="text-center py-3 px-4 carbon-label-01 text-gray-500">OEM</th>
-                          <th className="text-center py-3 px-4 carbon-label-01 text-gray-500">Generic MSP</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {[
-                          { cap: 'Local Spare Inventory', pit: '✓ Same day', oem: '✗ 3-5 days', msp: '✗ Order on demand' },
-                          { cap: 'Warranty Extension', pit: '✓ Beyond Year 5', oem: '✗ Ends Year 3', msp: '✗ Limited' },
-                          { cap: 'Shift-Aligned Support', pit: '✓ Your hours', oem: '✗ Their hours', msp: '✗ Ticket logging only' },
-                          { cap: 'Firmware Lifecycle', pit: '✓ Comprehensive', oem: '✓ While supported', msp: '✗ OS only' },
-                          { cap: 'Hardware Agnostic', pit: '✓ Dell/HPE/Huawei', oem: '✗ Their brand only', msp: '✓ (limited depth)' },
-                          { cap: 'Accountability', pit: '✓ One partner', oem: '✗ +MSP gaps', msp: '✗ No hardware ownership' }
-                        ].map((row, i) => (
-                          <tr key={i} className="border-b border-gray-100">
-                            <td className="py-3 px-4 text-gray-900">{row.cap}</td>
-                            <td className="py-3 px-4 text-center text-green-600 font-medium">{row.pit}</td>
-                            <td className="py-3 px-4 text-center text-gray-400">{row.oem}</td>
-                            <td className="py-3 px-4 text-center text-gray-400">{row.msp}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </section>
-
 
               {/* Engagement Section */}
               <section id="engagement" className="py-16">
