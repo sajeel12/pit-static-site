@@ -28,16 +28,17 @@ const PartnerLogos = () => {
   }, []);
 
   const partners: Partner[] = [
-    { name: 'Huawei', logo: '/logos/partners/huawei_logo.png' },
-    { name: 'Dell', logo: '/logos/partners/Dell_Logo.svg.png' },
-    { name: 'HP', logo: '/logos/partners/HP_logo_2025.svg.png' },
-    { name: 'Broadcom', logo: '/logos/partners/broadcom-logo.png' },
-    { name: 'Lenovo', logo: '/logos/partners/lenovo-logo.webp' },
-    { name: 'EZY', logo: '/logos/partners/ezy.png' },
-    { name: 'Fortinet', logo: '/logos/partners/fortinet-logo.svg' },
-    { name: 'Sophos', logo: '/logos/partners/partner-sophos-logo.svg' },
+    { name: 'Huawei', logo: '/logos/partners/Partner-Huawei-Logo.svg' },
+    { name: 'Dell', logo: '/logos/partners/Partner-Dell-logo.svg' },
+    { name: 'HP', logo: '/logos/partners/Partner- Hewlett-Packard-Logo.svg' },
+    { name: 'VMware', logo: '/logos/partners/Partner-vmware-logo.svg' },
+    { name: 'Broadcom', logo: '/logos/partners/Partner-Broadcom-Logo.svg' },
+    { name: 'Lenovo', logo: '/logos/partners/Partner-Lenovo-Logo.svg' },
+    { name: 'EZY', logo: '/logos/partners/Partner-EZY-logo.svg' },
+    { name: 'Fortinet', logo: '/logos/partners/Partner-Fortinet-Logo.svg' },
+    { name: 'Sophos', logo: '/logos/partners/Partner-Sophos-Logo.svg' },
     { name: 'ManageEngine', logo: '/logos/partners/manageengine-logo.svg' },
-    { name: 'Veeam', logo: '/logos/partners/partner-veem-logo.svg' },
+    { name: 'Veeam', logo: '/logos/partners/Partner-veem-logo.svg' },
   ];
 
   // Duplicate for seamless loop
