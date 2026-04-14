@@ -1,6 +1,5 @@
-# Image & Asset Organization Guide
+Business BenefitsBusines
 
-This document explains where to place images and how to reference them in the code.
 
 ---
 

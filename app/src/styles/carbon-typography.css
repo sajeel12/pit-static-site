@@ -62,7 +62,15 @@
   letter-spacing: 0;
 }
 
-/* Fixed Heading Styles */
+/* Fixed Heading Styles - Complete Hierarchy */
+.carbon-heading-01 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.125rem; /* 18px */
+  font-weight: 600; /* SemiBold */
+  letter-spacing: 0.16px;
+}
+
 .carbon-heading-02 {
   font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1rem; /* 16px */
@@ -96,7 +104,23 @@
   letter-spacing: 0.16px;
 }
 
-/* Body Styles - Expressive */
+/* Body Styles - Complete Set */
+.carbon-body-short-01 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.125rem; /* 18px */
+  font-weight: 400; /* Regular */
+  letter-spacing: 0.16px;
+}
+
+.carbon-body-short-02 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem; /* 16px */
+  line-height: 1.375rem; /* 22px */
+  font-weight: 400; /* Regular */
+  letter-spacing: 0;
+}
+
 .carbon-body-02 {
   font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1rem; /* 16px */
@@ -140,6 +164,14 @@
 }
 
 /* Helper Text */
+.carbon-helper-text-01 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+  font-weight: 400; /* Regular */
+  letter-spacing: 0.32px;
+}
+
 .carbon-helper-text-02 {
   font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
   font-size: 0.875rem; /* 14px */

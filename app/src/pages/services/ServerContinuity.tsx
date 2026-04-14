@@ -7,47 +7,57 @@ import HeroGradientPlanesOrange from '../../components/HeroGradientPlanesOrange'
 import {
   ArrowRight, CheckmarkFilled, WarningAlt,
   Tools, Calendar, Activity, Money, View,
-  ChevronRight, Building, DataBase
+  ChevronRight, Building, DataBase,
+  Restart
 } from '@carbon/icons-react';
 
 const ServerContinuity = () => {
   const [activeSection, setActiveSection] = useState('overview');
   const [currentCaseStudy, setCurrentCaseStudy] = useState(0);
+  const [intakeAnswers, setIntakeAnswers] = useState<{situation?: string; criticality?: string; budget?: string}>({});
   
   // Case studies data
   const caseStudies = [
     {
       id: 'ibrahim',
       tags: [
-        { text: 'Manufacturing', color: 'blue' },
-        { text: 'ServerLife Extend', color: 'orange' }
+        { text: 'Textile', color: 'blue' },
+        { text: 'Servers', color: 'gray' },
+        { text: 'Out-of-Warranty', color: 'orange' }
       ],
-      title: 'Ibrahim Fibres — ServerLife Extend™ Deployment',
-      description: 'Extended life of 7-year-old MES servers with same-day spare availability, eliminating forced PKR 8M refresh and maintaining 99.9% production uptime.',
+      title: 'Infrastructure Stability: Ibrahim Fibres',
+      description: 'We strategized the security of 48 mission critical Lenovo servers via shift aligned engineering. Our 24/7 Managed Utility framework protected essential ERP and production systems. This neutralized downtime risk and maximized asset lifecycle value through successful CAPEX deferral.',
       logo: '/logos/clients/IFL-logo.png',
-      companyName: 'Ibrahim Fibres',
-      image: '/case-studies/ibrahim-fibres-serverextend.jpg',
+      companyName: 'Infrastructure Stability: Ibrahim Fibres',
+      solutionName: 'ServerLife Extend™',
+      solutionContext: 'Critical Infrastructure',
+      caseStudyLink: '/#/projects/case-study/out-of-warranty-server-support-ibrahim-fibres',
+      image: '/case-studies/ibrahim-fibres/Ibrahim Fibres -case study-1080x1350.jpg',
       stats: [
-        { value: 'PKR 8M', label: 'CapEx Deferred', icon: Money, color: '#f97316' },
-        { value: '99.9%', label: 'Uptime Maintained', icon: Activity, color: '#24a148' },
-        { value: '4hrs', label: 'Spare Response', icon: Calendar, color: '#6929c4' }
+        { value: 'Zero', label: 'Unplanned Downtime', icon: CheckmarkFilled, color: '#f97316' },
+        { value: '<6hrs', label: 'MTTR', icon: Activity, color: '#24a148' },
+        { value: '$750K+', label: 'Cost Avoidance', icon: Money, color: '#6929c4' },
+        { value: '$200K+', label: 'CapEx Deferred', icon: Money, color: '#0f62fe' }
       ],
       quote: {
-        text: "Perception IT gave us clarity on what was actually at risk. We extended our servers confidently without gambling on production continuity.",
-        author: "IT Director, Ibrahim Fibres"
+        text: "Perception IT transformed our server infrastructure from a risk into a reliable engine for operations. Their 24/7 support, same-day hardware replacements, and proactive maintenance have kept our systems running without a single major incident.",
+        author: "Mr. Usman Zafar, Head of IT, Ibrahim Fibres Limited"
       }
     },
     {
       id: 'lumhs',
       tags: [
-        { text: 'Academic', color: 'green' },
-        { text: 'ServerSure', color: 'blue' }
+        { text: 'Academic', color: 'blue' },
+        { text: 'Servers', color: 'gray' },
+        { text: 'Managed Support', color: 'orange' }
       ],
-      title: 'LUMS — ServerSure™ for Departmental Systems',
+      title: 'LUMS — Departmental Server Management',
       description: 'Converted break-fix chaos to managed utility across 40+ departmental servers. Predictable PKR 45K/month per server vs. emergency callouts averaging PKR 150K each.',
       logo: '/logos/clients/LUMS-Logo.png',
       companyName: 'LUMS',
-      image: '/case-studies/LUMS-1.jpg',
+      solutionName: 'ServerSure™',
+      solutionContext: 'Departmental Systems',
+      image: '/case-studies/lumhs/carousel.jpg',
       stats: [
         { value: '40+', label: 'Servers Managed', icon: DataBase, color: '#f97316' },
         { value: '70%', label: 'Cost Reduction', icon: Money, color: '#24a148' },
@@ -57,14 +67,17 @@ const ServerContinuity = () => {
     {
       id: 'descon',
       tags: [
-        { text: 'Manufacturing', color: 'orange' },
-        { text: 'ServerLife Extend', color: 'blue' }
+        { text: 'Manufacturing', color: 'blue' },
+        { text: 'Data Centers', color: 'gray' },
+        { text: 'Mission-Critical Support', color: 'orange' }
       ],
-      title: 'Descon — ServerLife Extend™ Deployment',
+      title: 'Descon — Multi-Site Infrastructure Resilience',
       description: 'Deployed and manage multi-site infrastructure spanning 3 data centers with zero unplanned downtime in 3 years supporting critical manufacturing operations.',
       logo: '/logos/clients/Descon-logo.png',
       companyName: 'Descon',
-      image: '/case-studies/DESCON- Casestudy- pre-view.jpg',
+      solutionName: 'ServerLife Extend™',
+      solutionContext: 'Multi-Site Infrastructure',
+      image: '/case-studies/descon/carousel.jpg',
       stats: [
         { value: '99.99%', label: 'Uptime SLA', icon: Activity, color: '#f97316' },
         { value: '3', label: 'Data Centers', icon: Building, color: '#24a148' },
@@ -74,16 +87,19 @@ const ServerContinuity = () => {
     {
       id: 'sefam',
       tags: [
-        { text: 'Manufacturing', color: 'orange' },
-        { text: 'ServerSure', color: 'blue' }
+        { text: 'Manufacturing', color: 'blue' },
+        { text: 'Servers', color: 'gray' },
+        { text: 'Production Support', color: 'orange' }
       ],
-      title: 'Sefam — ServerSure™ for Manufacturing Operations',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+      title: 'Sefam — Manufacturing Operations Support',
+      description: '24/7 monitoring and support for mission-critical production servers ensuring continuous manufacturing operations with rapid response to hardware issues.',
       logo: '/logos/clients/client-Sefam.jpeg',
       companyName: 'Sefam',
-      image: '/case-studies/Client-Sefam-casestudy.jpg',
+      solutionName: 'ServerSure™',
+      solutionContext: 'Manufacturing Operations',
+      image: '/case-studies/sefam/carousel.jpg',
       quote: {
-        text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        text: "Perception IT's proactive monitoring and rapid response has eliminated unexpected downtime. Our production lines run continuously with full confidence in our server infrastructure.",
         author: "IT Manager, Sefam"
       },
       stats: [
@@ -163,18 +179,18 @@ const ServerContinuity = () => {
           <div className="cds--col-span-16 lg:cds--col-span-14 lg:cds--col-start-2">
           
           {/* Breadcrumb */}
-          <nav className="relative z-10 flex items-center gap-2 text-xs mb-6" aria-label="Breadcrumb">
+          <nav className="relative z-10 flex items-center gap-2 text-xs mb-8" aria-label="Breadcrumb">
             <a href="/" className="text-[#f97316] hover:underline">Home</a>
             <ChevronRight className="w-3 h-3 text-gray-400" />
             <a href="/services" className="text-[#f97316] hover:underline">Services</a>
             <ChevronRight className="w-3 h-3 text-gray-400" />
-            <a href="/services/infrastructure" className="text-[#f97316] hover:underline">Infrastructure</a>
+            <span className="text-[#f97316] hover:underline cursor-pointer">Infrastructure</span>
             <ChevronRight className="w-3 h-3 text-gray-400" />
-            <span className="text-gray-400">Server Continuity Suite</span>
+            <span className="px-2 py-0.5 border border-[#a8a8a8] text-[#a8a8a8] rounded-full">Server Continuity Suite</span>
           </nav>
 
           {/* Mobile Dropdown Navigation */}
-          <div className="xl:hidden mb-6">
+          <div className="xl:hidden mb-8">
             <label className="text-xs text-gray-400 block mb-2">
               On this page:
             </label>
@@ -194,18 +210,18 @@ const ServerContinuity = () => {
             
             {/* Left Column - Main Content */}
             <div>
-              {/* Eyebrow Label */}
-              <span className="inline-block carbon-label-01 text-[#f97316] uppercase tracking-wider mb-3">
-                SERVER CONTINUITY
-              </span>
-
               {/* Headline */}
               <h1 className="carbon-fluid-heading-05 text-white mb-6">
-                From Uncertainty to Certainty
+                Server Continuity Suite
               </h1>
 
+              {/* Subtitle */}
+              <p className="carbon-label-01 text-[#c6c6c6] uppercase tracking-wide mb-6">
+                Comprehensive Server Support & Lifecycle Management
+              </p>
+
               {/* Lead Text */}
-              <p className="carbon-body-02 text-gray-300 mb-6">
+              <p className="carbon-body-02 text-gray-300 mb-8">
                 We provide total visibility, predictable costs, and audit-ready control—whether 
                 extending current hardware or transitioning to new.
               </p>
@@ -237,7 +253,7 @@ const ServerContinuity = () => {
                   <Activity className="w-5 h-5 text-orange-400" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white mb-1">Mission-Critical Support</h3>
+                  <h3 className="carbon-heading-01 text-white mb-1">Mission-Critical Support</h3>
                   <p className="carbon-label-01 text-gray-400">High-availability server support with 99.95% uptime SLA for production systems.</p>
                 </div>
               </div>
@@ -248,7 +264,7 @@ const ServerContinuity = () => {
                   <DataBase className="w-5 h-5 text-orange-400" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white mb-1">Departmental Infrastructure</h3>
+                  <h3 className="carbon-heading-01 text-white mb-1">Departmental Infrastructure</h3>
                   <p className="carbon-label-01 text-gray-400">Fixed-Rate Server Utility: Predictable management for non-critical infrastructure.</p>
                 </div>
               </div>
@@ -259,7 +275,7 @@ const ServerContinuity = () => {
                   <Money className="w-5 h-5 text-orange-400" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white mb-1">Investment Protection</h3>
+                  <h3 className="carbon-heading-01 text-white mb-1">Investment Protection</h3>
                   <p className="carbon-label-01 text-gray-400">Extend server life 2-3 years safely or plan zero-downtime transition to new hardware.</p>
                 </div>
               </div>
@@ -270,7 +286,7 @@ const ServerContinuity = () => {
                   <CheckmarkFilled className="w-5 h-5 text-orange-400" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white mb-1">Zero-Downtime Proven</h3>
+                  <h3 className="carbon-heading-01 text-white mb-1">Zero-Downtime Proven</h3>
                   <p className="carbon-label-01 text-gray-400">Delivered across 6+ enterprise clients including Ibrahim Fibres, LUMS, and Jazz.</p>
                 </div>
               </div>
@@ -299,7 +315,7 @@ const ServerContinuity = () => {
                 </div>
                 <div>
                   <p className="carbon-label-01 text-[var(--cds-text-primary)] leading-tight mb-1">{item.headline}</p>
-                  <p className="text-xs text-gray-500">{item.subtext}</p>
+                  <p className="carbon-helper-text-01 text-[#525252]">{item.subtext}</p>
                 </div>
               </div>
             ))}
@@ -320,10 +336,10 @@ const ServerContinuity = () => {
                     <li key={item.id}>
                       <button
                         onClick={() => scrollToSection(item.id)}
-                        className={`w-full text-left px-4 py-2 text-sm transition-colors border-l-[3px] ${
+                        className={`w-full text-left px-4 py-2 carbon-body-01 transition-colors border-l-2 ${
                           activeSection === item.id
-                            ? 'text-gray-900 border-[#f97316] bg-orange-50 carbon-label-01 font-semibold'
-                            : 'text-gray-500 border-transparent hover:text-gray-900 hover:bg-gray-50'
+                            ? 'text-[#161616] border-[#f97316] bg-[#f4f4f4] font-semibold'
+                            : 'text-[#525252] border-transparent hover:text-[#161616] hover:bg-[#f4f4f4]'
                         }`}
                       >
                         {item.label}
@@ -386,7 +402,7 @@ const ServerContinuity = () => {
 
               {/* Server Suite Section */}
               <section id="suite" className="py-16 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto px-6">
+                <div className="max-w-6xl mx-auto px-6">
                   <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
                     Server Continuity Suite
                   </h2>
@@ -395,110 +411,385 @@ const ServerContinuity = () => {
                     from uncertainty to continuity.
                   </p>
 
-                  <div className="space-y-4">
+                  {/* Flip Cards Grid */}
+                  <div className="grid md:grid-cols-2 gap-6" style={{ perspective: '1000px' }}>
+                    
                     {/* ServerAudit™ */}
-                    <div className="p-6 bg-green-50 border border-green-200">
-                      <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 bg-green-100 flex items-center justify-center flex-shrink-0">
-                          <View className="w-8 h-8 text-green-600" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
-                            <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">ServerAudit™</h3>
-                            <span className="px-2 py-1 bg-green-100 text-green-700 text-xs font-semibold">FREE</span>
+                    <div className="group h-[320px] cursor-pointer" style={{ perspective: '1000px' }}>
+                      <div className="relative w-full h-full transition-transform duration-500 preserve-3d group-hover:[transform:rotateY(180deg)]">
+                        {/* Front */}
+                        <div className="absolute inset-0 backface-hidden bg-white border-2 border-[#0f62fe] p-6 flex flex-col">
+                          <div className="flex items-center justify-between mb-4">
+                            <div className="w-16 h-16 bg-[#e5f6ff] flex items-center justify-center">
+                              <View className="w-8 h-8 text-[#0f62fe]" />
+                            </div>
+                            <span className="px-3 py-1 bg-[#0f62fe] text-white text-xs font-semibold">FREE</span>
                           </div>
-                          <p className="text-gray-600 mb-3">
+                          <h3 className="text-2xl font-semibold text-gray-900 mb-2">ServerAudit™</h3>
+                          <p className="text-lg text-[#0f62fe] font-medium mb-3">The Trusted Advisor Entry Point</p>
+                          <p className="text-gray-500 text-sm flex-1">A 1-3 day data-driven assessment that answers: "Should we refresh these servers—or can we safely extend?"</p>
+                          <div className="mt-4 text-xs text-[#0f62fe] font-medium uppercase tracking-wider flex items-center gap-2">
+                            Hover to explore <ArrowRight className="w-4 h-4" />
+                          </div>
+                        </div>
+                        {/* Back */}
+                        <div className="absolute inset-0 backface-hidden [transform:rotateY(180deg)] bg-[#0f62fe] text-white p-6 flex flex-col">
+                          <h3 className="text-xl font-semibold mb-3">ServerAudit™</h3>
+                          <p className="text-sm mb-4 opacity-90">
                             <strong>The Trusted Advisor Entry Point.</strong> A 1-3 day data-driven assessment 
                             that answers: "Should we refresh these servers—or can we safely extend?" 
                             Replaces fear-based decisions with evidence-based strategy.
                           </p>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• Health diagnostics: firmware, OS, hardware</li>
-                            <li>• Patch gap analysis and CVE exposure</li>
-                            <li>• Refresh vs. extend recommendation</li>
-                            <li>• No obligation, no sales pressure</li>
+                          <ul className="space-y-2 text-sm flex-1">
+                            <li className="flex items-start gap-2"><span className="text-[#78a9ff]">•</span> Health diagnostics: firmware, OS, hardware</li>
+                            <li className="flex items-start gap-2"><span className="text-[#78a9ff]">•</span> Patch gap analysis and CVE exposure</li>
+                            <li className="flex items-start gap-2"><span className="text-[#78a9ff]">•</span> Refresh vs. extend recommendation</li>
+                            <li className="flex items-start gap-2"><span className="text-[#78a9ff]">•</span> No obligation, no sales pressure</li>
                           </ul>
+                          <div className="mt-4 pt-4 border-t border-[#4589ff]">
+                            <span className="text-2xl font-bold">FREE</span>
+                          </div>
                         </div>
                       </div>
                     </div>
 
                     {/* ServerSure™ */}
-                    <div className="p-6 bg-blue-50 border border-blue-200">
-                      <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 bg-blue-100 flex items-center justify-center flex-shrink-0">
-                          <Activity className="w-8 h-8 text-blue-600" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
-                            <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">ServerSure™</h3>
-                            <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-semibold">PKR 45K/month</span>
+                    <div className="group h-[320px] cursor-pointer" style={{ perspective: '1000px' }}>
+                      <div className="relative w-full h-full transition-transform duration-500 preserve-3d group-hover:[transform:rotateY(180deg)]">
+                        {/* Front */}
+                        <div className="absolute inset-0 backface-hidden bg-white border-2 border-[#198038] p-6 flex flex-col">
+                          <div className="flex items-center justify-between mb-4">
+                            <div className="w-16 h-16 bg-[#ddefe5] flex items-center justify-center">
+                              <Activity className="w-8 h-8 text-[#198038]" />
+                            </div>
+                            <span className="px-3 py-1 bg-[#198038] text-white text-xs font-semibold">PKR 45K/month</span>
                           </div>
-                          <p className="text-gray-600 mb-3">
+                          <h3 className="text-2xl font-semibold text-gray-900 mb-2">ServerSure™</h3>
+                          <p className="text-lg text-[#198038] font-medium mb-3">The Volume Engine</p>
+                          <p className="text-gray-500 text-sm flex-1">Low-friction, predictable support for non-critical servers. Move from "break-fix chaos" to "managed utility".</p>
+                          <div className="mt-4 text-xs text-[#198038] font-medium uppercase tracking-wider flex items-center gap-2">
+                            Hover to explore <ArrowRight className="w-4 h-4" />
+                          </div>
+                        </div>
+                        {/* Back */}
+                        <div className="absolute inset-0 backface-hidden [transform:rotateY(180deg)] bg-[#198038] text-white p-6 flex flex-col">
+                          <h3 className="text-xl font-semibold mb-3">ServerSure™</h3>
+                          <p className="text-sm mb-4 opacity-90">
                             <strong>The Volume Engine.</strong> Low-friction, predictable support for 
                             non-critical servers. Move from "break-fix chaos" to "managed utility" 
                             with flat monthly OpEx.
                           </p>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• 24/7 remote monitoring with health sensors</li>
-                            <li>• 9-5 PKT support during business hours</li>
-                            <li>• Managed patching and security updates</li>
-                            <li>• Monthly health summary reports</li>
+                          <ul className="space-y-2 text-sm flex-1">
+                            <li className="flex items-start gap-2"><span className="text-[#6fdc8c]">•</span> 24/7 remote monitoring with health sensors</li>
+                            <li className="flex items-start gap-2"><span className="text-[#6fdc8c]">•</span> 9-5 PKT support during business hours</li>
+                            <li className="flex items-start gap-2"><span className="text-[#6fdc8c]">•</span> Managed patching and security updates</li>
+                            <li className="flex items-start gap-2"><span className="text-[#6fdc8c]">•</span> Monthly health summary reports</li>
                           </ul>
+                          <div className="mt-4 pt-4 border-t border-[#42be65]">
+                            <span className="text-2xl font-bold">PKR 45K/month</span>
+                          </div>
                         </div>
                       </div>
                     </div>
 
                     {/* ServerLife Extend™ */}
-                    <div className="p-6 bg-purple-50 border border-purple-200">
-                      <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 bg-purple-100 flex items-center justify-center flex-shrink-0">
-                          <Calendar className="w-8 h-8 text-purple-600" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
-                            <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">ServerLife Extend™</h3>
-                            <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-semibold">Custom Quote</span>
+                    <div className="group h-[320px] cursor-pointer" style={{ perspective: '1000px' }}>
+                      <div className="relative w-full h-full transition-transform duration-500 preserve-3d group-hover:[transform:rotateY(180deg)]">
+                        {/* Front */}
+                        <div className="absolute inset-0 backface-hidden bg-white border-2 border-[#8a3ffc] p-6 flex flex-col">
+                          <div className="flex items-center justify-between mb-4">
+                            <div className="w-16 h-16 bg-[#f0e6ff] flex items-center justify-center">
+                              <Calendar className="w-8 h-8 text-[#8a3ffc]" />
+                            </div>
+                            <span className="px-3 py-1 bg-[#8a3ffc] text-white text-xs font-semibold">Custom Quote</span>
                           </div>
-                          <p className="text-gray-600 mb-3">
+                          <h3 className="text-2xl font-semibold text-gray-900 mb-2">ServerLife Extend™</h3>
+                          <p className="text-lg text-[#8a3ffc] font-medium mb-3">Mission-Critical Continuity</p>
+                          <p className="text-gray-500 text-sm flex-1">Enterprise-grade support for out-of-warranty mission-critical systems. Defer CapEx. Extend server life.</p>
+                          <div className="mt-4 text-xs text-[#8a3ffc] font-medium uppercase tracking-wider flex items-center gap-2">
+                            Hover to explore <ArrowRight className="w-4 h-4" />
+                          </div>
+                        </div>
+                        {/* Back */}
+                        <div className="absolute inset-0 backface-hidden [transform:rotateY(180deg)] bg-[#8a3ffc] text-white p-6 flex flex-col">
+                          <h3 className="text-xl font-semibold mb-3">ServerLife Extend™</h3>
+                          <p className="text-sm mb-4 opacity-90">
                             <strong>Mission-Critical Continuity.</strong> Enterprise-grade support for 
                             out-of-warranty mission-critical systems. Defer CapEx. Extend server life. 
                             Without extending risk.
                           </p>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• Same-day spare parts availability</li>
-                            <li>• Shift-aligned engineer response</li>
-                            <li>• Firmware and security patching</li>
-                            <li>• 99.95% uptime SLA</li>
+                          <ul className="space-y-2 text-sm flex-1">
+                            <li className="flex items-start gap-2"><span className="text-[#d4bbff]">•</span> Same-day spare parts availability</li>
+                            <li className="flex items-start gap-2"><span className="text-[#d4bbff]">•</span> Shift-aligned engineer response</li>
+                            <li className="flex items-start gap-2"><span className="text-[#d4bbff]">•</span> Firmware and security patching</li>
+                            <li className="flex items-start gap-2"><span className="text-[#d4bbff]">•</span> 99.95% uptime SLA</li>
                           </ul>
+                          <div className="mt-4 pt-4 border-t border-[#a78bfa]">
+                            <span className="text-xl font-bold">Custom Quote</span>
+                          </div>
                         </div>
                       </div>
                     </div>
 
                     {/* ModServe™ */}
-                    <div className="p-6 bg-orange-50 border border-orange-200">
-                      <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 bg-orange-100 flex items-center justify-center flex-shrink-0">
-                          <Tools className="w-8 h-8 text-orange-600" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
-                            <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">ModServe™</h3>
-                            <span className="px-2 py-1 bg-orange-100 text-orange-700 text-xs font-semibold">PKR 250K–600K/server</span>
+                    <div className="group h-[320px] cursor-pointer" style={{ perspective: '1000px' }}>
+                      <div className="relative w-full h-full transition-transform duration-500 preserve-3d group-hover:[transform:rotateY(180deg)]">
+                        {/* Front */}
+                        <div className="absolute inset-0 backface-hidden bg-white border-2 border-[#f97316] p-6 flex flex-col">
+                          <div className="flex items-center justify-between mb-4">
+                            <div className="w-16 h-16 bg-[#fff2e5] flex items-center justify-center">
+                              <Tools className="w-8 h-8 text-[#f97316]" />
+                            </div>
+                            <span className="px-3 py-1 bg-[#f97316] text-white text-xs font-semibold">PKR 250K–600K/server</span>
                           </div>
-                          <p className="text-gray-600 mb-3">
+                          <h3 className="text-2xl font-semibold text-gray-900 mb-2">ModServe™</h3>
+                          <p className="text-lg text-[#f97316] font-medium mb-3">Zero-Downtime Deployment</p>
+                          <p className="text-gray-500 text-sm flex-1">From procurement to go-live, we ensure your new hardware works from Day 1. Hardware + staging + migration.</p>
+                          <div className="mt-4 text-xs text-[#f97316] font-medium uppercase tracking-wider flex items-center gap-2">
+                            Hover to explore <ArrowRight className="w-4 h-4" />
+                          </div>
+                        </div>
+                        {/* Back */}
+                        <div className="absolute inset-0 backface-hidden [transform:rotateY(180deg)] bg-[#f97316] text-white p-6 flex flex-col">
+                          <h3 className="text-xl font-semibold mb-3">ModServe™</h3>
+                          <p className="text-sm mb-4 opacity-90">
                             <strong>Zero-Downtime Deployment.</strong> From procurement to go-live, 
                             we ensure your new hardware works from Day 1. Hardware + staging + 
                             migration + validation—all in one outcome.
                           </p>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• Hardware sourcing (Dell, HPE, Huawei)</li>
-                            <li>• Pre-deployment staging and config</li>
-                            <li>• Zero-downtime migration</li>
-                            <li>• Day-1 managed support handover</li>
+                          <ul className="space-y-2 text-sm flex-1">
+                            <li className="flex items-start gap-2"><span className="text-[#ffcc99]">•</span> Hardware sourcing (Dell, HPE, Huawei)</li>
+                            <li className="flex items-start gap-2"><span className="text-[#ffcc99]">•</span> Pre-deployment staging and config</li>
+                            <li className="flex items-start gap-2"><span className="text-[#ffcc99]">•</span> Zero-downtime migration</li>
+                            <li className="flex items-start gap-2"><span className="text-[#ffcc99]">•</span> Day-1 managed support handover</li>
                           </ul>
+                          <div className="mt-4 pt-4 border-t border-[#ffb380]">
+                            <span className="text-xl font-bold">PKR 250K–600K/server</span>
+                          </div>
                         </div>
                       </div>
                     </div>
+
+                  </div>
+                </div>
+                
+                {/* CSS for 3D flip */}
+                <style>{`
+                  .preserve-3d {
+                    transform-style: preserve-3d;
+                  }
+                  .backface-hidden {
+                    backface-visibility: hidden;
+                    -webkit-backface-visibility: hidden;
+                  }
+                `}</style>
+
+                {/* Interactive Intake Form - Carbon Dark Theme */}
+                <div className="max-w-5xl mx-auto px-6 mt-16">
+                  <div className="bg-[#161616] text-white p-8 md:p-12 border border-[#393939]">
+                    {/* Header with Agent */}
+                    <div className="flex flex-col md:flex-row items-start gap-6 mb-10">
+                      {/* Agent Image */}
+                      <div className="flex-shrink-0">
+                        <div className="relative">
+                          <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#f97316] p-0.5">
+                            <img 
+                              src="/team/harris_head.jpg" 
+                              alt="Harris - Your Server Support Specialist" 
+                              className="w-full h-full object-cover rounded-full"
+                            />
+                          </div>
+                          <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-[#161616] flex items-center justify-center">
+                            <div className="w-2 h-2 bg-white rounded-full"></div>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Header Content */}
+                      <div className="flex-1">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#f97316]/10 border border-[#f97316]/30 text-[#f97316] text-xs carbon-label-01 uppercase tracking-wider mb-3">
+                          Interactive Service Matcher
+                        </div>
+                        <h3 className="carbon-fluid-heading-04 text-white mb-3">Find Your Perfect Server Support</h3>
+                        <p className="carbon-body-01 text-[#c6c6c6] max-w-2xl">Hi, I'm Harris, your infrastructure specialist. Answer 3 quick questions and I'll match you with the ideal support plan for your servers.</p>
+                      </div>
+                    </div>
+
+                    {/* Progress Bar - Carbon Style */}
+                    <div className="mb-10">
+                      <div className="flex items-center justify-between max-w-lg mx-auto relative">
+                        {/* Background Line */}
+                        <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-[#393939] -translate-y-1/2"></div>
+                        {/* Progress Fill */}
+                        <div className={`absolute top-1/2 left-0 h-0.5 bg-[#f97316] -translate-y-1/2 transition-all duration-500 ${intakeAnswers.budget ? 'w-full' : intakeAnswers.criticality ? 'w-[66%]' : intakeAnswers.situation ? 'w-[33%]' : 'w-0'}`}></div>
+                        
+                        {/* Step 1 */}
+                        <div className="relative z-10 flex flex-col items-center">
+                          <div className={`w-8 h-8 flex items-center justify-center text-sm font-semibold transition-all duration-300 ${intakeAnswers.situation ? 'bg-[#f97316] text-white' : 'bg-[#262626] border border-[#525252] text-[#a8a8a8]'}`}>
+                            {intakeAnswers.situation ? <CheckmarkFilled className="w-4 h-4" /> : '1'}
+                          </div>
+                        </div>
+                        
+                        {/* Step 2 */}
+                        <div className="relative z-10 flex flex-col items-center">
+                          <div className={`w-8 h-8 flex items-center justify-center text-sm font-semibold transition-all duration-300 ${intakeAnswers.criticality ? 'bg-[#f97316] text-white' : intakeAnswers.situation ? 'bg-[#161616] border-2 border-[#f97316] text-[#f97316]' : 'bg-[#262626] border border-[#525252] text-[#a8a8a8]'}`}>
+                            {intakeAnswers.criticality ? <CheckmarkFilled className="w-4 h-4" /> : '2'}
+                          </div>
+                        </div>
+                        
+                        {/* Step 3 */}
+                        <div className="relative z-10 flex flex-col items-center">
+                          <div className={`w-8 h-8 flex items-center justify-center text-sm font-semibold transition-all duration-300 ${intakeAnswers.budget ? 'bg-[#f97316] text-white' : intakeAnswers.criticality ? 'bg-[#161616] border-2 border-[#f97316] text-[#f97316]' : 'bg-[#262626] border border-[#525252] text-[#a8a8a8]'}`}>
+                            {intakeAnswers.budget ? <CheckmarkFilled className="w-4 h-4" /> : '3'}
+                          </div>
+                        </div>
+                      </div>
+                      {/* Step Labels */}
+                      <div className="flex justify-between max-w-lg mx-auto mt-2">
+                        <span className={`carbon-helper-text-01 ${intakeAnswers.situation ? 'text-[#f97316]' : 'text-[#6f6f6f]'}`}>Server Situation</span>
+                        <span className={`carbon-helper-text-01 ${intakeAnswers.criticality ? 'text-[#f97316]' : 'text-[#6f6f6f]'}`}>Criticality</span>
+                        <span className={`carbon-helper-text-01 ${intakeAnswers.budget ? 'text-[#f97316]' : 'text-[#6f6f6f]'}`}>Budget</span>
+                      </div>
+                    </div>
+
+                    {/* Question 1 */}
+                    <div className="mb-10">
+                      <div className="flex items-start gap-3 mb-4">
+                        <span className="w-6 h-6 bg-[#f97316] flex items-center justify-center text-xs font-bold mt-0.5">1</span>
+                        <div>
+                          <p className="carbon-heading-02 text-white mb-1">What's your current server situation?</p>
+                          <p className="carbon-body-01 text-[#a8a8a8]">Choose the option that best describes your infrastructure status</p>
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        {[
+                          { id: 'new', label: 'Planning new servers', icon: Tools },
+                          { id: 'running', label: 'Running fine, but aging', icon: Activity },
+                          { id: 'expired', label: 'Warranty expired', icon: Calendar },
+                          { id: 'unsure', label: 'Not sure of status', icon: View },
+                        ].map((opt) => (
+                          <button
+                            key={opt.id}
+                            onClick={() => setIntakeAnswers({...intakeAnswers, situation: opt.id})}
+                            className={`p-4 text-left border transition-all duration-200 ${
+                              intakeAnswers.situation === opt.id
+                                ? 'bg-[#f97316] border-[#f97316] text-white'
+                                : 'bg-[#262626] border-[#393939] text-[#e0e0e0] hover:border-[#f97316] hover:bg-[#f97316]/10'
+                            }`}
+                          >
+                            <opt.icon className={`w-5 h-5 mb-2 ${intakeAnswers.situation === opt.id ? 'text-white' : 'text-[#f97316]'}`} />
+                            <span className="carbon-body-01 block">{opt.label}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Question 2 */}
+                    <div className="mb-10">
+                      <div className="flex items-start gap-3 mb-4">
+                        <span className="w-6 h-6 bg-[#f97316] flex items-center justify-center text-xs font-bold mt-0.5">2</span>
+                        <div>
+                          <p className="carbon-heading-02 text-white mb-1">How critical is downtime for your business?</p>
+                          <p className="carbon-body-01 text-[#a8a8a8]">This helps us determine the right SLA and response time</p>
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-3 gap-3">
+                        {[
+                          { id: 'zero', label: 'Zero tolerance', desc: 'Revenue stops immediately' },
+                          { id: 'some', label: 'Some acceptable', desc: 'Internal tools affected' },
+                          { id: 'minimal', label: 'Minimal impact', desc: 'Non-production systems' },
+                        ].map((opt) => (
+                          <button
+                            key={opt.id}
+                            onClick={() => setIntakeAnswers({...intakeAnswers, criticality: opt.id})}
+                            className={`p-4 text-left border transition-all duration-200 ${
+                              intakeAnswers.criticality === opt.id
+                                ? 'bg-[#f97316] border-[#f97316] text-white'
+                                : 'bg-[#262626] border-[#393939] text-[#e0e0e0] hover:border-[#f97316] hover:bg-[#f97316]/10'
+                            }`}
+                          >
+                            <span className="carbon-heading-01 block mb-1">{opt.label}</span>
+                            <span className={`carbon-helper-text-01 ${intakeAnswers.criticality === opt.id ? 'text-white/80' : 'text-[#8d8d8d]'}`}>{opt.desc}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Question 3 */}
+                    <div className="mb-10">
+                      <div className="flex items-start gap-3 mb-4">
+                        <span className="w-6 h-6 bg-[#f97316] flex items-center justify-center text-xs font-bold mt-0.5">3</span>
+                        <div>
+                          <p className="carbon-heading-02 text-white mb-1">What's your preferred payment model?</p>
+                          <p className="carbon-body-01 text-[#a8a8a8]">Select the budget approach that fits your financial planning</p>
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-3 gap-3">
+                        {[
+                          { id: 'opex', label: 'Monthly OpEx', desc: 'Predictable monthly spend' },
+                          { id: 'capex', label: 'One-time CapEx', desc: 'Project-based budget' },
+                          { id: 'free', label: 'Start free', desc: 'Assessment first' },
+                        ].map((opt) => (
+                          <button
+                            key={opt.id}
+                            onClick={() => setIntakeAnswers({...intakeAnswers, budget: opt.id})}
+                            className={`p-4 text-left border transition-all duration-200 ${
+                              intakeAnswers.budget === opt.id
+                                ? 'bg-[#f97316] border-[#f97316] text-white'
+                                : 'bg-[#262626] border-[#393939] text-[#e0e0e0] hover:border-[#f97316] hover:bg-[#f97316]/10'
+                            }`}
+                          >
+                            <span className="carbon-heading-01 block mb-1">{opt.label}</span>
+                            <span className={`carbon-helper-text-01 ${intakeAnswers.budget === opt.id ? 'text-white/80' : 'text-[#8d8d8d]'}`}>{opt.desc}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Result - Carbon Dark Theme */}
+                    {intakeAnswers.situation && intakeAnswers.criticality && intakeAnswers.budget && (
+                      <div className="bg-[#f4f4f4] text-[#161616] p-8 border-l-4 border-[#f97316] animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        <div className="flex items-start gap-5">
+                          <div className="w-14 h-14 bg-[#f97316] flex items-center justify-center flex-shrink-0">
+                            <CheckmarkFilled className="w-7 h-7 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <p className="carbon-label-01 text-[#f97316] uppercase tracking-wider mb-1">Your Matched Solution</p>
+                            <h4 className="carbon-fluid-heading-04 mb-3 text-[#161616]">
+                              {intakeAnswers.situation === 'new' ? 'ModServe™' :
+                               intakeAnswers.situation === 'unsure' ? 'ServerAudit™' :
+                               intakeAnswers.criticality === 'zero' ? 'ServerLife Extend™' :
+                               intakeAnswers.budget === 'opex' ? 'ServerSure™' :
+                               'ServerLife Extend™'}
+                            </h4>
+                            <p className="carbon-body-01 text-[#525252] mb-6">
+                              {intakeAnswers.situation === 'new' 
+                                ? 'You need new hardware deployed with zero downtime. We handle procurement, staging, migration, and handover.'
+                                : intakeAnswers.situation === 'unsure'
+                                ? 'Start with our free assessment. Get clarity on your server health before making any decisions.'
+                                : intakeAnswers.criticality === 'zero'
+                                ? 'Mission-critical systems need enterprise-grade support. Same-day parts, shift-aligned engineers, 99.95% SLA.'
+                                : intakeAnswers.budget === 'opex'
+                                ? 'Predictable monthly support for non-critical servers. Move from break-fix chaos to managed utility.'
+                                : 'Extend the life of your existing servers with custom support that defers costly refresh cycles.'}
+                            </p>
+                            <div className="flex flex-wrap gap-3">
+                              <a 
+                                href="#engagement" 
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-[#f97316] text-white carbon-button-01 hover:bg-[#ea580c] transition-colors"
+                              >
+                                Get Your Custom Quote <ArrowRight className="w-4 h-4" />
+                              </a>
+                              <button 
+                                onClick={() => setIntakeAnswers({})}
+                                className="inline-flex items-center gap-2 px-6 py-3 border border-[#161616] text-[#161616] carbon-button-01 hover:bg-[#161616] hover:text-white transition-colors"
+                              >
+                                <Restart className="w-4 h-4" /> Start Over
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </section>
@@ -584,9 +875,17 @@ const ServerContinuity = () => {
                               
                               {/* Title */}
                               <div className="mb-4">
-                                <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Client</p>
+                                <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Client / Service</p>
                                 <p className="text-lg font-semibold text-white">{study.companyName}</p>
-                                <p className="text-sm text-[#f97316] mt-1">ServerLife Extend™ Deployment</p>
+                                {study.solutionName && study.solutionContext && (
+                                  <a 
+                                    href={study.caseStudyLink || '#contact'}
+                                    className="text-sm text-[#f97316] mt-1 inline-flex items-center gap-1 hover:underline group"
+                                  >
+                                    Deployed {study.solutionName} to {study.solutionContext}
+                                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                                  </a>
+                                )}
                               </div>
                               
                               {/* Description */}
@@ -604,13 +903,23 @@ const ServerContinuity = () => {
                             </div>
                             
                             {/* CTA */}
-                            <a
-                              href="#contact"
-                              className="inline-flex items-center gap-2 text-[#f97316] font-medium hover:gap-3 transition-all"
-                            >
-                              Read full case study
-                              <ArrowRight className="w-4 h-4" />
-                            </a>
+                            {study.caseStudyLink ? (
+                              <a
+                                href={study.caseStudyLink}
+                                className="inline-flex items-center gap-2 text-[#f97316] font-medium hover:gap-3 transition-all"
+                              >
+                                Read full case study
+                                <ArrowRight className="w-4 h-4" />
+                              </a>
+                            ) : (
+                              <a
+                                href="#contact"
+                                className="inline-flex items-center gap-2 text-[#f97316] font-medium hover:gap-3 transition-all"
+                              >
+                                Read full case study
+                                <ArrowRight className="w-4 h-4" />
+                              </a>
+                            )}
                           </div>
                           
                           {/* Right: Stats (3 cols) - Dark BG */}

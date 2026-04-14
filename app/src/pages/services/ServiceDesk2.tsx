@@ -10,7 +10,7 @@ import {
   ChevronRight, Building, Time, Task
 } from '@carbon/icons-react';
 
-const ServiceDesk = () => {
+const ServiceDesk2 = () => {
   const [activeSection, setActiveSection] = useState('overview');
   const [currentCaseStudy, setCurrentCaseStudy] = useState(0);
   
@@ -121,92 +121,35 @@ const ServiceDesk = () => {
       title: 'First-Line Support',
       description: 'Initial contact, triage, and resolution of common issues. Password resets, account unlocks, basic troubleshooting.',
       capabilities: ['Incident logging', 'Basic troubleshooting', 'Password resets', 'Service requests', 'Knowledge base queries'],
-      responseTime: '< 15 minutes',
-      color: '#24a148'
+      responseTime: '< 15 minutes'
     },
     {
       level: 'L2',
       title: 'Technical Specialists',
       description: 'Advanced troubleshooting, system administration, and complex issue resolution requiring deeper technical knowledge.',
       capabilities: ['Advanced diagnostics', 'System administration', 'Application support', 'Network troubleshooting', 'Vendor coordination'],
-      responseTime: '< 30 minutes',
-      color: '#0f62fe'
+      responseTime: '< 30 minutes'
     },
     {
       level: 'L3',
       title: 'Engineering & Development',
       description: 'Complex architectural issues, code-level debugging, and integration problems requiring engineering expertise.',
       capabilities: ['Code-level debugging', 'Architecture review', 'Integration issues', 'Custom development', 'Root cause analysis'],
-      responseTime: '< 2 hours',
-      color: '#6929c4'
-    }
-  ];
-
-  // Features data
-  const features = [
-    {
-      icon: Ticket,
-      title: 'Intelligent Ticketing & Routing',
-      description: 'AI-powered ticket categorisation and automatic routing to the right support tier based on issue type, urgency, and agent expertise.',
-      tags: ['Auto-routing', 'Smart categorisation', 'Priority management']
-    },
-    {
-      icon: User,
-      title: 'Self-Service Portal',
-      description: 'Empower users with a branded, intuitive portal for logging tickets, checking status, and accessing knowledge articles.',
-      tags: ['24/7 access', 'Ticket tracking', 'Service catalogue']
-    },
-    {
-      icon: Book,
-      title: 'Knowledge Management',
-      description: 'Centralised knowledge base with AI-powered search, article recommendations, and continuous improvement based on usage patterns.',
-      tags: ['AI search', 'Article recommendations', 'Continuous learning']
-    },
-    {
-      icon: Time,
-      title: 'SLA Management & Monitoring',
-      description: 'Real-time SLA tracking with automated escalation, breach alerts, and comprehensive reporting for accountability.',
-      tags: ['Real-time tracking', 'Auto-escalation', 'Breach alerts']
-    },
-    {
-      icon: Task,
-      title: 'Automation & Workflows',
-      description: 'Automated ticket handling, approval workflows, and repetitive task automation to reduce resolution times.',
-      tags: ['Auto-assignment', 'Approval flows', 'Task automation']
-    },
-    {
-      icon: Headset,
-      title: 'Multi-Channel Support',
-      description: 'Unified experience across email, chat, phone, and portal. All channels feed into a single ticketing system.',
-      tags: ['Email', 'Chat', 'Phone', 'Portal']
-    },
-    {
-      icon: ChartLine,
-      title: 'Reporting & Analytics',
-      description: 'Executive dashboards, operational metrics, and trend analysis to drive continuous improvement.',
-      tags: ['Executive dashboards', 'Trend analysis', 'Custom reports']
-    },
-    {
-      icon: DataBase,
-      title: 'CMDB Integration',
-      description: 'Configuration Management Database integration for better impact analysis and relationship mapping.',
-      tags: ['Asset linking', 'Impact analysis', 'Relationship mapping']
+      responseTime: '< 2 hours'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--cds-background)]">
+    <div className="min-h-screen bg-white">
       <Navigation />
       
       {/* Hero Section */}
       <section id="overview" className="relative pt-40 pb-20 bg-[#0a1628] overflow-hidden">
         <HeroGradientPlanes />
         
-        <div className="relative z-10 cds--css-grid" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
-          <div className="cds--col-span-16 lg:cds--col-span-14 lg:cds--col-start-2">
-          
+        <div className="relative z-10 max-w-[1584px] mx-auto px-6">
           {/* Breadcrumb */}
-          <nav className="relative z-10 flex items-center gap-2 text-xs mb-8" aria-label="Breadcrumb">
+          <nav className="flex items-center gap-2 text-xs mb-8" aria-label="Breadcrumb">
             <a href="/" className="text-[#24a148] hover:underline">Home</a>
             <ChevronRight className="w-3 h-3 text-gray-400" />
             <a href="/services" className="text-[#24a148] hover:underline">Services</a>
@@ -237,36 +180,31 @@ const ServiceDesk = () => {
             
             {/* Left Column - Main Content */}
             <div>
-              {/* Headline */}
               <h1 className="carbon-fluid-heading-05 text-white mb-6">
                 Service Desk
               </h1>
 
-              {/* Subtitle */}
               <p className="carbon-label-01 text-[#c6c6c6] uppercase tracking-wide mb-6">
                 Digitised ITSM Processes with Intelligent Automation
               </p>
 
-              {/* Lead Text */}
               <p className="carbon-body-02 text-gray-300 mb-8">
                 Modernise your IT support with a fully-digitised service desk powered by ServiceNow. 
                 We deliver measurable improvements in user satisfaction while reducing operational 
                 costs by up to 60%.
               </p>
 
-              {/* CTAs */}
               <div className="flex flex-wrap gap-4">
                 <button 
                   onClick={() => scrollToSection('engagement')}
-                  className="cds--btn cds--btn--primary bg-[#24a148] hover:bg-[#1e7e3e]"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#24a148] text-white font-semibold hover:bg-[#1e7e3e] transition-colors"
                 >
                   Request Service Assessment
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  <ArrowRight className="w-4 h-4" />
                 </button>
                 <button 
                   onClick={() => scrollToSection('cases')}
-                  className="cds--btn cds--btn--tertiary"
-                  style={{ borderColor: 'rgba(255,255,255,0.5)', color: 'white', borderWidth: '1px' }}
+                  className="inline-flex items-center gap-2 px-6 py-3 border border-white/50 text-white font-semibold hover:bg-white/10 transition-colors"
                 >
                   View Client Results
                 </button>
@@ -275,10 +213,9 @@ const ServiceDesk = () => {
 
             {/* Right Column - Key Features */}
             <div className="space-y-3">
-              {/* Feature 1 */}
               <div className="flex items-start gap-4 p-4 border-l-2 border-[#24a148] bg-white/5">
-                <div className="w-10 h-10 bg-green-500/20 flex items-center justify-center flex-shrink-0">
-                  <Ticket className="w-5 h-5 text-green-400" />
+                <div className="w-10 h-10 bg-[#24a148]/20 flex items-center justify-center flex-shrink-0">
+                  <Ticket className="w-5 h-5 text-[#24a148]" />
                 </div>
                 <div>
                   <h3 className="carbon-heading-01 text-white mb-1">Intelligent Ticket Management</h3>
@@ -286,10 +223,9 @@ const ServiceDesk = () => {
                 </div>
               </div>
 
-              {/* Feature 2 */}
               <div className="flex items-start gap-4 p-4 border-l-2 border-[#24a148] bg-white/5">
-                <div className="w-10 h-10 bg-green-500/20 flex items-center justify-center flex-shrink-0">
-                  <User className="w-5 h-5 text-green-400" />
+                <div className="w-10 h-10 bg-[#24a148]/20 flex items-center justify-center flex-shrink-0">
+                  <User className="w-5 h-5 text-[#24a148]" />
                 </div>
                 <div>
                   <h3 className="carbon-heading-01 text-white mb-1">Self-Service Portal</h3>
@@ -297,10 +233,9 @@ const ServiceDesk = () => {
                 </div>
               </div>
 
-              {/* Feature 3 */}
               <div className="flex items-start gap-4 p-4 border-l-2 border-[#24a148] bg-white/5">
-                <div className="w-10 h-10 bg-green-500/20 flex items-center justify-center flex-shrink-0">
-                  <Book className="w-5 h-5 text-green-400" />
+                <div className="w-10 h-10 bg-[#24a148]/20 flex items-center justify-center flex-shrink-0">
+                  <Book className="w-5 h-5 text-[#24a148]" />
                 </div>
                 <div>
                   <h3 className="carbon-heading-01 text-white mb-1">Knowledge Base</h3>
@@ -308,10 +243,9 @@ const ServiceDesk = () => {
                 </div>
               </div>
 
-              {/* Feature 4 */}
               <div className="flex items-start gap-4 p-4 border-l-2 border-[#24a148] bg-white/5">
-                <div className="w-10 h-10 bg-green-500/20 flex items-center justify-center flex-shrink-0">
-                  <MagicWand className="w-5 h-5 text-green-400" />
+                <div className="w-10 h-10 bg-[#24a148]/20 flex items-center justify-center flex-shrink-0">
+                  <MagicWand className="w-5 h-5 text-[#24a148]" />
                 </div>
                 <div>
                   <h3 className="carbon-heading-01 text-white mb-1">Intelligent Automation</h3>
@@ -320,13 +254,12 @@ const ServiceDesk = () => {
               </div>
             </div>
           </div>
-          </div>
         </div>
       </section>
 
-      {/* Trust Bar - Carbon Tile Design */}
-      <section className="bg-[var(--cds-background)] border-y border-[var(--cds-border-subtle)]">
-        <div className="max-w-7xl mx-auto py-6 px-6">
+      {/* Trust Bar */}
+      <section className="bg-[#f4f4f4] border-y border-[#e0e0e0]">
+        <div className="max-w-[1584px] mx-auto py-6 px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { icon: Building, headline: "95% User Satisfaction", subtext: 'Across all engagements' },
@@ -336,13 +269,13 @@ const ServiceDesk = () => {
             ].map((item) => (
               <div
                 key={item.headline}
-                className="bg-white border border-gray-200 p-4 flex flex-col gap-3"
+                className="bg-white border border-[#e0e0e0] p-4 flex flex-col gap-3"
               >
-                <div className="w-10 h-10 bg-green-100 flex items-center justify-center">
-                  <item.icon className="w-5 h-5 text-green-600" />
+                <div className="w-10 h-10 bg-[#24a148]/10 flex items-center justify-center">
+                  <item.icon className="w-5 h-5 text-[#24a148]" />
                 </div>
                 <div>
-                  <p className="carbon-label-01 text-[var(--cds-text-primary)] leading-tight mb-1">{item.headline}</p>
+                  <p className="carbon-label-01 text-[#161616] leading-tight mb-1">{item.headline}</p>
                   <p className="carbon-helper-text-01 text-[#525252]">{item.subtext}</p>
                 </div>
               </div>
@@ -357,8 +290,8 @@ const ServiceDesk = () => {
           <div className="flex">
             
             {/* Desktop Side Menu */}
-            <aside className="hidden xl:block w-64 flex-shrink-0 pl-4">
-              <nav className="sticky top-20 pt-8 pb-8 border-r border-gray-200 h-[calc(100vh-5rem)]">
+            <aside className="hidden xl:block w-56 flex-shrink-0 pl-6 pr-8">
+              <nav className="sticky top-20 pt-8 pb-8 h-[calc(100vh-5rem)]">
                 <ul className="space-y-0.5">
                   {SECTIONS.map((item) => (
                     <li key={item.id}>
@@ -379,15 +312,18 @@ const ServiceDesk = () => {
             </aside>
 
             {/* Content Area */}
-            <main className="flex-1 min-w-0">
+            <main className="flex-1 min-w-0 pl-8 pr-6">
               
               {/* Business Value Section */}
-              <section id="value" className="py-16 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto px-6">
-                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
+              <section id="value" className="py-20 border-b border-[#e0e0e0]">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#24a148] uppercase tracking-wide mb-3 block">
+                    Business Value
+                  </span>
+                  <h2 className="carbon-fluid-heading-05 text-[#161616] mb-6">
                     Why Modernise Your Service Desk?
                   </h2>
-                  <p className="text-gray-600 mb-8">
+                  <p className="carbon-body-01 text-[#525252] mb-8">
                     Traditional IT support is drowning in manual processes, fragmented tools, and poor visibility. 
                     Modern service desk solutions transform IT from a cost centre into a strategic enabler—delivering 
                     faster resolution, happier users, and lower operational costs.
@@ -398,8 +334,8 @@ const ServiceDesk = () => {
                     <div className="flex items-start gap-3">
                       <WarningAlt className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="carbon-label-01 text-red-600 mb-1">The Cost of Legacy Support</p>
-                        <p className="text-gray-600 text-sm">
+                        <p className="carbon-label-01 text-red-700 mb-1">The Cost of Legacy Support</p>
+                        <p className="carbon-body-01 text-[#525252]">
                           Outdated service desks create hidden costs: shadow IT ticketing, knowledge silos, 
                           compliance gaps, and frustrated users. Every hour of downtime costs enterprises 
                           thousands in lost productivity and revenue.
@@ -409,52 +345,97 @@ const ServiceDesk = () => {
                   </div>
 
                   {/* Value Props */}
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid md:grid-cols-2 gap-4 mb-12">
                     {[
                       { icon: Time, title: 'Reduced MTTR', desc: 'AI-powered routing and automation cut mean time to resolution by up to 45%.' },
                       { icon: User, title: 'Improved User Satisfaction', desc: 'Self-service options and faster response times drive 95%+ satisfaction scores.' },
                       { icon: ChartLine, title: 'Lower Operational Costs', desc: 'Automation and efficient tier structure reduce support costs by up to 60%.' },
                       { icon: Report, title: 'Better Visibility', desc: 'Real-time dashboards and analytics for data-driven decision making.' }
                     ].map((item) => (
-                      <div key={item.title} className="p-5 bg-white border border-gray-200">
-                        <div className="w-10 h-10 bg-green-100 flex items-center justify-center mb-4">
-                          <item.icon className="w-5 h-5 text-green-600" />
+                      <div key={item.title} className="p-5 bg-white border border-[#e0e0e0]">
+                        <div className="w-10 h-10 bg-[#24a148]/10 flex items-center justify-center mb-4">
+                          <item.icon className="w-5 h-5 text-[#24a148]" />
                         </div>
-                        <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">{item.title}</h3>
-                        <p className="text-sm text-gray-600">{item.desc}</p>
+                        <h3 className="carbon-heading-02 text-[#161616] mb-2">{item.title}</h3>
+                        <p className="carbon-body-01 text-[#525252]">{item.desc}</p>
                       </div>
                     ))}
                   </div>
                 </div>
               </section>
 
-              {/* Features Section */}
-              <section id="features" className="py-16 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto px-6">
-                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
-                    Platform Capabilities
+              {/* Core Features Section */}
+              <section id="features" className="py-20 border-b border-[#e0e0e0]">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#24a148] uppercase tracking-wide mb-3 block">
+                    Core Capabilities
+                  </span>
+                  <h2 className="carbon-fluid-heading-05 text-[#161616] mb-6">
+                    Essential Service Desk Functions
                   </h2>
-                  <p className="text-gray-600 mb-8">
+                  <p className="carbon-body-01 text-[#525252] mb-12">
                     A comprehensive service desk built on ServiceNow, delivering enterprise-grade 
                     functionality with consumer-grade usability.
                   </p>
 
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {features.map((feature) => (
-                      <div key={feature.title} className="p-6 bg-white border border-gray-200 hover:border-[#24a148] transition-colors">
-                        <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 bg-green-100 flex items-center justify-center flex-shrink-0">
-                            <feature.icon className="w-6 h-6 text-green-600" />
-                          </div>
-                          <div className="flex-1">
-                            <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">{feature.title}</h3>
-                            <p className="text-sm text-gray-600 mb-3">{feature.description}</p>
-                            <div className="flex flex-wrap gap-2">
-                              {feature.tags.map((tag) => (
-                                <span key={tag} className="px-2 py-1 bg-green-50 text-green-700 text-xs font-medium">
-                                  {tag}
-                                </span>
-                              ))}
+                  <div className="grid md:grid-cols-3 gap-6 mb-12">
+                    {[
+                      { icon: Ticket, title: 'Intelligent Ticketing', desc: 'AI-powered categorisation and automatic routing to the right support tier.', tags: ['Auto-routing', 'Smart priority', 'Agent matching'] },
+                      { icon: User, title: 'Self-Service Portal', desc: 'Branded portal for logging tickets, checking status, and accessing knowledge.', tags: ['24/7 access', 'Ticket tracking', 'Service catalogue'] },
+                      { icon: Book, title: 'Knowledge Management', desc: 'Centralised knowledge base with AI-powered search and article recommendations.', tags: ['AI search', 'Recommendations', 'Continuous learning'] }
+                    ].map((feature) => (
+                      <div key={feature.title} className="p-5 bg-white border border-[#e0e0e0] hover:border-[#24a148] transition-colors">
+                        <div className="w-10 h-10 bg-[#24a148]/10 flex items-center justify-center mb-4">
+                          <feature.icon className="w-5 h-5 text-[#24a148]" />
+                        </div>
+                        <h3 className="carbon-heading-02 text-[#161616] mb-2">{feature.title}</h3>
+                        <p className="carbon-body-01 text-[#525252] mb-3">{feature.desc}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {feature.tags.map((tag) => (
+                            <span key={tag} className="px-2 py-1 bg-[#f4f4f4] text-[#525252] carbon-helper-text-01">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              {/* Advanced Features Section */}
+              <section className="py-20 border-b border-[#e0e0e0] bg-[#f4f4f4]">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#24a148] uppercase tracking-wide mb-3 block">
+                    Advanced Capabilities
+                  </span>
+                  <h2 className="carbon-fluid-heading-05 text-[#161616] mb-6">
+                    Power & Intelligence
+                  </h2>
+                  <p className="carbon-body-01 text-[#525252] mb-12">
+                    Extended capabilities that drive efficiency, visibility, and continuous improvement.
+                  </p>
+
+                  <div className="space-y-6">
+                    {[
+                      { icon: Time, title: 'SLA Management & Monitoring', desc: 'Real-time SLA tracking with automated escalation, breach alerts, and comprehensive reporting for accountability.', visual: 'Insert a screenshot of an SLA dashboard with green/yellow/red status indicators and response-time trend graphs.' },
+                      { icon: Task, title: 'Automation & Workflows', desc: 'Automated ticket handling, approval workflows, and repetitive task automation to reduce resolution times.', visual: 'Insert a flowchart diagram showing automated ticket routing from intake to assignment.' },
+                      { icon: Headset, title: 'Multi-Channel Support', desc: 'Unified experience across email, chat, phone, and portal. All channels feed into a single ticketing system.', visual: 'Insert a UI mockup of a support interface displaying email, chat, and phone channel badges.' },
+                      { icon: ChartLine, title: 'Reporting & Analytics', desc: 'Executive dashboards, operational metrics, and trend analysis to drive continuous improvement.', visual: 'Insert a screenshot of an analytics dashboard with line charts, bar graphs, and KPI cards.' },
+                      { icon: DataBase, title: 'CMDB Integration', desc: 'Configuration Management Database integration for better impact analysis and relationship mapping.', visual: 'Insert a network topology diagram showing asset nodes and dependency relationships.' }
+                    ].map((feature) => (
+                      <div key={feature.title} className="flex gap-6 p-6 bg-white border border-[#e0e0e0]">
+                        <div className="w-16 h-16 bg-[#f4f4f4] flex items-center justify-center flex-shrink-0">
+                          <feature.icon className="w-8 h-8 text-[#24a148]" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="carbon-heading-02 text-[#161616] mb-2">{feature.title}</h3>
+                          <p className="carbon-body-01 text-[#525252] mb-4">{feature.desc}</p>
+                          <div className="h-40 bg-gradient-to-br from-[#e8f5e9] to-[#c8e6c9] border border-[#24a148]/20 flex items-center justify-center p-4">
+                            <div className="text-center">
+                              <feature.icon className="w-8 h-8 text-[#24a148] mx-auto mb-2" />
+                              <p className="carbon-label-01 text-[#1b5e20] font-semibold mb-1">{feature.title}</p>
+                              <p className="carbon-helper-text-01 text-[#2e7d32]">{feature.visual}</p>
                             </div>
                           </div>
                         </div>
@@ -465,40 +446,37 @@ const ServiceDesk = () => {
               </section>
 
               {/* Support Tiers Section */}
-              <section id="tiers" className="py-16 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto px-6">
-                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
+              <section id="tiers" className="py-20 border-b border-[#e0e0e0]">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#24a148] uppercase tracking-wide mb-3 block">
+                    Support Structure
+                  </span>
+                  <h2 className="carbon-fluid-heading-05 text-[#161616] mb-6">
                     Support Tier Structure
                   </h2>
-                  <p className="text-gray-600 mb-8">
+                  <p className="carbon-body-01 text-[#525252] mb-12">
                     Optimised tier structure ensuring the right expertise is applied to every issue—
                     minimising escalation while maximising first-contact resolution.
                   </p>
 
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     {supportTiers.map((tier) => (
-                      <div key={tier.level} className="p-6 bg-white border border-gray-200">
+                      <div key={tier.level} className="p-6 bg-white border border-[#e0e0e0]">
                         <div className="flex flex-col md:flex-row md:items-start gap-6">
-                          <div 
-                            className="w-16 h-16 flex items-center justify-center flex-shrink-0"
-                            style={{ backgroundColor: `${tier.color}15` }}
-                          >
-                            <span className="text-2xl font-bold" style={{ color: tier.color }}>{tier.level}</span>
+                          <div className="w-16 h-16 bg-[#f4f4f4] flex items-center justify-center flex-shrink-0">
+                            <span className="text-2xl font-bold text-[#24a148]">{tier.level}</span>
                           </div>
                           <div className="flex-1">
                             <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-3">
-                              <h3 className="carbon-heading-02 text-[var(--cds-text-primary)]">{tier.title}</h3>
-                              <span 
-                                className="px-3 py-1 text-xs font-semibold w-fit"
-                                style={{ backgroundColor: `${tier.color}15`, color: tier.color }}
-                              >
+                              <h3 className="carbon-heading-02 text-[#161616]">{tier.title}</h3>
+                              <span className="px-3 py-1 text-xs font-semibold w-fit bg-[#24a148]/10 text-[#24a148]">
                                 Response: {tier.responseTime}
                               </span>
                             </div>
-                            <p className="text-gray-600 text-sm mb-4">{tier.description}</p>
+                            <p className="carbon-body-01 text-[#525252] mb-4">{tier.description}</p>
                             <div className="flex flex-wrap gap-2">
                               {tier.capabilities.map((cap) => (
-                                <span key={cap} className="px-2 py-1 bg-gray-100 text-gray-600 text-xs">
+                                <span key={cap} className="px-2 py-1 bg-[#f4f4f4] text-[#525252] carbon-helper-text-01">
                                   {cap}
                                 </span>
                               ))}
@@ -512,24 +490,27 @@ const ServiceDesk = () => {
               </section>
 
               {/* Comparison Section */}
-              <section id="comparison" className="py-16 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto px-6">
-                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
+              <section id="comparison" className="py-20 border-b border-[#e0e0e0]">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#24a148] uppercase tracking-wide mb-3 block">
+                    Compare
+                  </span>
+                  <h2 className="carbon-fluid-heading-05 text-[#161616] mb-6">
                     Managed Service Desk vs In-house
                   </h2>
                   
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm">
                       <thead>
-                        <tr className="border-b-2 border-gray-200">
-                          <th className="text-left py-3 px-4 carbon-label-01 text-[var(--cds-text-primary)]">Factor</th>
+                        <tr className="border-b-2 border-[#e0e0e0]">
+                          <th className="text-left py-3 px-4 carbon-label-01 text-[#161616]">Factor</th>
                           <th className="text-center py-3 px-4 carbon-label-01 text-[#24a148]">Perception IT Managed</th>
-                          <th className="text-center py-3 px-4 carbon-label-01 text-gray-500">In-house Team</th>
+                          <th className="text-center py-3 px-4 carbon-label-01 text-[#525252]">In-house Team</th>
                         </tr>
                       </thead>
                       <tbody>
                         {[
-                          { factor: 'Setup Time', pit: '2-4 weeks', inhouse: '3-6 months' },
+                          { factor: 'Setup Time', pit: '✓ Weeks', inhouse: '✗ Months' },
                           { factor: '24/7 Coverage', pit: '✓ Included', inhouse: '✗ Expensive shifts' },
                           { factor: 'ServiceNow License', pit: '✓ Included', inhouse: '✗ Separate cost' },
                           { factor: 'Scalability', pit: '✓ On-demand', inhouse: '✗ Hiring cycles' },
@@ -538,18 +519,18 @@ const ServiceDesk = () => {
                           { factor: 'Knowledge Retention', pit: '✓ Documented', inhouse: '✗ Staff dependent' },
                           { factor: 'Technology Updates', pit: '✓ Automatic', inhouse: '✗ Manual upgrades' }
                         ].map((row, i) => (
-                          <tr key={i} className="border-b border-gray-100">
-                            <td className="py-3 px-4 text-gray-900">{row.factor}</td>
-                            <td className="py-3 px-4 text-center text-green-600 font-medium">{row.pit}</td>
-                            <td className="py-3 px-4 text-center text-gray-400">{row.inhouse}</td>
+                          <tr key={i} className="border-b border-[#e0e0e0]">
+                            <td className="py-3 px-4 text-[#161616]">{row.factor}</td>
+                            <td className="py-3 px-4 text-center text-[#24a148] font-medium">{row.pit}</td>
+                            <td className="py-3 px-4 text-center text-[#c6c6c6]">{row.inhouse}</td>
                           </tr>
                         ))}
                       </tbody>
                     </table>
                   </div>
 
-                  <div className="mt-8 p-6 bg-green-50 border border-green-200">
-                    <p className="text-gray-700 text-sm">
+                  <div className="mt-8 p-6 bg-[#f4f4f4] border-l-4 border-[#24a148]">
+                    <p className="carbon-body-01 text-[#161616]">
                       <strong>Bottom line:</strong> Our managed service desk typically delivers 40-60% cost savings 
                       while providing superior service levels, faster implementation, and access to specialised 
                       expertise without the overhead of hiring and training.
@@ -559,29 +540,28 @@ const ServiceDesk = () => {
               </section>
 
               {/* Case Studies Section */}
-              <section id="cases" className="py-16 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto px-6">
+              <section id="cases" className="py-20 border-b border-[#e0e0e0]">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#24a148] uppercase tracking-wide mb-3 block">
+                    Success Stories
+                  </span>
                   <div className="flex items-center justify-between mb-8">
-                    <h2 className="text-3xl font-bold text-gray-900">Case Studies</h2>
-                    <span className="text-sm text-gray-500">
+                    <h2 className="carbon-fluid-heading-05 text-[#161616]">Client Results</h2>
+                    <p className="carbon-body-01 text-[#525252]">
                       {currentCaseStudy + 1} of {caseStudies.length}
-                    </span>
+                    </p>
                   </div>
 
                   {/* Case Study Content */}
-                  <div className="bg-white border border-gray-200 mb-6">
+                  <div className="bg-white border border-[#e0e0e0] mb-6">
                     <div className="p-6">
-                      <span className={`inline-block px-2 py-1 text-xs font-semibold mb-3 ${
-                        caseStudies[currentCaseStudy].tagColor === 'blue' ? 'bg-blue-100 text-blue-700' :
-                        caseStudies[currentCaseStudy].tagColor === 'green' ? 'bg-green-100 text-green-700' :
-                        'bg-purple-100 text-purple-700'
-                      }`}>
+                      <span className="inline-block px-3 py-1 text-xs font-semibold mb-3 bg-[#24a148]/10 text-[#24a148]">
                         {caseStudies[currentCaseStudy].tag}
                       </span>
-                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-3">
+                      <h3 className="carbon-heading-02 text-[#161616] mb-3">
                         {caseStudies[currentCaseStudy].title}
                       </h3>
-                      <p className="text-gray-600 mb-4">
+                      <p className="carbon-body-01 text-[#525252] mb-4">
                         {caseStudies[currentCaseStudy].description}
                       </p>
                       
@@ -590,25 +570,25 @@ const ServiceDesk = () => {
                           {caseStudies[currentCaseStudy].stats.map((stat) => (
                             <div key={stat.label}>
                               <p className="carbon-fluid-heading-04" style={{ color: stat.color }}>{stat.value}</p>
-                              <p className="text-xs text-gray-500">{stat.label}</p>
+                              <p className="carbon-helper-text-01 text-[#525252]">{stat.label}</p>
                             </div>
                           ))}
                         </div>
                       )}
 
                       {caseStudies[currentCaseStudy].quote && (
-                        <div className="bg-gray-50 p-4 border-l-4 border-[#24a148] mt-4">
-                          <p className="text-gray-700 italic mb-2">"{caseStudies[currentCaseStudy].quote.text}"</p>
-                          <p className="text-sm text-gray-500">— {caseStudies[currentCaseStudy].quote.author}</p>
+                        <div className="bg-[#f4f4f4] p-4 border-l-4 border-[#24a148] mt-4">
+                          <p className="carbon-body-01 text-[#161616] italic mb-2">"{caseStudies[currentCaseStudy].quote.text}"</p>
+                          <p className="carbon-helper-text-01 text-[#525252]">— {caseStudies[currentCaseStudy].quote.author}</p>
                         </div>
                       )}
                     </div>
 
                     {/* Pagination Controls */}
-                    <div className="flex items-center justify-between px-6 py-4 border-t border-gray-200 bg-gray-50">
+                    <div className="flex items-center justify-between px-6 py-4 border-t border-[#e0e0e0] bg-[#f4f4f4]">
                       <button
                         onClick={prevCaseStudy}
-                        className="flex items-center gap-2 text-gray-600 hover:text-gray-900"
+                        className="flex items-center gap-2 carbon-body-01 text-[#525252] hover:text-[#161616] transition-colors"
                       >
                         <ArrowRight className="w-4 h-4 rotate-180" />
                         Previous
@@ -620,7 +600,7 @@ const ServiceDesk = () => {
                             key={index}
                             onClick={() => setCurrentCaseStudy(index)}
                             className={`w-2 h-2 rounded-full transition-colors ${
-                              index === currentCaseStudy ? 'bg-[#24a148]' : 'bg-gray-300'
+                              index === currentCaseStudy ? 'bg-[#24a148]' : 'bg-[#c6c6c6]'
                             }`}
                           />
                         ))}
@@ -628,7 +608,7 @@ const ServiceDesk = () => {
 
                       <button
                         onClick={nextCaseStudy}
-                        className="flex items-center gap-2 text-gray-600 hover:text-gray-900"
+                        className="flex items-center gap-2 carbon-body-01 text-[#525252] hover:text-[#161616] transition-colors"
                       >
                         Next
                         <ArrowRight className="w-4 h-4" />
@@ -639,18 +619,21 @@ const ServiceDesk = () => {
               </section>
 
               {/* Engagement Section */}
-              <section id="engagement" className="py-16">
-                <div className="max-w-4xl mx-auto px-6">
-                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
+              <section id="engagement" className="py-20">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#24a148] uppercase tracking-wide mb-3 block">
+                    How We Work
+                  </span>
+                  <h2 className="carbon-fluid-heading-05 text-[#161616] mb-6">
                     Engagement Model
                   </h2>
-                  <p className="text-gray-600 mb-8">
+                  <p className="carbon-body-01 text-[#525252] mb-12">
                     Flexible support tiers designed to match your organisational needs and budget. 
                     All plans include ServiceNow licensing and implementation.
                   </p>
 
                   {/* Pricing Tiers */}
-                  <div className="grid md:grid-cols-3 gap-4 mb-10">
+                  <div className="grid md:grid-cols-3 gap-4 mb-12">
                     {[
                       { 
                         name: 'Essential', 
@@ -703,23 +686,23 @@ const ServiceDesk = () => {
                     ].map((tier) => (
                       <div 
                         key={tier.name} 
-                        className={`p-6 border ${tier.highlight ? 'border-[#24a148] bg-green-50' : 'border-gray-200 bg-white'} relative`}
+                        className={`p-6 border relative ${tier.highlight ? 'border-[#24a148] bg-[#f4f4f4]' : 'border-[#e0e0e0] bg-white'}`}
                       >
                         {tier.highlight && (
                           <span className="absolute -top-3 left-6 px-3 py-1 bg-[#24a148] text-white text-xs font-semibold">
                             Most Popular
                           </span>
                         )}
-                        <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-1">{tier.name}</h3>
+                        <h3 className="carbon-heading-02 text-[#161616] mb-1">{tier.name}</h3>
                         <div className="flex items-baseline gap-1 mb-3">
-                          <span className="text-2xl font-bold text-[var(--cds-text-primary)]">{tier.price}</span>
-                          <span className="text-sm text-gray-500">{tier.period}</span>
+                          <span className="text-2xl font-bold text-[#161616]">{tier.price}</span>
+                          <span className="carbon-helper-text-01 text-[#525252]">{tier.period}</span>
                         </div>
-                        <p className="text-sm text-gray-600 mb-4">{tier.description}</p>
+                        <p className="carbon-body-01 text-[#525252] mb-4">{tier.description}</p>
                         <ul className="space-y-2">
                           {tier.features.map((feature) => (
-                            <li key={feature} className="flex items-start gap-2 text-sm text-gray-600">
-                              <CheckmarkFilled className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                            <li key={feature} className="flex items-start gap-2 carbon-body-01 text-[#525252]">
+                              <CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0 mt-0.5" />
                               {feature}
                             </li>
                           ))}
@@ -729,38 +712,38 @@ const ServiceDesk = () => {
                   </div>
 
                   {/* Implementation Process */}
-                  <div className="grid md:grid-cols-4 gap-4 mb-10">
+                  <div className="grid md:grid-cols-4 gap-4 mb-12">
                     {[
-                      { step: '01', title: 'Assessment', desc: 'Current state analysis and requirements gathering', color: '#24a148' },
-                      { step: '02', title: 'Design', desc: 'Solution architecture and workflow configuration', color: '#0f62fe' },
-                      { step: '03', title: 'Deploy', desc: 'Platform setup, migration, and user training', color: '#6929c4' },
-                      { step: '04', title: 'Optimise', desc: 'Continuous improvement based on metrics', color: '#24a148' }
+                      { step: '01', title: 'Assessment', desc: 'Current state analysis and requirements gathering' },
+                      { step: '02', title: 'Design', desc: 'Solution architecture and workflow configuration' },
+                      { step: '03', title: 'Deploy', desc: 'Platform setup, migration, and user training' },
+                      { step: '04', title: 'Optimise', desc: 'Continuous improvement based on metrics' }
                     ].map((item) => (
-                      <div key={item.step} className="relative p-6 bg-white border border-gray-200">
-                        <span className="absolute top-4 right-4 carbon-heading-02" style={{ color: item.color }}>{item.step}</span>
-                        <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">{item.title}</h3>
-                        <p className="text-sm text-gray-600">{item.desc}</p>
+                      <div key={item.step} className="relative p-6 bg-white border border-[#e0e0e0]">
+                        <span className="absolute top-4 right-4 carbon-heading-02 text-[#c6c6c6]">{item.step}</span>
+                        <h3 className="carbon-heading-02 text-[#161616] mb-2">{item.title}</h3>
+                        <p className="carbon-body-01 text-[#525252]">{item.desc}</p>
                       </div>
                     ))}
                   </div>
 
                   {/* CTA Banner */}
                   <div className="p-8 bg-[#24a148] text-center">
-                    <h3 className="text-2xl font-bold text-white mb-4">
+                    <h3 className="carbon-fluid-heading-04 text-white mb-4">
                       Ready to Transform Your IT Support?
                     </h3>
-                    <p className="text-green-100 mb-6">
+                    <p className="carbon-body-01 text-white/80 mb-6">
                       Get a free assessment of your current service desk. We'll show you exactly 
                       where you can improve—and how much you can save.
                     </p>
                     <a 
                       href="mailto:contact@perception-it.com"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#24a148] carbon-heading-02 hover:bg-gray-100 transition-colors"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#24a148] font-semibold hover:bg-gray-100 transition-colors"
                     >
                       Request Free Assessment
                       <ArrowRight className="w-4 h-4" />
                     </a>
-                    <p className="text-green-200 text-sm mt-4">
+                    <p className="text-white/60 text-sm mt-4">
                       Response within 4 hours. No obligation.
                     </p>
                   </div>
@@ -776,4 +759,4 @@ const ServiceDesk = () => {
   );
 };
 
-export default ServiceDesk;
+export default ServiceDesk2;

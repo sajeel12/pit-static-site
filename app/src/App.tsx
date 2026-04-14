@@ -46,6 +46,7 @@ import InfrastructureHub from './pages/services/InfrastructureHub';
 import JiraServiceManagement from './pages/services/JiraServiceManagement';
 import CustomDevelopment from './pages/services/CustomDevelopment';
 import ServiceDesk from './pages/services/ServiceDesk';
+import ServiceDesk2 from './pages/services/ServiceDesk2';
 import AIAccelerator from './pages/services/AIAccelerator';
 import AIModelDevelopment from './pages/services/AIModelDevelopment';
 import MLOps from './pages/services/MLOps';
@@ -132,6 +133,7 @@ function App() {
             <Route path="/services/jira-service-management" element={<JiraServiceManagement />} />
             <Route path="/services/custom-development" element={<CustomDevelopment />} />
             <Route path="/services/service-desk" element={<ServiceDesk />} />
+            <Route path="/services/service-desk2" element={<ServiceDesk2 />} />
             
             {/* AI Services */}
             <Route path="/services/ai-accelerator" element={<AIAccelerator />} />

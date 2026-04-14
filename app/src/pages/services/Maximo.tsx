@@ -122,16 +122,16 @@ const Maximo = () => {
           <div className="cds--col-span-16 lg:cds--col-span-14 lg:cds--col-start-2">
             
             {/* Breadcrumb - with explicit z-index */}
-            <nav className="relative z-10 flex items-center gap-2 text-xs mb-6" aria-label="Breadcrumb">
+            <nav className="relative z-10 flex items-center gap-2 text-xs mb-8" aria-label="Breadcrumb">
               <a href="/" className="text-[#00b4d8] hover:underline">Home</a>
-              <ChevronRight className="w-3 h-3 text-gray-400 rotate-180" />
+              <ChevronRight className="w-3 h-3 text-gray-400" />
               <a href="/services" className="text-[#00b4d8] hover:underline">Services</a>
-              <ChevronRight className="w-3 h-3 text-gray-400 rotate-180" />
-              <span className="text-gray-400">IBM Maximo Asset Management</span>
+              <ChevronRight className="w-3 h-3 text-gray-400" />
+              <span className="px-2 py-0.5 border border-[#a8a8a8] text-[#a8a8a8] rounded-full">IBM Maximo Asset Management</span>
             </nav>
 
             {/* Mobile Dropdown Navigation */}
-            <div className="xl:hidden mb-6">
+            <div className="xl:hidden mb-8">
               <label className="carbon-label-01 text-gray-400 block mb-2">
                 On this page:
               </label>
@@ -148,18 +148,18 @@ const Maximo = () => {
 
             {/* Single Column Layout */}
             <div className="max-w-3xl">
-                {/* Eyebrow Label - Carbon Label 01 */}
-                <span className="inline-block carbon-label-01 text-[#00b4d8] uppercase tracking-wider mb-3">
-                  IBM MAXIMO SERVICES
-                </span>
-
                 {/* Headline - Carbon Fluid Heading 05 */}
-                <h1 className="carbon-fluid-heading-05 text-white mb-5">
-                  Engineered for Scale, Optimized for Transition
+                <h1 className="carbon-fluid-heading-05 text-white mb-6">
+                  IBM Maximo Asset Management
                 </h1>
 
-                {/* Sub-headline - Carbon Body 02 */}
-                <p className="carbon-body-02 text-gray-300 mb-6">
+                {/* Subtitle */}
+                <p className="carbon-label-01 text-[#c6c6c6] uppercase tracking-wide mb-6">
+                  Engineered for Scale, Optimized for Transition
+                </p>
+
+                {/* Lead Text */}
+                <p className="carbon-body-02 text-gray-300 mb-8">
                   We architect high-performance Maximo environments to maximize ROI on your 
                   current deployment or execute seamless migrations to cloud-native efficiency.
                 </p>
@@ -262,16 +262,16 @@ const Maximo = () => {
             
             {/* Desktop Side Menu - Hidden on mobile */}
             <aside className="hidden xl:block w-64 flex-shrink-0 pl-4">
-              <nav className="sticky top-20 pt-8 pb-8 border-r border-[var(--cds-border-subtle)] h-[calc(100vh-5rem)]">
+              <nav className="sticky top-20 pt-8 pb-8 h-[calc(100vh-5rem)]">
                 <ul className="space-y-0.5">
                   {SECTIONS.map((item) => (
                     <li key={item.id}>
                       <button
                         onClick={() => scrollToSection(item.id)}
-                        className={`w-full text-left px-4 py-2 text-sm transition-colors border-l-[3px] ${
+                        className={`w-full text-left px-4 py-2 carbon-body-01 transition-colors border-l-2 ${
                           activeSection === item.id
-                            ? 'text-[var(--cds-text-primary)] border-[#00b4d8] bg-[#00b4d8]/5 font-semibold'
-                            : 'text-[var(--cds-text-secondary)] border-transparent hover:text-[var(--cds-text-primary)] hover:bg-[var(--cds-layer-hover)]'
+                            ? 'text-[#161616] border-[#00b4d8] bg-[#f4f4f4] font-semibold'
+                            : 'text-[#525252] border-transparent hover:text-[#161616] hover:bg-[#f4f4f4]'
                         }`}
                       >
                         {item.label}

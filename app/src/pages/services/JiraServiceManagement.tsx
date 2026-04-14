@@ -133,18 +133,18 @@ const JiraServiceManagement = () => {
           <div className="cds--col-span-16 lg:cds--col-span-14 lg:cds--col-start-2">
           
           {/* Breadcrumb */}
-          <nav className="relative z-10 flex items-center gap-2 text-xs mb-6" aria-label="Breadcrumb">
+          <nav className="relative z-10 flex items-center gap-2 text-xs mb-8" aria-label="Breadcrumb">
             <a href="/" className="text-[#f97316] hover:underline">Home</a>
             <ChevronRight className="w-3 h-3 text-gray-400" />
             <a href="/services" className="text-[#f97316] hover:underline">Services</a>
             <ChevronRight className="w-3 h-3 text-gray-400" />
-            <a href="/services/itsm" className="text-[#f97316] hover:underline">ITSM</a>
+            <span className="text-[#f97316] hover:underline cursor-pointer">ITSM</span>
             <ChevronRight className="w-3 h-3 text-gray-400" />
-            <span className="text-gray-400">Jira Service Management</span>
+            <span className="px-2 py-0.5 border border-[#a8a8a8] text-[#a8a8a8] rounded-full">Jira Service Management</span>
           </nav>
 
           {/* Mobile Dropdown Navigation */}
-          <div className="xl:hidden mb-6">
+          <div className="xl:hidden mb-8">
             <label className="text-xs text-gray-400 block mb-2">
               On this page:
             </label>
@@ -164,23 +164,18 @@ const JiraServiceManagement = () => {
             
             {/* Left Column - Main Content */}
             <div>
-              {/* Eyebrow Label */}
-              <span className="inline-block carbon-label-01 text-[#f97316] uppercase tracking-wider mb-3">
-                ATLASSIAN ITSM
-              </span>
-
               {/* Headline */}
               <h1 className="carbon-fluid-heading-05 text-white mb-6">
                 Jira Service Management
               </h1>
 
               {/* Subtitle */}
-              <h2 className="text-xl text-orange-400 mb-4 font-medium">
+              <p className="carbon-label-01 text-[#c6c6c6] uppercase tracking-wide mb-6">
                 Agile ITSM for Modern Teams
-              </h2>
+              </p>
 
               {/* Lead Text */}
-              <p className="carbon-body-02 text-gray-300 mb-6">
+              <p className="carbon-body-02 text-gray-300 mb-8">
                 Transform your IT service delivery with Atlassian's modern ITSM platform. 
                 Built on Jira's legendary flexibility, JSM brings development and operations 
                 teams together with intuitive workflows, powerful automation, and deep 
@@ -214,7 +209,7 @@ const JiraServiceManagement = () => {
                   <Task className="w-5 h-5 text-orange-400" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white mb-1">Agile ITSM</h3>
+                  <h3 className="carbon-heading-01 text-white mb-1">Agile ITSM</h3>
                   <p className="carbon-label-01 text-gray-400">Modern ITIL practices with agile flexibility. Fast to implement, easy to adapt.</p>
                 </div>
               </div>
@@ -225,7 +220,7 @@ const JiraServiceManagement = () => {
                   <Lightning className="w-5 h-5 text-orange-400" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white mb-1">Incident Management</h3>
+                  <h3 className="carbon-heading-01 text-white mb-1">Incident Management</h3>
                   <p className="carbon-label-01 text-gray-400">Rapid incident response with intelligent routing, on-call management, and swarm collaboration.</p>
                 </div>
               </div>
@@ -236,7 +231,7 @@ const JiraServiceManagement = () => {
                   <Settings className="w-5 h-5 text-orange-400" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white mb-1">Change Management</h3>
+                  <h3 className="carbon-heading-01 text-white mb-1">Change Management</h3>
                   <p className="carbon-label-01 text-gray-400">Streamlined change workflows with risk assessment, approvals, and automated scheduling.</p>
                 </div>
               </div>
@@ -247,7 +242,7 @@ const JiraServiceManagement = () => {
                   <Time className="w-5 h-5 text-orange-400" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white mb-1">SLA Tracking</h3>
+                  <h3 className="carbon-heading-01 text-white mb-1">SLA Tracking</h3>
                   <p className="carbon-label-01 text-gray-400">Powerful SLA management with multi-condition goals, alerts, and breach escalation.</p>
                 </div>
               </div>
@@ -276,7 +271,7 @@ const JiraServiceManagement = () => {
                 </div>
                 <div>
                   <p className="carbon-label-01 text-[var(--cds-text-primary)] leading-tight mb-1">{item.headline}</p>
-                  <p className="text-xs text-gray-500">{item.subtext}</p>
+                  <p className="carbon-helper-text-01 text-[#525252]">{item.subtext}</p>
                 </div>
               </div>
             ))}
@@ -290,17 +285,17 @@ const JiraServiceManagement = () => {
           <div className="flex">
             
             {/* Desktop Side Menu */}
-            <aside className="hidden xl:block w-64 flex-shrink-0 pl-4">
-              <nav className="sticky top-20 pt-8 pb-8 border-r border-gray-200 h-[calc(100vh-5rem)]">
+            <aside className="hidden xl:block w-56 flex-shrink-0 pl-6 pr-8">
+              <nav className="sticky top-20 pt-8 pb-8 h-[calc(100vh-5rem)]">
                 <ul className="space-y-0.5">
                   {SECTIONS.map((item) => (
                     <li key={item.id}>
                       <button
                         onClick={() => scrollToSection(item.id)}
-                        className={`w-full text-left px-4 py-2 text-sm transition-colors border-l-[3px] ${
+                        className={`w-full text-left px-4 py-2 carbon-body-01 transition-colors border-l-2 ${
                           activeSection === item.id
-                            ? 'text-gray-900 border-[#f97316] bg-orange-50 carbon-label-01 font-semibold'
-                            : 'text-gray-500 border-transparent hover:text-gray-900 hover:bg-gray-50'
+                            ? 'text-[#161616] border-[#f97316] bg-[#f4f4f4] font-semibold'
+                            : 'text-[#525252] border-transparent hover:text-[#161616] hover:bg-[#f4f4f4]'
                         }`}
                       >
                         {item.label}
@@ -312,15 +307,18 @@ const JiraServiceManagement = () => {
             </aside>
 
             {/* Content Area */}
-            <main className="flex-1 min-w-0">
+            <main className="flex-1 min-w-0 pl-8 pr-6">
               
               {/* Business Value Section */}
-              <section id="value" className="py-16 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto px-6">
+              <section id="value" className="py-20 border-b border-gray-200">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#f97316] uppercase tracking-wide mb-3 block">
+                    Business Value
+                  </span>
                   <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
                     Why Jira for ITSM?
                   </h2>
-                  <p className="text-gray-600 mb-8">
+                  <p className="carbon-body-01 text-[#525252] mb-8">
                     Traditional ITSM platforms are complex, expensive, and slow to implement. 
                     Jira Service Management brings a fresh approach—combining enterprise-grade 
                     ITIL capabilities with the speed and flexibility modern teams demand. 
@@ -333,7 +331,7 @@ const JiraServiceManagement = () => {
                       <WarningAlt className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="carbon-label-01 text-orange-700 mb-1">The Cost of Legacy ITSM</p>
-                        <p className="text-gray-600 text-sm">
+                        <p className="carbon-body-01 text-[#525252]">
                           Organizations using legacy platforms often face 6-12 month implementations, 
                           steep licensing costs, and poor developer adoption. Siloed tools create 
                           friction between teams and slow down service delivery.
@@ -343,7 +341,7 @@ const JiraServiceManagement = () => {
                   </div>
 
                   {/* Value Props */}
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid md:grid-cols-2 gap-4 mb-12">
                     {[
                       { icon: Lightning, title: 'Faster Implementation', desc: 'Deploy in weeks, not months. Pre-built templates and intuitive configuration get you up and running quickly.' },
                       { icon: ChartLine, title: 'Lower Total Cost', desc: 'Transparent pricing without hidden fees. Reduce licensing costs by 50-70% compared to enterprise alternatives.' },
@@ -355,183 +353,218 @@ const JiraServiceManagement = () => {
                           <item.icon className="w-5 h-5 text-orange-600" />
                         </div>
                         <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">{item.title}</h3>
-                        <p className="text-sm text-gray-600">{item.desc}</p>
+                        <p className="carbon-body-01 text-[#525252]">{item.desc}</p>
                       </div>
                     ))}
+                  </div>
+
+                  {/* Visual Break: Full-Width Image Banner */}
+                  <div className="relative w-full h-64 md:h-80 bg-gradient-to-r from-[#f4f4f4] to-[#e5e5e5] border border-[#e0e0e0] overflow-hidden">
+                    {/* Carbon Pictogram Pattern */}
+                    <div className="absolute inset-0 opacity-10">
+                      <svg className="w-full h-full" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="30" stroke="#f97316" strokeWidth="2"/>
+                        <circle cx="150" cy="80" r="40" stroke="#f97316" strokeWidth="2"/>
+                        <circle cx="280" cy="60" r="25" stroke="#f97316" strokeWidth="2"/>
+                        <rect x="80" y="120" width="60" height="60" stroke="#f97316" strokeWidth="2"/>
+                        <rect x="200" y="100" width="80" height="80" stroke="#f97316" strokeWidth="2"/>
+                      </svg>
+                    </div>
+                    {/* Center Content */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+                      <Group className="w-16 h-16 text-[#f97316] mb-4"/>
+                      <p className="carbon-label-02 text-[#525252] uppercase tracking-wide mb-2">Visual Asset</p>
+                      <p className="carbon-body-01 text-[#161616] max-w-md">
+                        Team collaboration workspace photo or Jira dashboard screenshot showing 
+                        modern ITSM interface with tickets, workflows, and metrics
+                      </p>
+                    </div>
                   </div>
                 </div>
               </section>
 
-              {/* Features Section */}
-              <section id="features" className="py-16 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto px-6">
+              {/* CORE ITSM SECTION */}
+              <section id="features" className="py-20 border-b border-gray-200">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#f97316] uppercase tracking-wide mb-3 block">
+                    Core ITSM
+                  </span>
                   <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
-                    Platform Capabilities
+                    Essential Service Management
                   </h2>
-                  <p className="text-gray-600 mb-8">
-                    Comprehensive ITSM functionality powered by Jira's flexible workflow engine 
-                    and the Atlassian ecosystem.
+                  <p className="carbon-body-01 text-[#525252] mb-12">
+                    Foundational ITIL capabilities that keep your services running smoothly—from 
+                    incident response to change control.
                   </p>
 
-                  <div className="space-y-4">
-                    {/* Incident Management */}
-                    <div className="p-6 bg-red-50 border border-red-200">
-                      <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 bg-red-100 flex items-center justify-center flex-shrink-0">
-                          <Lightning className="w-8 h-8 text-red-600" />
+                  {/* 3-Column Grid for Core Features */}
+                  <div className="grid md:grid-cols-3 gap-6 mb-16">
+                    {/* Incident */}
+                    <div className="p-5 bg-white border border-[#e0e0e0]">
+                      <Lightning className="w-8 h-8 text-[#f97316] mb-4"/>
+                      <h3 className="carbon-heading-02 text-[#161616] mb-2">Incident Management</h3>
+                      <p className="carbon-body-01 text-[#525252] mb-3">
+                        Intelligent routing, on-call schedules, and swarm collaboration to restore services fast.
+                      </p>
+                      <ul className="space-y-1 carbon-helper-text-01 text-[#6f6f6f]">
+                        <li>• Automated classification & prioritization</li>
+                        <li>• Opsgenie on-call integration</li>
+                        <li>• Slack/Teams swarm channels</li>
+                      </ul>
+                    </div>
+
+                    {/* Change */}
+                    <div className="p-5 bg-white border border-[#e0e0e0]">
+                      <Settings className="w-8 h-8 text-[#0f62fe] mb-4"/>
+                      <h3 className="carbon-heading-02 text-[#161616] mb-2">Change Management</h3>
+                      <p className="carbon-body-01 text-[#525252] mb-3">
+                        Risk-based approvals with calendar scheduling and full audit trails.
+                      </p>
+                      <ul className="space-y-1 carbon-helper-text-01 text-[#6f6f6f]">
+                        <li>• Risk assessment workflows</li>
+                        <li>• Change calendar & conflict detection</li>
+                        <li>• CI/CD pipeline integration</li>
+                      </ul>
+                    </div>
+
+                    {/* Problem */}
+                    <div className="p-5 bg-white border border-[#e0e0e0]">
+                      <WarningAlt className="w-8 h-8 text-[#da1e28] mb-4"/>
+                      <h3 className="carbon-heading-02 text-[#161616] mb-2">Problem Management</h3>
+                      <p className="carbon-body-01 text-[#525252] mb-3">
+                        Link related incidents, track root cause analysis, prevent recurrences.
+                      </p>
+                      <ul className="space-y-1 carbon-helper-text-01 text-[#6f6f6f]">
+                        <li>• Incident clustering & trend analysis</li>
+                        <li>• Known error database</li>
+                        <li>• RCA workflow templates</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* SELF-SERVICE SECTION */}
+              <section className="py-20 border-b border-gray-200 bg-[#f4f4f4]">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#f97316] uppercase tracking-wide mb-3 block">
+                    Self-Service
+                  </span>
+                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
+                    Empower Your Users
+                  </h2>
+                  <p className="carbon-body-01 text-[#525252] mb-12">
+                    Reduce ticket volume and improve satisfaction with intuitive self-service 
+                    experiences powered by Confluence.
+                  </p>
+
+                  <div className="grid md:grid-cols-2 gap-8 mb-12">
+                    {/* Service Catalog - Large Card */}
+                    <div className="bg-white border border-[#e0e0e0] p-8">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="w-12 h-12 bg-[#f97316]/10 flex items-center justify-center flex-shrink-0">
+                          <Catalog className="w-6 h-6 text-[#f97316]"/>
                         </div>
-                        <div className="flex-1">
-                          <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">Incident Management</h3>
-                          <p className="text-gray-600 mb-3">
-                            <strong>Respond faster, minimize impact.</strong> Intelligent incident 
-                            routing, on-call management, and swarm collaboration to restore 
-                            services quickly. Built-in major incident workflows with stakeholder 
-                            communication.
+                        <div>
+                          <h3 className="carbon-heading-02 text-[#161616] mb-2">Service Catalog</h3>
+                          <p className="carbon-body-01 text-[#525252]">
+                            Branded portals with no-code request forms, automated fulfillment, and approval workflows.
                           </p>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• Automated incident classification and prioritization</li>
-                            <li>• On-call schedules and escalations with Opsgenie</li>
-                            <li>• Slack/Teams integration for swarm collaboration</li>
-                            <li>• Post-incident review and linked problem tickets</li>
-                          </ul>
+                        </div>
+                      </div>
+                      {/* Visual Placeholder */}
+                      <div className="mt-6 aspect-video bg-[#f4f4f4] border border-[#e0e0e0] flex items-center justify-center">
+                        <div className="text-center p-4">
+                          <Catalog className="w-8 h-8 text-[#c6c6c6] mx-auto mb-2"/>
+                          <p className="carbon-helper-text-01 text-[#6f6f6f]">
+                            Service portal screenshot with request forms
+                          </p>
                         </div>
                       </div>
                     </div>
 
-                    {/* Change Management */}
-                    <div className="p-6 bg-blue-50 border border-blue-200">
-                      <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 bg-blue-100 flex items-center justify-center flex-shrink-0">
-                          <Settings className="w-8 h-8 text-blue-600" />
+                    {/* Knowledge Base - Large Card */}
+                    <div className="bg-white border border-[#e0e0e0] p-8">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="w-12 h-12 bg-[#0f62fe]/10 flex items-center justify-center flex-shrink-0">
+                          <Book className="w-6 h-6 text-[#0f62fe]"/>
                         </div>
-                        <div className="flex-1">
-                          <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">Change Management</h3>
-                          <p className="text-gray-600 mb-3">
-                            <strong>Streamlined changes with full visibility.</strong> Risk assessment, 
-                            approval workflows, and automated scheduling. Connect changes to 
-                            incidents, problems, and deployments for complete traceability.
+                        <div>
+                          <h3 className="carbon-heading-02 text-[#161616] mb-2">Knowledge Base</h3>
+                          <p className="carbon-body-01 text-[#525252]">
+                            Native Confluence integration with AI-powered recommendations and article health metrics.
                           </p>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• Risk assessment and approval workflows</li>
-                            <li>• Change calendar with conflict detection</li>
-                            <li>• Integration with CI/CD pipelines</li>
-                            <li>• Automated change logging and audit trails</li>
-                          </ul>
+                        </div>
+                      </div>
+                      {/* Visual Placeholder */}
+                      <div className="mt-6 aspect-video bg-[#f4f4f4] border border-[#e0e0e0] flex items-center justify-center">
+                        <div className="text-center p-4">
+                          <Book className="w-8 h-8 text-[#c6c6c6] mx-auto mb-2"/>
+                          <p className="carbon-helper-text-01 text-[#6f6f6f]">
+                            Confluence knowledge base with article templates
+                          </p>
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </section>
 
-                    {/* Problem Management */}
-                    <div className="p-6 bg-purple-50 border border-purple-200">
-                      <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 bg-purple-100 flex items-center justify-center flex-shrink-0">
-                          <WarningAlt className="w-8 h-8 text-purple-600" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">Problem Management</h3>
-                          <p className="text-gray-600 mb-3">
-                            <strong>Identify root causes, prevent recurrences.</strong> Link related 
-                            incidents to problems, track root cause analysis, and implement 
-                            permanent fixes. Reduce incident volume through proactive problem solving.
-                          </p>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• Incident clustering and trend analysis</li>
-                            <li>• Root cause analysis workflows</li>
-                            <li>• Known error database with workarounds</li>
-                            <li>• Proactive problem identification</li>
-                          </ul>
-                        </div>
+              {/* INTELLIGENCE & ASSETS SECTION */}
+              <section className="py-20 border-b border-gray-200">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#f97316] uppercase tracking-wide mb-3 block">
+                    Intelligence & Assets
+                  </span>
+                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
+                    Insights & Infrastructure
+                  </h2>
+                  <p className="carbon-body-01 text-[#525252] mb-12">
+                    Measure performance, track assets, and make data-driven decisions with 
+                    powerful analytics and CMDB capabilities.
+                  </p>
+
+                  <div className="space-y-6">
+                    {/* Dashboards */}
+                    <div className="flex gap-6 p-6 bg-white border border-[#e0e0e0]">
+                      <div className="w-16 h-16 bg-[#f4f4f4] flex items-center justify-center flex-shrink-0">
+                        <Dashboard className="w-8 h-8 text-[#f97316]"/>
                       </div>
-                    </div>
-
-                    {/* Service Request Catalog */}
-                    <div className="p-6 bg-green-50 border border-green-200">
-                      <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 bg-green-100 flex items-center justify-center flex-shrink-0">
-                          <Catalog className="w-8 h-8 text-green-600" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">Service Request Catalog</h3>
-                          <p className="text-gray-600 mb-3">
-                            <strong>Self-service that users love.</strong> Intuitive service catalog 
-                            with customizable request types, automated fulfillment workflows, 
-                            and clear visibility into request status.
-                          </p>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• Branded, customizable service portals</li>
-                            <li>• No-code request form builder</li>
-                            <li>• Automated fulfillment and approvals</li>
-                            <li>• AI-powered request classification</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Knowledge Base */}
-                    <div className="p-6 bg-yellow-50 border border-yellow-200">
-                      <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 bg-yellow-100 flex items-center justify-center flex-shrink-0">
-                          <Book className="w-8 h-8 text-yellow-600" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">Knowledge Base Integration</h3>
-                          <p className="text-gray-600 mb-3">
-                            <strong>Deflect tickets with knowledge.</strong> Native Confluence 
-                            integration for creating, managing, and surfacing knowledge articles. 
-                            AI-powered recommendations help users find answers faster.
-                          </p>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• Native Confluence integration</li>
-                            <li>• AI-powered article recommendations</li>
-                            <li>• Article feedback and health metrics</li>
-                            <li>• Self-service knowledge discovery</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* SLA & Metrics */}
-                    <div className="p-6 bg-indigo-50 border border-indigo-200">
-                      <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 bg-indigo-100 flex items-center justify-center flex-shrink-0">
-                          <Dashboard className="w-8 h-8 text-indigo-600" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">SLA & Metrics Dashboards</h3>
-                          <p className="text-gray-600 mb-3">
-                            <strong>Measure what matters.</strong> Flexible SLA management with 
-                            multi-condition goals, real-time dashboards, and powerful reporting. 
-                            Track team performance and identify improvement opportunities.
-                          </p>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• Multi-condition SLA goals with custom metrics</li>
-                            <li>• Real-time performance dashboards</li>
-                            <li>• CSAT collection and reporting</li>
-                            <li>• Custom reports and data export</li>
-                          </ul>
+                      <div className="flex-1">
+                        <h3 className="carbon-heading-02 text-[#161616] mb-2">SLA & Metrics Dashboards</h3>
+                        <p className="carbon-body-01 text-[#525252] mb-4">
+                          Multi-condition SLA goals, real-time performance tracking, and custom reporting to identify improvement opportunities.
+                        </p>
+                        {/* Visual Placeholder */}
+                        <div className="h-48 bg-[#f4f4f4] border border-[#e0e0e0] flex items-center justify-center">
+                          <div className="text-center p-4">
+                            <Dashboard className="w-10 h-10 text-[#c6c6c6] mx-auto mb-2"/>
+                            <p className="carbon-helper-text-01 text-[#6f6f6f]">
+                              JSM dashboard showing SLA compliance, ticket trends, and team metrics
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
 
                     {/* Asset Management */}
-                    <div className="p-6 bg-orange-50 border border-orange-200">
-                      <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 bg-orange-100 flex items-center justify-center flex-shrink-0">
-                          <Asset className="w-8 h-8 text-orange-600" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">Asset Management (with Insight)</h3>
-                          <p className="text-gray-600 mb-3">
-                            <strong>Know what you have.</strong> Comprehensive IT asset management 
-                            with automated discovery, dependency mapping, and lifecycle tracking. 
-                            Understand the relationships between assets and services.
-                          </p>
-                          <ul className="space-y-1 text-sm text-gray-600">
-                            <li>• Automated asset discovery and inventory</li>
-                            <li>• CMDB with relationship mapping</li>
-                            <li>• Asset lifecycle management</li>
-                            <li>• Contract and license tracking</li>
-                          </ul>
+                    <div className="flex gap-6 p-6 bg-white border border-[#e0e0e0]">
+                      <div className="w-16 h-16 bg-[#f4f4f4] flex items-center justify-center flex-shrink-0">
+                        <Asset className="w-8 h-8 text-[#0f62fe]"/>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="carbon-heading-02 text-[#161616] mb-2">Asset Management with Insight</h3>
+                        <p className="carbon-body-01 text-[#525252] mb-4">
+                          Automated discovery, CMDB relationship mapping, and lifecycle tracking for complete infrastructure visibility.
+                        </p>
+                        {/* Visual Placeholder */}
+                        <div className="h-48 bg-[#f4f4f4] border border-[#e0e0e0] flex items-center justify-center">
+                          <div className="text-center p-4">
+                            <Asset className="w-10 h-10 text-[#c6c6c6] mx-auto mb-2"/>
+                            <p className="carbon-helper-text-01 text-[#6f6f6f]">
+                              Insight CMDB showing asset relationships and dependencies
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -540,12 +573,15 @@ const JiraServiceManagement = () => {
               </section>
 
               {/* Comparison Section */}
-              <section id="comparison" className="py-16 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto px-6">
+              <section id="comparison" className="py-20 border-b border-gray-200">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#f97316] uppercase tracking-wide mb-3 block">
+                    Compare
+                  </span>
                   <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
                     Platform Comparison
                   </h2>
-                  <p className="text-gray-600 mb-8">
+                  <p className="carbon-body-01 text-[#525252] mb-8">
                     How Jira Service Management compares to leading alternatives across key dimensions.
                   </p>
                   
@@ -580,22 +616,24 @@ const JiraServiceManagement = () => {
                     </table>
                   </div>
 
-                  <div className="mt-6 p-4 bg-gray-50 border border-gray-200">
-                    <p className="text-sm text-gray-600">
-                      <strong>Recommendation:</strong> Choose <span className="text-[#f97316] font-medium">Jira Service Management</span> for 
-                      modern teams wanting fast time-to-value, developer-friendly tools, and lower total cost. 
-                      ServiceNow suits large enterprises with complex customization needs. Zendesk fits 
-                      customer support teams without ITSM requirements.
+                  {/* Recommendation Callout */}
+                  <div className="mt-8 p-6 bg-[#f4f4f4] border-l-4 border-[#f97316]">
+                    <p className="carbon-body-01 text-[#161616]">
+                      <strong>Our Recommendation:</strong> Choose <span className="text-[#f97316] font-semibold">Jira Service Management</span> for 
+                      modern teams wanting fast time-to-value, developer-friendly tools, and lower total cost.
                     </p>
                   </div>
                 </div>
               </section>
 
               {/* Case Studies Section */}
-              <section id="cases" className="py-16 border-b border-gray-200">
-                <div className="max-w-6xl mx-auto px-6">
+              <section id="cases" className="py-20 border-b border-gray-200">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#f97316] uppercase tracking-wide mb-3 block">
+                    Success Stories
+                  </span>
                   <div className="flex items-center justify-between mb-8">
-                    <h2 className="text-3xl font-bold text-gray-900">Case Studies</h2>
+                    <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)]">Client Results</h2>
                     <span className="text-sm text-gray-500">
                       {currentCaseStudy + 1} of {caseStudies.length}
                     </span>
@@ -747,12 +785,15 @@ const JiraServiceManagement = () => {
               </section>
 
               {/* Engagement Section */}
-              <section id="engagement" className="py-16">
-                <div className="max-w-4xl mx-auto px-6">
+              <section id="engagement" className="py-20">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#f97316] uppercase tracking-wide mb-3 block">
+                    How We Work
+                  </span>
                   <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
                     Engagement Model
                   </h2>
-                  <p className="text-gray-600 mb-8">
+                  <p className="carbon-body-01 text-[#525252] mb-8">
                     From assessment to production, we guide you through every step of your 
                     Jira Service Management journey with proven methodologies and expert support.
                   </p>
@@ -764,9 +805,9 @@ const JiraServiceManagement = () => {
                       { step: '03', title: 'Deploy & Optimize', desc: 'Phased rollout with training, documentation, and continuous improvement programs.', color: 'purple' }
                     ].map((item) => (
                       <div key={item.step} className="relative p-6 bg-white border border-gray-200">
-                        <span className="absolute top-4 right-4 carbon-heading-02" style={{ color: item.color === 'green' ? '#24a148' : item.color === 'blue' ? '#f97316' : '#6929c4' }}>{item.step}</span>
+                        <span className="absolute top-4 right-4 carbon-heading-02 text-[#c6c6c6]">{item.step}</span>
                         <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">{item.title}</h3>
-                        <p className="text-sm text-gray-600">{item.desc}</p>
+                        <p className="carbon-body-01 text-[#525252]">{item.desc}</p>
                       </div>
                     ))}
                   </div>

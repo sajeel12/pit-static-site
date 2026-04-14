@@ -53,6 +53,7 @@ export interface CaseStudy {
   isCollection?: boolean;
   collectionCount?: number;
   relatedServiceIds: string[];
+  image?: string;
 }
 
 export interface ServiceCategory {
@@ -405,22 +406,23 @@ const infrastructureCaseStudies: CaseStudy[] = [
     relatedServiceIds: ['sla-support']
   },
   {
-    id: 'infrastructure-resilience-manufacturing',
-    title: 'Infrastructure Resilience for Manufacturing',
-    subtitle: '24/7 hardware support eliminating downtime risk for 48 critical servers',
+    id: 'out-of-warranty-server-support-ibrahim-fibres',
+    title: 'Out-of-warranty infrastructure maintained at optimal performance without CapEx investment',
+    subtitle: 'Server SLA delivering zero downtime for 48 mission-critical Lenovo servers',
     client: 'Ibrahim Fibres Limited',
     industry: 'Manufacturing',
-    description: 'Perception IT transformed server infrastructure from a risk into a reliable engine for operations. With 48 critical Lenovo servers supporting production and financial systems, any downtime could have cost millions. 24/7 support, same-day hardware replacements, and proactive maintenance have kept systems running without a single major incident.',
+    description: '48 Lenovo servers running mission-critical MES, ERP, and production scheduling were out of OEM warranty. Perception IT implemented 24x7 hardware support local replacement parts, proactive maintenance, and automated patching, achieving zero unplanned outages and avoiding $750K+ in downtime risk.',
     outcomes: [
-      'Zero unplanned outages since implementation',
+      'Zero unplanned outages in 12 months (vs. 3-4 incidents/year before)',
       'MTTR reduced from 72+ hours to under 6 hours',
       'Avoided $750K+ in annual downtime risk',
       'Extended hardware life by 3-4 years, deferring $200K+ CapEx',
       'Enabled 2 new production lines on existing infrastructure',
-      'Met Allied Bank IT governance requirements without re-architecture'
+      'Met Allied Bank IT governance requirements'
     ],
-    technologies: ['Lenovo', 'Server Support', '24/7 Support', 'Preventive Maintenance', 'Hardware Support'],
-    slug: 'infrastructure-resilience-manufacturing',
+    technologies: ['Lenovo Servers SLA', '24/7 Support', 'Preventive Maintenance', 'Hardware Support'],
+    slug: 'out-of-warranty-server-support-ibrahim-fibres',
+    image: '/case-studies/ibrahim-fibres/hero-optimized.jpg',
     relatedServiceIds: ['hardware-support', 'server-continuity', 'sla-support']
   },
   {
@@ -791,6 +793,12 @@ const platformsServices: ServiceItem[] = [
     description: 'Digitised ITSM processes with automation',
     link: '/services/service-desk',
     badge: 'POPULAR'
+  },
+  {
+    id: 'service-desk2',
+    title: 'Service Desk V2',
+    description: 'Alternative design exploration for service desk',
+    link: '/services/service-desk2'
   }
 ];
 
