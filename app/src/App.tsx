@@ -27,6 +27,12 @@ import ITAssessment from './pages/services/ITAssessment';
 import TechnologyRoadmap from './pages/services/TechnologyRoadmap';
 import ServerContinuity from './pages/services/ServerContinuity';
 import Datacenter from './pages/services/Datacenter';
+import Datacenter2 from './pages/services/Datacenter2';
+import CoolingAirflow from './pages/services/CoolingAirflow';
+import CoolingAirflowEnhanced from './pages/services/CoolingAirflowEnhanced';
+import CoolingAirflow2 from './pages/services/CoolingAirflow2';
+
+import CoolingAirflowRestructured from './pages/services/CoolingAirflowRestructured';
 import HardwareSupport from './pages/services/HardwareSupport';
 import SLASupport from './pages/services/SLASupport';
 import BusinessContinuity from './pages/services/BusinessContinuity';
@@ -108,6 +114,12 @@ function App() {
             {/* Infrastructure Services */}
             <Route path="/services/server-continuity" element={<ServerContinuity />} />
             <Route path="/services/datacenter" element={<Datacenter />} />
+            <Route path="/services/datacenter2" element={<Datacenter2 />} />
+            <Route path="/services/cooling-airflow" element={<CoolingAirflow />} />
+            <Route path="/services/datacentre-4" element={<CoolingAirflowEnhanced />} />
+            <Route path="/services/cooling-airflow2" element={<CoolingAirflow2 />} />
+
+            <Route path="/services/cooling-restructured" element={<CoolingAirflowRestructured />} />
             <Route path="/services/hardware-support" element={<HardwareSupport />} />
             <Route path="/services/sla-support" element={<SLASupport />} />
             <Route path="/services/business-continuity" element={<BusinessContinuity />} />

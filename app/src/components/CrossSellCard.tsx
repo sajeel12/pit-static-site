@@ -134,7 +134,7 @@ const CrossSellCard = ({
 export const CloudCostOptimisationCrossSell = () => (
   <CrossSellCard
     variant="bundle"
-    title="See Cloud Control — Our Bundled Solution"
+    title="See Cloud Control - Our Bundled Solution"
     description="Combine cost optimisation, monitoring, and managed services for maximum impact."
     items={[
       {
@@ -162,7 +162,7 @@ export const InfrastructureCrossSell = () => (
   <CrossSellCard
     variant="journey"
     title="Ready for Cloud?"
-    description="Extend hardware life now, migrate to cloud when you're ready — one partner guides both."
+    description="Extend hardware life now, migrate to cloud when you're ready - one partner guides both."
     items={[
       {
         title: 'Cloud Migration Readiness',
@@ -184,7 +184,7 @@ export const InfrastructureCrossSell = () => (
 export const MLOpsCrossSell = () => (
   <CrossSellCard
     variant="bundle"
-    title="AI Accelerator — Complete AI Pipeline"
+    title="AI Accelerator - Complete AI Pipeline"
     description="From data preparation to deployed models in 90 days."
     items={[
       {
@@ -212,7 +212,7 @@ export const PlatformCrossSell = () => (
   <CrossSellCard
     variant="upgrade"
     title="Need Ongoing Platform Management?"
-    description="We don't just implement — we run, optimize, and evolve your platforms."
+    description="We don't just implement - we run, optimize, and evolve your platforms."
     items={[
       {
         title: 'Managed ServiceNow',

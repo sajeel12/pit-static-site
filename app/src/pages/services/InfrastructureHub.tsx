@@ -61,7 +61,7 @@ const HeroVariant = () => {
           </h1>
           
           <p className="text-xl text-gray-600 mb-6 leading-relaxed">
-            From uncertainty to continuity—one partner across your entire server lifecycle. 
+            From uncertainty to continuity-one partner across your entire server lifecycle. 
             Audit, support, extend, or refresh. All with local engineers and same-day spares.
           </p>
           
@@ -234,7 +234,7 @@ const ServerSuiteSection = () => {
       tagline: 'Zero-Downtime Deployment',
       price: 'PKR 250K–600K',
       priceNote: 'per server (all-inclusive)',
-      description: 'New server procurement, staging, migration, and validation—all in one outcome.',
+      description: 'New server procurement, staging, migration, and validation-all in one outcome.',
       features: [
         'Hardware sourcing (Dell, HPE, Huawei)',
         'Pre-deployment staging and config',
@@ -256,7 +256,7 @@ const ServerSuiteSection = () => {
             Four Stages. One Accountability Point.
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From uncertainty to continuity—each service designed to naturally evolve into the next stage of your server lifecycle.
+            From uncertainty to continuity-each service designed to naturally evolve into the next stage of your server lifecycle.
           </p>
         </div>
         
@@ -326,57 +326,57 @@ const DataCentreSection = () => {
     {
       category: "Server Room Air Conditioners",
       service: "AC Unit Supply & Installation",
-      outcome: "Precision Thermal Environment Control — Tiered cooling deployment with load-matched capacity, thermal mapping, and failover validation for 24/7 temperature stability"
+      outcome: "Precision Thermal Environment Control - Tiered cooling deployment with load-matched capacity, thermal mapping, and failover validation for 24/7 temperature stability"
     },
     {
       category: "Data Centre Cooling Systems",
       service: "Cooling System Supply",
-      outcome: "Engineered Thermal Resilience — In-row precision cooling, CRAC, and liquid cooling integration with airflow management, hot/cold aisle containment, and PUE optimization to 1.15 or below"
+      outcome: "Engineered Thermal Resilience - In-row precision cooling, CRAC, and liquid cooling integration with airflow management, hot/cold aisle containment, and PUE optimization to 1.15 or below"
     },
     {
       category: "Air Conditioner Sizing",
       service: "AC Sizing Service",
-      outcome: "Thermal Capacity Planning — Load-profiled cooling design with 30% headroom for growth, seasonal variation modeling, and cooling-compatibility validation with power infrastructure"
+      outcome: "Thermal Capacity Planning - Load-profiled cooling design with 30% headroom for growth, seasonal variation modeling, and cooling-compatibility validation with power infrastructure"
     },
     {
       category: "Cooling Site Surveys",
       service: "Site Survey",
-      outcome: "Thermal Resilience Audits — Infrared thermal mapping, airflow analysis, cooling capacity validation, and single-point-of-failure identification across the thermal chain"
+      outcome: "Thermal Resilience Audits - Infrared thermal mapping, airflow analysis, cooling capacity validation, and single-point-of-failure identification across the thermal chain"
     },
     {
       category: "Validation Testing",
       service: "Cooling Load Testing",
-      outcome: "Thermal Failure Simulation — Full-capacity testing with staged cooling failure scenarios (primary → secondary → portable) and temperature ramp validation"
+      outcome: "Thermal Failure Simulation - Full-capacity testing with staged cooling failure scenarios (primary → secondary → portable) and temperature ramp validation"
     },
     {
       category: "Monitoring",
       service: "Cooling Monitoring Setup",
-      outcome: "24/7 Thermal Surveillance — Real-time temperature/humidity monitoring with predictive alerts, automatic failover triggering, and historical trending for capacity forecasting"
+      outcome: "24/7 Thermal Surveillance - Real-time temperature/humidity monitoring with predictive alerts, automatic failover triggering, and historical trending for capacity forecasting"
     },
     {
       category: "Maintenance",
       service: "AC Servicing",
-      outcome: "Predictive Thermal Maintenance — Coil cleaning, refrigerant checks, filter replacement, and component health monitoring with lifecycle forecasting"
+      outcome: "Predictive Thermal Maintenance - Coil cleaning, refrigerant checks, filter replacement, and component health monitoring with lifecycle forecasting"
     },
     {
       category: "Environment-Specific",
       service: "Cooling for Data Centres",
-      outcome: "Context-Aware Thermal Continuity — Right-sized cooling stacks for edge sites (portable units), enterprise DCs (in-row precision), and high-density facilities (liquid cooling)"
+      outcome: "Context-Aware Thermal Continuity - Right-sized cooling stacks for edge sites (portable units), enterprise DCs (in-row precision), and high-density facilities (liquid cooling)"
     },
     {
       category: "Emergency Response",
       service: "Emergency AC Hire",
-      outcome: "Thermal Continuity Bridging — Rapid-deployment cooling rental with certified engineers on-site within 4 hours for outage recovery or capacity gaps"
+      outcome: "Thermal Continuity Bridging - Rapid-deployment cooling rental with certified engineers on-site within 4 hours for outage recovery or capacity gaps"
     },
     {
       category: "Energy Efficiency",
       service: "PUE Optimization",
-      outcome: "Thermal Energy Intelligence — Cooling system optimization with VFD control, free-cooling integration, and AI-driven setpoint adjustments to reduce energy consumption by 25-40%"
+      outcome: "Thermal Energy Intelligence - Cooling system optimization with VFD control, free-cooling integration, and AI-driven setpoint adjustments to reduce energy consumption by 25-40%"
     },
     {
       category: "Airflow Management",
       service: "Aisle Containment",
-      outcome: "Precision Airflow Engineering — Hot/cold aisle containment design with Containment Integrity Validation (pressure decay testing) to eliminate hotspots and ensure fire suppression efficacy"
+      outcome: "Precision Airflow Engineering - Hot/cold aisle containment design with Containment Integrity Validation (pressure decay testing) to eliminate hotspots and ensure fire suppression efficacy"
     }
   ];
 
@@ -402,10 +402,10 @@ const DataCentreSection = () => {
             <h3 className="text-xl font-bold mb-6">Four-Tier Service Model</h3>
             <div className="space-y-4">
               {[
-                { tier: 'Tier 0', title: 'Advisory', desc: 'Strategy & Roadmap — Business-aligned Tier + TCO model. No over/under-spend.', price: 'PKR 42K–120K/mo' },
-                { tier: 'Tier 1', title: 'Build', desc: 'Design & Build — Sovereign hardware, precision cooling, integrated telemetry. Built for Pakistan.', price: 'PKR 120K–480K/mo' },
-                { tier: 'Tier 2', title: 'Operate', desc: 'Ongoing Services — 24/7 Lahore NOC, predictive maintenance, 99.98%+ uptime.', price: 'PKR 480K–2.1M/mo' },
-                { tier: 'Tier 3', title: 'Optimise', desc: 'Proactive Value — PUE tuning, refresh planning, DR validation. ROI proven year after year.', price: 'Custom' }
+                { tier: 'Tier 0', title: 'Advisory', desc: 'Strategy & Roadmap - Business-aligned Tier + TCO model. No over/under-spend.', price: 'PKR 42K–120K/mo' },
+                { tier: 'Tier 1', title: 'Build', desc: 'Design & Build - Sovereign hardware, precision cooling, integrated telemetry. Built for Pakistan.', price: 'PKR 120K–480K/mo' },
+                { tier: 'Tier 2', title: 'Operate', desc: 'Ongoing Services - 24/7 Lahore NOC, predictive maintenance, 99.98%+ uptime.', price: 'PKR 480K–2.1M/mo' },
+                { tier: 'Tier 3', title: 'Optimise', desc: 'Proactive Value - PUE tuning, refresh planning, DR validation. ROI proven year after year.', price: 'Custom' }
               ].map((item) => (
                 <div key={item.tier} className="bg-white/5 p-4 rounded-lg border border-white/10">
                   <div className="flex items-center justify-between mb-2">
@@ -527,10 +527,10 @@ const DataCentreSection = () => {
               <h3 className="text-xl font-bold mb-4">Target Clients</h3>
               <ul className="space-y-3">
                 {[
-                  'Banks (SBP-regulated) — where downtime &gt; PKR 500K/hour',
+                  'Banks (SBP-regulated) - where downtime &gt; PKR 500K/hour',
                   'Government & PSDP-funded units',
-                  'Manufacturing — production continuity critical',
-                  'Telecommunications — subscriber-facing infrastructure'
+                  'Manufacturing - production continuity critical',
+                  'Telecommunications - subscriber-facing infrastructure'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
@@ -636,7 +636,7 @@ const CTASection = () => {
           Start With a Free Server Health Snapshot
         </h2>
         <p className="text-xl text-blue-100 mb-8">
-          No obligation. No sales pressure. Just clarity on whether your servers need refresh—or can safely extend.
+          No obligation. No sales pressure. Just clarity on whether your servers need refresh-or can safely extend.
         </p>
         
         <div className="flex flex-wrap justify-center gap-4">

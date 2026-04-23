@@ -178,7 +178,7 @@ export default function Projects() {
                 <p className="carbon-label-01 text-[#525252] uppercase tracking-wide mb-2">
                   {featuredStudy.industry}
                 </p>
-                <h2 className="carbon-fluid-heading-04 text-[#161616] mb-4">
+                <h2 className="carbon-fluid-heading-05 text-[#161616] mb-4">
                   {featuredStudy.title}
                 </h2>
                 <p className="carbon-body-01 text-[#525252] mb-6">
@@ -382,7 +382,7 @@ export default function Projects() {
       {/* CTA Section */}
       <section className="py-20 bg-[#f4f4f4] border-t border-[#e0e0e0]">
         <div className="max-w-[1584px] mx-auto px-6 text-center">
-          <h2 className="carbon-fluid-heading-04 text-[#161616] mb-4">
+          <h2 className="carbon-fluid-heading-05 text-[#161616] mb-4">
             Ready to Start Your Project?
           </h2>
           <p className="carbon-body-01 text-[#525252] mb-8 max-w-2xl mx-auto">

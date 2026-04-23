@@ -46,6 +46,14 @@
   letter-spacing: 0;
 }
 
+.carbon-fluid-heading-04-strong {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 2rem; /* 32px */
+  line-height: 2.5rem; /* 40px */
+  font-weight: 600; /* SemiBold */
+  letter-spacing: 0;
+}
+
 .carbon-fluid-heading-05 {
   font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
   font-size: 2.625rem; /* 42px */
@@ -238,5 +246,97 @@
   .carbon-fluid-quotation-02 {
     font-size: 1.5rem; /* 24px */
     line-height: 2rem; /* 32px */
+  }
+}
+
+
+/* ============================================================
+   ANIMATION KEYFRAMES — Carbon-aligned motion system
+   ============================================================ */
+
+/* Hero ambient gradient orb drift */
+@keyframes drift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -20px) scale(1.05);
+  }
+  50% {
+    transform: translate(-20px, 15px) scale(0.95);
+  }
+  75% {
+    transform: translate(15px, 25px) scale(1.02);
+  }
+}
+
+@keyframes drift-slow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-40px, 20px) scale(1.08);
+  }
+  66% {
+    transform: translate(25px, -30px) scale(0.92);
+  }
+}
+
+.animate-drift {
+  animation: drift 20s ease-in-out infinite;
+}
+
+.animate-drift-slow {
+  animation: drift-slow 25s ease-in-out infinite;
+}
+
+/* Counter number tick-up */
+@keyframes count-pulse {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-count {
+  animation: count-pulse 0.6s cubic-bezier(0, 0, 0.38, 0.9) forwards;
+}
+
+/* Scroll-triggered entrance defaults */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0.14, 0.3, 1),
+              transform 0.7s cubic-bezier(0.4, 0.14, 0.3, 1);
+}
+
+.scroll-animate.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for child elements */
+.scroll-animate-delay-1 { transition-delay: 0.1s; }
+.scroll-animate-delay-2 { transition-delay: 0.2s; }
+.scroll-animate-delay-3 { transition-delay: 0.3s; }
+.scroll-animate-delay-4 { transition-delay: 0.4s; }
+.scroll-animate-delay-5 { transition-delay: 0.5s; }
+.scroll-animate-delay-6 { transition-delay: 0.6s; }
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-drift,
+  .animate-drift-slow {
+    animation: none;
+  }
+  
+  .scroll-animate {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

@@ -130,3 +130,13 @@
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
+
+/* Shimmer sweep for placeholder frames */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-shimmer {
+  animation: shimmer 2.5s ease-in-out infinite;
+}

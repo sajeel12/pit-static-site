@@ -46,7 +46,7 @@ const DevOpsDelivery = () => {
     {
       icon: ShieldCheck,
       title: 'DevSecOps Integration',
-      description: 'Security scanning integrated into every stage of the pipeline—shift left without slowing down.',
+      description: 'Security scanning integrated into every stage of the pipeline-shift left without slowing down.',
       features: ['SAST/DAST scanning', 'Container vulnerability scanning', 'Compliance validation', 'Security gates']
     },
     {

@@ -322,7 +322,7 @@ const ServiceNow = () => {
               </p>
               
               <p className="carbon-body-02 text-gray-300 mb-8">
-                From legacy system migration to advanced workflow automation, we deliver ServiceNow solutions that integrate seamlessly with your infrastructure—hardware to cloud.
+                From legacy system migration to advanced workflow automation, we deliver ServiceNow solutions that integrate seamlessly with your infrastructure-hardware to cloud.
               </p>
               
               <div className="flex flex-wrap gap-4">
@@ -391,8 +391,8 @@ const ServiceNow = () => {
                     <item.icon className="w-5 h-5 text-[#00b4d8]" />
                   </div>
                   <div>
-                    <p className="carbon-label-01 text-[var(--cds-text-primary)] font-semibold">{item.headline}</p>
-                    <p className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">{item.subtext}</p>
+                    <p className="text-[13px] text-[var(--cds-text-primary)] font-semibold leading-tight mb-1">{item.headline}</p>
+                    <p className="text-[11px] text-[var(--cds-text-secondary)]">{item.subtext}</p>
                   </div>
                 </div>
               ))}
@@ -569,7 +569,7 @@ const ServiceNow = () => {
                               High-Performance Development
                             </h3>
                             <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-4">
-                              Clean, upgrade-safe JavaScript following ServiceNow&apos;s Scoped Application standards. We build for the long game—minimizing technical debt while maximizing platform agility.
+                              Clean, upgrade-safe JavaScript following ServiceNow&apos;s Scoped Application standards. We build for the long game-minimizing technical debt while maximizing platform agility.
                             </p>
                             
                             {/* Technical Tags - Carbon Style */}
@@ -1676,7 +1676,7 @@ const ServiceNow = () => {
                 </span>
                 
                 {/* Title */}
-                <h2 className="carbon-fluid-heading-04 text-white mb-4">
+                <h2 className="carbon-fluid-heading-05 text-white mb-4">
                   Your Migration Led by 24 Years of Enterprise Architecture Experience
                 </h2>
                 
@@ -1863,7 +1863,7 @@ const ServiceNow = () => {
               <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#00b4d8] mb-4 block">
                 The Perception-IT Performance Commitment
               </span>
-              <h2 className="carbon-fluid-heading-04 text-white mb-4">
+              <h2 className="carbon-fluid-heading-05 text-white mb-4">
                 Contractual Accountability. Predictable Outcomes.
               </h2>
               <p className="carbon-body-01 text-gray-400 max-w-3xl">
@@ -1956,7 +1956,7 @@ const ServiceNow = () => {
               <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#00b4d8] mb-4 block">
                 Your Path Forward
               </span>
-              <h2 className="carbon-fluid-heading-04 text-[var(--cds-text-primary)] mb-4">
+              <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-4">
                 Start Your Migration Audit
               </h2>
               <p className="carbon-body-01 text-[var(--cds-text-secondary)] max-w-3xl">
@@ -1975,7 +1975,7 @@ const ServiceNow = () => {
                   Technical Discovery (30 Mins)
                 </h3>
                 <p className="carbon-body-01 text-[var(--cds-text-secondary)]">
-                  We discuss your current setup, pain points, and goals. No sales pitch—just a technical assessment of your integration risks.
+                  We discuss your current setup, pain points, and goals. No sales pitch-just a technical assessment of your integration risks.
                 </p>
               </div>
 

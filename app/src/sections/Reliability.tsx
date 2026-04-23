@@ -82,7 +82,7 @@ const Reliability = () => {
         <div className={`mt-12 p-6 bg-green-50 rounded-2xl border border-green-100 flex items-center justify-center gap-3 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
           <span className="text-green-700 font-medium">All systems operational</span>
-          <span className="text-green-600 text-sm">— 99.97% uptime this quarter</span>
+          <span className="text-green-600 text-sm">- 99.97% uptime this quarter</span>
         </div>
       </div>
     </section>

@@ -23,7 +23,7 @@ const JiraServiceManagement = () => {
         { text: 'Technology', color: 'blue' },
         { text: 'Automation', color: 'green' }
       ],
-      title: 'TechStart Pakistan — ITSM Transformation',
+      title: 'TechStart Pakistan - ITSM Transformation',
       description: 'Migrated from email-based ticketing to Jira Service Management. Reduced ticket resolution time by 60% and improved CSAT scores from 3.2 to 4.6 within 3 months.',
       stats: [
         { value: '60%', label: 'Faster Resolution', icon: Time, color: '#24a148' },
@@ -41,7 +41,7 @@ const JiraServiceManagement = () => {
         { text: 'Education', color: 'green' },
         { text: 'Multi-Department', color: 'purple' }
       ],
-      title: 'EduBridge Academy — Multi-Department Support',
+      title: 'EduBridge Academy - Multi-Department Support',
       description: 'Deployed JSM across 8 departments with custom service catalogs. Consolidated 5 different tools into one platform, reducing software costs by 40%.',
       stats: [
         { value: '8', label: 'Departments', icon: Group, color: '#24a148' },
@@ -55,7 +55,7 @@ const JiraServiceManagement = () => {
         { text: 'Healthcare', color: 'purple' },
         { text: 'Compliance', color: 'blue' }
       ],
-      title: 'HealthFirst Clinics — Compliance-Ready ITSM',
+      title: 'HealthFirst Clinics - Compliance-Ready ITSM',
       description: 'Implemented JSM with HIPAA-compliant workflows and audit trails. Achieved 99.5% SLA compliance and reduced security incident response time by 75%.',
       stats: [
         { value: '99.5%', label: 'SLA Compliance', icon: ChartLine, color: '#24a148' },
@@ -270,8 +270,8 @@ const JiraServiceManagement = () => {
                   <item.icon className="w-5 h-5 text-orange-600" />
                 </div>
                 <div>
-                  <p className="carbon-label-01 text-[var(--cds-text-primary)] leading-tight mb-1">{item.headline}</p>
-                  <p className="carbon-helper-text-01 text-[#525252]">{item.subtext}</p>
+                  <p className="text-[13px] text-[var(--cds-text-primary)] font-semibold leading-tight mb-1">{item.headline}</p>
+                  <p className="text-[11px] text-[#525252]">{item.subtext}</p>
                 </div>
               </div>
             ))}
@@ -320,7 +320,7 @@ const JiraServiceManagement = () => {
                   </h2>
                   <p className="carbon-body-01 text-[#525252] mb-8">
                     Traditional ITSM platforms are complex, expensive, and slow to implement. 
-                    Jira Service Management brings a fresh approach—combining enterprise-grade 
+                    Jira Service Management brings a fresh approach-combining enterprise-grade 
                     ITIL capabilities with the speed and flexibility modern teams demand. 
                     Unite your development and IT operations on a single platform.
                   </p>
@@ -393,7 +393,7 @@ const JiraServiceManagement = () => {
                     Essential Service Management
                   </h2>
                   <p className="carbon-body-01 text-[#525252] mb-12">
-                    Foundational ITIL capabilities that keep your services running smoothly—from 
+                    Foundational ITIL capabilities that keep your services running smoothly-from 
                     incident response to change control.
                   </p>
 
@@ -705,7 +705,7 @@ const JiraServiceManagement = () => {
                               {study.quote && (
                                 <div className="bg-gray-50 p-4 border-l-4 border-[#f97316] mb-4">
                                   <p className="text-gray-700 italic text-sm mb-2">"{study.quote.text}"</p>
-                                  <p className="text-xs text-gray-500">— {study.quote.author}</p>
+                                  <p className="text-xs text-gray-500">- {study.quote.author}</p>
                                 </div>
                               )}
                             </div>

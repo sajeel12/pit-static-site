@@ -19,7 +19,7 @@ const Closing = () => {
         </h2>
         
         <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-          Book a consultation. We'll assess your needs and recommend the right approach—no obligation.
+          Book a consultation. We'll assess your needs and recommend the right approach-no obligation.
         </p>
 
         <div className="flex flex-wrap justify-center gap-4">

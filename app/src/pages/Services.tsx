@@ -86,7 +86,7 @@ const serviceCategories = [
   {
     id: 'operations',
     title: 'Operations',
-    description: '24/7 Observability & Support — Your eyes and hands',
+    description: '24/7 Observability & Support - Your eyes and hands',
     icon: Network,
     link: '/services#operations',
     color: 'bg-orange-500',

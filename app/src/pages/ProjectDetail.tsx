@@ -7,6 +7,7 @@ import '../styles/carbon-typography.css';
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
+import FeaturedTestimonial from '../components/FeaturedTestimonial';
 import Footer from '../sections/Footer';
 
 interface Project {
@@ -69,7 +70,7 @@ const projectsData: Project[] = [
       'Fragmented monitoring across 50+ network domains with no unified view',
       'Reactive incident management causing 4+ hour average response times',
       'Legacy tools unable to correlate events across infrastructure layers',
-      'No proactive alerting—issues discovered through customer complaints',
+      'No proactive alerting-issues discovered through customer complaints',
     ],
     solution: [
       'Deployed IBM Netcool as centralized event management platform',
@@ -339,7 +340,7 @@ const projectsData: Project[] = [
     ],
     result: [
       'Alarm processing capacity increased 10x',
-      'Processing delays eliminated—sub-second handling',
+      'Processing delays eliminated-sub-second handling',
       'Zero critical alarms missed during peak periods',
       'Platform scales automatically with network growth',
     ],
@@ -462,32 +463,32 @@ The backbone of their business continuity relies on 48 Lenovo servers. These sys
     businessBenefits: [
       {
         benefit: 'Avoided $750K+ in Annual Downtime Risk',
-        how: 'Zero unplanned outages in 12 months — vs. 3–4 incidents/year previously (avg. 12h each). Based on $250K/day lost output in polyester lines.',
-        context: "In capital-intensive industries, preventing downtime is 10x cheaper than recovering from it. No CapEx — just smarter OpEx."
+        how: 'Zero unplanned outages in 12 months - vs. 3–4 incidents/year previously (avg. 12h each). Based on $250K/day lost output in polyester lines.',
+        context: "In capital-intensive industries, preventing downtime is 10x cheaper than recovering from it. No CapEx - just smarter OpEx."
       },
       {
         benefit: 'Shifted from Reactive Panic to Predictable Ops',
-        how: 'MTTR reduced from 72+ hours to <6 hours via same-day local spares (Lahore warehouse) and 24/7 support aligned with plant shifts — not IT business hours.',
+        how: 'MTTR reduced from 72+ hours to <6 hours via same-day local spares (Lahore warehouse) and 24/7 support aligned with plant shifts - not IT business hours.',
         context: 'No more waiting for OEM parts stuck in customs or "next-business-day" promises. Operations teams trust the IT backbone.'
       },
       {
         benefit: 'Unified Infrastructure Across Diversified Operations',
-        how: 'Same SLA now secures servers for textile production, power plant SCADA, and Allied Bank integration — eliminating siloed support contracts.',
-        context: 'One vendor, one SLA, one accountability point — critical for conglomerates scaling across sectors.'
+        how: 'Same SLA now secures servers for textile production, power plant SCADA, and Allied Bank integration - eliminating siloed support contracts.',
+        context: 'One vendor, one SLA, one accountability point - critical for conglomerates scaling across sectors.'
       },
       {
         benefit: 'Enabled Confident Growth Without Hardware Refresh',
-        how: 'Supported rollout of 2 new production lines and ERP expansion on existing hardware — proving infrastructure was not the bottleneck.',
-        context: 'Deferred $200K+ CapEx refresh. Extended asset life 3–4 years — ideal for budget-constrained expansion cycles.'
+        how: 'Supported rollout of 2 new production lines and ERP expansion on existing hardware - proving infrastructure was not the bottleneck.',
+        context: 'Deferred $200K+ CapEx refresh. Extended asset life 3–4 years - ideal for budget-constrained expansion cycles.'
       },
       {
         benefit: 'Strengthened Audit & Compliance Posture',
-        how: 'Automated firmware/driver patching closed security gaps flagged in internal risk assessments — critical for financial services integration.',
+        how: 'Automated firmware/driver patching closed security gaps flagged in internal risk assessments - critical for financial services integration.',
         context: "Met Allied Bank's IT governance requirements without costly re-architecture. Sovereign, auditable operations."
       },
       {
         benefit: 'Built Internal Confidence in IT as an Enabler',
-        how: 'Plant managers now initiate digital upgrades (e.g., MES modules) — knowing infrastructure will not fail them.',
+        how: 'Plant managers now initiate digital upgrades (e.g., MES modules) - knowing infrastructure will not fail them.',
         context: 'Cultural shift: IT moved from "cost center" to "continuity partner." Adoption of future automation/AI initiatives becomes easier.'
       },
     ],
@@ -498,6 +499,7 @@ The backbone of their business continuity relies on 48 Lenovo servers. These sys
     },
     logo: '/logos/clients/IFL-logo.png',
     relatedServices: [
+      { name: 'ServerLife Extend™', link: '/services/server-continuity' },
       { name: 'Hardware Support', link: '/services/hardware-support' },
       { name: 'Server Continuity', link: '/services/server-continuity' },
       { name: 'Data Center Operations', link: '/services/data-center' },
@@ -506,7 +508,7 @@ The backbone of their business continuity relies on 48 Lenovo servers. These sys
     ],
     ctaSection: {
       headline: 'Facing similar risks with aging infrastructure?',
-      subheadline: "Let's build a tailored SLA that keeps your operations running — no matter what.",
+      subheadline: "Let's build a tailored SLA that keeps your operations running - no matter what.",
       primaryCta: { text: 'Talk to Our Tech Leads', link: '/#contact' },
       secondaryCta: { text: 'Schedule Free Assessment', link: '/#contact' },
     },
@@ -610,12 +612,6 @@ const ProjectDetail = () => {
             </div>
           </div>
           
-          {/* Bottom Row: Solution Summary (full width) */}
-          <div className="bg-[#f4f4f4] p-6 border-l-4 border-[#0f62fe]">
-            <p className="carbon-label-01 text-[#0f62fe] uppercase tracking-wider mb-2">Solution Summary</p>
-            <p className="carbon-heading-02 text-[#161616] mb-2">Deployed ServerLife Extend™ to Transform Risk into Resilience.</p>
-            <p className="text-base text-[#525252] leading-relaxed max-w-4xl">Perception IT deployed ServerLife Extend™ for Ibrahim Fibres Limited to replace OEM dependency with sovereign continuity. By securing 48 mission-critical Lenovo servers with a dedicated local spare inventory and shift-aligned engineering, we extended critical infrastructure life by 3–4 years without hardware refreshes, delivering zero unplanned outages and transforming operational risk into resilience.</p>
-          </div>
         </div>
       </section>
 
@@ -726,90 +722,84 @@ const ProjectDetail = () => {
         </section>
       )}
 
-      {/* Client Testimonial Section - ServiceNow Style */}
-      {project.quote && (
-        <section className="py-16 bg-[#161616]">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Section Header */}
-            <div className="text-center mb-10">
-              <div className="inline-flex items-center gap-1 px-3 py-1 bg-[#f97316]/20 text-[#f97316] text-sm font-medium mb-3">
-                Client Feedback
-              </div>
-              <h2 className="carbon-fluid-heading-05 text-white">
-                What Our Clients Say
-              </h2>
+      {/* Problem / Solution / Outcome — scannable hook */}
+      <section className="py-12 bg-white border-b border-[#e0e0e0]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="carbon-label-01 text-[#0f62fe] uppercase tracking-wider mb-2">Solution Summary</p>
+          <h2 className="carbon-fluid-heading-05 text-[#161616] mb-8">
+            Deployed ServerLife Extend™ to Transform Risk into Resilience
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-0 border border-[#e0e0e0]">
+            {/* Problem */}
+            <div className="p-6 relative border-b md:border-b-0 md:border-r border-[#e0e0e0]">
+              <div className="absolute top-0 left-0 w-full h-1 bg-[#fa4d56]" />
+              <p className="carbon-label-01 text-[#fa4d56] uppercase tracking-wider mb-3">The Problem</p>
+              <p className="carbon-heading-02 text-[#161616] mb-2">
+                OEM Dependency &amp; Out-of-Warranty Risk
+              </p>
+              <p className="carbon-body-01 text-[#525252]">
+                48 mission-critical Lenovo servers supporting MES, ERP, and production scheduling. No OEM support. Escalating downtime risk with 72+ hour part delays.
+              </p>
             </div>
 
-            {/* Testimonial Card */}
-            <div className="bg-white border border-[#e0e0e0] overflow-hidden">
-              <div className="grid md:grid-cols-4 gap-0">
-                {/* Left: Company Logo & Trust Indicator */}
-                <div className="relative flex flex-col bg-[#f4f4f4] md:col-span-1">
-                  <div className="flex-1 flex flex-col items-center justify-center p-6">
-                    {project.logo ? (
-                      <div className="w-32 h-24 bg-white border border-[#e0e0e0] flex items-center justify-center mb-4 shadow-sm p-4">
-                        <img 
-                          src={project.logo} 
-                          alt={project.client}
-                          className="max-w-full max-h-full object-contain"
-                        />
-                      </div>
-                    ) : (
-                      <div className="w-32 h-24 bg-white border border-[#e0e0e0] flex items-center justify-center mb-4 shadow-sm">
-                        <Building className="w-14 h-14 text-[#8d8d8d]" />
-                      </div>
-                    )}
-                    <p className="carbon-heading-02 text-[#161616] text-center">
-                      {project.client}
-                    </p>
-                  </div>
-                  
-                  {/* Accent Line - Infrastructure Orange */}
-                  <div className="absolute top-0 right-0 w-1.5 h-full bg-[#f97316]"></div>
-                </div>
-                
-                {/* Right: Quote Content */}
-                <div className="md:col-span-3 flex flex-col">
-                  {/* Quote Area */}
-                  <div className="p-8 md:p-10 flex-1 flex flex-col justify-center">
-                    <blockquote className="relative">
-                      <span className="absolute -top-6 -left-6 text-9xl text-[#0f62fe] opacity-25 font-serif">&ldquo;</span>
-                      <div className="carbon-fluid-heading-03 text-[#161616] leading-loose relative z-10 italic space-y-6">
-                        {project.quote.text.split('\n\n').map((para, idx) => (
-                          <p key={idx}>{para}</p>
-                        ))}
-                      </div>
-                      <span className="absolute -bottom-10 -right-4 text-9xl text-[#0f62fe] opacity-25 font-serif">&rdquo;</span>
-                    </blockquote>
-                  </div>
-                  
-                  {/* Bottom Bar: Author & Metrics */}
-                  <div className="border-t border-[#e0e0e0] bg-[#f4f4f4]">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between p-6 gap-4">
-                      {/* Author Info */}
-                      <div>
-                        <div className="carbon-heading-01 text-[#161616] font-semibold">{project.quote.author}</div>
-                        <div className="carbon-helper-text-01 text-[#525252]">{project.quote.role}</div>
-                      </div>
-                      
-                      {/* Metrics */}
-                      {project.metrics && (
-                        <div className="flex gap-6">
-                          {project.metrics.slice(0, 3).map((metric, idx) => (
-                            <div key={idx} className="text-right">
-                              <div className="carbon-heading-02" style={{ color: idx === 0 ? '#f97316' : idx === 1 ? '#24a148' : '#0f62fe' }}>
-                                {metric.value}
-                              </div>
-                              <div className="carbon-helper-text-01 text-[#525252]">{metric.label}</div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {/* Solution */}
+            <div className="p-6 relative border-b md:border-b-0 md:border-r border-[#e0e0e0]">
+              <div className="absolute top-0 left-0 w-full h-1 bg-[#0f62fe]" />
+              <p className="carbon-label-01 text-[#0f62fe] uppercase tracking-wider mb-3">The Solution</p>
+              <Link to="/services/server-continuity" className="group inline-flex items-center gap-2 carbon-heading-02 text-[#161616] mb-2 hover:text-[#0f62fe] transition-colors">
+                ServerLife Extend™
+                <ArrowRight className="w-4 h-4 text-[#c6c6c6] group-hover:text-[#0f62fe] group-hover:translate-x-0.5 transition-all" />
+              </Link>
+              <p className="carbon-body-01 text-[#525252] mb-3">
+                Sovereign continuity with local spare inventory, shift-aligned engineering, and proactive lifecycle management. Replaced OEM dependency entirely.
+              </p>
+              <Link
+                to="/services/server-continuity"
+                className="inline-flex items-center gap-1.5 carbon-label-01 text-[#0f62fe] hover:text-[#0353e9] transition-colors"
+              >
+                View solution
+                <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
+
+            {/* Outcome */}
+            <div className="p-6 relative">
+              <div className="absolute top-0 left-0 w-full h-1 bg-[#24a148]" />
+              <p className="carbon-label-01 text-[#24a148] uppercase tracking-wider mb-3">The Outcome</p>
+              <p className="carbon-heading-02 text-[#161616] mb-2">
+                Zero Unplanned Outages
+              </p>
+              <p className="carbon-body-01 text-[#525252]">
+                3–4 year infrastructure extension without hardware refreshes. $750K+ annual downtime risk avoided. $200K+ CapEx deferred.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Client Testimonial — shared FeaturedTestimonial component */}
+      {project.quote && (
+        <section className="py-16 bg-[#161616]">
+          <div className="max-w-5xl mx-auto px-6">
+            <div className="mb-6">
+              <p className="carbon-label-01 text-[#a8a8a8] uppercase tracking-wider mb-2">Client Voice</p>
+              <h2 className="carbon-fluid-heading-05 text-[#f4f4f4]">Testimonials</h2>
+            </div>
+
+            <FeaturedTestimonial
+              quote={project.quote.text}
+              author={project.quote.author}
+              role={project.quote.role}
+              client={project.client || 'Client'}
+              clientLogo={project.logo}
+              bgImage={project.heroImage || project.logo}
+              contextDesc="Deployed ServerLife Extend™ to Critical Infrastructure and deferred CapEx spend without compromise on quality and continuity"
+              contextLink="/services/server-continuity"
+              solutionLink="/services/server-continuity"
+              solutionLabel="ServerLife Extend™ Solution details"
+              variant="dark"
+            />
           </div>
         </section>
       )}
@@ -1034,9 +1024,10 @@ const ProjectDetail = () => {
                 <Link
                   key={idx}
                   to={service.link}
-                  className="px-4 py-2 bg-[#f4f4f4] text-[#525252] text-sm font-medium border border-[#e0e0e0] hover:bg-[#0f62fe] hover:text-white hover:border-[#0f62fe] transition-all"
+                  className="group inline-flex items-center gap-2 px-4 py-2 bg-[#f4f4f4] text-[#525252] text-sm font-medium border border-[#e0e0e0] hover:bg-[#0f62fe] hover:text-white hover:border-[#0f62fe] transition-all"
                 >
                   {service.name}
+                  <ArrowRight className="w-3 h-3 text-[#c6c6c6] group-hover:text-white group-hover:translate-x-0.5 transition-all" />
                 </Link>
               ))}
             </div>

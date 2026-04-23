@@ -20,7 +20,7 @@ const ServiceDesk = () => {
       id: 'manufacturing',
       tag: 'Manufacturing',
       tagColor: 'green',
-      title: 'Manufacturing Giant — 60% Cost Reduction',
+      title: 'Manufacturing Giant - 60% Cost Reduction',
       description: 'Transformed fragmented support into a unified service desk with ServiceNow. Reduced MTTR by 45%, improved user satisfaction to 94%, and eliminated shadow IT ticketing.',
       stats: [
         { value: '60%', label: 'Cost Reduction', color: '#24a148' },
@@ -28,7 +28,7 @@ const ServiceDesk = () => {
         { value: '94%', label: 'User Satisfaction', color: '#6929c4' }
       ],
       quote: {
-        text: "Perception IT didn't just implement a tool—they transformed how our entire organisation thinks about IT support. Our users actually thank the IT team now.",
+        text: "Perception IT didn't just implement a tool-they transformed how our entire organisation thinks about IT support. Our users actually thank the IT team now.",
         author: "CIO, Leading Manufacturing Company"
       }
     },
@@ -36,7 +36,7 @@ const ServiceDesk = () => {
       id: 'financial',
       tag: 'Financial Services',
       tagColor: 'blue',
-      title: 'Banking Sector — Compliance-Ready Service Desk',
+      title: 'Banking Sector - Compliance-Ready Service Desk',
       description: 'Deployed a secure, auditable service desk solution meeting strict regulatory requirements. Full SLA compliance, automated escalation, and complete audit trails.',
       stats: [
         { value: '99.8%', label: 'SLA Compliance', color: '#24a148' },
@@ -48,7 +48,7 @@ const ServiceDesk = () => {
       id: 'telecom',
       tag: 'Telecommunications',
       tagColor: 'purple',
-      title: 'Telco Provider — Multi-Channel Support Transformation',
+      title: 'Telco Provider - Multi-Channel Support Transformation',
       description: 'Unified email, chat, phone, and portal support into a single intelligent platform. Self-service adoption reached 65%, reducing L1 ticket volume significantly.',
       stats: [
         { value: '65%', label: 'Self-Service Adoption', color: '#24a148' },
@@ -342,8 +342,8 @@ const ServiceDesk = () => {
                   <item.icon className="w-5 h-5 text-green-600" />
                 </div>
                 <div>
-                  <p className="carbon-label-01 text-[var(--cds-text-primary)] leading-tight mb-1">{item.headline}</p>
-                  <p className="carbon-helper-text-01 text-[#525252]">{item.subtext}</p>
+                  <p className="text-[13px] text-[var(--cds-text-primary)] font-semibold leading-tight mb-1">{item.headline}</p>
+                  <p className="text-[11px] text-[#525252]">{item.subtext}</p>
                 </div>
               </div>
             ))}
@@ -389,7 +389,7 @@ const ServiceDesk = () => {
                   </h2>
                   <p className="text-gray-600 mb-8">
                     Traditional IT support is drowning in manual processes, fragmented tools, and poor visibility. 
-                    Modern service desk solutions transform IT from a cost centre into a strategic enabler—delivering 
+                    Modern service desk solutions transform IT from a cost centre into a strategic enabler-delivering 
                     faster resolution, happier users, and lower operational costs.
                   </p>
 
@@ -471,7 +471,7 @@ const ServiceDesk = () => {
                     Support Tier Structure
                   </h2>
                   <p className="text-gray-600 mb-8">
-                    Optimised tier structure ensuring the right expertise is applied to every issue—
+                    Optimised tier structure ensuring the right expertise is applied to every issue-
                     minimising escalation while maximising first-contact resolution.
                   </p>
 
@@ -599,7 +599,7 @@ const ServiceDesk = () => {
                       {caseStudies[currentCaseStudy].quote && (
                         <div className="bg-gray-50 p-4 border-l-4 border-[#24a148] mt-4">
                           <p className="text-gray-700 italic mb-2">"{caseStudies[currentCaseStudy].quote.text}"</p>
-                          <p className="text-sm text-gray-500">— {caseStudies[currentCaseStudy].quote.author}</p>
+                          <p className="text-sm text-gray-500">- {caseStudies[currentCaseStudy].quote.author}</p>
                         </div>
                       )}
                     </div>
@@ -751,7 +751,7 @@ const ServiceDesk = () => {
                     </h3>
                     <p className="text-green-100 mb-6">
                       Get a free assessment of your current service desk. We'll show you exactly 
-                      where you can improve—and how much you can save.
+                      where you can improve-and how much you can save.
                     </p>
                     <a 
                       href="mailto:contact@perception-it.com"

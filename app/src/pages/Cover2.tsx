@@ -43,7 +43,7 @@ const Cover2 = () => {
                 Engineering Competitive Advantage
               </h1>
               <p className="text-xl text-blue-100 leading-relaxed mb-10 max-w-2xl">
-                From hardware to cloud — one partner for complete infrastructure transformation. 
+                From hardware to cloud - one partner for complete infrastructure transformation. 
                 We integrate cloud, infrastructure, and AI into unified systems that drive measurable outcomes.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -429,7 +429,7 @@ const Cover2 = () => {
             </h2>
             
             <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-              Start with a strategic assessment. We'll create a tailored roadmap for your infrastructure transformation—no commitment required.
+              Start with a strategic assessment. We'll create a tailored roadmap for your infrastructure transformation-no commitment required.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">

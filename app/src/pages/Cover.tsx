@@ -81,7 +81,7 @@ const AttentionBlock = () => {
           <span className="inline-block carbon-label-02 uppercase tracking-[0.16px] text-[#da1e28] mb-4">
             The Integration Gap
           </span>
-          <h2 className="carbon-fluid-heading-04 text-gray-900 mb-4">
+          <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">
             Most enterprises work with <span className="text-[#da1e28]">5+ vendors</span> for a single deployment
           </h2>
           <p className="carbon-body-02 text-gray-600">
@@ -119,7 +119,7 @@ const HowWeWork = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-12">
           <span className="carbon-label-02 uppercase tracking-[0.16px] text-[#0f62fe] mb-4 block">Engagement Model</span>
-          <h2 className="carbon-fluid-heading-04 text-gray-900 mb-4">How We Work</h2>
+          <h2 className="carbon-fluid-heading-05 text-gray-900 mb-4">How We Work</h2>
           <p className="carbon-body-02 text-gray-600 max-w-2xl mx-auto">
             Risk-oriented approach with clear deliverables at each phase.
           </p>
@@ -144,7 +144,7 @@ const CTABanner = () => {
   return (
     <section className="py-16 bg-[#0f62fe]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-        <h2 className="carbon-fluid-heading-04 text-white mb-4">
+        <h2 className="carbon-fluid-heading-05 text-white mb-4">
           Ready to eliminate vendor fragmentation?
         </h2>
         <p className="carbon-body-02 text-white/80 mb-8 max-w-2xl mx-auto">
@@ -347,7 +347,7 @@ const ServicesVariant = () => {
               description={
                 <>
                   <p className="font-semibold text-gray-800 mb-2 group-hover:text-blue-700 transition-colors">Synchronized growth. Digital scale without the integration gap.</p>
-                  <p className="text-gray-500 max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-2 transition-all duration-300">A unified bridge that connects your physical infrastructure to digital scale—zero vendor fragmentation, total operational ownership.</p>
+                  <p className="text-gray-500 max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-2 transition-all duration-300">A unified bridge that connects your physical infrastructure to digital scale-zero vendor fragmentation, total operational ownership.</p>
                 </>
               }
               tags={['Cost Optimisation', 'DevOps', 'Containers', 'Operations']}

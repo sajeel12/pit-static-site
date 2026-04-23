@@ -27,7 +27,7 @@ const Services = () => {
     {
       icon: Eye,
       title: 'Observability',
-      description: 'Unified telemetry, alerting and event correlation—reduce noise, find root cause faster.',
+      description: 'Unified telemetry, alerting and event correlation-reduce noise, find root cause faster.',
       tags: ['AIOps', 'Real-time', 'Log Analytics'],
       href: '#services',
     },

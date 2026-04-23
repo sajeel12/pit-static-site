@@ -41,7 +41,7 @@ const CloudManagement = () => {
     {
       icon: Cloud,
       title: 'Cloud Migration',
-      description: 'Lift-and-shift or re-architect— we plan and execute migrations that minimize downtime and risk.',
+      description: 'Lift-and-shift or re-architect- we plan and execute migrations that minimize downtime and risk.',
       features: ['Migration assessment', 'Downtime planning', 'Data synchronization', 'Rollback procedures']
     },
     {
@@ -155,7 +155,7 @@ const CloudManagement = () => {
               Cloud Management Services
             </h2>
             <p className="text-lg text-gray-600">
-              End-to-end cloud lifecycle management—from initial migration to ongoing optimisation.
+              End-to-end cloud lifecycle management-from initial migration to ongoing optimisation.
             </p>
           </div>
           

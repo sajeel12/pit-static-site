@@ -21,7 +21,7 @@ const Maximo = () => {
       id: 'jazz',
       tag: 'Telco Migration',
       tagColor: 'blue',
-      title: 'Jazz — Migration from Maximo to ServiceNow',
+      title: 'Jazz - Migration from Maximo to ServiceNow',
       description: 'Migrated end-user experience from legacy Maximo to ServiceNow while preserving critical asset workflows. Replicated custom UI patterns to maintain operational familiarity.',
       stats: [
         { value: '100%', label: 'Data Migration', color: '#00b4d8' },
@@ -492,7 +492,7 @@ const Maximo = () => {
                               Custom Workflow Automation
                             </h3>
                             <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-4">
-                              Tailored Maximo configurations for Telco and Industrial processes. Not out-of-the-box—
+                              Tailored Maximo configurations for Telco and Industrial processes. Not out-of-the-box-
                               engineered for your operational reality.
                             </p>
                             <div className="flex flex-wrap gap-2">
@@ -550,7 +550,7 @@ const Maximo = () => {
                               "{caseStudies[currentCaseStudy].quote.text}"
                             </p>
                             <p className="carbon-label-01 text-[var(--cds-text-secondary)]">
-                              — {caseStudies[currentCaseStudy].quote.author}
+                              - {caseStudies[currentCaseStudy].quote.author}
                             </p>
                           </div>
                         </div>
@@ -633,7 +633,7 @@ const Maximo = () => {
                         <div className="px-4 pb-4">
                           <p className="carbon-body-01 text-[var(--cds-text-secondary)]">
                             Yes. We analyze and replicate your custom workflows during migration. 
-                            Our approach preserves operational familiarity—users see the same process 
+                            Our approach preserves operational familiarity-users see the same process 
                             logic, field validations, and approval chains in the new platform.
                           </p>
                         </div>
@@ -690,7 +690,7 @@ const Maximo = () => {
                       </h3>
                       <p className="carbon-body-01 text-white/80 mb-6 max-w-2xl mx-auto">
                         Identify risks and opportunities in your current Maximo environment. 
-                        No commitment required—objective assessment delivered within 2 weeks.
+                        No commitment required-objective assessment delivered within 2 weeks.
                       </p>
                       <a 
                         href="mailto:contact@perception-it.com"

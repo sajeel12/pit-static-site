@@ -272,7 +272,7 @@ const ServicesVariant = () => {
               description={
                 <>
                   <p className="font-semibold text-gray-800 mb-2 group-hover:text-blue-700 transition-colors">Synchronized growth. Digital scale without the integration gap.</p>
-                  <p className="text-gray-500 max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-2 transition-all duration-300">A unified bridge that connects your physical infrastructure to digital scale—zero vendor fragmentation, total operational ownership.</p>
+                  <p className="text-gray-500 max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-2 transition-all duration-300">A unified bridge that connects your physical infrastructure to digital scale-zero vendor fragmentation, total operational ownership.</p>
                 </>
               }
               tags={['Cost Optimisation', 'DevOps', 'Containers', 'Operations']}
@@ -754,7 +754,7 @@ const HeroVariant = () => {
               style={{ color: '#94A3B8' }}
             >
               Enterprise infrastructure monitoring with millisecond precision. 
-              We maintain the systems that power your business—so you never have to worry about them.
+              We maintain the systems that power your business-so you never have to worry about them.
             </p>
             
             {/* CTA Button */}

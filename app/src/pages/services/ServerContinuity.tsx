@@ -8,11 +8,11 @@ import {
   ArrowRight, CheckmarkFilled, WarningAlt,
   Tools, Calendar, Activity, Money, View,
   ChevronRight, Building, DataBase,
-  Restart
+  Restart, Time
 } from '@carbon/icons-react';
 
 const ServerContinuity = () => {
-  const [activeSection, setActiveSection] = useState('overview');
+  const [activeSection, setActiveSection] = useState('value');
   const [currentCaseStudy, setCurrentCaseStudy] = useState(0);
   const [intakeAnswers, setIntakeAnswers] = useState<{situation?: string; criticality?: string; budget?: string}>({});
   
@@ -51,7 +51,7 @@ const ServerContinuity = () => {
         { text: 'Servers', color: 'gray' },
         { text: 'Managed Support', color: 'orange' }
       ],
-      title: 'LUMS — Departmental Server Management',
+      title: 'LUMS - Departmental Server Management',
       description: 'Converted break-fix chaos to managed utility across 40+ departmental servers. Predictable PKR 45K/month per server vs. emergency callouts averaging PKR 150K each.',
       logo: '/logos/clients/LUMS-Logo.png',
       companyName: 'LUMS',
@@ -71,7 +71,7 @@ const ServerContinuity = () => {
         { text: 'Data Centers', color: 'gray' },
         { text: 'Mission-Critical Support', color: 'orange' }
       ],
-      title: 'Descon — Multi-Site Infrastructure Resilience',
+      title: 'Descon - Multi-Site Infrastructure Resilience',
       description: 'Deployed and manage multi-site infrastructure spanning 3 data centers with zero unplanned downtime in 3 years supporting critical manufacturing operations.',
       logo: '/logos/clients/Descon-logo.png',
       companyName: 'Descon',
@@ -91,7 +91,7 @@ const ServerContinuity = () => {
         { text: 'Servers', color: 'gray' },
         { text: 'Production Support', color: 'orange' }
       ],
-      title: 'Sefam — Manufacturing Operations Support',
+      title: 'Sefam - Manufacturing Operations Support',
       description: '24/7 monitoring and support for mission-critical production servers ensuring continuous manufacturing operations with rapid response to hardware issues.',
       logo: '/logos/clients/client-Sefam.jpeg',
       companyName: 'Sefam',
@@ -120,9 +120,9 @@ const ServerContinuity = () => {
   
   // Section Registry
   const SECTIONS = [
-    { id: 'overview', label: 'Overview' },
     { id: 'value', label: 'Business Value' },
     { id: 'suite', label: 'Server Suite' },
+    { id: 'integration', label: 'Server Environment' },
     { id: 'technical', label: 'Technical Depth' },
     { id: 'comparison', label: 'Vs. Alternatives' },
     { id: 'cases', label: 'Case Studies' },
@@ -222,7 +222,7 @@ const ServerContinuity = () => {
 
               {/* Lead Text */}
               <p className="carbon-body-02 text-gray-300 mb-8">
-                We provide total visibility, predictable costs, and audit-ready control—whether 
+                We provide total visibility, predictable costs, and audit-ready control-whether 
                 extending current hardware or transitioning to new.
               </p>
 
@@ -308,14 +308,14 @@ const ServerContinuity = () => {
             ].map((item) => (
               <div
                 key={item.headline}
-                className="bg-white border border-gray-200 p-4 flex flex-col gap-3"
+                className="bg-white border border-[#e0e0e0] p-4 flex flex-col gap-3"
               >
                 <div className="w-10 h-10 bg-orange-100 flex items-center justify-center">
                   <item.icon className="w-5 h-5 text-orange-600" />
                 </div>
                 <div>
-                  <p className="carbon-label-01 text-[var(--cds-text-primary)] leading-tight mb-1">{item.headline}</p>
-                  <p className="carbon-helper-text-01 text-[#525252]">{item.subtext}</p>
+                  <p className="text-[13px] text-[var(--cds-text-primary)] font-semibold leading-tight mb-1">{item.headline}</p>
+                  <p className="text-[11px] text-[#525252]">{item.subtext}</p>
                 </div>
               </div>
             ))}
@@ -329,8 +329,8 @@ const ServerContinuity = () => {
           <div className="flex">
             
             {/* Desktop Side Menu */}
-            <aside className="hidden xl:block w-64 flex-shrink-0 pl-4">
-              <nav className="sticky top-20 pt-8 pb-8 border-r border-gray-200 h-[calc(100vh-5rem)]">
+            <aside className="hidden xl:block w-56 flex-shrink-0 pl-6 pr-8">
+              <nav className="sticky top-20 pt-8 pb-8 h-[calc(100vh-5rem)]">
                 <ul className="space-y-0.5">
                   {SECTIONS.map((item) => (
                     <li key={item.id}>
@@ -351,63 +351,114 @@ const ServerContinuity = () => {
             </aside>
 
             {/* Content Area */}
-            <main className="flex-1 min-w-0">
+            <main className="flex-1 min-w-0 pl-8 pr-6">
               
               {/* Business Value Section */}
-              <section id="value" className="py-16 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto px-6">
-                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
-                    Business Value
-                  </h2>
-                  <p className="text-gray-600 mb-8">
-                    Your servers are the engine of your operations. Uncertainty about refresh timing, 
-                    warranty gaps, and break-fix chaos lead to unplanned CapEx, compliance exposure, 
-                    and production downtime. We engineer server environments that provide total 
-                    visibility, predictable costs, and audit-ready control.
-                  </p>
-
-                  {/* Risk Warning */}
-                  <div className="mb-8 p-4 border-l-4 border-red-500 bg-red-50">
-                    <div className="flex items-start gap-3">
-                      <WarningAlt className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="carbon-label-01 text-red-600 mb-1">Critical Risk Factors</p>
-                        <p className="text-gray-600 text-sm">
-                          Servers beyond 3-5 years face performance degradation, firmware vulnerabilities, 
-                          and end-of-support from OEMs. Disconnected accountability between vendors 
-                          creates blind spots that surface at 2 AM during peak production.
-                        </p>
+              <section id="value" className="py-20 border-b border-[#e0e0e0]">
+                <div className="max-w-5xl mx-auto px-6">
+                  
+                  {/* Header + Visual Intro */}
+                  <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+                    <div>
+                      <span className="carbon-label-01 text-[#f97316] uppercase tracking-wide mb-3 block">Business Value</span>
+                      <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
+                        Engineered Continuity for Your Infrastructure
+                      </h2>
+                      <p className="carbon-body-01 text-[#525252] mb-6">
+                        Your servers are the engine of your operations. Uncertainty about refresh timing, 
+                        warranty gaps, and break-fix chaos lead to unplanned CapEx, compliance exposure, 
+                        and production downtime.
+                      </p>
+                      <p className="carbon-body-01 text-[#161616]">
+                        We engineer server environments that provide <strong>total visibility</strong>, <strong>predictable costs</strong>, and <strong>audit-ready control</strong>.
+                      </p>
+                    </div>
+                    <div className="h-64 lg:h-auto bg-gradient-to-br from-[#fff3e0] to-[#ffe0b2] border border-[#f97316]/20 flex items-center justify-center p-6">
+                      <div className="text-center">
+                        <div className="flex items-center justify-center gap-4 mb-4">
+                          <div className="w-16 h-16 bg-white border border-[#f97316]/30 flex items-center justify-center">
+                            <Activity className="w-8 h-8 text-[#f97316]" />
+                          </div>
+                          <ArrowRight className="w-6 h-6 text-[#f97316]" />
+                          <div className="w-16 h-16 bg-white border border-[#f97316]/30 flex items-center justify-center">
+                            <CheckmarkFilled className="w-8 h-8 text-[#24a148]" />
+                          </div>
+                        </div>
+                        <p className="carbon-label-01 text-[#e65100] font-semibold mb-1">Risk → Value Framework</p>
+                        <p className="carbon-helper-text-01 text-[#bf360c]">Insert a TCO comparison diagram or server lifecycle infographic here.</p>
                       </div>
                     </div>
                   </div>
 
-                  {/* Value Props */}
-                  <div className="grid md:grid-cols-3 gap-4">
-                    {[
-                      { icon: Activity, title: 'Deferred CapEx', desc: 'Extend server life 2-3 years safely with same-day spare support.' },
-                      { icon: Money, title: 'Predictable OpEx', desc: 'Flat monthly rate vs. emergency callout surprises averaging PKR 150K.' },
-                      { icon: CheckmarkFilled, title: 'Compliance & Audit', desc: 'Full firmware tracking, patch validation, and documentation.' }
-                    ].map((item) => (
-                      <div key={item.title} className="p-5 bg-white border border-gray-200">
-                        <div className="w-10 h-10 bg-orange-100 flex items-center justify-center mb-4">
-                          <item.icon className="w-5 h-5 text-orange-600" />
+                  {/* Problem → Solution Framework */}
+                  <div className="mb-12">
+                    <div className="text-center mb-10">
+                      <span className="carbon-label-01 text-red-500 uppercase tracking-wide mb-3 block">Critical Risk Factors</span>
+                      <h3 className="carbon-fluid-heading-04 text-[var(--cds-text-primary)]">What happens when server support is left to chance</h3>
+                    </div>
+
+                    <div className="space-y-4">
+                      {[
+                        { 
+                          riskIcon: Calendar, riskTitle: 'Aging Hardware', riskDesc: 'Servers beyond 3-5 years face performance degradation and end-of-support from OEMs.',
+                          solIcon: Activity, solTitle: 'Deferred CapEx', solDesc: 'Extend server life 2-3 years safely with same-day spare support.'
+                        },
+                        { 
+                          riskIcon: WarningAlt, riskTitle: 'Security Gaps', riskDesc: 'Firmware vulnerabilities and unpatched systems create compliance exposure.',
+                          solIcon: CheckmarkFilled, solTitle: 'Compliance & Audit', solDesc: 'Full firmware tracking, patch validation, and documentation.'
+                        },
+                        { 
+                          riskIcon: Time, riskTitle: '2 AM Surprises', riskDesc: 'Disconnected accountability between vendors creates blind spots during peak production.',
+                          solIcon: Money, solTitle: 'Predictable OpEx', solDesc: 'Flat monthly rate vs. emergency callout surprises averaging PKR 150K.'
+                        }
+                      ].map((pair) => (
+                        <div key={pair.riskTitle} className="grid md:grid-cols-[1fr,auto,1fr] gap-4 items-stretch">
+                          {/* Risk Card */}
+                          <div className="p-5 bg-[#1a1a1a] text-white flex items-start gap-4">
+                            <div className="w-10 h-10 bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                              <pair.riskIcon className="w-5 h-5 text-red-400" />
+                            </div>
+                            <div>
+                              <p className="carbon-label-01 text-red-400 uppercase tracking-wide mb-1">Risk</p>
+                              <p className="carbon-heading-02 text-white mb-1">{pair.riskTitle}</p>
+                              <p className="carbon-helper-text-01 text-gray-400">{pair.riskDesc}</p>
+                            </div>
+                          </div>
+
+                          {/* Connector */}
+                          <div className="hidden md:flex items-center justify-center px-2">
+                            <div className="w-10 h-10 bg-[#f97316] flex items-center justify-center">
+                              <ArrowRight className="w-5 h-5 text-white" />
+                            </div>
+                          </div>
+
+                          {/* Solution Card */}
+                          <div className="p-5 bg-white border border-[#e0e0e0] flex items-start gap-4">
+                            <div className="w-10 h-10 bg-orange-100 flex items-center justify-center flex-shrink-0">
+                              <pair.solIcon className="w-5 h-5 text-orange-600" />
+                            </div>
+                            <div>
+                              <p className="carbon-label-01 text-[#f97316] uppercase tracking-wide mb-1">Solution</p>
+                              <p className="carbon-heading-02 text-[#161616] mb-1">{pair.solTitle}</p>
+                              <p className="carbon-helper-text-01 text-[#525252]">{pair.solDesc}</p>
+                            </div>
+                          </div>
                         </div>
-                        <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">{item.title}</h3>
-                        <p className="text-sm text-gray-600">{item.desc}</p>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
               </section>
 
               {/* Server Suite Section */}
-              <section id="suite" className="py-16 border-b border-gray-200">
-                <div className="max-w-6xl mx-auto px-6">
+              <section id="suite" className="py-20 border-b border-[#e0e0e0]">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#f97316] uppercase tracking-wide mb-3 block">Our Services</span>
                   <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
                     Server Continuity Suite
                   </h2>
-                  <p className="text-gray-600 mb-8">
-                    Four services designed to capture value at every point of your server lifecycle—
+                  <p className="carbon-body-01 text-[#525252] mb-8">
+                    Four services designed to capture value at every point of your server lifecycle-
                     from uncertainty to continuity.
                   </p>
 
@@ -427,7 +478,7 @@ const ServerContinuity = () => {
                           </div>
                           <h3 className="text-2xl font-semibold text-gray-900 mb-2">ServerAudit™</h3>
                           <p className="text-lg text-[#0f62fe] font-medium mb-3">The Trusted Advisor Entry Point</p>
-                          <p className="text-gray-500 text-sm flex-1">A 1-3 day data-driven assessment that answers: "Should we refresh these servers—or can we safely extend?"</p>
+                          <p className="text-gray-500 text-sm flex-1">A 1-3 day data-driven assessment that answers: "Should we refresh these servers-or can we safely extend?"</p>
                           <div className="mt-4 text-xs text-[#0f62fe] font-medium uppercase tracking-wider flex items-center gap-2">
                             Hover to explore <ArrowRight className="w-4 h-4" />
                           </div>
@@ -437,7 +488,7 @@ const ServerContinuity = () => {
                           <h3 className="text-xl font-semibold mb-3">ServerAudit™</h3>
                           <p className="text-sm mb-4 opacity-90">
                             <strong>The Trusted Advisor Entry Point.</strong> A 1-3 day data-driven assessment 
-                            that answers: "Should we refresh these servers—or can we safely extend?" 
+                            that answers: "Should we refresh these servers-or can we safely extend?" 
                             Replaces fear-based decisions with evidence-based strategy.
                           </p>
                           <ul className="space-y-2 text-sm flex-1">
@@ -555,7 +606,7 @@ const ServerContinuity = () => {
                           <p className="text-sm mb-4 opacity-90">
                             <strong>Zero-Downtime Deployment.</strong> From procurement to go-live, 
                             we ensure your new hardware works from Day 1. Hardware + staging + 
-                            migration + validation—all in one outcome.
+                            migration + validation-all in one outcome.
                           </p>
                           <ul className="space-y-2 text-sm flex-1">
                             <li className="flex items-start gap-2"><span className="text-[#ffcc99]">•</span> Hardware sourcing (Dell, HPE, Huawei)</li>
@@ -585,7 +636,11 @@ const ServerContinuity = () => {
                 `}</style>
 
                 {/* Interactive Intake Form - Carbon Dark Theme */}
-                <div className="max-w-5xl mx-auto px-6 mt-16">
+                <div className="max-w-5xl mx-auto px-6 mt-12">
+                  <div className="text-center mb-8">
+                    <span className="carbon-label-01 text-[#f97316] uppercase tracking-wide mb-3 block">Not sure which is the right service for your infrastructure?</span>
+                    <h3 className="carbon-fluid-heading-04 text-[var(--cds-text-primary)]">Let Harris match you with the right service plan</h3>
+                  </div>
                   <div className="bg-[#161616] text-white p-8 md:p-12 border border-[#393939]">
                     {/* Header with Agent */}
                     <div className="flex flex-col md:flex-row items-start gap-6 mb-10">
@@ -609,8 +664,7 @@ const ServerContinuity = () => {
                         <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#f97316]/10 border border-[#f97316]/30 text-[#f97316] text-xs carbon-label-01 uppercase tracking-wider mb-3">
                           Interactive Service Matcher
                         </div>
-                        <h3 className="carbon-fluid-heading-04 text-white mb-3">Find Your Perfect Server Support</h3>
-                        <p className="carbon-body-01 text-[#c6c6c6] max-w-2xl">Hi, I'm Harris, your infrastructure specialist. Answer 3 quick questions and I'll match you with the ideal support plan for your servers.</p>
+                        <p className="carbon-fluid-heading-03 text-white max-w-2xl">Hi, I'm Harris, your infrastructure specialist. <span className="text-[#f97316]">Answer 3 quick questions and I'll match you with the ideal support plan for your servers.</span></p>
                       </div>
                     </div>
 
@@ -793,18 +847,198 @@ const ServerContinuity = () => {
                   </div>
                 </div>
               </section>
+
+              {/* Facility Integration Section */}
+              <section id="integration" className="py-20 border-b border-[#e0e0e0]">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#f97316] uppercase tracking-wide mb-3 block">Full-Stack Accountability</span>
+                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
+                    Server Environment: Why Facility Validation Matters
+                  </h2>
+                  <p className="carbon-body-01 text-[#525252] mb-8">
+                    Server hardware is only as reliable as the facility it sits in. Whether you run Dell, HPE, Huawei, or Lenovo, 
+                    the leading cause of unplanned downtime is the same: cooling failure, power instability, dust infiltration, 
+                    and unmonitored thermal conditions.
+                  </p>
+
+                  <div className="grid md:grid-cols-2 gap-4 mb-8">
+                    {[
+                      { from: 'Cooling stability', to: 'Every server needs 18–24°C inlet air. If your CRAC fails, your hardware fails with it-regardless of manufacturer.' },
+                      { from: 'Power quality', to: 'Zero-downtime migrations, firmware updates, and routine reboots all require stable power during cutover.' },
+                      { from: 'Dust control', to: 'Industrial dust increases server fan failure rates by ~17%. IP54 cabinets and sealed plenums protect any rack.' },
+                      { from: 'Thermal monitoring', to: 'Rack inlet sensors catch hotspots before they trigger thermal shutdown-across Dell, HPE, Huawei, and Lenovo.' }
+                    ].map((item) => (
+                      <div key={item.from} className="p-5 bg-white border border-[#e0e0e0] flex items-center gap-4">
+                        <div className="w-10 h-10 bg-[#24a148]/10 flex items-center justify-center flex-shrink-0">
+                          <ArrowRight className="w-5 h-5 text-[#24a148]" />
+                        </div>
+                        <div>
+                          <p className="carbon-label-01 text-[#525252] uppercase">{item.from}</p>
+                          <p className="carbon-body-01 text-[var(--cds-text-primary)]">{item.to}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Stat Banner */}
+                  <div className="p-6 bg-[#0f62fe] text-white text-center mb-8">
+                    <p className="carbon-fluid-heading-04 mb-2">31%</p>
+                    <p className="carbon-body-01 text-white/90">of compute-layer SLA breaches originate in cooling and power-not the server hardware itself.</p>
+                    <p className="carbon-helper-text-01 text-white/70 mt-2">(Uptime Institute 2025, pilot validation)</p>
+                  </div>
+
+                  {/* CTA Card to Data Centre Services */}
+                  <div className="p-6 bg-white border border-[#e0e0e0]">
+                    <div className="flex flex-col md:flex-row md:items-center gap-6">
+                      <div className="w-16 h-16 bg-[#e5f6ff] flex items-center justify-center flex-shrink-0">
+                        <Building className="w-8 h-8 text-[#0f62fe]" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">Explore Data Centre Continuity Services</h3>
+                        <p className="carbon-body-01 text-[#525252] mb-1">
+                          From utility meter to server BIOS: monsoon-hardened power, cooling, physical infrastructure, and monitoring.
+                        </p>
+                        <p className="carbon-helper-text-01 text-[#525252]">
+                          SLA-backed continuity for Pakistan's climate. Starting at PKR 165K/month.
+                        </p>
+                      </div>
+                      <a 
+                        href="/#/services/datacenter"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#0f62fe] text-white font-semibold hover:bg-[#0353e9] transition-colors flex-shrink-0"
+                      >
+                        View Facility Services
+                        <ArrowRight className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Technical Depth Section */}
+              <section id="technical" className="py-20 border-b border-[#e0e0e0]">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#f97316] uppercase tracking-wide mb-3 block">Capabilities</span>
+                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
+                    Technical Depth
+                  </h2>
+                  <p className="carbon-body-01 text-[#525252] mb-8">
+                    Backend expertise that ensures your server environment scales with your business demands.
+                  </p>
+
+                  <div className="grid md:grid-cols-3 gap-6">
+                    {[
+                      { icon: Tools, title: 'Same-Day Spare Availability', desc: 'Lahore-based spare inventory for Dell, HPE, and Huawei servers. Critical components available within 4 hours-not 4 days from Dubai.', tags: ['Drive Controllers', 'Power Supplies', 'Memory', 'Network Cards'] },
+                      { icon: Activity, title: 'Shift-Aligned Engineering', desc: 'Engineers available during your peak operational hours-not just during their convenience. Morning-shift critical work, evening-shift maintenance windows.' },
+                      { icon: CheckmarkFilled, title: 'Firmware & Security Lifecycle', desc: 'Comprehensive patch validation and deployment. Not just OS updates-BIOS, RAID controllers, network firmware, and management interfaces. Full CVE tracking and compliance documentation.' }
+                    ].map((item) => (
+                      <div key={item.title} className="p-6 bg-white border border-[#e0e0e0]">
+                        <div className="w-12 h-12 bg-orange-100 flex items-center justify-center mb-4">
+                          <item.icon className="w-6 h-6 text-orange-600" />
+                        </div>
+                        <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-3">{item.title}</h3>
+                        <p className="carbon-body-01 text-[#525252] mb-3">{item.desc}</p>
+                        {item.tags && (
+                          <div className="flex flex-wrap gap-2">
+                            {item.tags.map((tag) => (
+                              <span key={tag} className="px-2 py-1 bg-[#f4f4f4] text-[#525252] carbon-helper-text-01">{tag}</span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Visual Break */}
+                  <div className="mt-12 h-48 bg-gradient-to-r from-[#fff3e0] to-[#ffe0b2] border border-[#f97316]/20 flex items-center justify-center p-6">
+                    <div className="text-center">
+                      <div className="flex items-center justify-center gap-8 mb-4">
+                        <div className="text-center">
+                          <div className="w-16 h-16 bg-white border border-[#f97316]/30 flex items-center justify-center mx-auto mb-2">
+                            <Building className="w-8 h-8 text-[#f97316]" />
+                          </div>
+                          <p className="carbon-helper-text-01 text-[#bf360c]">Lahore NOC</p>
+                        </div>
+                        <ArrowRight className="w-6 h-6 text-[#f97316]" />
+                        <div className="text-center">
+                          <div className="w-16 h-16 bg-white border border-[#f97316]/30 flex items-center justify-center mx-auto mb-2">
+                            <DataBase className="w-8 h-8 text-[#f97316]" />
+                          </div>
+                          <p className="carbon-helper-text-01 text-[#bf360c]">Spare Inventory</p>
+                        </div>
+                        <ArrowRight className="w-6 h-6 text-[#f97316]" />
+                        <div className="text-center">
+                          <div className="w-16 h-16 bg-white border border-[#f97316]/30 flex items-center justify-center mx-auto mb-2">
+                            <Tools className="w-8 h-8 text-[#f97316]" />
+                          </div>
+                          <p className="carbon-helper-text-01 text-[#bf360c]">On-Site Fix</p>
+                        </div>
+                      </div>
+                      <p className="carbon-label-01 text-[#e65100] font-semibold">Insert a diagram showing Lahore NOC → spare inventory → on-site engineer response chain</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Comparison Section */}
+              <section id="comparison" className="py-20 border-b border-[#e0e0e0]">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#f97316] uppercase tracking-wide mb-3 block">Why Perception IT</span>
+                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
+                    Perception IT vs. Alternatives
+                  </h2>
+                  
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="border-b-2 border-[#e0e0e0]">
+                          <th className="text-left py-3 px-4 carbon-label-01 text-[var(--cds-text-primary)]">Capability</th>
+                          <th className="text-center py-3 px-4 carbon-label-01 text-[#f97316]">Perception IT</th>
+                          <th className="text-center py-3 px-4 carbon-label-01 text-gray-500">OEM</th>
+                          <th className="text-center py-3 px-4 carbon-label-01 text-gray-500">Generic MSP</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {[
+                          { cap: 'Local Spare Inventory', pit: '✓ Same day', oem: '✗ 3-5 days', msp: '✗ Order on demand' },
+                          { cap: 'Warranty Extension', pit: '✓ Beyond Year 5', oem: '✗ Ends Year 3', msp: '✗ Limited' },
+                          { cap: 'Shift-Aligned Support', pit: '✓ Your hours', oem: '✗ Their hours', msp: '✗ Ticket logging only' },
+                          { cap: 'Firmware Lifecycle', pit: '✓ Comprehensive', oem: '✓ While supported', msp: '✗ OS only' },
+                          { cap: 'Hardware Agnostic', pit: '✓ Dell/HPE/Huawei', oem: '✗ Their brand only', msp: '✓ (limited depth)' },
+                          { cap: 'Accountability', pit: '✓ One partner', oem: '✗ +MSP gaps', msp: '✗ No hardware ownership' }
+                        ].map((row, i) => (
+                          <tr key={i} className="border-b border-gray-100">
+                            <td className="py-3 px-4 text-gray-900">{row.cap}</td>
+                            <td className="py-3 px-4 text-center text-[#f97316] font-medium">{row.pit}</td>
+                            <td className="py-3 px-4 text-center text-gray-400">{row.oem}</td>
+                            <td className="py-3 px-4 text-center text-gray-400">{row.msp}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div className="mt-8 p-6 bg-[#f4f4f4] border-l-4 border-[#f97316]">
+                    <p className="carbon-body-01 text-[#161616]">
+                      <strong>The difference:</strong> OEMs abandon hardware after Year 3. Generic MSPs stop at the OS. We own the full stack-hardware, firmware, and accountability.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+
               {/* Case Studies Section */}
-              <section id="cases" className="py-16 border-b border-gray-200 bg-white">
-                <div className="max-w-6xl mx-auto px-6">
+              <section id="cases" className="py-20 border-b border-[#e0e0e0] bg-white">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#f97316] uppercase tracking-wide mb-3 block">Proof Points</span>
                   <div className="flex items-center justify-between mb-8">
-                    <h2 className="text-3xl font-bold text-gray-900">Case Studies</h2>
-                    <span className="text-sm text-gray-500">
+                    <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)]">Client Results</h2>
+                    <p className="carbon-body-01 text-[#525252]">
                       {currentCaseStudy + 1} of {caseStudies.length}
-                    </span>
+                    </p>
                   </div>
 
                   {/* Case Study Card */}
-                  <div className="bg-white border border-gray-200 overflow-hidden">
+                  <div className="bg-white border border-[#e0e0e0] overflow-hidden">
                     {caseStudies.map((study, index) => (
                       index === currentCaseStudy && (
                         <div key={study.id} className="grid grid-cols-12 gap-0">
@@ -897,7 +1131,7 @@ const ServerContinuity = () => {
                               {study.quote && (
                                 <div className="bg-gray-900 p-4 border-l-4 border-[#f97316] mb-4">
                                   <p className="text-gray-300 italic text-sm mb-2">"{study.quote.text}"</p>
-                                  <p className="text-xs text-gray-500">— {study.quote.author}</p>
+                                  <p className="text-xs text-gray-500">- {study.quote.author}</p>
                                 </div>
                               )}
                             </div>
@@ -970,7 +1204,7 @@ const ServerContinuity = () => {
                   <div className="flex items-center justify-center gap-3 mt-8">
                     <button
                       onClick={prevCaseStudy}
-                      className="w-10 h-10 border border-gray-200 flex items-center justify-center hover:border-[#f97316] hover:bg-gray-50 transition-all"
+                      className="w-10 h-10 border border-[#e0e0e0] flex items-center justify-center hover:border-[#f97316] hover:bg-[#f4f4f4] transition-all"
                       aria-label="Previous case study"
                     >
                       <ChevronRight className="w-5 h-5 text-gray-500 rotate-180" />
@@ -991,7 +1225,7 @@ const ServerContinuity = () => {
 
                     <button
                       onClick={nextCaseStudy}
-                      className="w-10 h-10 border border-gray-200 flex items-center justify-center hover:border-[#f97316] hover:bg-gray-50 transition-all"
+                      className="w-10 h-10 border border-[#e0e0e0] flex items-center justify-center hover:border-[#f97316] hover:bg-[#f4f4f4] transition-all"
                       aria-label="Next case study"
                     >
                       <ChevronRight className="w-5 h-5 text-gray-500" />
@@ -1000,140 +1234,49 @@ const ServerContinuity = () => {
                 </div>
               </section>
 
-              {/* Technical Depth Section */}
-              <section id="technical" className="py-16 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto px-6">
-                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
-                    Technical Depth
-                  </h2>
-                  <p className="text-gray-600 mb-8">
-                    Backend expertise that ensures your server environment scales with your business demands.
-                  </p>
-
-                  <div className="space-y-4">
-                    <div className="p-6 bg-white border border-gray-200">
-                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-3">
-                        Same-Day Spare Availability
-                      </h3>
-                      <p className="text-gray-600 text-sm mb-3">
-                        Lahore-based spare inventory for Dell, HPE, and Huawei servers. 
-                        Critical components (drives, power supplies, memory) available within 
-                        4 hours—not 4 days from Dubai.
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {['Drive Controllers', 'Power Supplies', 'Memory', 'Network Cards'].map((tag) => (
-                          <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-600 text-xs">{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="p-6 bg-white border border-gray-200">
-                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-3">
-                        Shift-Aligned Engineering
-                      </h3>
-                      <p className="text-gray-600 text-sm mb-3">
-                        Engineers available during your peak operational hours—not just 
-                        during their convenience. Morning-shift critical work, 
-                        evening-shift maintenance windows.
-                      </p>
-                    </div>
-
-                    <div className="p-6 bg-white border border-gray-200">
-                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-3">
-                        Firmware & Security Lifecycle
-                      </h3>
-                      <p className="text-gray-600 text-sm mb-3">
-                        Comprehensive patch validation and deployment. Not just OS updates—
-                        BIOS, RAID controllers, network firmware, and management interfaces. 
-                        Full CVE tracking and compliance documentation.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              {/* Comparison Section */}
-              <section id="comparison" className="py-16 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto px-6">
-                  <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
-                    Perception IT vs. Alternatives
-                  </h2>
-                  
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
-                      <thead>
-                        <tr className="border-b-2 border-gray-200">
-                          <th className="text-left py-3 px-4 carbon-label-01 text-[var(--cds-text-primary)]">Capability</th>
-                          <th className="text-center py-3 px-4 carbon-label-01 text-[#f97316]">Perception IT</th>
-                          <th className="text-center py-3 px-4 carbon-label-01 text-gray-500">OEM</th>
-                          <th className="text-center py-3 px-4 carbon-label-01 text-gray-500">Generic MSP</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {[
-                          { cap: 'Local Spare Inventory', pit: '✓ Same day', oem: '✗ 3-5 days', msp: '✗ Order on demand' },
-                          { cap: 'Warranty Extension', pit: '✓ Beyond Year 5', oem: '✗ Ends Year 3', msp: '✗ Limited' },
-                          { cap: 'Shift-Aligned Support', pit: '✓ Your hours', oem: '✗ Their hours', msp: '✗ Ticket logging only' },
-                          { cap: 'Firmware Lifecycle', pit: '✓ Comprehensive', oem: '✓ While supported', msp: '✗ OS only' },
-                          { cap: 'Hardware Agnostic', pit: '✓ Dell/HPE/Huawei', oem: '✗ Their brand only', msp: '✓ (limited depth)' },
-                          { cap: 'Accountability', pit: '✓ One partner', oem: '✗ +MSP gaps', msp: '✗ No hardware ownership' }
-                        ].map((row, i) => (
-                          <tr key={i} className="border-b border-gray-100">
-                            <td className="py-3 px-4 text-gray-900">{row.cap}</td>
-                            <td className="py-3 px-4 text-center text-green-600 font-medium">{row.pit}</td>
-                            <td className="py-3 px-4 text-center text-gray-400">{row.oem}</td>
-                            <td className="py-3 px-4 text-center text-gray-400">{row.msp}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </section>
-
-
               {/* Engagement Section */}
-              <section id="engagement" className="py-16">
-                <div className="max-w-4xl mx-auto px-6">
+              <section id="engagement" className="py-20">
+                <div className="max-w-5xl mx-auto px-6">
+                  <span className="carbon-label-01 text-[#f97316] uppercase tracking-wide mb-3 block">Get Started</span>
                   <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">
                     Engagement Model
                   </h2>
-                  <p className="text-gray-600 mb-8">
+                  <p className="carbon-body-01 text-[#525252] mb-8">
                     Start low-friction, stay full-lifecycle. Every engagement designed to 
                     evolve naturally into the next stage.
                   </p>
 
                   <div className="grid md:grid-cols-3 gap-4 mb-10">
                     {[
-                      { step: '01', title: 'Free ServerAudit™', desc: 'Health snapshot of 3 servers. No obligation. Data-driven clarity.', color: 'green' },
-                      { step: '02', title: 'Right-Fit Support', desc: 'ServerSure™ for non-critical. ServerLife Extend™ for mission-critical.', color: 'blue' },
-                      { step: '03', title: 'Planned Refresh', desc: 'When ready, ModServe™ delivers new hardware with zero downtime.', color: 'purple' }
+                      { step: '01', title: 'Free ServerAudit™', desc: 'Health snapshot of 3 servers. No obligation. Data-driven clarity.', color: '#f97316' },
+                      { step: '02', title: 'Right-Fit Support', desc: 'ServerSure™ for non-critical. ServerLife Extend™ for mission-critical.', color: '#f97316' },
+                      { step: '03', title: 'Planned Refresh', desc: 'When ready, ModServe™ delivers new hardware with zero downtime.', color: '#f97316' }
                     ].map((item) => (
-                      <div key={item.step} className="relative p-6 bg-white border border-gray-200">
-                        <span className="absolute top-4 right-4 carbon-heading-02" style={{ color: item.color === 'green' ? '#24a148' : item.color === 'blue' ? '#f97316' : '#6929c4' }}>{item.step}</span>
+                      <div key={item.step} className="relative p-6 bg-white border border-[#e0e0e0]">
+                        <span className="absolute top-4 right-4 carbon-heading-02" style={{ color: item.color }}>{item.step}</span>
                         <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">{item.title}</h3>
-                        <p className="text-sm text-gray-600">{item.desc}</p>
+                        <p className="carbon-body-01 text-[#525252]">{item.desc}</p>
                       </div>
                     ))}
                   </div>
 
                   {/* CTA Banner */}
                   <div className="p-8 bg-[#f97316] text-center">
-                    <h3 className="text-2xl font-bold text-white mb-4">
+                    <h3 className="carbon-fluid-heading-04 text-white mb-4">
                       Start With a Free Server Health Snapshot
                     </h3>
-                    <p className="text-blue-100 mb-6">
+                    <p className="carbon-body-01 text-white/80 mb-6">
                       No obligation. No sales pressure. Just clarity on whether your servers 
-                      need refresh—or can safely extend.
+                      need refresh-or can safely extend.
                     </p>
                     <a 
                       href="mailto:contact@perception-it.com"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#f97316] carbon-heading-02 hover:bg-gray-100 transition-colors"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#f97316] font-semibold hover:bg-[#f4f4f4] transition-colors"
                     >
                       Request Free ServerAudit™
                       <ArrowRight className="w-4 h-4" />
                     </a>
-                    <p className="text-blue-200 text-sm mt-4">
+                    <p className="text-white/60 text-sm mt-4">
                       Response within 4 hours. Lahore-based engineers.
                     </p>
                   </div>

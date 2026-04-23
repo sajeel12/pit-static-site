@@ -6,7 +6,7 @@ const Testimonials = () => {
     {
       quote: [
         "We have been working with Perception IT now for several years. Their proactive approach and commitment to excellence have been instrumental in ensuring that we stay ahead of the competition and continue to meet the evolving needs of our customers.",
-        "IBM Netcool Event Management Automation has been one of the most mature areas delivered and managed by Perception IT for Jazz NOC. Partnering with Perception IT for IBM Netcool Automation was a strategic move. Real-time event analysis, proactive problem resolution, increased network stability — impressive results!"
+        "IBM Netcool Event Management Automation has been one of the most mature areas delivered and managed by Perception IT for Jazz NOC. Partnering with Perception IT for IBM Netcool Automation was a strategic move. Real-time event analysis, proactive problem resolution, increased network stability - impressive results!"
       ],
       author: 'Usman Ikram',
       role: 'Manager, SQM & Automation Support',

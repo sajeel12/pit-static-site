@@ -70,7 +70,7 @@ const CloudCostOptimisation = () => {
             </h1>
             
             <p className="text-xl sm:text-2xl text-gray-400 mb-12 font-light leading-relaxed max-w-2xl font-light">
-              Cut AWS/Azure bills by 40%—without risking application uptime or performance.
+              Cut AWS/Azure bills by 40%-without risking application uptime or performance.
             </p>
             
             <a
@@ -176,7 +176,7 @@ const CloudCostOptimisation = () => {
               The Cloud Cost Trap
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Cloud bills rise faster than revenue. This isn't growth—it's margin drain.
+              Cloud bills rise faster than revenue. This isn't growth-it's margin drain.
             </p>
           </div>
           
@@ -283,7 +283,7 @@ const CloudCostOptimisation = () => {
                 <div>
                   <h4 className="text-sm font-semibold text-red-600 uppercase tracking-wide mb-2">The Risk</h4>
                   <p className="text-gray-600 leading-relaxed">
-                    A Tier-1 provider faced linear cost scaling—sensor data growth meant PKR 3.9M annual budget overrun.
+                    A Tier-1 provider faced linear cost scaling-sensor data growth meant PKR 3.9M annual budget overrun.
                   </p>
                 </div>
                 
@@ -322,7 +322,7 @@ const CloudCostOptimisation = () => {
                   "Perception IT de-risked our entire scaling strategy. We process 3x the data without fearing an unpredictable bill."
                 </p>
                 <footer className="text-sm text-gray-500">
-                  — CTO, Mobile Network Infrastructure
+                  - CTO, Mobile Network Infrastructure
                 </footer>
               </blockquote>
               
@@ -376,7 +376,7 @@ const CloudCostOptimisation = () => {
                 metric: '2x',
                 label: 'Performance Gain',
                 title: 'Faster Applications',
-                desc: 'Optimize resource allocation per workload—not just shrink everything.',
+                desc: 'Optimize resource allocation per workload-not just shrink everything.',
                 proof: 'IoT platform handled 3x data volume post-optimisation',
                 color: 'blue'
               },
@@ -426,7 +426,7 @@ const CloudCostOptimisation = () => {
                 Built for teams that need results.
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Not for initial cloud migrations. We optimize existing estates—we don't do first-time setups.
+                Not for initial cloud migrations. We optimize existing estates-we don't do first-time setups.
               </p>
             </div>
             

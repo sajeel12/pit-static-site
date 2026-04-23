@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   Menu, X, ChevronRight, ArrowRight, MessageCircle, Star
 } from 'lucide-react';
@@ -30,7 +30,6 @@ interface AboutCategory {
 // Infrastructure services with Network Operations included
 const infrastructureServices = [
   { id: 'server-continuity', title: 'Server Continuity', description: 'Ensure business continuity with robust server management and disaster recovery solutions.', link: '/services/server-continuity' },
-  { id: 'datacenter', title: 'Data Center Services', description: 'On-premise + cloud infrastructure that actually works for your business.', link: '/services/datacenter' },
   { id: 'hardware-support', title: 'Hardware Support', description: 'Save 60% vs. vendor support contracts with our comprehensive hardware maintenance.', link: '/services/hardware-support' },
   { id: 'sla-support', title: '24×7 SLA Support', description: 'Guaranteed response times with 24/7 coverage for critical infrastructure.', link: '/services/sla-support' },
 ];
@@ -38,6 +37,20 @@ const infrastructureServices = [
 const networkOperationsServices = [
   { id: 'cross-domain-automation', title: 'Cross-Domain Automation', description: 'Automate correlation of alarms across telecom domains.', link: '/services/cross-domain-automation' },
   { id: 'network-monitoring', title: 'Network Monitoring', description: 'Real-time visibility and performance optimisation for network infrastructure.', link: '/services/network-monitoring' },
+];
+
+const dataCentreServices = [
+  { id: 'cooling-airflow', title: 'Cooling & Airflow Management', description: 'Precision cooling from hardware supply to 24/7 managed thermal continuity.', link: '/services/cooling-airflow' },
+  { id: 'datacentre-4', title: 'DataCentre 4 (Enhanced)', description: 'UX-enhanced cooling page with animations, teal branding, and pictograms.', link: '/services/datacentre-4' },
+  { id: 'cooling-airflow2', title: 'Cooling & Airflow v2 (Review)', description: 'Revised page with Batch 1-4 narrative, visual, and conversion fixes applied.', link: '/services/cooling-airflow2' },
+
+  { id: 'power-ups', title: 'Power & UPS Solutions', description: 'UPS systems, power distribution, and backup power for critical infrastructure.', link: '/services/power-ups' },
+  { id: 'rack-cabinets', title: 'Rack & Cabinet Solutions', description: 'Server cabinets, acoustic racks, and outdoor enclosures.', link: '/services/rack-cabinets' },
+  { id: 'environmental-monitoring', title: 'Environmental Monitoring', description: 'Temperature, humidity, leak detection, and IoT sensor networks.', link: '/services/environmental-monitoring' },
+  { id: 'fire-suppression', title: 'Fire Suppression Systems', description: 'FM200, VESDA, and clean-agent fire protection for data centres.', link: '/services/fire-suppression' },
+  { id: 'design-build', title: 'Data Centre Design & Build', description: 'End-to-end data centre construction, CFD modelling, and commissioning.', link: '/services/design-build' },
+  { id: 'migration-relocation', title: 'Migration & Relocation Services', description: 'Zero-downtime server relocation and data centre migration.', link: '/services/migration-relocation' },
+  { id: 'maintenance-support', title: 'Maintenance & Support Contracts', description: 'SLA-backed maintenance, spare parts, and 24/7 technical support.', link: '/services/maintenance-support' },
 ];
 
 interface NavigationProps {
@@ -81,6 +94,13 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
   const closeTimerRef = useRef<NodeJS.Timeout | null>(null);
   const megaMenuRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
+  const location = useLocation();
+
+  // Close mega menu on route changes
+  useEffect(() => {
+    setActiveMegaMenu(null);
+    setIsClosing(false);
+  }, [location, setActiveMegaMenu]);
 
   // Update CSS custom property for dropdown positioning based on nav's actual bottom position
   useEffect(() => {
@@ -98,11 +118,6 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       updateNavBottom();
-      
-      // Close mega menu on scroll
-      if (activeMegaMenu) {
-        setActiveMegaMenu(null);
-      }
     };
     
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -125,6 +140,21 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // Continuously update dropdown position while mega menu is open to prevent detachment during scroll/transitions
+  useEffect(() => {
+    if (!activeMegaMenu || !navRef.current) return;
+    let rafId: number;
+    const update = () => {
+      if (navRef.current) {
+        const rect = navRef.current.getBoundingClientRect();
+        document.documentElement.style.setProperty('--nav-bottom', `${rect.bottom}px`);
+      }
+      rafId = requestAnimationFrame(update);
+    };
+    rafId = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(rafId);
+  }, [activeMegaMenu]);
 
   const handleMouseEnter = useCallback((menu: string) => {
     if (closeTimerRef.current) {
@@ -155,7 +185,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
     closeTimerRef.current = setTimeout(() => {
       setActiveMegaMenu(null);
       setIsClosing(false);
-    }, 100);
+    }, 350);
   }, []);
 
   // Smooth close handler for category clicks
@@ -294,7 +324,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
         <div className="fixed top-0 left-0 right-0 z-[60] bg-slate-900 text-white">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-2 flex items-center justify-center gap-2 text-sm">
             <span className="px-2 py-0.5 bg-blue-500 text-white text-xs font-bold rounded">NEW</span>
-            <Link to="/services" className="hover:underline">AI Accelerator — Deploy AI in 90 days</Link>
+            <Link to="/services" className="hover:underline">AI Accelerator - Deploy AI in 90 days</Link>
             <button 
               onClick={() => setShowHighlightBar(false)} 
               className="ml-4 text-slate-400 hover:text-white p-1"
@@ -307,7 +337,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
       )}
 
       {/* Main Navigation */}
-      <nav ref={navRef} className={`fixed left-0 right-0 z-50 transition-all duration-300 ${showHighlightBar ? 'top-[36px]' : 'top-0'} ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-white border-b border-transparent'}`}>
+      <nav ref={navRef} className={`fixed left-0 right-0 z-50 transition-[background-color,backdrop-filter,box-shadow,border-color] duration-300 ${showHighlightBar ? 'top-[36px]' : 'top-0'} ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-white border-b border-transparent'}`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 sm:px-6 lg:px-8 relative">
           <div className="flex items-center h-16 lg:h-20">
             {/* Logo */}
@@ -331,12 +361,12 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'solutions' ? 'rotate-90' : ''}`} />
                 </button>
                 {activeMegaMenu === 'solutions' && (
-                  <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
+                  <div className={`fixed left-0 right-0 z-30 transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
                     <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
                       {/* Floating Close Button */}
                       <button 
                         onClick={() => setActiveMegaMenu(null)}
-                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-colors group"
                         aria-label="Close menu"
                       >
                         <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
@@ -512,7 +542,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                         <div className="w-[280px] bg-white pt-6 pr-6 pb-6 flex-shrink-0">
                           <div className="pl-4 pr-0 py-0 border-l-2 border-[#c6c6c6]">
                             <p className="text-[11px] font-semibold text-[#6f6f6f] uppercase tracking-[0.16px] mb-3">Featured Case Study</p>
-                            <h4 className="text-sm font-semibold text-[#161616] mb-3">Total Transformation — African Telecom</h4>
+                            <h4 className="text-sm font-semibold text-[#161616] mb-3">Total Transformation - African Telecom</h4>
                             <p className="text-sm text-[#525252] mb-4 leading-relaxed">Hardware audit → Cloud migration → Managed operations.</p>
                             <Link to="/projects" onClick={() => setActiveMegaMenu(null)} className="inline-flex items-center gap-1 text-sm font-semibold text-[#525252] hover:text-[#0f62fe]">
                               View case study <ArrowRight className="w-4 h-4" />
@@ -541,12 +571,12 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 </button>
                 
                 {activeMegaMenu === 'consultancy' && (
-                  <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
+                  <div className={`fixed left-0 right-0 z-30 transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
                     <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
                       {/* Floating Close Button */}
                       <button 
                         onClick={() => setActiveMegaMenu(null)}
-                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-colors group"
                         aria-label="Close menu"
                       >
                         <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
@@ -632,12 +662,12 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 </Link>
                 
                 {activeMegaMenu === 'cloud' && cloudCategory && (
-                  <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
+                  <div className={`fixed left-0 right-0 z-30 transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
                     <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
                       {/* Floating Close Button */}
                       <button 
                         onClick={() => setActiveMegaMenu(null)}
-                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-colors group"
                         aria-label="Close menu"
                       >
                         <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
@@ -760,12 +790,12 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 </Link>
                 
                 {activeMegaMenu === 'infrastructure' && (
-                  <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
+                  <div className={`fixed left-0 right-0 z-30 transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
                     <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
                       {/* Floating Close Button */}
                       <button 
                         onClick={() => setActiveMegaMenu(null)}
-                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-colors group"
                         aria-label="Close menu"
                       >
                         <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
@@ -807,6 +837,19 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                               <span className="font-normal">Network Operations</span>
                             </Link>
                             <div className="border-t border-[#e0e0e0] my-2" />
+                            <Link 
+                              to="#"
+                              onMouseEnter={() => setActiveInfrastructureItem('data-centre-services-3')}
+                              onClick={() => handleCategoryClick()}
+                              className={`block w-full text-left px-3 py-2 text-sm transition-all border-l-2 ${
+                                activeInfrastructureItem === 'data-centre-services-3'
+                                  ? 'bg-[#f4f4f4] text-[#161616] border-[#0f62fe] font-semibold' 
+                                  : 'text-[#161616] hover:bg-[#f4f4f4] border-transparent'
+                              }`}
+                            >
+                              <span className="font-normal">Data Centre Services 3</span>
+                            </Link>
+                            <div className="border-t border-[#e0e0e0] my-2" />
                             <Link to="/services/infrastructure" onClick={() => setActiveMegaMenu(null)} className="flex items-center gap-2 px-3 py-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0353e9] hover:bg-[#f4f4f4] transition-colors">
                               View All Infrastructure <ArrowRight className="w-4 h-4" />
                             </Link>
@@ -838,6 +881,45 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                               </a>
                               <div className="h-8" />
                             </>
+                          ) : activeInfrastructureItem === 'data-centre-services-3' ? (
+                            <>
+                              {/* Hub Page Link */}
+                              <Link 
+                                to="/services/infrastructure" 
+                                onClick={() => handleCategoryClick()}
+                                className="group flex items-center gap-2 text-sm font-semibold text-[#161616] mb-1 hover:text-[#0f62fe] transition-colors"
+                              >
+                                Data Centre Services 3
+                                <ArrowRight className="w-4 h-4 text-[#8d8d8d] group-hover:text-[#0f62fe] transition-colors" />
+                              </Link>
+                              <p className="text-xs text-[#525252] leading-relaxed mb-4">Comprehensive data centre infrastructure — engineered for Pakistan&apos;s climate and grid reality.</p>
+                              
+                              {/* Section Label */}
+                              <div className="flex items-center justify-between mb-2">
+                                <p className="text-[11px] font-medium text-[#6f6f6f] uppercase tracking-[0.16px]">Service Pages</p>
+                                <span className="text-[11px] text-[#a8a8a8]">{dataCentreServices.length} services</span>
+                              </div>
+                              
+                              {/* Compact 2-Column Grid */}
+                              <div className="grid grid-cols-2 gap-1 mb-4">
+                                {dataCentreServices.map((service) => (
+                                  <Link 
+                                    key={service.id}
+                                    to={service.link}
+                                    onClick={() => handleCategoryClick()}
+                                    className="group px-2.5 py-2 text-[13px] text-[#161616] hover:bg-[#f4f4f4] hover:text-[#0f62fe] transition-colors rounded-sm"
+                                  >
+                                    <span className="font-medium block leading-tight">{service.title}</span>
+                                    <span className="text-[11px] text-[#525252] group-hover:text-[#0f62fe] leading-tight block mt-0.5 line-clamp-2">{service.description}</span>
+                                  </Link>
+                                ))}
+                              </div>
+                              
+                              {/* CTA */}
+                              <a href="#contact" onClick={() => setActiveMegaMenu(null)} className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#0f62fe] text-white text-sm font-semibold hover:bg-[#0353e9] transition-colors">
+                                Talk to a Data Centre Expert <ArrowRight className="w-4 h-4" />
+                              </a>
+                            </>
                           ) : (
                             (() => {
                               const service = infrastructureServices.find(s => s.id === activeInfrastructureItem);
@@ -863,30 +945,46 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                         
                         {/* Right Rail - Case Study & Badge */}
                         <div className="w-[280px] bg-white pt-6 pr-6 pb-6 flex-shrink-0">
-                          {/* Case Study */}
-                          <div className="pl-4 pr-0 py-0 border-l-2 border-[#c6c6c6] mb-8">
-                            <p className="text-[11px] font-semibold text-[#6f6f6f] uppercase tracking-[0.16px] mb-3">Featured Case Study</p>
-                            <h4 className="text-sm font-semibold text-[#161616] mb-3">Cross-Domain Network Automation</h4>
-                            <p className="text-sm text-[#525252] mb-4 leading-relaxed">Enhanced network efficiency by automating alarm correlation across telecom domains.</p>
-                            <Link to="/projects/case-study/network-operations-automation" onClick={() => setActiveMegaMenu(null)} className="inline-flex items-center gap-1 text-sm font-semibold text-[#525252] hover:text-[#0f62fe]">
-                              View case study <ArrowRight className="w-4 h-4" />
-                            </Link>
-                          </div>
-                          
-                          {/* Huawei Partnership Badge */}
-                          <div className="pl-4 pr-0 py-0 border-l-2 border-[#ef4444]">
-                            <p className="text-[11px] font-semibold text-[#ef4444] uppercase tracking-[0.16px] mb-3">Certified Partner</p>
-                            <div className="flex items-center gap-2 mb-2">
-                              <div className="w-8 h-8 bg-[#ef4444] flex items-center justify-center flex-shrink-0">
-                                <span className="text-white font-semibold text-xs">H</span>
+                          {activeInfrastructureItem === 'data-centre-services-3' ? (
+                            <>
+                              <div className="pl-4 pr-0 py-0 border-l-2 border-[#cf0a2c]">
+                                <p className="text-[11px] font-semibold text-[#cf0a2c] uppercase tracking-[0.16px] mb-3">Huawei Partner Product</p>
+                                <h4 className="text-sm font-semibold text-[#161616] mb-2">FusionCol8000-E</h4>
+                                <p className="text-[11px] text-[#525252] mb-1 leading-relaxed font-medium">Indirect Evaporative Cooling</p>
+                                <p className="text-xs text-[#525252] mb-4 leading-relaxed">For public cloud, large colo DCs, IDCs, and medium- to large-sized data centres of carriers, enterprises, governments, and financial institutions.</p>
+                                <a href="#contact" onClick={() => setActiveMegaMenu(null)} className="inline-flex items-center gap-2 px-4 py-2 bg-[#cf0a2c] text-white text-xs font-semibold hover:bg-[#a80a20] transition-colors">
+                                  Enquire About FusionCol8000-E <ArrowRight className="w-3 h-3" />
+                                </a>
                               </div>
-                              <h4 className="text-sm font-semibold text-[#161616]">Huawei Enterprise</h4>
-                            </div>
-                            <p className="text-sm text-[#525252] mb-4 leading-relaxed">Authorized infrastructure solutions provider</p>
-                            <Link to="/blog/huawei-partnership" onClick={() => setActiveMegaMenu(null)} className="inline-flex items-center gap-1 text-sm font-semibold text-[#525252] hover:text-[#0f62fe]">
-                              Read our partnership story <ArrowRight className="w-4 h-4" />
-                            </Link>
-                          </div>
+                            </>
+                          ) : (
+                            <>
+                              {/* Case Study */}
+                              <div className="pl-4 pr-0 py-0 border-l-2 border-[#c6c6c6] mb-8">
+                                <p className="text-[11px] font-semibold text-[#6f6f6f] uppercase tracking-[0.16px] mb-3">Featured Case Study</p>
+                                <h4 className="text-sm font-semibold text-[#161616] mb-3">Cross-Domain Network Automation</h4>
+                                <p className="text-sm text-[#525252] mb-4 leading-relaxed">Enhanced network efficiency by automating alarm correlation across telecom domains.</p>
+                                <Link to="/projects/case-study/network-operations-automation" onClick={() => setActiveMegaMenu(null)} className="inline-flex items-center gap-1 text-sm font-semibold text-[#525252] hover:text-[#0f62fe]">
+                                  View case study <ArrowRight className="w-4 h-4" />
+                                </Link>
+                              </div>
+                              
+                              {/* Huawei Partnership Badge */}
+                              <div className="pl-4 pr-0 py-0 border-l-2 border-[#ef4444]">
+                                <p className="text-[11px] font-semibold text-[#ef4444] uppercase tracking-[0.16px] mb-3">Certified Partner</p>
+                                <div className="flex items-center gap-2 mb-2">
+                                  <div className="w-8 h-8 bg-[#ef4444] flex items-center justify-center flex-shrink-0">
+                                    <span className="text-white font-semibold text-xs">H</span>
+                                  </div>
+                                  <h4 className="text-sm font-semibold text-[#161616]">Huawei Enterprise</h4>
+                                </div>
+                                <p className="text-sm text-[#525252] mb-4 leading-relaxed">Authorized infrastructure solutions provider</p>
+                                <Link to="/blog/huawei-partnership" onClick={() => setActiveMegaMenu(null)} className="inline-flex items-center gap-1 text-sm font-semibold text-[#525252] hover:text-[#0f62fe]">
+                                  Read our partnership story <ArrowRight className="w-4 h-4" />
+                                </Link>
+                              </div>
+                            </>
+                          )}
                         </div>
                       </div>
                       
@@ -910,12 +1008,12 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 </button>
                 
                 {activeMegaMenu === 'data' && (
-                  <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
+                  <div className={`fixed left-0 right-0 z-30 transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
                     <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
                       {/* Floating Close Button */}
                       <button 
                         onClick={() => setActiveMegaMenu(null)}
-                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-colors group"
                         aria-label="Close menu"
                       >
                         <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
@@ -1010,7 +1108,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                         <div className="w-[280px] bg-white pt-6 pr-6 pb-6 flex-shrink-0">
                           <div className="pl-4 pr-0 py-0 border-l-2 border-[#c6c6c6]">
                             <p className="text-[11px] font-semibold text-[#6f6f6f] uppercase tracking-[0.16px] mb-3">Featured Case Study</p>
-                            <h4 className="text-sm font-semibold text-[#161616] mb-3">IoT Analytics Platform — African Telecom</h4>
+                            <h4 className="text-sm font-semibold text-[#161616] mb-3">IoT Analytics Platform - African Telecom</h4>
                             <p className="text-sm text-[#525252] mb-4 leading-relaxed">Real-time monitoring of mobile towers with geospatial visualisation and predictive maintenance.</p>
                             <Link to="/projects" onClick={() => setActiveMegaMenu(null)} className="inline-flex items-center gap-1 text-sm font-semibold text-[#525252] hover:text-[#0f62fe]">
                               View case study <ArrowRight className="w-4 h-4" />
@@ -1039,12 +1137,12 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 </button>
                 
                 {activeMegaMenu === 'ai' && (
-                  <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
+                  <div className={`fixed left-0 right-0 z-30 transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
                     <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
                       {/* Floating Close Button */}
                       <button 
                         onClick={() => setActiveMegaMenu(null)}
-                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-colors group"
                         aria-label="Close menu"
                       >
                         <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
@@ -1157,12 +1255,12 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 </button>
                 
                 {activeMegaMenu === 'platforms' && (
-                  <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
+                  <div className={`fixed left-0 right-0 z-30 transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
                     <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
                       {/* Floating Close Button */}
                       <button 
                         onClick={() => setActiveMegaMenu(null)}
-                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-colors group"
                         aria-label="Close menu"
                       >
                         <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
@@ -1257,7 +1355,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                         <div className="w-[280px] bg-white pt-6 pr-6 pb-6 flex-shrink-0">
                           <div className="pl-4 pr-0 py-0 border-l-2 border-[#0f62fe]">
                             <p className="text-[11px] font-semibold text-[#6f6f6f] uppercase tracking-[0.16px] mb-3">Featured Case Study</p>
-                            <h4 className="text-sm font-bold text-[#0f62fe] mb-3">ServiceNow ITSM Transformation — African Telecom</h4>
+                            <h4 className="text-sm font-bold text-[#0f62fe] mb-3">ServiceNow ITSM Transformation - African Telecom</h4>
                             <p className="text-sm text-[#525252] mb-4 leading-relaxed">Complete IT service management overhaul with automated workflows, reducing resolution times by 60%.</p>
                             <Link to="/projects" onClick={() => setActiveMegaMenu(null)} className="inline-flex items-center gap-1 text-sm font-semibold text-[#525252] hover:text-[#0f62fe]">
                               View case study <ArrowRight className="w-4 h-4" />
@@ -1294,12 +1392,12 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'about' ? 'rotate-90' : ''}`} />
                 </button>
                 {activeMegaMenu === 'about' && (
-                  <div className={`fixed left-0 right-0 z-30 transition-all duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }}>
+                  <div className={`fixed left-0 right-0 z-30 transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
                     <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
                       {/* Floating Close Button */}
                       <button 
                         onClick={() => setActiveMegaMenu(null)}
-                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-all group"
+                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-colors group"
                         aria-label="Close menu"
                       >
                         <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
@@ -1345,7 +1443,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                           
                           {/* CTA */}
                           <a href="#contact" onClick={() => setActiveMegaMenu(null)} className="inline-flex items-center gap-2 px-4 py-3 bg-[#0f62fe] text-white text-sm font-semibold hover:bg-[#0353e9] transition-colors">
-                            Start Your Project — Contact Us <ArrowRight className="w-4 h-4" />
+                            Start Your Project - Contact Us <ArrowRight className="w-4 h-4" />
                           </a>
                           <div className="h-8" />
                         </div>

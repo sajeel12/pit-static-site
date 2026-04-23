@@ -213,7 +213,7 @@ const CloudHub = () => {
               Cloud Capabilities
             </h2>
             <p className="text-lg text-gray-600">
-              Five core practice areas covering the full cloud lifecycle—from migration to optimisation.
+              Five core practice areas covering the full cloud lifecycle-from migration to optimisation.
             </p>
           </div>
           
@@ -463,7 +463,7 @@ const CloudHub = () => {
           </h2>
           
           <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-            Whether you're migrating, scaling, or cutting costs—we've done it before.
+            Whether you're migrating, scaling, or cutting costs-we've done it before.
           </p>
           
           <div className="flex flex-wrap items-center justify-center gap-4">
