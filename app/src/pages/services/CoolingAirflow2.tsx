@@ -41,7 +41,7 @@ const caseStudyData = [
 ];
 
 const sectionLabels: Record<string, string> = {
-  assessment: 'Assessment',
+  assessment: 'Compare Option 1 & 2',
   hardware: 'Procurement',
   installation: 'Deployment',
   managed: 'Managed Services',
