@@ -824,9 +824,15 @@ const PillarNavSection = ({ scrollToSection }: { scrollToSection: (id: string) =
     <section style={{ padding: '3rem 0', background: '#ffffff', borderBottom: '1px solid #e0e0e0' }}>
       <Grid>
         <Column lg={16} md={8} sm={4}>
-          <p className="cds--label-01" style={{ color: '#8d8d8d', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '1.5rem', textAlign: 'center' }}>
-            Four ways we protect your thermal continuity
-          </p>
+          <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
+            <div style={{ width: 24, height: 2, background: '#0f62fe', margin: '0 auto 8px' }} />
+            <p className="cds--label-01" style={{ color: '#0f62fe', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '0.5rem' }}>
+              Services
+            </p>
+            <h2 className="cds--fluid-heading-05" style={{ color: '#161616' }}>
+              From Cooling Assessment to 24/7 Accountability
+            </h2>
+          </div>
           <Grid>
             {pillars.map((p) => {
               const Icon = p.icon;
