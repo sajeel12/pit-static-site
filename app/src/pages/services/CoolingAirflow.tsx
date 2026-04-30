@@ -96,12 +96,6 @@ const sectionLabels: Record<string, string> = {
   cta: 'Get Started',
 };
 
-const serviceSteps = [
-  { step: '01', title: 'Assessment', desc: 'Thermal assessment & risk scoring', sectionId: 'assessment' },
-  { step: '02', title: 'Procurement', desc: 'Right-sized hardware, certified', sectionId: 'hardware' },
-  { step: '03', title: 'Deployment', desc: 'Install, validate, monitor', sectionId: 'installation' },
-  { step: '04', title: 'Managed Services', desc: '24/7 monitoring & maintenance', sectionId: 'managed' },
-];
 
 const hardwareCards = [
   {
@@ -764,66 +758,6 @@ const ThermalRiskSection = () => {
   );
 };
 
-const ServicesSection = ({ scrollToSection }: { scrollToSection: (id: string) => void }) => (
-  <section id="how-it-works" style={{ padding: '4rem 0', background: '#f4f4f4' }}>
-    <Grid>
-      <Column lg={12} md={8} sm={4}>
-        <div style={{ marginBottom: '0.75rem' }}>
-          <div style={{ width: 24, height: 2, background: '#009d9a', marginBottom: 8 }} />
-          <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px' }}>
-            Services
-          </p>
-        </div>
-        <h2
-          className="cds--fluid-heading-04"
-          style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: '2rem' }}
-        >
-          From Cooling Assessment to 24/7 Accountability
-        </h2>
-      </Column>
-    </Grid>
-
-    <Grid>
-      {serviceSteps.map((item, idx) => (
-        <Column lg={3} md={4} sm={4} key={item.step} style={{ marginBottom: '1rem' }}>
-          <ClickableTile
-            onClick={() => scrollToSection(item.sectionId)}
-            style={{
-              height: '100%',
-              borderBottom: `2px solid ${idx === 0 ? '#0f62fe' : 'transparent'}`,
-              transition: 'all 150ms cubic-bezier(0.25, 0.1, 0.25, 1)',
-            }}
-          >
-            <div
-              style={{
-                width: 40,
-                height: 40,
-                background: '#0f62fe',
-                color: '#ffffff',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: 600,
-                fontSize: '1rem',
-                marginBottom: '0.75rem',
-              }}
-            >
-              {item.step}
-            </div>
-            <p className="cds--heading-02" style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: '0.25rem' }}>
-              {item.title}
-            </p>
-            <p className="cds--body-compact-01" style={{ color: '#525252' }}>
-              {item.desc}
-            </p>
-          </ClickableTile>
-
-        </Column>
-      ))}
-    </Grid>
-  </section>
-);
-
 const TrustBarSection = () => (
   <section style={{ padding: '3rem 0', background: '#f4f4f4', borderTop: '1px solid #e0e0e0', borderBottom: '1px solid #e0e0e0' }}>
     <Grid>
@@ -833,11 +767,8 @@ const TrustBarSection = () => (
             <p className="cds--label-01" style={{ color: '#8d8d8d', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '0.5rem' }}>
               Trusted Partners
             </p>
-            <p className="cds--body-compact-01" style={{ color: '#161616', fontWeight: 600, marginBottom: '0.25rem' }}>
-              Warranty administered through Perception-IT
-            </p>
-            <p className="cds--helper-text-01" style={{ color: '#525252' }}>
-              One partner for claims, diagnostics, and replacement — not the manufacturer.
+            <p className="cds--body-compact-01" style={{ color: '#161616', fontWeight: 600 }}>
+              Tier-1 manufacturer relationships. Single-point accountability.
             </p>
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center' }}>
@@ -2637,7 +2568,6 @@ const CoolingAirflow = () => {
       </nav>
 
       <ThermalRiskSection />
-      <ServicesSection scrollToSection={scrollToSection} />
       <TrustBarSection />
       <PillarNavSection scrollToSection={scrollToSection} />
       <AssessmentSection />
