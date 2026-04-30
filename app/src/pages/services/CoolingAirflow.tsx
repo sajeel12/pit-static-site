@@ -824,6 +824,39 @@ const ServicesSection = ({ scrollToSection }: { scrollToSection: (id: string) =>
   </section>
 );
 
+const TrustBarSection = () => (
+  <section style={{ padding: '3rem 0', background: '#f4f4f4', borderTop: '1px solid #e0e0e0', borderBottom: '1px solid #e0e0e0' }}>
+    <Grid>
+      <Column lg={16} md={8} sm={4}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '2rem' }}>
+          <div style={{ flex: 1, minWidth: 280 }}>
+            <p className="cds--label-01" style={{ color: '#8d8d8d', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '0.5rem' }}>
+              Trusted Partners
+            </p>
+            <p className="cds--body-compact-01" style={{ color: '#161616', fontWeight: 600, marginBottom: '0.25rem' }}>
+              Warranty administered through Perception-IT
+            </p>
+            <p className="cds--helper-text-01" style={{ color: '#525252' }}>
+              One partner for claims, diagnostics, and replacement — not the manufacturer.
+            </p>
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center' }}>
+            {manufacturerPartners.map((partner) => (
+              <img
+                key={partner.name}
+                src={partner.logo}
+                alt={partner.name}
+                style={{ width: partner.width, height: 'auto', opacity: 0.7, transition: 'opacity 200ms' }}
+                onMouseEnter={(e) => { (e.target as HTMLImageElement).style.opacity = '1'; }}
+                onMouseLeave={(e) => { (e.target as HTMLImageElement).style.opacity = '0.7'; }}
+              />
+            ))}
+          </div>
+        </div>
+      </Column>
+    </Grid>
+  </section>
+);
 const PillarNavSection = ({ scrollToSection }: { scrollToSection: (id: string) => void }) => {
   const pillars = [
     {
@@ -2406,6 +2439,88 @@ const ManagedServicesSection = () => {
     </section>
   );
 };
+const CrossSellSection = () => {
+  const relatedServices = [
+    {
+      title: 'Power & UPS',
+      desc: 'UPS sizing, power distribution, and generator integration for cooling load.',
+      href: '/#/services/power-ups',
+      icon: Meter,
+    },
+    {
+      title: 'Rack & Cabinets',
+      desc: 'Hot/cold aisle containment and cable management for thermal efficiency.',
+      href: '/#/services/rack-cabinets',
+      icon: ServerRack,
+    },
+    {
+      title: 'Environmental Monitoring',
+      desc: 'Real-time temp, humidity, and leak detection across your facility.',
+      href: '/#/services/environmental-monitoring',
+      icon: Dashboard,
+    },
+    {
+      title: 'Fire Suppression',
+      desc: 'FM200 and clean-agent systems that protect without damaging electronics.',
+      href: '/#/services/fire-suppression',
+      icon: Warning,
+    },
+    {
+      title: 'Network Operations',
+      desc: '24/7 NOC monitoring and cross-domain automation for full-stack visibility.',
+      href: '/#/services/network-monitoring',
+      icon: Settings,
+    },
+  ];
+
+  return (
+    <section style={{ padding: '4rem 0', background: '#ffffff' }}>
+      <Grid>
+        <Column lg={16} md={8} sm={4}>
+          <div style={{ marginBottom: '2rem' }}>
+            <div style={{ width: 24, height: 2, background: '#0f62fe', marginBottom: 8 }} />
+            <p className="cds--label-01" style={{ color: '#0f62fe', textTransform: 'uppercase', letterSpacing: '0.32px' }}>
+              Complete Your Data Centre Stack
+            </p>
+          </div>
+          <h2 className="cds--fluid-heading-05" style={{ color: '#161616', marginBottom: '1rem' }}>
+            Cooling Doesn&apos;t Work in Isolation
+          </h2>
+          <p className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '2.5rem', maxWidth: '48rem' }}>
+            Explore the supporting services that keep your infrastructure running. Every layer — power, containment, monitoring, fire protection — affects thermal performance.
+          </p>
+
+          <Grid>
+            {relatedServices.map((svc) => {
+              const Icon = svc.icon;
+              return (
+                <Column lg={4} md={4} sm={4} key={svc.title} style={{ marginBottom: '1rem' }}>
+                  <Tile style={{ height: '100%', padding: '1.5rem', display: 'flex', flexDirection: 'column', border: '1px solid #e0e0e0', transition: 'border-color 150ms, box-shadow 150ms' }}
+                    onMouseEnter={(e: React.MouseEvent<HTMLElement>) => { (e.currentTarget as HTMLElement).style.borderColor = '#0f62fe'; (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)'; }}
+                    onMouseLeave={(e: React.MouseEvent<HTMLElement>) => { (e.currentTarget as HTMLElement).style.borderColor = '#e0e0e0'; (e.currentTarget as HTMLElement).style.boxShadow = 'none'; }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                      <div style={{ width: 40, height: 40, background: 'rgba(15, 98, 254, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Icon size={20} style={{ color: '#0f62fe' }} />
+                      </div>
+                      <h3 className="cds--heading-02" style={{ color: '#161616' }}>{svc.title}</h3>
+                    </div>
+                    <p className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '1rem', flex: 1 }}>
+                      {svc.desc}
+                    </p>
+                    <a href={svc.href} style={{ color: '#0f62fe', textDecoration: 'none', fontSize: '0.875rem', fontWeight: 400, display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                      Learn more <ChevronRight size={16} />
+                    </a>
+                  </Tile>
+                </Column>
+              );
+            })}
+          </Grid>
+        </Column>
+      </Grid>
+    </section>
+  );
+};
 const CoolingAirflow = () => {
   const [activeSection, setActiveSection] = useState('thermal-failure');
   const [navScrolled, setNavScrolled] = useState(false);
@@ -2523,6 +2638,7 @@ const CoolingAirflow = () => {
 
       <ThermalRiskSection />
       <ServicesSection scrollToSection={scrollToSection} />
+      <TrustBarSection />
       <PillarNavSection scrollToSection={scrollToSection} />
       <AssessmentSection />
       <ProcurementSection />
@@ -2531,6 +2647,7 @@ const CoolingAirflow = () => {
       <DeploymentSection />
 
       <ManagedServicesSection />
+      <CrossSellSection />
       <section id="faq" style={{ padding: '4rem 0', background: 'var(--cds-background, #ffffff)' }}>
         <Grid>
           <Column lg={16} md={8} sm={4}>
