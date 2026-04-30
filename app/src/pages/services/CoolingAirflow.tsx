@@ -1743,10 +1743,10 @@ const DeploymentSection = () => {
                   return (
                     <Column lg={8} md={4} sm={2} key={tab.step} style={{ marginBottom: '0.5rem' }}>
                       <Tile style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                        <div style={{ width: 40, height: 40, background: '#0f62fe', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '0.875rem', flexShrink: 0 }}>
+                        <div style={{ width: 40, height: 40, background: '#161616', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '0.875rem', flexShrink: 0 }}>
                           {tab.step}
                         </div>
-                        <Icon size={20} style={{ color: '#0f62fe', flexShrink: 0 }} />
+                        <Icon size={20} style={{ color: '#525252', flexShrink: 0 }} />
                         <span className="cds--body-compact-01" style={{ color: '#161616', fontWeight: 500 }}>
                           {tab.title}
                         </span>
