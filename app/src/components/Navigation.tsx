@@ -40,9 +40,7 @@ const networkOperationsServices = [
 ];
 
 const dataCentreServices = [
-  { id: 'cooling-airflow', title: 'Cooling & Airflow Management', description: 'Precision cooling from hardware supply to 24/7 managed thermal continuity.', link: '/services/cooling-airflow' },
-  { id: 'datacentre-4', title: 'DataCentre 4 (Enhanced)', description: 'UX-enhanced cooling page with animations, teal branding, and pictograms.', link: '/services/datacentre-4' },
-  { id: 'cooling-airflow2', title: 'Cooling & Airflow v2 (Review)', description: 'Revised page with Batch 1-4 narrative, visual, and conversion fixes applied.', link: '/services/cooling-airflow2' },
+  { id: 'cooling-airflow', title: 'Cooling & Airflow Management', description: 'Precision cooling from hardware supply to 24/7 managed thermal continuity.', link: '/infrastructure/data-centre-services/cooling-airflow' },
 
   { id: 'power-ups', title: 'Power & UPS Solutions', description: 'UPS systems, power distribution, and backup power for critical infrastructure.', link: '/services/power-ups' },
   { id: 'rack-cabinets', title: 'Rack & Cabinet Solutions', description: 'Server cabinets, acoustic racks, and outdoor enclosures.', link: '/services/rack-cabinets' },
@@ -839,15 +837,15 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                             <div className="border-t border-[#e0e0e0] my-2" />
                             <Link 
                               to="#"
-                              onMouseEnter={() => setActiveInfrastructureItem('data-centre-services-3')}
+                              onMouseEnter={() => setActiveInfrastructureItem('data-centre-services')}
                               onClick={() => handleCategoryClick()}
                               className={`block w-full text-left px-3 py-2 text-sm transition-all border-l-2 ${
-                                activeInfrastructureItem === 'data-centre-services-3'
+                                activeInfrastructureItem === 'data-centre-services'
                                   ? 'bg-[#f4f4f4] text-[#161616] border-[#0f62fe] font-semibold' 
                                   : 'text-[#161616] hover:bg-[#f4f4f4] border-transparent'
                               }`}
                             >
-                              <span className="font-normal">Data Centre Services 3</span>
+                              <span className="font-normal">Data Centre Services</span>
                             </Link>
                             <div className="border-t border-[#e0e0e0] my-2" />
                             <Link to="/services/infrastructure" onClick={() => setActiveMegaMenu(null)} className="flex items-center gap-2 px-3 py-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0353e9] hover:bg-[#f4f4f4] transition-colors">
@@ -881,7 +879,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                               </a>
                               <div className="h-8" />
                             </>
-                          ) : activeInfrastructureItem === 'data-centre-services-3' ? (
+                          ) : activeInfrastructureItem === 'data-centre-services' ? (
                             <>
                               {/* Hub Page Link */}
                               <Link 
@@ -889,7 +887,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                                 onClick={() => handleCategoryClick()}
                                 className="group flex items-center gap-2 text-sm font-semibold text-[#161616] mb-1 hover:text-[#0f62fe] transition-colors"
                               >
-                                Data Centre Services 3
+                                Data Centre Services
                                 <ArrowRight className="w-4 h-4 text-[#8d8d8d] group-hover:text-[#0f62fe] transition-colors" />
                               </Link>
                               <p className="text-xs text-[#525252] leading-relaxed mb-4">Comprehensive data centre infrastructure — engineered for Pakistan&apos;s climate and grid reality.</p>
@@ -945,7 +943,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                         
                         {/* Right Rail - Case Study & Badge */}
                         <div className="w-[280px] bg-white pt-6 pr-6 pb-6 flex-shrink-0">
-                          {activeInfrastructureItem === 'data-centre-services-3' ? (
+                          {activeInfrastructureItem === 'data-centre-services' ? (
                             <>
                               <div className="pl-4 pr-0 py-0 border-l-2 border-[#cf0a2c]">
                                 <p className="text-[11px] font-semibold text-[#cf0a2c] uppercase tracking-[0.16px] mb-3">Huawei Partner Product</p>

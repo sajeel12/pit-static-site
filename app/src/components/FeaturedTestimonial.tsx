@@ -111,8 +111,8 @@ export default function FeaturedTestimonial({
   const badgeText = 'text-[#78a9ff]';
   const linkText = 'text-[#78a9ff]';
   const linkHover = 'hover:text-[#a6c8ff]';
-  const navBtnBg = 'bg-[#0f62fe] border-[#0f62fe]';
-  const navBtnHover = 'hover:bg-[#0353e9] hover:border-[#0353e9]';
+  const navBtnBg = isDark ? 'bg-[#262626]' : 'bg-[#f4f4f4]';
+  const navBtnHover = isDark ? 'hover:bg-[#393939]' : 'hover:bg-white';
   const quoteText = isDark ? 'text-[#f4f4f4]' : 'text-[#161616]';
   const imagePlaceholderBg = isDark ? 'bg-[#1a1a1a]' : 'bg-[#e0e0e0]';
   const imagePlaceholderText = isDark ? 'text-[#525252]' : 'text-[#a8a8a8]';
@@ -125,14 +125,14 @@ export default function FeaturedTestimonial({
         <>
           <button
             onClick={onPrev}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 w-12 h-12 ${navBtnBg} border flex items-center justify-center text-white ${navBtnHover} transition-colors hidden md:flex`}
+            className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 w-12 h-12 ${navBtnBg} flex items-center justify-center text-[#0f62fe] ${navBtnHover} transition-colors hidden md:flex`}
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={onNext}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10 w-12 h-12 ${navBtnBg} border flex items-center justify-center text-white ${navBtnHover} transition-colors hidden md:flex`}
+            className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10 w-12 h-12 ${navBtnBg} flex items-center justify-center text-[#0f62fe] ${navBtnHover} transition-colors hidden md:flex`}
             aria-label="Next testimonial"
           >
             <ChevronRight className="w-5 h-5" />

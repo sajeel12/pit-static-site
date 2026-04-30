@@ -11,6 +11,11 @@
 @use '@carbon/styles/scss/components/button';
 @use '@carbon/styles/scss/components/tag';
 @use '@carbon/styles/scss/components/link';
+@use '@carbon/styles/scss/components/modal';
+@use '@carbon/styles/scss/components/text-input';
+@use '@carbon/styles/scss/components/form';
+@use '@carbon/styles/scss/components/contained-list';
+@use '@carbon/styles/scss/components/ui-shell';
 
 // Include CSS Custom Properties
 :root {
@@ -32,12 +37,29 @@
   left: 0;
   right: 0;
   height: 3rem;
-  background-color: var(--cds-background, #161616);
-  border-bottom: 1px solid var(--cds-border-subtle, #393939);
+  background-color: #161616;
+  border-bottom: 1px solid #393939;
   z-index: 6000;
 }
 
-.cds--header__menu-item {
+.cds--header__nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 1rem;
+}
+
+.cds--header__menu,
+.cds--header__menu-bar {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.cds--header .cds--header__menu-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,7 +69,7 @@
   font-weight: 400;
   line-height: 1.28572;
   letter-spacing: 0.16px;
-  color: var(--cds-text-primary, #161616);
+  color: #ffffff !important;
   text-decoration: none;
   background: transparent;
   border: none;
@@ -57,18 +79,38 @@
   white-space: nowrap;
 }
 
-.cds--header__menu-item:hover {
-  background-color: var(--cds-background-hover, #e5e5e5);
-  color: var(--cds-text-primary, #161616);
+.cds--header .cds--header__menu-item:hover {
+  background-color: #333333;
+  color: #ffffff !important;
 }
 
-.cds--header__menu-item--active {
-  background-color: var(--cds-background-selected, #e0e0e0);
-  color: var(--cds-text-primary, #161616);
+.cds--header .cds--header__menu-item--active,
+.cds--header .cds--header__menu-item--current {
+  background-color: #333333;
+  color: #ffffff !important;
 }
 
 .cds--header__menu-item svg {
   margin-left: var(--cds-spacing-03);
+}
+
+.cds--header .cds--header__name {
+  color: #ffffff !important;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0 var(--cds-spacing-05);
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.cds--header .cds--header__name:hover {
+  color: #ffffff !important;
+}
+
+.cds--header__name--prefix {
+  font-weight: 400;
 }
 
 // ============================================================================
@@ -499,4 +541,45 @@
 
 .cds--font-condensed {
   font-family: var(--cds-font-condensed);
+}
+
+// ============================================================================
+// RESPONSIVE DEPLOYMENT TABS
+// ============================================================================
+
+.deploy-tabs-desktop {
+  display: none;
+}
+
+.deploy-tabs-mobile {
+  display: block;
+}
+
+@media (min-width: 672px) {
+  .deploy-tabs-desktop {
+    display: flex;
+  }
+  .deploy-tabs-mobile {
+    display: none;
+  }
+}
+
+.expand-label-desktop {
+  display: none;
+}
+
+@media (min-width: 672px) {
+  .expand-label-desktop {
+    display: inline;
+  }
+}
+
+// ============================================================================
+// CASCADE ARROWS — Thermal Risk section
+// ============================================================================
+
+@media (min-width: 1056px) {
+  .cascade-arrow {
+    display: block !important;
+  }
 }

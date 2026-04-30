@@ -1,69 +1,1918 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
-import '../../styles/carbon-typography.css';
-import Footer from '../../sections/Footer';
-import Navigation from '../../components/Navigation';
-import PartnerLogos from '../../sections/PartnerLogos';
-import ClientLogos from '../../sections/ClientLogos';
 import {
-  ArrowRight, CheckmarkFilled, WarningAlt,
-  TemperatureHot, RainDrop, WindGusts as Wind,
-  Tools, Settings, Meter, Certificate,
+  Header,
+  HeaderName,
+  HeaderNavigation,
+  HeaderMenuItem,
+  HeaderGlobalBar,
+  HeaderGlobalAction,
+  HeaderContainer,
+  HeaderMenuButton,
+  SideNav,
+  SideNavItems,
+  SideNavMenu,
+  SideNavMenuItem,
+  Grid,
+  Column,
+  Button,
+  ButtonSet,
+  Accordion,
+  AccordionItem,
+  ComposedModal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  TextInput,
+  Form,
+  FormGroup,
+  Tag,
+  Tile,
+  ClickableTile,
+} from '@carbon/react';
+import {
+  ArrowRight,
+  CheckmarkFilled,
+  Compare,
   ChevronRight,
-  ChevronLeft,
-
-  Lightning, Security as Shield, DataBase, Dashboard,
-  Building
+  TemperatureHot,
+  RainDrop,
+  Warning,
+  WindGusts as Wind,
+  Settings,
+  Meter,
+  Certificate,
+  Dashboard,
+  Search,
+  Download,
+  Email,
+  Phone,
 } from '@carbon/icons-react';
+import {
+  AirConditioner,
+  Windy,
+  ServerRack,
+} from '@carbon/pictograms-react';
+import Footer from '../../sections/Footer';
 
+/* ==============================================================================
+   DATA & CONSTANTS
+   ============================================================================== */
 
-const SECTIONS = ['trust', 'hardware', 'installation', 'managed', 'pakistan', 'dependencies', 'integration', 'cases', 'feedback', 'partners', 'portfolio', 'cta'] as const;
+const SECTIONS = [
+  'thermal-failure',
+  'how-it-works',
+  'assessment',
+  'hardware',
+  'installation',
+  'managed',
+  'results',
+  'pakistan',
+  'faq',
+  'cta',
+] as const;
 
-const caseStudyData = [
-  { stat: '99.97%', label: 'Uptime Achieved', client: 'Pakistan Telecom', industry: 'Telecommunications', title: '3-Site Cooling Overhaul', desc: 'Precision CRAC deployment with monsoon-hardened protocols. Zero thermal outages across two monsoon seasons.', tags: ['CRAC Deployment', 'Monsoon Hardening'], outcomes: ['Zero thermal outages across two monsoon seasons', 'CRAC units sized with 25% monsoon humidity buffer', 'Remote monitoring with 4-hour response SLA'] },
-  { stat: '40%', label: 'Energy Reduction', client: 'Private Bank', industry: 'Financial Services', title: 'Precision Cooling Refresh', desc: 'Replaced legacy AC with in-row cooling and aisle containment. PUE dropped from 1.8 to 1.35.', tags: ['In-Row Cooling', 'PUE Optimisation'], outcomes: ['PUE reduced from 1.8 to 1.35', '40% energy savings validated over 12 months', 'Hot-spot elimination across all 8 racks'] },
-  { stat: '4hrs', label: 'Response Time', client: 'Government IDC', industry: 'Government', title: 'Managed Thermal Service', desc: 'End-to-end cooling supply, install, and managed service with quarterly validation and monsoon standby.', tags: ['Managed Service', 'SLA'], outcomes: ['4-hour on-site response guarantee', 'Quarterly thermal validation reports', 'Monsoon standby protocol with spare CRAC'] },
-  { stat: '60%', label: 'Capacity Gain', client: 'Textile Manufacturer', industry: 'Manufacturing', title: 'Legacy Cooling Replacement', desc: 'Custom cooling capacity derating for 45°C ambient. High-ambient condensers with thermal mass buffering.', tags: ['Retrofit', 'Precision Cooling'], outcomes: ['60% additional cooling capacity unlocked', 'Condensers rated for 50°C ambient', 'Thermal mass buffering for power fluctuations'] },
-  { stat: '99.9%', label: 'Uptime SLA', client: 'National Bank', industry: 'Financial Services', title: 'Monsoon-Hardened Edge Cooling', desc: 'Quarterly room integrity validation and humidity-compensated CRAC setpoints. Zero monsoon-related failures.', tags: ['Edge', 'Monsoon Hardening'], outcomes: ['99.9% uptime SLA met for 24 months', 'Zero monsoon-related cooling failures', 'Automated humidity compensation active'] },
-  { stat: '35%', label: 'Energy Saved', client: 'Cloud Provider', industry: 'Technology', title: 'Free Cooling Integration', desc: 'Hot/cold aisle containment with free-cooling integration. Energy consumption reduced by 35%.', tags: ['Free Cooling', 'PUE Optimisation'], outcomes: ['35% annual energy reduction', 'Free cooling active 8 months/year', 'Containment retrofit completed without downtime'] },
-];
+const NAV_SECTIONS = [
+  'assessment',
+  'hardware',
+  'installation',
+  'managed',
+  'results',
+  'pakistan',
+  'faq',
+  'cta',
+] as const;
 
 const sectionLabels: Record<string, string> = {
-  hardware: 'Hardware Supply',
-  installation: 'Installation',
+  'thermal-failure': 'Thermal Risk',
+  'how-it-works': 'Services',
+  assessment: 'Assessment',
+  hardware: 'Procurement',
+  installation: 'Deployment',
   managed: 'Managed Services',
   pakistan: 'Pakistan-Specific',
-  dependencies: 'Dependencies',
-  integration: 'Integration',
-  trust: 'Key Topics',
-  cases: 'Case Studies',
-  feedback: 'Testimonials',
-  partners: 'Partners',
-  portfolio: 'Clients',
+  results: 'Results',
+  faq: 'FAQ',
   cta: 'Get Started',
 };
 
-const ImagePlaceholder = ({ title, desc, aspect = '16/9' }: { title: string; desc: string; aspect?: string }) => (
-  <div className="mt-8 border-2 border-dashed border-[#c6c6c6] bg-white">
-    <div className="flex flex-col items-center justify-center p-8 text-center min-h-[200px]">
-      <svg className="w-10 h-10 text-[#8d8d8d] mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-      </svg>
-      <p className="carbon-label-01 text-[#525252] uppercase tracking-wider mb-2">3D Rendering / Photography Placeholder</p>
-      <p className="carbon-heading-02 text-[#161616] mb-2">{title}</p>
-      <p className="carbon-body-01 text-[#525252] max-w-2xl">{desc}</p>
-      <p className="carbon-helper-text-01 text-[#8d8d8d] mt-3">Target: {aspect} aspect ratio | Min 1200×675px | PNG/WebP</p>
+const serviceSteps = [
+  { step: '01', title: 'Assessment', desc: 'Thermal assessment & risk scoring', sectionId: 'assessment' },
+  { step: '02', title: 'Procurement', desc: 'Right-sized hardware, certified', sectionId: 'hardware' },
+  { step: '03', title: 'Deployment', desc: 'Install, validate, monitor', sectionId: 'installation' },
+  { step: '04', title: 'Managed Services', desc: '24/7 monitoring & maintenance', sectionId: 'managed' },
+];
+
+const hardwareCards = [
+  {
+    icon: TemperatureHot,
+    pictogram: AirConditioner,
+    title: 'Server Room AC Units',
+    short: 'Edge sites & small server rooms up to 50kW.',
+    category: 'Room Cooling',
+    bullets: [
+      'Wall-mounted, ceiling-suspended, and portable units',
+      'Designed for edge sites and small server rooms up to 50kW heat load',
+      'Split-system and ducted configurations available',
+    ],
+  },
+  {
+    icon: Wind,
+    pictogram: Windy,
+    title: 'Precision Cooling (CRAC/CRAH)',
+    short: 'Data centres requiring ±1°C control.',
+    category: 'Precision Cooling',
+    bullets: [
+      'In-row and perimeter CRAC/CRAH units with redundancy options',
+      '±1°C temperature control for mission-critical environments',
+      'N+1 and 2N redundancy configurations available',
+    ],
+  },
+  {
+    icon: Settings,
+    pictogram: ServerRack,
+    title: 'Large-Scale Facility Cooling',
+    short: 'Chillers, cooling towers, free cooling.',
+    category: 'Facility Cooling',
+    bullets: [
+      'Centralised chiller plants and cooling towers',
+      'Free-cooling and adiabatic cooling for energy efficiency',
+      'Custom designs for facilities >500kW cooling load',
+    ],
+  },
+];
+
+const manufacturerPartners = [
+  { name: 'Huawei', logo: '/logos/partners/Partner-Huawei-Logo.svg', width: 80 },
+  { name: 'Lenovo', logo: '/logos/partners/Partner-Lenovo-Logo.svg', width: 70 },
+  { name: 'Dell', logo: '/logos/partners/Partner-Dell-logo.svg', width: 60 },
+  { name: 'HP', logo: '/logos/partners/Partner- Hewlett-Packard-Logo.svg', width: 50 },
+];
+
+/* ==============================================================================
+   HEADER / NAVIGATION — Carbon React UI Shell
+   ============================================================================== */
+
+const CarbonHeader = () => {
+  // @ts-ignore
+  const SNavItem = SideNavMenuItem as any;
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!activeMenu) return;
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as Node;
+      if (menuRef.current && !menuRef.current.contains(target) && navRef.current && !navRef.current.contains(target)) {
+        setActiveMenu(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [activeMenu]);
+
+  const menuTrigger = (label: string, hasDropdown: boolean) => (
+    <div
+      style={{ position: 'relative', height: '100%' }}
+      onMouseEnter={() => hasDropdown && setActiveMenu(label)}
+    >
+      <HeaderMenuItem
+        href={label === 'Projects' ? '/#/projects' : label === 'About' ? '/#/about' : '/#/services'}
+        style={{ color: '#ffffff' }}
+      >
+        {label}
+      </HeaderMenuItem>
     </div>
-  </div>
+  );
+
+  const MegaLink = ({ href, title, desc }: { href: string; title: string; desc?: string }) => (
+    <a
+      href={href}
+      style={{
+        display: 'block',
+        textDecoration: 'none',
+        padding: '0.5rem 0',
+        transition: 'color 150ms',
+      }}
+      onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = '#0f62fe'; }}
+      onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = '#525252'; }}
+    >
+      <span className="cds--body-compact-01" style={{ color: 'inherit', fontWeight: 600 }}>
+        {title}
+      </span>
+      {desc && (
+        <span className="cds--helper-text-01" style={{ color: '#8d8d8d', display: 'block', marginTop: '0.125rem' }}>
+          {desc}
+        </span>
+      )}
+    </a>
+  );
+
+  const megaMenuContent: Record<string, React.ReactNode> = {
+    Infrastructure: (
+      <Grid>
+        <Column lg={4} md={4} sm={4} style={{ marginBottom: '1.5rem' }}>
+          <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '1rem', fontWeight: 600 }}>
+            Core Infrastructure
+          </p>
+          <MegaLink href="/#/services/server-continuity" title="Server Continuity" desc="Business continuity & disaster recovery" />
+          <MegaLink href="/#/services/hardware-support" title="Hardware Support" desc="Save 60% vs vendor contracts" />
+          <MegaLink href="/#/services/sla-support" title="24×7 SLA Support" desc="Guaranteed response times" />
+        </Column>
+
+        <Column lg={4} md={4} sm={4} style={{ marginBottom: '1.5rem' }}>
+          <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '1rem', fontWeight: 600 }}>
+            Network Operations
+          </p>
+          <MegaLink href="/#/services/cross-domain-automation" title="Cross-Domain Automation" desc="Automate alarm correlation" />
+          <MegaLink href="/#/services/network-monitoring" title="Network Monitoring" desc="Real-time visibility & optimisation" />
+        </Column>
+
+        <Column lg={4} md={4} sm={4} style={{ marginBottom: '1.5rem' }}>
+          <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '1rem', fontWeight: 600 }}>
+            Data Centre Services
+          </p>
+          <MegaLink href="/#/infrastructure/data-centre-services/cooling-airflow" title="Cooling & Airflow" desc="Precision cooling & thermal continuity" />
+          <MegaLink href="/#/services/power-ups" title="Power & UPS" desc="UPS & power distribution" />
+          <MegaLink href="/#/services/rack-cabinets" title="Rack & Cabinet" desc="Server cabinets & enclosures" />
+          <MegaLink href="/#/services/environmental-monitoring" title="Environmental Monitoring" desc="Temp, humidity, leak detection" />
+        </Column>
+
+        <Column lg={4} md={4} sm={4} style={{ marginBottom: '1.5rem' }}>
+          <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '1rem', fontWeight: 600 }}>
+            Data Centre Services
+          </p>
+          <MegaLink href="/#/services/fire-suppression" title="Fire Suppression" desc="FM200 & clean-agent protection" />
+          <MegaLink href="/#/services/design-build" title="Design & Build" desc="End-to-end construction & CFD" />
+          <MegaLink href="/#/services/migration-relocation" title="Migration & Relocation" desc="Zero-downtime moves" />
+          <MegaLink href="/#/services/maintenance-support" title="Maintenance & Support" desc="SLA-backed contracts" />
+        </Column>
+      </Grid>
+    ),
+
+    Cloud: (
+      <Grid>
+        <Column lg={4} md={4} sm={4}>
+          <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '1rem', fontWeight: 600 }}>
+            Cloud Services
+          </p>
+          <MegaLink href="/#/services/cloud-strategy" title="Cloud Strategy" desc="Multi-cloud roadmap & governance" />
+          <MegaLink href="/#/services/cloud-cost-optimisation" title="Cloud Cost Optimisation" desc="Reduce spend by 30–40%" />
+          <MegaLink href="/#/services/cloud-management" title="Cloud Management" desc="Operations & monitoring" />
+        </Column>
+        <Column lg={4} md={4} sm={4}>
+          <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '1rem', fontWeight: 600 }}>
+            Delivery
+          </p>
+          <MegaLink href="/#/services/devops-delivery" title="DevOps Delivery" desc="CI/CD pipelines & automation" />
+          <MegaLink href="/#/services/container-platform" title="Container Platform" desc="Kubernetes & orchestration" />
+        </Column>
+        <Column lg={8} md={8} sm={4}>
+          <Tile style={{ background: '#f4f4f4' }}>
+            <p className="cds--label-01" style={{ color: '#0f62fe', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '0.5rem' }}>Featured</p>
+            <h4 className="cds--heading-02" style={{ color: '#161616', marginBottom: '0.5rem' }}>Cloud Cost Optimisation</h4>
+            <p className="cds--body-compact-01" style={{ color: '#525252' }}>Identify waste, right-size resources, and automate savings.</p>
+          </Tile>
+        </Column>
+      </Grid>
+    ),
+
+    'Data and Analytics': (
+      <Grid>
+        <Column lg={4} md={4} sm={4} style={{ marginBottom: '1.5rem' }}>
+          <MegaLink href="/#/services/iot-data-analytics" title="IoT Data Analytics" desc="Real-time sensor data processing & analytics" />
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem', marginTop: '-0.25rem', marginBottom: '1rem', paddingLeft: '0.25rem' }}>
+            {['Databricks', 'Azure', 'MQTT', 'Data Lakes'].map((t) => (
+              <span key={t} className="cds--tag cds--tag--outline" style={{ fontSize: '0.6875rem', padding: '0 0.5rem', margin: 0, minHeight: '1.25rem' }}>{t}</span>
+            ))}
+          </div>
+          <MegaLink href="/#/services/data-lakes-warehousing" title="Data Lakes & Warehousing" desc="Cloud-based data warehousing and lakehouse architecture" />
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem', marginTop: '-0.25rem', marginBottom: '1rem', paddingLeft: '0.25rem' }}>
+            {['Snowflake', 'Azure Synapse', 'AWS S3', 'Delta Lake'].map((t) => (
+              <span key={t} className="cds--tag cds--tag--outline" style={{ fontSize: '0.6875rem', padding: '0 0.5rem', margin: 0, minHeight: '1.25rem' }}>{t}</span>
+            ))}
+          </div>
+        </Column>
+
+        <Column lg={4} md={4} sm={4} style={{ marginBottom: '1.5rem' }}>
+          <MegaLink href="/#/services/geospatial-analytics" title="Geospatial Analytics" desc="Real-time mobile tower status with mapping" />
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem', marginTop: '-0.25rem', marginBottom: '1rem', paddingLeft: '0.25rem' }}>
+            {['ArcGIS', 'Mapbox', 'Google Maps API', 'PostGIS'].map((t) => (
+              <span key={t} className="cds--tag cds--tag--outline" style={{ fontSize: '0.6875rem', padding: '0 0.5rem', margin: 0, minHeight: '1.25rem' }}>{t}</span>
+            ))}
+          </div>
+          <MegaLink href="/#/services/data-federation" title="Data Federation" desc="Cross-functional central portals for secure data access" />
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem', marginTop: '-0.25rem', marginBottom: '1rem', paddingLeft: '0.25rem' }}>
+            {['Apache Trino', 'Data Virtualization', 'API Gateway', 'GraphQL'].map((t) => (
+              <span key={t} className="cds--tag cds--tag--outline" style={{ fontSize: '0.6875rem', padding: '0 0.5rem', margin: 0, minHeight: '1.25rem' }}>{t}</span>
+            ))}
+          </div>
+        </Column>
+
+        <Column lg={4} md={4} sm={4} style={{ marginBottom: '1.5rem' }}>
+          <MegaLink href="/#/services/database-optimisation" title="Database Optimisation" desc="DB2 PureScale, SQL Server, Oracle performance tuning" />
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem', marginTop: '-0.25rem', marginBottom: '1rem', paddingLeft: '0.25rem' }}>
+            {['DB2 PureScale', 'SQL Server', 'Oracle', 'PostgreSQL'].map((t) => (
+              <span key={t} className="cds--tag cds--tag--outline" style={{ fontSize: '0.6875rem', padding: '0 0.5rem', margin: 0, minHeight: '1.25rem' }}>{t}</span>
+            ))}
+          </div>
+        </Column>
+      </Grid>
+    ),
+
+    AI: (
+      <Grid>
+        <Column lg={4} md={4} sm={4}>
+          <MegaLink href="/#/services/ai-strategy" title="AI Strategy" desc="AI roadmap & use-case prioritisation" />
+          <MegaLink href="/#/services/mlops" title="MLOps" desc="Model deployment & monitoring" />
+        </Column>
+        <Column lg={4} md={4} sm={4}>
+          <MegaLink href="/#/services/generative-ai" title="Generative AI" desc="LLM integration & fine-tuning" />
+          <MegaLink href="/#/services/ai-governance" title="AI Governance" desc="Compliance & ethics frameworks" />
+        </Column>
+      </Grid>
+    ),
+
+    'IT Platforms': (
+      <Grid>
+        <Column lg={4} md={4} sm={4}>
+          <MegaLink href="/#/services/servicenow" title="ServiceNow" desc="ITSM & enterprise workflows" />
+          <MegaLink href="/#/services/salesforce" title="Salesforce" desc="CRM implementation & customisation" />
+        </Column>
+        <Column lg={4} md={4} sm={4}>
+          <MegaLink href="/#/services/microsoft-365" title="Microsoft 365" desc="Migration & governance" />
+          <MegaLink href="/#/services/cybersecurity-platform" title="Cybersecurity" desc="SOC & threat detection" />
+        </Column>
+      </Grid>
+    ),
+
+    Consultancy: (
+      <Grid>
+        <Column lg={4} md={4} sm={4}>
+          <MegaLink href="/#/services/it-assessment" title="IT Assessment" desc="Current-state analysis & gaps" />
+          <MegaLink href="/#/services/technology-roadmap" title="Technology Roadmap" desc="3-year planning & prioritisation" />
+        </Column>
+        <Column lg={4} md={4} sm={4}>
+          <MegaLink href="/#/services/digital-transformation" title="Digital Transformation" desc="Process modernisation" />
+        </Column>
+      </Grid>
+    ),
+  };
+
+  return (
+    <>
+      <HeaderContainer
+        render={({ isSideNavExpanded: expanded, onClickSideNavExpand }) => (
+          <Header
+            aria-label="Perception IT"
+            className="cooling-airflow-header cds--header--dark"
+          >
+            <HeaderMenuButton
+              aria-label={expanded ? 'Close menu' : 'Open menu'}
+              onClick={onClickSideNavExpand}
+              isActive={expanded}
+              aria-expanded={expanded}
+            />
+            <HeaderName href="/#/" prefix="">
+              Perception IT
+            </HeaderName>
+            <HeaderNavigation aria-label="Main navigation" ref={navRef as React.RefObject<HTMLElement>}>
+              {menuTrigger('Solutions', true)}
+              {menuTrigger('Consultancy', true)}
+              {menuTrigger('Cloud', true)}
+              {menuTrigger('Infrastructure', true)}
+              {menuTrigger('Data and Analytics', true)}
+              {menuTrigger('AI', true)}
+              {menuTrigger('IT Platforms', true)}
+              {menuTrigger('Projects', false)}
+              {menuTrigger('About', false)}
+            </HeaderNavigation>
+            <HeaderGlobalBar>
+              <HeaderGlobalAction aria-label="Search">
+                <Search size={20} style={{ fill: '#ffffff' }} />
+              </HeaderGlobalAction>
+            </HeaderGlobalBar>
+            <SideNav
+              aria-label="Side navigation"
+              expanded={expanded}
+              isPersistent={false}
+              onOverlayClick={onClickSideNavExpand}
+            >
+              <SideNavItems>
+                <SNavItem href="/#/">Home</SNavItem>
+                <SideNavMenu title="Services">
+                  <SNavItem href="/#/services/cloud-strategy">Cloud Strategy</SNavItem>
+                  <SNavItem href="/#/infrastructure/data-centre-services/cooling-airflow">Cooling & Airflow</SNavItem>
+                  <SNavItem href="/#/services/server-continuity">Server Continuity</SNavItem>
+                  <SNavItem href="/#/services/hardware-support">Hardware Support</SNavItem>
+                  <SNavItem href="/#/services/sla-support">24×7 SLA Support</SNavItem>
+                  <SNavItem href="/#/services/cross-domain-automation">Cross-Domain Automation</SNavItem>
+                  <SNavItem href="/#/services/network-monitoring">Network Monitoring</SNavItem>
+                </SideNavMenu>
+                <SideNavMenu title="Data Centre">
+                  <SNavItem href="/#/infrastructure/data-centre-services/cooling-airflow">Cooling & Airflow</SNavItem>
+                  <SNavItem href="/#/services/power-ups">Power & UPS</SNavItem>
+                  <SNavItem href="/#/services/rack-cabinets">Rack & Cabinets</SNavItem>
+                  <SNavItem href="/#/services/environmental-monitoring">Environmental Monitoring</SNavItem>
+                  <SNavItem href="/#/services/fire-suppression">Fire Suppression</SNavItem>
+                  <SNavItem href="/#/services/design-build">Design & Build</SNavItem>
+                  <SNavItem href="/#/services/migration-relocation">Migration & Relocation</SNavItem>
+                  <SNavItem href="/#/services/maintenance-support">Maintenance & Support</SNavItem>
+                </SideNavMenu>
+                <SNavItem href="/#/about">About</SNavItem>
+                <SNavItem href="/#/projects">Projects</SNavItem>
+                <SNavItem href="/#/contact">Contact</SNavItem>
+              </SideNavItems>
+            </SideNav>
+          </Header>
+        )}
+      />
+
+      {/* Mega Menu Backdrop + Panel — rendered via portal */}
+      {activeMenu && megaMenuContent[activeMenu] && createPortal(
+        <>
+          {/* Backdrop */}
+          <div
+            onClick={() => setActiveMenu(null)}
+            style={{
+              position: 'fixed',
+              top: '3rem',
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: 9998,
+              background: 'rgba(22, 22, 22, 0.55)',
+              backdropFilter: 'blur(2px)',
+              WebkitBackdropFilter: 'blur(2px)',
+            }}
+          />
+          {/* Panel */}
+          <div
+            ref={menuRef}
+            onMouseEnter={() => setActiveMenu(activeMenu)}
+            onMouseLeave={() => setActiveMenu(null)}
+            style={{
+              position: 'fixed',
+              top: '3rem',
+              left: 0,
+              right: 0,
+              zIndex: 9999,
+              background: '#ffffff',
+              borderBottom: '1px solid #e0e0e0',
+              boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+              maxHeight: 'calc(100vh - 3rem)',
+              overflowY: 'auto',
+            }}
+          >
+            <div style={{ maxWidth: '99rem', margin: '0 auto', padding: '2rem 1.5rem' }}>
+              {megaMenuContent[activeMenu]}
+            </div>
+          </div>
+        </>,
+        document.body
+      )}
+    </>
+  );
+};
+
+/* ==============================================================================
+   SECTION COMPONENTS
+   ============================================================================== */
+
+const HeroSection = ({ scrollToSection }: { scrollToSection: (id: string) => void }) => (
+  <section
+    id="overview"
+    style={{
+      position: 'relative',
+      paddingTop: '10rem',
+      paddingBottom: '5rem',
+      background: '#0a1628',
+      overflow: 'hidden',
+    }}
+  >
+    {/* Thermal Gradient Background */}
+    <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '-10rem',
+          left: '25%',
+          width: 800,
+          height: 600,
+          background: '#8a3a1d',
+          borderRadius: '50%',
+          filter: 'blur(180px)',
+          opacity: 0.18,
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          right: '33%',
+          width: 600,
+          height: 500,
+          background: '#b85c1a',
+          borderRadius: '50%',
+          filter: 'blur(150px)',
+          opacity: 0.12,
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          top: '-5rem',
+          right: '25%',
+          width: 600,
+          height: 600,
+          background: '#0f62fe',
+          borderRadius: '50%',
+          filter: 'blur(140px)',
+          opacity: 0.22,
+        }}
+      />
+    </div>
+
+    <Grid style={{ position: 'relative', zIndex: 10 }}>
+      <Column lg={12} md={8} sm={4}>
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" style={{ marginBottom: '2rem' }}>
+          <ol style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem', fontSize: '0.75rem', listStyle: 'none', padding: 0, margin: 0 }}>
+            <li><Link to="/" style={{ color: '#78a9ff', textDecoration: 'none' }}>Home</Link></li>
+            <li aria-hidden="true"><ChevronRight size={12} style={{ color: '#525252' }} /></li>
+            <li><Link to="/services" style={{ color: '#78a9ff', textDecoration: 'none' }}>Services</Link></li>
+            <li aria-hidden="true"><ChevronRight size={12} style={{ color: '#525252' }} /></li>
+            <li><Link to="/services/datacenter2" style={{ color: '#78a9ff', textDecoration: 'none' }}>Data Centre Services</Link></li>
+            <li aria-hidden="true"><ChevronRight size={12} style={{ color: '#525252' }} /></li>
+            <li><span style={{ color: '#009d9a', fontWeight: 500 }} aria-current="page">Cooling & Airflow</span></li>
+          </ol>
+        </nav>
+
+        <h1
+          style={{
+            fontSize: 'clamp(1.75rem, 4vw, 2.625rem)',
+            fontWeight: 300,
+            lineHeight: 1.19,
+            color: '#ffffff',
+            marginBottom: '2rem',
+            maxWidth: '48rem',
+          }}
+        >
+          Precision Cooling & Thermal Continuity for Data Centres
+        </h1>
+        <p
+          style={{
+            fontSize: '1rem',
+            fontWeight: 600,
+            lineHeight: 1.5,
+            color: '#c6c6c6',
+            marginBottom: '2rem',
+            maxWidth: '36rem',
+          }}
+        >
+          Maintain optimal temperatures for your critical infrastructure. We handle everything: thermal assessment, hardware supply, installation, and 24/7 monitoring. One partner, one end-to-end uptime SLA.
+        </p>
+        <p
+          style={{
+            fontSize: '1rem',
+            fontWeight: 400,
+            lineHeight: 1.375,
+            color: '#a8a8a8',
+            marginBottom: '2.5rem',
+            maxWidth: '36rem',
+          }}
+        >
+          Engineered for Pakistan&apos;s climate reality: 45°C summers, monsoon humidity spikes, dust infiltration, and unstable grid power.
+        </p>
+        <ButtonSet style={{ gap: '0.75rem', flexWrap: 'wrap' }}>
+          <Button
+            kind="primary"
+            renderIcon={ArrowRight}
+            onClick={() => scrollToSection('cta')}
+          >
+            Request Thermal Health Check
+          </Button>
+          <Button
+            kind="tertiary"
+            onClick={() => scrollToSection('hardware')}
+            style={{ color: '#ffffff', borderColor: 'rgba(255,255,255,0.5)' }}
+          >
+            Explore Hardware Options
+          </Button>
+        </ButtonSet>
+      </Column>
+    </Grid>
+  </section>
 );
 
+const ThermalRiskSection = () => {
+  const failureCards = [
+    {
+      step: '01',
+      title: 'Overheat',
+      temp: '45°C+',
+      desc: 'Server inlet temperatures exceed 27°C. Thermal throttling begins. Performance drops 30–50% before hard shutdown.',
+      icon: TemperatureHot,
+      iconColor: '#cf0a2c',
+      bg: 'linear-gradient(135deg, #fff1f1 0%, #ffffff 100%)',
+      borderColor: '#cf0a2c',
+    },
+    {
+      step: '02',
+      title: 'Condensation',
+      temp: '90% RH',
+      desc: 'Humidity exceeds dew point inside cabinets. Corrosion begins on boards and contacts. Latent damage not visible for weeks.',
+      icon: RainDrop,
+      iconColor: '#009d9a',
+      bg: 'linear-gradient(135deg, #e5f6ff 0%, #ffffff 100%)',
+      borderColor: '#009d9a',
+    },
+    {
+      step: '03',
+      title: 'Downtime',
+      temp: 'PKR 2–5M/day',
+      desc: 'Cascading thermal shutdowns trigger SLA penalties, client churn, and emergency CapEx.',
+      icon: Warning,
+      iconColor: '#f1c21b',
+      bg: 'linear-gradient(135deg, #fcf4d6 0%, #ffffff 100%)',
+      borderColor: '#f1c21b',
+    },
+  ];
+
+  return (
+    <section id="thermal-failure" style={{ padding: '4rem 0', background: 'var(--cds-background, #ffffff)' }}>
+      <Grid>
+        <Column lg={12} md={8} sm={4}>
+          <div style={{ marginBottom: '1.5rem' }}>
+            <div style={{ width: 24, height: 2, background: '#cf0a2c', marginBottom: 8 }} />
+            <p className="cds--label-01" style={{ color: '#cf0a2c', textTransform: 'uppercase', letterSpacing: '0.32px' }}>
+              Thermal Risk
+            </p>
+          </div>
+          <h2
+            className="cds--fluid-heading-05"
+            style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: '1rem' }}
+          >
+            What Happens at 45°C / 90% RH
+          </h2>
+          <p
+            className="cds--body-compact-01"
+            style={{ color: 'var(--cds-text-secondary, #525252)', marginBottom: '2.5rem', maxWidth: '48rem' }}
+          >
+            Pakistan&apos;s summer peaks push standard cooling beyond its design limits. When ambient exceeds 35°C and humidity crosses 80%, three failure modes cascade — and they cascade fast.
+          </p>
+        </Column>
+      </Grid>
+
+      {/* Failure cascade cards */}
+      <Grid>
+        {failureCards.map((item, idx) => {
+          const Icon = item.icon;
+          return (
+            <Column lg={4} md={4} sm={4} key={item.step} style={{ marginBottom: '1.5rem' }}>
+              <div style={{ position: 'relative', height: '100%' }}>
+                <Tile
+                  style={{
+                    height: '100%',
+                    padding: '1.5rem',
+                    background: item.bg,
+                    borderTop: `4px solid ${item.borderColor}`,
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
+                    <div
+                      style={{
+                        width: 44,
+                        height: 44,
+                        background: item.borderColor,
+                        color: '#ffffff',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontWeight: 600,
+                        fontSize: '1rem',
+                      }}
+                    >
+                      {item.step}
+                    </div>
+                    <Icon size={28} style={{ color: item.iconColor }} />
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                    <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary, #161616)' }}>
+                      {item.title}
+                    </h3>
+                    <span
+                      className="cds--label-01"
+                      style={{
+                        color: item.borderColor,
+                        fontWeight: 600,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.32px',
+                        fontSize: '0.625rem',
+                        border: `1px solid ${item.borderColor}`,
+                        padding: '2px 6px',
+                      }}
+                    >
+                      {item.temp}
+                    </span>
+                  </div>
+                  <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary, #525252)' }}>
+                    {item.desc}
+                  </p>
+                </Tile>
+
+                {/* Cascade arrow — desktop only, between cards */}
+                {idx < 2 && (
+                  <div
+                    className="cascade-arrow"
+                    style={{
+                      display: 'none',
+                      position: 'absolute',
+                      top: '50%',
+                      right: '-1.5rem',
+                      transform: 'translateY(-50%)',
+                      zIndex: 10,
+                    }}
+                  >
+                    <ArrowRight size={20} style={{ color: '#c6c6c6' }} />
+                  </div>
+                )}
+              </div>
+            </Column>
+          );
+        })}
+      </Grid>
+
+      {/* CTA */}
+      <Grid style={{ marginTop: '2.5rem' }}>
+        <Column lg={12} md={8} sm={4}>
+          <Tile style={{ textAlign: 'center', padding: '1.5rem', background: '#0a1628' }}>
+            <h3 className="cds--heading-02" style={{ color: '#ffffff', marginBottom: '0.5rem' }}>
+              Don&apos;t wait for the next heatwave.
+            </h3>
+            <p className="cds--body-compact-01" style={{ color: '#c6c6c6', marginBottom: '1.5rem', maxWidth: '36rem', margin: '0 auto 1.5rem' }}>
+              A Thermal Health Check identifies your risk profile before the summer peak. From PKR 75,000. 90 minutes. No obligation.
+            </p>
+            <Button kind="primary" renderIcon={ArrowRight} href="#cta">
+              Book Thermal Health Check
+            </Button>
+          </Tile>
+        </Column>
+      </Grid>
+    </section>
+  );
+};
+
+const ServicesSection = ({ scrollToSection }: { scrollToSection: (id: string) => void }) => (
+  <section id="how-it-works" style={{ padding: '4rem 0', background: '#f4f4f4' }}>
+    <Grid>
+      <Column lg={12} md={8} sm={4}>
+        <div style={{ marginBottom: '0.75rem' }}>
+          <div style={{ width: 24, height: 2, background: '#009d9a', marginBottom: 8 }} />
+          <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px' }}>
+            Services
+          </p>
+        </div>
+        <h2
+          className="cds--fluid-heading-04"
+          style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: '2rem' }}
+        >
+          From Cooling Assessment to 24/7 Accountability
+        </h2>
+      </Column>
+    </Grid>
+
+    <Grid>
+      {serviceSteps.map((item, idx) => (
+        <Column lg={3} md={4} sm={4} key={item.step} style={{ marginBottom: '1rem' }}>
+          <ClickableTile
+            onClick={() => scrollToSection(item.sectionId)}
+            style={{
+              height: '100%',
+              borderBottom: `2px solid ${idx === 0 ? '#0f62fe' : 'transparent'}`,
+              transition: 'all 150ms cubic-bezier(0.25, 0.1, 0.25, 1)',
+            }}
+          >
+            <div
+              style={{
+                width: 40,
+                height: 40,
+                background: '#0f62fe',
+                color: '#ffffff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 600,
+                fontSize: '1rem',
+                marginBottom: '0.75rem',
+              }}
+            >
+              {item.step}
+            </div>
+            <p className="cds--heading-02" style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: '0.25rem' }}>
+              {item.title}
+            </p>
+            <p className="cds--body-compact-01" style={{ color: '#525252' }}>
+              {item.desc}
+            </p>
+          </ClickableTile>
+
+        </Column>
+      ))}
+    </Grid>
+  </section>
+);
+
+const AssessmentSection = () => {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <section id="assessment" style={{ padding: '4rem 0', background: 'var(--cds-background, #ffffff)' }}>
+      <Grid>
+        <Column lg={16} md={8} sm={4}>
+          {/* ============================================================
+              SCAN LAYER — Always visible
+              ============================================================ */}
+          <Grid>
+
+            {/* Text — left side */}
+            <Column lg={8} md={4} sm={4}>
+              {/* Section label */}
+              <div style={{ borderLeft: '2px solid #009d9a', paddingLeft: '0.75rem', marginBottom: '0.75rem' }}>
+                <p className="cds--label-01" style={{ color: '#009d9a', textTransform: 'uppercase', letterSpacing: '0.32px', fontWeight: 600 }}>
+                  01 Assessment
+                </p>
+              </div>
+              <p className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '1rem' }}>
+                Thermal assessment &amp; risk scoring
+              </p>
+
+              <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: '1rem' }}>
+                Your Two Assessment Options
+              </h2>
+              <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-primary, #161616)', fontWeight: 600, marginBottom: '1.5rem' }}>
+                Match the assessment to your facility&apos;s scale and criticality.
+              </p>
+
+              {/* Assessment options list */}
+              <div style={{ borderTop: '1px solid #e0e0e0' }}>
+                <p className="cds--label-01" style={{ color: '#8d8d8d', textTransform: 'uppercase', letterSpacing: '0.32px', paddingTop: '1rem', marginBottom: '0.5rem' }}>
+                  Assessment options
+                </p>
+                {[
+                  {
+                    title: 'Standard Thermal Health Check',
+                    price: 'From PKR 75,000',
+                    desc: '90-minute on-site audit with IR mapping and risk scorecard.',
+                  },
+                  {
+                    title: 'Precision Thermal Engineering',
+                    price: 'From PKR 650,000',
+                    desc: 'CFD modelling, capacity calculations, and engineering sign-off.',
+                  },
+                ].map((item, idx, arr) => (
+                  <div
+                    key={item.title}
+                    style={{
+                      padding: '1rem 0',
+                      borderBottom: idx < arr.length - 1 ? '1px solid #e0e0e0' : 'none',
+                    }}
+                  >
+                    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', justifyContent: 'space-between', gap: '0.25rem', marginBottom: '0.25rem' }}>
+                      <p className="cds--heading-01" style={{ color: '#161616', fontWeight: 600 }}>{item.title}</p>
+                      <p className="cds--label-01" style={{ color: '#0f62fe', fontWeight: 500, whiteSpace: 'nowrap' }}>{item.price}</p>
+                    </div>
+                    <p className="cds--body-compact-01" style={{ color: '#525252' }}>{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA + expand trigger */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1rem', marginTop: '1.5rem' }}>
+                <Button kind="primary" renderIcon={ArrowRight} href="#cta">
+                  Book a Free 15-Minute Call
+                </Button>
+                {!expanded && (
+                  <button
+                    onClick={() => setExpanded(true)}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: '#0f62fe',
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      fontSize: '0.875rem',
+                      fontWeight: 400,
+                      lineHeight: 1.28572,
+                      letterSpacing: '0.16px',
+                      padding: 0,
+                    }}
+                  >
+                    <Compare size={20} />
+                    Compare both options in detail
+                    <ChevronRight size={16} />
+                  </button>
+                )}
+              </div>
+            </Column>
+            {/* Image — right side */}
+            <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-06, 1.5rem)' }}>
+              <div style={{ width: '100%', height: 360, background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <img
+                  src="/3D images/Cooling and Airflow/perceptionit_document_checks_2.webp"
+                  alt="Engineer reviewing thermal assessment documentation, checklist validation, and audit scorecards"
+                  style={{ maxWidth: '100%', maxHeight: 360, objectFit: 'contain' }}
+                  loading="lazy"
+                />
+              </div>
+            </Column>
+          </Grid>
+
+          {/* ============================================================
+              DETAIL LAYER — Expandable
+              ============================================================ */}
+          <div
+            style={{
+              maxHeight: expanded ? 8000 : 0,
+              overflow: 'hidden',
+              opacity: expanded ? 1 : 0,
+              transition: 'max-height 400ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 300ms ease',
+              marginTop: expanded ? '2rem' : 0,
+            }}
+          >
+            {/* Close link */}
+            <div style={{ textAlign: 'right', marginBottom: '1rem' }}>
+              <button
+                onClick={() => setExpanded(false)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: '#0f62fe',
+                  cursor: 'pointer',
+                  fontSize: '0.875rem',
+                  fontWeight: 400,
+                  lineHeight: 1.28572,
+                  letterSpacing: '0.16px',
+                  padding: 0,
+                }}
+              >
+                <ChevronRight size={16} style={{ transform: 'rotate(180deg)' }} />
+                Close comparison
+              </button>
+            </div>
+
+            {/* Comparison Table */}
+            <div style={{ overflowX: 'auto', marginBottom: '2.5rem' }}>
+              <table style={{ width: '100%', fontSize: '0.875rem', borderCollapse: 'collapse' }}>
+                {/* Column identity header */}
+                <thead>
+                  <tr style={{ background: 'rgba(15, 98, 254, 0.04)', borderBottom: '2px solid #e0e0e0' }}>
+                    <th style={{ textAlign: 'left', padding: '1.25rem 1.25rem', width: '18%' }} />
+                    <th style={{ textAlign: 'left', padding: '1.25rem 1.25rem', width: '41%' }}>
+                      <span style={{ display: 'inline-flex', alignItems: 'center', padding: '0 0.5rem', height: '1.25rem', background: '#0f62fe', color: '#ffffff', fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.32px' }}>
+                        Option 1
+                      </span>
+                      <span className="cds--label-01" style={{ display: 'block', color: '#0f62fe', textTransform: 'uppercase', letterSpacing: '0.32px', marginTop: '0.5rem' }}>
+                        Standard
+                      </span>
+                      <h4 className="cds--heading-02" style={{ color: '#161616', lineHeight: 1.3, marginTop: '0.375rem' }}>
+                        Thermal Health Check
+                      </h4>
+                      <p className="cds--body-compact-01" style={{ color: '#525252', marginTop: '0.25rem' }}>
+                        Quick confidence in 90 minutes
+                      </p>
+                    </th>
+                    <th style={{ textAlign: 'left', padding: '1.25rem 1.25rem', width: '41%' }}>
+                      <span style={{ display: 'inline-flex', alignItems: 'center', padding: '0 0.5rem', height: '1.25rem', background: '#0f62fe', color: '#ffffff', fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.32px' }}>
+                        Option 2
+                      </span>
+                      <span className="cds--label-01" style={{ display: 'block', color: '#0f62fe', textTransform: 'uppercase', letterSpacing: '0.32px', marginTop: '0.5rem' }}>
+                        Engineering-Grade
+                      </span>
+                      <h4 className="cds--heading-02" style={{ color: '#161616', lineHeight: 1.3, marginTop: '0.375rem' }}>
+                        Precision Thermal Engineering
+                      </h4>
+                      <p className="cds--body-compact-01" style={{ color: '#525252', marginTop: '0.25rem' }}>
+                        See heat flow before you spend
+                      </p>
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {/* Best For */}
+                  <tr style={{ borderBottom: '1px solid #e0e0e0' }}>
+                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
+                      <div style={{ borderLeft: '2px solid #0f62fe', paddingLeft: '0.75rem' }}>
+                        <span className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', fontWeight: 600 }}>
+                          Best For
+                        </span>
+                      </div>
+                    </td>
+                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
+                      <p className="cds--heading-01" style={{ color: '#161616', lineHeight: 1.3 }}>
+                        Routine maintenance, edge sites, budget planning
+                      </p>
+                    </td>
+                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
+                      <p className="cds--heading-01" style={{ color: '#161616', lineHeight: 1.3 }}>
+                        New builds, high-density, compliance, root cause
+                      </p>
+                    </td>
+                  </tr>
+
+                  {/* Choose this if */}
+                  <tr style={{ borderBottom: '1px solid #e0e0e0' }}>
+                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
+                      <div style={{ borderLeft: '2px solid #0f62fe', paddingLeft: '0.75rem' }}>
+                        <span className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', fontWeight: 600 }}>
+                          Choose this if
+                        </span>
+                      </div>
+                    </td>
+                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
+                      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                        {[
+                          'Routine maintenance or edge-class sites',
+                          'Budget-constrained planning phase',
+                          'Quick triage without engineering overhead',
+                          'Results needed within 48 hours',
+                        ].map((item) => (
+                          <li key={item} className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '0.5rem', display: 'flex', gap: '0.5rem' }}>
+                            <CheckmarkFilled size={16} style={{ color: '#0f62fe', marginTop: 2, flexShrink: 0 }} />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </td>
+                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
+                      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                        {[
+                          'New build or major retrofit planning',
+                          'High-density loads (>8 kW per rack)',
+                          'Compliance or audit documentation required',
+                          'Recurring thermal issues need root-cause analysis',
+                        ].map((item) => (
+                          <li key={item} className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '0.5rem', display: 'flex', gap: '0.5rem' }}>
+                            <CheckmarkFilled size={16} style={{ color: '#0f62fe', marginTop: 2, flexShrink: 0 }} />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </td>
+                  </tr>
+
+                  {/* Evidence rows */}
+                  {[
+                    ['Deliverable', 'Photo log + "Fix / Watch / OK" list', '3D heat maps + capacity calculations'],
+                    ['Precision', 'Qualitative ("Rack 12 feels warm")', 'Quantitative ("Rack 12 exceeds 27°C at 45°C ambient")'],
+                    ['Method', 'Visual inspection + structured checklist', 'CFD modeling + engineering analysis'],
+                    ['Tools', 'IR camera, airflow meter, checklist', '6SigmaDC/ANSYS, thermal sensors, load data'],
+                  ].map(([feat, opt1, opt2]) => (
+                    <tr key={String(feat)} style={{ borderBottom: '1px solid #e0e0e0' }}>
+                      <td style={{ padding: '0.75rem 1.25rem', verticalAlign: 'top' }}>
+                        <span className="cds--body-compact-01" style={{ color: '#525252' }}>{feat}</span>
+                      </td>
+                      <td style={{ padding: '0.75rem 1.25rem', verticalAlign: 'top', color: '#525252' }} className="cds--body-compact-01">{opt1}</td>
+                      <td style={{ padding: '0.75rem 1.25rem', verticalAlign: 'top', color: '#525252' }} className="cds--body-compact-01">{opt2}</td>
+                    </tr>
+                  ))}
+
+                  {/* Timeline & Pricing */}
+                  <tr style={{ borderTop: '2px solid #e0e0e0', borderBottom: '1px solid #e0e0e0' }}>
+                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
+                      <span className="cds--label-01" style={{ color: '#8d8d8d', textTransform: 'uppercase', letterSpacing: '0.32px' }}>Timeline &amp; Pricing</span>
+                    </td>
+                    <td style={{ padding: '0.5rem 1.25rem' }} />
+                    <td style={{ padding: '0.5rem 1.25rem' }} />
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #e0e0e0' }}>
+                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
+                      <span className="cds--helper-text-01" style={{ color: '#8d8d8d' }}>Time On-Site</span>
+                    </td>
+                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
+                      <span className="cds--helper-text-01" style={{ color: '#525252' }}>2–4 hours (single visit)</span>
+                    </td>
+                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
+                      <span className="cds--helper-text-01" style={{ color: '#525252' }}>1–2 days (data collection)</span>
+                    </td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #e0e0e0' }}>
+                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
+                      <span className="cds--helper-text-01" style={{ color: '#8d8d8d' }}>Turnaround</span>
+                    </td>
+                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
+                      <span className="cds--helper-text-01" style={{ color: '#525252' }}>Report from within 48 hours</span>
+                    </td>
+                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
+                      <span className="cds--helper-text-01" style={{ color: '#525252' }}>Analysis from within 1–2 weeks</span>
+                    </td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #e0e0e0' }}>
+                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
+                      <span className="cds--helper-text-01" style={{ color: '#8d8d8d' }}>Investment</span>
+                    </td>
+                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
+                      <span className="cds--label-01" style={{ color: '#0f62fe', fontWeight: 500 }}>From PKR 75,000</span>
+                      <span className="cds--helper-text-01" style={{ color: '#525252' }}> per visit</span>
+                    </td>
+                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
+                      <span className="cds--label-01" style={{ color: '#0f62fe', fontWeight: 500 }}>From PKR 650,000</span>
+                      <span className="cds--helper-text-01" style={{ color: '#525252' }}> (up to 50 racks)</span>
+                    </td>
+                  </tr>
+
+                  {/* CTA row */}
+                  <tr style={{ borderTop: '2px solid #e0e0e0' }}>
+                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
+                      <span className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', fontWeight: 600 }}>Next step</span>
+                    </td>
+                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
+                      <Button kind="primary" renderIcon={ArrowRight} href="#cta" style={{ width: '100%', justifyContent: 'center' }}>
+                        Book Thermal Health Check
+                      </Button>
+                    </td>
+                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
+                      <Button kind="primary" renderIcon={ArrowRight} href="mailto:contact@perception-it.com?subject=Precision%20Thermal%20Engineering%20Proposal%20Request" style={{ width: '100%', justifyContent: 'center' }}>
+                        Request CFD Proposal
+                      </Button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Supporting Callouts */}
+            <Grid style={{ marginBottom: '2.5rem' }}>
+              <Column lg={8} md={4} sm={4} style={{ marginBottom: '1rem' }}>
+                <Tile style={{ background: '#f4f4f4', borderLeft: '4px solid #009d9a', height: '100%' }}>
+                  <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '0.5rem' }}>
+                    Upgrade Path
+                  </p>
+                  <p className="cds--body-compact-01" style={{ color: '#525252' }}>
+                    If your Health Check reveals complexity, <strong style={{ color: '#161616' }}>20% of your fee is credited</strong> toward Precision Thermal Engineering when upgraded within 60 days.
+                  </p>
+                </Tile>
+              </Column>
+              <Column lg={8} md={4} sm={4} style={{ marginBottom: '1rem' }}>
+                <Tile style={{ background: '#f4f4f4', borderLeft: '4px solid #009d9a', height: '100%' }}>
+                  <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '0.5rem' }}>
+                    What&apos;s Not Included
+                  </p>
+                  <p className="cds--body-compact-01" style={{ color: '#525252' }}>
+                    Assessment covers audit, scoring, and recommendation only. Excludes implementation, hardware supply, and ongoing monitoring.
+                  </p>
+                </Tile>
+              </Column>
+            </Grid>
+
+            {/* Collapse link */}
+            <div style={{ textAlign: 'right' }}>
+              <button
+                onClick={() => setExpanded(false)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: '#0f62fe',
+                  cursor: 'pointer',
+                  fontSize: '0.875rem',
+                  fontWeight: 400,
+                  lineHeight: 1.28572,
+                  letterSpacing: '0.16px',
+                  padding: 0,
+                }}
+              >
+                <ChevronRight size={16} style={{ transform: 'rotate(180deg)' }} />
+                Close comparison
+              </button>
+            </div>
+          </div>
+        </Column>
+      </Grid>
+    </section>
+  );
+};
+const DeploymentSection = () => {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const deployTabs = [
+    {
+      step: '01',
+      icon: Settings,
+      title: 'Mechanical Installation',
+      items: [
+        'Positioning and levelling',
+        'Refrigerant line brazing and pressure testing',
+        'Condensate drain routing',
+        'Electrical connection and breaker sizing',
+      ],
+      image: {
+        src: '/3D images/Cooling and Airflow/perceptionit_mechanical_final.webp',
+        alt: 'Mechanical installation of precision cooling unit showing positioning, refrigerant line brazing, condensate drain routing, and electrical connections',
+      },
+    },
+    {
+      step: '02',
+      icon: Meter,
+      title: 'Thermal Validation',
+      items: [
+        'Infrared thermal mapping of rack inlets',
+        'CFD airflow simulation for hotspot elimination',
+        'Load-bank testing at design capacity',
+        'Failover simulation: primary → secondary → portable',
+      ],
+      image: {
+        src: '/3D images/Cooling and Airflow/perceptionit_thermal_validation_final.webp',
+        alt: 'Thermal validation process showing infrared thermal mapping, CFD airflow simulation, load-bank testing, and failover simulation for precision cooling systems',
+      },
+    },
+    {
+      step: '03',
+      icon: Certificate,
+      title: 'Commissioning Sign-Off',
+      items: [
+        'As-built documentation',
+        'Cooling capacity test report',
+        'Setpoint calibration (temperature & humidity)',
+        'Operator training handover',
+      ],
+      image: {
+        src: '/3D images/Cooling and Airflow/perceptionit_commissioning_people_final.webp',
+        alt: 'Commissioning sign-off process showing as-built documentation, cooling capacity test reports, setpoint calibration, and operator training handover',
+      },
+    },
+    {
+      step: '04',
+      icon: Dashboard,
+      title: 'Monitoring Integration',
+      items: [
+        'Sensor placement (rack inlet, return air, under-floor)',
+        'DCIM integration (Huawei iManager, Schneider StruxureWare)',
+        'Alert threshold configuration',
+        'NOC dashboard onboarding',
+      ],
+      image: {
+        src: '/3D images/Cooling and Airflow/perceptionit_monitoring_integration.png',
+        alt: 'Monitoring integration showing sensor placement, DCIM dashboard integration, alert threshold configuration, and NOC onboarding',
+      },
+    },
+  ];
+
+  const activeTabData = deployTabs[activeTab];
+
+  const failureModes = [
+    { num: '01', text: 'Incorrect refrigerant charge' },
+    { num: '02', text: 'Undersized condensate drains' },
+    { num: '03', text: 'Missing thermal validation' },
+  ];
+
+  return (
+    <section id="installation" style={{ padding: '4rem 0', background: 'var(--cds-background, #ffffff)' }}>
+      <Grid>
+        <Column lg={16} md={8} sm={4}>
+          <div style={{ marginBottom: '1.5rem' }}>
+            <div style={{ width: 24, height: 2, background: '#009d9a', marginBottom: 8 }} />
+            <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px' }}>
+              03 Deployment
+            </p>
+          </div>
+          <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: '1rem' }}>
+            Deployment & Commissioning
+          </h2>
+          <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-primary, #161616)', fontWeight: 600, marginBottom: '0.5rem' }}>
+            Thermal continuity is won or lost at installation.
+          </p>
+          <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary, #525252)', marginBottom: '2.5rem', maxWidth: '48rem' }}>
+            Core deployment covers mechanical installation and power-on verification. Thermal validation, airflow mapping, failover testing, and monitoring integration are scoped to your contract — and validated for Pakistan&apos;s grid instability, dust loads, and monsoon humidity before handover.
+          </p>
+        </Column>
+      </Grid>
+
+      {/* Tabs + Content */}
+      <Grid>
+        <Column lg={16} md={8} sm={4}>
+          <Tile style={{ padding: 0, overflow: 'hidden' }}>
+            {/* Desktop Tab Bar */}
+            <div
+              className="deploy-tabs-desktop"
+              style={{
+                borderBottom: '1px solid var(--cds-border-subtle, #e0e0e0)',
+              }}
+            >
+              {deployTabs.map((tab, idx) => {
+                const isActive = idx === activeTab;
+                const Icon = tab.icon;
+                return (
+                  <button
+                    key={tab.title}
+                    onClick={() => setActiveTab(idx)}
+                    role="tab"
+                    aria-selected={isActive}
+                    style={{
+                      flex: 1,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '0.5rem',
+                      padding: '1rem 0.75rem',
+                      fontSize: '0.875rem',
+                      background: isActive ? 'rgba(15, 98, 254, 0.04)' : 'transparent',
+                      border: 'none',
+                      borderBottom: `2px solid ${isActive ? '#0f62fe' : 'transparent'}`,
+                      color: isActive ? '#0f62fe' : '#525252',
+                      fontWeight: isActive ? 600 : 400,
+                      cursor: 'pointer',
+                      transition: 'all 150ms cubic-bezier(0.25, 0.1, 0.25, 1)',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    <span style={{ fontSize: '0.625rem', fontFamily: 'monospace', color: isActive ? '#0f62fe' : '#a8a8a8' }}>{tab.step}</span>
+                    <Icon size={16} style={{ color: isActive ? '#0f62fe' : '#a8a8a8', transition: 'color 150ms' }} />
+                    <span>{tab.title}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Mobile Stepper */}
+            <div
+              className="deploy-tabs-mobile"
+              style={{
+                borderBottom: '1px solid var(--cds-border-subtle, #e0e0e0)',
+              }}
+            >
+              {deployTabs.map((tab, idx) => {
+                const isActive = idx === activeTab;
+                const Icon = tab.icon;
+                return (
+                  <button
+                    key={tab.title}
+                    onClick={() => setActiveTab(idx)}
+                    role="tab"
+                    aria-selected={isActive}
+                    style={{
+                      width: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.75rem',
+                      padding: '0.75rem 1rem',
+                      fontSize: '0.875rem',
+                      background: isActive ? 'rgba(15, 98, 254, 0.04)' : 'transparent',
+                      border: 'none',
+                      borderLeft: `4px solid ${isActive ? '#0f62fe' : 'transparent'}`,
+                      color: isActive ? '#0f62fe' : '#525252',
+                      fontWeight: isActive ? 600 : 400,
+                      cursor: 'pointer',
+                      transition: 'all 150ms cubic-bezier(0.25, 0.1, 0.25, 1)',
+                    }}
+                  >
+                    <span style={{ fontSize: '0.625rem', fontFamily: 'monospace', color: isActive ? '#0f62fe' : '#a8a8a8' }}>{tab.step}</span>
+                    <Icon size={16} style={{ color: isActive ? '#0f62fe' : '#a8a8a8' }} />
+                    <span>{tab.title}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Tab Panel */}
+            <div role="tabpanel" style={{ padding: '1.5rem' }}>
+              <Grid>
+                <Column lg={9} md={5} sm={4}>
+                  <h3 className="cds--fluid-heading-03" style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: '1rem' }}>
+                    {activeTabData.title}
+                  </h3>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                    {activeTabData.items.map((item) => (
+                      <li
+                        key={item}
+                        className="cds--body-compact-01"
+                        style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: '0.75rem', display: 'flex', gap: '0.75rem' }}
+                      >
+                        <CheckmarkFilled size={16} style={{ color: '#0f62fe', marginTop: 2, flexShrink: 0 }} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </Column>
+                <Column lg={7} md={3} sm={4}>
+                  <div style={{ width: '100%', height: 360, background: '#f4f4f4', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <img
+                      src={activeTabData.image.src}
+                      alt={activeTabData.image.alt}
+                      style={{ maxWidth: '100%', maxHeight: 360, objectFit: 'contain' }}
+                      loading="lazy"
+                    />
+                  </div>
+                </Column>
+              </Grid>
+            </div>
+          </Tile>
+        </Column>
+      </Grid>
+
+      {/* Common Installation Failure */}
+      <Grid style={{ marginTop: '2.5rem' }}>
+        <Column lg={16} md={8} sm={4}>
+          <Tile style={{ background: 'rgba(0, 157, 154, 0.1)', borderLeft: '4px solid #009d9a', marginBottom: '2rem' }}>
+            <p className="cds--body-compact-01" style={{ color: '#525252' }}>
+              Without a structured commissioning protocol, these are the failure modes we see repeatedly in Pakistan deployments.
+            </p>
+          </Tile>
+        </Column>
+      </Grid>
+
+      <Grid>
+        <Column lg={4} md={8} sm={4}>
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            {/* Circular progress ring */}
+            <div style={{ position: 'relative', width: 128, height: 128, margin: '0 auto 1rem' }}>
+              <svg viewBox="0 0 36 36" style={{ width: '100%', height: '100%', transform: 'rotate(-90deg)' }}>
+                <path
+                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                  fill="none"
+                  stroke="#c6c6c6"
+                  strokeWidth={2}
+                />
+                <path
+                  strokeDasharray="60, 100"
+                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                  fill="none"
+                  stroke="#0f62fe"
+                  strokeWidth={2}
+                />
+              </svg>
+              <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontSize: '1.875rem', fontWeight: 300, color: '#161616' }}>60%</span>
+              </div>
+            </div>
+            <div className="cds--fluid-heading-03" style={{ color: '#0f62fe', marginTop: '0.5rem' }}>of cooling failures</div>
+            <p className="cds--body-compact-01" style={{ color: '#525252', marginTop: '0.25rem' }}>occur within the first 12 months in Pakistan</p>
+          </div>
+        </Column>
+
+        <Column lg={1} md={0} sm={0}>
+          <div style={{ width: 1, height: '100%', minHeight: 200, background: '#c6c6c6' }} />
+        </Column>
+
+        <Column lg={11} md={8} sm={4}>
+          <p className="cds--label-01" style={{ color: '#0f62fe', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '1rem' }}>
+            Common Installation Failure
+          </p>
+          <p className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '1.25rem' }}>
+            These failures originate from installation errors, not hardware defects:
+          </p>
+
+          <Grid>
+            {failureModes.map((item) => (
+              <Column lg={5} md={4} sm={4} key={item.num} style={{ marginBottom: '0.75rem' }}>
+                <Tile style={{ borderTop: '2px solid #0f62fe', padding: '1rem' }}>
+                  <span style={{ fontSize: '0.625rem', fontFamily: 'monospace', color: '#0f62fe', display: 'block', marginBottom: '0.5rem' }}>
+                    {item.num}
+                  </span>
+                  <p className="cds--body-compact-01" style={{ color: '#161616' }}>{item.text}</p>
+                </Tile>
+              </Column>
+            ))}
+          </Grid>
+
+          <Tile style={{ marginTop: '1.5rem', background: 'rgba(0, 157, 154, 0.1)', borderLeft: '4px solid #009d9a' }}>
+            <p className="cds--body-compact-01" style={{ color: '#007d79' }}>
+              Our commissioning protocol eliminates these root causes before handover.
+            </p>
+          </Tile>
+        </Column>
+      </Grid>
+
+      {/* CTA */}
+      <Grid style={{ marginTop: '2.5rem' }}>
+        <Column lg={16} md={8} sm={4}>
+          <Tile style={{ textAlign: 'center', padding: '1.5rem', background: '#f4f4f4' }}>
+            <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: '0.5rem' }}>
+              Ready to deploy?
+            </h3>
+            <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary, #525252)', marginBottom: '1.5rem', maxWidth: '36rem', margin: '0 auto 1.5rem' }}>
+              Schedule a site assessment and we will scope the exact commissioning protocol for your Pakistan environment — including monsoon hardening and high-ambient validation.
+            </p>
+            <Button kind="primary" renderIcon={ArrowRight} href="#cta">
+              Book Deployment Assessment
+            </Button>
+          </Tile>
+        </Column>
+      </Grid>
+
+      {/* Exclusions + Next */}
+      <Grid style={{ marginTop: '2rem' }}>
+        <Column lg={16} md={8} sm={4}>
+          <Tile style={{ background: 'rgba(0, 157, 154, 0.1)', borderLeft: '4px solid #009d9a', marginBottom: '1.5rem' }}>
+            <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '0.25rem' }}>Explicit Exclusions</p>
+            <p className="cds--helper-text-01" style={{ color: '#525252' }}>
+              Deployment covers installation, validation, and commissioning only. Excludes: thermal capacity planning, monsoon hardening engineering, and SLA guarantees.
+            </p>
+          </Tile>
+
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', paddingTop: '1.25rem', borderTop: '1px solid var(--cds-border-subtle, #e0e0e0)' }}>
+            <ArrowRight size={16} style={{ color: '#0f62fe', marginTop: 3, flexShrink: 0 }} />
+            <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary, #525252)' }}>
+              <span style={{ color: '#0f62fe', fontWeight: 500 }}>Next:</span> After commissioning, thermal continuity depends on what happens next — proactive monitoring, seasonal validation, and engineers who understand Pakistan&apos;s climate stress cycles.
+            </p>
+          </div>
+        </Column>
+      </Grid>
+    </section>
+  );
+};
+
+const ProcurementSection = () => {
+  const [expanded, setExpanded] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', company: '' });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/3D images/Cooling and Airflow Data sheet /FusionCol8000-E260&400+Datasheet.pdf';
+    link.download = 'FusionCol8000-E_Datasheet.pdf';
+    link.click();
+  };
+
+  const handleSubmit = () => {
+    setSubmitted(true);
+    setTimeout(() => {
+      handleDownload();
+      setModalOpen(false);
+      setSubmitted(false);
+      setFormData({ name: '', email: '', company: '' });
+    }, 800);
+  };
+
+  return (
+    <section id="hardware" style={{ padding: '4rem 0', background: '#f4f4f4' }}>
+      <Grid>
+        <Column lg={16} md={8} sm={4}>
+          {/* ============================================================
+              SCAN LAYER — Always visible
+              ============================================================ */}
+          <Grid>
+            {/* Text — left side */}
+            <Column lg={8} md={4} sm={4}>
+              {/* Section label */}
+              <div style={{ borderLeft: '2px solid #009d9a', paddingLeft: '0.75rem', marginBottom: '0.75rem' }}>
+                <p className="cds--label-01" style={{ color: '#009d9a', textTransform: 'uppercase', letterSpacing: '0.32px', fontWeight: 600 }}>
+                  02 Procurement
+                </p>
+              </div>
+              <p className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '1rem' }}>
+                Right-sized hardware, certified for Pakistan
+              </p>
+
+              <h2 className="cds--fluid-heading-05" style={{ color: '#161616', marginBottom: '1rem' }}>
+                Cooling Hardware Procurement
+              </h2>
+              <p className="cds--body-compact-01" style={{ color: '#161616', fontWeight: 600, marginBottom: '0.5rem' }}>
+                Thermal continuity depends on hardware that survives Pakistan&apos;s reality.
+              </p>
+              <p className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '1.5rem' }}>
+                We source cooling equipment from tier-1 manufacturers and validate every unit for 45°C ambient, monsoon humidity, and dust infiltration before it ships. From procurement to deployment, one partner handles the full stack. No guesswork, no incompatible hardware, full accountability.
+              </p>
+
+              {/* Hardware categories list */}
+              <div style={{ borderTop: '1px solid #e0e0e0' }}>
+                <p className="cds--label-01" style={{ color: '#8d8d8d', textTransform: 'uppercase', letterSpacing: '0.32px', paddingTop: '1rem', marginBottom: '0.5rem' }}>
+                  Hardware categories
+                </p>
+                {[
+                  {
+                    title: 'Server Room AC Units',
+                    desc: 'Wall-mounted, ceiling, and portable units for edge sites up to 50kW.',
+                  },
+                  {
+                    title: 'In-Row & CRAC Precision Cooling',
+                    desc: 'Close-coupled cooling from 5kW to 150kW with N+1 redundancy.',
+                  },
+                  {
+                    title: 'Large-Scale Facility Cooling',
+                    desc: 'Centralised chilled water and hybrid systems for facilities above 500kW.',
+                  },
+                ].map((item, idx, arr) => (
+                  <div
+                    key={item.title}
+                    style={{
+                      padding: '1rem 0',
+                      borderBottom: idx < arr.length - 1 ? '1px solid #e0e0e0' : 'none',
+                    }}
+                  >
+                    <p className="cds--heading-01" style={{ color: '#161616', fontWeight: 600, marginBottom: '0.25rem' }}>
+                      {item.title}
+                    </p>
+                    <p className="cds--body-compact-01" style={{ color: '#525252' }}>{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Manufacturer Partners — always visible trust builder */}
+              <Tile style={{ marginTop: '1.5rem', marginBottom: '1.5rem' }}>
+                <Grid>
+                  <Column lg={8} md={4} sm={4} style={{ marginBottom: '1rem' }}>
+                    <p className="cds--body-compact-01" style={{ color: '#525252' }}>
+                      Warranty administered through Perception-IT. One partner for claims, diagnostics, and replacement — not the manufacturer.
+                    </p>
+                  </Column>
+                  <Column lg={8} md={4} sm={4}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center', justifyContent: 'flex-start' }}>
+                      {manufacturerPartners.map((partner) => (
+                        <img
+                          key={partner.name}
+                          src={partner.logo}
+                          alt={partner.name}
+                          style={{ width: partner.width, height: 'auto', opacity: 0.7, transition: 'opacity 200ms' }}
+                          onMouseEnter={(e) => { (e.target as HTMLImageElement).style.opacity = '1'; }}
+                          onMouseLeave={(e) => { (e.target as HTMLImageElement).style.opacity = '0.7'; }}
+                        />
+                      ))}
+                    </div>
+                  </Column>
+                </Grid>
+              </Tile>
+
+              {/* CTA + expand trigger */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1rem', marginTop: '1.5rem' }}>
+                <Button kind="primary" renderIcon={ArrowRight} href="#cta">
+                  Request Hardware Consultation
+                </Button>
+                {!expanded && (
+                  <button
+                    onClick={() => setExpanded(true)}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: '#0f62fe',
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      fontSize: '0.875rem',
+                      fontWeight: 400,
+                      lineHeight: 1.28572,
+                      letterSpacing: '0.16px',
+                      padding: 0,
+                    }}
+                  >
+                    <Settings size={20} />
+                    View hardware details
+                    <ChevronRight size={16} />
+                  </button>
+                )}
+              </div>
+            </Column>
+
+            {/* Image + Featured Product — right side */}
+            <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-06, 1.5rem)' }}>
+              <div style={{ width: '100%', height: 360, background: '#f4f4f4', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <img
+                  src="/3D images/Cooling and Airflow/perceptionit_cooling_ibm_style_v2.png"
+                  alt="Precision cooling hardware showcase — CRAC and ACU units in a data centre environment with hot and cold aisle containment"
+                  style={{ maxWidth: '100%', maxHeight: 360, objectFit: 'contain' }}
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Featured Product */}
+              <Tile style={{ marginTop: '1.5rem', borderLeft: '4px solid #cf0a2c' }}>
+                <p className="cds--label-01" style={{ color: '#cf0a2c', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '0.75rem' }}>
+                  Featured Product
+                </p>
+                <h3 className="cds--heading-02" style={{ color: '#161616', marginBottom: '1rem' }}>
+                  FusionCol8000-E
+                </h3>
+                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '0.5rem' }}>
+                  <Tag type="blue">TYPE</Tag>
+                  <span className="cds--body-compact-01" style={{ color: '#525252' }}>Precision Cooling / CRAC</span>
+                </div>
+                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '1.5rem' }}>
+                  <Tag type="blue">FOR</Tag>
+                  <span className="cds--body-compact-01" style={{ color: '#525252' }}>Data Centres up to 500kW</span>
+                </div>
+                <ButtonSet>
+                  <Button kind="primary" renderIcon={Email} href="mailto:contact@perception-it.com?subject=FusionCol8000-E%20Enquiry">
+                    Enquire
+                  </Button>
+                  <Button kind="secondary" renderIcon={Download} onClick={() => setModalOpen(true)}>
+                    Download Datasheet
+                  </Button>
+                </ButtonSet>
+              </Tile>
+            </Column>
+          </Grid>
+
+          {/* ============================================================
+              DETAIL LAYER — Expandable
+              ============================================================ */}
+          <div
+            style={{
+              maxHeight: expanded ? 4000 : 0,
+              overflow: 'hidden',
+              opacity: expanded ? 1 : 0,
+              transition: 'max-height 400ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 300ms ease',
+              marginTop: expanded ? '2rem' : 0,
+            }}
+          >
+            {/* Close link */}
+            <div style={{ textAlign: 'right', marginBottom: '1rem' }}>
+              <button
+                onClick={() => setExpanded(false)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: '#0f62fe',
+                  cursor: 'pointer',
+                  fontSize: '0.875rem',
+                  fontWeight: 400,
+                  lineHeight: 1.28572,
+                  letterSpacing: '0.16px',
+                  padding: 0,
+                }}
+              >
+                <ChevronRight size={16} style={{ transform: 'rotate(180deg)' }} />
+                Collapse details
+              </button>
+            </div>
+
+            {/* Hardware category cards */}
+            <Grid style={{ marginBottom: '2rem' }}>
+              {hardwareCards.map((card) => {
+                const Pictogram = card.pictogram;
+                return (
+                  <Column lg={4} md={4} sm={4} key={card.title} style={{ marginBottom: '1rem' }}>
+                    <Tile style={{ height: '100%', padding: '1.5rem', display: 'flex', flexDirection: 'column' }}>
+                      {/* Top accent */}
+                      <div style={{ height: 3, background: 'linear-gradient(135deg, #002d9c, #4589ff)', marginBottom: '1.25rem' }} />
+
+                      {/* Category label */}
+                      <span className="cds--label-01" style={{
+                        color: '#525252',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.32px',
+                        fontSize: '0.625rem',
+                        fontWeight: 600,
+                        border: '1px solid #c6c6c6',
+                        padding: '3px 8px',
+                        display: 'inline-block',
+                        marginBottom: '0.75rem',
+                      }}>
+                        {card.category}
+                      </span>
+
+                      {/* Title + short */}
+                      <h3 className="cds--heading-02" style={{ color: '#161616', marginBottom: '0.5rem', lineHeight: 1.3 }}>
+                        {card.title}
+                      </h3>
+                      <p className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '1.25rem' }}>
+                        {card.short}
+                      </p>
+
+                      {/* Pictogram */}
+                      <Pictogram style={{ width: 64, height: 64, marginBottom: '1.25rem', fill: '#0f62fe' }} />
+
+                      {/* Divider */}
+                      <div style={{ height: 1, background: '#e0e0e0', marginBottom: '1.25rem' }} />
+
+                      {/* Bullet list */}
+                      <ul style={{ listStyle: 'none', padding: 0, margin: 0, flex: 1 }}>
+                        {card.bullets.map((bullet) => (
+                          <li key={bullet} className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '0.75rem', display: 'flex', gap: '0.75rem', lineHeight: 1.5 }}>
+                            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#0f62fe', marginTop: 6, flexShrink: 0 }} />
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                    </Tile>
+                  </Column>
+                );
+              })}
+            </Grid>
+
+            {/* Exclusions */}
+            <Tile style={{ marginBottom: '2rem', background: '#ffffff', borderLeft: '4px solid #009d9a' }}>
+              <p className="cds--body-compact-01" style={{ color: '#525252' }}>
+                Procurement covers hardware supply and manufacturer warranty administration only; thermal capacity planning, monsoon/dust hardening, commissioning validation, uptime SLAs, and 24/7 monitoring are scoped separately under Assessment, Deployment, and Managed Services.
+              </p>
+            </Tile>
+
+            {/* Manufacturer Partners */}
+            <Tile style={{ marginBottom: '2rem' }}>
+              <Grid>
+                <Column lg={8} md={4} sm={4} style={{ marginBottom: '1rem' }}>
+                  <p className="cds--body-compact-01" style={{ color: '#525252' }}>
+                    Warranty administered through Perception-IT. One partner for claims, diagnostics, and replacement — not the manufacturer.
+                  </p>
+                </Column>
+                <Column lg={8} md={4} sm={4}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center', justifyContent: 'flex-start' }}>
+                    {manufacturerPartners.map((partner) => (
+                      <img
+                        key={partner.name}
+                        src={partner.logo}
+                        alt={partner.name}
+                        style={{ width: partner.width, height: 'auto', opacity: 0.7, transition: 'opacity 200ms' }}
+                        onMouseEnter={(e) => { (e.target as HTMLImageElement).style.opacity = '1'; }}
+                        onMouseLeave={(e) => { (e.target as HTMLImageElement).style.opacity = '0.7'; }}
+                      />
+                    ))}
+                  </div>
+                </Column>
+              </Grid>
+            </Tile>
+
+          </div>
+        </Column>
+      </Grid>
+
+      {/* Email-Gated Datasheet Modal */}
+      <ComposedModal
+        open={modalOpen}
+        onClose={() => { setModalOpen(false); setSubmitted(false); }}
+        size="sm"
+        preventCloseOnClickOutside={false}
+      >
+        <ModalHeader
+          title="Download FusionCol8000-E Datasheet"
+          label="Datasheet Request"
+        />
+        <ModalBody hasForm>
+          {submitted ? (
+            <div style={{ textAlign: 'center', padding: '2rem 0' }}>
+              <CheckmarkFilled size={48} style={{ color: '#24a148', marginBottom: '1rem' }} />
+              <h3 className="cds--heading-02" style={{ color: '#161616', marginBottom: '0.5rem' }}>
+                Thank you!
+              </h3>
+              <p className="cds--body-compact-01" style={{ color: '#525252' }}>
+                Your download is starting automatically.
+              </p>
+            </div>
+          ) : (
+            <Form onSubmit={handleSubmit}>
+              <p className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '1.5rem' }}>
+                Enter your details below and we&apos;ll send the datasheet to your inbox.
+              </p>
+              <FormGroup legendText="">
+                <TextInput
+                  id="ds-name"
+                  labelText="Name"
+                  placeholder="Your full name"
+                  value={formData.name}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, name: e.target.value })}
+                  required
+                />
+                <div style={{ marginTop: '1rem' }}>
+                  <TextInput
+                    id="ds-email"
+                    labelText="Email"
+                    placeholder="you@company.com"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, email: e.target.value })}
+                    required
+                  />
+                </div>
+                <div style={{ marginTop: '1rem' }}>
+                  <TextInput
+                    id="ds-company"
+                    labelText="Company"
+                    placeholder="Your organisation"
+                    value={formData.company}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, company: e.target.value })}
+                    required
+                  />
+                </div>
+              </FormGroup>
+            </Form>
+          )}
+        </ModalBody>
+        {!submitted && (
+          <ModalFooter
+            primaryButtonText="Download Datasheet"
+            secondaryButtonText="Cancel"
+            onRequestSubmit={handleSubmit}
+            onRequestClose={() => setModalOpen(false)}
+          >
+            {null}
+          </ModalFooter>
+        )}
+      </ComposedModal>
+    </section>
+  );
+};
 const CoolingAirflow = () => {
-  const [activeSection, setActiveSection] = useState('trust');
-  const [caseStudyPage, setCaseStudyPage] = useState(0);
-  const [testimonialPage, setTestimonialPage] = useState(0);
+  const [activeSection, setActiveSection] = useState('thermal-failure');
+  const [navScrolled, setNavScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
+      setNavScrolled(window.scrollY > 400);
       const scrollPosition = window.scrollY + 150;
       for (const id of SECTIONS) {
         const element = document.getElementById(id);
@@ -76,767 +1925,228 @@ const CoolingAirflow = () => {
         }
       }
     };
-
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target as Element);
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+    document.querySelectorAll('.scroll-animate').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollToSection = useCallback((id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const headerOffset = 80;
+      const headerOffset = 120;
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
         top: elementPosition - headerOffset,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
-  };
-
-  const handleMobileNavChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    scrollToSection(e.target.value);
-  };
+  }, []);
 
   return (
-    <div className="min-h-screen bg-[var(--cds-background)]">
-      <Navigation />
+    <div style={{ minHeight: '100vh', background: 'var(--cds-background, #ffffff)' }}>
+      <CarbonHeader />
 
-      {/* Hero Section */}
-      <section id="overview" className="relative pt-40 pb-20 bg-[#0a1628] overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500 rounded-full blur-[120px]" />
-          <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-cyan-500 rounded-full blur-[100px]" />
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs mb-8" aria-label="Breadcrumb">
-            <a href="/" className="text-[#0f62fe] hover:underline">Home</a>
-            <ChevronRight className="w-3 h-3 text-gray-400" />
-            <a href="/services" className="text-[#0f62fe] hover:underline">Services</a>
-            <ChevronRight className="w-3 h-3 text-gray-400" />
-            <span className="text-[#0f62fe] hover:underline cursor-pointer">Infrastructure</span>
-            <ChevronRight className="w-3 h-3 text-gray-400" />
-            <span className="px-2 py-0.5 border border-[#a8a8a8] text-[#a8a8a8] rounded-full">Cooling & Airflow</span>
-          </nav>
+      {/* Schema.org BreadcrumbList */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://perception-it.com/' },
+            { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://perception-it.com/services' },
+            { '@type': 'ListItem', position: 3, name: 'Infrastructure' },
+            { '@type': 'ListItem', position: 4, name: 'Data Centre Services' },
+            { '@type': 'ListItem', position: 5, name: 'Cooling & Airflow', item: 'https://perception-it.com/#/infrastructure/data-centre-services/cooling-airflow' },
+          ],
+        })}
+      </script>
 
-          {/* Mobile Dropdown Navigation */}
-          <div className="xl:hidden mb-8">
-            <label className="text-xs text-gray-400 block mb-2">On this page:</label>
-            <select
-              onChange={handleMobileNavChange}
-              value={activeSection}
-              className="w-full h-12 px-4 bg-gray-800 border border-gray-700 text-white text-sm"
+      <HeroSection scrollToSection={scrollToSection} />
+
+      {/* Desktop Horizontal Anchor Nav */}
+      <nav
+        style={{
+          position: 'sticky',
+          top: '3rem',
+          zIndex: 30,
+          borderBottom: '1px solid var(--cds-border-subtle, #e0e0e0)',
+          background: navScrolled ? '#f4f4f4' : 'var(--cds-background, #ffffff)',
+          boxShadow: navScrolled ? '0 2px 8px rgba(0,0,0,0.08)' : 'none',
+          transition: 'all 150ms ease',
+          display: 'block',
+        }}
+        className="desktop-anchor-nav"
+      >
+        <Grid>
+          <Column lg={16} md={8} sm={4}>
+            <ul style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', overflowX: 'auto', padding: '0.5rem 0', listStyle: 'none', margin: 0 }}>
+              {NAV_SECTIONS.map((id) => (
+                <li key={id}>
+                  <button
+                    onClick={() => scrollToSection(id)}
+                    style={{
+                      padding: '0.5rem 0.75rem',
+                      fontSize: '0.875rem',
+                      whiteSpace: 'nowrap',
+                      background: 'none',
+                      border: 'none',
+                      borderBottom: `2px solid ${activeSection === id ? '#0f62fe' : 'transparent'}`,
+                      color: activeSection === id ? '#0f62fe' : '#525252',
+                      fontWeight: activeSection === id ? 500 : 400,
+                      cursor: 'pointer',
+                      transition: 'all 150ms cubic-bezier(0.25, 0.1, 0.25, 1)',
+                    }}
+                  >
+                    {sectionLabels[id]}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </Column>
+        </Grid>
+      </nav>
+
+      <ThermalRiskSection />
+      <ServicesSection scrollToSection={scrollToSection} />
+      <AssessmentSection />
+      <ProcurementSection />
+
+      {/* Placeholder sections for remaining content */}
+      <DeploymentSection />
+
+      <section id="managed" style={{ padding: '4rem 0', background: '#f4f4f4' }}>
+        <Grid>
+          <Column lg={16} md={8} sm={4}>
+            <div style={{ marginBottom: '1.5rem' }}>
+              <div style={{ width: 24, height: 2, background: '#009d9a', marginBottom: 8 }} />
+              <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px' }}>
+                04 Managed Services
+              </p>
+            </div>
+            <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-primary, #161616)' }}>
+              24/7 Managed Thermal Services
+            </h2>
+            <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary, #525252)', marginTop: '1rem' }}>
+              Content coming soon — remote monitoring, SLA-backed response, quarterly validation, and monsoon standby.
+            </p>
+          </Column>
+        </Grid>
+      </section>
+
+      <section id="results" style={{ padding: '4rem 0', background: 'var(--cds-background, #ffffff)' }}>
+        <Grid>
+          <Column lg={16} md={8} sm={4}>
+            <div style={{ marginBottom: '1.5rem' }}>
+              <div style={{ width: 24, height: 2, background: '#009d9a', marginBottom: 8 }} />
+              <p className="cds--label-01" style={{ color: '#009d9a', textTransform: 'uppercase', letterSpacing: '0.32px' }}>
+                Results
+              </p>
+            </div>
+            <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-primary, #161616)' }}>
+              Proven Results
+            </h2>
+            <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary, #525252)', marginTop: '1rem' }}>
+              Content coming soon — case studies, client testimonials, and performance metrics.
+            </p>
+          </Column>
+        </Grid>
+      </section>
+
+      <section id="pakistan" style={{ padding: '4rem 0', background: '#f4f4f4' }}>
+        <Grid>
+          <Column lg={16} md={8} sm={4}>
+            <div style={{ marginBottom: '1.5rem' }}>
+              <div style={{ width: 24, height: 2, background: '#009d9a', marginBottom: 8 }} />
+              <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px' }}>
+                Pakistan-Specific
+              </p>
+            </div>
+            <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-primary, #161616)' }}>
+              Built for Pakistan&apos;s Climate
+            </h2>
+            <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary, #525252)', marginTop: '1rem' }}>
+              Content coming soon — monsoon hardening, high-ambient derating, dust filtration, and grid-stability protocols.
+            </p>
+          </Column>
+        </Grid>
+      </section>
+
+      <section id="faq" style={{ padding: '4rem 0', background: 'var(--cds-background, #ffffff)' }}>
+        <Grid>
+          <Column lg={16} md={8} sm={4}>
+            <div style={{ marginBottom: '1.5rem' }}>
+              <div style={{ width: 24, height: 2, background: '#009d9a', marginBottom: 8 }} />
+              <p className="cds--label-01" style={{ color: '#009d9a', textTransform: 'uppercase', letterSpacing: '0.32px' }}>
+                FAQ
+              </p>
+            </div>
+            <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: '2rem' }}>
+              Frequently Asked Questions
+            </h2>
+            <Accordion>
+              <AccordionItem title="What is a Thermal Health Check?">
+                A 90-minute on-site assessment using infrared thermal mapping and structured checklists. You receive a Fix / Watch / OK scorecard with Pakistan-specific derating validation within 48 hours.
+              </AccordionItem>
+              <AccordionItem title="How is Precision Thermal Engineering different?">
+                It uses CFD modeling and engineering analysis to produce 3D heat maps, hotspot predictions, and containment recommendations. Ideal for new builds, high-density loads, and compliance documentation.
+              </AccordionItem>
+              <AccordionItem title="Do you supply cooling hardware directly?">
+                Yes. We source from tier-1 manufacturers (Huawei, Lenovo, Dell, HP) and validate every unit for 45°C ambient, monsoon humidity, and dust infiltration before shipping.
+              </AccordionItem>
+              <AccordionItem title="What is the upgrade path between assessments?">
+                If your Health Check reveals complexity, 20% of your PKR 75,000 fee (PKR 15,000) is credited toward Precision Thermal Engineering when upgraded within 60 days.
+              </AccordionItem>
+            </Accordion>
+          </Column>
+        </Grid>
+      </section>
+
+      <section id="cta" style={{ padding: '4rem 0', background: '#0a1628' }}>
+        <Grid>
+          <Column lg={12} md={8} sm={4}>
+            <h2
+              className="cds--fluid-heading-05"
+              style={{ color: '#ffffff', marginBottom: '1rem' }}
             >
-              {SECTIONS.map((id) => (
-                <option key={id} value={id}>{sectionLabels[id]}</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Left Column */}
-            <div>
-              <p className="carbon-label-01 text-[#c6c6c6] uppercase mb-4">Data Centre Services</p>
-              <h1 className="carbon-fluid-heading-04 text-white mb-6">Cooling & Airflow Management</h1>
-              <p className="carbon-heading-02 text-[#c6c6c6] mb-6">Keep your critical infrastructure running at optimal temperature. From hardware supply to 24/7 managed thermal continuity.</p>
-              <p className="carbon-body-02 text-gray-300 mb-8">Precision cooling engineered for Pakistan&apos;s climate reality: 45°C summers, monsoon humidity spikes, dust infiltration, and unstable grid power. One partner, end-to-end accountability.</p>
-              <div className="flex flex-wrap gap-4">
-                <a href="#cta" className="cds--btn cds--btn--primary bg-[#0f62fe] hover:bg-[#0353e9] inline-flex items-center">
-                  Request Cooling Assessment
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </a>
-                <a href="#hardware" className="cds--btn cds--btn--tertiary" style={{ borderColor: 'rgba(255,255,255,0.5)', color: 'white', borderWidth: '1px' }}>
-                  Explore Hardware Options
-                </a>
-              </div>
-            </div>
-
-            {/* Right Column - Feature Bullets */}
-            <div className="space-y-3">
-
-              {[
-                { icon: TemperatureHot, title: 'Precision Cooling Supply', desc: 'CRAC, in-row, liquid cooling. Procured from Vertiv, APC, Mitsubishi' },
-                { icon: Tools, title: 'Full Installation & Commissioning', desc: 'Thermal mapping, airflow CFD, failover validation' },
-                { icon: Shield, title: '24/7 Managed Thermal Services', desc: 'Predictive maintenance, SLA-backed response, NOC monitoring' },
-                { icon: RainDrop, title: 'Monsoon-Hardened for Pakistan', desc: 'Humidity compensation, dust filtration, 40% capacity derating at 45°C' },
-              ].map((item) => (
-                <div key={item.title} className="flex items-start gap-4 p-4 border-l-2 border-[#0f62fe] bg-white/5">
-                  <div className="w-10 h-10 bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-5 h-5 text-[#0f62fe]" />
-                  </div>
-                  <div>
-                    <h3 className="carbon-heading-01 text-white mb-1">{item.title}</h3>
-                    <p className="carbon-label-01 text-gray-400">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+              Ready to protect your infrastructure?
+            </h2>
+            <p
+              className="cds--body-compact-01"
+              style={{ color: '#c6c6c6', marginBottom: '2rem', maxWidth: '36rem' }}
+            >
+              Book a free 15-minute call with our thermal team. We&apos;ll discuss your facility, identify risks, and recommend the right assessment path.
+            </p>
+            <ButtonSet>
+              <Button kind="primary" renderIcon={ArrowRight} href="mailto:contact@perception-it.com?subject=Cooling%20%26%20Airflow%20Consultation">
+                Book Free Consultation
+              </Button>
+              <Button
+                kind="tertiary"
+                renderIcon={Phone}
+                href="tel:+923001234567"
+                style={{ color: '#ffffff', borderColor: 'rgba(255,255,255,0.5)' }}
+              >
+                Call Now
+              </Button>
+            </ButtonSet>
+          </Column>
+        </Grid>
       </section>
-
-      {/* Quick Navigation: Trust Boxes */}
-      <section id="trust" className="py-10 border-b border-[var(--cds-border-subtle)] bg-[var(--cds-background)]">
-        <div className="max-w-[1584px] mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
-            <p className="carbon-label-01 text-[#0f62fe] uppercase mb-3">Quick Navigation</p>
-            <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">Explore Key Topics</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-              {[
-                { icon: TemperatureHot, label: 'Hardware Supply', section: 'hardware', color: '#0f62fe' },
-                { icon: Tools, label: 'Installation', section: 'installation', color: '#6929c4' },
-                { icon: Shield, label: 'Managed Services', section: 'managed', color: '#24a148' },
-                { icon: RainDrop, label: 'Pakistan-Specific', section: 'pakistan', color: '#cf0a2c' },
-                { icon: Lightning, label: 'Dependencies', section: 'dependencies', color: '#f97316' },
-                { icon: Dashboard, label: 'Integration', section: 'integration', color: '#0f62fe' },
-              ].map((item) => (
-                <button
-                  key={item.section}
-                  onClick={() => scrollToSection(item.section)}
-                  className="group p-4 bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] hover:border-[#0f62fe] hover:shadow-sm transition-all text-left"
-                >
-                  <div className="w-8 h-8 flex items-center justify-center mb-2" style={{ backgroundColor: `${item.color}15` }}>
-                    <item.icon className="w-4 h-4" style={{ color: item.color }} />
-                  </div>
-                  <span className="text-sm font-medium text-[var(--cds-text-primary)] group-hover:text-[#0f62fe]">{item.label}</span>
-                  <ArrowRight className="w-3 h-3 text-[#c6c6c6] group-hover:text-[#0f62fe] mt-1 block" />
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content with Side Navigation */}
-      <div className="max-w-[1584px] mx-auto">
-        <div className="flex">
-          {/* Desktop Side Menu */}
-          <aside className="hidden xl:block w-56 flex-shrink-0 pl-6 pr-8">
-            <nav className="sticky top-20 pt-8 pb-8 h-[calc(100vh-5rem)]">
-              <ul className="space-y-0.5">
-                {SECTIONS.map((id) => (
-                  <li key={id}>
-                    <button
-                      onClick={() => scrollToSection(id)}
-                      className={`w-full text-left px-4 py-2 carbon-body-01 transition-colors border-l-2 ${
-                        activeSection === id
-                          ? 'text-[#161616] border-[#0f62fe] bg-[#f4f4f4] font-semibold'
-                          : 'text-[#525252] border-transparent hover:text-[#161616] hover:bg-[#f4f4f4]'
-                      }`}
-                    >
-                      {sectionLabels[id]}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </aside>
-
-          {/* Content Area */}
-          <main className="flex-1 min-w-0 pl-8 pr-6">
-            
-            {/* Section 1: Hardware Supply */}
-            <section id="hardware" className="py-12 border-b border-[var(--cds-border-subtle)]">
-              <div className="max-w-5xl mx-auto px-6">
-                <p className="carbon-label-01 text-[#0f62fe] uppercase mb-3">Step 1: What You Buy</p>
-                <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">Precision Cooling Hardware: Procured, Certified, Ready for Pakistan</h2>
-                <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-8">We source cooling equipment from tier-1 manufacturers and validate every unit for Pakistan&apos;s operating conditions before it ships. No guesswork, no incompatible hardware.</p>
-
-                <div className="grid md:grid-cols-3 gap-4 mb-8">
-                  {[
-                    { icon: TemperatureHot, title: 'Server Room AC Units', desc: 'Wall-mounted, ceiling-suspended, and portable units for edge sites and small server rooms up to 50kW heat load.' },
-                    { icon: Wind, title: 'In-Row & CRAC Precision Cooling', desc: 'Close-coupled cooling for high-density racks. Hot/cold aisle compatible with N+1 redundancy options.' },
-                    { icon: Meter, title: 'Liquid Cooling Systems', desc: 'Direct-to-chip and immersion cooling for HPC, AI training clusters, and GPU-dense deployments.' },
-                  ].map((card) => (
-                    <div key={card.title} className="p-5 bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] ">
-                      <div className="w-10 h-10 bg-[#0f62fe]/10 flex items-center justify-center mb-3">
-                        <card.icon className="w-5 h-5 text-[#0f62fe]" />
-                      </div>
-                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">{card.title}</h3>
-                      <p className="carbon-body-01 text-[var(--cds-text-secondary)]">{card.desc}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="p-6 bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)]">
-                  <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4">Manufacturer Partnerships</h3>
-                  <div className="flex flex-wrap items-center gap-4 mb-4">
-                    {[
-                      { name: 'Huawei', logo: '/logos/partners/Partner-Huawei-Logo.svg', width: 80 },
-                      { name: 'Lenovo', logo: '/logos/partners/Partner-Lenovo-Logo.svg', width: 70 },
-                      { name: 'Dell', logo: '/logos/partners/Partner-Dell-logo.svg', width: 60 },
-                      { name: 'HP', logo: '/logos/partners/Partner- Hewlett-Packard-Logo.svg', width: 50 },
-                    ].map((partner) => (
-                      <div key={partner.name} className="flex items-center justify-center h-10 px-2">
-                        <img 
-                          src={partner.logo} 
-                          alt={partner.name}
-                          className="h-full w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-                          style={{ maxWidth: partner.width }}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                  <p className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">
-                    All hardware includes manufacturer warranty pass-through. Extended warranty and spare-part bundling available via{' '}
-                    <Link 
-                      to="/services/server-continuity" 
-                      className="text-[#0f62fe] hover:underline font-medium"
-                      title="Mission-critical support for out-of-warranty systems with same-day spares and 99.95% uptime SLA"
-                    >
-                      ServerLife Extend™
-                    </Link>.
-                  </p>
-                </div>
-
-                <ImagePlaceholder
-                  title="Precision Cooling Hardware Showcase"
-                  desc="3D rendering of server room precision cooling units in a data centre environment. Show CRAC/ACU units with front intake grilles, rear exhaust, and hot/cold aisle containment. Include subtle blue LED status indicators. Monsoon-hardened casing detail visible on one unit. Clean, technical aesthetic with soft overhead lighting. No people."
-                />
-              </div>
-            </section>
-
-            {/* Section 2: Basic Installation */}
-            <section id="installation" className="py-12 border-b border-[var(--cds-border-subtle)] bg-[var(--cds-background)]">
-              <div className="max-w-5xl mx-auto px-6">
-                <p className="carbon-label-01 text-[#0f62fe] uppercase mb-3">Step 2: How It Gets Deployed</p>
-                <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">Installation & Commissioning: Beyond Plug-and-Play</h2>
-                <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-8">Standard installation stops at power-on. We validate thermal performance under real load conditions, map airflow patterns, and prove failover before handover.</p>
-
-                <div className="grid md:grid-cols-2 gap-4 mb-8">
-                  {[
-                    { icon: Settings, title: 'Mechanical Installation', items: ['Positioning and levelling', 'Refrigerant line brazing and pressure testing', 'Condensate drain routing', 'Electrical connection and breaker sizing'] },
-                    { icon: Meter, title: 'Thermal Validation', items: ['Infrared thermal mapping of rack inlets', 'CFD airflow simulation for hotspot elimination', 'Load-bank testing at design capacity', 'Failover simulation: primary → secondary → portable'] },
-                    { icon: Certificate, title: 'Commissioning Sign-Off', items: ['As-built documentation', 'Cooling capacity test report', 'Setpoint calibration (temperature & humidity)', 'Operator training handover'] },
-                    { icon: Dashboard, title: 'Monitoring Integration', items: ['Sensor placement (rack inlet, return air, under-floor)', 'DCIM integration (Huawei iManager, Schneider StruxureWare)', 'Alert threshold configuration', 'NOC dashboard onboarding'] },
-                  ].map((card) => (
-                    <div key={card.title} className="p-6 bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] ">
-                      <div className="w-10 h-10 bg-[#0f62fe]/10 flex items-center justify-center mb-4">
-                        <card.icon className="w-5 h-5 text-[#0f62fe]" />
-                      </div>
-                      <h3 className="carbon-fluid-heading-03 text-[var(--cds-text-primary)] mb-3">{card.title}</h3>
-                      <ul className="space-y-2">
-                        {card.items.map((item) => (
-                          <li key={item} className="flex items-start gap-2 carbon-body-01 text-[var(--cds-text-primary)]">
-                            <CheckmarkFilled className="w-4 h-4 text-[#24a148] mt-0.5 flex-shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="p-5 border-l-4 border-[#f97316] bg-[#fff8e1]">
-                  <div className="flex items-start gap-3">
-                    <WarningAlt className="w-5 h-5 text-[#f97316] flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="carbon-label-01 text-[#f97316] font-semibold mb-1">Common Installation Failure</p>
-                      <p className="carbon-body-01 text-[var(--cds-text-primary)]">Over 60% of cooling failures in Pakistan within the first 12 months originate from incorrect refrigerant charge, undersized condensate drains, or missing thermal validation, not hardware defects. Our commissioning protocol is designed to eliminate these root causes.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <ImagePlaceholder
-                  title="Cooling Installation in Progress"
-                  desc="3D rendering of technicians installing in-row cooling units between server racks. Show aisle containment being sealed, refrigerant lines being connected, and thermal sensors being placed. Clean, professional environment. Use perspective from aisle level looking down the row. Safety gear visible on technicians."
-                />
-              </div>
-            </section>
-
-            {/* Section 3: Managed Services */}
-            <section id="managed" className="py-12 border-b border-[var(--cds-border-subtle)]">
-              <div className="max-w-5xl mx-auto px-6">
-                <p className="carbon-label-01 text-[#24a148] uppercase mb-3">Step 3: Who Runs It</p>
-                <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">Managed Thermal Services: 24/7 Accountability</h2>
-                <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-8">Cooling equipment degrades predictably. Filters clog. Refrigerant leaks. Setpoints drift. Our managed service catches these before they become outages.</p>
-
-                <div className="grid md:grid-cols-3 gap-4 mb-8">
-                  {[
-                    { tier: 'Essential', price: 'PKR 65K/mo', desc: 'Quarterly preventive maintenance, filter replacement, refrigerant check, basic telemetry review.', highlight: false },
-                    { tier: 'Professional', price: 'PKR 145K/mo', desc: 'Monthly PM, 8-hour response SLA, predictive alerts, thermal trending report, spare parts pre-staging.', highlight: true },
-                    { tier: 'Enterprise', price: 'PKR 380K+/mo', desc: '24/7 NOC monitoring, 4-hour response, monsoon standby engineers, quarterly room integrity validation, SLA-backed uptime.', highlight: false },
-                  ].map((card) => (
-                    <div key={card.tier} className={`p-6 flex flex-col ${card.highlight ? 'bg-[var(--cds-layer-01)] border-2 border-[#0f62fe] ' : 'bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] hover:shadow-md hover:-translate-y-1'} transition-all duration-300`}>
-                      <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-1">{card.tier}</h3>
-                      <p className="text-2xl font-semibold text-[#0f62fe] mb-4">{card.price}</p>
-                      <p className="carbon-body-01 text-[var(--cds-text-secondary)] flex-1">{card.desc}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm border-collapse">
-                    <thead>
-                      <tr className="border-b-2 border-[var(--cds-border-subtle)]">
-                        <th className="text-left py-3 px-4 carbon-label-01 text-[var(--cds-text-primary)]">Capability</th>
-                        <th className="text-center py-3 px-4 carbon-label-01 text-[var(--cds-text-primary)]">Essential</th>
-                        <th className="text-center py-3 px-4 carbon-label-01 text-[var(--cds-text-primary)]">Professional</th>
-                        <th className="text-center py-3 px-4 carbon-label-01 text-[var(--cds-text-primary)]">Enterprise</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {[
-                        { cap: 'Preventive Maintenance', e: true, p: true, en: true },
-                        { cap: 'Filter / Refrigerant Service', e: true, p: true, en: true },
-                        { cap: 'Remote Monitoring', e: false, p: true, en: true },
-                        { cap: 'Predictive Alerts', e: false, p: true, en: true },
-                        { cap: 'Response SLA', e: 'Next business day', p: '8 hours', en: '4 hours' },
-                        { cap: 'Monsoon Standby', e: false, p: false, en: true },
-                        { cap: 'Room Integrity Validation', e: false, p: false, en: 'Quarterly' },
-                        { cap: 'Uptime Guarantee', e: false, p: false, en: '99.9%*' },
-                      ].map((row, idx) => (
-                        <tr key={idx} className="border-b border-[var(--cds-border-subtle)]">
-                          <td className="py-3 px-4 text-[var(--cds-text-primary)]">{row.cap}</td>
-                          <td className="py-3 px-4 text-center">
-                            {typeof row.e === 'boolean' ? (row.e ? <CheckmarkFilled className="w-4 h-4 text-[#24a148] mx-auto" /> : <span className="text-[#a8a8a8]">-</span>) : <span className="carbon-body-01 text-[var(--cds-text-secondary)]">{row.e}</span>}
-                          </td>
-                          <td className="py-3 px-4 text-center">
-                            {typeof row.p === 'boolean' ? (row.p ? <CheckmarkFilled className="w-4 h-4 text-[#24a148] mx-auto" /> : <span className="text-[#a8a8a8]">-</span>) : <span className="carbon-body-01 text-[var(--cds-text-secondary)]">{row.p}</span>}
-                          </td>
-                          <td className="py-3 px-4 text-center">
-                            {typeof row.en === 'boolean' ? (row.en ? <CheckmarkFilled className="w-4 h-4 text-[#24a148] mx-auto" /> : <span className="text-[#a8a8a8]">-</span>) : <span className="carbon-body-01 text-[var(--cds-text-secondary)]">{row.en}</span>}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                  <p className="carbon-helper-text-01 text-[var(--cds-text-secondary)] mt-2">*Uptime targets subject to signed SLA, site assessment, and force majeure exclusions.</p>
-                </div>
-
-                <ImagePlaceholder
-                  title="Thermal Monitoring Operations Centre"
-                  desc="3D rendering of a network operations centre (NOC) with large thermal monitoring dashboards displaying rack-level heat maps, alert indicators, and cooling system status. Engineers at workstations reviewing data. Cool blue ambient lighting with warm alert highlights. Show multiple screens with real-time temperature graphs."
-                />
-              </div>
-            </section>
-
-            {/* Section 4: Pakistan-Specific Deployment */}
-            <section id="pakistan" className="py-12 border-b border-[var(--cds-border-subtle)] bg-[var(--cds-background)]">
-              <div className="max-w-5xl mx-auto px-6">
-                <p className="carbon-label-01 text-[#cf0a2c] uppercase mb-3">Built for Local Reality</p>
-                <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">Pakistan-Specific Engineering: Global Templates Fail Here</h2>
-                <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-8">Standard data centre cooling assumes 35°C ambient, clean air, and stable power. Lahore hits 45°C. Karachi&apos;s dust clogs filters in weeks. Load-shedding cycles stress compressors. We engineer for reality.</p>
-
-                <div className="grid md:grid-cols-2 gap-4 mb-8">
-                  {[
-                    { icon: TemperatureHot, title: 'Extreme Heat Resilience', items: ['Cooling capacity derated 40% at 45°C → we oversize by 60%', 'High-ambient condensers rated for 50°C+ operation', 'Thermal mass buffering for load-shedding intervals'] },
-                    { icon: RainDrop, title: 'Monsoon Humidity Control', items: ['Precision CRAC/CRAH with active humidity management (40-60% RH)', 'Condensate overflow protection and drain redundancy', 'Quarterly validation protocols June–September'] },
-                    { icon: Wind, title: 'Dust Exclusion & Filtration', items: ['IP54 cabinet rating with gasket integrity checks', 'MERV 13+ filter specification (not standard G4)', 'Monthly filter inspection in industrial zones'] },
-                    { icon: Lightning, title: 'Grid Instability Hardening', items: ['Soft-start compressors to reduce inrush current', 'UPS-buffered control circuits for graceful shutdown', 'Generator-compatible start sequences'] },
-                  ].map((card) => (
-                    <div key={card.title} className="p-6 bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] ">
-                      <div className="w-10 h-10 bg-[#cf0a2c]/10 flex items-center justify-center mb-4">
-                        <card.icon className="w-5 h-5 text-[#cf0a2c]" />
-                      </div>
-                      <h3 className="carbon-fluid-heading-03 text-[var(--cds-text-primary)] mb-3">{card.title}</h3>
-                      <ul className="space-y-2">
-                        {card.items.map((item) => (
-                          <li key={item} className="flex items-start gap-2 carbon-body-01 text-[var(--cds-text-primary)]">
-                            <CheckmarkFilled className="w-4 h-4 text-[#24a148] mt-0.5 flex-shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="p-6 bg-[#0f62fe] text-white text-center">
-                  <p className="carbon-fluid-heading-04 mb-2">45°C+</p>
-                  <p className="carbon-body-01 text-white/90">Lahore summer peak ambient. Standard units fail. We engineer for this.</p>
-                </div>
-
-                <ImagePlaceholder
-                  title="Monsoon-Hardened Cooling Infrastructure"
-                  desc="3D rendering showing split-view comparison: left side shows standard cooling unit exposed to monsoon rain and dust, right side shows protected unit with IP54 housing, humidity shields, elevated condensate drains, and MERV 13+ filters. Dramatic lighting to highlight the engineering difference. Use Perception IT blue accent (#0f62fe) for protected elements."
-                />
-              </div>
-            </section>
-
-            {/* Section 5: Critical Dependencies */}
-            <section id="dependencies" className="py-12 border-b border-[var(--cds-border-subtle)]">
-              <div className="max-w-5xl mx-auto px-6">
-                <p className="carbon-label-01 text-[#f97316] uppercase mb-3">Risk Transparency</p>
-                <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">Critical Dependencies: What Cooling Needs to Work</h2>
-                <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-8">Cooling does not work in isolation. Power quality, rack layout, monitoring coverage, and physical security all affect thermal performance. We map these dependencies so there are no surprises.</p>
-
-                <div className="space-y-4 mb-8">
-                  {[
-                    { from: 'UPS Power Quality', to: 'Compressor motor life degrades 3× with voltage fluctuation > ±10%. Stabilised power extends cooling asset life.', icon: Lightning },
-                    { from: 'Rack Layout & Airflow', to: 'Hotspots form when rack inlet temperatures vary > 3°C. Proper aisle containment and blanking panels are non-negotiable.', icon: Wind },
-                    { from: 'Environmental Monitoring', to: 'Without rack-level sensors, thermal runaway is invisible until equipment fails. We integrate temperature, humidity, and leak detection.', icon: Dashboard },
-                    { from: 'Physical Security', to: 'Unauthorized door openings destroy pressure differentials and introduce dust. Access control audit logs correlate with thermal anomalies.', icon: Shield },
-                    { from: 'Fire Suppression', to: 'Gas discharge creates a temporary thermal shock. Cooling must recover within 90 seconds to prevent secondary damage.', icon: DataBase },
-                  ].map((item) => (
-                    <div key={item.from} className="p-5 bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] flex items-start gap-4 ">
-                      <div className="w-10 h-10 bg-[#f97316]/10 flex items-center justify-center flex-shrink-0">
-                        <item.icon className="w-5 h-5 text-[#f97316]" />
-                      </div>
-                      <div>
-                        <p className="carbon-label-01 text-[#f97316] uppercase mb-1">{item.from}</p>
-                        <p className="carbon-body-01 text-[var(--cds-text-primary)]">{item.to}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="p-5 border-l-4 border-[#f97316] bg-[#fff8e1]">
-                  <p className="carbon-body-01 text-[var(--cds-text-primary)]">
-                    <strong>Our approach:</strong> Every cooling engagement includes a dependency audit. If your power, monitoring, or physical layout is not ready, we tell you upfront and offer the services to fix it. No hidden gaps, no finger-pointing later.
-                  </p>
-                </div>
-
-                <ImagePlaceholder
-                  title="Integrated Infrastructure Ecosystem"
-                  desc="3D isometric diagram showing how cooling interconnects with power (UPS), racks, fire suppression, and monitoring in a data centre. Cooling highlighted in blue (#0f62fe), power in amber, monitoring in green. Arrows showing data flow and dependency relationships. Clean cutaway view showing under-floor cabling and overhead ducting."
-                />
-              </div>
-            </section>
-
-            {/* Section 6: Integration with Server Continuity Suite */}
-            <section id="integration" className="py-12 border-b border-[var(--cds-border-subtle)] bg-[var(--cds-background)]">
-              <div className="max-w-5xl mx-auto px-6">
-                <p className="carbon-label-01 text-[#24a148] uppercase mb-3">Unified Accountability</p>
-                <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">Integration with Server Continuity Suite</h2>
-                <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-8">31% of server SLA breaches originate in the facility layer: cooling failure, power loss, or environmental excursion. When cooling is bundled with ServerLife Extend™, ModServe™, or ServerSure™, accountability is unified. One call. One SLA. One partner.</p>
-
-                <div className="grid md:grid-cols-2 gap-4 mb-8">
-                  {[
-                    { from: 'Cooling stability', to: 'ServerLife Extend™ thermal requirements (18–24°C inlet, ASHRAE A2)' },
-                    { from: 'Predictive thermal alerts', to: 'ServerSure™ dashboard integration: facility + server health in one view' },
-                    { from: 'Monsoon standby', to: 'ModServe™ migration windows protected by guaranteed cooling continuity' },
-                    { from: 'Dust control', to: 'IP54 cabinets prevent 17% higher server fan failures that breach ServerLife Extend™ SLAs' },
-                  ].map((item) => (
-                    <div key={item.from} className="p-5 bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] flex items-center gap-4 ">
-                      <div className="w-10 h-10 bg-[#24a148]/10 flex items-center justify-center flex-shrink-0">
-                        <ArrowRight className="w-5 h-5 text-[#24a148]" />
-                      </div>
-                      <div>
-                        <p className="carbon-label-01 text-[var(--cds-text-secondary)] uppercase">{item.from}</p>
-                        <p className="carbon-body-01 text-[var(--cds-text-primary)]">{item.to}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="p-8 bg-[#0f62fe] text-white text-center">
-                  <p className="carbon-fluid-heading-04 mb-2">31%</p>
-                  <p className="carbon-body-01 text-white/90">of ServerLife Extend™ SLA breaches originate in cooling/power, not server hardware. Bundling eliminates this gap.</p>
-                </div>
-
-                <ImagePlaceholder
-                  title="Server Continuity Suite Ecosystem"
-                  desc="3D diagram or node network visualization showing the Server Continuity Suite ecosystem. Central cooling node connected to ServerLife Extend™, ModServe™, ServerSure™, and ServiceNow nodes. Cooling highlighted with blue glow. Lines between nodes show data exchange. Dark background with subtle grid pattern."
-                />
-              </div>
-            </section>
-
-            {/* Section 7–8: Credibility — Case Studies + Featured Testimonial */}
-            <section id="cases" className="py-16 border-b border-[#393939] bg-[#161616]">
-              <div className="max-w-5xl mx-auto px-6">
-                {/* Shared credibility header */}
-                <div className="mb-10">
-                  <p className="carbon-label-01 text-[#a8a8a8] uppercase tracking-wider mb-2">Credibility</p>
-                  <div className="flex items-end justify-between">
-                    <h2 className="carbon-fluid-heading-05 text-[#f4f4f4]">Proven Results</h2>
-                    <Link to="/projects" className="hidden md:inline-flex items-center gap-2 carbon-body-01 text-[#78a9ff] hover:text-[#a6c8ff] transition-colors">
-                      View all projects <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Case Study Grid */}
-                <div className="grid md:grid-cols-3 gap-4 mb-12">
-                  {caseStudyData.slice(caseStudyPage * 3, caseStudyPage * 3 + 3).map((study) => (
-                    <Link
-                      key={study.title}
-                      to="/projects"
-                      className="group bg-[#262626] border border-[#393939] overflow-hidden hover:border-[#78a9ff] transition-all duration-300 flex flex-col"
-                    >
-                      {/* Watermark Header */}
-                      <div className="relative h-28 bg-[#1a1a1a] border-b border-[#393939] flex items-center justify-center overflow-hidden">
-                        <span className="text-7xl font-light text-[#2a2a2a] select-none">
-                          {study.client.charAt(0)}
-                        </span>
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="carbon-label-01 text-[#525252] uppercase tracking-wider bg-[#1a1a1a]/80 px-3 py-1">Project Photo Placeholder</span>
-                        </div>
-                        <div className="absolute top-0 left-0 w-full h-0.5 bg-[#0f62fe] opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-
-                      {/* Content */}
-                      <div className="p-5 flex-1 flex flex-col">
-                        <div className="flex items-center gap-2 mb-3">
-                          <span className="carbon-label-01 text-[#a8a8a8]">{study.industry}</span>
-                          <span className="w-1 h-1 rounded-full bg-[#525252]" />
-                          <span className="carbon-label-01 text-[#6f6f6f]">{study.tags[0]}</span>
-                        </div>
-
-                        <h3 className="carbon-heading-02 text-[#f4f4f4] mb-2 group-hover:text-[#78a9ff] transition-colors">
-                          {study.title}
-                        </h3>
-
-                        <p className="carbon-body-01 text-[#a8a8a8] leading-relaxed mb-5 line-clamp-2">
-                          {study.desc}
-                        </p>
-
-                        {/* Metric */}
-                        <div className="mt-auto pt-4 border-t border-[#393939]">
-                          <div className="text-3xl font-light text-[#0f62fe]">{study.stat}</div>
-                          <div className="carbon-label-01 text-[#6f6f6f] uppercase tracking-wider mt-0.5">{study.label}</div>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-
-                {/* Case Study Pagination */}
-                <div className="flex items-center justify-center gap-3 mb-16">
-                  <button
-                    onClick={() => setCaseStudyPage(0)}
-                    className={`w-8 h-8 flex items-center justify-center carbon-label-01 transition-colors ${caseStudyPage === 0 ? 'bg-[#0f62fe] text-[#f4f4f4]' : 'bg-transparent text-[#6f6f6f] border border-[#525252] hover:border-[#78a9ff]'}`}
-                  >
-                    1
-                  </button>
-                  <button
-                    onClick={() => setCaseStudyPage(1)}
-                    className={`w-8 h-8 flex items-center justify-center carbon-label-01 transition-colors ${caseStudyPage === 1 ? 'bg-[#0f62fe] text-[#f4f4f4]' : 'bg-transparent text-[#6f6f6f] border border-[#525252] hover:border-[#78a9ff]'}`}
-                  >
-                    2
-                  </button>
-                </div>
-
-                {/* Featured Testimonial — dark card, cohesive with section */}
-                <div className="mb-4">
-                  <p className="carbon-label-01 text-[#a8a8a8] uppercase tracking-wider mb-2">Client Voice</p>
-                  <h3 className="carbon-fluid-heading-04 text-[#f4f4f4]">Testimonials</h3>
-                </div>
-
-                {([
-                  {
-                    context: { client: 'Ibrahim Fibres', desc: 'Deployed ServerLife Extend™ to Critical Infrastructure and deferred CapEx spend without compromise on quality and continuity', link: '/projects/case-study/out-of-warranty-server-support-ibrahim-fibres', solutionLink: '/services/server-continuity' },
-                    bgImage: '/case-studies/ibrahim-fibres/hero-1920.jpg',
-                    quote: "Perception IT transformed our server infrastructure from a risk into a reliable engine for operations. With 48 critical Lenovo servers supporting our production and financial systems, any downtime could have cost us millions. Their 24/7 support, same-day hardware replacements, and proactive maintenance have kept our systems running without a single major incident.\n\nWe now operate with confidence knowing our IT backbone is in expert hands. For any organization managing critical hardware, I highly recommend their service.",
-                    author: 'Mr. Usman Zafar',
-                    role: 'Head of IT, Ibrahim Fibres Limited',
-                    initials: 'UZ',
-                    logo: '/logos/clients/IFL-logo.png',
-                  },
-                  {
-                    context: { client: 'National Telecom Operator', desc: 'Monsoon-hardened precision cooling across 3 sites', link: null, solutionLink: null },
-                    bgImage: null,
-                    quote: 'Their quarterly monsoon validation protocol caught a condensate drain issue before it became an outage. That proactive approach is why we renewed for three more years.',
-                    author: 'DC Operations Manager',
-                    role: 'National Telecom Operator',
-                    initials: 'NT',
-                    logo: null,
-                  },
-                ] as const).filter((_, i) => i === testimonialPage).map((item, i) => (
-                  <div key={i} className="relative">
-                    {/* Prev / Next — overlap the card edge */}
-                    <button
-                      onClick={() => setTestimonialPage(testimonialPage === 0 ? 1 : 0)}
-                      className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 w-12 h-12 bg-[#1a1a1a] border border-[#393939] flex items-center justify-center text-[#a8a8a8] hover:text-[#f4f4f4] hover:border-[#78a9ff] transition-colors hidden md:flex"
-                      aria-label="Previous testimonial"
-                    >
-                      <ChevronLeft className="w-5 h-5" />
-                    </button>
-                    <button
-                      onClick={() => setTestimonialPage(testimonialPage === 0 ? 1 : 0)}
-                      className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10 w-12 h-12 bg-[#1a1a1a] border border-[#393939] flex items-center justify-center text-[#a8a8a8] hover:text-[#f4f4f4] hover:border-[#78a9ff] transition-colors hidden md:flex"
-                      aria-label="Next testimonial"
-                    >
-                      <ChevronRight className="w-5 h-5" />
-                    </button>
-
-                    <div className="bg-[#262626] border border-[#393939]">
-                      <div className="grid md:grid-cols-5 gap-0">
-                      {/* Left: Logo with background image */}
-                      <div className="relative flex flex-col md:col-span-2 min-h-[320px]">
-                        {item.bgImage ? (
-                          <>
-                            <div
-                              className="absolute inset-0 bg-cover bg-center"
-                              style={{ backgroundImage: `url(${item.bgImage})` }}
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-b from-[#161616]/70 via-[#161616]/40 to-[#161616]/80" />
-                          </>
-                        ) : (
-                          <>
-                            <div className="absolute inset-0 bg-[#1a1a1a]" />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <span className="carbon-label-01 text-[#525252] uppercase tracking-wider">Client Facility Photo Placeholder</span>
-                            </div>
-                          </>
-                        )}
-                        <div className="relative flex-1 flex flex-col p-8 items-start justify-start">
-                          {/* Client Identity Tile */}
-                          <div className="w-40">
-                            <div className="h-28 bg-white flex items-center justify-center">
-                              {item.logo ? (
-                                <img
-                                  src={item.logo}
-                                  alt={item.context.client}
-                                  className="max-w-full max-h-full object-contain p-3"
-                                  onError={(e) => {
-                                    const target = e.target as HTMLImageElement;
-                                    target.style.display = 'none';
-                                  }}
-                                />
-                              ) : (
-                                <Building className="w-14 h-14 text-[#8d8d8d]" />
-                              )}
-                            </div>
-                            <div className="bg-[#1a1a1a] border border-t-0 border-[#393939] px-4 py-3">
-                              <p className="carbon-heading-02 text-[#f4f4f4]">{item.context.client}</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Right: Context + Quote + Author */}
-                      <div className="md:col-span-3 flex flex-col">
-                        {/* Context header */}
-                        <div className="px-8 pt-6 pb-4 border-b border-[#393939]">
-                          <div className="flex items-center gap-2 mb-2">
-                            <span className="px-2 py-0.5 bg-[#0f62fe]/15 text-[#78a9ff] carbon-label-01">Client / Service</span>
-                            <span className="w-1 h-1 rounded-full bg-[#525252]" />
-                            <span className="carbon-label-01 text-[#c6c6c6]">{item.context.client}</span>
-                          </div>
-                          <p className="carbon-body-01 text-[#a8a8a8] mb-3">{item.context.desc}</p>
-                          {item.context.solutionLink && (
-                            <Link
-                              to={item.context.solutionLink}
-                              className="inline-flex items-center gap-2 carbon-label-01 text-[#78a9ff] hover:text-[#a6c8ff] transition-colors"
-                            >
-                              ServerLife Extend™ Solution details
-                              <ArrowRight className="w-3 h-3" />
-                            </Link>
-                          )}
-                        </div>
-
-                        {/* Quote */}
-                        <div className="px-8 py-8 flex-1 flex flex-col justify-center min-h-[220px]">
-                          <blockquote className="relative">
-                            <span className="absolute -top-4 -left-4 text-8xl text-[#0f62fe] opacity-45 font-serif leading-none">&ldquo;</span>
-                            <div className="text-xl font-serif text-[#f4f4f4] leading-relaxed relative z-10 space-y-5">
-                              {item.quote.split('\n\n').map((para, idx) => (
-                                <p key={idx}>{para}</p>
-                              ))}
-                            </div>
-                            <span className="absolute -bottom-8 -right-2 text-8xl text-[#0f62fe] opacity-45 font-serif leading-none">&rdquo;</span>
-                          </blockquote>
-                        </div>
-
-                        {/* Bottom Bar: clean, single CTA */}
-                        <div className="border-t border-[#393939] bg-[#1a1a1a]">
-                          <div className="flex items-center justify-between px-8 py-5">
-                            <div className="flex items-center gap-3">
-                              <div className="w-10 h-10 rounded-full bg-[#0f62fe] text-white flex items-center justify-center text-xs font-semibold tracking-wide">
-                                {item.initials}
-                              </div>
-                              <div>
-                                <div className="carbon-heading-01 text-[#f4f4f4] font-semibold">{item.author}</div>
-                                <div className="carbon-helper-text-01 text-[#a8a8a8]">{item.role}</div>
-                              </div>
-                            </div>
-                            {item.context.link && (
-                              <Link
-                                to={item.context.link}
-                                className="inline-flex items-center gap-2 carbon-label-01 text-[#78a9ff] hover:text-[#a6c8ff] transition-colors"
-                              >
-                                Read case study
-                                <ArrowRight className="w-4 h-4" />
-                              </Link>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-
-                {/* Testimonial Pagination */}
-                <div className="mt-6 flex items-center justify-center gap-3">
-                  <button
-                    onClick={() => setTestimonialPage(0)}
-                    className={`w-8 h-8 flex items-center justify-center carbon-label-01 transition-colors ${testimonialPage === 0 ? 'bg-[#0f62fe] text-[#f4f4f4]' : 'bg-transparent text-[#6f6f6f] border border-[#525252] hover:border-[#78a9ff]'}`}
-                  >
-                    1
-                  </button>
-                  <button
-                    onClick={() => setTestimonialPage(1)}
-                    className={`w-8 h-8 flex items-center justify-center carbon-label-01 transition-colors ${testimonialPage === 1 ? 'bg-[#0f62fe] text-[#f4f4f4]' : 'bg-transparent text-[#6f6f6f] border border-[#525252] hover:border-[#78a9ff]'}`}
-                  >
-                    2
-                  </button>
-                </div>
-              </div>
-            </section>
-
-            {/* Section 10: Partners */}
-            <section id="partners" className="border-b border-[var(--cds-border-subtle)]">
-              <PartnerLogos />
-            </section>
-
-            {/* Section 11: Client Portfolio */}
-            <section id="portfolio" className="border-b border-[var(--cds-border-subtle)]">
-              <ClientLogos />
-            </section>
-
-            {/* Section 12: CTA */}
-            <section id="cta" className="py-12 border-b border-[var(--cds-border-subtle)]">
-              <div className="max-w-5xl mx-auto px-6">
-                <p className="carbon-label-01 text-[#0f62fe] uppercase mb-3">Next Step</p>
-                <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">Start With a Thermal Resilience Assessment</h2>
-                <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-8">90-minute structured assessment: thermal mapping, capacity validation, dependency audit, and Pakistan-specific risk scoring. Delivered within 48 hours.</p>
-
-                <div className="grid md:grid-cols-3 gap-4 mb-10">
-                  {[
-                    { step: '01', title: 'On-Site Thermal Audit', desc: 'Infrared thermal mapping, airflow analysis, cooling capacity validation, and single-point-of-failure identification.' },
-                    { step: '02', title: 'Engineered Roadmap', desc: 'Tier recommendation, hardware specification, installation scope, and managed service fit. Delivered within 48 hours.' },
-                    { step: '03', title: 'Mutual Agreement', desc: 'Service levels, scope, and terms defined in signed contractual agreements, if pursued.' },
-                  ].map((item) => (
-                    <div key={item.step} className="relative p-6 bg-[var(--cds-layer-01)] border border-[var(--cds-border-subtle)] ">
-                      <span className="absolute top-4 right-4 carbon-heading-02 text-[var(--cds-text-secondary)]">{item.step}</span>
-                      <h3 className="carbon-fluid-heading-03 text-[var(--cds-text-primary)] mb-2">{item.title}</h3>
-                      <p className="carbon-body-01 text-[var(--cds-text-secondary)]">{item.desc}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="p-8 bg-[#0f62fe] text-center">
-                  <h3 className="carbon-fluid-heading-04 text-white mb-4">Ready to protect your thermal continuity?</h3>
-                  <p className="carbon-body-01 text-white/90 mb-6">Request a Thermal Resilience Assessment. PKR 15K fee, credited toward implementation if pursued.</p>
-                  <a 
-                    href="mailto:contact@perception-it.com"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#0f62fe] font-semibold hover:bg-[var(--cds-background)] transition-colors"
-                  >
-                    Request Assessment
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-            </section>
-
-            {/* Legal Disclaimer */}
-            <section className="py-8 bg-[var(--cds-background)] border-t border-[var(--cds-border-subtle)]">
-              <div className="max-w-5xl mx-auto px-6">
-                <p className="carbon-label-01 text-[var(--cds-text-secondary)] uppercase tracking-wide mb-3">Important Notices</p>
-                <div className="space-y-2 carbon-helper-text-01 text-[var(--cds-text-secondary)]">
-                  <p>• Service outcomes, uptime targets, and remedies are defined exclusively in signed contractual agreements between Perception-IT and the client. Marketing materials do not constitute offers or guarantees.</p>
-                  <p>• Cooling capacity figures are illustrative and depend on room dimensions, heat load, insulation, and environmental conditions. Formal sizing requires on-site thermal assessment.</p>
-                  <p>• &quot;Monsoon-hardened,&quot; &quot;dust-excluded,&quot; and similar terms describe engineering protocols and design intent, not absolute performance warranties.</p>
-                  <p>• Perception-IT (Private) Limited. Huawei Enterprise Partner certification valid through Feb 2027 (CERT20251216000154). All trademarks acknowledged.</p>
-                </div>
-              </div>
-            </section>
-          </main>
-        </div>
-      </div>
 
       <Footer />
     </div>

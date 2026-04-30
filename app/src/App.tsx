@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import './App.css';
 import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
@@ -29,10 +29,8 @@ import ServerContinuity from './pages/services/ServerContinuity';
 import Datacenter from './pages/services/Datacenter';
 import Datacenter2 from './pages/services/Datacenter2';
 import CoolingAirflow from './pages/services/CoolingAirflow';
-import CoolingAirflowEnhanced from './pages/services/CoolingAirflowEnhanced';
-import CoolingAirflow2 from './pages/services/CoolingAirflow2';
+import ScanDemo from './pages/ScanDemo';
 
-import CoolingAirflowRestructured from './pages/services/CoolingAirflowRestructured';
 import HardwareSupport from './pages/services/HardwareSupport';
 import SLASupport from './pages/services/SLASupport';
 import BusinessContinuity from './pages/services/BusinessContinuity';
@@ -49,6 +47,7 @@ import DataFederation from './pages/services/DataFederation';
 import DatabaseOptimisation from './pages/services/DatabaseOptimisation';
 import Maximo from './pages/services/Maximo';
 import InfrastructureHub from './pages/services/InfrastructureHub';
+import UnderConstruction from './pages/UnderConstruction';
 import JiraServiceManagement from './pages/services/JiraServiceManagement';
 import CustomDevelopment from './pages/services/CustomDevelopment';
 import ServiceDesk from './pages/services/ServiceDesk';
@@ -115,11 +114,11 @@ function App() {
             <Route path="/services/server-continuity" element={<ServerContinuity />} />
             <Route path="/services/datacenter" element={<Datacenter />} />
             <Route path="/services/datacenter2" element={<Datacenter2 />} />
-            <Route path="/services/cooling-airflow" element={<CoolingAirflow />} />
-            <Route path="/services/datacentre-4" element={<CoolingAirflowEnhanced />} />
-            <Route path="/services/cooling-airflow2" element={<CoolingAirflow2 />} />
+            <Route path="/services/cooling-airflow" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
+            <Route path="/services/cooling-airflow2" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
+            <Route path="/infrastructure/data-centre-services/cooling-airflow" element={<CoolingAirflow />} />
+            <Route path="/demo/scan-friendly" element={<ScanDemo />} />
 
-            <Route path="/services/cooling-restructured" element={<CoolingAirflowRestructured />} />
             <Route path="/services/hardware-support" element={<HardwareSupport />} />
             <Route path="/services/sla-support" element={<SLASupport />} />
             <Route path="/services/business-continuity" element={<BusinessContinuity />} />
@@ -152,6 +151,15 @@ function App() {
             <Route path="/services/ai-model-development" element={<AIModelDevelopment />} />
             <Route path="/services/mlops" element={<MLOps />} />
             <Route path="/services/ai-consulting" element={<AIConsulting />} />
+
+            {/* Infrastructure — Under Construction placeholders */}
+            <Route path="/services/power-ups" element={<UnderConstruction />} />
+            <Route path="/services/rack-cabinets" element={<UnderConstruction />} />
+            <Route path="/services/environmental-monitoring" element={<UnderConstruction />} />
+            <Route path="/services/fire-suppression" element={<UnderConstruction />} />
+            <Route path="/services/design-build" element={<UnderConstruction />} />
+            <Route path="/services/migration-relocation" element={<UnderConstruction />} />
+            <Route path="/services/maintenance-support" element={<UnderConstruction />} />
             
             {/* About & Contact */}
             <Route path="/about" element={<About />} />

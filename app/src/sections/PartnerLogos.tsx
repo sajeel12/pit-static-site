@@ -45,7 +45,7 @@ const PartnerLogos = () => {
   const allPartners = [...partners, ...partners];
 
   return (
-    <section ref={sectionRef} className="py-12 bg-white overflow-hidden">
+    <section ref={sectionRef} className="py-12 overflow-hidden">
       <div className={`max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 mb-8 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
         <p className="text-center text-xs uppercase tracking-[0.2em] text-gray-400">
           Technology Partners
