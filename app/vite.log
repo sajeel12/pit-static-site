@@ -1999,3 +1999,9 @@ Port 5173 is in use, trying another one...
 10:31:41 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
 10:32:15 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
 10:35:29 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
+10:58:19 PM [vite] (client) hmr update /src/index.css, /src/sections/Footer.tsx
+11:03:51 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
+11:04:23 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
+11:04:44 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
+11:05:02 PM [vite] (client) hmr update /src/styles/carbon.scss
+11:05:28 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
