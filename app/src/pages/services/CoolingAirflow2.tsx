@@ -9,7 +9,7 @@ import PartnerLogos from '../../sections/PartnerLogos';
 import ClientLogos from '../../sections/ClientLogos';
 import {
   ArrowRight, ArrowLeft, ArrowDown, CheckmarkFilled,
-  TemperatureHot, RainDrop, WindGusts as Wind,
+  TemperatureHot, WindGusts as Wind,
   Settings, Compare, Meter, Certificate,
   ChevronRight, ChevronDown, Close,
 
@@ -63,19 +63,6 @@ const sectionLabels: Record<string, string> = {
 /* Infrastructure category accent — Teal 50 */
 
 
-const ImagePlaceholder = ({ title, desc, aspect = '16/9', compact = false }: { title: string; desc: string; aspect?: string; compact?: boolean }) => (
-  <div className={`${compact ? 'border border-dashed border-[#c6c6c6] bg-white' : 'mt-8 border-2 border-dashed border-[#c6c6c6] bg-white'}`}>
-    <div className={`flex flex-col items-center justify-center text-center ${compact ? 'p-6 min-h-[160px]' : 'p-8 min-h-[200px]'}`}>
-      <svg className={`text-[#8d8d8d] mb-3 ${compact ? 'w-8 h-8' : 'w-10 h-10'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-      </svg>
-      <p className={`carbon-label-01 text-[#525252] uppercase tracking-wider mb-2 ${compact ? 'text-[10px]' : ''}`}>3D Rendering / Photography Placeholder</p>
-      <p className={`text-[#161616] mb-2 ${compact ? 'carbon-heading-01' : 'carbon-heading-02'}`}>{title}</p>
-      <p className={`carbon-body-01 text-[#525252] max-w-2xl ${compact ? 'text-sm' : ''}`}>{desc}</p>
-      <p className={`carbon-helper-text-01 text-[#8d8d8d] mt-3 ${compact ? 'text-xs' : ''}`}>Target: {aspect} aspect ratio | Min 1200×675px | PNG/WebP</p>
-    </div>
-  </div>
-);
 
 const CoolingAirflow2 = () => {
   const [activeSection, setActiveSection] = useState('thermal-failure');
@@ -180,10 +167,6 @@ const CoolingAirflow2 = () => {
         behavior: 'smooth'
       });
     }
-  };
-
-  const handleMobileNavChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    scrollToSection(e.target.value);
   };
 
   return (

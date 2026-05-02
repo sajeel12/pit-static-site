@@ -30,6 +30,7 @@ import {
   Tag,
   Tile,
   ClickableTile,
+  InlineNotification,
 } from '@carbon/react';
 import {
   ArrowRight,
@@ -48,6 +49,7 @@ import {
   Download,
   Email,
   Phone,
+  ChevronUp,
 } from '@carbon/icons-react';
 import {
   AirConditioner,
@@ -57,6 +59,8 @@ import {
   CloudServices,
   DataCenters,
 } from '@carbon/pictograms-react';
+import HeroCubeAnimation from '../../components/HeroCubeAnimation';
+import HeroGradientPlanes from '../../components/HeroGradientPlanes';
 import Footer from '../../sections/Footer';
 
 /* ==============================================================================
@@ -485,48 +489,9 @@ const HeroSection = ({ scrollToSection }: { scrollToSection: (id: string) => voi
       overflow: 'hidden',
     }}
   >
-    {/* Thermal Gradient Background */}
-    <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '-10rem',
-          left: '25%',
-          width: 800,
-          height: 600,
-          background: '#8a3a1d',
-          borderRadius: '50%',
-          filter: 'blur(180px)',
-          opacity: 0.18,
-        }}
-      />
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          right: '33%',
-          width: 600,
-          height: 500,
-          background: '#b85c1a',
-          borderRadius: '50%',
-          filter: 'blur(150px)',
-          opacity: 0.12,
-        }}
-      />
-      <div
-        style={{
-          position: 'absolute',
-          top: '-5rem',
-          right: '25%',
-          width: 600,
-          height: 600,
-          background: '#0f62fe',
-          borderRadius: '50%',
-          filter: 'blur(140px)',
-          opacity: 0.22,
-        }}
-      />
-    </div>
+    {/* WebGL Background Effects */}
+    <HeroCubeAnimation />
+    <HeroGradientPlanes />
 
     <Grid style={{ position: 'relative', zIndex: 10 }}>
       <Column lg={12} md={8} sm={4}>
@@ -738,22 +703,7 @@ const ThermalRiskSection = () => {
         })}
       </Grid>
 
-      {/* CTA */}
-      <Grid style={{ marginTop: '2.5rem' }}>
-        <Column lg={12} md={8} sm={4}>
-          <Tile style={{ textAlign: 'center', padding: '1.5rem', background: '#0a1628' }}>
-            <h3 className="cds--heading-02" style={{ color: '#ffffff', marginBottom: '0.5rem' }}>
-              Don&apos;t wait for the next heatwave.
-            </h3>
-            <p className="cds--body-compact-01" style={{ color: '#c6c6c6', marginBottom: '1.5rem', maxWidth: '36rem', margin: '0 auto 1.5rem' }}>
-              A Thermal Health Check identifies your risk profile before the summer peak. From PKR 75,000. 90 minutes. No obligation.
-            </p>
-            <Button kind="primary" renderIcon={ArrowRight} href="#cta">
-              Book Thermal Health Check
-            </Button>
-          </Tile>
-        </Column>
-      </Grid>
+
     </section>
   );
 };
@@ -881,377 +831,227 @@ const PillarNavSection = ({ scrollToSection }: { scrollToSection: (id: string) =
     </section>
   );
 };
-const AssessmentSection = () => {
-  const [expanded, setExpanded] = useState(false);
 
+const AssessmentInsightsGrid = () => {
+  const [isComparisonOpen, setIsComparisonOpen] = useState(false);
   return (
-    <section id="assessment" style={{ padding: '4rem 0', background: 'var(--cds-background, #ffffff)' }}>
+    <section style={{ padding: 'var(--cds-spacing-10) 0', background: 'var(--cds-background)', borderTop: '1px solid var(--cds-border-subtle)' }}>
+      <Grid>
+        <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-07)' }}>
+          <p className="cds--label-01" style={{ color: 'var(--cds-text-helper)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>
+            01 Assessment Options
+          </p>
+          <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-primary)' }}>
+            Choose Your Assessment Path
+          </h2>
+        </Column>
+      </Grid>
+
       <Grid>
         <Column lg={16} md={8} sm={4}>
-          {/* ============================================================
-              SCAN LAYER — Always visible
-              ============================================================ */}
-          <Grid>
-
-            {/* Text — left side */}
-            <Column lg={8} md={4} sm={4}>
-              {/* Section label */}
-              <div style={{ borderLeft: '2px solid #009d9a', paddingLeft: '0.75rem', marginBottom: '0.75rem' }}>
-                <p className="cds--label-01" style={{ color: '#009d9a', textTransform: 'uppercase', letterSpacing: '0.32px', fontWeight: 600 }}>
-                  01 Assessment
-                </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0, border: '1px solid var(--cds-border-subtle)' }}>
+            <Tile style={{ gridColumn: 'span 2', gridRow: 'span 2', padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', position: 'relative', maxHeight: 400 }}>
+              <img src="/3D images/Cooling and Airflow/Cooling - Assesment.png" alt="Pakistani field engineer in Perception-IT polo, holding thermal camera and tablet with heat-map" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} loading="lazy" />
+              <div style={{ position: 'absolute', bottom: 'var(--cds-spacing-06)', right: 'var(--cds-spacing-06)', maxWidth: 480, background: 'rgba(22, 22, 22, 0.88)', padding: 'var(--cds-spacing-06)', borderLeft: '3px solid var(--cds-interactive)' }}>
+                <p className="cds--label-01" style={{ color: 'var(--cds-text-inverse)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>01 Assessment</p>
+                <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-inverse)', marginBottom: 'var(--cds-spacing-03)', lineHeight: 1.25 }}>Two Assessment Options</h3>
+                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-inverse)', lineHeight: 1.5, opacity: 0.85, marginBottom: 'var(--cds-spacing-02)' }}>Rapid health check for routine confidence.</p>
+                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-inverse)', lineHeight: 1.5, opacity: 0.85 }}>Engineering-grade analysis before major spend.</p>
               </div>
-              <p className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '1rem' }}>
-                Thermal assessment &amp; risk scoring
-              </p>
+            </Tile>
 
-              <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: '1rem' }}>
-                Your Two Assessment Options
-              </h2>
-              <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-primary, #161616)', fontWeight: 600, marginBottom: '1.5rem' }}>
-                Match the assessment to your facility&apos;s scale and criticality.
-              </p>
-
-              {/* Assessment options list */}
-              <div style={{ borderTop: '1px solid #e0e0e0' }}>
-                <p className="cds--label-01" style={{ color: '#8d8d8d', textTransform: 'uppercase', letterSpacing: '0.32px', paddingTop: '1rem', marginBottom: '0.5rem' }}>
-                  Assessment options
-                </p>
-                {[
-                  {
-                    title: 'Standard Thermal Health Check',
-                    price: 'From PKR 75,000',
-                    desc: '90-minute on-site audit with IR mapping and risk scorecard.',
-                  },
-                  {
-                    title: 'Precision Thermal Engineering',
-                    price: 'From PKR 650,000',
-                    desc: 'CFD modelling, capacity calculations, and engineering sign-off.',
-                  },
-                ].map((item, idx, arr) => (
-                  <div
-                    key={item.title}
-                    style={{
-                      padding: '1rem 0',
-                      borderBottom: idx < arr.length - 1 ? '1px solid #e0e0e0' : 'none',
-                    }}
-                  >
-                    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', justifyContent: 'space-between', gap: '0.25rem', marginBottom: '0.25rem' }}>
-                      <p className="cds--heading-01" style={{ color: '#161616', fontWeight: 600 }}>{item.title}</p>
-                      <p className="cds--label-01" style={{ color: '#0f62fe', fontWeight: 500, whiteSpace: 'nowrap' }}>{item.price}</p>
-                    </div>
-                    <p className="cds--body-compact-01" style={{ color: '#525252' }}>{item.desc}</p>
-                  </div>
-                ))}
+            <Tile style={{ gridColumn: '3 / span 1', gridRow: 'span 2', padding: 'var(--cds-spacing-06)', display: 'flex', flexDirection: 'column', borderLeft: '1px solid var(--cds-border-subtle)' }}>
+              <DataCenters style={{ width: 48, height: 48, fill: 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)' }} />
+              <div style={{ marginTop: 'auto' }}>
+                <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>Entry</p>
+                <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)' }}>Rapid Thermal Health Check</h3>
+                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>90-minute on-site audit with IR mapping and risk scorecard.</p>
+                <a href="#cta" className="cds--body-compact-01" style={{ color: 'var(--cds-interactive)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}>Book Thermal Health Check <ArrowRight size={16} /></a>
               </div>
+            </Tile>
 
-              {/* CTA + expand trigger */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1rem', marginTop: '1.5rem' }}>
-                <Button kind="primary" renderIcon={ArrowRight} href="#cta">
-                  Book a Free 15-Minute Call
-                </Button>
-                {!expanded && (
-                  <button
-                    onClick={() => setExpanded(true)}
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      color: '#0f62fe',
-                      cursor: 'pointer',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.5rem',
-                      fontSize: '0.875rem',
-                      fontWeight: 400,
-                      lineHeight: 1.28572,
-                      letterSpacing: '0.16px',
-                      padding: 0,
-                    }}
-                  >
-                    <Compare size={20} />
-                    Compare both options in detail
-                    <ChevronRight size={16} />
-                  </button>
-                )}
+            <Tile style={{ gridColumn: '4 / span 1', gridRow: 'span 2', padding: 'var(--cds-spacing-06)', display: 'flex', flexDirection: 'column', borderLeft: '1px solid var(--cds-border-subtle)' }}>
+              <ServerRack style={{ width: 48, height: 48, fill: 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)' }} />
+              <div style={{ marginTop: 'auto' }}>
+                <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>Engineering</p>
+                <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)' }}>Precision Thermal Engineering</h3>
+                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>CFD modelling, capacity calculations, and engineering sign-off.</p>
+                <a href="mailto:contact@perception-it.com?subject=Precision%20Thermal%20Engineering%20Proposal%20Request" className="cds--body-compact-01" style={{ color: 'var(--cds-interactive)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}>Request CFD Proposal <ArrowRight size={16} /></a>
               </div>
-            </Column>
-            {/* Image — right side */}
-            <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-06, 1.5rem)' }}>
-              <div style={{ width: '100%', height: 360, background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <img
-                  src="/3D images/Cooling and Airflow/perceptionit_document_checks_2.webp"
-                  alt="Engineer reviewing thermal assessment documentation, checklist validation, and audit scorecards"
-                  style={{ maxWidth: '100%', maxHeight: 360, objectFit: 'contain' }}
-                  loading="lazy"
-                />
-              </div>
-            </Column>
-          </Grid>
-
-          {/* ============================================================
-              DETAIL LAYER — Expandable
-              ============================================================ */}
-          <div
-            style={{
-              maxHeight: expanded ? 8000 : 0,
-              overflow: 'hidden',
-              opacity: expanded ? 1 : 0,
-              transition: 'max-height 400ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 300ms ease',
-              marginTop: expanded ? '2rem' : 0,
-            }}
-          >
-            {/* Close link */}
-            <div style={{ textAlign: 'right', marginBottom: '1rem' }}>
-              <button
-                onClick={() => setExpanded(false)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: '#0f62fe',
-                  cursor: 'pointer',
-                  fontSize: '0.875rem',
-                  fontWeight: 400,
-                  lineHeight: 1.28572,
-                  letterSpacing: '0.16px',
-                  padding: 0,
-                }}
-              >
-                <ChevronRight size={16} style={{ transform: 'rotate(180deg)' }} />
-                Close comparison
-              </button>
-            </div>
-
-            {/* Comparison Table */}
-            <div style={{ overflowX: 'auto', marginBottom: '2.5rem' }}>
-              <table style={{ width: '100%', fontSize: '0.875rem', borderCollapse: 'collapse' }}>
-                {/* Column identity header */}
-                <thead>
-                  <tr style={{ background: 'rgba(15, 98, 254, 0.04)', borderBottom: '2px solid #e0e0e0' }}>
-                    <th style={{ textAlign: 'left', padding: '1.25rem 1.25rem', width: '18%' }} />
-                    <th style={{ textAlign: 'left', padding: '1.25rem 1.25rem', width: '41%' }}>
-                      <span style={{ display: 'inline-flex', alignItems: 'center', padding: '0 0.5rem', height: '1.25rem', background: '#0f62fe', color: '#ffffff', fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.32px' }}>
-                        Option 1
-                      </span>
-                      <span className="cds--label-01" style={{ display: 'block', color: '#0f62fe', textTransform: 'uppercase', letterSpacing: '0.32px', marginTop: '0.5rem' }}>
-                        Standard
-                      </span>
-                      <h4 className="cds--heading-02" style={{ color: '#161616', lineHeight: 1.3, marginTop: '0.375rem' }}>
-                        Thermal Health Check
-                      </h4>
-                      <p className="cds--body-compact-01" style={{ color: '#525252', marginTop: '0.25rem' }}>
-                        Quick confidence in 90 minutes
-                      </p>
-                    </th>
-                    <th style={{ textAlign: 'left', padding: '1.25rem 1.25rem', width: '41%' }}>
-                      <span style={{ display: 'inline-flex', alignItems: 'center', padding: '0 0.5rem', height: '1.25rem', background: '#0f62fe', color: '#ffffff', fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.32px' }}>
-                        Option 2
-                      </span>
-                      <span className="cds--label-01" style={{ display: 'block', color: '#0f62fe', textTransform: 'uppercase', letterSpacing: '0.32px', marginTop: '0.5rem' }}>
-                        Engineering-Grade
-                      </span>
-                      <h4 className="cds--heading-02" style={{ color: '#161616', lineHeight: 1.3, marginTop: '0.375rem' }}>
-                        Precision Thermal Engineering
-                      </h4>
-                      <p className="cds--body-compact-01" style={{ color: '#525252', marginTop: '0.25rem' }}>
-                        See heat flow before you spend
-                      </p>
-                    </th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {/* Best For */}
-                  <tr style={{ borderBottom: '1px solid #e0e0e0' }}>
-                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
-                      <div style={{ borderLeft: '2px solid #0f62fe', paddingLeft: '0.75rem' }}>
-                        <span className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', fontWeight: 600 }}>
-                          Best For
-                        </span>
-                      </div>
-                    </td>
-                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
-                      <p className="cds--heading-01" style={{ color: '#161616', lineHeight: 1.3 }}>
-                        Routine maintenance, edge sites, budget planning
-                      </p>
-                    </td>
-                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
-                      <p className="cds--heading-01" style={{ color: '#161616', lineHeight: 1.3 }}>
-                        New builds, high-density, compliance, root cause
-                      </p>
-                    </td>
-                  </tr>
-
-                  {/* Choose this if */}
-                  <tr style={{ borderBottom: '1px solid #e0e0e0' }}>
-                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
-                      <div style={{ borderLeft: '2px solid #0f62fe', paddingLeft: '0.75rem' }}>
-                        <span className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', fontWeight: 600 }}>
-                          Choose this if
-                        </span>
-                      </div>
-                    </td>
-                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
-                      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                        {[
-                          'Routine maintenance or edge-class sites',
-                          'Budget-constrained planning phase',
-                          'Quick triage without engineering overhead',
-                          'Results needed within 48 hours',
-                        ].map((item) => (
-                          <li key={item} className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '0.5rem', display: 'flex', gap: '0.5rem' }}>
-                            <CheckmarkFilled size={16} style={{ color: '#0f62fe', marginTop: 2, flexShrink: 0 }} />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </td>
-                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
-                      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                        {[
-                          'New build or major retrofit planning',
-                          'High-density loads (>8 kW per rack)',
-                          'Compliance or audit documentation required',
-                          'Recurring thermal issues need root-cause analysis',
-                        ].map((item) => (
-                          <li key={item} className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '0.5rem', display: 'flex', gap: '0.5rem' }}>
-                            <CheckmarkFilled size={16} style={{ color: '#0f62fe', marginTop: 2, flexShrink: 0 }} />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </td>
-                  </tr>
-
-                  {/* Evidence rows */}
-                  {[
-                    ['Deliverable', 'Photo log + "Fix / Watch / OK" list', '3D heat maps + capacity calculations'],
-                    ['Precision', 'Qualitative ("Rack 12 feels warm")', 'Quantitative ("Rack 12 exceeds 27°C at 45°C ambient")'],
-                    ['Method', 'Visual inspection + structured checklist', 'CFD modeling + engineering analysis'],
-                    ['Tools', 'IR camera, airflow meter, checklist', '6SigmaDC/ANSYS, thermal sensors, load data'],
-                  ].map(([feat, opt1, opt2]) => (
-                    <tr key={String(feat)} style={{ borderBottom: '1px solid #e0e0e0' }}>
-                      <td style={{ padding: '0.75rem 1.25rem', verticalAlign: 'top' }}>
-                        <span className="cds--body-compact-01" style={{ color: '#525252' }}>{feat}</span>
-                      </td>
-                      <td style={{ padding: '0.75rem 1.25rem', verticalAlign: 'top', color: '#525252' }} className="cds--body-compact-01">{opt1}</td>
-                      <td style={{ padding: '0.75rem 1.25rem', verticalAlign: 'top', color: '#525252' }} className="cds--body-compact-01">{opt2}</td>
-                    </tr>
-                  ))}
-
-                  {/* Timeline & Pricing */}
-                  <tr style={{ borderTop: '2px solid #e0e0e0', borderBottom: '1px solid #e0e0e0' }}>
-                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
-                      <span className="cds--label-01" style={{ color: '#8d8d8d', textTransform: 'uppercase', letterSpacing: '0.32px' }}>Timeline &amp; Pricing</span>
-                    </td>
-                    <td style={{ padding: '0.5rem 1.25rem' }} />
-                    <td style={{ padding: '0.5rem 1.25rem' }} />
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #e0e0e0' }}>
-                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
-                      <span className="cds--helper-text-01" style={{ color: '#8d8d8d' }}>Time On-Site</span>
-                    </td>
-                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
-                      <span className="cds--helper-text-01" style={{ color: '#525252' }}>2–4 hours (single visit)</span>
-                    </td>
-                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
-                      <span className="cds--helper-text-01" style={{ color: '#525252' }}>1–2 days (data collection)</span>
-                    </td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #e0e0e0' }}>
-                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
-                      <span className="cds--helper-text-01" style={{ color: '#8d8d8d' }}>Turnaround</span>
-                    </td>
-                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
-                      <span className="cds--helper-text-01" style={{ color: '#525252' }}>Report from within 48 hours</span>
-                    </td>
-                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
-                      <span className="cds--helper-text-01" style={{ color: '#525252' }}>Analysis from within 1–2 weeks</span>
-                    </td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #e0e0e0' }}>
-                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
-                      <span className="cds--helper-text-01" style={{ color: '#8d8d8d' }}>Investment</span>
-                    </td>
-                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
-                      <span className="cds--label-01" style={{ color: '#0f62fe', fontWeight: 500 }}>From PKR 75,000</span>
-                      <span className="cds--helper-text-01" style={{ color: '#525252' }}> per visit</span>
-                    </td>
-                    <td style={{ padding: '0.5rem 1.25rem', verticalAlign: 'top' }}>
-                      <span className="cds--label-01" style={{ color: '#0f62fe', fontWeight: 500 }}>From PKR 650,000</span>
-                      <span className="cds--helper-text-01" style={{ color: '#525252' }}> (up to 50 racks)</span>
-                    </td>
-                  </tr>
-
-                  {/* CTA row */}
-                  <tr style={{ borderTop: '2px solid #e0e0e0' }}>
-                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
-                      <span className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', fontWeight: 600 }}>Next step</span>
-                    </td>
-                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
-                      <Button kind="primary" renderIcon={ArrowRight} href="#cta" style={{ width: '100%', justifyContent: 'center' }}>
-                        Book Thermal Health Check
-                      </Button>
-                    </td>
-                    <td style={{ padding: '1.25rem', verticalAlign: 'top' }}>
-                      <Button kind="primary" renderIcon={ArrowRight} href="mailto:contact@perception-it.com?subject=Precision%20Thermal%20Engineering%20Proposal%20Request" style={{ width: '100%', justifyContent: 'center' }}>
-                        Request CFD Proposal
-                      </Button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            {/* Supporting Callouts */}
-            <Grid style={{ marginBottom: '2.5rem' }}>
-              <Column lg={8} md={4} sm={4} style={{ marginBottom: '1rem' }}>
-                <Tile style={{ background: '#f4f4f4', borderLeft: '4px solid #009d9a', height: '100%' }}>
-                  <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '0.5rem' }}>
-                    Upgrade Path
-                  </p>
-                  <p className="cds--body-compact-01" style={{ color: '#525252' }}>
-                    If your Health Check reveals complexity, <strong style={{ color: '#161616' }}>20% of your fee is credited</strong> toward Precision Thermal Engineering when upgraded within 60 days.
-                  </p>
-                </Tile>
-              </Column>
-              <Column lg={8} md={4} sm={4} style={{ marginBottom: '1rem' }}>
-                <Tile style={{ background: '#f4f4f4', borderLeft: '4px solid #009d9a', height: '100%' }}>
-                  <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '0.5rem' }}>
-                    What&apos;s Not Included
-                  </p>
-                  <p className="cds--body-compact-01" style={{ color: '#525252' }}>
-                    Assessment covers audit, scoring, and recommendation only. Excludes implementation, hardware supply, and ongoing monitoring.
-                  </p>
-                </Tile>
-              </Column>
-            </Grid>
-
-            {/* Collapse link */}
-            <div style={{ textAlign: 'right' }}>
-              <button
-                onClick={() => setExpanded(false)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: '#0f62fe',
-                  cursor: 'pointer',
-                  fontSize: '0.875rem',
-                  fontWeight: 400,
-                  lineHeight: 1.28572,
-                  letterSpacing: '0.16px',
-                  padding: 0,
-                }}
-              >
-                <ChevronRight size={16} style={{ transform: 'rotate(180deg)' }} />
-                Close comparison
-              </button>
-            </div>
+            </Tile>
           </div>
+        </Column>
+      </Grid>
+
+      <Grid style={{ marginTop: 'var(--cds-spacing-07)' }}>
+        <Column lg={16} md={8} sm={4}>
+          <Accordion>
+            <AccordionItem title="Detailed Comparison of the Assessments" className="assessment-comparison-item" open={isComparisonOpen} onHeadingClick={() => setIsComparisonOpen(!isComparisonOpen)}>
+              <Grid style={{ padding: 'var(--cds-spacing-03) 0 var(--cds-spacing-05)' }}>
+                <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-05)' }}>
+                  <Tile style={{ height: '100%', padding: 'var(--cds-spacing-05)', background: 'var(--cds-layer-01)' }}>
+                    <p className="cds--label-01" style={{ color: 'var(--cds-support-success)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-04)' }}>Rapid — Thermal Health Check</p>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                      {[{ label: 'Best for', value: 'Routine maintenance, edge sites, budget planning' }, { label: 'Deliverable', value: 'Photo log + "Fix / Watch / OK" list' }, { label: 'Precision', value: 'Qualitative assessment' }, { label: 'Method', value: 'Visual inspection + structured checklist' }, { label: 'Tools', value: 'IR camera, airflow meter, checklist' }, { label: 'Time on-site', value: '2–4 hours' }, { label: 'Turnaround', value: 'Report within 48 hours' }].map((item) => (
+                      <li key={item.label} className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-04)', display: 'flex', gap: 'var(--cds-spacing-03)', lineHeight: 1.5 }}>
+                        <CheckmarkFilled size={16} style={{ color: 'var(--cds-support-success)', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
+                        <span><strong style={{ color: 'var(--cds-text-primary)', fontWeight: 600 }}>{item.label}:</strong> {item.value}</span>
+                      </li>
+                      ))}
+                    </ul>
+                  </Tile>
+                </Column>
+                <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-05)' }}>
+                  <Tile style={{ height: '100%', padding: 'var(--cds-spacing-05)', background: 'var(--cds-layer-01)' }}>
+                    <p className="cds--label-01" style={{ color: 'var(--cds-interactive)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-04)' }}>Engineering-Grade — Precision Thermal Engineering</p>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                      {[{ label: 'Best for', value: 'New builds, high-density, compliance, root cause' }, { label: 'Deliverable', value: '3D heat maps + capacity calculations' }, { label: 'Precision', value: 'Quantitative analysis' }, { label: 'Method', value: 'CFD modeling + engineering analysis' }, { label: 'Tools', value: '6SigmaDC/ANSYS, thermal sensors, load data' }, { label: 'Time on-site', value: '1–2 days' }, { label: 'Turnaround', value: 'Analysis within 1–2 weeks' }].map((item) => (
+                      <li key={item.label} className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-04)', display: 'flex', gap: 'var(--cds-spacing-03)', lineHeight: 1.5 }}>
+                        <CheckmarkFilled size={16} style={{ color: 'var(--cds-interactive)', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
+                        <span><strong style={{ color: 'var(--cds-text-primary)', fontWeight: 600 }}>{item.label}:</strong> {item.value}</span>
+                      </li>
+                      ))}
+                    </ul>
+                  </Tile>
+                </Column>
+                <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
+                  <InlineNotification kind="info" title="Upgrade Path" subtitle="If your Health Check reveals complexity, 20% of your report fee is credited toward Precision Thermal Engineering when upgraded within 60 days. Travel and visitation charges are not included in the credit." hideCloseButton lowContrast />
+                </Column>
+                <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
+                  <InlineNotification kind="warning" title="What's Not Included" subtitle="Both Assessments cover audit, scoring, and recommendation only. Excludes implementation, hardware supply, ongoing monitoring, and travel or visitation charges." hideCloseButton lowContrast />
+                </Column>
+                <Column lg={16} md={8} sm={4}>
+                  <button type="button" onClick={() => setIsComparisonOpen(false)} className="cds--body-compact-01" style={{ color: 'var(--cds-interactive)', background: 'none', border: 'none', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 'var(--cds-spacing-03)', padding: 'var(--cds-spacing-03) 0', width: '100%', justifyContent: 'flex-end' }}>
+                    Close comparison <ChevronUp size={16} />
+                  </button>
+                </Column>
+              </Grid>
+            </AccordionItem>
+          </Accordion>
         </Column>
       </Grid>
     </section>
   );
 };
+
+const ProcurementInsightsGrid = () => {
+  const [isComparisonOpen, setIsComparisonOpen] = useState(false);
+  return (
+    <section style={{ padding: 'var(--cds-spacing-10) 0', background: 'var(--cds-background)', borderTop: '1px solid var(--cds-border-subtle)' }}>
+      <Grid>
+        <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-07)' }}>
+          <p className="cds--label-01" style={{ color: 'var(--cds-text-helper)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>
+            02 Procurement
+          </p>
+          <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-primary)' }}>
+            Cooling Hardware
+          </h2>
+        </Column>
+      </Grid>
+
+      <Grid>
+        <Column lg={16} md={8} sm={4}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0, border: '1px solid var(--cds-border-subtle)' }}>
+            <Tile style={{ gridColumn: 'span 2', gridRow: 'span 2', padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', position: 'relative', maxHeight: 400 }}>
+              <img src="/3D images/Cooling and Airflow/Cooling - Procurement.png" alt="Cooling hardware procurement" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} loading="lazy" />
+              <div style={{ position: 'absolute', bottom: 'var(--cds-spacing-06)', right: 'var(--cds-spacing-06)', maxWidth: 480, background: 'rgba(22, 22, 22, 0.88)', padding: 'var(--cds-spacing-06)', borderLeft: '3px solid var(--cds-interactive)' }}>
+                <p className="cds--label-01" style={{ color: 'var(--cds-text-inverse)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>02 Procurement</p>
+                <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-inverse)', marginBottom: 'var(--cds-spacing-03)', lineHeight: 1.25 }}>Right-sized hardware, certified for Pakistan</h3>
+                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-inverse)', lineHeight: 1.5, opacity: 0.85 }}>We source cooling equipment from tier-1 manufacturers and validate every unit for 45°C ambient, monsoon humidity, and dust infiltration before it ships.</p>
+              </div>
+            </Tile>
+
+            <Tile style={{ gridColumn: '3 / span 1', gridRow: 'span 2', padding: 'var(--cds-spacing-06)', display: 'flex', flexDirection: 'column', borderLeft: '1px solid var(--cds-border-subtle)' }}>
+              <AirConditioner style={{ width: 48, height: 48, fill: 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)' }} />
+              <div style={{ marginTop: 'auto' }}>
+                <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>Room Cooling</p>
+                <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)' }}>Server Room AC Units</h3>
+                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>Edge sites & small server rooms up to 50kW.</p>
+              </div>
+            </Tile>
+
+            <Tile style={{ gridColumn: '4 / span 1', gridRow: 'span 2', padding: 'var(--cds-spacing-06)', display: 'flex', flexDirection: 'column', borderLeft: '1px solid var(--cds-border-subtle)' }}>
+              <ServerRack style={{ width: 48, height: 48, fill: 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)' }} />
+              <div style={{ marginTop: 'auto' }}>
+                <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>Precision Cooling</p>
+                <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)' }}>Precision Cooling (CRAC/CRAH)</h3>
+                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>Data centres requiring ±1°C control.</p>
+              </div>
+            </Tile>
+
+            <Tile style={{ gridColumn: '3 / span 1', gridRow: 3, padding: 'var(--cds-spacing-06)', display: 'flex', flexDirection: 'column', borderLeft: '1px solid var(--cds-border-subtle)', borderTop: '1px solid var(--cds-border-subtle)' }}>
+              <AirConditioner style={{ width: 48, height: 48, fill: 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)' }} />
+              <div style={{ marginTop: 'auto' }}>
+                <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>Room Cooling</p>
+                <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)' }}>Server Room AC Units</h3>
+                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>Edge sites & small server rooms up to 50kW.</p>
+              </div>
+            </Tile>
+          </div>
+        </Column>
+      </Grid>
+
+      <Grid style={{ marginTop: 0 }}>
+        <Column lg={16} md={8} sm={4}>
+          <Tile style={{ padding: 'var(--cds-spacing-06)', display: 'flex', flexDirection: 'column', border: '1px solid var(--cds-border-subtle)', borderTop: 'none' }}>
+            <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>Facility Cooling</p>
+            <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)' }}>Large-Scale Facility Cooling</h3>
+            <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', lineHeight: 1.5 }}>Chillers, cooling towers, free cooling.</p>
+          </Tile>
+        </Column>
+      </Grid>
+
+      <Grid style={{ marginTop: 'var(--cds-spacing-07)' }}>
+        <Column lg={16} md={8} sm={4}>
+          <Accordion>
+            <AccordionItem title="Detailed Comparison of Cooling Categories" className="assessment-comparison-item" open={isComparisonOpen} onHeadingClick={() => setIsComparisonOpen(!isComparisonOpen)}>
+              <Grid style={{ padding: 'var(--cds-spacing-03) 0 var(--cds-spacing-05)' }}>
+                <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-05)' }}>
+                  <Tile style={{ height: '100%', padding: 'var(--cds-spacing-05)', background: 'var(--cds-layer-01)' }}>
+                    <p className="cds--label-01" style={{ color: 'var(--cds-support-success)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-04)' }}>Room Cooling — Server Room AC</p>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                      {[{ label: 'Best for', value: 'Edge sites, small server rooms, offices' }, { label: 'Capacity', value: 'Up to 50kW per unit' }, { label: 'Precision', value: '±2–3°C' }, { label: 'Install', value: 'Wall or floor mount' }, { label: 'Maintenance', value: 'Filter clean, refrigerant check' }, { label: 'Lead time', value: '2–4 weeks' }].map((item) => (
+                      <li key={item.label} className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-04)', display: 'flex', gap: 'var(--cds-spacing-03)', lineHeight: 1.5 }}>
+                        <CheckmarkFilled size={16} style={{ color: 'var(--cds-support-success)', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
+                        <span><strong style={{ color: 'var(--cds-text-primary)', fontWeight: 600 }}>{item.label}:</strong> {item.value}</span>
+                      </li>
+                      ))}
+                    </ul>
+                  </Tile>
+                </Column>
+                <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-05)' }}>
+                  <Tile style={{ height: '100%', padding: 'var(--cds-spacing-05)', background: 'var(--cds-layer-01)' }}>
+                    <p className="cds--label-01" style={{ color: 'var(--cds-interactive)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-04)' }}>Precision Cooling — CRAC/CRAH</p>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                      {[{ label: 'Best for', value: 'Data centres, high-density racks' }, { label: 'Capacity', value: '50kW – 500kW+ per unit' }, { label: 'Precision', value: '±1°C, ±5% RH' }, { label: 'Install', value: 'Raised floor, ducted supply' }, { label: 'Maintenance', value: 'Quarterly service, sensor cal' }, { label: 'Lead time', value: '4–8 weeks' }].map((item) => (
+                      <li key={item.label} className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-04)', display: 'flex', gap: 'var(--cds-spacing-03)', lineHeight: 1.5 }}>
+                        <CheckmarkFilled size={16} style={{ color: 'var(--cds-interactive)', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
+                        <span><strong style={{ color: 'var(--cds-text-primary)', fontWeight: 600 }}>{item.label}:</strong> {item.value}</span>
+                      </li>
+                      ))}
+                    </ul>
+                  </Tile>
+                </Column>
+                <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
+                  <InlineNotification kind="info" title="Capacity Planning" subtitle="All procurement includes a free site survey to confirm cooling load, airflow path, and electrical capacity before order placement." hideCloseButton lowContrast />
+                </Column>
+                <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
+                  <InlineNotification kind="warning" title="What's Not Included" subtitle="Procurement covers hardware supply and delivery only. Excludes installation, piping, ducting, commissioning, and ongoing maintenance unless specified in the order." hideCloseButton lowContrast />
+                </Column>
+                <Column lg={16} md={8} sm={4}>
+                  <button type="button" onClick={() => setIsComparisonOpen(false)} className="cds--body-compact-01" style={{ color: 'var(--cds-interactive)', background: 'none', border: 'none', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 'var(--cds-spacing-03)', padding: 'var(--cds-spacing-03) 0', width: '100%', justifyContent: 'flex-end' }}>
+                    Close comparison <ChevronUp size={16} />
+                  </button>
+                </Column>
+              </Grid>
+            </AccordionItem>
+          </Accordion>
+        </Column>
+      </Grid>
+    </section>
+  );
+};
+
 const ProcurementSection = () => {
   const [expanded, setExpanded] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -2576,7 +2376,8 @@ const CoolingAirflow = () => {
       <ThermalRiskSection />
       <TrustBarSection />
       <PillarNavSection scrollToSection={scrollToSection} />
-      <AssessmentSection />
+      <AssessmentInsightsGrid />
+      <ProcurementInsightsGrid />
       <ProcurementSection />
 
       {/* Placeholder sections for remaining content */}

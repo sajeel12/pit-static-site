@@ -6,53 +6,6 @@ import * as THREE from 'three';
    HERO COOLING ANIMATION — "Thermal Extraction"
    ======================================================================== */
 
-// --- Wireframe Box ---
-interface WireframeBoxProps {
-  position: [number, number, number];
-  size: [number, number, number];
-  color: string;
-  speed: number;
-  offset: number;
-  opacity?: number;
-}
-
-const WireframeBox = ({ position, size, color, speed, offset, opacity = 0.45 }: WireframeBoxProps) => {
-  const groupRef = useRef<THREE.Group>(null);
-  const initialY = position[1];
-
-  useFrame((state) => {
-    if (groupRef.current) {
-      groupRef.current.position.y = initialY + Math.sin(state.clock.elapsedTime * speed + offset) * 0.12;
-    }
-  });
-
-  const geometries = useMemo(() => {
-    const [w, h, d] = [size[0] / 2, size[1] / 2, size[2] / 2];
-    const v = [
-      [-w, -h, -d], [w, -h, -d], [w, h, -d], [-w, h, -d],
-      [-w, -h, d], [w, -h, d], [w, h, d], [-w, h, d],
-    ];
-    const edges = [
-      [0, 1], [1, 2], [2, 3], [3, 0],
-      [4, 5], [5, 6], [6, 7], [7, 4],
-      [0, 4], [1, 5], [2, 6], [3, 7],
-    ];
-    return edges.map((e) => {
-      const geo = new THREE.BufferGeometry();
-      geo.setAttribute('position', new THREE.Float32BufferAttribute([...v[e[0]], ...v[e[1]]], 3));
-      return geo;
-    });
-  }, [size]);
-
-  return (
-    <group ref={groupRef} position={position}>
-      {geometries.map((geo, i) => (
-        <primitive key={i} object={new THREE.Line(geo, new THREE.LineBasicMaterial({ color, transparent: true, opacity }))} />
-      ))}
-    </group>
-  );
-};
-
 // --- Wireframe Grid (Floor / Ceiling) ---
 interface WireframeGridProps {
   position: [number, number, number];
@@ -83,67 +36,6 @@ const WireframeGrid = ({ position, size, divisions, color, opacity = 0.06 }: Wir
   return (
     <group position={position}>
       <primitive object={new THREE.LineSegments(geometry, new THREE.LineBasicMaterial({ color, transparent: true, opacity }))} />
-    </group>
-  );
-};
-
-// --- Cooling Coil — Hero Form ---
-interface CoolingCoilProps {
-  position: [number, number, number];
-  color: string;
-  speed: number;
-}
-
-const CoolingCoil = ({ position, color, speed }: CoolingCoilProps) => {
-  const groupRef = useRef<THREE.Group>(null);
-
-  useFrame((state) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y = state.clock.elapsedTime * speed * 0.3;
-      groupRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * 0.4) * 0.1;
-    }
-  });
-
-  const { coilGeo, finGeos } = useMemo(() => {
-    const turns = 5;
-    const radius = 1.2;
-    const height = 3.0;
-    const segments = 120;
-
-    const coilPoints: number[] = [];
-    for (let i = 0; i <= segments; i++) {
-      const t = i / segments;
-      const angle = t * turns * Math.PI * 2;
-      const y = (t - 0.5) * height;
-      coilPoints.push(Math.cos(angle) * radius, y, Math.sin(angle) * radius);
-    }
-    const coilGeo = new THREE.BufferGeometry();
-    coilGeo.setAttribute('position', new THREE.Float32BufferAttribute(coilPoints, 3));
-
-    const finGeos: THREE.BufferGeometry[] = [];
-    const finCount = 24;
-    for (let i = 0; i < finCount; i++) {
-      const t = i / finCount;
-      const angle = t * turns * Math.PI * 2;
-      const y = (t - 0.5) * height;
-      const x1 = Math.cos(angle) * radius;
-      const z1 = Math.sin(angle) * radius;
-      const x2 = Math.cos(angle) * (radius + 0.5);
-      const z2 = Math.sin(angle) * (radius + 0.5);
-      const geo = new THREE.BufferGeometry();
-      geo.setAttribute('position', new THREE.Float32BufferAttribute([x1, y, z1, x2, y, z2], 3));
-      finGeos.push(geo);
-    }
-
-    return { coilGeo, finGeos };
-  }, []);
-
-  return (
-    <group ref={groupRef} position={position}>
-      <primitive object={new THREE.Line(coilGeo, new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.5 }))} />
-      {finGeos.map((geo, i) => (
-        <primitive key={i} object={new THREE.Line(geo, new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.25 }))} />
-      ))}
     </group>
   );
 };
@@ -205,7 +97,7 @@ const AirflowStream = ({ start, end, control, color, particleCount, speed, size 
   return (
     <points ref={pointsRef}>
       <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={particleCount} array={positions} itemSize={3} />
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
       <pointsMaterial color={color} size={size} transparent opacity={opacity} sizeAttenuation depthWrite={false} />
     </points>
@@ -332,8 +224,7 @@ const Scene = () => {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
-            count={100}
-            array={useMemo(() => {
+            args={[useMemo(() => {
               const arr = new Float32Array(100 * 3);
               for (let i = 0; i < 100; i++) {
                 arr[i * 3] = (Math.random() - 0.5) * 16;
@@ -341,8 +232,7 @@ const Scene = () => {
                 arr[i * 3 + 2] = (Math.random() - 0.5) * 7;
               }
               return arr;
-            }, [])}
-            itemSize={3}
+            }, []), 3]}
           />
         </bufferGeometry>
         <pointsMaterial color="#1192e8" size={0.028} transparent opacity={0.18} sizeAttenuation depthWrite={false} />

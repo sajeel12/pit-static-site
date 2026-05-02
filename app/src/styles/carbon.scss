@@ -37,8 +37,8 @@
   left: 0;
   right: 0;
   height: 3rem;
-  background-color: #161616;
-  border-bottom: 1px solid #393939;
+  background-color: var(--cds-ui-background, #161616);
+  border-bottom: 1px solid var(--cds-ui-04, #393939);
   z-index: 6000;
 }
 
@@ -65,11 +65,11 @@
   justify-content: center;
   padding: 0 var(--cds-spacing-05);
   height: 3rem;
-  font-size: var(--cds-body-compact-01-font-size, 0.875rem);
+  font-size: var(--cds-body-compact-01-font-size);
   font-weight: 400;
   line-height: 1.28572;
   letter-spacing: 0.16px;
-  color: #ffffff !important;
+  color: var(--cds-text-04, #ffffff) !important;
   text-decoration: none;
   background: transparent;
   border: none;
@@ -80,14 +80,14 @@
 }
 
 .cds--header .cds--header__menu-item:hover {
-  background-color: #333333;
-  color: #ffffff !important;
+  background-color: var(--cds-active-ui, #333333);
+  color: var(--cds-text-04, #ffffff) !important;
 }
 
 .cds--header .cds--header__menu-item--active,
 .cds--header .cds--header__menu-item--current {
-  background-color: #333333;
-  color: #ffffff !important;
+  background-color: var(--cds-active-ui, #333333);
+  color: var(--cds-text-04, #ffffff) !important;
 }
 
 .cds--header__menu-item svg {
@@ -95,18 +95,18 @@
 }
 
 .cds--header .cds--header__name {
-  color: #ffffff !important;
+  color: var(--cds-text-04, #ffffff) !important;
   font-weight: 600;
   text-decoration: none;
   padding: 0 var(--cds-spacing-05);
   height: 3rem;
   display: flex;
   align-items: center;
-  font-size: 0.875rem;
+  font-size: var(--cds-body-compact-01-font-size);
 }
 
 .cds--header .cds--header__name:hover {
-  color: #ffffff !important;
+  color: var(--cds-text-04, #ffffff) !important;
 }
 
 .cds--header__name--prefix {
@@ -331,6 +331,43 @@
 }
 
 // ============================================================================
+// CHROMATIC WAYFINDING — Hub Shift Palette
+// ============================================================================
+
+:root {
+  /* Core Infrastructure: stability, strength, enterprise trust */
+  --cds-hub-blue-60: #0f62fe;
+  --cds-hub-blue-70: #0043ce;
+  --cds-hub-blue-80: #002d9c;
+
+  /* Thermal & Optimization: precision cooling, efficiency, control */
+  --cds-hub-cyan-50: #1192e8;
+  --cds-hub-teal-60: #007d79;
+  --cds-hub-teal-70: #005d5d;
+
+  /* Consultancy / Strategy: insight, intelligence, future-ready */
+  --cds-hub-purple-60: #8a3ffc;
+  --cds-hub-purple-70: #6929c4;
+
+  /* Thermal risk accents */
+  --cds-hub-thermal-overheat: #cf0a2c;
+  --cds-hub-thermal-condensation: #009d9a;
+  --cds-hub-thermal-downtime: #f1c21b;
+
+  /* Scenario card accents — distinct from services palette */
+  --cds-hub-scenario-heat: #ff832b;
+  --cds-hub-scenario-heat-bg: #fff2e8;
+  --cds-hub-scenario-moisture: #8a3ffc;
+  --cds-hub-scenario-moisture-bg: #f6f2ff;
+  --cds-hub-scenario-cost: #d12771;
+  --cds-hub-scenario-cost-bg: #fff0f7;
+
+  /* Anchor service path backgrounds */
+  --cds-hub-anchor-bg: #f4f4f4;
+  --cds-hub-anchor-border: #e0e0e0;
+}
+
+// ============================================================================
 // SPACING TOKENS
 // ============================================================================
 
@@ -544,6 +581,27 @@
 }
 
 // ============================================================================
+// RESPONSIVE UTILITIES
+// ============================================================================
+
+.show-on-desktop {
+  display: none;
+}
+
+.hide-on-mobile {
+  display: none;
+}
+
+@media (min-width: 672px) {
+  .show-on-desktop {
+    display: block;
+  }
+  .hide-on-mobile {
+    display: inline;
+  }
+}
+
+// ============================================================================
 // RESPONSIVE DEPLOYMENT TABS
 // ============================================================================
 
@@ -582,4 +640,13 @@
   .cascade-arrow {
     display: block !important;
   }
+}
+
+// ============================================================================
+// ASSESSMENT COMPARISON ACCORDION — right-aligned title
+// ============================================================================
+
+.assessment-comparison-item .cds--accordion__title {
+  text-align: right;
+  width: 100%;
 }

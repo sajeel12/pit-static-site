@@ -5,6 +5,7 @@ import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 import CloudCostOptimisation from './pages/services/CloudCostOptimisation';
 import Chatbot from './components/Chatbot';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 import CloudHub from './pages/services/CloudHub';
 import CloudManagement from './pages/services/CloudManagement';
 import DevOpsDelivery from './pages/services/DevOpsDelivery';
@@ -29,7 +30,7 @@ import ServerContinuity from './pages/services/ServerContinuity';
 import Datacenter from './pages/services/Datacenter';
 import Datacenter2 from './pages/services/Datacenter2';
 import CoolingAirflow from './pages/services/CoolingAirflow';
-import ScanDemo from './pages/ScanDemo';
+
 
 import HardwareSupport from './pages/services/HardwareSupport';
 import SLASupport from './pages/services/SLASupport';
@@ -117,7 +118,7 @@ function App() {
             <Route path="/services/cooling-airflow" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
             <Route path="/services/cooling-airflow2" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
             <Route path="/infrastructure/data-centre-services/cooling-airflow" element={<CoolingAirflow />} />
-            <Route path="/demo/scan-friendly" element={<ScanDemo />} />
+
 
             <Route path="/services/hardware-support" element={<HardwareSupport />} />
             <Route path="/services/sla-support" element={<SLASupport />} />
@@ -171,6 +172,7 @@ function App() {
             <Route path="/cover3" element={<Cover3 />} />
           </Routes>
           <Chatbot />
+          <FloatingWhatsApp />
         </div>
       </ErrorBoundary>
     </HashRouter>
