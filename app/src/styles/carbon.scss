@@ -651,6 +651,15 @@
   width: 100%;
 }
 
+.assessment-comparison-item .cds--accordion__heading {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.assessment-comparison-item.cds--accordion__item {
+  margin-top: 0;
+}
+
 // ============================================================================
 // CTA SECTION GRIDS — responsive collapse
 // ============================================================================

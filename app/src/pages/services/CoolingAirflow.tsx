@@ -34,7 +34,6 @@ import {
 } from '@carbon/react';
 import {
   ArrowRight,
-  ArrowLeft,
   CheckmarkFilled,
   Compare,
   ChevronRight,
@@ -49,6 +48,7 @@ import {
   Search,
   Download,
   Email,
+  Phone,
   ChevronUp,
 } from '@carbon/icons-react';
 import {
@@ -914,11 +914,23 @@ const AssessmentInsightsGrid = () => {
                     </ul>
                   </Tile>
                 </Column>
-                <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
-                  <InlineNotification kind="info" title="Upgrade Path" subtitle="If your Health Check reveals complexity, 20% of your report fee is credited toward Precision Thermal Engineering when upgraded within 60 days. Travel and visitation charges are not included in the credit." hideCloseButton lowContrast />
+                <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
+                  <Tile style={{ padding: 'var(--cds-spacing-05)', background: 'var(--cds-layer-01)', borderLeft: '4px solid var(--cds-support-success)', display: 'flex', gap: 'var(--cds-spacing-05)', alignItems: 'flex-start' }}>
+                    <Certificate size={24} style={{ color: 'var(--cds-support-success)', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
+                    <div>
+                      <p className="cds--label-01" style={{ color: 'var(--cds-support-success)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-02)' }}>Upgrade Path</p>
+                      <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', lineHeight: 1.6 }}>If your Health Check reveals complexity, <strong style={{ color: 'var(--cds-text-primary)' }}>20% of your report fee</strong> is credited toward Precision Thermal Engineering when upgraded within 60 days. Travel and visitation charges are not included in the credit.</p>
+                    </div>
+                  </Tile>
                 </Column>
-                <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
-                  <InlineNotification kind="warning" title="What's Not Included" subtitle="Both Assessments cover audit, scoring, and recommendation only. Excludes implementation, hardware supply, ongoing monitoring, and travel or visitation charges." hideCloseButton lowContrast />
+                <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
+                  <Tile style={{ padding: 'var(--cds-spacing-05)', background: 'var(--cds-layer-01)', borderLeft: '4px solid var(--cds-text-placeholder)', display: 'flex', gap: 'var(--cds-spacing-05)', alignItems: 'flex-start' }}>
+                    <Warning size={24} style={{ color: 'var(--cds-text-placeholder)', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
+                    <div>
+                      <p className="cds--label-01" style={{ color: 'var(--cds-text-placeholder)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-02)' }}>What's Not Included</p>
+                      <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', lineHeight: 1.6 }}>Both Assessments cover audit, scoring, and recommendation only. Excludes implementation, hardware supply, ongoing monitoring, and travel or visitation charges.</p>
+                    </div>
+                  </Tile>
                 </Column>
                 <Column lg={16} md={8} sm={4}>
                   <button type="button" onClick={() => setIsComparisonOpen(false)} className="cds--body-compact-01" style={{ color: 'var(--cds-interactive)', background: 'none', border: 'none', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 'var(--cds-spacing-03)', padding: 'var(--cds-spacing-03) 0', width: '100%', justifyContent: 'flex-end' }}>
@@ -930,12 +942,28 @@ const AssessmentInsightsGrid = () => {
           </Accordion>
         </Column>
       </Grid>
+
+      <Grid style={{ marginTop: 'var(--cds-spacing-07)' }}>
+        <Column lg={16} md={8} sm={4}>
+          <Tile style={{ padding: 'var(--cds-spacing-07)', background: 'linear-gradient(135deg, #0a1628 0%, #1a2b4a 100%)', borderLeft: '4px solid var(--cds-interactive)' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 'var(--cds-spacing-06)' }}>
+              <div style={{ flex: '1 1 400px' }}>
+                <h3 className="cds--heading-02" style={{ color: '#ffffff', marginBottom: 'var(--cds-spacing-03)' }}>Not sure which assessment fits your site?</h3>
+                <p className="cds--body-compact-01" style={{ color: 'rgba(255,255,255,0.8)', lineHeight: 1.6 }}>Our engineers can recommend the right option based on your cooling load, rack density, and compliance requirements.</p>
+              </div>
+              <Button kind="primary" href="mailto:contact@perception-it.com?subject=Assessment%20Consultation%20Request">Speak to an Engineer</Button>
+            </div>
+          </Tile>
+        </Column>
+      </Grid>
+
     </section>
   );
 };
 
 const ProcurementInsightsGrid = () => {
   const [isComparisonOpen, setIsComparisonOpen] = useState(false);
+  const [roomCoolingHover, setRoomCoolingHover] = useState(false);
   return (
     <section style={{ padding: 'var(--cds-spacing-10) 0', background: 'var(--cds-background)', borderTop: '1px solid var(--cds-border-subtle)' }}>
       <Grid>
@@ -961,17 +989,42 @@ const ProcurementInsightsGrid = () => {
               </div>
             </Tile>
 
-            <Tile style={{ gridColumn: '3 / span 1', gridRow: 'span 2', padding: 'var(--cds-spacing-06)', display: 'flex', flexDirection: 'column', borderLeft: '1px solid var(--cds-border-subtle)' }}>
-              <AirConditioner style={{ width: 48, height: 48, fill: 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)' }} />
+            <Tile
+              style={{
+                gridColumn: '3 / span 1',
+                gridRow: 'span 1',
+                padding: 'var(--cds-spacing-06)',
+                display: 'flex',
+                flexDirection: 'column',
+                borderLeft: '1px solid var(--cds-border-subtle)',
+                background: roomCoolingHover ? 'var(--cds-interactive)' : 'var(--cds-layer)',
+                transition: 'background 0.25s ease',
+                cursor: 'pointer',
+              }}
+              onMouseEnter={() => setRoomCoolingHover(true)}
+              onMouseLeave={() => setRoomCoolingHover(false)}
+            >
+              <AirConditioner style={{ width: 48, height: 48, fill: roomCoolingHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'fill 0.25s ease' }} />
               <div style={{ marginTop: 'auto' }}>
-                <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>Room Cooling</p>
-                <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)' }}>Server Room AC Units</h3>
-                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>Edge sites & small server rooms up to 50kW.</p>
+                <p className="cds--label-01" style={{ color: roomCoolingHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Room Cooling</p>
+                <h3 className="cds--heading-02" style={{ color: roomCoolingHover ? '#ffffff' : 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Server Room AC Units</h3>
+                {!roomCoolingHover ? (
+                  <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>Edge sites & small server rooms up to 50kW.</p>
+                ) : (
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                    {['Wall-mounted, ceiling-suspended, and portable units', 'Designed for edge sites and small server rooms up to 50kW heat load', 'Split-system and ducted configurations available'].map((item) => (
+                      <li key={item} className="cds--body-compact-01" style={{ color: '#ffffff', marginBottom: 'var(--cds-spacing-03)', display: 'flex', gap: 'var(--cds-spacing-03)', lineHeight: 1.5 }}>
+                        <CheckmarkFilled size={16} style={{ color: '#ffffff', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </Tile>
 
             <Tile style={{ gridColumn: '4 / span 1', gridRow: 'span 2', padding: 'var(--cds-spacing-06)', display: 'flex', flexDirection: 'column', borderLeft: '1px solid var(--cds-border-subtle)' }}>
-              <ServerRack style={{ width: 48, height: 48, fill: 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)' }} />
+              <Windy style={{ width: 48, height: 48, fill: 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)' }} />
               <div style={{ marginTop: 'auto' }}>
                 <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>Precision Cooling</p>
                 <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)' }}>Precision Cooling (CRAC/CRAH)</h3>
@@ -979,25 +1032,31 @@ const ProcurementInsightsGrid = () => {
               </div>
             </Tile>
 
-            <Tile style={{ gridColumn: '3 / span 1', gridRow: 3, padding: 'var(--cds-spacing-06)', display: 'flex', flexDirection: 'column', borderLeft: '1px solid var(--cds-border-subtle)', borderTop: '1px solid var(--cds-border-subtle)' }}>
-              <AirConditioner style={{ width: 48, height: 48, fill: 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)' }} />
+            <Tile style={{ gridColumn: '1 / span 2', gridRow: '3 / span 2', padding: 0, display: 'flex', borderTop: '1px solid var(--cds-border-subtle)', overflow: 'hidden', position: 'relative' }}>
+              <div style={{ width: '50%', minWidth: 200, background: 'linear-gradient(135deg, #0a1628 0%, #1a2b4a 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', padding: 'var(--cds-spacing-05)' }}>
+                <span className="cds--label-01" style={{ position: 'absolute', top: 'var(--cds-spacing-03)', left: 'var(--cds-spacing-03)', color: '#ffffff', background: 'var(--cds-interactive)', padding: '2px 8px', textTransform: 'uppercase', fontSize: '0.65rem', letterSpacing: '0.5px' }}>Featured Product</span>
+                <img src="/3D images/Cooling and Airflow/FusionCol8000-E.png" alt="FusionCol8000-E cooling unit" style={{ maxWidth: '90%', maxHeight: 180, objectFit: 'contain' }} loading="lazy" />
+              </div>
+              <div style={{ width: '50%', minWidth: 200, padding: 'var(--cds-spacing-06)', display: 'flex', flexDirection: 'column', justifyContent: 'center', borderLeft: '1px solid var(--cds-border-subtle)' }}>
+                <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-02)' }}>FusionCol8000-E</h3>
+                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', lineHeight: 1.5, marginBottom: 'var(--cds-spacing-02)' }}>Precision Cooling / CRAC</p>
+                <p className="cds--label-01" style={{ color: 'var(--cds-interactive)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-05)', fontSize: '0.7rem' }}>Data Centres up to 500kW</p>
+                <div style={{ display: 'flex', gap: 'var(--cds-spacing-03)' }}>
+                  <Button kind="primary" size="sm" style={{ flex: 1 }}>Enquire</Button>
+                  <Button kind="tertiary" size="sm" style={{ flex: 1 }}>Datasheet</Button>
+                </div>
+              </div>
+            </Tile>
+
+            <Tile style={{ gridColumn: '3 / span 1', gridRow: '2 / span 1', padding: 'var(--cds-spacing-06)', display: 'flex', flexDirection: 'column', borderLeft: '1px solid var(--cds-border-subtle)', borderTop: '1px solid var(--cds-border-subtle)' }}>
+              <ServerRack style={{ width: 48, height: 48, fill: 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)' }} />
               <div style={{ marginTop: 'auto' }}>
-                <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>Room Cooling</p>
-                <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)' }}>Server Room AC Units</h3>
-                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>Edge sites & small server rooms up to 50kW.</p>
+                <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>Facility Cooling</p>
+                <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)' }}>Large-Scale Facility Cooling</h3>
+                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>Chillers, cooling towers, free cooling.</p>
               </div>
             </Tile>
           </div>
-        </Column>
-      </Grid>
-
-      <Grid style={{ marginTop: 0 }}>
-        <Column lg={16} md={8} sm={4}>
-          <Tile style={{ padding: 'var(--cds-spacing-06)', display: 'flex', flexDirection: 'column', border: '1px solid var(--cds-border-subtle)', borderTop: 'none' }}>
-            <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>Facility Cooling</p>
-            <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)' }}>Large-Scale Facility Cooling</h3>
-            <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', lineHeight: 1.5 }}>Chillers, cooling towers, free cooling.</p>
-          </Tile>
         </Column>
       </Grid>
 
@@ -1046,6 +1105,41 @@ const ProcurementInsightsGrid = () => {
               </Grid>
             </AccordionItem>
           </Accordion>
+        </Column>
+      </Grid>
+
+      <Grid style={{ marginTop: 'var(--cds-spacing-10)' }}>
+        <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-06)' }}>
+          <p className="cds--label-01" style={{ color: 'var(--cds-text-helper)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>Certified Supply Chain</p>
+          <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-primary)' }}>Manufacturer Partnerships</h2>
+        </Column>
+
+        <Column lg={16} md={8} sm={4}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0, border: '1px solid var(--cds-border-subtle)', marginBottom: 'var(--cds-spacing-07)' }}>
+            {['Huawei', 'Lenovo', 'Dell', 'HP'].map((brand, i) => (
+              <Tile key={brand} style={{ padding: 'var(--cds-spacing-07)', display: 'flex', alignItems: 'center', justifyContent: 'center', borderLeft: i > 0 ? '1px solid var(--cds-border-subtle)' : 'none', background: 'var(--cds-layer)' }}>
+                <p className="cds--heading-02" style={{ color: 'var(--cds-text-secondary)', fontWeight: 600, letterSpacing: '0.5px' }}>{brand}</p>
+              </Tile>
+            ))}
+          </div>
+        </Column>
+
+        <Column lg={10} md={5} sm={4} style={{ marginBottom: 'var(--cds-spacing-06)' }}>
+          <p className="cds--body-01" style={{ color: 'var(--cds-text-secondary)', lineHeight: 1.6, marginBottom: 'var(--cds-spacing-05)' }}>
+            Manufacturer warranty administered through Perception-IT — we handle claims, diagnostics, and replacement logistics. You deal with one partner, not the manufacturer. Extended warranty and spare-part bundling available via ServerLife Extend™.
+          </p>
+        </Column>
+
+        <Column lg={16} md={8} sm={4}>
+          <Tile style={{ padding: 'var(--cds-spacing-07)', background: 'var(--cds-layer-01)', borderLeft: '4px solid var(--cds-interactive)' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 'var(--cds-spacing-06)' }}>
+              <div style={{ flex: '1 1 400px' }}>
+                <h3 className="cds--heading-03" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)' }}>Need hardware validated for Pakistan?</h3>
+                <p className="cds--body-01" style={{ color: 'var(--cds-text-secondary)', lineHeight: 1.6 }}>Speak to a procurement engineer about sizing, lead times, and monsoon-hardened specifications.</p>
+              </div>
+              <Button kind="primary" href="mailto:contact@perception-it.com?subject=Hardware%20Consultation%20Request">Request Hardware Consultation</Button>
+            </div>
+          </Tile>
         </Column>
       </Grid>
     </section>
@@ -2176,7 +2270,7 @@ const ManagedServicesSection = () => {
     </section>
   );
 };
-const CrossSellSection = () => {
+const EcosystemSection = () => {
   const relatedServices = [
     {
       title: 'Power & UPS',
@@ -2217,11 +2311,11 @@ const CrossSellSection = () => {
           <div style={{ marginBottom: '2rem' }}>
             <div style={{ width: 24, height: 2, background: '#0f62fe', marginBottom: 8 }} />
             <p className="cds--label-01" style={{ color: '#0f62fe', textTransform: 'uppercase', letterSpacing: '0.32px' }}>
-              Complete Your Data Centre Stack
+              Ecosystem
             </p>
           </div>
           <h2 className="cds--fluid-heading-05" style={{ color: '#161616', marginBottom: '1rem' }}>
-            Cooling Doesn&apos;t Work in Isolation
+            Part of the Server Continuity Suite
           </h2>
           <p className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '2.5rem', maxWidth: '48rem' }}>
             Explore the supporting services that keep your infrastructure running. Every layer — power, containment, monitoring, fire protection — affects thermal performance.
@@ -2384,7 +2478,7 @@ const CoolingAirflow = () => {
       <DeploymentSection />
 
       <ManagedServicesSection />
-      <CrossSellSection />
+      <EcosystemSection />
       <section id="faq" style={{ padding: '4rem 0', background: 'var(--cds-background, #ffffff)' }}>
         <Grid>
           <Column lg={16} md={8} sm={4}>
@@ -2415,156 +2509,34 @@ const CoolingAirflow = () => {
         </Grid>
       </section>
 
-      {/* ── 13 CTA ─────────────────────────────────────────────── */}
-      <section id="cta" style={{ padding: 'var(--cds-spacing-10) 0', background: 'var(--cds-background, #ffffff)', borderTop: '1px solid var(--cds-border-subtle)' }}>
+      <section id="cta" style={{ padding: '4rem 0', background: '#0a1628' }}>
         <Grid>
-          <Column lg={16} md={8} sm={4}>
-            <div style={{ marginBottom: 'var(--cds-spacing-05)' }}>
-              <div style={{ width: 24, height: 2, background: '#0f62fe', marginBottom: 8 }} />
-              <p className="cds--label-01" style={{ color: '#0f62fe', textTransform: 'uppercase', letterSpacing: '0.32px' }}>
-                Next Step
-              </p>
-            </div>
-            <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: 'var(--cds-spacing-05)' }}>
-              Start With a Thermal Health Check
-            </h2>
-            <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary, #525252)', marginBottom: 'var(--cds-spacing-07)', maxWidth: '48rem' }}>
-              Engineered for Pakistan&apos;s climate reality. 90-minute on-site assessment. Clear scorecard. No obligation.
-            </p>
-
-            {/* 3-step process */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--cds-spacing-05)', marginBottom: 'var(--cds-spacing-07)' }} className="cta-step-grid">
-              {[
-                { step: '01', title: 'Thermal Health Check', desc: 'We map your current state and tell you what is working, what needs attention, and whether deeper analysis adds value.' },
-                { step: '02', title: 'Right-Sized Solution', desc: 'Start with the standard Health Check. If your facility needs deeper analysis, we escalate to Precision Thermal Engineering — with a clear scope, timeline, and hardware recommendation.' },
-                { step: '03', title: 'Implementation or Managed Service', desc: 'Hardware, installation, commissioning, or 24/7 monitoring — all under one SLA with one partner.' },
-              ].map((item) => (
-                <div key={item.step} style={{ position: 'relative', padding: 'var(--cds-spacing-06)', background: 'var(--cds-layer-01, #f4f4f4)', border: '1px solid var(--cds-border-subtle, #e0e0e0)', transition: 'transform 150ms cubic-bezier(0.2, 0, 0.38, 0.9)' }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = 'translateY(-4px)'; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; }}
-                >
-                  <div style={{ position: 'absolute', top: 'var(--cds-spacing-05)', right: 'var(--cds-spacing-05)', width: 32, height: 32, background: '#0f62fe', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '0.875rem' }}>
-                    {item.step}
-                  </div>
-                  <h3 className="cds--fluid-heading-03" style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: 'var(--cds-spacing-03)', paddingRight: 'var(--cds-spacing-07)' }}>{item.title}</h3>
-                  <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary, #525252)' }}>{item.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Pricing Reference */}
-            <div style={{ marginBottom: 'var(--cds-spacing-07)', padding: 'var(--cds-spacing-06)', background: '#ffffff', border: '1px solid var(--cds-border-subtle, #e0e0e0)' }}>
-              <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: 'var(--cds-spacing-05)' }}>Pricing Reference</h3>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--cds-spacing-05)' }} className="cta-pricing-grid">
-                {[
-                  { label: 'From Thermal Assessment', price: 'From PKR 75,000', note: '20% potentially credited toward Precision Engineering if upgraded within 60 days' },
-                  { label: 'Tier 1 Managed Cooling', price: 'From PKR 65K/mo', note: 'SLA-backed continuity' },
-                  { label: 'Tier 2 Hardware + Install', price: 'From PKR 280K', note: 'One-time basic deployment' },
-                ].map((item) => (
-                  <div key={item.label} style={{ padding: 'var(--cds-spacing-05)', background: 'var(--cds-layer-01, #f4f4f4)', border: '1px solid var(--cds-border-subtle, #e0e0e0)' }}>
-                    <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary, #525252)', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: 'var(--cds-spacing-03)' }}>{item.label}</p>
-                    <p className="cds--fluid-heading-03" style={{ color: 'var(--cds-text-primary, #161616)' }}>{item.price}</p>
-                    <p className="cds--helper-text-01" style={{ color: '#525252', marginTop: 'var(--cds-spacing-03)' }}>{item.note}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Final CTA Banner */}
-            <div style={{ padding: 'var(--cds-spacing-07)', background: 'linear-gradient(135deg, #0f62fe 0%, #009d9a 100%)', textAlign: 'center', color: '#ffffff' }}>
-              <h3 className="cds--fluid-heading-04" style={{ marginBottom: 'var(--cds-spacing-03)', color: '#ffffff' }}>Get Thermal Certainty Before the Next Crisis</h3>
-              <p className="cds--body-compact-01" style={{ color: 'rgba(255,255,255,0.9)', marginBottom: 'var(--cds-spacing-06)', maxWidth: '32rem', margin: '0 auto var(--cds-spacing-06)' }}>
-                PKR 75,000. 90-minute assessment. Clear scorecard. No obligation.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 'var(--cds-spacing-05)' }} className="cta-banner-buttons">
-                <a
-                  href="mailto:contact@perception-it.com?subject=Thermal%20Health%20Check%20Request"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--cds-spacing-03)', padding: '0.75rem 1.5rem', background: '#ffffff', color: '#0f62fe', textDecoration: 'none', fontSize: '0.875rem', fontWeight: 400, transition: 'background 150ms cubic-bezier(0.2, 0, 0.38, 0.9)' }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#e8e8e8'; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#ffffff'; }}
-                >
-                  Request Thermal Health Check <ArrowRight size={16} />
-                </a>
-                <button
-                  onClick={() => {
-                    const el = document.getElementById('overview');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--cds-spacing-03)', padding: '0.75rem 1.5rem', background: 'transparent', color: '#ffffff', border: '1px solid rgba(255,255,255,0.5)', textDecoration: 'none', fontSize: '0.875rem', fontWeight: 400, cursor: 'pointer', transition: 'all 150ms cubic-bezier(0.2, 0, 0.38, 0.9)' }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.1)'; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
-                >
-                  Back to Top
-                </button>
-              </div>
-            </div>
-          </Column>
-        </Grid>
-      </section>
-
-      {/* ── Hub Return Path ─────────────────────────────────────── */}
-      <section style={{ padding: 'var(--cds-spacing-10) 0', background: 'var(--cds-background, #ffffff)', borderTop: '1px solid var(--cds-border-subtle)' }}>
-        <Grid>
-          <Column lg={16} md={8} sm={4}>
-            <div style={{ marginBottom: 'var(--cds-spacing-05)' }}>
-              <div style={{ width: 24, height: 2, background: '#009d9a', marginBottom: 8 }} />
-              <p className="cds--label-01" style={{ color: '#009d9a', textTransform: 'uppercase', letterSpacing: '0.32px' }}>
-                Data Centre Services
-              </p>
-            </div>
-            <h3 className="cds--fluid-heading-04" style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: 'var(--cds-spacing-03)' }}>Explore More Services</h3>
-            <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary, #525252)', marginBottom: 'var(--cds-spacing-06)', maxWidth: '32rem' }}>
-              Cooling & Airflow is one part of a complete data centre infrastructure stack. Explore related services or return to the Data Centre Services overview.
-            </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--cds-spacing-03)', marginBottom: 'var(--cds-spacing-06)' }}>
-              {[
-                { label: 'Power & UPS', link: '/services/power-ups' },
-                { label: 'Rack & Cabinet', link: '/services/rack-cabinets' },
-                { label: 'Environmental Monitoring', link: '/services/environmental-monitoring' },
-                { label: 'Fire Suppression', link: '/services/fire-suppression' },
-                { label: 'Design & Build', link: '/services/design-build' },
-              ].map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.link}
-                  style={{ padding: '0.5rem 1rem', background: '#ffffff', border: '1px solid var(--cds-border-subtle, #e0e0e0)', fontSize: '0.875rem', color: '#161616', textDecoration: 'none', transition: 'all 150ms cubic-bezier(0.2, 0, 0.38, 0.9)' }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = '#0f62fe'; (e.currentTarget as HTMLElement).style.color = '#0f62fe'; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--cds-border-subtle, #e0e0e0)'; (e.currentTarget as HTMLElement).style.color = '#161616'; }}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-            <Link
-              to="/services/infrastructure"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--cds-spacing-03)', color: '#0f62fe', textDecoration: 'none', fontSize: '0.875rem', fontWeight: 500 }}
+          <Column lg={12} md={8} sm={4}>
+            <h2
+              className="cds--fluid-heading-05"
+              style={{ color: '#ffffff', marginBottom: '1rem' }}
             >
-              <ArrowLeft size={16} /> Back to Data Centre Services
-            </Link>
-          </Column>
-        </Grid>
-      </section>
-
-      {/* ── Footer Disclaimer ───────────────────────────────────── */}
-      <section style={{ padding: 'var(--cds-spacing-09) 0', background: '#f4f4f4', borderTop: '1px solid var(--cds-border-subtle, #e0e0e0)' }}>
-        <Grid>
-          <Column lg={16} md={8} sm={4}>
-            <h3 className="cds--label-01" style={{ color: 'var(--cds-text-secondary, #525252)', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: 'var(--cds-spacing-06)' }}>
-              Important Notices
-            </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--cds-spacing-04)' }}>
-              {[
-                'Service outcomes, cooling uptime targets, and remedies are defined exclusively in signed contractual agreements between Perception-IT and the client. Marketing materials do not constitute offers or guarantees.',
-                'Capacity figures and thermal projections are illustrative — formal sizing requires on-site assessment. Risk calculations, exposure estimates, and failure reduction statistics are based on industry benchmarks and pilot client data. Actual results depend on facility condition, environmental factors, client cooperation, and forces beyond Perception-IT\'s control.',
-                '"Monsoon-hardened," "dust-excluded," and similar terms describe engineering protocols and design intent, not absolute performance warranties.',
-                'SBP/SECP/NFPA compliance support does not constitute legal advice or regulatory certification. Clients remain responsible for their own compliance obligations.',
-                'Perception-IT (Private) Limited. Huawei Enterprise Partner certification valid through Feb 2027 (CERT20251216000154). All trademarks acknowledged.',
-              ].map((text, i) => (
-                <p key={i} className="cds--helper-text-01" style={{ color: '#525252', lineHeight: 1.5 }}>
-                  {text}
-                </p>
-              ))}
-            </div>
+              Ready to protect your infrastructure?
+            </h2>
+            <p
+              className="cds--body-compact-01"
+              style={{ color: '#c6c6c6', marginBottom: '2rem', maxWidth: '36rem' }}
+            >
+              Book a free 15-minute call with our thermal team. We&apos;ll discuss your facility, identify risks, and recommend the right assessment path.
+            </p>
+            <ButtonSet>
+              <Button kind="primary" renderIcon={ArrowRight} href="mailto:contact@perception-it.com?subject=Cooling%20%26%20Airflow%20Consultation">
+                Book Free Consultation
+              </Button>
+              <Button
+                kind="tertiary"
+                renderIcon={Phone}
+                href="tel:+923001234567"
+                style={{ color: '#ffffff', borderColor: 'rgba(255,255,255,0.5)' }}
+              >
+                Call Now
+              </Button>
+            </ButtonSet>
           </Column>
         </Grid>
       </section>
