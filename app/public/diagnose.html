@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head><title>Diagnose</title></head>
+<body>
+<h1>Loading page...</h1>
+<div id="errors" style="color:red; white-space:pre-wrap; font-family:monospace;"></div>
+<script>
+const errs = [];
+const origError = console.error;
+console.error = function(...args) {
+  errs.push(args.map(a => String(a)).join(' '));
+  origError.apply(console, args);
+};
+window.onerror = function(msg, url, line, col, err) {
+  errs.push('WINDOW ERROR: ' + msg + ' at ' + url + ':' + line + ':' + col);
+};
+window.onunhandledrejection = function(e) {
+  errs.push('UNHANDLED REJECTION: ' + e.reason);
+};
+setTimeout(() => {
+  const iframe = document.createElement('iframe');
+  iframe.src = '/#/infrastructure/data-centre-services/cooling-airflow';
+  iframe.width = '100%';
+  iframe.height = '600';
+  iframe.onload = () => {
+    setTimeout(() => {
+      document.querySelector('h1').textContent = 'Errors captured:';
+      document.getElementById('errors').textContent = errs.join('\n---\n') || 'No console errors captured';
+    }, 2000);
+  };
+  document.body.appendChild(iframe);
+}, 100);
+</script>
+</body>
+</html>

@@ -7,14 +7,20 @@
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/grid' as *;
 @use '@carbon/styles/scss/layer' as *;
+@use '@carbon/styles/scss/type' as type;
 @use '@carbon/styles/scss/components/accordion';
+@use '@carbon/styles/scss/components/breadcrumb';
 @use '@carbon/styles/scss/components/button';
-@use '@carbon/styles/scss/components/tag';
+@use '@carbon/styles/scss/components/content-switcher';
+@use '@carbon/styles/scss/components/data-table';
+@use '@carbon/styles/scss/components/form';
 @use '@carbon/styles/scss/components/link';
 @use '@carbon/styles/scss/components/modal';
+@use '@carbon/styles/scss/components/notification';
+@use '@carbon/styles/scss/components/tag';
+@use '@carbon/styles/scss/components/tabs';
 @use '@carbon/styles/scss/components/text-input';
-@use '@carbon/styles/scss/components/form';
-@use '@carbon/styles/scss/components/contained-list';
+@use '@carbon/styles/scss/components/tile';
 @use '@carbon/styles/scss/components/ui-shell';
 
 // Include CSS Custom Properties
@@ -264,6 +270,23 @@
   outline-offset: 2px;
 }
 
+// Mega menu link — replaces inline JS hover handlers
+.mega-link {
+  display: block;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  color: var(--cds-text-secondary);
+  transition: color 150ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.mega-link:hover {
+  color: var(--cds-interactive);
+}
+
+.mega-link:hover .mega-link__desc {
+  color: var(--cds-text-secondary);
+}
+
 // ============================================================================
 // CARBON BUTTON COMPONENT
 // ============================================================================
@@ -481,6 +504,11 @@
   letter-spacing: var(--cds-fluid-quotation-01-letter-spacing);
 }
 
+// Carbon expressive display token — fluid, responsive breakpoints
+.cds--fluid-display-01 {
+  @include type.type-style('fluid-display-01', true);
+}
+
 // ============================================================================
 // STANDARD TYPE SCALE (Compact)
 // ============================================================================
@@ -620,6 +648,55 @@
   .deploy-tabs-mobile {
     display: none;
   }
+}
+
+/* ============================================================================
+   Anchor Nav — page section navigation
+   ============================================================================ */
+
+.anchor-nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--cds-spacing-03);
+  overflow-x: auto;
+  padding: var(--cds-spacing-03) 0;
+  list-style: none;
+  margin: 0;
+}
+
+.anchor-nav-list::-webkit-scrollbar {
+  display: none;
+}
+
+.anchor-nav-item {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--cds-text-secondary);
+  cursor: pointer;
+  font-size: var(--cds-body-compact-01-font-size, 0.875rem);
+  font-weight: 400;
+  line-height: 1.28572;
+  letter-spacing: 0.16px;
+  padding: var(--cds-spacing-03) var(--cds-spacing-04);
+  white-space: nowrap;
+  transition: all 150ms ease;
+}
+
+.anchor-nav-item:hover {
+  color: var(--cds-text-primary);
+  border-bottom-color: var(--cds-border-subtle);
+}
+
+.anchor-nav-item--active {
+  color: var(--cds-interactive);
+  border-bottom-color: var(--cds-interactive);
+  font-weight: 600;
+}
+
+.anchor-nav-item--active:hover {
+  color: var(--cds-interactive);
+  border-bottom-color: var(--cds-interactive);
 }
 
 .expand-label-desktop {

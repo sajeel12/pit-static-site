@@ -864,6 +864,7 @@ const CoolingAirflow2 = () => {
 
                 <div className="mt-10 text-center">
                   <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-4">Manufacturer Partnerships</h3>
+                  <p className="carbon-body-01 text-[var(--cds-text-secondary)] max-w-2xl mx-auto mb-6">These are the brands we pre-qualify for Pakistan deployments, so procurement is backed by climate-tested and monsoon-ready equipment.</p>
                   <div className="flex flex-wrap items-center justify-center gap-4 mb-4">
                     {[
                       { name: 'Huawei', logo: '/logos/partners/Partner-Huawei-Logo.svg', width: 80 },
@@ -895,7 +896,8 @@ const CoolingAirflow2 = () => {
 
                 <div className="mt-8 p-6 bg-white border border-[#e0e0e0] shadow-sm text-center">
                   <h3 className="carbon-heading-02 text-[var(--cds-text-primary)] mb-2">Need hardware validated for Pakistan?</h3>
-                  <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-4">Speak to a procurement engineer about sizing, lead times, and monsoon-hardened specifications.</p>
+                  <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-2">Speak to a procurement engineer about sizing, lead times, and monsoon-hardened specifications.</p>
+                  <p className="carbon-body-02 text-[var(--cds-text-secondary)] mb-4">We only source systems pre-screened for 45°C ambient, high humidity, and dust-prone conditions.</p>
                   <a href="#cta" className="cds--btn cds--btn--primary inline-flex items-center bg-[#0f62fe] text-white hover:bg-[#0353e9] transition-colors">
                     Request Hardware Consultation
                     <ArrowRight className="w-4 h-4 ml-2" />
