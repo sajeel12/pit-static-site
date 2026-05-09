@@ -46,12 +46,15 @@ import {
   ChevronUp,
   ChevronDown,
   Download,
-  Temperature,
-  ChartLine,
-  DataCenter,
-  Windy,
 } from '@carbon/icons-react';
-
+import {
+  AirConditioner,
+  Windy,
+  ServerRack,
+  CloudManagedServices,
+  CloudServices,
+  DataCenters,
+} from '@carbon/pictograms-react';
 import HeroCubeAnimation from '../../components/HeroCubeAnimation';
 import HeroGradientPlanes from '../../components/HeroGradientPlanes';
 import FeaturedTestimonial from '../../components/FeaturedTestimonial';
@@ -630,8 +633,6 @@ const PillarNavSection = ({ scrollToSection }: { scrollToSection: (id: string) =
 
 const AssessmentInsightsGrid = () => {
   const [isComparisonOpen, setIsComparisonOpen] = useState(false);
-  const [healthHover, setHealthHover] = useState(false);
-  const [engineeringHover, setEngineeringHover] = useState(false);
   return (
     <section style={{ padding: 'var(--cds-spacing-10) 0', background: 'var(--cds-background)' }}>
       <Grid>
@@ -658,51 +659,23 @@ const AssessmentInsightsGrid = () => {
               </div>
             </Tile>
 
-            <Tile
-              style={{
-                gridColumn: '3 / span 1',
-                gridRow: 'span 2',
-                padding: 'var(--cds-spacing-06)',
-                display: 'flex',
-                flexDirection: 'column',
-                borderLeft: '1px solid var(--cds-border-subtle)',
-                background: healthHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
-                transition: 'background 0.25s ease',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={() => setHealthHover(true)}
-              onMouseLeave={() => setHealthHover(false)}
-            >
-              <Search size={32} style={{ color: healthHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'color 0.25s ease' }} />
+            <Tile style={{ gridColumn: '3 / span 1', gridRow: 'span 2', padding: 'var(--cds-spacing-06)', display: 'flex', flexDirection: 'column', borderLeft: '1px solid var(--cds-border-subtle)' }}>
+              <DataCenters style={{ width: 48, height: 48, fill: 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)' }} />
               <div style={{ marginTop: 'auto' }}>
-                <p className="cds--label-01" style={{ color: healthHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Entry</p>
-                <h3 className="cds--heading-02" style={{ color: healthHover ? '#ffffff' : 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Rapid Thermal Health Check</h3>
-                <p className="cds--body-compact-01" style={{ color: healthHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5, transition: 'color 0.25s ease' }}>90-minute on-site audit with IR mapping and risk scorecard.</p>
-                <a href="#cta" className="cds--body-compact-01" style={{ color: healthHover ? '#ffffff' : 'var(--cds-interactive)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Book Thermal Health Check <ArrowRight size={16} style={{ color: healthHover ? '#ffffff' : 'var(--cds-interactive)', transition: 'color 0.25s ease' }} /></a>
+                <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>Entry</p>
+                <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)' }}>Rapid Thermal Health Check</h3>
+                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>90-minute on-site audit with IR mapping and risk scorecard.</p>
+                <a href="#cta" className="cds--body-compact-01" style={{ color: 'var(--cds-interactive)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}>Book Thermal Health Check <ArrowRight size={16} /></a>
               </div>
             </Tile>
 
-            <Tile
-              style={{
-                gridColumn: '4 / span 1',
-                gridRow: 'span 2',
-                padding: 'var(--cds-spacing-06)',
-                display: 'flex',
-                flexDirection: 'column',
-                borderLeft: '1px solid var(--cds-border-subtle)',
-                background: engineeringHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
-                transition: 'background 0.25s ease',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={() => setEngineeringHover(true)}
-              onMouseLeave={() => setEngineeringHover(false)}
-            >
-              <ChartLine size={32} style={{ color: engineeringHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'color 0.25s ease' }} />
+            <Tile style={{ gridColumn: '4 / span 1', gridRow: 'span 2', padding: 'var(--cds-spacing-06)', display: 'flex', flexDirection: 'column', borderLeft: '1px solid var(--cds-border-subtle)' }}>
+              <ServerRack style={{ width: 48, height: 48, fill: 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)' }} />
               <div style={{ marginTop: 'auto' }}>
-                <p className="cds--label-01" style={{ color: engineeringHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Engineering</p>
-                <h3 className="cds--heading-02" style={{ color: engineeringHover ? '#ffffff' : 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Precision Thermal Engineering</h3>
-                <p className="cds--body-compact-01" style={{ color: engineeringHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5, transition: 'color 0.25s ease' }}>CFD modelling, capacity calculations, and engineering sign-off.</p>
-                <a href="mailto:contact@perception-it.com?subject=Precision%20Thermal%20Engineering%20Proposal%20Request" className="cds--body-compact-01" style={{ color: engineeringHover ? '#ffffff' : 'var(--cds-interactive)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Request CFD Proposal <ArrowRight size={16} style={{ color: engineeringHover ? '#ffffff' : 'var(--cds-interactive)', transition: 'color 0.25s ease' }} /></a>
+                <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>Engineering</p>
+                <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)' }}>Precision Thermal Engineering</h3>
+                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>CFD modelling, capacity calculations, and engineering sign-off.</p>
+                <a href="mailto:contact@perception-it.com?subject=Precision%20Thermal%20Engineering%20Proposal%20Request" className="cds--body-compact-01" style={{ color: 'var(--cds-interactive)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}>Request CFD Proposal <ArrowRight size={16} /></a>
               </div>
             </Tile>
           </div>
@@ -857,7 +830,7 @@ const ProcurementInsightsGrid = () => {
               onMouseEnter={() => setRoomCoolingHover(true)}
               onMouseLeave={() => setRoomCoolingHover(false)}
             >
-              <Temperature size={32} style={{ color: roomCoolingHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'color 0.25s ease' }} />
+              <AirConditioner style={{ width: 48, height: 48, fill: roomCoolingHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'fill 0.25s ease' }} />
               <div style={{ marginTop: 'auto' }}>
                 <p className="cds--label-01" style={{ color: roomCoolingHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Room Cooling</p>
                 <h3 className="cds--heading-02" style={{ color: roomCoolingHover ? '#ffffff' : 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Server Room AC Units</h3>
@@ -890,7 +863,7 @@ const ProcurementInsightsGrid = () => {
               onMouseEnter={() => setPrecisionCoolingHover(true)}
               onMouseLeave={() => setPrecisionCoolingHover(false)}
             >
-              <Windy size={32} style={{ color: precisionCoolingHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'color 0.25s ease' }} />
+              <Windy style={{ width: 48, height: 48, fill: precisionCoolingHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'fill 0.25s ease' }} />
               <div style={{ marginTop: 'auto' }}>
                 <p className="cds--label-01" style={{ color: precisionCoolingHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Precision Cooling</p>
                 <h3 className="cds--heading-02" style={{ color: precisionCoolingHover ? '#ffffff' : 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Precision Cooling (CRAC/CRAH)</h3>
@@ -921,7 +894,7 @@ const ProcurementInsightsGrid = () => {
               onMouseEnter={() => setFacilityCoolingHover(true)}
               onMouseLeave={() => setFacilityCoolingHover(false)}
             >
-              <DataCenter size={32} style={{ color: facilityCoolingHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'color 0.25s ease' }} />
+              <ServerRack style={{ width: 48, height: 48, fill: facilityCoolingHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'fill 0.25s ease' }} />
               <div style={{ marginTop: 'auto' }}>
                 <p className="cds--label-01" style={{ color: facilityCoolingHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Facility Cooling</p>
                 <h3 className="cds--heading-02" style={{ color: facilityCoolingHover ? '#ffffff' : 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Large-Scale Facility Cooling</h3>
@@ -1482,12 +1455,16 @@ const ManagedServicesSection = () => {
               onMouseEnter={() => setEssentialHover(true)}
               onMouseLeave={() => setEssentialHover(false)}
             >
-              <Settings size={32} style={{ color: essentialHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'color 0.25s ease' }} />
+              <CloudManagedServices style={{ width: 48, height: 48, fill: essentialHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'fill 0.25s ease' }} />
               <div style={{ marginTop: 'auto' }}>
                 <p className="cds--label-01" style={{ color: essentialHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Tier 1</p>
                 <h3 className="cds--heading-02" style={{ color: essentialHover ? '#ffffff' : 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Essential</h3>
                 {!essentialHover ? (
-                  <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>Quarterly maintenance and basic telemetry.</p>
+                  <>
+                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>Quarterly maintenance and basic telemetry.</p>
+                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-02)' }}>From</p>
+                    <p className="cds--fluid-heading-03" style={{ color: 'var(--cds-text-primary)', fontWeight: 300 }}>PKR 65K<span style={{ fontSize: '0.875rem', color: 'var(--cds-text-secondary)' }}>/mo</span></p>
+                  </>
                 ) : (
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                     {tiers[0].items.map((item) => (
@@ -1516,7 +1493,7 @@ const ManagedServicesSection = () => {
               onMouseEnter={() => setProHover(true)}
               onMouseLeave={() => setProHover(false)}
             >
-              <Dashboard size={32} style={{ color: proHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'color 0.25s ease' }} />
+              <CloudServices style={{ width: 48, height: 48, fill: proHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'fill 0.25s ease' }} />
               <div style={{ marginTop: 'auto' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)', marginBottom: 'var(--cds-spacing-03)' }}>
                   <p className="cds--label-01" style={{ color: proHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', textTransform: 'uppercase', transition: 'color 0.25s ease' }}>Tier 2</p>
@@ -1524,7 +1501,11 @@ const ManagedServicesSection = () => {
                 </div>
                 <h3 className="cds--heading-02" style={{ color: proHover ? '#ffffff' : 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Professional</h3>
                 {!proHover ? (
-                  <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>Monthly maintenance, 8hr SLA, predictive alerts.</p>
+                  <>
+                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>Monthly maintenance, 8hr SLA, predictive alerts.</p>
+                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-02)' }}>From</p>
+                    <p className="cds--fluid-heading-03" style={{ color: 'var(--cds-interactive)', fontWeight: 300 }}>PKR 145K<span style={{ fontSize: '0.875rem', color: 'var(--cds-text-secondary)' }}>/mo</span></p>
+                  </>
                 ) : (
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                     {tiers[1].items.map((item) => (
@@ -1551,12 +1532,16 @@ const ManagedServicesSection = () => {
               onMouseEnter={() => setEnterpriseHover(true)}
               onMouseLeave={() => setEnterpriseHover(false)}
             >
-              <Certificate size={32} style={{ color: enterpriseHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'color 0.25s ease' }} />
+              <DataCenters style={{ width: 48, height: 48, fill: enterpriseHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'fill 0.25s ease' }} />
               <div style={{ marginTop: 'auto' }}>
                 <p className="cds--label-01" style={{ color: enterpriseHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Tier 3</p>
                 <h3 className="cds--heading-02" style={{ color: enterpriseHover ? '#ffffff' : 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Enterprise</h3>
                 {!enterpriseHover ? (
-                  <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>24/7 NOC, 4hr SLA, monsoon standby, 99.9% uptime.</p>
+                  <>
+                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>24/7 NOC, 4hr SLA, monsoon standby, 99.9% uptime.</p>
+                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-02)' }}>From</p>
+                    <p className="cds--fluid-heading-03" style={{ color: 'var(--cds-text-primary)', fontWeight: 300 }}>PKR 380K+<span style={{ fontSize: '0.875rem', color: 'var(--cds-text-secondary)' }}>/mo</span></p>
+                  </>
                 ) : (
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                     {tiers[2].items.map((item) => (
@@ -1808,7 +1793,7 @@ const ResultsSection = ({ caseStudyPage, setCaseStudyPage, testimonialPage, setT
 const EcosystemSection = () => {
   const dependencyChain = [
     { title: 'UPS Power', desc: 'Sizing, distribution, and generator integration for cooling load.', href: '/#/services/power-ups', icon: Meter },
-    { title: 'Rack Layout', desc: 'Hot/cold aisle containment and cable management for airflow.', href: '/#/services/rack-cabinets', icon: DataCenter },
+    { title: 'Rack Layout', desc: 'Hot/cold aisle containment and cable management for airflow.', href: '/#/services/rack-cabinets', icon: ServerRack },
     { title: 'Monitoring', desc: 'Real-time temp, humidity, and leak detection across the facility.', href: '/#/services/environmental-monitoring', icon: Dashboard },
     { title: 'Security', desc: 'Access control, surveillance, and audit trails for the data hall.', href: '/#/services/security', icon: Certificate },
     { title: 'Fire Suppression', desc: 'FM200 and clean-agent systems that protect without damaging electronics.', href: '/#/services/fire-suppression', icon: Warning },

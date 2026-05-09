@@ -235,3 +235,186 @@
 4:27:48 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
 4:35:24 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
 4:36:01 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
+5:02:33 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
+5:07:08 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
+5:07:08 PM [vite] Internal server error: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx: Identifier 'Windy' has already been declared. (56:2)
+
+  54 | import {
+  55 |   AirConditioner,
+> 56 |   Windy,
+     |   ^
+  57 |   ServerRack,
+  58 |   CloudManagedServices,
+  59 |   CloudServices,
+  Plugin: vite:react-babel
+  File: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx:56:2
+  54 |  import {
+  55 |    AirConditioner,
+  56 |    Windy,
+     |    ^
+  57 |    ServerRack,
+  58 |    CloudManagedServices,
+      at constructor (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:365:19)
+      at TypeScriptParserMixin.raise (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:6599:19)
+      at TypeScriptScopeHandler.declareName (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:4866:21)
+      at TypeScriptParserMixin.declareNameFromIdentifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7567:16)
+      at TypeScriptParserMixin.checkIdentifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7563:12)
+      at TypeScriptParserMixin.checkLVal (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7500:12)
+      at TypeScriptParserMixin.finishImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14266:10)
+      at TypeScriptParserMixin.parseImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14419:17)
+      at TypeScriptParserMixin.parseImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10148:18)
+      at TypeScriptParserMixin.parseNamedImportSpecifiers (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14398:36)
+      at TypeScriptParserMixin.parseImportSpecifiersAndAfter (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14242:37)
+      at TypeScriptParserMixin.parseImport (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14235:17)
+      at TypeScriptParserMixin.parseImport (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9353:26)
+      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12876:27)
+      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12767:17)
+      at TypeScriptParserMixin.parseModuleItem (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12744:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13316:36)
+      at TypeScriptParserMixin.parseBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13309:10)
+      at TypeScriptParserMixin.parseProgram (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12622:10)
+      at TypeScriptParserMixin.parseTopLevel (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12612:25)
+      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14488:25)
+      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10126:18)
+      at parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14522:38)
+      at parser (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:261:32)
+      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
+      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:189:28
+      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:113:33
+      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:287:14)
+      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
+5:07:08 PM [vite] Internal server error: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx: Identifier 'Windy' has already been declared. (56:2)
+
+  54 | import {
+  55 |   AirConditioner,
+> 56 |   Windy,
+     |   ^
+  57 |   ServerRack,
+  58 |   CloudManagedServices,
+  59 |   CloudServices,
+  Plugin: vite:react-babel
+  File: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx:56:2
+  54 |  import {
+  55 |    AirConditioner,
+  56 |    Windy,
+     |    ^
+  57 |    ServerRack,
+  58 |    CloudManagedServices,
+      at constructor (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:365:19)
+      at TypeScriptParserMixin.raise (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:6599:19)
+      at TypeScriptScopeHandler.declareName (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:4866:21)
+      at TypeScriptParserMixin.declareNameFromIdentifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7567:16)
+      at TypeScriptParserMixin.checkIdentifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7563:12)
+      at TypeScriptParserMixin.checkLVal (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7500:12)
+      at TypeScriptParserMixin.finishImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14266:10)
+      at TypeScriptParserMixin.parseImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14419:17)
+      at TypeScriptParserMixin.parseImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10148:18)
+      at TypeScriptParserMixin.parseNamedImportSpecifiers (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14398:36)
+      at TypeScriptParserMixin.parseImportSpecifiersAndAfter (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14242:37)
+      at TypeScriptParserMixin.parseImport (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14235:17)
+      at TypeScriptParserMixin.parseImport (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9353:26)
+      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12876:27)
+      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12767:17)
+      at TypeScriptParserMixin.parseModuleItem (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12744:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13316:36)
+      at TypeScriptParserMixin.parseBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13309:10)
+      at TypeScriptParserMixin.parseProgram (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12622:10)
+      at TypeScriptParserMixin.parseTopLevel (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12612:25)
+      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14488:25)
+      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10126:18)
+      at parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14522:38)
+      at parser (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:261:32)
+      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
+      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:189:28
+      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:113:33
+      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:287:14)
+      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
+5:07:08 PM [vite] Internal server error: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx: Identifier 'Windy' has already been declared. (56:2)
+
+  54 | import {
+  55 |   AirConditioner,
+> 56 |   Windy,
+     |   ^
+  57 |   ServerRack,
+  58 |   CloudManagedServices,
+  59 |   CloudServices,
+  Plugin: vite:react-babel
+  File: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx:56:2
+  54 |  import {
+  55 |    AirConditioner,
+  56 |    Windy,
+     |    ^
+  57 |    ServerRack,
+  58 |    CloudManagedServices,
+      at constructor (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:365:19)
+      at TypeScriptParserMixin.raise (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:6599:19)
+      at TypeScriptScopeHandler.declareName (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:4866:21)
+      at TypeScriptParserMixin.declareNameFromIdentifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7567:16)
+      at TypeScriptParserMixin.checkIdentifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7563:12)
+      at TypeScriptParserMixin.checkLVal (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7500:12)
+      at TypeScriptParserMixin.finishImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14266:10)
+      at TypeScriptParserMixin.parseImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14419:17)
+      at TypeScriptParserMixin.parseImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10148:18)
+      at TypeScriptParserMixin.parseNamedImportSpecifiers (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14398:36)
+      at TypeScriptParserMixin.parseImportSpecifiersAndAfter (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14242:37)
+      at TypeScriptParserMixin.parseImport (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14235:17)
+      at TypeScriptParserMixin.parseImport (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9353:26)
+      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12876:27)
+      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12767:17)
+      at TypeScriptParserMixin.parseModuleItem (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12744:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13316:36)
+      at TypeScriptParserMixin.parseBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13309:10)
+      at TypeScriptParserMixin.parseProgram (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12622:10)
+      at TypeScriptParserMixin.parseTopLevel (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12612:25)
+      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14488:25)
+      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10126:18)
+      at parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14522:38)
+      at parser (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/parser/index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:261:32)
+      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
+      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:189:28
+      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
+      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:113:33
+      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:287:14)
+      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
+      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
+5:07:25 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
+5:18:02 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
+5:21:09 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
+5:23:38 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
+6:42:48 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
+6:46:56 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
+6:48:19 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
