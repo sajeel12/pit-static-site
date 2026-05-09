@@ -66,7 +66,7 @@ import Footer from '../../sections/Footer';
    Adding a section here automatically updates scroll-spy AND anchor nav.
    ------------------------------------------------------------------------------ */
 const PAGE_SECTIONS = [
-  { id: 'services', label: 'Services', inNav: true },
+  { id: 'how-it-works', label: 'Services', inNav: true },
   { id: 'assessment', label: '01 Assessment', inNav: true },
   { id: 'hardware', label: '02 Procurement', inNav: true },
   { id: 'installation', label: '03 Deployment', inNav: true },
