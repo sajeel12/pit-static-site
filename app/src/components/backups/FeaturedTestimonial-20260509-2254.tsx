@@ -196,9 +196,13 @@ export default function FeaturedTestimonial({
                   </div>
                 )}
                 <div className={styles['ft-context__meta']}>
+                  <span className={styles['ft-context__label']}>Client</span>
                   <span className={`cds--body-01 ${styles['ft-context__value']}`}>{client}</span>
                   {contextDesc && (
-                    <p className={`cds--body-01 ${styles['ft-context__desc']}`}>{contextDesc}</p>
+                    <>
+                      <span className={styles['ft-context__label']}>Service</span>
+                      <p className={`cds--body-01 ${styles['ft-context__desc']}`}>{contextDesc}</p>
+                    </>
                   )}
                 </div>
               </div>

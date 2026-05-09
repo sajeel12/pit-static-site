@@ -158,9 +158,11 @@
 }
 
 .ft-context__meta {
-  display: flex;
-  flex-direction: column;
-  gap: var(--cds-spacing-03);
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  row-gap: var(--cds-spacing-03);
+  column-gap: var(--cds-spacing-04);
+  align-items: baseline;
   flex: 1;
 }
 
