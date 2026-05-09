@@ -1161,7 +1161,7 @@ const DeploymentSection = () => {
   const [isProcessOpen, setIsProcessOpen] = useState(false);
 
   return (
-    <section id="installation" style={{ padding: 'var(--cds-spacing-10) 0' }}>
+    <section id="installation" style={{ padding: 'var(--cds-spacing-10) 0', background: 'var(--cds-background)' }}>
       <Grid>
         <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-07)' }}>
           <p className="cds--label-01" style={{ color: 'var(--cds-text-helper)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>
@@ -1177,7 +1177,7 @@ const DeploymentSection = () => {
         <Column lg={16} md={8} sm={4}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '1fr 1fr', gap: 0 }}>
             {/* Hero tile — 2x2 */}
-            <Tile style={{ gridColumn: 'span 2', gridRow: 'span 2', padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', position: 'relative', maxHeight: 400 }}>
+            <Tile style={{ gridColumn: 'span 2', gridRow: 'span 2', padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', position: 'relative', maxHeight: 400, borderRight: '1px solid var(--cds-border-subtle)' }}>
               <img src="/3D images/Cooling and Airflow/Deployment- Cooling.png" alt="Cooling system deployment and commissioning" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} loading="lazy" />
               <div style={{ position: 'absolute', bottom: 'var(--cds-spacing-06)', right: 'var(--cds-spacing-06)', maxWidth: 480, background: 'rgba(22, 22, 22, 0.88)', padding: 'var(--cds-spacing-06)', borderLeft: '3px solid var(--cds-interactive)' }}>
                 <p className="cds--label-01" style={{ color: 'var(--cds-text-inverse)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>03 Deployment</p>
@@ -1194,7 +1194,9 @@ const DeploymentSection = () => {
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
-                background: mechHover ? 'var(--cds-interactive)' : 'transparent',
+                borderRight: '1px solid var(--cds-border-subtle)',
+                borderBottom: '1px solid var(--cds-border-subtle)',
+                background: mechHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
                 transition: 'background 0.25s ease',
                 cursor: 'pointer',
               }}
@@ -1228,7 +1230,7 @@ const DeploymentSection = () => {
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
-                background: thermalHover ? 'var(--cds-interactive)' : 'transparent',
+                background: thermalHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
                 transition: 'background 0.25s ease',
                 cursor: 'pointer',
               }}
@@ -1260,7 +1262,7 @@ const DeploymentSection = () => {
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
-                background: commHover ? 'var(--cds-interactive)' : 'transparent',
+                background: commHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
                 transition: 'background 0.25s ease',
                 cursor: 'pointer',
               }}
