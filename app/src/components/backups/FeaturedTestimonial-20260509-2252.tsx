@@ -182,29 +182,28 @@ export default function FeaturedTestimonial({
           <div className={styles['ft-right']}>
             {/* Context header */}
             <div className={styles['ft-context']}>
-              <div className={styles['ft-context__inner']}>
-                {clientLogo && (
-                  <div className={styles['ft-context__logo']}>
+              <div className={styles['ft-context__meta']}>
+                <span className={styles['ft-context__label']}>Client</span>
+                <span className={`cds--body-01 ${styles['ft-context__value']}`} style={{ display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}>
+                  {clientLogo && (
                     <img
                       src={clientLogo}
                       alt={client}
+                      style={{ height: '28px', objectFit: 'contain', background: 'var(--cds-background)', padding: '2px 4px', borderRadius: '2px' }}
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
                       }}
                     />
-                  </div>
-                )}
-                <div className={styles['ft-context__meta']}>
-                  <span className={styles['ft-context__label']}>Client</span>
-                  <span className={`cds--body-01 ${styles['ft-context__value']}`}>{client}</span>
-                  {contextDesc && (
-                    <>
-                      <span className={styles['ft-context__label']}>Service</span>
-                      <p className={`cds--body-01 ${styles['ft-context__desc']}`}>{contextDesc}</p>
-                    </>
                   )}
-                </div>
+                  {client}
+                </span>
+                {contextDesc && (
+                  <>
+                    <span className={styles['ft-context__label']}>Service</span>
+                    <p className={`cds--body-01 ${styles['ft-context__desc']}`}>{contextDesc}</p>
+                  </>
+                )}
               </div>
               {solutionLink && (
                 <Link

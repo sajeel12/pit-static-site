@@ -134,36 +134,12 @@
   gap: var(--cds-spacing-04);
 }
 
-.ft-context__inner {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--cds-spacing-05);
-}
-
-.ft-context__logo {
-  flex-shrink: 0;
-  width: 5rem;
-  height: 5rem;
-  background: var(--cds-background);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--cds-spacing-03);
-}
-
-.ft-context__logo img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
 .ft-context__meta {
   display: grid;
   grid-template-columns: 3.5rem 1fr;
   row-gap: var(--cds-spacing-03);
   column-gap: var(--cds-spacing-04);
   align-items: baseline;
-  flex: 1;
 }
 
 .ft-context__label {
