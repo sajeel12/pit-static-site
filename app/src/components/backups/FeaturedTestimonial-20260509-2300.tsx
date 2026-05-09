@@ -229,15 +229,6 @@ export default function FeaturedTestimonial({
                     <ArrowRight size={16} />
                   </Link>
                 )}
-                {solutionLink && (
-                  <Link
-                    to={solutionLink}
-                    className={`cds--label-01 ${styles['ft-author-bar__link--solution']}`}
-                  >
-                    {solutionLabel}
-                    <ArrowRight size={16} />
-                  </Link>
-                )}
               </div>
             </div>
           </div>
