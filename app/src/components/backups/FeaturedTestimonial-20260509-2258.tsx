@@ -154,7 +154,12 @@ export default function FeaturedTestimonial({
               </div>
             )}
 
-            {/* Left panel now shows only the background image / placeholder */}
+            <div className={styles['ft-left__content']}>
+              {/* Client name only — logo moved to context header */}
+              <div className={`${styles['ft-logo-tile__name']} ${logoNameClass}`}>
+                <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)' }}>{client}</p>
+              </div>
+            </div>
           </div>
 
           {/* ── Right: Context + Quote + Author ── */}
