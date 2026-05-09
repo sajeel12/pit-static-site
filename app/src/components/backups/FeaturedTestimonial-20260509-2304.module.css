@@ -281,7 +281,7 @@
 .ft-author-bar__inner {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: var(--cds-spacing-04);
 }
 
