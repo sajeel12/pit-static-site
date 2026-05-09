@@ -71,8 +71,8 @@ const PAGE_SECTIONS = [
   { id: 'hardware', label: '02 Procurement', inNav: true },
   { id: 'installation', label: '03 Deployment', inNav: true },
   { id: 'managed', label: '04 Managed Services', inNav: true },
-  { id: 'results', label: 'Results', inNav: true },
-  { id: 'ecosystem', label: 'Ecosystem', inNav: true },
+  { id: 'results', label: 'Results', inNav: false },
+  { id: 'pakistan', label: 'Pakistan', inNav: false },
   { id: 'faq', label: 'FAQ', inNav: true },
   { id: 'cta', label: 'Get Started', inNav: true },
 ] as const;
@@ -1807,7 +1807,7 @@ const EcosystemSection = () => {
   ];
 
   return (
-    <section id="ecosystem" className={styles['section-pad']} style={{ background: 'var(--cds-background)' }}>
+    <section className={styles['section-pad']} style={{ background: 'var(--cds-background)' }}>
       <Grid>
         <Column lg={16} md={8} sm={4}>
           <div className={styles['section-label']} style={{ marginBottom: '2rem' }}>
