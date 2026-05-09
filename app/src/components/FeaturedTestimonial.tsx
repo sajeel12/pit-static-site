@@ -4,7 +4,10 @@
  * A prominent, single-testimonial card used for credibility sections on
  * service pages, case-study detail pages, and landing-page trust strips.
  *
- * Reference design: DataCentre 4 (CoolingAirflowEnhanced.tsx)
+ * Design system: IBM Carbon Design System
+ *   • All colours via CSS custom properties (var(--cds-*))
+ *   • All spacing via Carbon spacing tokens
+ *   • Typography via Carbon type classes
  *
  * Variants
  *   • dark   (default) — Gray 100 theme for dark sections
@@ -18,13 +21,14 @@
  *   • Optional background image with gradient overlay
  *   • Client logo tile (white bg, sharp corners)
  *   • Context header: "Client / Service" badge + description + solution link
- *   • Large decorative quotation marks (IBM Plex Serif)
- *   • Author bar: teal circle avatar + name/role + case-study CTA
+ *   • Clean quote styling (no decorative marks — Carbon-compliant)
+ *   • Author bar: avatar circle + name/role + case-study CTA
  *   • Optional overflow prev/next buttons (positioned at card edge)
  */
 
 import { Link } from 'react-router-dom';
 import { ArrowRight, Building, ChevronLeft, ChevronRight } from '@carbon/icons-react';
+import styles from './FeaturedTestimonial.module.css';
 
 /* ─── Types ─── */
 
@@ -59,6 +63,9 @@ export interface FeaturedTestimonialProps {
   onPrev?: () => void;
   onNext?: () => void;
 
+  /** Show author name/role inside the quote block (default: true) */
+  showAuthorInQuote?: boolean;
+
   /** Visual theme (default: 'dark') */
   variant?: 'dark' | 'light';
 }
@@ -92,31 +99,16 @@ export default function FeaturedTestimonial({
   showNav = false,
   onPrev,
   onNext,
+  showAuthorInQuote = true,
   variant = 'dark',
 }: FeaturedTestimonialProps) {
   const initials = initialsProp || computeInitials(author);
-
-  /* ── Colour tokens by variant ── */
   const isDark = variant === 'dark';
 
-  const cardBg = isDark ? 'bg-[#262626]' : 'bg-[#f4f4f4]';
-  const cardBorder = isDark ? 'border-[#393939]' : 'border-[#e0e0e0]';
-  const textPrimary = isDark ? 'text-[#f4f4f4]' : 'text-[#161616]';
-  const textSecondary = isDark ? 'text-[#a8a8a8]' : 'text-[#525252]';
-  const textTertiary = isDark ? 'text-[#c6c6c6]' : 'text-[#6f6f6f]';
-  const textMuted = isDark ? 'text-[#525252]' : 'text-[#c6c6c6]';
-  const divider = isDark ? 'border-[#393939]' : 'border-[#e0e0e0]';
-  const authorBarBg = isDark ? 'bg-[#1a1a1a]' : 'bg-white';
-  const badgeBg = 'bg-[#0f62fe]/15';
-  const badgeText = 'text-[#78a9ff]';
-  const linkText = 'text-[#78a9ff]';
-  const linkHover = 'hover:text-[#a6c8ff]';
-  const navBtnBg = isDark ? 'bg-[#262626]' : 'bg-[#f4f4f4]';
-  const navBtnHover = isDark ? 'hover:bg-[#393939]' : 'hover:bg-white';
-  const quoteText = isDark ? 'text-[#f4f4f4]' : 'text-[#161616]';
-  const imagePlaceholderBg = isDark ? 'bg-[#1a1a1a]' : 'bg-[#e0e0e0]';
-  const imagePlaceholderText = isDark ? 'text-[#525252]' : 'text-[#a8a8a8]';
-  const logoTileNameBg = isDark ? 'bg-[#1a1a1a]' : 'bg-white';
+  const cardClass = isDark ? styles['ft-card--dark'] : styles['ft-card--light'];
+  const logoNameClass = isDark ? styles['ft-logo-tile__name--dark'] : styles['ft-logo-tile__name--light'];
+  const authorBarClass = isDark ? styles['ft-author-bar--dark'] : styles['ft-author-bar--light'];
+  const navBtnClass = isDark ? styles['ft-nav-btn--dark'] : styles['ft-nav-btn--light'];
 
   return (
     <div className="relative">
@@ -125,130 +117,127 @@ export default function FeaturedTestimonial({
         <>
           <button
             onClick={onPrev}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 w-12 h-12 ${navBtnBg} flex items-center justify-center text-[#0f62fe] ${navBtnHover} transition-colors hidden md:flex`}
+            className={`${styles['ft-nav-btn']} ${styles['ft-nav-btn--prev']} ${navBtnClass}`}
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft size={20} />
           </button>
           <button
             onClick={onNext}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10 w-12 h-12 ${navBtnBg} flex items-center justify-center text-[#0f62fe] ${navBtnHover} transition-colors hidden md:flex`}
+            className={`${styles['ft-nav-btn']} ${styles['ft-nav-btn--next']} ${navBtnClass}`}
             aria-label="Next testimonial"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight size={20} />
           </button>
         </>
       )}
 
       {/* ── Card ── */}
-      <div className={`${cardBg} border ${cardBorder}`}>
-        <div className="grid md:grid-cols-5 gap-0">
+      <div className={`${styles['ft-card']} ${cardClass}`}>
+        <div className={styles['ft-grid']}>
           {/* ── Left: Background image + logo tile ── */}
-          <div className="relative flex flex-col md:col-span-2 min-h-[320px]">
+          <div className={styles['ft-left']}>
             {bgImage ? (
               <>
                 <img
                   src={bgImage}
                   alt=""
-                  className="absolute inset-0 w-full h-full object-cover object-top"
+                  className={styles['ft-left__image']}
                 />
-                <div className={`absolute inset-0 bg-gradient-to-b ${isDark ? 'from-[#161616]/60 via-[#161616]/30 to-[#161616]/70' : 'from-[#161616]/40 via-[#161616]/20 to-[#161616]/60'}`} />
+                <div className={styles['ft-left__overlay']} />
               </>
             ) : (
-              <>
-                <div className={`absolute inset-0 ${imagePlaceholderBg}`} />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className={`carbon-label-01 ${imagePlaceholderText} uppercase tracking-wider`}>
-                    Client Facility Photo Placeholder
-                  </span>
-                </div>
-              </>
+              <div className={styles['ft-left__placeholder']}>
+                <span className={`cds--label-01 ${styles['ft-left__placeholder-text']}`}>
+                  Client Facility Photo Placeholder
+                </span>
+              </div>
             )}
 
-            <div className="relative flex-1 flex flex-col p-8 items-start justify-start">
+            <div className={styles['ft-left__content']}>
               {/* Client Identity Tile */}
-              <div className="w-40">
-                <div className="h-28 bg-white flex items-center justify-center">
+              <div className={styles['ft-logo-tile']}>
+                <div className={styles['ft-logo-tile__img-box']}>
                   {clientLogo ? (
                     <img
                       src={clientLogo}
                       alt={client}
-                      className="max-w-full max-h-full object-contain p-3"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
                       }}
                     />
                   ) : (
-                    <Building className="w-14 h-14 text-[#8d8d8d]" />
+                    <Building size={32} style={{ color: 'var(--cds-text-placeholder)' }} />
                   )}
                 </div>
-                <div className={`${logoTileNameBg} border border-t-0 ${cardBorder} px-3 py-2 text-center`}>
-                  <p className={`carbon-label-01 ${textTertiary} text-center`}>{client}</p>
+                <div className={`${styles['ft-logo-tile__name']} ${logoNameClass}`}>
+                  <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)' }}>{client}</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* ── Right: Context + Quote + Author ── */}
-          <div className="md:col-span-3 flex flex-col">
+          <div className={styles['ft-right']}>
             {/* Context header */}
-            <div className={`px-8 pt-6 pb-4 border-b ${divider}`}>
-              <div className="flex items-center gap-2 mb-2">
-                <span className={`px-2 py-0.5 ${badgeBg} ${badgeText} carbon-label-01`}>Client / Service</span>
-                <span className={`w-1 h-1 rounded-full ${textMuted}`} />
-                <span className={`carbon-label-01 ${textTertiary}`}>{client}</span>
+            <div className={styles['ft-context']}>
+              <div className={styles['ft-context__meta']}>
+                <span className={styles['ft-context__label']}>Client</span>
+                <span className={`cds--body-01 ${styles['ft-context__value']}`}>{client}</span>
+                {contextDesc && (
+                  <>
+                    <span className={styles['ft-context__label']}>Service</span>
+                    <p className={`cds--body-01 ${styles['ft-context__desc']}`}>{contextDesc}</p>
+                  </>
+                )}
               </div>
-              {contextDesc && (
-                <p className={`carbon-body-01 ${textSecondary} mb-3`}>{contextDesc}</p>
-              )}
               {solutionLink && (
                 <Link
                   to={solutionLink}
-                  className={`inline-flex items-center gap-2 carbon-label-01 ${linkText} ${linkHover} transition-colors`}
+                  className={`cds--label-01 ${styles['ft-context__link']}`}
                 >
                   {solutionLabel}
-                  <ArrowRight className="w-3 h-3" />
+                  <ArrowRight size={14} />
                 </Link>
               )}
             </div>
 
             {/* Quote */}
-            <div className="px-8 py-8 flex-1 flex flex-col justify-center min-h-[220px]">
-              <blockquote className="relative">
-                <span className="absolute -top-4 -left-4 text-8xl text-[#0f62fe] opacity-45 font-serif leading-none">
-                  &ldquo;
-                </span>
-                <div className={`text-xl font-serif ${quoteText} leading-relaxed relative z-10 space-y-5`}>
+            <div className={styles['ft-quote-wrap']}>
+              <blockquote className={styles['ft-quote']}>
+                <span className={styles['ft-quote__mark']} aria-hidden="true">&ldquo;</span>
+                <div className={`cds--heading-02 ${styles['ft-quote__body']}`}>
                   {quote.split('\n\n').map((para, idx) => (
                     <p key={idx}>{para}</p>
                   ))}
                 </div>
-                <span className="absolute -bottom-8 -right-2 text-8xl text-[#0f62fe] opacity-45 font-serif leading-none">
-                  &rdquo;
-                </span>
+                {showAuthorInQuote && (
+                  <footer className={styles['ft-quote__footer']}>
+                    <div className={styles['ft-quote__footer-line']} />
+                    <cite className={styles['ft-quote__cite']}>
+                      <span className="cds--body-01" style={{ color: 'var(--cds-text-primary)', fontWeight: 600, fontStyle: 'normal' }}>
+                        {author}
+                      </span>
+                      <span className="cds--helper-text-01" style={{ color: 'var(--cds-text-secondary)', fontStyle: 'normal' }}>
+                        {role}
+                      </span>
+                    </cite>
+                  </footer>
+                )}
               </blockquote>
             </div>
 
             {/* Bottom Bar */}
-            <div className={`border-t ${divider} ${authorBarBg}`}>
-              <div className="flex items-center justify-between px-8 py-5">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#0f62fe] text-white flex items-center justify-center text-xs font-semibold tracking-wide">
-                    {initials}
-                  </div>
-                  <div>
-                    <div className={`carbon-heading-01 ${textPrimary} font-semibold`}>{author}</div>
-                    <div className={`carbon-helper-text-01 ${textSecondary}`}>{role}</div>
-                  </div>
-                </div>
+            <div className={`${styles['ft-author-bar']} ${authorBarClass}`}>
+              <div className={styles['ft-author-bar__inner']}>
                 {contextLink && (
                   <Link
                     to={contextLink}
-                    className={`inline-flex items-center gap-2 carbon-label-01 ${linkText} ${linkHover} transition-colors`}
+                    className={`cds--label-01 ${styles['ft-author-bar__link']}`}
                   >
                     Read case study
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight size={16} />
                   </Link>
                 )}
               </div>

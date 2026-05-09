@@ -755,3 +755,15 @@
     flex-direction: column !important;
   }
 }
+
+// ============================================================================
+// HERO BREADCRUMB — force white text on dark background
+// ============================================================================
+
+.hero-breadcrumb-dark .cds--breadcrumb-item a,
+.hero-breadcrumb-dark .cds--breadcrumb-item::after,
+.hero-breadcrumb-dark .cds--breadcrumb-item__icon,
+.hero-breadcrumb-dark .cds--breadcrumb-item [aria-current='page'],
+.hero-breadcrumb-dark .cds--breadcrumb-item [aria-current='page'] .cds--link {
+  color: #f4f4f4 !important;
+}

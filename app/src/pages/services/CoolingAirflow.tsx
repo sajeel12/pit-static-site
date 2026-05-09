@@ -24,14 +24,8 @@ import {
   Tag,
   Tile,
   ClickableTile,
-  InlineNotification,
   Breadcrumb,
   BreadcrumbItem,
-  Tabs,
-  TabList,
-  Tab,
-  TabPanels,
-  TabPanel,
   Table,
   TableHead,
   TableRow,
@@ -47,16 +41,15 @@ import {
   ArrowRight,
   CheckmarkFilled,
   Compare,
+  ChevronLeft,
   ChevronRight,
   TemperatureHot,
-  RainDrop,
   Warning,
   Settings,
   Meter,
   Certificate,
   Dashboard,
   Search,
-  Phone,
   ChevronUp,
   ChevronDown,
   Download,
@@ -71,6 +64,7 @@ import {
 } from '@carbon/pictograms-react';
 import HeroCubeAnimation from '../../components/HeroCubeAnimation';
 import HeroGradientPlanes from '../../components/HeroGradientPlanes';
+import FeaturedTestimonial from '../../components/FeaturedTestimonial';
 import Footer from '../../sections/Footer';
 
 /* ==============================================================================
@@ -82,7 +76,6 @@ import Footer from '../../sections/Footer';
    Adding a section here automatically updates scroll-spy AND anchor nav.
    ------------------------------------------------------------------------------ */
 const PAGE_SECTIONS = [
-  { id: 'thermal-failure', label: 'Thermal Risk', inNav: true },
   { id: 'how-it-works', label: 'Services', inNav: true },
   { id: 'assessment', label: '01 Assessment', inNav: true },
   { id: 'hardware', label: '02 Procurement', inNav: true },
@@ -107,6 +100,15 @@ const manufacturerPartners = [
   { name: 'Lenovo', logo: '/logos/partners/Partner-Lenovo-Logo.svg', width: 70 },
   { name: 'Dell', logo: '/logos/partners/Partner-Dell-logo.svg', width: 60 },
   { name: 'HP', logo: '/logos/partners/Partner- Hewlett-Packard-Logo.svg', width: 50 },
+];
+
+const caseStudyData = [
+  { stat: '99.97%', label: 'Uptime Achieved', client: 'Mayfair Food', industry: 'Fashion Retail', title: 'Server Migration', desc: 'Replaced legacy AC with in-row cooling and aisle containment. PUE dropped from 1.8 to 1.35.', tags: ['', 'Monsoon Hardening'], outcomes: ['PUE reduced from 1.8 to 1.35', '40% energy savings validated over 12 months', 'Hot-spot elimination across all 8 racks'], logo: '/logos/clients/mayfair logo svg.svg', image: '/case-studies/mayfair-preview.png', link: '/projects/case-study/private-bank-cooling-refresh' },
+  { stat: '40%', label: 'Energy Reduction', client: 'Sefam', industry: 'Fashion Retail', title: 'Precision Cooling Refresh', desc: 'Replaced legacy AC with in-row cooling and aisle containment. PUE dropped from 1.8 to 1.35.', tags: ['Textile Manufacturing', 'PUE Optimisation'], outcomes: ['PUE reduced from 1.8 to 1.35', '40% energy savings validated over 12 months', 'Hot-spot elimination across all 8 racks'], logo: '/logos/clients/IFL-logo.png', image: '/case-studies/sefam-preview.png', link: '/projects/case-study/private-bank-cooling-refresh' },
+  { stat: '4hrs', label: 'Response Time', client: 'Government IDC', industry: 'Government', title: 'Managed Thermal Service', desc: 'End-to-end cooling supply, install, and managed service with quarterly validation and monsoon standby.', tags: ['Managed Service', 'SLA'], outcomes: ['4-hour on-site response guarantee', 'Quarterly thermal validation reports', 'Monsoon standby protocol with spare CRAC'], logo: null, image: null, link: '/projects/case-study/government-idc-managed-thermal' },
+  { stat: '60%', label: 'Capacity Gain', client: 'Textile Manufacturer', industry: 'Manufacturing', title: 'Legacy Cooling Replacement', desc: 'Custom cooling capacity derating for 45°C ambient. High-ambient condensers with thermal mass buffering.', tags: ['Retrofit', 'Precision Cooling'], outcomes: ['60% additional cooling capacity unlocked', 'Condensers rated for 50°C ambient', 'Thermal mass buffering for power fluctuations'], logo: null, image: null, link: '/projects/case-study/textile-manufacturer-cooling-replacement' },
+  { stat: '99.9%', label: 'Uptime SLA', client: 'National Bank', industry: 'Financial Services', title: 'Monsoon-Hardened Edge Cooling', desc: 'Quarterly room integrity validation and humidity-compensated CRAC setpoints. Zero unplanned monsoon-related failures.', tags: ['Edge', 'Monsoon Hardening'], outcomes: ['99.9% uptime target met for 24 months under signed Enterprise SLA', 'Zero unplanned monsoon-related cooling failures', 'Automated humidity compensation active'], logo: null, image: null, link: '/projects/case-study/national-bank-edge-cooling' },
+  { stat: '35%', label: 'Energy Saved', client: 'Cloud Provider', industry: 'Technology', title: 'Free Cooling Integration', desc: 'Hot/cold aisle containment with free-cooling integration. Energy consumption reduced by 35%.', tags: ['Free Cooling', 'PUE Optimisation'], outcomes: ['35% annual energy reduction', 'Free cooling active 8 months/year', 'Containment retrofit completed without downtime'], logo: null, image: null, link: '/projects/case-study/cloud-provider-free-cooling' },
 ];
 
 /* ==============================================================================
@@ -515,123 +517,6 @@ const HeroSection = ({ scrollToSection }: { scrollToSection: (id: string) => voi
   </section>
 );
 
-const ThermalRiskSection = () => {
-  const failureCards = [
-    {
-      step: '01',
-      title: 'Overheat',
-      temp: '45°C+',
-      desc: 'Server inlet temperatures exceed 27°C. Thermal throttling begins. Performance drops 30–50% before hard shutdown.',
-      icon: TemperatureHot,
-      iconColor: 'var(--cds-support-error)',
-      bg: 'var(--cds-layer)',
-      borderColor: 'var(--cds-support-error)',
-    },
-    {
-      step: '02',
-      title: 'Condensation',
-      temp: '90% RH',
-      desc: 'Humidity exceeds dew point inside cabinets. Corrosion begins on boards and contacts. Latent damage not visible for weeks.',
-      icon: RainDrop,
-      iconColor: 'var(--cds-support-success)',
-      bg: 'var(--cds-layer)',
-      borderColor: 'var(--cds-support-success)',
-    },
-    {
-      step: '03',
-      title: 'Downtime',
-      temp: 'PKR 2–5M/day',
-      desc: 'Cascading thermal shutdowns trigger SLA penalties, client churn, and emergency CapEx.',
-      icon: Warning,
-      iconColor: 'var(--cds-support-warning)',
-      bg: 'var(--cds-layer)',
-      borderColor: 'var(--cds-support-warning)',
-    },
-  ];
-
-  return (
-    <section id="thermal-failure" style={{ padding: 'var(--cds-spacing-10) 0 var(--cds-spacing-06) 0', background: 'var(--cds-background)' }}>
-      <Grid>
-        <Column lg={12} md={8} sm={4}>
-          <div className={styles['section-label-error']} style={{ marginBottom: '1.5rem' }}>
-            <p className="cds--label-01" style={{ color: 'var(--cds-support-error)', textTransform: 'uppercase', letterSpacing: '0.32px' }}>
-              Thermal Risk
-            </p>
-          </div>
-          <h2
-            className="cds--fluid-heading-05"
-            style={{ color: 'var(--cds-text-primary)', marginBottom: '1rem' }}
-          >
-            3 Scenarios Every Manager Can Avoid
-          </h2>
-          <p
-            className="cds--body-compact-01"
-            style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', maxWidth: '48rem' }}
-          >
-            Pakistan&apos;s summer peaks push standard cooling beyond its design limits. When ambient exceeds 35°C and humidity crosses 80%, three failure modes cascade — and they cascade fast.
-          </p>
-          <p
-            className="cds--body-compact-02"
-            style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-08)', maxWidth: '48rem', fontWeight: 600 }}
-          >
-            Each one is preventable with the right assessment, hardware, and oversight.
-          </p>
-        </Column>
-      </Grid>
-
-      {/* Failure cascade cards */}
-      <Grid>
-        {failureCards.map((item, idx) => {
-          const Icon = item.icon;
-          return (
-            <Column lg={4} md={4} sm={4} key={item.step} style={{ marginBottom: '1.5rem' }}>
-              <div style={{ position: 'relative', height: '100%' }}>
-                <Tile
-                  style={{
-                    height: '100%',
-                    padding: '1.5rem',
-                    background: item.bg,
-                    borderTop: `4px solid ${item.borderColor}`,
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
-                    <div
-                      className={styles['scenario-badge']}
-                      style={{ background: item.borderColor }}
-                    >
-                      {item.step}
-                    </div>
-                    <Icon size={28} style={{ color: item.iconColor }} />
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                    <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)' }}>
-                      {item.title}
-                    </h3>
-                    <span className={`cds--label-01 ${styles['scenario-tag']}`} style={{ color: item.borderColor, borderColor: item.borderColor }}>
-                      {item.temp}
-                    </span>
-                  </div>
-                  <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)' }}>
-                    {item.desc}
-                  </p>
-                </Tile>
-
-                {/* Cascade arrow — desktop only, between cards */}
-                {idx < 2 && (
-                  <div className={styles['cascade-arrow']}>
-                    <ArrowRight size={20} style={{ color: 'var(--cds-text-placeholder)' }} />
-                  </div>
-                )}
-              </div>
-            </Column>
-          );
-        })}
-      </Grid>
-
-
-    </section>
-  );
-};
 
 const TrustBarSection = () => (
   <section style={{ padding: '3rem 0', background: 'var(--cds-layer)', borderTop: '1px solid var(--cds-border-subtle)', borderBottom: '1px solid var(--cds-border-subtle)' }}>
@@ -1965,6 +1850,148 @@ const ManagedServicesSection = () => {
     </section>
   );
 };
+
+/* ==============================================================================
+   RESULTS SECTION — Testimonials + Case Studies
+   ============================================================================== */
+const ResultsSection = ({ caseStudyPage, setCaseStudyPage, testimonialPage, setTestimonialPage }: {
+  caseStudyPage: number;
+  setCaseStudyPage: (p: number) => void;
+  testimonialPage: number;
+  setTestimonialPage: (p: number) => void;
+}) => {
+  return (
+    <section id="results" className={styles['section-pad-inverse']}>
+      <Grid>
+        <Column lg={16} md={8} sm={4}>
+          {/* Header */}
+          <div style={{ marginBottom: 'var(--cds-spacing-09)' }}>
+            <p className="cds--label-01" style={{ color: 'var(--cds-text-inverse)', opacity: 0.7, textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: 'var(--cds-spacing-03)' }}>
+              Results
+            </p>
+            <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-inverse)' }}>Client Voice</h2>
+          </div>
+
+          {/* Testimonials */}
+          {([
+            {
+              context: { client: 'Ibrahim Fibres', desc: 'Deployed ServerLife Extend™ to Critical Infrastructure and deferred CapEx spend without compromise on quality and continuity', link: '/projects/case-study/out-of-warranty-server-support-ibrahim-fibres', solutionLink: '/services/server-continuity' },
+              bgImage: '/case-studies/ibrahim-fibres/hero-1920.jpg',
+              quote: "Perception IT transformed our server infrastructure from a risk into a reliable engine for operations. With 48 critical Lenovo servers supporting our production and financial systems, any downtime could have cost us millions. Their 24/7 support, same-day hardware replacements, and proactive maintenance have kept our systems running without a single major incident.\n\nWe now operate with confidence knowing our IT backbone is in expert hands. For any organization managing critical hardware, I highly recommend their service.",
+              author: 'Mr. Usman Zafar',
+              role: 'Head of IT, Ibrahim Fibres Limited',
+              initials: 'UZ',
+              logo: '/logos/clients/IFL-logo.png',
+            },
+            {
+              context: { client: 'National Telecom Operator', desc: 'Monsoon-hardened precision cooling across 3 sites', link: null, solutionLink: null },
+              bgImage: null,
+              quote: 'Their quarterly monsoon validation protocol caught a condensate drain issue before it became an outage. That proactive approach is why we renewed for three more years.',
+              author: 'DC Operations Manager',
+              role: 'National Telecom Operator',
+              initials: 'NT',
+              logo: null,
+            },
+          ] as const).filter((_, i) => i === testimonialPage).map((item) => (
+            <FeaturedTestimonial
+              key={item.context.client}
+              quote={item.quote}
+              author={item.author}
+              role={item.role}
+              client={item.context.client}
+              initials={item.initials}
+              clientLogo={item.logo}
+              bgImage={item.bgImage}
+              contextDesc={item.context.desc}
+              contextLink={item.context.link}
+              solutionLink={item.context.solutionLink}
+              solutionLabel="ServerLife Extend™ Solution details"
+              showNav
+              onPrev={() => setTestimonialPage(testimonialPage === 0 ? 1 : 0)}
+              onNext={() => setTestimonialPage(testimonialPage === 0 ? 1 : 0)}
+              variant="dark"
+            />
+          ))}
+
+          {/* Testimonial Pagination */}
+          <div style={{ marginTop: 'var(--cds-spacing-06)', marginBottom: 'var(--cds-spacing-10)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
+            <button
+              onClick={() => setTestimonialPage(0)}
+              aria-label="Testimonial 1"
+              className={`${styles['pagination-dot']} ${testimonialPage === 0 ? styles['pagination-dot--active'] : ''}`}
+            />
+            <button
+              onClick={() => setTestimonialPage(1)}
+              aria-label="Testimonial 2"
+              className={`${styles['pagination-dot']} ${testimonialPage === 1 ? styles['pagination-dot--active'] : ''}`}
+            />
+          </div>
+
+          {/* Infrastructure Projects Header */}
+          <div style={{ marginBottom: 'var(--cds-spacing-05)', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+            <div>
+              <p className="cds--label-01" style={{ color: 'var(--cds-text-inverse)', opacity: 0.7, textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: 'var(--cds-spacing-03)' }}>Projects</p>
+              <h3 className="cds--fluid-heading-04" style={{ color: 'var(--cds-text-inverse)' }}>Infrastructure Projects</h3>
+            </div>
+            <Link to="/projects" style={{ color: 'var(--cds-link-inverse)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+              View all projects <ArrowRight size={16} />
+            </Link>
+          </div>
+
+          {/* Case Study Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem', marginBottom: 'var(--cds-spacing-07)' }}>
+            {caseStudyData.slice(caseStudyPage * 3, caseStudyPage * 3 + 3).map((study) => (
+              <div key={study.title} style={{ background: 'var(--cds-layer-01)', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+                {study.image && (
+                  <div style={{ width: '100%', height: '10rem', background: 'var(--cds-background)', overflow: 'hidden' }}>
+                    <img src={study.image} alt={study.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+                )}
+                <div style={{ padding: 'var(--cds-spacing-05)', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)', marginBottom: 'var(--cds-spacing-03)' }}>
+                    {study.logo && <img src={study.logo} alt={study.client} style={{ height: '24px', objectFit: 'contain' }} />}
+                    <span className="cds--label-01" style={{ color: 'var(--cds-text-secondary)' }}>{study.client}</span>
+                  </div>
+                  <h4 className="cds--heading-01" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-02)' }}>{study.title}</h4>
+                  <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-04)', lineHeight: 1.5 }}>{study.desc}</p>
+                  <div style={{ marginTop: 'auto' }}>
+                    <Link to={study.link} style={{ color: 'var(--cds-link-primary)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }} className="cds--label-01">
+                      Read case study <ArrowRight size={14} />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Case Study Pagination */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'var(--cds-spacing-04)' }}>
+            <button
+              onClick={() => setCaseStudyPage(Math.max(0, caseStudyPage - 1))}
+              disabled={caseStudyPage === 0}
+              className="cds--btn cds--btn--ghost"
+              style={{ color: caseStudyPage === 0 ? 'var(--cds-text-disabled)' : 'var(--cds-text-inverse)' }}
+            >
+              <ChevronLeft size={16} /> Previous
+            </button>
+            <span className="cds--body-compact-01" style={{ color: 'var(--cds-text-inverse)' }}>
+              Page {caseStudyPage + 1} of {Math.ceil(caseStudyData.length / 3)}
+            </span>
+            <button
+              onClick={() => setCaseStudyPage(Math.min(Math.ceil(caseStudyData.length / 3) - 1, caseStudyPage + 1))}
+              disabled={caseStudyPage >= Math.ceil(caseStudyData.length / 3) - 1}
+              className="cds--btn cds--btn--ghost"
+              style={{ color: caseStudyPage >= Math.ceil(caseStudyData.length / 3) - 1 ? 'var(--cds-text-disabled)' : 'var(--cds-text-inverse)' }}
+            >
+              Next <ChevronRight size={16} />
+            </button>
+          </div>
+        </Column>
+      </Grid>
+    </section>
+  );
+};
+
 const EcosystemSection = () => {
   const dependencyChain = [
     { title: 'UPS Power', desc: 'Sizing, distribution, and generator integration for cooling load.', href: '/#/services/power-ups', icon: Meter },
@@ -2035,6 +2062,12 @@ const EcosystemSection = () => {
 const CoolingAirflow = () => {
   const [activeSection, setActiveSection] = useState('thermal-failure');
   const [navScrolled, setNavScrolled] = useState(false);
+  const [testimonialPage, setTestimonialPage] = useState(0);
+  const [caseStudyPage, setCaseStudyPage] = useState(0);
+  const [isAssessmentModalOpen, setIsAssessmentModalOpen] = useState(false);
+  const [assessmentForm, setAssessmentForm] = useState({ name: '', email: '', company: '', phone: '', subject: 'Requesting Thermal assessment', message: '' });
+  const [isChecklistModalOpen, setIsChecklistModalOpen] = useState(false);
+  const [checklistForm, setChecklistForm] = useState({ name: '', email: '', company: '', phone: '' });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -2127,8 +2160,6 @@ const CoolingAirflow = () => {
         </Grid>
       </nav>
 
-      <ThermalRiskSection />
-
       <PillarNavSection scrollToSection={scrollToSection} />
       <AssessmentInsightsGrid />
       <ProcurementInsightsGrid />
@@ -2137,6 +2168,12 @@ const CoolingAirflow = () => {
       <DeploymentSection />
 
       <ManagedServicesSection />
+      <ResultsSection
+        caseStudyPage={caseStudyPage}
+        setCaseStudyPage={setCaseStudyPage}
+        testimonialPage={testimonialPage}
+        setTestimonialPage={setTestimonialPage}
+      />
       <EcosystemSection />
 
       {/* Related hub pages */}
@@ -2181,34 +2218,55 @@ const CoolingAirflow = () => {
         </Grid>
       </section>
 
-      <section id="cta" className={styles['section-pad-inverse']}>
+      {/* ── FINAL CTA ─────────────────────────────────────────── */}
+      <section
+        id="cta"
+        style={{
+          padding: 'var(--cds-spacing-10) 0',
+          background: 'var(--cds-background)',
+          borderTop: '1px solid var(--cds-border-subtle)',
+        }}
+      >
         <Grid>
-          <Column lg={12} md={8} sm={4}>
-            <h2
-              className="cds--fluid-heading-05"
-              style={{ color: 'var(--cds-text-inverse)', marginBottom: '1rem' }}
-            >
-              Ready to protect your infrastructure?
-            </h2>
-            <p
-              className="cds--body-compact-01"
-              style={{ color: 'var(--cds-text-placeholder)', marginBottom: '2rem', maxWidth: '36rem' }}
-            >
-              Book a free 15-minute call with our thermal team. We&apos;ll discuss your facility, identify risks, and recommend the right assessment path.
-            </p>
-            <ButtonSet>
-              <Button kind="primary" renderIcon={ArrowRight} href="mailto:contact@perception-it.com?subject=Cooling%20%26%20Airflow%20Consultation">
-                Book Free Consultation
-              </Button>
-              <Button
-                kind="ghost"
-                renderIcon={Phone}
-                href="tel:+923001234567"
-                style={{ color: 'var(--cds-text-inverse)' }}
-              >
-                Call Now
-              </Button>
-            </ButtonSet>
+          <Column lg={16} md={8} sm={4}>
+            <div style={{ textAlign: 'center', maxWidth: '48rem', margin: '0 auto' }}>
+              <p className="cds--label-01" style={{ color: 'var(--cds-interactive)', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: 'var(--cds-spacing-03)' }}>
+                Contact
+              </p>
+              <h2 className="cds--fluid-heading-04" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.2 }}>
+                Get Thermal Certainty Before a Crisis
+              </h2>
+              <p className="cds--body-02" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-06)', lineHeight: 1.5 }}>
+                Stop guessing about your infrastructure health. Our 90-minute thermal health assessment provides a graded scorecard and clear actionable next steps with no obligation and no follow-up pressure.
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 'var(--cds-spacing-04)', marginBottom: 'var(--cds-spacing-07)' }}>
+                <Button kind="primary" onClick={() => setIsAssessmentModalOpen(true)}>
+                  Request Thermal Health Check
+                </Button>
+                <Button
+                  kind="tertiary"
+                  onClick={() => setIsChecklistModalOpen(true)}
+                >
+                  Download Thermal Readiness Checklist
+                </Button>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 'var(--cds-spacing-06)', textAlign: 'left', marginBottom: 'var(--cds-spacing-07)' }}>
+                {[
+                  { title: 'PKR 75,000 Flat Fee', desc: 'Professional report focused on your specific environment.' },
+                  { title: '90-Minute On-Site Review', desc: 'Rapid data collection led by specialized NOC engineers.' },
+                  { title: 'Prioritized Action Plan', desc: 'A graded scorecard featuring priority-ranked technical fixes.' },
+                  { title: 'Zero Obligation', desc: 'Complete transparency to help you decide your next steps.' },
+                ].map((item) => (
+                  <div key={item.title}>
+                    <p className="cds--heading-01" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-02)', fontWeight: 600 }}>{item.title}</p>
+                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', lineHeight: 1.5 }}>{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="cds--helper-text-01" style={{ color: 'var(--cds-text-helper)', lineHeight: 1.4 }}>
+                *PKR 75,000 fixed report fee. Excludes site-visit Day Rate and expenses.
+              </p>
+            </div>
           </Column>
         </Grid>
       </section>

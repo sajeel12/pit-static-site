@@ -27,10 +27,11 @@
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0.95) 0%,
-    rgba(0, 0, 0, 0.88) 40%,
-    rgba(0, 0, 0, 0.6) 65%,
-    transparent 90%
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.95) 35%,
+    rgba(0, 0, 0, 0.85) 55%,
+    rgba(0, 0, 0, 0.6) 75%,
+    transparent 100%
   );
   z-index: 5;
   pointer-events: none;
@@ -40,9 +41,10 @@
   .hero-overlay {
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.98) 0%,
-      rgba(0, 0, 0, 0.92) 45%,
-      rgba(0, 0, 0, 0.75) 100%
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.98) 35%,
+      rgba(0, 0, 0, 0.92) 60%,
+      rgba(0, 0, 0, 0.8) 100%
     );
   }
 }
@@ -50,12 +52,12 @@
 /* Breadcrumb on dark background — force inverse colors */
 .hero-breadcrumb a,
 .hero-breadcrumb .cds--breadcrumb-item::after,
-.hero-breadcrumb .cds--breadcrumb-item__icon {
-  color: var(--cds-text-inverse) !important;
-}
-
-.hero-breadcrumb .cds--breadcrumb-item--current a {
-  color: var(--cds-text-inverse-secondary) !important;
+.hero-breadcrumb .cds--breadcrumb-item__icon,
+.hero-breadcrumb .cds--breadcrumb-item--current,
+.hero-breadcrumb .cds--breadcrumb-item--current a,
+.hero-breadcrumb .cds--breadcrumb-item [aria-current='page'],
+.hero-breadcrumb .cds--breadcrumb-item [aria-current='page'] .cds--link {
+  color: #f4f4f4 !important;
 }
 
 /* Ghost button on dark hero — force white text */
@@ -87,6 +89,9 @@
 
 .hero-btn-set .cds--btn {
   flex: 0 0 auto;
+  min-height: 3rem;
+  padding-left: var(--cds-spacing-06);
+  padding-right: var(--cds-spacing-06);
 }
 
 @media (max-width: 671px) {
@@ -97,6 +102,7 @@
   .hero-btn-set .cds--btn {
     width: 100%;
     max-width: 100%;
+    justify-content: center;
   }
 }
 
@@ -178,6 +184,25 @@
   justify-content: center;
 }
 
+/* Deployment tabs — desktop (horizontal) vs mobile (vertical) */
+.deploy-tabs-desktop {
+  display: flex;
+}
+
+.deploy-tabs-mobile {
+  display: none;
+  flex-direction: column;
+}
+
+@media (max-width: 671px) {
+  .deploy-tabs-desktop {
+    display: none;
+  }
+  .deploy-tabs-mobile {
+    display: flex;
+  }
+}
+
 /* Numbered step badge */
 .step-badge {
   width: 32px;
@@ -218,8 +243,8 @@
   max-height: 64px;
   width: auto;
   height: auto;
-  opacity: 0.85;
-  transition: opacity 0.25s ease;
+  opacity: 0.7;
+  transition: opacity 200ms;
 }
 
 .partner-logo:hover {
@@ -447,36 +472,7 @@
    Ecosystem / Related Services tiles (P2-6)
    ============================================================================ */
 
-.eco-tile {
-  height: 100%;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--cds-border-subtle);
-  transition: border-color 150ms, box-shadow 150ms;
-}
 
-.eco-tile:hover {
-  border-color: var(--cds-interactive);
-  box-shadow: var(--cds-shadow);
-}
-
-/* ============================================================================
-   Partner logos (P2-9)
-   ============================================================================ */
-
-.partner-logo {
-  opacity: 0.7;
-  transition: opacity 200ms;
-}
-
-.partner-logo:hover {
-  opacity: 1;
-}
-
-/* ============================================================================
-   Featured product card (in Manufacturer Partnerships section)
-   ============================================================================ */
 
 .featured-product {
   display: grid;
@@ -613,5 +609,767 @@
 .image-placeholder img {
   max-width: 100%;
   max-height: 100%;
+  object-fit: contain;
+}
+
+/* ============================================================================
+   Explicit Exclusions — helper-text block for legal conspicuousness
+   ============================================================================ */
+
+.explicit-exclusions {
+  background-color: #f4f4f4; /* Carbon gray-10 */
+  border-left: 3px solid #8d8d8d; /* Carbon gray-50 */
+  padding: 1rem;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+  color: #525252; /* Carbon gray-60 */
+}
+
+/* ============================================================================
+   Table scroll container — mobile-optimized with scroll hint
+   ============================================================================ */
+
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+.table-scroll::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 32px;
+  background: linear-gradient(to right, transparent, rgba(22, 22, 22, 0.06));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+@media (max-width: 671px) {
+  .table-scroll::after {
+    opacity: 1;
+  }
+
+  .table-scroll table {
+    min-width: 600px;
+  }
+
+  .table-scroll th,
+  .table-scroll td {
+    white-space: nowrap;
+  }
+}
+
+/* ============================================================================
+   Mobile comparison cards — stacked layout for small screens
+   ============================================================================ */
+
+@media (max-width: 671px) {
+  .comparison-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--cds-spacing-05);
+  }
+
+  .comparison-card {
+    background: var(--cds-layer-01);
+    padding: var(--cds-spacing-05);
+    border-left: 3px solid var(--cds-border-subtle);
+  }
+
+  .comparison-card__header {
+    font-weight: 600;
+    margin-bottom: var(--cds-spacing-03);
+    color: var(--cds-text-primary);
+  }
+
+  .comparison-card__row {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--cds-spacing-03) 0;
+    border-bottom: 1px solid var(--cds-border-subtle);
+  }
+
+  .comparison-card__row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison-card__label {
+    color: var(--cds-text-secondary);
+  }
+
+  .comparison-card__value {
+    font-weight: 500;
+    color: var(--cds-text-primary);
+  }
+}
+
+/* ============================================================================
+   Mobile scroll hint — shown only on small screens
+   ============================================================================ */
+
+@media (max-width: 671px) {
+  .mobile-scroll-hint {
+    display: block !important;
+  }
+}
+
+/* ============================================================================
+   Carbon-compliant interactive tile states (hover, active, focus)
+   ============================================================================ */
+
+.tile-interactive {
+  cursor: pointer;
+  transition: background-color 70ms cubic-bezier(0.2, 0, 0.38, 0.9),
+    transform 110ms cubic-bezier(0.2, 0, 0.38, 0.9),
+    box-shadow 110ms cubic-bezier(0.2, 0, 0.38, 0.9);
+}
+
+.tile-interactive:hover {
+  background-color: var(--cds-layer-hover);
+}
+
+.tile-interactive:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: background-color 70ms cubic-bezier(0.2, 0, 0.38, 0.9),
+    transform 110ms cubic-bezier(0.2, 0, 0.38, 0.9),
+    box-shadow 110ms cubic-bezier(0.2, 0, 0.38, 0.9);
+}
+
+.tile-interactive:focus-visible {
+  outline: 2px solid var(--cds-focus, #0f62fe);
+  outline-offset: 2px;
+}
+
+/* Dark background variant for focus */
+.tile-interactive--inverse:focus-visible {
+  outline: 2px solid var(--cds-focus-inverse, #ffffff);
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   Managed Services tier cards grid
+   ============================================================================ */
+
+.managed-tiers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.managed-tiers-grid__filler {
+  display: none;
+}
+
+.managed-tiers-hero__overlay {
+  position: absolute;
+  bottom: var(--cds-spacing-06);
+  right: var(--cds-spacing-06);
+  max-width: 480px;
+  background: rgba(22, 22, 22, 0.88);
+  padding: var(--cds-spacing-06);
+  border-left: 3px solid var(--cds-interactive);
+}
+
+@media (max-width: 671px) {
+  .managed-tiers-hero__overlay {
+    right: auto;
+    left: var(--cds-spacing-05);
+    bottom: var(--cds-spacing-05);
+    max-width: calc(100% - var(--cds-spacing-05) * 2);
+  }
+}
+
+@media (min-width: 672px) {
+  .managed-tiers-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .managed-tiers-grid__hero {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .managed-tiers-grid__essential {
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+  }
+
+  .managed-tiers-grid__professional {
+    grid-column: 4 / span 1;
+    grid-row: 1 / span 1;
+  }
+
+  .managed-tiers-grid__enterprise {
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 1;
+  }
+
+  .managed-tiers-grid__filler {
+    display: flex;
+    grid-column: 4 / span 1;
+    grid-row: 2 / span 1;
+    background: var(--cds-interactive);
+  }
+}
+
+/* ============================================================================
+   Scroll & anchor link behavior
+   ============================================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus management for anchor targets */
+[id]:target {
+  scroll-margin-top: 48px;
+}
+
+/* ============================================================================
+   Lazy-load image fade-in
+   ============================================================================ */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.img-lazy {
+  opacity: 0;
+  transition: opacity 110ms cubic-bezier(0.2, 0, 0.38, 0.9);
+}
+
+.img-lazy[data-loaded="true"],
+.img-lazy[loading="eager"] {
+  opacity: 1;
+}
+
+/* ============================================================================
+   Carbon-compliant link styling: underline on hover only
+   ============================================================================ */
+
+.link-carbon {
+  color: var(--cds-link-01, var(--cds-interactive));
+  text-decoration: none;
+  transition: text-decoration 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
+}
+
+.link-carbon:hover {
+  text-decoration: underline;
+}
+
+.link-carbon:focus-visible {
+  outline: 2px solid var(--cds-focus, #0f62fe);
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   Skip link — first tabbable element, visible on focus
+   ============================================================================ */
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--cds-interactive);
+  color: #ffffff;
+  padding: 8px 16px;
+  z-index: 10000;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 400;
+  border-radius: 0 0 4px 0;
+  transition: top 110ms cubic-bezier(0.2, 0, 0.38, 0.9);
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--cds-focus);
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   prefers-reduced-motion: disable animations for users who request it
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .tile-interactive,
+  .tile-interactive:active,
+  .link-carbon,
+  .img-lazy,
+  .skip-link {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ============================================================================
+   Case study client block — logo + name layout
+   Desktop: side by side | Mobile: stacked
+   ============================================================================ */
+
+.case-study-client {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.case-study-client__logo {
+  width: 80px;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.case-study-client__name {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  padding: 0 !important;
+}
+
+.case-study-client__name span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+
+@media (max-width: 671px) {
+  .case-study-client {
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+  }
+
+  .case-study-client__logo {
+    width: auto;
+    height: 48px;
+  }
+
+  .case-study-client__name {
+    text-align: center;
+    padding: 0 0.5rem 0.25rem !important;
+  }
+
+  .case-study-client__name span {
+    white-space: normal;
+  }
+}
+
+/* ============================================================================
+   Client logo marquee — infinite scroll animation
+   ============================================================================ */
+
+.client-marquee {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, #000 80px, #000 calc(100% - 80px), transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 80px, #000 calc(100% - 80px), transparent);
+}
+
+.client-marquee__track {
+  display: flex;
+  gap: var(--cds-spacing-06);
+  animation: marquee-scroll 25s linear infinite;
+  width: max-content;
+}
+
+.client-marquee__track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.client-marquee__item {
+  flex-shrink: 0;
+  width: 220px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--cds-spacing-05);
+  background: var(--cds-background);
+  border: 1px solid var(--cds-border-subtle);
+  border-radius: 2px;
+}
+
+.client-marquee__item img {
+  max-height: 72px;
+  max-width: 180px;
+  object-fit: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .client-marquee__track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* ============================================================================
+   Ecosystem dependency tiles — Carbon-compliant card with left accent
+   ============================================================================ */
+
+.eco-tile {
+  height: 100%;
+  padding: 1.5rem;
+  background: var(--cds-layer);
+  border: 1px solid var(--cds-border-subtle);
+  border-radius: 2px;
+  transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.eco-tile:hover {
+  border-color: var(--cds-interactive);
+  box-shadow: var(--cds-shadow);
+  background-color: var(--cds-layer-hover);
+}
+
+.eco-tile__title {
+  color: var(--cds-text-primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.eco-tile__desc {
+  color: #525252;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.eco-tile__link {
+  color: var(--cds-interactive);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.32px;
+  transition: color 70ms ease;
+}
+
+.eco-tile__link:hover {
+  color: var(--cds-interactive-hover);
+  text-decoration: underline;
+}
+
+.eco-tile__link svg {
+  fill: currentColor;
+}
+
+/* ============================================================================
+   Results section — dark theme Carbon-compliant cards
+   ============================================================================ */
+
+.results-section {
+  padding: var(--cds-spacing-10) 0;
+  background: var(--cds-background-inverse);
+}
+
+.results-section__label {
+  color: var(--cds-text-inverse);
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.32px;
+  margin-bottom: var(--cds-spacing-03);
+}
+
+.results-section__heading {
+  color: var(--cds-text-inverse);
+  line-height: 1.2;
+}
+
+.results-section__link {
+  color: var(--cds-link-inverse);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.results-section__link:hover {
+  text-decoration: underline;
+}
+
+/* Case study card — dark */
+.case-study-card {
+  background: var(--cds-layer-01);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 150ms ease;
+}
+
+.case-study-card:hover {
+  box-shadow: var(--cds-shadow);
+}
+
+.case-study-card__image {
+  width: 100%;
+  height: 10rem;
+  background: var(--cds-background);
+  overflow: hidden;
+}
+
+.case-study-card__content {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.case-study-card__tag {
+  color: var(--cds-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.32px;
+  font-size: 0.75rem;
+}
+
+.case-study-card__dot {
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 50%;
+  background: var(--cds-text-placeholder);
+}
+
+.case-study-card__title {
+  color: var(--cds-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.case-study-card__desc {
+  color: var(--cds-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.case-study-card__metric-value {
+  font-size: 1.875rem;
+  font-weight: 300;
+  color: var(--cds-support-info);
+}
+
+.case-study-card__metric-label {
+  color: var(--cds-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.32px;
+  margin-top: 0.125rem;
+  font-size: 0.75rem;
+}
+
+.case-study-card__cta {
+  color: var(--cds-link-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.32px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.case-study-card__cta:hover {
+  text-decoration: underline;
+}
+
+/* Pagination dots */
+.pagination-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--cds-text-placeholder);
+}
+
+.pagination-dot--active {
+  background: var(--cds-interactive);
+  border-color: transparent;
+}
+
+/* ============================================================================
+   Ecosystem section — lead statement with left accent
+   ============================================================================ */
+
+.eco-lead {
+  border-left: 3px solid var(--cds-interactive);
+  padding-left: var(--cds-spacing-05);
+  margin-bottom: var(--cds-spacing-03);
+}
+
+.eco-lead__text {
+  color: var(--cds-text-primary);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+/* ============================================================================
+   Ecosystem dependency tiles — step bar style matching Services section
+   ============================================================================ */
+
+.eco-step-tile {
+  flex: 1 1 220px;
+  padding: var(--cds-spacing-05);
+  border-right: 1px solid var(--cds-border-subtle);
+  cursor: pointer;
+  background: var(--cds-background);
+  transition: background-color 0.15s ease;
+}
+
+.eco-step-tile:last-child {
+  border-right: none;
+}
+
+.eco-step-tile:hover {
+  background-color: var(--cds-layer);
+}
+
+.eco-step-tile__num {
+  color: var(--cds-interactive);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.32px;
+  margin-bottom: var(--cds-spacing-03);
+  display: block;
+}
+
+.eco-step-tile__title {
+  color: var(--cds-text-primary);
+  margin-bottom: var(--cds-spacing-02);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.eco-step-tile__desc {
+  color: var(--cds-text-secondary);
+  margin-bottom: var(--cds-spacing-03);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.eco-step-tile__link {
+  color: var(--cds-interactive);
+  font-size: 0.875rem;
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cds-spacing-02);
+  text-decoration: none;
+}
+
+.eco-step-tile__link:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================================
+   Ecosystem section — refined spacing and typography hierarchy
+   ============================================================================ */
+
+.eco-section-header {
+  max-width: 48rem;
+}
+
+.eco-section-header__label {
+  color: var(--cds-interactive);
+  text-transform: uppercase;
+  letter-spacing: 0.32px;
+  margin-bottom: var(--cds-spacing-03);
+}
+
+.eco-section-header__heading {
+  color: var(--cds-text-primary);
+  margin-bottom: var(--cds-spacing-05);
+  line-height: 1.2;
+}
+
+.eco-section-header__body {
+  color: var(--cds-text-secondary);
+  margin-bottom: var(--cds-spacing-03);
+  line-height: 1.5;
+}
+
+.eco-section-header__lead {
+  color: var(--cds-text-primary);
+  font-weight: 600;
+  margin-bottom: var(--cds-spacing-08);
+  line-height: 1.5;
+}
+
+/* ============================================================================
+   Section label — unified pattern for all page sections
+   Light sections: blue text, no border
+   Dark sections: faded white text, no border
+   ============================================================================ */
+
+.section-label {
+  color: var(--cds-interactive);
+  text-transform: uppercase;
+  letter-spacing: 0.32px;
+  margin-bottom: var(--cds-spacing-03);
+}
+
+.section-label--inverse {
+  color: var(--cds-text-inverse);
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.32px;
+  margin-bottom: var(--cds-spacing-03);
+}
+
+/* ============================================================================
+   Case study card — logo bar with white background
+   ============================================================================ */
+
+.case-study-card__logo-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--cds-spacing-03);
+  padding: var(--cds-spacing-03) var(--cds-spacing-04);
+  background: #ffffff;
+  margin-bottom: var(--cds-spacing-03);
+}
+
+.case-study-card__logo-bar img {
+  height: 40px;
+  width: auto;
   object-fit: contain;
 }

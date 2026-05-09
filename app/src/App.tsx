@@ -30,7 +30,7 @@ import ServerContinuity from './pages/services/ServerContinuity';
 import Datacenter from './pages/services/Datacenter';
 import Datacenter2 from './pages/services/Datacenter2';
 import CoolingAirflow from './pages/services/CoolingAirflow';
-import CoolingAirflowTailwind from './pages/services/CoolingAirflow2';
+
 
 
 import HardwareSupport from './pages/services/HardwareSupport';
@@ -119,7 +119,7 @@ function App() {
             <Route path="/services/cooling-airflow" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
             <Route path="/services/cooling-airflow2" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
             <Route path="/infrastructure/data-centre-services/cooling-airflow" element={<CoolingAirflow />} />
-            <Route path="/cooling-airflow-tailwind" element={<CoolingAirflowTailwind />} />
+
 
 
             <Route path="/services/hardware-support" element={<HardwareSupport />} />
