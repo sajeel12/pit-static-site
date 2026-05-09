@@ -633,7 +633,7 @@ const AssessmentInsightsGrid = () => {
   const [healthHover, setHealthHover] = useState(false);
   const [engineeringHover, setEngineeringHover] = useState(false);
   return (
-    <section style={{ padding: 'var(--cds-spacing-10) 0' }}>
+    <section style={{ padding: 'var(--cds-spacing-10) 0', background: 'var(--cds-background)' }}>
       <Grid>
         <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-07)' }}>
           <p className="cds--label-01" style={{ color: 'var(--cds-text-helper)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>
@@ -647,7 +647,7 @@ const AssessmentInsightsGrid = () => {
 
       <Grid>
         <Column lg={16} md={8} sm={4}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0, border: '1px solid var(--cds-border-subtle)' }}>
             <Tile style={{ gridColumn: 'span 2', gridRow: 'span 2', padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', position: 'relative', maxHeight: 400 }}>
               <img src="/3D images/Cooling and Airflow/Cooling - Assesment.png" alt="Pakistani field engineer in Perception-IT polo, holding thermal camera and tablet with heat-map" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} loading="lazy" />
               <div style={{ position: 'absolute', bottom: 'var(--cds-spacing-06)', right: 'var(--cds-spacing-06)', maxWidth: 480, background: 'rgba(22, 22, 22, 0.88)', padding: 'var(--cds-spacing-06)', borderLeft: '3px solid var(--cds-interactive)' }}>
@@ -665,7 +665,8 @@ const AssessmentInsightsGrid = () => {
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
-                background: healthHover ? 'var(--cds-interactive)' : 'transparent',
+                borderLeft: '1px solid var(--cds-border-subtle)',
+                background: healthHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
                 transition: 'background 0.25s ease',
                 cursor: 'pointer',
               }}
@@ -688,7 +689,8 @@ const AssessmentInsightsGrid = () => {
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
-                background: engineeringHover ? 'var(--cds-interactive)' : 'transparent',
+                borderLeft: '1px solid var(--cds-border-subtle)',
+                background: engineeringHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
                 transition: 'background 0.25s ease',
                 cursor: 'pointer',
               }}
@@ -815,7 +817,7 @@ const ProcurementInsightsGrid = () => {
   const [isDatasheetModalOpen, setIsDatasheetModalOpen] = useState(false);
   const [datasheetForm, setDatasheetForm] = useState({ name: '', email: '', company: '', phone: '' });
   return (
-    <section id="hardware" style={{ padding: 'var(--cds-spacing-10) 0' }}>
+    <section id="hardware" style={{ padding: 'var(--cds-spacing-10) 0', background: 'var(--cds-layer)' }}>
       <Grid>
         <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-07)' }}>
           <p className="cds--label-01" style={{ color: 'var(--cds-text-helper)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>
@@ -830,7 +832,7 @@ const ProcurementInsightsGrid = () => {
       <Grid>
         <Column lg={16} md={8} sm={4}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '1fr 1fr', gap: 0 }}>
-            <Tile style={{ gridColumn: 'span 2', gridRow: 'span 2', padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', position: 'relative', maxHeight: 400 }}>
+            <Tile style={{ gridColumn: 'span 2', gridRow: 'span 2', padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', position: 'relative', maxHeight: 400, borderRight: '1px solid var(--cds-border-subtle)' }}>
               <img src="/3D images/Cooling and Airflow/Cooling - Procurement.png" alt="Cooling hardware procurement" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} loading="lazy" />
               <div style={{ position: 'absolute', bottom: 'var(--cds-spacing-06)', right: 'var(--cds-spacing-06)', maxWidth: 480, background: 'rgba(22, 22, 22, 0.88)', padding: 'var(--cds-spacing-06)', borderLeft: '3px solid var(--cds-interactive)' }}>
                 <p className="cds--label-01" style={{ color: 'var(--cds-text-inverse)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>02 Procurement</p>
@@ -846,7 +848,9 @@ const ProcurementInsightsGrid = () => {
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
-                background: roomCoolingHover ? 'var(--cds-interactive)' : 'transparent',
+                borderRight: '1px solid var(--cds-border-subtle)',
+                borderBottom: '1px solid var(--cds-border-subtle)',
+                background: roomCoolingHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
                 transition: 'background 0.25s ease',
                 cursor: 'pointer',
               }}
@@ -879,7 +883,7 @@ const ProcurementInsightsGrid = () => {
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
-                background: precisionCoolingHover ? 'var(--cds-interactive)' : 'transparent',
+                background: precisionCoolingHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
                 transition: 'background 0.25s ease',
                 cursor: 'pointer',
               }}
@@ -910,7 +914,7 @@ const ProcurementInsightsGrid = () => {
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
-                background: facilityCoolingHover ? 'var(--cds-interactive)' : 'transparent',
+                background: facilityCoolingHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
                 transition: 'background 0.25s ease',
                 cursor: 'pointer',
               }}
