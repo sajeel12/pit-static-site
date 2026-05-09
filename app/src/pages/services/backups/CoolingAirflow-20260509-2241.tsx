@@ -570,7 +570,7 @@ const PillarNavSection = ({ scrollToSection }: { scrollToSection: (id: string) =
   ];
 
   return (
-    <section id="services" style={{ padding: 'var(--cds-spacing-06) 0', background: 'var(--cds-background)', borderBottom: '1px solid var(--cds-border-subtle)' }}>
+    <section style={{ padding: 'var(--cds-spacing-06) 0', background: 'var(--cds-background)', borderBottom: '1px solid var(--cds-border-subtle)' }}>
       <Grid>
         <Column lg={16} md={8} sm={4}>
           <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
