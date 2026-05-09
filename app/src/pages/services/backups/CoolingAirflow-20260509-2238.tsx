@@ -1434,7 +1434,7 @@ const ManagedServicesSection = () => {
   ];
 
   return (
-    <section id="managed" style={{ padding: 'var(--cds-spacing-10) 0' }}>
+    <section id="managed" style={{ padding: 'var(--cds-spacing-10) 0', background: 'var(--cds-layer)' }}>
       <Grid>
         <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-07)' }}>
           <p className="cds--label-01" style={{ color: 'var(--cds-text-helper)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>
@@ -1450,7 +1450,7 @@ const ManagedServicesSection = () => {
         <Column lg={16} md={8} sm={4}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '1fr 1fr', gap: 0 }}>
             {/* Hero tile — 2x2 */}
-            <Tile style={{ gridColumn: 'span 2', gridRow: 'span 2', padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', position: 'relative', maxHeight: 400 }}>
+            <Tile style={{ gridColumn: 'span 2', gridRow: 'span 2', padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', position: 'relative', maxHeight: 400, borderRight: '1px solid var(--cds-border-subtle)' }}>
               <img src="/3D images/Cooling and Airflow/managed service - Cooling - page.png" alt="Network operations centre with thermal monitoring dashboards" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} loading="lazy" />
               <div style={{ position: 'absolute', bottom: 'var(--cds-spacing-06)', right: 'var(--cds-spacing-06)', maxWidth: 480, background: 'rgba(22, 22, 22, 0.88)', padding: 'var(--cds-spacing-06)', borderLeft: '3px solid var(--cds-interactive)' }}>
                 <p className="cds--label-01" style={{ color: 'var(--cds-text-inverse)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>04 Managed Services</p>
@@ -1467,7 +1467,9 @@ const ManagedServicesSection = () => {
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
-                background: essentialHover ? 'var(--cds-interactive)' : 'transparent',
+                borderRight: '1px solid var(--cds-border-subtle)',
+                borderBottom: '1px solid var(--cds-border-subtle)',
+                background: essentialHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
                 transition: 'background 0.25s ease',
                 cursor: 'pointer',
               }}
@@ -1501,7 +1503,7 @@ const ManagedServicesSection = () => {
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
-                background: proHover ? 'var(--cds-interactive)' : 'transparent',
+                background: proHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
                 transition: 'background 0.25s ease',
                 cursor: 'pointer',
               }}
@@ -1536,7 +1538,7 @@ const ManagedServicesSection = () => {
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
-                background: enterpriseHover ? 'var(--cds-interactive)' : 'transparent',
+                background: enterpriseHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
                 transition: 'background 0.25s ease',
                 cursor: 'pointer',
               }}
