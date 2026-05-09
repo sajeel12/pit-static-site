@@ -14,13 +14,13 @@
  *   • light  — White/Gray 10 theme for light sections
  *
  * Layout
- *   5-column grid on desktop: 1-col image | 2-col content
+ *   5-column grid on desktop: 2-col image/logo panel | 3-col content panel
  *   Stacked on mobile.
  *
  * Features
  *   • Optional background image with gradient overlay
- *   • Client logo tile in context header
- *   • Value props as horizontal pill row
+ *   • Client logo tile (white bg, sharp corners)
+ *   • Context header: "Client / Service" badge + description + solution link
  *   • Clean quote styling (no decorative marks — Carbon-compliant)
  *   • Author bar: avatar circle + name/role + case-study CTA
  *   • Optional overflow prev/next buttons (positioned at card edge)
@@ -57,9 +57,6 @@ export interface FeaturedTestimonialProps {
   solutionLink?: string | null;
   /** Label for the solution link (default: "Solution details") */
   solutionLabel?: string;
-
-  /** Key value props array (title + desc) to show as pills under client name */
-  valueProps?: { title: string; desc: string }[];
 
   /** Show overflow prev/next buttons (default: false) */
   showNav?: boolean;
@@ -99,7 +96,6 @@ export default function FeaturedTestimonial({
   contextLink,
   solutionLink,
   solutionLabel = 'Solution details',
-  valueProps,
   showNav = false,
   onPrev,
   onNext,
@@ -110,6 +106,7 @@ export default function FeaturedTestimonial({
   const isDark = variant === 'dark';
 
   const cardClass = isDark ? styles['ft-card--dark'] : styles['ft-card--light'];
+  const logoNameClass = isDark ? styles['ft-logo-tile__name--dark'] : styles['ft-logo-tile__name--light'];
   const authorBarClass = isDark ? styles['ft-author-bar--dark'] : styles['ft-author-bar--light'];
   const navBtnClass = isDark ? styles['ft-nav-btn--dark'] : styles['ft-nav-btn--light'];
 
@@ -138,7 +135,7 @@ export default function FeaturedTestimonial({
       {/* ── Card ── */}
       <div className={`${styles['ft-card']} ${cardClass}`}>
         <div className={styles['ft-grid']}>
-          {/* ── Left: Background image only ── */}
+          {/* ── Left: Background image + logo tile ── */}
           <div className={styles['ft-left']}>
             {bgImage ? (
               <>
@@ -156,6 +153,8 @@ export default function FeaturedTestimonial({
                 </span>
               </div>
             )}
+
+            {/* Left panel now shows only the background image / placeholder */}
           </div>
 
           {/* ── Right: Context + Quote + Author ── */}
@@ -182,19 +181,6 @@ export default function FeaturedTestimonial({
                   )}
                 </div>
               </div>
-
-              {/* Value props pills */}
-              {valueProps && valueProps.length > 0 && (
-                <div className={styles['ft-context__props']}>
-                  {valueProps.map((prop) => (
-                    <div key={prop.title} className={styles['ft-context__prop']}>
-                      <span className={styles['ft-context__prop-title']}>{prop.title}</span>
-                      <span className={styles['ft-context__prop-desc']}>{prop.desc}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-
               {solutionLink && (
                 <Link
                   to={solutionLink}
@@ -210,24 +196,30 @@ export default function FeaturedTestimonial({
             <div className={styles['ft-quote-wrap']}>
               <blockquote className={styles['ft-quote']}>
                 <span className={styles['ft-quote__mark']} aria-hidden="true">&ldquo;</span>
-                <div className={`cds--heading-01 ${styles['ft-quote__body']}`}>
+                <div className={`cds--heading-02 ${styles['ft-quote__body']}`}>
                   {quote.split('\n\n').map((para, idx) => (
                     <p key={idx}>{para}</p>
                   ))}
                 </div>
+                {showAuthorInQuote && (
+                  <footer className={styles['ft-quote__footer']}>
+                    <div className={styles['ft-quote__footer-line']} />
+                    <cite className={styles['ft-quote__cite']}>
+                      <span className="cds--body-01" style={{ color: 'var(--cds-text-primary)', fontWeight: 600, fontStyle: 'normal' }}>
+                        {author}
+                      </span>
+                      <span className="cds--helper-text-01" style={{ color: 'var(--cds-text-secondary)', fontStyle: 'normal' }}>
+                        {role}
+                      </span>
+                    </cite>
+                  </footer>
+                )}
               </blockquote>
             </div>
 
             {/* Bottom Bar */}
             <div className={`${styles['ft-author-bar']} ${authorBarClass}`}>
               <div className={styles['ft-author-bar__inner']}>
-                <div className={styles['ft-author-bar__author']}>
-                  <div className={styles['ft-author-bar__avatar']}>{initials}</div>
-                  <div className={styles['ft-author-bar__name']}>
-                    <span className="cds--body-01" style={{ color: 'var(--cds-text-primary)', fontWeight: 600 }}>{author}</span>
-                    <span className="cds--helper-text-01" style={{ color: 'var(--cds-text-secondary)' }}>{role}</span>
-                  </div>
-                </div>
                 {contextLink && (
                   <Link
                     to={contextLink}

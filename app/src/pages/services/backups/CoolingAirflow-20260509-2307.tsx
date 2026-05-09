@@ -1711,12 +1711,6 @@ const ResultsSection = ({ caseStudyPage, setCaseStudyPage, testimonialPage, setT
               contextLink={item.context.link}
               solutionLink={item.context.solutionLink}
               solutionLabel="ServerLife Extend™ Solution details"
-              valueProps={[
-                { title: 'PKR 75,000 Flat Fee', desc: 'Professional report focused on your specific environment.' },
-                { title: '90-Minute On-Site Review', desc: 'Rapid data collection led by specialized NOC engineers.' },
-                { title: 'Prioritized Action Plan', desc: 'A graded scorecard featuring priority-ranked technical fixes.' },
-                { title: 'Zero Obligation', desc: 'Complete transparency to help you decide your next steps.' },
-              ]}
               showNav
               onPrev={() => setTestimonialPage(testimonialPage === 0 ? 1 : 0)}
               onNext={() => setTestimonialPage(testimonialPage === 0 ? 1 : 0)}
