@@ -155,9 +155,25 @@ export default function FeaturedTestimonial({
             )}
 
             <div className={styles['ft-left__content']}>
-              {/* Client name only — logo moved to context header */}
-              <div className={`${styles['ft-logo-tile__name']} ${logoNameClass}`}>
-                <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)' }}>{client}</p>
+              {/* Client Identity Tile */}
+              <div className={styles['ft-logo-tile']}>
+                <div className={styles['ft-logo-tile__img-box']}>
+                  {clientLogo ? (
+                    <img
+                      src={clientLogo}
+                      alt={client}
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                      }}
+                    />
+                  ) : (
+                    <Building size={32} style={{ color: 'var(--cds-text-placeholder)' }} />
+                  )}
+                </div>
+                <div className={`${styles['ft-logo-tile__name']} ${logoNameClass}`}>
+                  <p className="cds--label-01" style={{ color: 'var(--cds-text-secondary)' }}>{client}</p>
+                </div>
               </div>
             </div>
           </div>
