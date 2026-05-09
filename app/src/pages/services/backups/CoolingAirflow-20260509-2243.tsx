@@ -633,7 +633,7 @@ const AssessmentInsightsGrid = () => {
   const [healthHover, setHealthHover] = useState(false);
   const [engineeringHover, setEngineeringHover] = useState(false);
   return (
-    <section id="assessment" style={{ padding: 'var(--cds-spacing-10) 0' }}>
+    <section style={{ padding: 'var(--cds-spacing-10) 0' }}>
       <Grid>
         <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-07)' }}>
           <p className="cds--label-01" style={{ color: 'var(--cds-text-helper)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>
