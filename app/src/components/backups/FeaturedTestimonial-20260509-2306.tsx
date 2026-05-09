@@ -225,7 +225,7 @@ export default function FeaturedTestimonial({
                     to={contextLink}
                     className={`cds--label-01 ${styles['ft-author-bar__link--solution']}`}
                   >
-                    Full case study
+                    Read case study
                     <ArrowRight size={16} />
                   </Link>
                 )}
