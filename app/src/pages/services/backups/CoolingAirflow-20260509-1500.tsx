@@ -26,6 +26,12 @@ import {
   ClickableTile,
   Breadcrumb,
   BreadcrumbItem,
+  Table,
+  TableHead,
+  TableRow,
+  TableHeader,
+  TableBody,
+  TableCell,
   Modal,
   TextInput,
   Form,
@@ -34,6 +40,7 @@ import {
 import {
   ArrowRight,
   CheckmarkFilled,
+  Compare,
   ChevronLeft,
   ChevronRight,
   TemperatureHot,
@@ -1132,261 +1139,420 @@ const ProcurementInsightsGrid = () => {
 };
 
 const DeploymentSection = () => {
-  const [mechHover, setMechHover] = useState(false);
-  const [thermalHover, setThermalHover] = useState(false);
-  const [commHover, setCommHover] = useState(false);
-  const [isProcessOpen, setIsProcessOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
+
+  const deployTabs = [
+    {
+      step: '01',
+      icon: Settings,
+      title: 'Mechanical Installation',
+      items: [
+        'Positioning and levelling',
+        'Refrigerant line brazing and pressure testing',
+        'Condensate drain routing',
+        'Electrical connection and breaker sizing',
+      ],
+      image: {
+        src: '/3D images/Cooling and Airflow/perceptionit_mechanical_final.webp',
+        alt: 'Mechanical installation of precision cooling unit showing positioning, refrigerant line brazing, condensate drain routing, and electrical connections',
+      },
+    },
+    {
+      step: '02',
+      icon: Meter,
+      title: 'Thermal Validation',
+      items: [
+        'Infrared thermal mapping of rack inlets',
+        'CFD airflow simulation for hotspot elimination',
+        'Load-bank testing at design capacity',
+        'Failover simulation: primary → secondary → portable',
+      ],
+      image: {
+        src: '/3D images/Cooling and Airflow/perceptionit_thermal_validation_final.webp',
+        alt: 'Thermal validation process showing infrared thermal mapping, CFD airflow simulation, load-bank testing, and failover simulation for precision cooling systems',
+      },
+    },
+    {
+      step: '03',
+      icon: Certificate,
+      title: 'Commissioning Sign-Off',
+      items: [
+        'As-built documentation',
+        'Cooling capacity test report',
+        'Setpoint calibration (temperature & humidity)',
+        'Operator training handover',
+      ],
+      image: {
+        src: '/3D images/Cooling and Airflow/perceptionit_commissioning_people_final.webp',
+        alt: 'Commissioning sign-off process showing as-built documentation, cooling capacity test reports, setpoint calibration, and operator training handover',
+      },
+    },
+    {
+      step: '04',
+      icon: Dashboard,
+      title: 'Monitoring Integration',
+      items: [
+        'Sensor placement (rack inlet, return air, under-floor)',
+        'DCIM integration (Huawei iManager, Schneider StruxureWare)',
+        'Alert threshold configuration',
+        'NOC dashboard onboarding',
+      ],
+      image: {
+        src: '/3D images/Cooling and Airflow/perceptionit_monitoring_integration.png',
+        alt: 'Monitoring integration showing sensor placement, DCIM dashboard integration, alert threshold configuration, and NOC onboarding',
+      },
+    },
+  ];
+
+  const activeTabData = deployTabs[activeTab];
+
+  const failureModes = [
+    { num: '01', text: 'Incorrect refrigerant charge' },
+    { num: '02', text: 'Undersized condensate drains' },
+    { num: '03', text: 'Missing thermal validation' },
+  ];
 
   return (
     <section id="installation" style={{ padding: 'var(--cds-spacing-10) 0', background: 'var(--cds-background)' }}>
       <Grid>
-        <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-07)' }}>
-          <p className="cds--label-01" style={{ color: 'var(--cds-text-helper)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>
-            03 Deployment
-          </p>
-          <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-primary)' }}>
-            Deployment & Commissioning
-          </h2>
-        </Column>
-      </Grid>
-
-      <Grid>
         <Column lg={16} md={8} sm={4}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '1fr 1fr', gap: 0 }}>
-            {/* Hero tile — 2x2 */}
-            <Tile style={{ gridColumn: 'span 2', gridRow: 'span 2', padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', position: 'relative', maxHeight: 400, borderRight: '1px solid var(--cds-border-subtle)' }}>
-              <img src="/3D images/Cooling and Airflow/Deployment- Cooling.png" alt="Cooling system deployment and commissioning" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} loading="lazy" />
-              <div style={{ position: 'absolute', bottom: 'var(--cds-spacing-06)', right: 'var(--cds-spacing-06)', maxWidth: 480, background: 'rgba(22, 22, 22, 0.88)', padding: 'var(--cds-spacing-06)', borderLeft: '3px solid var(--cds-interactive)' }}>
-                <p className="cds--label-01" style={{ color: 'var(--cds-text-inverse)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>03 Deployment</p>
-                <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-inverse)', marginBottom: 'var(--cds-spacing-03)', lineHeight: 1.25 }}>Thermal continuity is won or lost at installation</h3>
-                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-inverse)', lineHeight: 1.5, opacity: 0.85 }}>4-phase deployment: mechanical install, thermal validation, commissioning sign-off, and monitoring integration — validated for Pakistan&apos;s climate before handover.</p>
-              </div>
-            </Tile>
-
-            {/* Mechanical Installation */}
-            <Tile
-              style={{
-                gridColumn: '3 / span 1',
-                gridRow: '1 / span 1',
-                padding: 'var(--cds-spacing-06)',
-                display: 'flex',
-                flexDirection: 'column',
-                borderRight: '1px solid var(--cds-border-subtle)',
-                borderBottom: '1px solid var(--cds-border-subtle)',
-                background: mechHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
-                transition: 'background 0.25s ease',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={() => setMechHover(true)}
-              onMouseLeave={() => setMechHover(false)}
-            >
-              <Settings size={32} style={{ color: mechHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'color 0.25s ease' }} />
-              <div style={{ marginTop: 'auto' }}>
-                <p className="cds--label-01" style={{ color: mechHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Step 01</p>
-                <h3 className="cds--heading-02" style={{ color: mechHover ? '#ffffff' : 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Mechanical Installation</h3>
-                {!mechHover ? (
-                  <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>Positioning, refrigerant lines, drains, electrical.</p>
-                ) : (
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                    {['Positioning and levelling', 'Refrigerant line brazing and pressure testing', 'Condensate drain routing', 'Electrical connection and breaker sizing'].map((item) => (
-                      <li key={item} className="cds--body-compact-01" style={{ color: '#ffffff', marginBottom: 'var(--cds-spacing-03)', display: 'flex', gap: 'var(--cds-spacing-03)', lineHeight: 1.5 }}>
-                        <CheckmarkFilled size={16} style={{ color: '#ffffff', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </Tile>
-
-            {/* Thermal Validation */}
-            <Tile
-              style={{
-                gridColumn: '4 / span 1',
-                gridRow: '1 / span 1',
-                padding: 'var(--cds-spacing-06)',
-                display: 'flex',
-                flexDirection: 'column',
-                background: thermalHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
-                transition: 'background 0.25s ease',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={() => setThermalHover(true)}
-              onMouseLeave={() => setThermalHover(false)}
-            >
-              <Meter size={32} style={{ color: thermalHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'color 0.25s ease' }} />
-              <div style={{ marginTop: 'auto' }}>
-                <p className="cds--label-01" style={{ color: thermalHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Step 02</p>
-                <h3 className="cds--heading-02" style={{ color: thermalHover ? '#ffffff' : 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Thermal Validation</h3>
-                {!thermalHover ? (
-                  <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>IR mapping, CFD simulation, load-bank testing.</p>
-                ) : (
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                    {['Infrared thermal mapping of rack inlets', 'CFD airflow simulation for hotspot elimination', 'Load-bank testing at design capacity', 'Failover simulation: primary → secondary → portable'].map((item) => (
-                      <li key={item} className="cds--body-compact-01" style={{ color: '#ffffff', marginBottom: 'var(--cds-spacing-03)', display: 'flex', gap: 'var(--cds-spacing-03)', lineHeight: 1.5 }}>
-                        <CheckmarkFilled size={16} style={{ color: '#ffffff', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </Tile>
-
-            {/* Commissioning */}
-            <Tile
-              style={{
-                padding: 'var(--cds-spacing-06)',
-                display: 'flex',
-                flexDirection: 'column',
-                background: commHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
-                transition: 'background 0.25s ease',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={() => setCommHover(true)}
-              onMouseLeave={() => setCommHover(false)}
-            >
-              <Certificate size={32} style={{ color: commHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'color 0.25s ease' }} />
-              <div style={{ marginTop: 'auto' }}>
-                <p className="cds--label-01" style={{ color: commHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Step 03–04</p>
-                <h3 className="cds--heading-02" style={{ color: commHover ? '#ffffff' : 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Commissioning & Monitoring</h3>
-                {!commHover ? (
-                  <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>Sign-off docs, calibration, DCIM integration.</p>
-                ) : (
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                    {['As-built documentation and capacity report', 'Setpoint calibration (temperature & humidity)', 'DCIM integration and alert configuration', 'NOC dashboard onboarding'].map((item) => (
-                      <li key={item} className="cds--body-compact-01" style={{ color: '#ffffff', marginBottom: 'var(--cds-spacing-03)', display: 'flex', gap: 'var(--cds-spacing-03)', lineHeight: 1.5 }}>
-                        <CheckmarkFilled size={16} style={{ color: '#ffffff', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </Tile>
-          </div>
-        </Column>
-      </Grid>
-
-      {/* Dark CTA band */}
-      <Grid style={{ marginTop: 'var(--cds-spacing-07)' }}>
-        <Column lg={16} md={8} sm={4}>
-          <Tile style={{ padding: 'var(--cds-spacing-07)', background: 'linear-gradient(135deg, #0a1628 0%, #1a2b4a 100%)', borderLeft: '4px solid var(--cds-interactive)' }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 'var(--cds-spacing-06)' }}>
-              <div style={{ flex: '1 1 400px' }}>
-                <h3 className="cds--heading-02" style={{ color: '#ffffff', marginBottom: 'var(--cds-spacing-03)' }}>60% of cooling failures are installation-related</h3>
-                <p className="cds--body-compact-01" style={{ color: 'rgba(255,255,255,0.8)', lineHeight: 1.6 }}>
-                  Independent studies across Pakistan data centres show that the majority of thermal outages within the first 12 months trace back to installation shortcuts — not hardware defects.
+          {/* ============================================================
+              SCAN LAYER — Always visible
+              ============================================================ */}
+          <Grid>
+            {/* Text — left side */}
+            <Column lg={8} md={4} sm={4}>
+              <div style={{ borderLeft: '2px solid #009d9a', paddingLeft: '0.75rem', marginBottom: '0.75rem' }}>
+                <p className="cds--label-01" style={{ color: '#009d9a', textTransform: 'uppercase', letterSpacing: '0.32px', fontWeight: 600 }}>
+                  03 Deployment
                 </p>
               </div>
-              <div style={{ display: 'flex', gap: 'var(--cds-spacing-03)', flexWrap: 'wrap', alignItems: 'center' }}>
-                <Button
-                  kind="ghost"
-                  onClick={() => setIsProcessOpen(!isProcessOpen)}
-                  renderIcon={isProcessOpen ? ChevronUp : ChevronDown}
-                  style={{ color: '#ffffff', minWidth: '11rem' }}
-                >
-                  {isProcessOpen ? 'Close' : 'View Full Process'}
-                </Button>
-                <Button
-                  kind="primary"
-                  href="mailto:contact@perception-it.com?subject=Deployment%20Consultation%20Request"
-                >
+              <p className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '1rem' }}>
+                Install, validate, commission, monitor
+              </p>
+
+              <h2 className="cds--fluid-heading-05" style={{ color: '#161616', marginBottom: '1rem' }}>
+                Deployment & Commissioning
+              </h2>
+              <p className="cds--body-compact-01" style={{ color: '#161616', fontWeight: 600, marginBottom: '0.5rem' }}>
+                Thermal continuity is won or lost at installation.
+              </p>
+              <p className="cds--body-compact-01" style={{ color: '#525252', marginBottom: '1.5rem' }}>
+                Core deployment covers mechanical installation and power-on verification. Thermal validation, airflow mapping, failover testing, and monitoring integration are scoped to your contract — and validated for Pakistan&apos;s grid instability, dust loads, and monsoon humidity before handover.
+              </p>
+
+              {/* 4 step cards */}
+              <Grid style={{ marginBottom: '1.5rem' }}>
+                {deployTabs.map((tab) => {
+                  const Icon = tab.icon;
+                  return (
+                    <Column lg={8} md={4} sm={2} key={tab.step} style={{ marginBottom: '0.5rem' }}>
+                      <Tile style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                        <div style={{ width: 40, height: 40, background: '#161616', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '0.875rem', flexShrink: 0 }}>
+                          {tab.step}
+                        </div>
+                        <Icon size={20} style={{ color: '#525252', flexShrink: 0 }} />
+                        <span className="cds--body-compact-01" style={{ color: '#161616', fontWeight: 500 }}>
+                          {tab.title}
+                        </span>
+                      </Tile>
+                    </Column>
+                  );
+                })}
+              </Grid>
+
+              {/* CTA + expand trigger */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1rem' }}>
+                <Button kind="primary" renderIcon={ArrowRight} href="#cta">
                   Discuss Deployment Timeline
                 </Button>
+                {!expanded && (
+                  <button
+                    onClick={() => setExpanded(true)}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: '#0f62fe',
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      fontSize: '0.875rem',
+                      fontWeight: 400,
+                      lineHeight: 1.28572,
+                      letterSpacing: '0.16px',
+                      padding: 0,
+                    }}
+                  >
+                    <Settings size={20} />
+                    View full deployment process
+                    <ChevronRight size={16} />
+                  </button>
+                )}
               </div>
-            </div>
-          </Tile>
-        </Column>
-      </Grid>
+            </Column>
 
-      {/* Expandable process detail */}
-      {isProcessOpen && (
-        <Grid style={{ marginTop: 'var(--cds-spacing-05)' }}>
-          <Column lg={16} md={8} sm={4}>
-            <Grid style={{ padding: 'var(--cds-spacing-03) 0 var(--cds-spacing-05)' }}>
-              <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-05)' }}>
-                <Tile style={{ height: '100%', padding: 'var(--cds-spacing-05)', background: 'var(--cds-layer-01)' }}>
-                  <p className="cds--label-01" style={{ color: 'var(--cds-support-error)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-04)' }}>Common Installation Failures</p>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                    {[{ label: 'Refrigerant charge', value: 'Incorrect charge causes 40% of first-year failures' }, { label: 'Condensate drains', value: 'Undersized drains flood during monsoon humidity' }, { label: 'Thermal validation', value: 'Missing validation leaves hotspots undetected' }].map((item) => (
-                      <li key={item.label} className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-04)', display: 'flex', gap: 'var(--cds-spacing-03)', lineHeight: 1.5 }}>
-                        <Warning size={16} style={{ color: 'var(--cds-support-error)', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
-                        <span><strong style={{ color: 'var(--cds-text-primary)', fontWeight: 600 }}>{item.label}:</strong> {item.value}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </Tile>
-              </Column>
-              <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-05)' }}>
-                <Tile style={{ height: '100%', padding: 'var(--cds-spacing-05)', background: 'var(--cds-layer-01)' }}>
-                  <p className="cds--label-01" style={{ color: 'var(--cds-interactive)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-04)' }}>Our Deployment Protocol</p>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                    {[{ label: 'Site survey', value: 'Thermal load, airflow path, electrical capacity' }, { label: 'Placement design', value: 'CFD-validated layout for optimal airflow' }, { label: 'Monsoon hardening', value: 'Drain sizing, seal verification, humidity buffers' }, { label: 'Start-up & balancing', value: 'Load-bank test, setpoint calibration, failover' }, { label: 'As-built docs', value: 'Full documentation and operator handover' }].map((item) => (
-                      <li key={item.label} className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-04)', display: 'flex', gap: 'var(--cds-spacing-03)', lineHeight: 1.5 }}>
-                        <CheckmarkFilled size={16} style={{ color: 'var(--cds-interactive)', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
-                        <span><strong style={{ color: 'var(--cds-text-primary)', fontWeight: 600 }}>{item.label}:</strong> {item.value}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </Tile>
-              </Column>
-              <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
-                <Tile style={{ padding: 'var(--cds-spacing-05)', background: 'var(--cds-layer-01)', borderLeft: '4px solid var(--cds-support-success)', display: 'flex', gap: 'var(--cds-spacing-05)', alignItems: 'flex-start' }}>
-                  <Certificate size={24} style={{ color: 'var(--cds-support-success)', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
-                  <div>
-                    <p className="cds--label-01" style={{ color: 'var(--cds-support-success)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-02)' }}>45°C+ Ambient Rated</p>
-                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', lineHeight: 1.6 }}>Every installation is validated for Pakistan&apos;s peak summer conditions. We test at 45°C ambient and 80% RH to ensure your cooling system performs when it matters most.</p>
-                  </div>
-                </Tile>
-              </Column>
-              <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
-                <Tile style={{ padding: 'var(--cds-spacing-05)', background: 'var(--cds-layer-01)', borderLeft: '4px solid var(--cds-text-placeholder)', display: 'flex', gap: 'var(--cds-spacing-05)', alignItems: 'flex-start' }}>
-                  <Warning size={24} style={{ color: 'var(--cds-text-placeholder)', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
-                  <div>
-                    <p className="cds--label-01" style={{ color: 'var(--cds-text-placeholder)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-02)' }}>What&apos;s Not Included</p>
-                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', lineHeight: 1.6 }}>Deployment covers installation, validation, and commissioning only. Excludes: thermal capacity planning, monsoon hardening engineering, and SLA guarantees.</p>
-                  </div>
-                </Tile>
-              </Column>
+            {/* Image — right side */}
+            <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-06, 1.5rem)' }}>
+              <div style={{ width: '100%', height: 360, background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <img
+                  src="/3D images/Cooling and Airflow/perceptionit_mechanical_final.webp"
+                  alt="Mechanical installation of precision cooling unit showing positioning, refrigerant line brazing, condensate drain routing, and electrical connections"
+                  style={{ maxWidth: '100%', maxHeight: 360, objectFit: 'contain' }}
+                  loading="lazy"
+                />
+              </div>
+            </Column>
+          </Grid>
+
+          {/* ============================================================
+              DETAIL LAYER — Expandable
+              ============================================================ */}
+          <div
+            style={{
+              maxHeight: expanded ? 4000 : 0,
+              overflow: 'hidden',
+              opacity: expanded ? 1 : 0,
+              transition: 'max-height 400ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 300ms ease',
+              marginTop: expanded ? '2rem' : 0,
+            }}
+          >
+            {/* Close link */}
+            <div style={{ textAlign: 'right', marginBottom: '1rem' }}>
+              <button
+                onClick={() => setExpanded(false)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: '#0f62fe',
+                  cursor: 'pointer',
+                  fontSize: '0.875rem',
+                  fontWeight: 400,
+                  lineHeight: 1.28572,
+                  letterSpacing: '0.16px',
+                  padding: 0,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                }}
+              >
+                <ChevronRight size={16} style={{ transform: 'rotate(180deg)' }} />
+                Close details
+              </button>
+            </div>
+
+            {/* Full 4-tab interface */}
+            <Grid>
               <Column lg={16} md={8} sm={4}>
-                <Tile style={{ padding: 'var(--cds-spacing-06)', background: 'linear-gradient(135deg, #0a1628 0%, #1a2b4a 100%)', borderLeft: '4px solid var(--cds-interactive)' }}>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 'var(--cds-spacing-06)' }}>
-                    <Button kind="ghost" onClick={() => setIsProcessOpen(false)} style={{ color: '#ffffff' }}>Close details</Button>
-                    <Button kind="primary" href="mailto:contact@perception-it.com?subject=Deployment%20Consultation%20Request">Discuss Deployment Timeline</Button>
+                <Tile style={{ padding: 0, overflow: 'hidden' }}>
+                  {/* Desktop Tab Bar */}
+                  <div
+                    className="deploy-tabs-desktop"
+                    style={{
+                      borderBottom: '1px solid var(--cds-border-subtle, #e0e0e0)',
+                    }}
+                  >
+                    {deployTabs.map((tab, idx) => {
+                      const isActive = idx === activeTab;
+                      const Icon = tab.icon;
+                      return (
+                        <button
+                          key={tab.title}
+                          onClick={() => setActiveTab(idx)}
+                          role="tab"
+                          aria-selected={isActive}
+                          style={{
+                            flex: 1,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: '0.5rem',
+                            padding: '1rem 0.75rem',
+                            fontSize: '0.875rem',
+                            background: isActive ? 'rgba(15, 98, 254, 0.04)' : 'transparent',
+                            border: 'none',
+                            borderBottom: `2px solid ${isActive ? '#0f62fe' : 'transparent'}`,
+                            color: isActive ? '#0f62fe' : '#525252',
+                            fontWeight: isActive ? 600 : 400,
+                            cursor: 'pointer',
+                            transition: 'all 150ms cubic-bezier(0.25, 0.1, 0.25, 1)',
+                            whiteSpace: 'nowrap',
+                          }}
+                        >
+                          <span style={{ fontSize: '0.625rem', fontFamily: 'monospace', color: isActive ? '#0f62fe' : '#a8a8a8' }}>{tab.step}</span>
+                          <Icon size={16} style={{ color: isActive ? '#0f62fe' : '#a8a8a8', transition: 'color 150ms' }} />
+                          <span>{tab.title}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Mobile Stepper */}
+                  <div
+                    className="deploy-tabs-mobile"
+                    style={{
+                      borderBottom: '1px solid var(--cds-border-subtle, #e0e0e0)',
+                    }}
+                  >
+                    {deployTabs.map((tab, idx) => {
+                      const isActive = idx === activeTab;
+                      const Icon = tab.icon;
+                      return (
+                        <button
+                          key={tab.title}
+                          onClick={() => setActiveTab(idx)}
+                          role="tab"
+                          aria-selected={isActive}
+                          style={{
+                            width: '100%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.75rem',
+                            padding: '0.75rem 1rem',
+                            fontSize: '0.875rem',
+                            background: isActive ? 'rgba(15, 98, 254, 0.04)' : 'transparent',
+                            border: 'none',
+                            borderLeft: `4px solid ${isActive ? '#0f62fe' : 'transparent'}`,
+                            color: isActive ? '#0f62fe' : '#525252',
+                            fontWeight: isActive ? 600 : 400,
+                            cursor: 'pointer',
+                            transition: 'all 150ms cubic-bezier(0.25, 0.1, 0.25, 1)',
+                          }}
+                        >
+                          <span style={{ fontSize: '0.625rem', fontFamily: 'monospace', color: isActive ? '#0f62fe' : '#a8a8a8' }}>{tab.step}</span>
+                          <Icon size={16} style={{ color: isActive ? '#0f62fe' : '#a8a8a8' }} />
+                          <span>{tab.title}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Tab Panel */}
+                  <div role="tabpanel" style={{ padding: '1.5rem' }}>
+                    <Grid>
+                      <Column lg={9} md={5} sm={4}>
+                        <h3 className="cds--fluid-heading-03" style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: '1rem' }}>
+                          {activeTabData.title}
+                        </h3>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                          {activeTabData.items.map((item) => (
+                            <li
+                              key={item}
+                              className="cds--body-compact-01"
+                              style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: '0.75rem', display: 'flex', gap: '0.75rem' }}
+                            >
+                              <CheckmarkFilled size={16} style={{ color: '#0f62fe', marginTop: 2, flexShrink: 0 }} />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </Column>
+                      <Column lg={7} md={3} sm={4}>
+                        <div style={{ width: '100%', height: 360, background: '#f4f4f4', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <img
+                            src={activeTabData.image.src}
+                            alt={activeTabData.image.alt}
+                            style={{ maxWidth: '100%', maxHeight: 360, objectFit: 'contain' }}
+                            loading="lazy"
+                          />
+                        </div>
+                      </Column>
+                    </Grid>
                   </div>
                 </Tile>
               </Column>
             </Grid>
-          </Column>
-        </Grid>
-      )}
+
+            {/* Common Failures */}
+            <Grid style={{ marginTop: '2rem' }}>
+              <Column lg={16} md={8} sm={4}>
+                <Grid>
+                  <Column lg={8} md={4} sm={4} style={{ marginBottom: '1.5rem' }}>
+                    <h3 className="cds--fluid-heading-04" style={{ color: 'var(--cds-text-primary, #161616)', marginBottom: '1rem' }}>
+                      60% of cooling failures are installation-related
+                    </h3>
+                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary, #525252)', marginBottom: '1.5rem' }}>
+                      Independent studies across Pakistan data centres show that the majority of thermal outages within the first 12 months trace back to installation shortcuts — not hardware defects.
+                    </p>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                      {failureModes.map((mode) => (
+                        <div key={mode.num} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                          <span style={{ width: 32, height: 32, borderRadius: '50%', background: 'rgba(207, 10, 44, 0.08)', color: '#cf0a2c', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '0.75rem', flexShrink: 0 }}>
+                            {mode.num}
+                          </span>
+                          <span className="cds--body-compact-01" style={{ color: 'var(--cds-text-primary, #161616)' }}>{mode.text}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </Column>
+
+                  <Column lg={8} md={4} sm={4} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ position: 'relative', width: 160, height: 160 }}>
+                      <svg viewBox="0 0 36 36" style={{ width: '100%', height: '100%', transform: 'rotate(-90deg)' }}>
+                        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e0e0e0" strokeWidth={3} />
+                        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#cf0a2c" strokeWidth={3} strokeDasharray="60, 100" />
+                      </svg>
+                      <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                        <span style={{ fontSize: '2rem', fontWeight: 300, color: '#cf0a2c' }}>60%</span>
+                        <span className="cds--label-01" style={{ color: '#525252' }}>Installation failures</span>
+                      </div>
+                    </div>
+                  </Column>
+                </Grid>
+              </Column>
+            </Grid>
+
+            {/* Exclusions + next step */}
+            <Grid style={{ marginTop: '2rem' }}>
+              <Column lg={16} md={8} sm={4}>
+                <Tile style={{ background: 'rgba(0, 157, 154, 0.1)', borderLeft: '4px solid #009d9a', marginBottom: '1.5rem' }}>
+                  <p className="cds--label-01" style={{ color: '#161616', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '0.25rem' }}>Explicit Exclusions</p>
+                  <p className="cds--helper-text-01" style={{ color: '#525252' }}>
+                    Deployment covers installation, validation, and commissioning only. Excludes: thermal capacity planning, monsoon hardening engineering, and SLA guarantees.
+                  </p>
+                </Tile>
+
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', paddingTop: '1.25rem', borderTop: '1px solid var(--cds-border-subtle, #e0e0e0)' }}>
+                  <ArrowRight size={16} style={{ color: '#0f62fe', marginTop: 3, flexShrink: 0 }} />
+                  <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary, #525252)' }}>
+                    <span style={{ color: '#0f62fe', fontWeight: 500 }}>Next:</span> After commissioning, thermal continuity depends on what happens next — proactive monitoring, seasonal validation, and engineers who understand Pakistan&apos;s climate stress cycles.
+                  </p>
+                </div>
+              </Column>
+            </Grid>
+          </div>
+        </Column>
+      </Grid>
     </section>
   );
 };
 
 const ManagedServicesSection = () => {
-  const [essentialHover, setEssentialHover] = useState(false);
-  const [proHover, setProHover] = useState(false);
-  const [enterpriseHover, setEnterpriseHover] = useState(false);
-  const [isTiersOpen, setIsTiersOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [matrixExpanded, setMatrixExpanded] = useState(false);
 
   const tiers = [
     {
       name: 'Essential',
       price: 'PKR 65K',
       period: '/mo',
+      pictogram: CloudManagedServices,
       items: [
         'Quarterly preventive maintenance',
         'Filter replacement',
         'Refrigerant check',
         'Basic telemetry review',
       ],
+      cta: 'Enquire',
+      ctaKind: 'tertiary' as const,
+      recommended: false,
     },
     {
       name: 'Professional',
       price: 'PKR 145K',
       period: '/mo',
+      pictogram: CloudServices,
       items: [
         'Monthly preventive maintenance',
         '8-hour response SLA',
@@ -1395,11 +1561,15 @@ const ManagedServicesSection = () => {
         'Spare parts pre-staging',
         'Remote monitoring',
       ],
+      cta: 'Get Started',
+      ctaKind: 'primary' as const,
+      recommended: true,
     },
     {
       name: 'Enterprise',
       price: 'PKR 380K+',
       period: '/mo',
+      pictogram: DataCenters,
       items: [
         '24/7 NOC monitoring (3 hubs)',
         '4-hour response SLA',
@@ -1409,242 +1579,274 @@ const ManagedServicesSection = () => {
         'Predictive alerts',
         'On-site spare parts pre-staged',
       ],
+      cta: 'Contact Sales',
+      ctaKind: 'tertiary' as const,
+      recommended: false,
     },
   ];
 
-  return (
-    <section id="managed" style={{ padding: 'var(--cds-spacing-10) 0', background: 'var(--cds-layer)' }}>
-      <Grid>
-        <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-07)' }}>
-          <p className="cds--label-01" style={{ color: 'var(--cds-text-helper)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>
-            04 Managed Services
-          </p>
-          <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-primary)' }}>
-            24/7 Managed Thermal Services
-          </h2>
-        </Column>
-      </Grid>
+  const matrixRows = [
+    { feature: 'Preventive Maintenance', essential: 'Quarterly', professional: 'Monthly', enterprise: 'Monthly + on-demand' },
+    { feature: 'Response SLA', essential: '—', professional: '8 hours', enterprise: '4 hours' },
+    { feature: 'NOC Monitoring', essential: '—', professional: 'Remote monitoring', enterprise: '24/7 NOC (3 hubs)' },
+    { feature: 'Predictive Alerts', essential: '—', professional: 'Yes', enterprise: 'Yes' },
+    { feature: 'Thermal Reporting', essential: 'Basic telemetry', professional: 'Thermal trending', enterprise: 'Quarterly integrity validation' },
+    { feature: 'Spare Parts', essential: '—', professional: 'Pre-staged at depot', enterprise: 'Pre-staged at your site' },
+    { feature: 'Monsoon Standby', essential: '—', professional: '—', enterprise: 'Dedicated engineers' },
+    { feature: 'Uptime Target', essential: '—', professional: '—', enterprise: '99.9% under signed SLA' },
+  ];
 
+  return (
+    <section id="managed" className={styles['section-pad']} style={{ background: 'var(--cds-layer)' }}>
       <Grid>
         <Column lg={16} md={8} sm={4}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '1fr 1fr', gap: 0 }}>
-            {/* Hero tile — 2x2 */}
-            <Tile style={{ gridColumn: 'span 2', gridRow: 'span 2', padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', position: 'relative', maxHeight: 400, borderRight: '1px solid var(--cds-border-subtle)' }}>
-              <img src="/3D images/Cooling and Airflow/managed service - Cooling - page.png" alt="Network operations centre with thermal monitoring dashboards" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} loading="lazy" />
-              <div style={{ position: 'absolute', bottom: 'var(--cds-spacing-06)', right: 'var(--cds-spacing-06)', maxWidth: 480, background: 'rgba(22, 22, 22, 0.88)', padding: 'var(--cds-spacing-06)', borderLeft: '3px solid var(--cds-interactive)' }}>
-                <p className="cds--label-01" style={{ color: 'var(--cds-text-inverse)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>04 Managed Services</p>
-                <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-inverse)', marginBottom: 'var(--cds-spacing-03)', lineHeight: 1.25 }}>Thermal continuity does not end at handover</h3>
-                <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-inverse)', lineHeight: 1.5, opacity: 0.85 }}>Filters clog. Refrigerant leaks. Setpoints drift. Our managed service catches degradation before it becomes an outage — with NOC engineers who understand Pakistan&apos;s climate stress cycles.</p>
+          {/* ============================================================
+              SCAN LAYER — Always visible
+              ============================================================ */}
+          <Grid>
+            {/* Text — left side */}
+            <Column lg={8} md={4} sm={4}>
+              <div className={styles['section-label']}>
+                <p className="cds--label-01" style={{ color: 'var(--cds-support-success)', textTransform: 'uppercase', letterSpacing: '0.32px', fontWeight: 600 }}>
+                  04 Managed Services
+                </p>
               </div>
-            </Tile>
+              <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: '1rem' }}>
+                Thermal continuity does not end at handover
+              </p>
 
-            {/* Essential tier */}
-            <Tile
-              style={{
-                gridColumn: '3 / span 1',
-                gridRow: '1 / span 1',
-                padding: 'var(--cds-spacing-06)',
-                display: 'flex',
-                flexDirection: 'column',
-                borderRight: '1px solid var(--cds-border-subtle)',
-                borderBottom: '1px solid var(--cds-border-subtle)',
-                background: essentialHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
-                transition: 'background 0.25s ease',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={() => setEssentialHover(true)}
-              onMouseLeave={() => setEssentialHover(false)}
-            >
-              <CloudManagedServices style={{ width: 48, height: 48, fill: essentialHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'fill 0.25s ease' }} />
-              <div style={{ marginTop: 'auto' }}>
-                <p className="cds--label-01" style={{ color: essentialHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Tier 1</p>
-                <h3 className="cds--heading-02" style={{ color: essentialHover ? '#ffffff' : 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Essential</h3>
-                {!essentialHover ? (
-                  <>
-                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>Quarterly maintenance and basic telemetry.</p>
-                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-02)' }}>From</p>
-                    <p className="cds--fluid-heading-03" style={{ color: 'var(--cds-text-primary)', fontWeight: 300 }}>PKR 65K<span style={{ fontSize: '0.875rem', color: 'var(--cds-text-secondary)' }}>/mo</span></p>
-                  </>
-                ) : (
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                    {tiers[0].items.map((item) => (
-                      <li key={item} className="cds--body-compact-01" style={{ color: '#ffffff', marginBottom: 'var(--cds-spacing-03)', display: 'flex', gap: 'var(--cds-spacing-03)', lineHeight: 1.5 }}>
-                        <CheckmarkFilled size={16} style={{ color: '#ffffff', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+              <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-primary)', marginBottom: '1rem' }}>
+                24/7 Managed Thermal Services
+              </h2>
+              <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-primary)', fontWeight: 600, marginBottom: '0.5rem' }}>
+                Filters clog. Refrigerant leaks. Setpoints drift.
+              </p>
+              <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: '1.5rem' }}>
+                Our managed service catches degradation before it becomes an outage — with NOC engineers who understand Pakistan&apos;s monsoon season, dust cycles, and grid stress patterns.
+              </p>
+
+              {/* Tier summaries */}
+              <div style={{ borderTop: '1px solid var(--cds-border-subtle)' }}>
+                <p className="cds--label-01" style={{ color: 'var(--cds-text-helper)', textTransform: 'uppercase', letterSpacing: '0.32px', paddingTop: '1rem', marginBottom: '0.5rem' }}>
+                  Service tiers
+                </p>
+                {tiers.map((tier, idx, arr) => (
+                  <div
+                    key={tier.name}
+                    style={{
+                      padding: '1rem 0',
+                      borderBottom: idx < arr.length - 1 ? '1px solid #e0e0e0' : 'none',
+                      display: 'flex',
+                      alignItems: 'baseline',
+                      justifyContent: 'space-between',
+                      gap: '0.5rem',
+                    }}
+                  >
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
+                        <p className="cds--heading-01" style={{ color: 'var(--cds-text-primary)', fontWeight: 600 }}>{tier.name}</p>
+                        {tier.recommended && <Tag type="blue">Recommended</Tag>}
+                      </div>
+                      <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)' }}>
+                        {tier.items.slice(0, 2).join(' · ')}
+                      </p>
+                    </div>
+                    <p className="cds--label-01" style={{ color: 'var(--cds-interactive)', fontWeight: 500, whiteSpace: 'nowrap' }}>
+                      {tier.price}<span style={{ color: 'var(--cds-text-secondary)', fontWeight: 400 }}>{tier.period}</span>
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA + expand trigger */}
+              <div className={styles['cta-row']} style={{ marginTop: '1.5rem' }}>
+                <Button kind="primary" renderIcon={ArrowRight} href="#cta">
+                  Choose Your Service Tier
+                </Button>
+                {!expanded && (
+                  <button onClick={() => setExpanded(true)} className={styles['expand-btn']}>
+                    <Dashboard size={20} />
+                    Compare tiers in detail
+                    <ChevronRight size={16} />
+                  </button>
                 )}
               </div>
-            </Tile>
+            </Column>
 
-            {/* Professional tier */}
-            <Tile
-              style={{
-                gridColumn: '4 / span 1',
-                gridRow: '1 / span 1',
-                padding: 'var(--cds-spacing-06)',
-                display: 'flex',
-                flexDirection: 'column',
-                background: proHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
-                transition: 'background 0.25s ease',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={() => setProHover(true)}
-              onMouseLeave={() => setProHover(false)}
-            >
-              <CloudServices style={{ width: 48, height: 48, fill: proHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'fill 0.25s ease' }} />
-              <div style={{ marginTop: 'auto' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)', marginBottom: 'var(--cds-spacing-03)' }}>
-                  <p className="cds--label-01" style={{ color: proHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', textTransform: 'uppercase', transition: 'color 0.25s ease' }}>Tier 2</p>
-                  <Tag type="blue">Recommended</Tag>
+            {/* Image — right side */}
+            <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-06, 1.5rem)' }}>
+              <div className={styles['image-placeholder']}>
+                <img
+                  src="/3D images/Cooling and Airflow/perceptionit_noc_bg_e8edf2.png"
+                  alt="Network operations centre with large monitoring screens displaying thermal dashboards, cooling telemetry, and real-time infrastructure alerts"
+                  loading="lazy"
+                />
+              </div>
+            </Column>
+          </Grid>
+
+          {/* ============================================================
+              DETAIL LAYER — Expandable
+              ============================================================ */}
+          <div
+            style={{
+              maxHeight: expanded ? 8000 : 0,
+              overflow: 'hidden',
+              opacity: expanded ? 1 : 0,
+              transition: 'max-height 400ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 300ms ease',
+              marginTop: expanded ? '2rem' : 0,
+            }}
+          >
+            {/* Close link */}
+            <div style={{ textAlign: 'right', marginBottom: '1rem' }}>
+              <button onClick={() => setExpanded(false)} className={styles['collapse-btn']}>
+                <ChevronRight size={16} style={{ transform: 'rotate(180deg)' }} />
+                Close details
+              </button>
+            </div>
+
+            {/* Full tier cards */}
+            <Grid style={{ marginBottom: '2.5rem' }}>
+              {tiers.map((tier) => {
+                const Pictogram = tier.pictogram;
+                return (
+                  <Column lg={4} md={4} sm={4} key={tier.name} style={{ marginBottom: '1rem' }}>
+                    <Tile style={{ height: '100%', padding: 0, display: 'flex', flexDirection: 'column', border: tier.recommended ? '2px solid #0f62fe' : '1px solid #e0e0e0', overflow: 'hidden' }}>
+                      {/* Top accent */}
+                      <div style={{ height: 4, background: 'var(--cds-interactive)' }} />
+
+                      {/* Recommended badge */}
+                      {tier.recommended ? (
+                        <div style={{ padding: '0.75rem 1.5rem 0' }}>
+                          <Tag type="blue">Recommended</Tag>
+                        </div>
+                      ) : (
+                        <div style={{ padding: '0.75rem 1.5rem 0', minHeight: '2.5rem' }} />
+                      )}
+
+                      {/* Header */}
+                      <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--cds-border-subtle)' }}>
+                        <Pictogram style={{ width: 48, height: 48, marginBottom: '0.75rem', fill: 'var(--cds-interactive)' }} />
+                        <h3 className="cds--heading-02" style={{ color: 'var(--cds-text-primary)', marginBottom: '0.5rem' }}>{tier.name}</h3>
+                        <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
+                          <span className="cds--fluid-heading-03" style={{ color: tier.recommended ? 'var(--cds-interactive)' : 'var(--cds-text-primary)', fontWeight: 300 }}>{tier.price}</span>
+                          <span className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)' }}>{tier.period}</span>
+                        </div>
+                      </div>
+
+                      {/* Feature list */}
+                      <div style={{ padding: '1.5rem', flex: 1 }}>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                          {tier.items.map((item) => (
+                            <li key={item} className="cds--body-compact-01" style={{ color: 'var(--cds-text-primary)', marginBottom: '0.75rem', display: 'flex', gap: '0.5rem' }}>
+                              <CheckmarkFilled size={16} style={{ color: 'var(--cds-interactive)', marginTop: 2, flexShrink: 0 }} />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* CTA */}
+                      <div style={{ padding: '1.5rem', borderTop: '1px solid var(--cds-border-subtle)' }}>
+                        <Button
+                          kind={tier.ctaKind}
+                          href="#cta"
+                          style={{ width: '100%', justifyContent: 'center' }}
+                        >
+                          {tier.cta}
+                        </Button>
+                      </div>
+                    </Tile>
+                  </Column>
+                );
+              })}
+            </Grid>
+
+            {/* Comparison Matrix — Accordion trigger */}
+            <div style={{ marginBottom: '2rem' }}>
+              <button
+                onClick={() => setMatrixExpanded(!matrixExpanded)}
+                aria-expanded={matrixExpanded}
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '1.5rem',
+                  borderLeft: '6px solid var(--cds-interactive)',
+                  background: matrixExpanded ? 'var(--cds-layer)' : 'var(--cds-layer-accent)',
+                  border: 'none',
+                  borderLeftWidth: 6,
+                  borderLeftStyle: 'solid',
+                  borderLeftColor: 'var(--cds-interactive)',
+                  cursor: 'pointer',
+                  transition: 'background 150ms',
+                  textAlign: 'left',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+                  <div style={{ width: 56, height: 56, background: 'var(--cds-background)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Compare size={28} style={{ color: 'var(--cds-interactive)' }} />
+                  </div>
+                  <div>
+                    <p className="cds--heading-02" style={{ color: 'var(--cds-text-primary)', marginBottom: '0.25rem' }}>Compare service tiers in detail</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
+                      {['Essential', 'Professional', 'Enterprise'].map((t, i) => (
+                        <span key={t} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                          <span className={`cds--label-01 ${styles['scenario-tag']}`} style={{ color: 'var(--cds-text-secondary)', borderColor: 'var(--cds-text-placeholder)' }}>{t}</span>
+                          {i < 2 && <span style={{ width: 16, height: 1, background: 'var(--cds-text-placeholder)' }} />}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)' }}>See the full capability breakdown across all three service levels.</p>
+                  </div>
                 </div>
-                <h3 className="cds--heading-02" style={{ color: proHover ? '#ffffff' : 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Professional</h3>
-                {!proHover ? (
-                  <>
-                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>Monthly maintenance, 8hr SLA, predictive alerts.</p>
-                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-02)' }}>From</p>
-                    <p className="cds--fluid-heading-03" style={{ color: 'var(--cds-interactive)', fontWeight: 300 }}>PKR 145K<span style={{ fontSize: '0.875rem', color: 'var(--cds-text-secondary)' }}>/mo</span></p>
-                  </>
-                ) : (
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                    {tiers[1].items.map((item) => (
-                      <li key={item} className="cds--body-compact-01" style={{ color: '#ffffff', marginBottom: 'var(--cds-spacing-03)', display: 'flex', gap: 'var(--cds-spacing-03)', lineHeight: 1.5 }}>
-                        <CheckmarkFilled size={16} style={{ color: '#ffffff', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </Tile>
+                <ChevronRight size={16} style={{ transform: matrixExpanded ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 200ms', flexShrink: 0, color: 'var(--cds-interactive)' }} />
+              </button>
 
-            {/* Enterprise tier */}
-            <Tile
-              style={{
-                padding: 'var(--cds-spacing-06)',
-                display: 'flex',
-                flexDirection: 'column',
-                background: enterpriseHover ? 'var(--cds-interactive)' : 'var(--cds-background)',
-                transition: 'background 0.25s ease',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={() => setEnterpriseHover(true)}
-              onMouseLeave={() => setEnterpriseHover(false)}
-            >
-              <DataCenters style={{ width: 48, height: 48, fill: enterpriseHover ? '#ffffff' : 'var(--cds-interactive)', marginBottom: 'var(--cds-spacing-05)', transition: 'fill 0.25s ease' }} />
-              <div style={{ marginTop: 'auto' }}>
-                <p className="cds--label-01" style={{ color: enterpriseHover ? 'rgba(255,255,255,0.8)' : 'var(--cds-text-secondary)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Tier 3</p>
-                <h3 className="cds--heading-02" style={{ color: enterpriseHover ? '#ffffff' : 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-03)', transition: 'color 0.25s ease' }}>Enterprise</h3>
-                {!enterpriseHover ? (
-                  <>
-                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-05)', lineHeight: 1.5 }}>24/7 NOC, 4hr SLA, monsoon standby, 99.9% uptime.</p>
-                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-02)' }}>From</p>
-                    <p className="cds--fluid-heading-03" style={{ color: 'var(--cds-text-primary)', fontWeight: 300 }}>PKR 380K+<span style={{ fontSize: '0.875rem', color: 'var(--cds-text-secondary)' }}>/mo</span></p>
-                  </>
-                ) : (
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                    {tiers[2].items.map((item) => (
-                      <li key={item} className="cds--body-compact-01" style={{ color: '#ffffff', marginBottom: 'var(--cds-spacing-03)', display: 'flex', gap: 'var(--cds-spacing-03)', lineHeight: 1.5 }}>
-                        <CheckmarkFilled size={16} style={{ color: '#ffffff', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+              {/* Matrix table */}
+              <div
+                style={{
+                  maxHeight: matrixExpanded ? 2000 : 0,
+                  overflow: 'hidden',
+                  opacity: matrixExpanded ? 1 : 0,
+                  transition: 'max-height 300ms ease, opacity 200ms ease',
+                }}
+              >
+                <div style={{ overflowX: 'auto', padding: '1.5rem', background: 'var(--cds-background)', border: '1px solid var(--cds-border-subtle)', borderTop: 'none' }}>
+                  <Table size="sm">
+                    <TableHead>
+                      <TableRow>
+                        <TableHeader>Feature</TableHeader>
+                        <TableHeader>Essential</TableHeader>
+                        <TableHeader style={{ color: 'var(--cds-interactive)' }}>Professional</TableHeader>
+                        <TableHeader>Enterprise</TableHeader>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {matrixRows.map((row) => (
+                        <TableRow key={row.feature}>
+                          <TableCell style={{ fontWeight: 500 }}>{row.feature}</TableCell>
+                          <TableCell>{row.essential}</TableCell>
+                          <TableCell style={{ color: 'var(--cds-interactive)', fontWeight: 500 }}>{row.professional}</TableCell>
+                          <TableCell>{row.enterprise}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </div>
+            </div>
+
+            {/* Exclusions */}
+            <Tile className={styles['tile-accent--success']} style={{ marginBottom: '2rem', background: 'var(--cds-background)' }}>
+              <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)' }}>
+                Managed Services covers monitoring, maintenance, and response only. Excludes: hardware replacement costs (covered under warranty or separate procurement), facility structural modifications, and third-party software licensing.
+              </p>
             </Tile>
           </div>
         </Column>
       </Grid>
-
-      {/* Dark CTA band */}
-      <Grid style={{ marginTop: 'var(--cds-spacing-07)' }}>
-        <Column lg={16} md={8} sm={4}>
-          <Tile style={{ padding: 'var(--cds-spacing-07)', background: 'linear-gradient(135deg, #0a1628 0%, #1a2b4a 100%)', borderLeft: '4px solid var(--cds-interactive)' }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 'var(--cds-spacing-06)' }}>
-              <div style={{ flex: '1 1 400px' }}>
-                <h3 className="cds--heading-02" style={{ color: '#ffffff', marginBottom: 'var(--cds-spacing-03)' }}>Not sure which tier fits your facility?</h3>
-                <p className="cds--body-compact-01" style={{ color: 'rgba(255,255,255,0.8)', lineHeight: 1.6 }}>
-                  Most mid-size data centres in Pakistan start with Professional. We can assess your cooling load, criticality, and budget in a 30-minute call.
-                </p>
-              </div>
-              <div style={{ display: 'flex', gap: 'var(--cds-spacing-03)', flexWrap: 'wrap', alignItems: 'center' }}>
-                <Button
-                  kind="ghost"
-                  onClick={() => setIsTiersOpen(!isTiersOpen)}
-                  renderIcon={isTiersOpen ? ChevronUp : ChevronDown}
-                  style={{ color: '#ffffff', minWidth: '11rem' }}
-                >
-                  {isTiersOpen ? 'Close' : 'Compare All Tiers'}
-                </Button>
-                <Button
-                  kind="primary"
-                  href="mailto:contact@perception-it.com?subject=Managed%20Services%20Consultation"
-                >
-                  Choose Your Service Tier
-                </Button>
-              </div>
-            </div>
-          </Tile>
-        </Column>
-      </Grid>
-
-      {/* Expandable tier comparison */}
-      {isTiersOpen && (
-        <Grid style={{ marginTop: 'var(--cds-spacing-05)' }}>
-          <Column lg={16} md={8} sm={4}>
-            <Grid style={{ padding: 'var(--cds-spacing-03) 0 var(--cds-spacing-05)' }}>
-              {tiers.map((tier) => (
-                <Column lg={5} md={4} sm={4} key={tier.name} style={{ marginBottom: 'var(--cds-spacing-05)' }}>
-                  <Tile style={{ height: '100%', padding: 'var(--cds-spacing-05)', background: 'var(--cds-layer-01)', borderTop: '4px solid var(--cds-interactive)' }}>
-                    <p className="cds--label-01" style={{ color: 'var(--cds-interactive)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-04)' }}>{tier.name}</p>
-                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-02)' }}>From</p>
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem', marginBottom: 'var(--cds-spacing-05)' }}>
-                      <span className="cds--fluid-heading-03" style={{ color: 'var(--cds-text-primary)', fontWeight: 300 }}>{tier.price}</span>
-                      <span className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)' }}>{tier.period}</span>
-                    </div>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                      {tier.items.map((item) => (
-                        <li key={item} className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-04)', display: 'flex', gap: 'var(--cds-spacing-03)', lineHeight: 1.5 }}>
-                          <CheckmarkFilled size={16} style={{ color: 'var(--cds-interactive)', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </Tile>
-                </Column>
-              ))}
-              <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
-                <Tile style={{ padding: 'var(--cds-spacing-05)', background: 'var(--cds-layer-01)', borderLeft: '4px solid var(--cds-support-success)', display: 'flex', gap: 'var(--cds-spacing-05)', alignItems: 'flex-start' }}>
-                  <Certificate size={24} style={{ color: 'var(--cds-support-success)', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
-                  <div>
-                    <p className="cds--label-01" style={{ color: 'var(--cds-support-success)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-02)' }}>SLA-Backed Uptime</p>
-                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', lineHeight: 1.6 }}>Enterprise tier includes a signed SLA with 99.9% uptime target, 4-hour on-site response, and dedicated monsoon standby engineers. Professional tier offers 8-hour response with remote monitoring.</p>
-                  </div>
-                </Tile>
-              </Column>
-              <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
-                <Tile style={{ padding: 'var(--cds-spacing-05)', background: 'var(--cds-layer-01)', borderLeft: '4px solid var(--cds-text-placeholder)', display: 'flex', gap: 'var(--cds-spacing-05)', alignItems: 'flex-start' }}>
-                  <Warning size={24} style={{ color: 'var(--cds-text-placeholder)', flexShrink: 0, marginTop: 'var(--cds-spacing-01)' }} />
-                  <div>
-                    <p className="cds--label-01" style={{ color: 'var(--cds-text-placeholder)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-02)' }}>What&apos;s Not Included</p>
-                    <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', lineHeight: 1.6 }}>Managed Services covers monitoring, maintenance, and response only. Excludes: hardware replacement costs (covered under warranty or separate procurement), facility structural modifications, and third-party software licensing.</p>
-                  </div>
-                </Tile>
-              </Column>
-              <Column lg={16} md={8} sm={4}>
-                <Tile style={{ padding: 'var(--cds-spacing-06)', background: 'linear-gradient(135deg, #0a1628 0%, #1a2b4a 100%)', borderLeft: '4px solid var(--cds-interactive)' }}>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 'var(--cds-spacing-06)' }}>
-                    <Button kind="ghost" onClick={() => setIsTiersOpen(false)} style={{ color: '#ffffff' }}>Close comparison</Button>
-                    <Button kind="primary" href="mailto:contact@perception-it.com?subject=Managed%20Services%20Consultation">Choose Your Service Tier</Button>
-                  </div>
-                </Tile>
-              </Column>
-            </Grid>
-          </Column>
-        </Grid>
-      )}
     </section>
   );
 };
