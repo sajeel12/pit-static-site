@@ -223,9 +223,18 @@ export default function FeaturedTestimonial({
                 {contextLink && (
                   <Link
                     to={contextLink}
-                    className={`cds--label-01 ${styles['ft-author-bar__link--solution']}`}
+                    className={`cds--label-01 ${styles['ft-author-bar__link']}`}
                   >
                     Read case study
+                    <ArrowRight size={16} />
+                  </Link>
+                )}
+                {solutionLink && (
+                  <Link
+                    to={solutionLink}
+                    className={`cds--label-01 ${styles['ft-author-bar__link--solution']}`}
+                  >
+                    {solutionLabel}
                     <ArrowRight size={16} />
                   </Link>
                 )}
