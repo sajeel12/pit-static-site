@@ -1394,3 +1394,39 @@ html {
     max-height: 400px;
   }
 }
+
+/* ============================================================================
+   Bento grid — responsive layout
+   ============================================================================ */
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.bento-hero {
+  grid-column: 1;
+  grid-row: auto;
+}
+
+.bento-card {
+  grid-column: 1;
+  grid-row: auto;
+}
+
+@media (min-width: 672px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .bento-hero {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  
+  .bento-card {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}

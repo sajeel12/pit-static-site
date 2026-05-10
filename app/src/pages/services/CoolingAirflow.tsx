@@ -647,8 +647,8 @@ const AssessmentInsightsGrid = () => {
 
       <Grid>
         <Column lg={16} md={8} sm={4}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0 }}>
-            <Tile className={styles['hero-tile']} style={{ gridColumn: 'span 2', gridRow: 'span 2', padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', position: 'relative' }}>
+          <div className={styles['bento-grid']}>
+            <Tile className={`${styles['hero-tile']} ${styles['bento-hero']}`} style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', position: 'relative' }}>
               <img src="/3D images/Cooling and Airflow/Cooling - Assesment.png" alt="Pakistani field engineer in Perception-IT polo, holding thermal camera and tablet with heat-map" className={styles['hero-image']} loading="lazy" />
               <div style={{ position: 'absolute', bottom: 'var(--cds-spacing-06)', right: 'var(--cds-spacing-06)', maxWidth: 480, background: 'rgba(22, 22, 22, 0.88)', padding: 'var(--cds-spacing-06)', borderLeft: '3px solid var(--cds-interactive)' }}>
                 <p className="cds--label-01" style={{ color: 'var(--cds-text-inverse)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>01 Assessment</p>
@@ -659,6 +659,7 @@ const AssessmentInsightsGrid = () => {
             </Tile>
 
             <Tile
+              className={styles['bento-card']}
               style={{
                 gridColumn: '3 / span 1',
                 gridRow: 'span 2',
@@ -682,6 +683,7 @@ const AssessmentInsightsGrid = () => {
             </Tile>
 
             <Tile
+              className={styles['bento-card']}
               style={{
                 gridColumn: '4 / span 1',
                 gridRow: 'span 2',
@@ -829,8 +831,8 @@ const ProcurementInsightsGrid = () => {
 
       <Grid>
         <Column lg={16} md={8} sm={4}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '1fr 1fr', gap: 0 }}>
-            <Tile className={styles['hero-tile']} style={{ gridColumn: 'span 2', gridRow: 'span 2', padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', position: 'relative' }}>
+          <div className={styles['bento-grid']}>
+            <Tile className={`${styles['hero-tile']} ${styles['bento-hero']}`} style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', position: 'relative' }}>
               <img src="/3D images/Cooling and Airflow/Cooling - Procurement.png" alt="Cooling hardware procurement" className={styles['hero-image']} loading="lazy" />
               <div style={{ position: 'absolute', bottom: 'var(--cds-spacing-06)', right: 'var(--cds-spacing-06)', maxWidth: 480, background: 'rgba(22, 22, 22, 0.88)', padding: 'var(--cds-spacing-06)', borderLeft: '3px solid var(--cds-interactive)' }}>
                 <p className="cds--label-01" style={{ color: 'var(--cds-text-inverse)', textTransform: 'uppercase', marginBottom: 'var(--cds-spacing-03)' }}>02 Procurement</p>
@@ -840,6 +842,9 @@ const ProcurementInsightsGrid = () => {
             </Tile>
 
             <Tile
+              className={styles['bento-card']}
+              className={styles['bento-card']}
+              className={styles['bento-card']}
               style={{
                 gridColumn: '3 / span 1',
                 gridRow: '1 / span 1',
@@ -873,6 +878,9 @@ const ProcurementInsightsGrid = () => {
             </Tile>
 
             <Tile
+              className={styles['bento-card']}
+              className={styles['bento-card']}
+              className={styles['bento-card']}
               style={{
                 gridColumn: '4 / span 1',
                 gridRow: '1 / span 1',
