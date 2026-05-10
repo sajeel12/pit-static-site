@@ -1430,3 +1430,21 @@ html {
     grid-row: auto;
   }
 }
+
+/* ============================================================================
+   Partner logos — responsive stacking
+   ============================================================================ */
+
+.partner-logo-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 672px) {
+  .partner-logo-wrap {
+    justify-content: flex-start;
+  }
+}
