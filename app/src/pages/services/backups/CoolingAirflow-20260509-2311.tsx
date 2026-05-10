@@ -1670,14 +1670,11 @@ const ResultsSection = ({ caseStudyPage, setCaseStudyPage, testimonialPage, setT
       <Grid>
         <Column lg={16} md={8} sm={4}>
           {/* Header */}
-          <div style={{ marginBottom: 'var(--cds-spacing-09)', display: 'flex', alignItems: 'flex-end', gap: 'var(--cds-spacing-04)' }}>
-            <div style={{ width: '3px', height: '2.5rem', background: 'var(--cds-interactive)', flexShrink: 0 }} />
-            <div>
-              <p className="cds--label-01" style={{ color: 'var(--cds-interactive)', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: 'var(--cds-spacing-02)' }}>
-                Results
-              </p>
-              <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-inverse)' }}>Client Voice</h2>
-            </div>
+          <div style={{ marginBottom: 'var(--cds-spacing-09)' }}>
+            <p className="cds--label-01" style={{ color: 'var(--cds-text-inverse)', opacity: 0.7, textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: 'var(--cds-spacing-03)' }}>
+              Results
+            </p>
+            <h2 className="cds--fluid-heading-05" style={{ color: 'var(--cds-text-inverse)' }}>Client Voice</h2>
           </div>
 
           {/* Testimonials */}
