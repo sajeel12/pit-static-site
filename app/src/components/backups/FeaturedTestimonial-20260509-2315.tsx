@@ -180,17 +180,30 @@ export default function FeaturedTestimonial({
                   {contextDesc && (
                     <p className={`cds--body-01 ${styles['ft-context__desc']}`}>{contextDesc}</p>
                   )}
-                  {solutionLink && (
-                    <Link
-                      to={solutionLink}
-                      className={`cds--label-01 ${styles['ft-context__link']}`}
-                    >
-                      {solutionLabel}
-                      <ArrowRight size={14} />
-                    </Link>
-                  )}
                 </div>
               </div>
+
+              {/* Value props pills */}
+              {valueProps && valueProps.length > 0 && (
+                <div className={styles['ft-context__props']}>
+                  {valueProps.map((prop) => (
+                    <div key={prop.title} className={styles['ft-context__prop']}>
+                      <span className={styles['ft-context__prop-title']}>{prop.title}</span>
+                      <span className={styles['ft-context__prop-desc']}>{prop.desc}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {solutionLink && (
+                <Link
+                  to={solutionLink}
+                  className={`cds--label-01 ${styles['ft-context__link']}`}
+                >
+                  {solutionLabel}
+                  <ArrowRight size={14} />
+                </Link>
+              )}
             </div>
 
             {/* Quote */}
