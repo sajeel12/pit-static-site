@@ -1373,28 +1373,3 @@ html {
   width: auto;
   object-fit: contain;
 }
-
-/* ============================================================================
-   Hero tiles — responsive image handling
-   ============================================================================ */
-
-.hero-tile {
-  max-height: none;
-}
-
-.hero-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  display: block;
-}
-
-@media (min-width: 672px) {
-  .hero-tile {
-    max-height: 400px;
-  }
-  
-  .hero-image {
-    height: 100%;
-  }
-}
