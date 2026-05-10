@@ -661,8 +661,6 @@ const AssessmentInsightsGrid = () => {
             <Tile
               className={styles['bento-card']}
               style={{
-                gridColumn: '3 / span 1',
-                gridRow: 'span 2',
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
@@ -685,8 +683,6 @@ const AssessmentInsightsGrid = () => {
             <Tile
               className={styles['bento-card']}
               style={{
-                gridColumn: '4 / span 1',
-                gridRow: 'span 2',
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
@@ -843,11 +839,7 @@ const ProcurementInsightsGrid = () => {
 
             <Tile
               className={styles['bento-card']}
-              className={styles['bento-card']}
-              className={styles['bento-card']}
               style={{
-                gridColumn: '3 / span 1',
-                gridRow: '1 / span 1',
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
@@ -879,11 +871,7 @@ const ProcurementInsightsGrid = () => {
 
             <Tile
               className={styles['bento-card']}
-              className={styles['bento-card']}
-              className={styles['bento-card']}
               style={{
-                gridColumn: '4 / span 1',
-                gridRow: '1 / span 1',
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
@@ -1197,8 +1185,6 @@ const DeploymentSection = () => {
             {/* Mechanical Installation */}
             <Tile
               style={{
-                gridColumn: '3 / span 1',
-                gridRow: '1 / span 1',
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
@@ -1231,8 +1217,6 @@ const DeploymentSection = () => {
             {/* Thermal Validation */}
             <Tile
               style={{
-                gridColumn: '4 / span 1',
-                gridRow: '1 / span 1',
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
@@ -1470,8 +1454,6 @@ const ManagedServicesSection = () => {
             {/* Essential tier */}
             <Tile
               style={{
-                gridColumn: '3 / span 1',
-                gridRow: '1 / span 1',
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
@@ -1504,8 +1486,6 @@ const ManagedServicesSection = () => {
             {/* Professional tier */}
             <Tile
               style={{
-                gridColumn: '4 / span 1',
-                gridRow: '1 / span 1',
                 padding: 'var(--cds-spacing-06)',
                 display: 'flex',
                 flexDirection: 'column',
