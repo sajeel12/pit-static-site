@@ -1437,14 +1437,16 @@ html {
 
 .partner-logo-wrap {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  flex-direction: column;
+  gap: var(--cds-spacing-06);
   align-items: center;
   justify-content: center;
 }
 
 @media (min-width: 672px) {
   .partner-logo-wrap {
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: flex-start;
   }
 }
