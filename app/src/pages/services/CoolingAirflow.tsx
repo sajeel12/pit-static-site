@@ -86,13 +86,6 @@ const sectionLabels: Record<string, string> = Object.fromEntries(
 
 
 
-const manufacturerPartners = [
-  { name: 'Huawei', logo: '/logos/partners/Partner-Huawei-Logo.svg', width: 80 },
-  { name: 'Lenovo', logo: '/logos/partners/Partner-Lenovo-Logo.svg', width: 70 },
-  { name: 'Dell', logo: '/logos/partners/Partner-Dell-logo.svg', width: 60 },
-  { name: 'HP', logo: '/logos/partners/Partner- Hewlett-Packard-Logo.svg', width: 50 },
-];
-
 const caseStudyData = [
   { stat: '99.97%', label: 'Uptime Achieved', client: 'Mayfair Food', industry: 'Fashion Retail', title: 'Server Migration', desc: 'Replaced legacy AC with in-row cooling and aisle containment. PUE dropped from 1.8 to 1.35.', tags: ['', 'Monsoon Hardening'], outcomes: ['PUE reduced from 1.8 to 1.35', '40% energy savings validated over 12 months', 'Hot-spot elimination across all 8 racks'], logo: '/logos/clients/mayfair logo svg.svg', image: '/case-studies/mayfair-preview.png', link: '/projects/case-study/private-bank-cooling-refresh' },
   { stat: '40%', label: 'Energy Reduction', client: 'Sefam', industry: 'Fashion Retail', title: 'Precision Cooling Refresh', desc: 'Replaced legacy AC with in-row cooling and aisle containment. PUE dropped from 1.8 to 1.35.', tags: ['Textile Manufacturing', 'PUE Optimisation'], outcomes: ['PUE reduced from 1.8 to 1.35', '40% energy savings validated over 12 months', 'Hot-spot elimination across all 8 racks'], logo: '/logos/clients/IFL-logo.png', image: '/case-studies/sefam-preview.png', link: '/projects/case-study/private-bank-cooling-refresh' },
@@ -488,35 +481,7 @@ const HeroSection = ({ scrollToSection }: { scrollToSection: (id: string) => voi
 );
 
 
-const TrustBarSection = () => (
-  <section style={{ padding: '3rem 0', background: 'var(--cds-layer)', borderTop: '1px solid var(--cds-border-subtle)', borderBottom: '1px solid var(--cds-border-subtle)' }}>
-    <Grid>
-      <Column lg={16} md={8} sm={4}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '2rem' }}>
-          <div style={{ flex: 1, minWidth: 280 }}>
-            <p className="cds--label-01" style={{ color: 'var(--cds-text-helper)', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: '0.5rem' }}>
-              Trusted Partners
-            </p>
-            <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-primary)', fontWeight: 600 }}>
-              Tier-1 manufacturer relationships. Single-point accountability.
-            </p>
-          </div>
-          <div className={styles['partner-logo-wrap']}>
-            {manufacturerPartners.map((partner) => (
-              <img
-                key={partner.name}
-                src={partner.logo}
-                alt={partner.name}
-                className={styles['partner-logo']}
-                style={{ width: partner.width, height: 'auto' }}
-              />
-            ))}
-          </div>
-        </div>
-      </Column>
-    </Grid>
-  </section>
-);
+
 const PillarNavSection = ({ scrollToSection }: { scrollToSection: (id: string) => void }) => {
   const pillars = [
     {
@@ -1866,10 +1831,6 @@ const CoolingAirflow = () => {
   const [navScrolled, setNavScrolled] = useState(false);
   const [testimonialPage, setTestimonialPage] = useState(0);
   const [caseStudyPage, setCaseStudyPage] = useState(0);
-  const [isAssessmentModalOpen, setIsAssessmentModalOpen] = useState(false);
-  const [assessmentForm, setAssessmentForm] = useState({ name: '', email: '', company: '', phone: '', subject: 'Requesting Thermal assessment', message: '' });
-  const [isChecklistModalOpen, setIsChecklistModalOpen] = useState(false);
-  const [checklistForm, setChecklistForm] = useState({ name: '', email: '', company: '', phone: '' });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -2042,12 +2003,11 @@ const CoolingAirflow = () => {
                 Stop guessing about your infrastructure health. Our 90-minute thermal health assessment provides a graded scorecard and clear actionable next steps with no obligation and no follow-up pressure.
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 'var(--cds-spacing-04)', marginBottom: 'var(--cds-spacing-07)' }}>
-                <Button kind="primary" onClick={() => setIsAssessmentModalOpen(true)}>
+                <Button kind="primary">
                   Request Thermal Health Check
                 </Button>
                 <Button
                   kind="tertiary"
-                  onClick={() => setIsChecklistModalOpen(true)}
                 >
                   Download Thermal Readiness Checklist
                 </Button>
