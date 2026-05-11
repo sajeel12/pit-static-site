@@ -54,7 +54,6 @@ import {
 
 
 import HeroDarkGraphics from '../../components/HeroDarkGraphics';
-import FeaturedTestimonial from '../../components/FeaturedTestimonial';
 import TestimonialCarousel from '../../components/TestimonialCarousel';
 import Footer from '../../sections/Footer';
 
@@ -462,14 +461,12 @@ const HeroSection = ({ scrollToSection }: { scrollToSection: (id: string) => voi
         <ButtonSet className={styles['hero-btn-set']}>
           <Button
             kind="primary"
-            renderIcon={ArrowRight}
             onClick={() => scrollToSection('cta')}
           >
             Request Thermal Health Check
           </Button>
           <Button
-            kind="ghost"
-            renderIcon={ArrowRight}
+            kind="tertiary"
             onClick={() => scrollToSection('hardware')}
           >
             Explore Hardware Options
@@ -1598,12 +1595,11 @@ const ManagedServicesSection = () => {
 /* ==============================================================================
    RESULTS SECTION — Testimonials + Case Studies
    ============================================================================== */
-const ResultsSection = ({ caseStudyPage, setCaseStudyPage, testimonialPage, setTestimonialPage }: {
+const ResultsSection = ({ caseStudyPage, setCaseStudyPage }: {
   caseStudyPage: number;
   setCaseStudyPage: (p: number) => void;
-  testimonialPage: number;
-  setTestimonialPage: (p: number) => void;
 }) => {
+  const [expandedProject, setExpandedProject] = useState<string | null>(null);
   return (
     <section id="results" className={styles['section-pad-inverse']}>
       <Grid>
@@ -1619,142 +1615,181 @@ const ResultsSection = ({ caseStudyPage, setCaseStudyPage, testimonialPage, setT
             </div>
           </div>
 
-          {/* Testimonials */}
-          {([
-            {
-              context: { client: 'Ibrahim Fibres', desc: 'Deployed ServerLife Extend™ to Critical Infrastructure and deferred CapEx spend without compromise on quality and continuity', link: '/projects/case-study/out-of-warranty-server-support-ibrahim-fibres', solutionLink: '/services/server-continuity' },
-              bgImage: '/case-studies/ibrahim-fibres/hero-1920.jpg',
-              quote: "Perception IT transformed our server infrastructure from a risk into a reliable engine for operations. With 48 critical Lenovo servers supporting our production and financial systems, any downtime could have cost us millions. Their 24/7 support, same-day hardware replacements, and proactive maintenance have kept our systems running without a single major incident.\n\nWe now operate with confidence knowing our IT backbone is in expert hands. For any organization managing critical hardware, I highly recommend their service.",
-              author: 'Mr. Usman Zafar',
-              role: 'Head of IT, Ibrahim Fibres Limited',
-              initials: 'UZ',
-              logo: '/logos/clients/IFL-logo.png',
-            },
-            {
-              context: { client: 'National Telecom Operator', desc: 'Monsoon-hardened precision cooling across 3 sites', link: null, solutionLink: null },
-              bgImage: null,
-              quote: 'Their quarterly monsoon validation protocol caught a condensate drain issue before it became an outage. That proactive approach is why we renewed for three more years.',
-              author: 'DC Operations Manager',
-              role: 'National Telecom Operator',
-              initials: 'NT',
-              logo: null,
-            },
-          ] as const).filter((_, i) => i === testimonialPage).map((item) => (
-            <FeaturedTestimonial
-              key={item.context.client}
-              quote={item.quote}
-              author={item.author}
-              role={item.role}
-              client={item.context.client}
-              initials={item.initials}
-              clientLogo={item.logo}
-              bgImage={item.bgImage}
-              contextDesc={item.context.desc}
-              contextLink={item.context.link}
-              solutionLink={item.context.solutionLink}
-              solutionLabel="ServerLife Extend™ Solution details"
-              showNav
-              onPrev={() => setTestimonialPage(testimonialPage === 0 ? 1 : 0)}
-              onNext={() => setTestimonialPage(testimonialPage === 0 ? 1 : 0)}
-              variant="dark"
-            />
-          ))}
-
-          {/* Testimonial Pagination */}
-          <div style={{ marginTop: 'var(--cds-spacing-06)', marginBottom: 'var(--cds-spacing-10)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
-            <button
-              onClick={() => setTestimonialPage(0)}
-              aria-label="Testimonial 1"
-              className={`${styles['pagination-dot']} ${testimonialPage === 0 ? styles['pagination-dot--active'] : ''}`}
-            />
-            <button
-              onClick={() => setTestimonialPage(1)}
-              aria-label="Testimonial 2"
-              className={`${styles['pagination-dot']} ${testimonialPage === 1 ? styles['pagination-dot--active'] : ''}`}
-            />
-          </div>
-
-          {/* Second Testimonial — homepage carousel style (Carbon) */}
+          {/* Testimonials — carousel */}
           <div style={{ marginBottom: 'var(--cds-spacing-10)' }}>
             <TestimonialCarousel
-              client="Ibrahim Fibres"
-              clientLogo="/logos/clients/IFL-logo.png"
-              bgImage="/case-studies/ibrahim-fibres/hero-1920.jpg"
-              sector="Manufacturing"
-              contextDesc="Deployed ServerLife Extend™ to Critical Infrastructure and deferred CapEx spend without compromise on quality and continuity"
-              quote="Perception IT transformed our server infrastructure from a risk into a reliable engine for operations. With 48 critical Lenovo servers supporting our production and financial systems, any downtime could have cost us millions. Their 24/7 support, same-day hardware replacements, and proactive maintenance have kept our systems running without a single major incident.
-
-We now operate with confidence knowing our IT backbone is in expert hands. For any organization managing critical hardware, I highly recommend their service."
-              author="Mr. Usman Zafar"
-              role="Head of IT, Ibrahim Fibres Limited"
-              initials="UZ"
-              contextLink="/projects/case-study/out-of-warranty-server-support-ibrahim-fibres"
-              solutionLink="/services/server-continuity"
-              solutionLabel="ServerLife Extend™ Solution details"
+              items={[
+                {
+                  client: 'Ibrahim Fibres',
+                  clientLogo: '/logos/clients/IFL-logo.png',
+                  bgImage: '/case-studies/ibrahim-fibres/hero-1920.jpg',
+                  tags: ['Manufacturing', 'Textile'],
+                  contextDesc: 'Deployed ServerLife Extend™ to Critical Infrastructure and deferred CapEx spend without compromise on quality and continuity',
+                  quote: "Perception IT transformed our server infrastructure from a risk into a reliable engine for operations. With 48 critical Lenovo servers supporting our production and financial systems, any downtime could have cost us millions. Their 24/7 support, same-day hardware replacements, and proactive maintenance have kept our systems running without a single major incident.\n\nWe now operate with confidence knowing our IT backbone is in expert hands. For any organization managing critical hardware, I highly recommend their service.",
+                  author: 'Mr. Usman Zafar',
+                  role: 'Head of IT, Ibrahim Fibres Limited',
+                  contextLink: '/projects/case-study/out-of-warranty-server-support-ibrahim-fibres',
+                  solutionLink: '/services/server-continuity',
+                  solutionLabel: 'ServerLife Extend™ Solution details',
+                },
+                {
+                  client: 'Descon',
+                  clientLogo: '/logos/clients/Descon-logo.png',
+                  bgImage: '/case-studies/descon-preview.jpg',
+                  tags: ['Engineering'],
+                  contextDesc: 'Precision cooling and thermal management for mission-critical infrastructure across multiple sites',
+                  quote: "Perception IT's cooling solutions have significantly improved our data centre reliability. Their thermal assessments identified critical hotspots we weren't aware of, and their proactive monitoring has prevented several potential outages. The team's expertise in Pakistan's climate conditions is unmatched.",
+                  author: 'Chief Technology Officer',
+                  role: 'Descon Engineering',
+                  contextLink: '/projects/case-study/descon-cooling-infrastructure',
+                  solutionLink: '/services/server-continuity',
+                  solutionLabel: 'ServerLife Extend™ Solution details',
+                },
+                {
+                  client: 'Mayfair',
+                  clientLogo: '/logos/clients/mayfair logo svg.svg',
+                  bgImage: '/case-studies/mayfair-preview.png',
+                  tags: ['FMCG'],
+                  contextDesc: 'End-to-end cooling refresh with aisle containment and energy optimisation',
+                  quote: 'The cooling refresh project delivered exceptional results. Our PUE dropped from 1.8 to 1.35, and we have seen 40% energy savings over the past year. The Perception IT team managed the entire migration with zero downtime, which was critical for our operations.',
+                  author: 'Head of Infrastructure',
+                  role: 'Mayfair Group',
+                  contextLink: '/projects/case-study/private-bank-cooling-refresh',
+                  solutionLink: '/services/server-continuity',
+                  solutionLabel: 'ServerLife Extend™ Solution details',
+                },
+                {
+                  client: 'Sefam',
+                  clientLogo: '/logos/clients/IFL-logo.png',
+                  bgImage: '/case-studies/sefam-preview.png',
+                  tags: ['Fashion retail', 'Manufacturing'],
+                  contextDesc: 'Precision cooling replacement with high-ambient condensers and thermal mass buffering',
+                  quote: "Perception IT understood our unique challenges as a textile manufacturer. Their custom cooling solution with 45°C ambient rating has given us 60% additional capacity. The monsoon-hardened design means we no longer worry about humidity-related failures during the rainy season.",
+                  author: 'Plant Operations Manager',
+                  role: 'Sefam Private Limited',
+                  contextLink: '/projects/case-study/textile-manufacturer-cooling-replacement',
+                  solutionLink: '/services/server-continuity',
+                  solutionLabel: 'ServerLife Extend™ Solution details',
+                },
+                {
+                  client: 'LUMS',
+                  clientLogo: '/logos/clients/lums-logo.png',
+                  bgImage: '/case-studies/lums-preview.jpg',
+                  tags: ['Education'],
+                  contextDesc: 'Campus-wide data centre cooling and thermal continuity for research computing infrastructure',
+                  quote: "Perception IT delivered a comprehensive thermal assessment and cooling upgrade for our research data centre. Their understanding of high-density compute loads and Pakistan's power challenges was exceptional. The new precision cooling system maintains stable temperatures even during extended load-shedding periods.",
+                  author: 'Director of IT Infrastructure',
+                  role: 'Lahore University of Management Sciences',
+                  contextLink: '/projects/case-study/lums-research-computing-cooling',
+                  solutionLink: '/services/server-continuity',
+                  solutionLabel: 'ServerLife Extend™ Solution details',
+                },
+              ]}
             />
           </div>
 
-          {/* Infrastructure Projects Header */}
-          <div style={{ marginBottom: 'var(--cds-spacing-05)', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
-            <div>
-              <p className="cds--label-01" style={{ color: 'var(--cds-text-inverse)', opacity: 0.7, textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: 'var(--cds-spacing-03)' }}>Projects</p>
-              <h3 className="cds--fluid-heading-04" style={{ color: 'var(--cds-text-inverse)' }}>Infrastructure Projects</h3>
-            </div>
-            <Link to="/projects" style={{ color: 'var(--cds-link-inverse)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-              View all projects <ArrowRight size={16} />
-            </Link>
-          </div>
-
-          {/* Case Study Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem', marginBottom: 'var(--cds-spacing-07)' }}>
-            {caseStudyData.slice(caseStudyPage * 3, caseStudyPage * 3 + 3).map((study) => (
-              <div key={study.title} style={{ background: 'var(--cds-layer-01)', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-                {study.image && (
-                  <div style={{ width: '100%', height: '10rem', background: 'var(--cds-background)', overflow: 'hidden' }}>
-                    <img src={study.image} alt={study.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  </div>
-                )}
-                <div style={{ padding: 'var(--cds-spacing-05)', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)', marginBottom: 'var(--cds-spacing-03)' }}>
-                    {study.logo && <img src={study.logo} alt={study.client} style={{ height: '24px', objectFit: 'contain' }} />}
-                    <span className="cds--label-01" style={{ color: 'var(--cds-text-secondary)' }}>{study.client}</span>
-                  </div>
-                  <h4 className="cds--heading-01" style={{ color: 'var(--cds-text-primary)', marginBottom: 'var(--cds-spacing-02)' }}>{study.title}</h4>
-                  <p className="cds--body-compact-01" style={{ color: 'var(--cds-text-secondary)', marginBottom: 'var(--cds-spacing-04)', lineHeight: 1.5 }}>{study.desc}</p>
-                  <div style={{ marginTop: 'auto' }}>
-                    <Link to={study.link} style={{ color: 'var(--cds-link-primary)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }} className="cds--label-01">
-                      Read case study <ArrowRight size={14} />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Case Study Pagination */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'var(--cds-spacing-04)' }}>
-            <button
-              onClick={() => setCaseStudyPage(Math.max(0, caseStudyPage - 1))}
-              disabled={caseStudyPage === 0}
-              className="cds--btn cds--btn--ghost"
-              style={{ color: caseStudyPage === 0 ? 'var(--cds-text-disabled)' : 'var(--cds-text-inverse)' }}
-            >
-              <ChevronLeft size={16} /> Previous
-            </button>
-            <span className="cds--body-compact-01" style={{ color: 'var(--cds-text-inverse)' }}>
-              Page {caseStudyPage + 1} of {Math.ceil(caseStudyData.length / 3)}
-            </span>
-            <button
-              onClick={() => setCaseStudyPage(Math.min(Math.ceil(caseStudyData.length / 3) - 1, caseStudyPage + 1))}
-              disabled={caseStudyPage >= Math.ceil(caseStudyData.length / 3) - 1}
-              className="cds--btn cds--btn--ghost"
-              style={{ color: caseStudyPage >= Math.ceil(caseStudyData.length / 3) - 1 ? 'var(--cds-text-disabled)' : 'var(--cds-text-inverse)' }}
-            >
-              Next <ChevronRight size={16} />
-            </button>
-          </div>
         </Column>
       </Grid>
+
+      {/* Projects Subsection — light background, white cards */}
+      <div className={styles['project-subsection']}>
+        <Grid>
+          <Column lg={16} md={8} sm={4}>
+            {/* Header */}
+            <div style={{ marginBottom: 'var(--cds-spacing-07)', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+              <div>
+                <p className="cds--label-01" style={{ color: '#6f6f6f', textTransform: 'uppercase', letterSpacing: '0.32px', marginBottom: 'var(--cds-spacing-03)' }}>Projects</p>
+                <h3 className="cds--fluid-heading-04" style={{ color: '#161616' }}>Infrastructure Projects</h3>
+              </div>
+              <Link to="/projects" style={{ color: '#0f62fe', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', fontWeight: 500 }}>
+                View all projects <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            {/* Project Grid */}
+            <div className={styles['project-grid']}>
+              {caseStudyData.slice(caseStudyPage * 3, caseStudyPage * 3 + 3).map((study) => (
+                <article key={study.title} className={styles['project-card']}>
+                  <div className={styles['project-card__image']}>
+                    {study.image ? (
+                      <img src={study.image} alt={study.title} />
+                    ) : (
+                      <div className={styles['project-card__fallback']}>
+                        <DataCenter size={32} style={{ color: '#9e9e9e' }} />
+                      </div>
+                    )}
+                  </div>
+                  <div className={styles['project-card__content']}>
+                    <div className={styles['project-card__meta']}>
+                      <span className={styles['project-card__industry']}>{study.industry}</span>
+                      <span className={styles['project-card__separator']}>•</span>
+                      <span className={styles['project-card__category']}>{study.tags.filter(Boolean)[0] || 'Infrastructure'}</span>
+                    </div>
+                    <h4 className={styles['project-card__title']}>{study.title}</h4>
+                    <p className={styles['project-card__desc']}>{study.desc}</p>
+
+                    {/* Expandable Outcomes */}
+                    {expandedProject === study.title && (
+                      <div className={styles['project-card__outcomes']}>
+                        <p className="cds--label-01" style={{ color: '#161616', marginBottom: 'var(--cds-spacing-03)' }}>Key Outcomes:</p>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                          {study.outcomes.map((outcome, idx) => (
+                            <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--cds-spacing-02)', marginBottom: 'var(--cds-spacing-02)' }}>
+                              <CheckmarkFilled size={16} style={{ color: '#0f62fe', flexShrink: 0, marginTop: '2px' }} />
+                              <span className="cds--body-01" style={{ color: '#525252' }}>{outcome}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    <div className={styles['project-card__tags']}>
+                      {study.tags.filter(Boolean).slice(0, 3).map((tag) => (
+                        <span key={tag} className={styles['project-card__tag']}>{tag}</span>
+                      ))}
+                    </div>
+
+                    {/* Actions */}
+                    <div className={styles['project-card__actions']}>
+                      <button
+                        onClick={() => setExpandedProject(expandedProject === study.title ? null : study.title)}
+                        className={styles['project-card__toggle']}
+                      >
+                        {expandedProject === study.title ? 'Show less' : 'Show outcomes'}
+                        <ChevronDown size={16} className={`${styles['project-card__chevron']} ${expandedProject === study.title ? styles['project-card__chevron--open'] : ''}`} />
+                      </button>
+                      <Link to={study.link} className={styles['project-card__link']}>
+                        Read case study <ArrowRight size={16} />
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            {/* Pagination */}
+            <div className={styles['project-pagination']}>
+              <button
+                onClick={() => setCaseStudyPage(Math.max(0, caseStudyPage - 1))}
+                disabled={caseStudyPage === 0}
+                className={styles['project-pagination__btn']}
+              >
+                <ChevronLeft size={16} /> Previous
+              </button>
+              <span className={styles['project-pagination__page']}>
+                Page {caseStudyPage + 1} of {Math.ceil(caseStudyData.length / 3)}
+              </span>
+              <button
+                onClick={() => setCaseStudyPage(Math.min(Math.ceil(caseStudyData.length / 3) - 1, caseStudyPage + 1))}
+                disabled={caseStudyPage >= Math.ceil(caseStudyData.length / 3) - 1}
+                className={styles['project-pagination__btn']}
+              >
+                Next <ChevronRight size={16} />
+              </button>
+            </div>
+          </Column>
+        </Grid>
+      </div>
     </section>
   );
 };
@@ -1829,7 +1864,6 @@ const EcosystemSection = () => {
 const CoolingAirflow = () => {
   const [activeSection, setActiveSection] = useState('thermal-failure');
   const [navScrolled, setNavScrolled] = useState(false);
-  const [testimonialPage, setTestimonialPage] = useState(0);
   const [caseStudyPage, setCaseStudyPage] = useState(0);
 
   useEffect(() => {
@@ -1934,8 +1968,6 @@ const CoolingAirflow = () => {
       <ResultsSection
         caseStudyPage={caseStudyPage}
         setCaseStudyPage={setCaseStudyPage}
-        testimonialPage={testimonialPage}
-        setTestimonialPage={setTestimonialPage}
       />
       <EcosystemSection />
 

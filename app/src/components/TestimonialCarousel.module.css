@@ -63,6 +63,11 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  transition: transform 0.6s ease;
+}
+
+.tc-card:hover .tc-left__bg {
+  transform: scale(1.03);
 }
 
 .tc-left__overlay {
@@ -80,6 +85,33 @@
   position: absolute;
   inset: 0;
   background: var(--cds-layer-02);
+}
+
+.tc-left__tags {
+  position: absolute;
+  top: var(--cds-spacing-06);
+  left: var(--cds-spacing-05);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cds-spacing-02);
+}
+
+@media (min-width: 672px) {
+  .tc-left__tags {
+    top: var(--cds-spacing-07);
+    left: var(--cds-spacing-08);
+  }
+}
+
+.tc-left__tag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--cds-spacing-02) var(--cds-spacing-03);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  background: rgba(0, 0, 0, 0.45);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.6875rem;
+  line-height: 1;
 }
 
 /* ── Right Panel ── */
@@ -176,20 +208,7 @@
 }
 
 /* Sector badge — minimal label */
-.tc-sector-badge {
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
-  margin-bottom: var(--cds-spacing-04);
-}
 
-.tc-sector-badge span {
-  color: var(--cds-text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.32px;
-  font-size: 0.6875rem;
-  line-height: 1;
-}
 
 /* Quote wrap */
 .tc-quote-wrap {

@@ -1,7 +1,7 @@
 /**
  * TestimonialCarousel
  * ──────────────────────────────────────────────
- * Homepage-style testimonial, fully IBM Carbon Design System.
+ * Multi-item testimonial carousel, IBM Carbon Design System.
  *
  * Carbon compliance:
  *   • 0px border-radius (sharp corners)
@@ -15,12 +15,12 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight } from '@carbon/icons-react';
 import styles from './TestimonialCarousel.module.css';
 
-export interface TestimonialCarouselProps {
+export interface TestimonialItem {
   quote: string;
   author: string;
   role: string;
   client: string;
-  sector?: string;
+  tags?: string[];
   initials?: string;
   clientLogo?: string | null;
   bgImage?: string | null;
@@ -30,32 +30,36 @@ export interface TestimonialCarouselProps {
   solutionLabel?: string;
 }
 
-export default function TestimonialCarousel({
-  quote,
-  author,
-  role,
-  client,
-  sector,
-  clientLogo,
-  bgImage,
-  contextDesc,
-  contextLink,
-  solutionLink,
-  solutionLabel = 'Solution details',
-}: TestimonialCarouselProps) {
+export interface TestimonialCarouselProps {
+  items: TestimonialItem[];
+}
+
+export default function TestimonialCarousel({ items }: TestimonialCarouselProps) {
   const [current, setCurrent] = useState(0);
-  const total = 1;
+  const total = items.length;
+  const item = items[current];
+
+  if (total === 0) return null;
 
   return (
     <div className={styles['tc-wrap']}>
       <div className={styles['tc-card']}>
         <div className={styles['tc-grid']}>
-          {/* Left: Image panel — logo removed, image only */}
+          {/* Left: Image panel */}
           <div className={styles['tc-left']}>
-            {bgImage ? (
+            {item.bgImage ? (
               <>
-                <img src={bgImage} alt="" className={styles['tc-left__bg']} />
+                <img src={item.bgImage} alt="" className={styles['tc-left__bg']} />
                 <div className={styles['tc-left__overlay']} />
+                {item.tags && item.tags.length > 0 && (
+                  <div className={styles['tc-left__tags']}>
+                    {item.tags.map((tag) => (
+                      <span key={tag} className={styles['tc-left__tag']}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </>
             ) : (
               <div className={styles['tc-left__fallback']} />
@@ -66,11 +70,11 @@ export default function TestimonialCarousel({
           <div className={styles['tc-right']}>
             {/* Context header: logo + name + desc + link */}
             <div className={styles['tc-context']}>
-              {clientLogo && (
+              {item.clientLogo && (
                 <div className={styles['tc-context__logo']}>
                   <img
-                    src={clientLogo}
-                    alt={client}
+                    src={item.clientLogo}
+                    alt={item.client}
                     onError={(e) => {
                       (e.target as HTMLImageElement).style.display = 'none';
                     }}
@@ -79,31 +83,24 @@ export default function TestimonialCarousel({
               )}
               <div className={styles['tc-context__text']}>
                 <span className={`cds--body-01 ${styles['tc-context__client']}`}>
-                  {client}
+                  {item.client}
                 </span>
-                {contextDesc && (
+                {item.contextDesc && (
                   <p className={`cds--body-compact-01 ${styles['tc-context__desc']}`}>
-                    {contextDesc}
+                    {item.contextDesc}
                   </p>
                 )}
-                {solutionLink && (
+                {item.solutionLink && (
                   <Link
-                    to={solutionLink}
+                    to={item.solutionLink}
                     className={`cds--label-01 ${styles['tc-context__link']}`}
                   >
-                    {solutionLabel}
+                    {item.solutionLabel || 'Solution details'}
                     <ArrowRight size={14} />
                   </Link>
                 )}
               </div>
             </div>
-
-            {/* Sector badge */}
-            {sector && (
-              <div className={styles['tc-sector-badge']}>
-                <span className="cds--label-01">{sector}</span>
-              </div>
-            )}
 
             {/* Quote with decorative mark */}
             <div className={styles['tc-quote-wrap']}>
@@ -112,7 +109,7 @@ export default function TestimonialCarousel({
               </span>
               <blockquote className={styles['tc-quote']}>
                 <div className={styles['tc-quote__body']}>
-                  {quote.split('\n\n').map((para, idx) => (
+                  {item.quote.split('\n\n').map((para, idx) => (
                     <p key={idx}>{para}</p>
                   ))}
                 </div>
@@ -123,15 +120,15 @@ export default function TestimonialCarousel({
             <div className={styles['tc-author-block']}>
               <div className={styles['tc-author']}>
                 <span className={`cds--body-01 ${styles['tc-author__name']}`}>
-                  {author}
+                  {item.author}
                 </span>
                 <span className={`cds--helper-text-01 ${styles['tc-author__role']}`}>
-                  {role}
+                  {item.role}
                 </span>
               </div>
-              {contextLink && (
+              {item.contextLink && (
                 <Link
-                  to={contextLink}
+                  to={item.contextLink}
                   className={`cds--label-01 ${styles['tc-study-link']}`}
                 >
                   Full case study
