@@ -31,19 +31,24 @@
 }
 
 /* Breadcrumb on black hero — force white text */
-.hero-breadcrumb a,
+.hero-breadcrumb,
+.hero-breadcrumb .cds--breadcrumb,
+.hero-breadcrumb .cds--breadcrumb-item,
+.hero-breadcrumb .cds--breadcrumb-item a,
+.hero-breadcrumb .cds--breadcrumb-item span,
 .hero-breadcrumb .cds--breadcrumb-item::after,
 .hero-breadcrumb .cds--breadcrumb-item__icon,
 .hero-breadcrumb .cds--breadcrumb-item--current,
 .hero-breadcrumb .cds--breadcrumb-item--current a,
+.hero-breadcrumb .cds--breadcrumb-item--current span,
 .hero-breadcrumb .cds--breadcrumb-item [aria-current='page'],
 .hero-breadcrumb .cds--breadcrumb-item [aria-current='page'] .cds--link {
-  color: #a8a8a8 !important;
-  font-size: 0.75rem;
+  color: #ffffff !important;
+  font-size: 0.625rem;
 }
 
 .hero-breadcrumb a:hover {
-  color: #ffffff !important;
+  color: #a8a8a8 !important;
 }
 
 /* Ghost button on dark hero — force white text */
@@ -66,7 +71,7 @@
   }
 }
 
-/* Hero button row — natural sizing, no cramped stretching */
+/* Hero button row — larger, more prominent CTAs */
 .hero-btn-set {
   display: flex;
   flex-wrap: wrap;
@@ -75,9 +80,27 @@
 
 .hero-btn-set .cds--btn {
   flex: 0 0 auto;
-  min-height: 3rem;
-  padding-left: var(--cds-spacing-06);
-  padding-right: var(--cds-spacing-06);
+  min-height: 3.5rem;
+  padding-left: var(--cds-spacing-07);
+  padding-right: var(--cds-spacing-07);
+  transition: all 150ms ease;
+}
+
+/* Primary — subtle hover lift */
+.hero-btn-set .cds--btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15, 98, 254, 0.35);
+}
+
+/* Ghost on dark — white text, border on hover */
+.hero-btn-set .cds--btn--ghost {
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.hero-btn-set .cds--btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.50);
 }
 
 @media (max-width: 671px) {

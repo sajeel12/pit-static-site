@@ -439,60 +439,31 @@ const HeroSection = ({ scrollToSection }: { scrollToSection: (id: string) => voi
     <Grid style={{ position: 'relative', zIndex: 10 }}>
       <Column lg={10} md={6} sm={4}>
         {/* Breadcrumb */}
-        <Breadcrumb noTrailingSlash className={styles['hero-breadcrumb']} style={{ marginBottom: 'var(--cds-spacing-06)' }}>
+        <Breadcrumb noTrailingSlash className={styles['hero-breadcrumb']} style={{ marginBottom: 'var(--cds-spacing-04)' }}>
           <BreadcrumbItem href="/#/">Home</BreadcrumbItem>
           <BreadcrumbItem href="/#/services">Services</BreadcrumbItem>
           <BreadcrumbItem href="/#/services/datacenter2">Data Centre Services</BreadcrumbItem>
           <BreadcrumbItem isCurrentPage>Cooling &amp; Airflow</BreadcrumbItem>
         </Breadcrumb>
 
-        {/* Eyebrow */}
-        <p className="cds--label-01" style={{ color: '#0f62fe', marginBottom: 'var(--cds-spacing-03)' }}>
-          Data Centre Cooling Services
-        </p>
-
         {/* Headline */}
-        <h1 className="cds--fluid-heading-06" style={{ color: '#ffffff', marginBottom: 'var(--cds-spacing-05)', maxWidth: '48rem', lineHeight: 1.1 }}>
+        <h1 className="cds--fluid-heading-06" style={{ color: '#ffffff', marginBottom: 'var(--cds-spacing-06)', maxWidth: '48rem', lineHeight: 1.1 }}>
           Precision Cooling &amp; Thermal Continuity for Data Centres
         </h1>
 
         {/* Lead */}
-        <p className="cds--body-compact-02" style={{ color: '#ffffff', marginBottom: 'var(--cds-spacing-05)', maxWidth: '40rem', fontWeight: 600, lineHeight: 1.5 }}>
-          One partner, one end-to-end uptime SLA. We handle everything: thermal assessment, hardware supply, installation, and 24/7 monitoring.
+        <p className="cds--fluid-heading-03" style={{ color: '#ffffff', marginBottom: 'var(--cds-spacing-05)', maxWidth: '44rem', lineHeight: 1.4 }}>
+          One partner, End-to-End Thermal Management.{" "}
+          <span style={{ color: '#0f62fe' }}>Thermal Assessment.</span>{" "}
+          <span style={{ color: '#0f62fe' }}>Hardware Procurement.</span>{" "}
+          <span style={{ color: '#0f62fe' }}>Installation.</span>{" "}
+          <span style={{ color: '#0f62fe' }}>24/7 Monitoring.</span>
         </p>
 
-        {/* Climate factors — scannable chips */}
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: 'var(--cds-spacing-03)',
-            marginBottom: 'var(--cds-spacing-06)',
-          }}
-        >
-          {[
-            { icon: TemperatureHot, label: '45°C Summers' },
-            { icon: Warning, label: 'Monsoon Humidity' },
-            { icon: Windy, label: 'Dust Infiltration' },
-            { icon: Meter, label: 'Unstable Grid' },
-          ].map(({ icon: Icon, label }) => (
-            <span
-              key={label}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 'var(--cds-spacing-02)',
-                padding: 'var(--cds-spacing-02) var(--cds-spacing-03)',
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.10)',
-                borderRadius: '2px',
-              }}
-            >
-              <Icon size={14} style={{ color: '#a8a8a8', flexShrink: 0 }} />
-              <span className="cds--label-01" style={{ color: '#c6c6c6' }}>{label}</span>
-            </span>
-          ))}
-        </div>
+        {/* Climate context */}
+        <p className="cds--body-compact-02" style={{ color: '#c6c6c6', marginBottom: 'var(--cds-spacing-08)', maxWidth: '40rem', lineHeight: 1.5 }}>
+          Engineered for Pakistan&apos;s climate: 45°C summers, monsoon humidity, dust, and grid instability.
+        </p>
 
         {/* CTAs */}
         <ButtonSet className={styles['hero-btn-set']}>
@@ -507,7 +478,6 @@ const HeroSection = ({ scrollToSection }: { scrollToSection: (id: string) => voi
             kind="ghost"
             renderIcon={ArrowRight}
             onClick={() => scrollToSection('hardware')}
-            style={{ color: '#ffffff' }}
           >
             Explore Hardware Options
           </Button>
