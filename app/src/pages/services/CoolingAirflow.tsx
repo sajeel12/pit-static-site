@@ -52,9 +52,10 @@ import {
   Windy,
 } from '@carbon/icons-react';
 
-import HeroCubeAnimation from '../../components/HeroCubeAnimation';
-import HeroGradientPlanes from '../../components/HeroGradientPlanes';
+
+import HeroDarkGraphics from '../../components/HeroDarkGraphics';
 import FeaturedTestimonial from '../../components/FeaturedTestimonial';
+import TestimonialCarousel from '../../components/TestimonialCarousel';
 import Footer from '../../sections/Footer';
 
 /* ==============================================================================
@@ -429,62 +430,71 @@ const HeroSection = ({ scrollToSection }: { scrollToSection: (id: string) => voi
       position: 'relative',
       paddingTop: '10rem',
       paddingBottom: '5rem',
-      background: 'var(--cds-background-inverse)',
+      background: '#000000',
       overflow: 'hidden',
     }}
   >
-    {/* WebGL Background Effects */}
-    <HeroCubeAnimation />
-    <HeroGradientPlanes />
-
-    {/* Dark gradient overlay for text readability */}
-    <div className={styles['hero-overlay']} />
+    <HeroDarkGraphics />
 
     <Grid style={{ position: 'relative', zIndex: 10 }}>
-      <Column lg={12} md={8} sm={4}>
+      <Column lg={10} md={6} sm={4}>
         {/* Breadcrumb */}
-        <Breadcrumb noTrailingSlash className={styles['hero-breadcrumb']} style={{ marginBottom: 'var(--cds-spacing-07)' }}>
+        <Breadcrumb noTrailingSlash className={styles['hero-breadcrumb']} style={{ marginBottom: 'var(--cds-spacing-06)' }}>
           <BreadcrumbItem href="/#/">Home</BreadcrumbItem>
           <BreadcrumbItem href="/#/services">Services</BreadcrumbItem>
           <BreadcrumbItem href="/#/services/datacenter2">Data Centre Services</BreadcrumbItem>
-          <BreadcrumbItem isCurrentPage>Cooling & Airflow</BreadcrumbItem>
+          <BreadcrumbItem isCurrentPage>Cooling &amp; Airflow</BreadcrumbItem>
         </Breadcrumb>
 
-        <h1
-          className="cds--fluid-heading-06"
-          style={{
-            color: 'var(--cds-text-inverse)',
-            marginBottom: '2rem',
-            maxWidth: '48rem',
-          }}
-        >
-          Precision Cooling & Thermal Continuity for Data Centres
+        {/* Eyebrow */}
+        <p className="cds--label-01" style={{ color: '#0f62fe', marginBottom: 'var(--cds-spacing-03)' }}>
+          Data Centre Cooling Services
+        </p>
+
+        {/* Headline */}
+        <h1 className="cds--fluid-heading-06" style={{ color: '#ffffff', marginBottom: 'var(--cds-spacing-05)', maxWidth: '48rem', lineHeight: 1.1 }}>
+          Precision Cooling &amp; Thermal Continuity for Data Centres
         </h1>
-        <p
-          className="cds--body-compact-02"
+
+        {/* Lead */}
+        <p className="cds--body-compact-02" style={{ color: '#ffffff', marginBottom: 'var(--cds-spacing-05)', maxWidth: '40rem', fontWeight: 600, lineHeight: 1.5 }}>
+          One partner, one end-to-end uptime SLA. We handle everything: thermal assessment, hardware supply, installation, and 24/7 monitoring.
+        </p>
+
+        {/* Climate factors — scannable chips */}
+        <div
           style={{
-            color: 'var(--cds-text-inverse)',
-            marginBottom: '2rem',
-            maxWidth: '36rem',
-            fontWeight: 600,
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 'var(--cds-spacing-03)',
+            marginBottom: 'var(--cds-spacing-06)',
           }}
         >
-          One partner, one end-to-end uptime SLA; We handle everything:
-          <br />
-          Thermal assessment, hardware supply, installation, and 24/7 monitoring.
-        </p>
-        <p
-          className="cds--body-compact-02"
-          style={{
-            color: 'var(--cds-text-inverse-secondary)',
-            marginBottom: '2.5rem',
-            maxWidth: '36rem',
-          }}
-        >
-          Engineered for Pakistan&apos;s climate reality:
-          <br />
-          45°C summers, monsoon humidity spikes, dust infiltration, and unstable grid power.
-        </p>
+          {[
+            { icon: TemperatureHot, label: '45°C Summers' },
+            { icon: Warning, label: 'Monsoon Humidity' },
+            { icon: Windy, label: 'Dust Infiltration' },
+            { icon: Meter, label: 'Unstable Grid' },
+          ].map(({ icon: Icon, label }) => (
+            <span
+              key={label}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 'var(--cds-spacing-02)',
+                padding: 'var(--cds-spacing-02) var(--cds-spacing-03)',
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.10)',
+                borderRadius: '2px',
+              }}
+            >
+              <Icon size={14} style={{ color: '#a8a8a8', flexShrink: 0 }} />
+              <span className="cds--label-01" style={{ color: '#c6c6c6' }}>{label}</span>
+            </span>
+          ))}
+        </div>
+
+        {/* CTAs */}
         <ButtonSet className={styles['hero-btn-set']}>
           <Button
             kind="primary"
@@ -1726,6 +1736,26 @@ const ResultsSection = ({ caseStudyPage, setCaseStudyPage, testimonialPage, setT
               onClick={() => setTestimonialPage(1)}
               aria-label="Testimonial 2"
               className={`${styles['pagination-dot']} ${testimonialPage === 1 ? styles['pagination-dot--active'] : ''}`}
+            />
+          </div>
+
+          {/* Second Testimonial — homepage carousel style (Carbon) */}
+          <div style={{ marginBottom: 'var(--cds-spacing-10)' }}>
+            <TestimonialCarousel
+              client="Ibrahim Fibres"
+              clientLogo="/logos/clients/IFL-logo.png"
+              bgImage="/case-studies/ibrahim-fibres/hero-1920.jpg"
+              sector="Manufacturing"
+              contextDesc="Deployed ServerLife Extend™ to Critical Infrastructure and deferred CapEx spend without compromise on quality and continuity"
+              quote="Perception IT transformed our server infrastructure from a risk into a reliable engine for operations. With 48 critical Lenovo servers supporting our production and financial systems, any downtime could have cost us millions. Their 24/7 support, same-day hardware replacements, and proactive maintenance have kept our systems running without a single major incident.
+
+We now operate with confidence knowing our IT backbone is in expert hands. For any organization managing critical hardware, I highly recommend their service."
+              author="Mr. Usman Zafar"
+              role="Head of IT, Ibrahim Fibres Limited"
+              initials="UZ"
+              contextLink="/projects/case-study/out-of-warranty-server-support-ibrahim-fibres"
+              solutionLink="/services/server-continuity"
+              solutionLabel="ServerLife Extend™ Solution details"
             />
           </div>
 

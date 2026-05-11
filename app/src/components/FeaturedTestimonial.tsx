@@ -14,20 +14,19 @@
  *   • light  — White/Gray 10 theme for light sections
  *
  * Layout
- *   5-column grid on desktop: 1-col image | 2-col content
- *   Stacked on mobile.
+ *   Desktop: 5-column grid — image | content (2:3 ratio)
+ *   Mobile:  stacked vertically.
  *
  * Features
  *   • Optional background image with gradient overlay
  *   • Client logo tile in context header
- *   • Value props as horizontal pill row
- *   • Clean quote styling (no decorative marks — Carbon-compliant)
+ *   • Clean quote styling with large decorative mark
  *   • Author bar: avatar circle + name/role + case-study CTA
  *   • Optional overflow prev/next buttons (positioned at card edge)
  */
 
 import { Link } from 'react-router-dom';
-import { ArrowRight, Building, ChevronLeft, ChevronRight } from '@carbon/icons-react';
+import { ArrowRight, ChevronLeft, ChevronRight } from '@carbon/icons-react';
 import styles from './FeaturedTestimonial.module.css';
 
 /* ─── Types ─── */
@@ -58,16 +57,10 @@ export interface FeaturedTestimonialProps {
   /** Label for the solution link (default: "Solution details") */
   solutionLabel?: string;
 
-  /** Key value props array (title + desc) to show as pills under client name */
-  valueProps?: { title: string; desc: string }[];
-
   /** Show overflow prev/next buttons (default: false) */
   showNav?: boolean;
   onPrev?: () => void;
   onNext?: () => void;
-
-  /** Show author name/role inside the quote block (default: true) */
-  showAuthorInQuote?: boolean;
 
   /** Visual theme (default: 'dark') */
   variant?: 'dark' | 'light';
@@ -99,11 +92,9 @@ export default function FeaturedTestimonial({
   contextLink,
   solutionLink,
   solutionLabel = 'Solution details',
-  valueProps,
   showNav = false,
   onPrev,
   onNext,
-  showAuthorInQuote = true,
   variant = 'dark',
 }: FeaturedTestimonialProps) {
   const initials = initialsProp || computeInitials(author);
@@ -138,7 +129,7 @@ export default function FeaturedTestimonial({
       {/* ── Card ── */}
       <div className={`${styles['ft-card']} ${cardClass}`}>
         <div className={styles['ft-grid']}>
-          {/* ── Left: Background image only ── */}
+          {/* ── Left: Background image ── */}
           <div className={styles['ft-left']}>
             {bgImage ? (
               <>
@@ -176,7 +167,7 @@ export default function FeaturedTestimonial({
                   </div>
                 )}
                 <div className={styles['ft-context__meta']}>
-                  <span className={`cds--body-01 ${styles['ft-context__value']}`}>{client}</span>
+                  <span className={`cds--body-01 ${styles['ft-context__client']}`}>{client}</span>
                   {contextDesc && (
                     <p className={`cds--body-01 ${styles['ft-context__desc']}`}>{contextDesc}</p>
                   )}
@@ -195,9 +186,9 @@ export default function FeaturedTestimonial({
 
             {/* Quote */}
             <div className={styles['ft-quote-wrap']}>
+              <span className={styles['ft-quote__mark']} aria-hidden="true">&ldquo;</span>
               <blockquote className={styles['ft-quote']}>
-                <span className={styles['ft-quote__mark']} aria-hidden="true">&ldquo;</span>
-                <div className={`cds--heading-01 ${styles['ft-quote__body']}`}>
+                <div className={styles['ft-quote__body']}>
                   {quote.split('\n\n').map((para, idx) => (
                     <p key={idx}>{para}</p>
                   ))}
@@ -211,14 +202,14 @@ export default function FeaturedTestimonial({
                 <div className={styles['ft-author-bar__author']}>
                   <div className={styles['ft-author-bar__avatar']}>{initials}</div>
                   <div className={styles['ft-author-bar__name']}>
-                    <span className="cds--body-01" style={{ color: 'var(--cds-text-primary)', fontWeight: 600 }}>{author}</span>
-                    <span className="cds--helper-text-01" style={{ color: 'var(--cds-text-secondary)' }}>{role}</span>
+                    <span className="cds--body-01">{author}</span>
+                    <span className="cds--helper-text-01">{role}</span>
                   </div>
                 </div>
                 {contextLink && (
                   <Link
                     to={contextLink}
-                    className={`cds--label-01 ${styles['ft-author-bar__link--solution']}`}
+                    className={`cds--label-01 ${styles['ft-author-bar__cta']}`}
                   >
                     Full case study
                     <ArrowRight size={16} />

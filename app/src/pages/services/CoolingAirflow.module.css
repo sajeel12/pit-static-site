@@ -21,35 +21,16 @@
   overflow: hidden;
 }
 
-/* Gradient overlay behind hero text for readability over WebGL */
+/* Solid black overlay behind hero text */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.95) 35%,
-    rgba(0, 0, 0, 0.85) 55%,
-    rgba(0, 0, 0, 0.6) 75%,
-    transparent 100%
-  );
+  background: #000000;
   z-index: 5;
   pointer-events: none;
 }
 
-@media (max-width: 671px) {
-  .hero-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(0, 0, 0, 0.98) 35%,
-      rgba(0, 0, 0, 0.92) 60%,
-      rgba(0, 0, 0, 0.8) 100%
-    );
-  }
-}
-
-/* Breadcrumb on dark background — force inverse colors */
+/* Breadcrumb on black hero — force white text */
 .hero-breadcrumb a,
 .hero-breadcrumb .cds--breadcrumb-item::after,
 .hero-breadcrumb .cds--breadcrumb-item__icon,
@@ -57,7 +38,12 @@
 .hero-breadcrumb .cds--breadcrumb-item--current a,
 .hero-breadcrumb .cds--breadcrumb-item [aria-current='page'],
 .hero-breadcrumb .cds--breadcrumb-item [aria-current='page'] .cds--link {
-  color: #f4f4f4 !important;
+  color: #a8a8a8 !important;
+  font-size: 0.75rem;
+}
+
+.hero-breadcrumb a:hover {
+  color: #ffffff !important;
 }
 
 /* Ghost button on dark hero — force white text */
