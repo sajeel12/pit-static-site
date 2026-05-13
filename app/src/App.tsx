@@ -119,8 +119,8 @@ function App() {
             <Route path="/services/datacenter2" element={<Datacenter2 />} />
             <Route path="/services/cooling-airflow" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
             <Route path="/services/cooling-airflow2" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
-            <Route path="/infrastructure/data-centre-services/cooling-airflow" element={<CoolingAirflowLegacy />} />
-            <Route path="/infrastructure/data-centre-services/cooling-thermal" element={<CoolingThermal />} />
+            <Route path="/infrastructure/data-centre-services/cooling-airflow" element={<CoolingThermal />} />
+            <Route path="/infrastructure/data-centre-services/cooling-thermal" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
 
 
 

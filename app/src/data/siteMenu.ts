@@ -34,7 +34,7 @@ export const siteMenu: MenuCategory[] = [
         children: [
           { label: 'Reduce Cloud Costs', href: '/#/services/cloud-cost-optimisation', desc: 'Cut 30–40% from your cloud bill' },
           { label: 'Prevent Downtime', href: '/#/services/server-continuity', desc: 'Business continuity & DR' },
-          { label: 'Modernise Infrastructure', href: '/#/infrastructure/data-centre-services/cooling-airflow', desc: 'Cooling, power, rack, monitoring' },
+          { label: 'Modernise Infrastructure', href: '/#/infrastructure/data-centre-services/cooling-thermal', desc: 'Cooling, power, rack, monitoring' },
           { label: 'Secure Operations', href: '/#/services/cybersecurity-platform', desc: 'SOC & threat detection' },
         ],
       },
@@ -112,7 +112,7 @@ export const siteMenu: MenuCategory[] = [
       {
         label: 'Data Centre Services',
         children: [
-          { label: 'Cooling & Airflow', href: '/#/infrastructure/data-centre-services/cooling-airflow', desc: 'Precision cooling & thermal continuity' },
+          { label: 'Cooling & Airflow', href: '/#/infrastructure/data-centre-services/cooling-thermal', desc: 'Precision cooling & thermal continuity' },
           { label: 'Power & UPS', href: '/#/services/power-ups', desc: 'UPS & power distribution' },
           { label: 'Rack & Cabinet', href: '/#/services/rack-cabinets', desc: 'Server cabinets & enclosures' },
           { label: 'Environmental Monitoring', href: '/#/services/environmental-monitoring', desc: 'Temp, humidity, leak detection' },
