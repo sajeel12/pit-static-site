@@ -1386,11 +1386,11 @@ const CTASection = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="text-center lg:text-left">
             <h2 className="carbon-fluid-heading-04 text-white mb-4">Ready to optimise your data centre cooling?</h2>
-            <p className="carbon-body-02 text-white/80 max-w-xl">Book a complimentary thermal assessment. Our engineers will survey your facility, identify risks, and provide a remediation roadmap within 5 business days.</p>
+            <p className="carbon-body-02 text-white/80 max-w-xl">Call us for a free 15-minute consultation. We will guide you on the right assessment path and next steps for your facility.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
             <a href="mailto:contact@perception-it.com?subject=Cooling%20Assessment%20Request" className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white text-[#0f62fe] carbon-heading-02 hover:bg-gray-50 transition-colors rounded-lg">
-              Book Free Assessment <ArrowRight className="w-5 h-5" />
+              Book Free Call <ArrowRight className="w-5 h-5" />
             </a>
             <a href="tel:+923001234567" className="inline-flex items-center justify-center gap-2 px-6 py-4 border-2 border-white text-white carbon-heading-02 hover:bg-white/10 transition-colors rounded-lg">
               Call Our Team
