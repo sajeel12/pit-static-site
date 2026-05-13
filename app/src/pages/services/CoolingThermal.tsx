@@ -777,6 +777,7 @@ const ManagedSection = () => {
               {tiers.map((tier) => (
                 <div key={tier.name} className="p-6 bg-white rounded-xl border border-gray-100" style={{ borderTopWidth: '4px', borderTopColor: tier.accent }}>
                   <p className="carbon-label-01 uppercase mb-3" style={{ color: tier.accent }}>{tier.name}</p>
+                  <p className="carbon-label-01 text-gray-400 uppercase mb-1">From</p>
                   <div className="flex items-baseline gap-1 mb-4">
                     <span className="carbon-fluid-heading-03 text-gray-900 font-light">{tier.price}</span>
                     <span className="carbon-body-02 text-gray-400">{tier.period}</span>
