@@ -1151,7 +1151,7 @@ const TestimonialCarousel = () => {
       <div className="relative z-10">
         {/* Logo */}
         {t.logo && (
-          <div className="mb-8 p-4 bg-white/10 rounded-lg inline-block">
+          <div className="mb-8 p-4 bg-white rounded-lg inline-block shadow-lg">
             <img
               src={t.logo}
               alt=""
