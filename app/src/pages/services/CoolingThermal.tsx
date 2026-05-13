@@ -587,7 +587,7 @@ const AssessmentSection = () => {
           <img src="/3D images/Cooling and Airflow/Cooling - Assesment.png" alt="Thermal assessment" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
-            <p className="carbon-label-02 uppercase mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>01 Assessment</p>
+            <p className="carbon-label-01 uppercase mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>01 Assessment</p>
             <h3 className="carbon-fluid-heading-04 text-white mb-4 leading-tight">Thermal clarity before capital spend</h3>
             <p className="carbon-body-02 text-white/75">Rapid health check for routine confidence. Engineering-grade analysis before major investment.</p>
           </div>
@@ -717,7 +717,7 @@ const ProcurementSection = () => {
           <img src="/3D images/Cooling and Airflow/Cooling - Procurement.png" alt="Cooling hardware procurement" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
-            <p className="carbon-label-02 uppercase mb-3" style={{ color: 'rgba(255,255,255,0.7)' }}>02 Procurement</p>
+            <p className="carbon-label-01 uppercase mb-3" style={{ color: 'rgba(255,255,255,0.7)' }}>02 Procurement</p>
             <h3 className="carbon-fluid-heading-04 text-white mb-4 leading-tight">Direct from tier-1 manufacturers</h3>
             <p className="carbon-body-02 text-white/75">We source from Huawei, Vertiv, Stulz, and others. Every unit is factory-accepted and pre-validated before shipping.</p>
           </div>
@@ -873,7 +873,7 @@ const DeploymentSection = () => {
           <img src="/3D images/Cooling and Airflow/Deployment- Cooling.png" alt="Cooling system deployment" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
-            <p className="carbon-label-02 uppercase mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>03 Deployment</p>
+            <p className="carbon-label-01 uppercase mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>03 Deployment</p>
             <h3 className="carbon-fluid-heading-04 text-white mb-4 leading-tight">Installation is where cooling wins or fails</h3>
             <p className="carbon-body-02 text-white/75">60% of cooling failures are installation-related. Our protocol prevents that.</p>
           </div>
@@ -996,7 +996,7 @@ const ManagedSection = () => {
           <img src="/3D images/Cooling and Airflow/managed service - Cooling - page.png" alt="Managed thermal services" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
-            <p className="carbon-label-02 uppercase mb-3" style={{ color: 'rgba(255,255,255,0.7)' }}>04 Managed Services</p>
+            <p className="carbon-label-01 uppercase mb-3" style={{ color: 'rgba(255,255,255,0.7)' }}>04 Managed Services</p>
             <h3 className="carbon-fluid-heading-04 text-white mb-4 leading-tight">Thermal continuity does not end at handover</h3>
             <p className="carbon-body-02 text-white/75">Quarterly validation, monsoon standby engineers, and 24/7 NOC monitoring.</p>
           </div>
@@ -1053,7 +1053,7 @@ const ManagedSection = () => {
             <div className="grid md:grid-cols-3 gap-4">
               {tiers.map((tier) => (
                 <div key={tier.name} className="p-6 bg-white rounded-xl border border-gray-100" style={{ borderTopWidth: '4px', borderTopColor: tier.accent }}>
-                  <p className="carbon-label-02 uppercase mb-3" style={{ color: tier.accent }}>{tier.name}</p>
+                  <p className="carbon-label-01 uppercase mb-3" style={{ color: tier.accent }}>{tier.name}</p>
                   <div className="flex items-baseline gap-1 mb-4">
                     <span className="carbon-fluid-heading-03 text-gray-900 font-light">{tier.price}</span>
                     <span className="carbon-body-02 text-gray-400">{tier.period}</span>
