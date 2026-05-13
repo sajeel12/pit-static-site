@@ -987,7 +987,7 @@ const ManagedSection = () => {
     <section id="managed" className="py-20 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-10 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] text-[#0f62fe] mb-4 block">04 Managed Services</span>
+          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: '#0f62fe' }}>04 Managed Services</span>
           <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-3">24/7 Managed Thermal Services</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Filters clog. Refrigerant leaks. Setpoints drift. Our managed service catches degradation before it becomes an outage.</p>
         </div>
@@ -996,7 +996,7 @@ const ManagedSection = () => {
           <img src="/3D images/Cooling and Airflow/managed service - Cooling - page.png" alt="Managed thermal services" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
-            <p className="carbon-label-02 text-[#0f62fe] uppercase mb-3">04 Managed Services</p>
+            <p className="carbon-label-02 uppercase mb-3" style={{ color: '#0f62fe' }}>04 Managed Services</p>
             <h3 className="carbon-fluid-heading-04 text-white mb-4 leading-tight">Thermal continuity does not end at handover</h3>
             <p className="carbon-body-02 text-white/75">Quarterly validation, monsoon standby engineers, and 24/7 NOC monitoring.</p>
           </div>
