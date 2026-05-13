@@ -1155,7 +1155,7 @@ const TestimonialCarousel = () => {
             <img
               src={t.logo}
               alt=""
-              className="h-10 w-auto opacity-90"
+              className="h-14 w-auto opacity-90"
               onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
             />
           </div>
