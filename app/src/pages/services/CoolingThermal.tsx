@@ -829,6 +829,15 @@ const ProcurementSection = () => {
             </div>
           </div>
         </div>
+
+        {/* Scope Boundary */}
+        <div className="mt-10 p-5 bg-gray-100 rounded-xl flex gap-4 items-start">
+          <Warning className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" />
+          <div>
+            <p className="carbon-label-02 text-gray-500 uppercase mb-1">Scope</p>
+            <p className="carbon-body-02 text-gray-600">Procurement covers hardware supply and manufacturer warranty administration only. Installation, piping, ducting, commissioning validation, and ongoing maintenance are scoped separately under Deployment and Managed Services.</p>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -945,6 +954,15 @@ const DeploymentSection = () => {
             <div className="p-5 bg-[#24a148]/5 rounded-xl border border-[#24a148]/20 flex gap-4 items-start">
               <Certificate className="w-6 h-6 text-[#24a148] flex-shrink-0 mt-0.5" />
               <div><p className="carbon-label-02 text-[#24a148] uppercase mb-1">45C+ Ambient Rated</p><p className="carbon-body-02 text-gray-600">Every installation is validated for Pakistan&apos;s peak summer conditions. We test at 45C ambient and 80% RH.</p></div>
+            </div>
+
+            {/* Scope Boundary */}
+            <div className="p-5 bg-gray-100 rounded-xl flex gap-4 items-start">
+              <Warning className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="carbon-label-02 text-gray-500 uppercase mb-1">Scope</p>
+                <p className="carbon-body-02 text-gray-600">Deployment covers mechanical installation, thermal validation, and commissioning only. Capacity planning, monsoon/dust hardening engineering, and SLA-backed uptime targets are scoped separately under Assessment and Managed Services.</p>
+              </div>
             </div>
           </div>
         )}
