@@ -385,7 +385,9 @@ const StickyAnchorNav = () => {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const headerOffset = 80;
+      const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: elementPosition - headerOffset, behavior: 'smooth' });
     }
   };
 
@@ -1270,7 +1272,7 @@ const ProjectCardGrid = () => {
 
 const ResultsSection = () => {
   return (
-    <section className="py-20 bg-white">
+    <section id="results" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-12 carbon-font">
           <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>Results</span>
@@ -1301,7 +1303,7 @@ const ECOSYSTEM_ITEMS = [
 
 const EcosystemSection = () => {
   return (
-    <section className="py-20 bg-[#FAFAFA]">
+    <section id="ecosystem" className="py-20 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-12 carbon-font">
           <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>Ecosystem</span>
@@ -1353,7 +1355,7 @@ const FAQ_ITEMS = [
 
 const FAQSection = () => {
   return (
-    <section className="py-20 bg-white">
+    <section id="faq" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-12 carbon-font">
           <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>FAQ</span>
@@ -1379,7 +1381,7 @@ const FAQSection = () => {
 
 const CTASection = () => {
   return (
-    <section className="py-20 bg-[#0f62fe]">
+    <section id="cta" className="py-20 bg-[#0f62fe]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="text-center lg:text-left">
