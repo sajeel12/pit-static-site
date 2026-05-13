@@ -662,7 +662,7 @@ const AssessmentSection = () => {
             </div>
             <div className="p-5 bg-[#24a148]/5 rounded-xl border border-[#24a148]/20 flex gap-4 items-start">
               <Certificate className="w-6 h-6 text-[#24a148] flex-shrink-0 mt-0.5" />
-              <div><p className="carbon-label-02 text-[#24a148] uppercase mb-1">Upgrade Path</p><p className="carbon-body-02 text-gray-600">If your Health Check reveals complexity, <strong className="text-gray-900">20% of your report fee</strong> is credited toward Precision Engineering when upgraded within 60 days.</p></div>
+              <div><p className="carbon-label-02 text-[#24a148] uppercase mb-1">Upgrade Path</p><p className="carbon-body-02 text-gray-600">If your Health Check reveals complexity, <strong className="text-gray-900">20% of your report fee</strong> is potentially credited toward Precision Thermal Engineering when upgraded within 60 days, subject to mutual agreement. Travel and visitation charges are not included.</p></div>
             </div>
             <div className="p-5 bg-gray-100 rounded-xl flex gap-4 items-start">
               <Warning className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" />
