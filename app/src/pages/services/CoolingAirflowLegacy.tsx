@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
-import styles from './CoolingAirflow.module.css';
+import styles from './CoolingAirflowLegacy.module.css';
 import {
   Header,
   HeaderName,
@@ -1861,7 +1861,7 @@ const EcosystemSection = () => {
     </section>
   );
 };
-const CoolingAirflow = () => {
+const CoolingAirflowLegacy = () => {
   const [activeSection, setActiveSection] = useState('thermal-failure');
   const [navScrolled, setNavScrolled] = useState(false);
   const [caseStudyPage, setCaseStudyPage] = useState(0);
@@ -2070,4 +2070,4 @@ const CoolingAirflow = () => {
   );
 };
 
-export default CoolingAirflow;
+export default CoolingAirflowLegacy;

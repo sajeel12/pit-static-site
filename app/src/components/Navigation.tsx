@@ -54,13 +54,15 @@ const dataCentreServices = [
 interface NavigationProps {
   activeMegaMenu?: string | null;
   setActiveMegaMenu?: (menu: string | null) => void;
+  variant?: "light" | "dark";
 }
 
-const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu: externalSetActiveMegaMenu }: NavigationProps = {}) => {
+const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu: externalSetActiveMegaMenu, variant = "light" }: NavigationProps = {}) => {
+  const isDark = variant === "dark";
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [internalActiveMegaMenu, setInternalActiveMegaMenu] = useState<string | null>(null);
-  const [showHighlightBar, setShowHighlightBar] = useState(true);
+  const [showHighlightBar, setShowHighlightBar] = useState(variant === "light");
   const [isClosing, setIsClosing] = useState(false);
   
   // Use external state if provided, otherwise use internal state
@@ -139,9 +141,9 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Continuously update dropdown position while mega menu is open to prevent detachment during scroll/transitions
+  // Continuously update dropdown position while mega menu is open or closing to prevent detachment during scroll/transitions
   useEffect(() => {
-    if (!activeMegaMenu || !navRef.current) return;
+    if ((!activeMegaMenu && !isClosing) || !navRef.current) return;
     let rafId: number;
     const update = () => {
       if (navRef.current) {
@@ -152,7 +154,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
     };
     rafId = requestAnimationFrame(update);
     return () => cancelAnimationFrame(rafId);
-  }, [activeMegaMenu]);
+  }, [activeMegaMenu, isClosing]);
 
   const handleMouseEnter = useCallback((menu: string) => {
     if (closeTimerRef.current) {
@@ -335,7 +337,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
       )}
 
       {/* Main Navigation */}
-      <nav ref={navRef} className={`fixed left-0 right-0 z-50 transition-[background-color,backdrop-filter,box-shadow,border-color] duration-300 ${showHighlightBar ? 'top-[36px]' : 'top-0'} ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-white border-b border-transparent'}`}>
+      <nav ref={navRef} className={`fixed left-0 right-0 z-50 transition-[background-color,backdrop-filter,box-shadow,border-color] duration-300 ${showHighlightBar ? 'top-[36px]' : 'top-0'} ${isDark ? (isScrolled ? 'bg-[#161616]/95 border-b border-gray-800' : 'bg-[#161616] border-b border-transparent') : (isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-white border-b border-transparent')}`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 sm:px-6 lg:px-8 relative">
           <div className="flex items-center h-16 lg:h-20">
             {/* Logo */}
@@ -353,7 +355,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'solutions' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'solutions' ? isDark ? 'text-white bg-transparent border-2 border-white' : 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : isDark ? 'text-white hover:text-white hover:bg-white/10' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   Solutions
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'solutions' ? 'rotate-90' : ''}`} />
@@ -562,7 +564,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'consultancy' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'consultancy' ? isDark ? 'text-white bg-transparent border-2 border-white' : 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : isDark ? 'text-white hover:text-white hover:bg-white/10' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   Consultancy
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'consultancy' ? 'rotate-90' : ''}`} />
@@ -653,7 +655,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 <Link 
                   to="/services/cloud"
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'cloud' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'cloud' ? isDark ? 'text-white bg-transparent border-2 border-white' : 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : isDark ? 'text-white hover:text-white hover:bg-white/10' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   Cloud
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'cloud' ? 'rotate-90' : ''}`} />
@@ -781,7 +783,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 <Link 
                   to="/services/infrastructure"
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'infrastructure' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'infrastructure' ? isDark ? 'text-white bg-transparent border-2 border-white' : 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : isDark ? 'text-white hover:text-white hover:bg-white/10' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   Infrastructure
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'infrastructure' ? 'rotate-90' : ''}`} />
@@ -999,7 +1001,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'data' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'data' ? isDark ? 'text-white bg-transparent border-2 border-white' : 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : isDark ? 'text-white hover:text-white hover:bg-white/10' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   Data and Analytics
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'data' ? 'rotate-90' : ''}`} />
@@ -1128,7 +1130,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'ai' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'ai' ? isDark ? 'text-white bg-transparent border-2 border-white' : 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : isDark ? 'text-white hover:text-white hover:bg-white/10' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   AI
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'ai' ? 'rotate-90' : ''}`} />
@@ -1246,7 +1248,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'platforms' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'platforms' ? isDark ? 'text-white bg-transparent border-2 border-white' : 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : isDark ? 'text-white hover:text-white hover:bg-white/10' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   IT Platforms
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'platforms' ? 'rotate-90' : ''}`} />
@@ -1370,7 +1372,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               <div className="relative">
                 <Link
                   to="/projects"
-                  className="flex items-center px-3 py-2 text-[13px] font-medium transition-all text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50 mx-1"
+                  className={`flex items-center px-3 py-2 text-[13px] font-medium transition-all mx-1 ${isDark ? "text-white hover:text-white hover:bg-white/10" : "text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50"}`}
                 >
                   Projects
                 </Link>
@@ -1384,7 +1386,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               >
                 <button 
                   onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'about' ? 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
+                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'about' ? isDark ? 'text-white bg-transparent border-2 border-white' : 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : isDark ? 'text-white hover:text-white hover:bg-white/10' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
                 >
                   About
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'about' ? 'rotate-90' : ''}`} />
@@ -1489,7 +1491,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               </div>
             )}
 
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden p-2 text-[#161616]">
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className={`lg:hidden p-2 ${isDark ? "text-white" : "text-[#161616]"}`}>
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
@@ -1512,7 +1514,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
             <Link to="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
               <img src="/logos/logo_icon.png" alt="Perception IT" className="h-8 w-auto" />
             </Link>
-            <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-[#161616]"><X className="w-6 h-6" /></button>
+            <button onClick={() => setIsMobileMenuOpen(false)} className={`p-2 ${isDark ? "text-white" : "text-[#161616]"}`}><X className="w-6 h-6" /></button>
           </div>
           <div className="border-b border-gray-100 overflow-x-auto scrollbar-hide">
             <div className="flex px-2 py-3 gap-1 min-w-max">

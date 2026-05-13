@@ -9,3 +9,9 @@ node_modules/
 
 # Vite cache
 .vite/
+
+# Local component backups
+app/src/components/backups/
+
+# Screenshots
+screenshots/
