@@ -1087,26 +1087,36 @@ const TESTIMONIALS = [
     quote: "Perception IT transformed our server infrastructure from a risk into a reliable engine for operations. With 48 critical Lenovo servers supporting our production and financial systems, any downtime could have cost us millions. Their 24/7 support, same-day hardware replacements, and proactive maintenance have kept our systems running without a single major incident. We now operate with confidence knowing our IT backbone is in expert hands.",
     author: 'Mr. Usman Zafar',
     org: 'Head of IT, Ibrahim Fibres Limited',
+    logo: '/logos/clients/IFL-logo.png',
+    bg: 'from-[#0f62fe] to-[#4589ff]',
   },
   {
     quote: "Perception IT's cooling solutions have significantly improved our data centre reliability. Their thermal assessments identified critical hotspots we weren't aware of, and their proactive monitoring has prevented several potential outages. The team's expertise in Pakistan's climate conditions is unmatched.",
     author: 'Chief Technology Officer',
     org: 'Descon Engineering',
+    logo: '/logos/clients/Descon-logo.png',
+    bg: 'from-[#6929c4] to-[#8a3ffc]',
   },
   {
     quote: 'The cooling refresh project delivered exceptional results. Our PUE dropped from 1.8 to 1.35, and we have seen 40% energy savings over the past year. The Perception IT team managed the entire migration with zero downtime, which was critical for our operations.',
     author: 'Head of Infrastructure',
     org: 'Mayfair Group',
+    logo: '/logos/clients/mayfair logo svg.svg',
+    bg: 'from-[#009d9a] to-[#007d79]',
   },
   {
     quote: "Perception IT understood our unique challenges as a textile manufacturer. Their custom cooling solution with 45°C ambient rating has given us 60% additional capacity. The monsoon-hardened design means we no longer worry about humidity-related failures during the rainy season.",
     author: 'Plant Operations Manager',
     org: 'Sefam Private Limited',
+    logo: '/logos/clients/IFL-logo.png',
+    bg: 'from-[#0043ce] to-[#0f62fe]',
   },
   {
     quote: "Perception IT delivered a comprehensive thermal assessment and cooling upgrade for our research data centre. Their understanding of high-density compute loads and Pakistan's power challenges was exceptional. The new precision cooling system maintains stable temperatures even during extended load-shedding periods.",
     author: 'Director of IT Infrastructure',
     org: 'Lahore University of Management Sciences',
+    logo: '/logos/clients/lums-logo.png',
+    bg: 'from-[#8a3ffc] to-[#6929c4]',
   },
 ];
 
@@ -1122,35 +1132,80 @@ const PROJECTS = [
 const TestimonialCarousel = () => {
   const [current, setCurrent] = useState(0);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const total = TESTIMONIALS.length;
+
+  const goTo = (idx: number) => {
+    setCurrent(((idx % total) + total) % total);
+  };
 
   useEffect(() => {
-    timerRef.current = setInterval(() => setCurrent((c) => (c + 1) % TESTIMONIALS.length), 6000);
+    timerRef.current = setInterval(() => setCurrent((c) => (c + 1) % total), 6000);
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, []);
+  }, [total]);
+
+  const t = TESTIMONIALS[current];
 
   return (
-    <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#0f62fe] to-[#4589ff] p-8 md:p-12">
+    <div className={`relative overflow-hidden rounded-xl bg-gradient-to-r ${t.bg} p-8 md:p-12 transition-all duration-700`}>
       <Quotes className="absolute top-4 left-4 w-16 h-16 text-white/10" />
       <div className="relative z-10">
-        {TESTIMONIALS.map((t, i) => (
-          <div key={i} className={`transition-all duration-700 ${i === current ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 absolute inset-0'}`}>
-            <p className="carbon-fluid-heading-03 text-white mb-6 leading-relaxed">"{t.quote}"</p>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                <span className="carbon-body-01 text-white font-semibold">{t.author.charAt(0)}</span>
-              </div>
-              <div>
-                <p className="carbon-heading-02 text-white">{t.author}</p>
-                <p className="carbon-body-02 text-white/70">{t.org}</p>
-              </div>
-            </div>
+        {/* Logo */}
+        {t.logo && (
+          <div className="mb-6">
+            <img
+              src={t.logo}
+              alt=""
+              className="h-8 w-auto opacity-90"
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            />
           </div>
-        ))}
+        )}
+        <p className="carbon-fluid-heading-03 text-white mb-6 leading-relaxed">"{t.quote}"</p>
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+            <span className="carbon-body-01 text-white font-semibold">{t.author.charAt(0)}</span>
+          </div>
+          <div>
+            <p className="carbon-heading-02 text-white">{t.author}</p>
+            <p className="carbon-body-02 text-white/70">{t.org}</p>
+          </div>
+        </div>
       </div>
-      <div className="flex gap-2 mt-8">
-        {TESTIMONIALS.map((_, i) => (
-          <button key={i} onClick={() => setCurrent(i)} className={`w-2 h-2 rounded-full transition-all ${i === current ? 'bg-white w-6' : 'bg-white/40'}`} aria-label={`Go to testimonial ${i + 1}`} />
-        ))}
+
+      {/* Footer: dots + counter + nav */}
+      <div className="flex items-center justify-between mt-8">
+        <div className="flex items-center gap-4">
+          <div className="flex gap-2">
+            {TESTIMONIALS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className={`h-2 rounded-full transition-all ${i === current ? 'bg-white w-6' : 'bg-white/40 w-2'}`}
+                aria-label={`Go to testimonial ${i + 1}`}
+              />
+            ))}
+          </div>
+          <span className="carbon-label-01 text-white/60">
+            {current + 1} / {total}
+          </span>
+        </div>
+
+        <div className="flex gap-2">
+          <button
+            onClick={() => goTo(current - 1)}
+            className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={() => goTo(current + 1)}
+            className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
       </div>
     </div>
   );
