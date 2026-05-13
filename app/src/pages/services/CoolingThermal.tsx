@@ -1101,7 +1101,7 @@ const TESTIMONIALS = [
     quote: 'The cooling refresh project delivered exceptional results. Our PUE dropped from 1.8 to 1.35, and we have seen 40% energy savings over the past year. The Perception IT team managed the entire migration with zero downtime, which was critical for our operations.',
     author: 'Head of Infrastructure',
     org: 'Mayfair Group',
-    logo: '/logos/clients/mayfair logo svg.svg',
+    logo: '/logos/clients/mayfair%20logo%20svg.svg',
     bg: 'from-[#009d9a] to-[#007d79]',
   },
   {
@@ -1115,7 +1115,7 @@ const TESTIMONIALS = [
     quote: "Perception IT delivered a comprehensive thermal assessment and cooling upgrade for our research data centre. Their understanding of high-density compute loads and Pakistan's power challenges was exceptional. The new precision cooling system maintains stable temperatures even during extended load-shedding periods.",
     author: 'Director of IT Infrastructure',
     org: 'Lahore University of Management Sciences',
-    logo: '/logos/clients/lums-logo.png',
+    logo: '/logos/clients/LUMS-Logo.png',
     bg: 'from-[#8a3ffc] to-[#6929c4]',
   },
 ];
@@ -1154,9 +1154,8 @@ const TestimonialCarousel = () => {
           <div className="mb-8 p-4 bg-white rounded-lg inline-block shadow-lg">
             <img
               src={t.logo}
-              alt=""
-              className="h-14 w-auto opacity-90"
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              alt={t.org}
+              className="h-14 w-auto"
             />
           </div>
         )}
