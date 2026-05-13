@@ -1306,7 +1306,7 @@ const EcosystemSection = () => {
     <section id="ecosystem" className="py-20 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-12 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>Ecosystem</span>
+          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>Facility Ecosystem</span>
           <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">Integrated Data Centre Services</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Cooling does not exist in isolation. Our services connect thermal management with power, cabling, security, and cloud — from a single accountable team.</p>
         </div>
