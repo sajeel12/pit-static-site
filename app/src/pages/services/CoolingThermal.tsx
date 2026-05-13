@@ -666,7 +666,7 @@ const AssessmentSection = () => {
             </div>
             <div className="p-5 bg-gray-100 rounded-xl flex gap-4 items-start">
               <Warning className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" />
-              <div><p className="carbon-label-02 text-gray-500 uppercase mb-1">What&apos;s Not Included</p><p className="carbon-body-02 text-gray-600">Both Assessments cover audit, scoring, and recommendation only. Excludes implementation, hardware supply, ongoing monitoring, and travel charges.</p></div>
+              <div><p className="carbon-label-02 text-gray-500 uppercase mb-1">What&apos;s Not Included</p><p className="carbon-body-02 text-gray-600">Both Assessments cover audit, scoring, and recommendation only. Excludes implementation, hardware supply, ongoing monitoring, day rate and travel charges.</p></div>
             </div>
           </div>
         )}
