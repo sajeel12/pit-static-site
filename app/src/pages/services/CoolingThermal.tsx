@@ -20,6 +20,19 @@ import Footer from '../../sections/Footer';
 import '../../styles/carbon-typography.css';
 
 /* ==============================================================================
+   GA4 TRACKING
+   ============================================================================== */
+const gtag = (window as any).gtag || ((...args: any[]) => { console.log('[GA4]', ...args); });
+
+const trackEvent = (eventName: string, params?: Record<string, any>) => {
+  try {
+    gtag('event', eventName, params);
+  } catch {
+    /* silent fail */
+  }
+};
+
+/* ==============================================================================
    DATA
    ============================================================================== */
 
@@ -1234,7 +1247,7 @@ const ProjectCard = ({ project, index }: { project: typeof PROJECTS[0]; index: n
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className={`${styles.projectCard} rounded-xl overflow-hidden bg-white transition-all duration-500 border border-[#e0e0e0] hover:border-[#0f62fe]`} style={{ animationDelay: `${index * 100}ms` }}>
+    <article className={`${styles.projectCard} rounded-xl overflow-hidden bg-white transition-all duration-500 border border-[#e0e0e0] hover:border-[#0f62fe]`} style={{ animationDelay: `${index * 100}ms` }}>
       <div className="relative h-48 overflow-hidden">
         <div className={`absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100`} />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -1259,7 +1272,7 @@ const ProjectCard = ({ project, index }: { project: typeof PROJECTS[0]; index: n
           </ul>
         </div>
       )}
-    </div>
+    </article>
   );
 };
 
@@ -1331,11 +1344,15 @@ const EcosystemSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {ECOSYSTEM_ITEMS.map((item) => (
-            <div key={item.title} className="group p-6 bg-white rounded-xl border border-gray-100 hover:border-[#0f62fe] transition-all duration-300 hover:shadow-lg cursor-pointer">
+            <article
+              key={item.title}
+              className="group p-6 bg-white rounded-xl border border-gray-100 hover:border-[#0f62fe] transition-all duration-300 hover:shadow-lg cursor-pointer"
+              onClick={() => trackEvent('ecosystem_card_click', { service: item.title })}
+            >
               <item.icon className="w-8 h-8 text-[#0f62fe] mb-4 group-hover:scale-110 transition-transform" />
               <p className="carbon-heading-02 text-gray-900 mb-2">{item.title}</p>
               <p className="carbon-body-02 text-gray-500">{item.desc}</p>
-            </div>
+            </article>
           ))}
         </div>
 
@@ -1407,10 +1424,18 @@ const CTASection = () => {
             <p className="carbon-body-02 text-white/80 max-w-xl">Call us for a free 15-minute consultation. We will guide you on the right assessment path and next steps for your facility.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="mailto:contact@perception-it.com?subject=Cooling%20Assessment%20Request" className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white text-[#0f62fe] carbon-heading-02 hover:bg-gray-50 transition-colors rounded-lg">
+            <a
+              href="mailto:contact@perception-it.com?subject=Cooling%20Assessment%20Request"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white text-[#0f62fe] carbon-heading-02 hover:bg-gray-50 transition-colors rounded-lg"
+              onClick={() => trackEvent('cta_conversion', { type: 'email', location: 'bottom_cta' })}
+            >
               Book Free Call <ArrowRight className="w-5 h-5" />
             </a>
-            <a href="tel:+923001234567" className="inline-flex items-center justify-center gap-2 px-6 py-4 border-2 border-white text-white carbon-heading-02 hover:bg-white/10 transition-colors rounded-lg">
+            <a
+              href="tel:+923001234567"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 border-2 border-white text-white carbon-heading-02 hover:bg-white/10 transition-colors rounded-lg"
+              onClick={() => trackEvent('cta_conversion', { type: 'phone', location: 'bottom_cta' })}
+            >
               Call Our Team
             </a>
           </div>
@@ -1432,18 +1457,20 @@ const CoolingThermal = () => {
   return (
     <div className="min-h-screen bg-white">
       <CarbonHeader />
-      <HeroSection />
-      <TrustTiles />
-      <StickyAnchorNav />
-      <ServicesHeader />
-      <AssessmentSection />
-      <ProcurementSection />
-      <DeploymentSection />
-      <ManagedSection />
-      <ResultsSection />
-      <EcosystemSection />
-      <FAQSection />
-      <CTASection />
+      <main id="main-content">
+        <HeroSection />
+        <TrustTiles />
+        <StickyAnchorNav />
+        <ServicesHeader />
+        <AssessmentSection />
+        <ProcurementSection />
+        <DeploymentSection />
+        <ManagedSection />
+        <ResultsSection />
+        <EcosystemSection />
+        <FAQSection />
+        <CTASection />
+      </main>
       <Footer />
     </div>
   );
