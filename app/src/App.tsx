@@ -29,7 +29,6 @@ import TechnologyRoadmap from './pages/services/TechnologyRoadmap';
 import ServerContinuity from './pages/services/ServerContinuity';
 import Datacenter from './pages/services/Datacenter';
 import Datacenter2 from './pages/services/Datacenter2';
-import CoolingAirflowLegacy from './pages/services/CoolingAirflowLegacy';
 import CoolingThermal from './pages/services/CoolingThermal';
 
 

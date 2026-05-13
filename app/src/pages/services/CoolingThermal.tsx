@@ -10,7 +10,7 @@ import {
   Quotes, Windy, Temperature, ChartLine,
 } from '@carbon/icons-react';
 
-import Navigation from '../../components/Navigation';
+import CoolingNav from './CoolingNav';
 import HeroCoolingGraphics from '../../components/HeroCoolingGraphics';
 import Footer from '../../sections/Footer';
 import '../../styles/carbon-typography.css';
@@ -1147,7 +1147,7 @@ const CoolingThermal = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation variant="dark" />
+      <CoolingNav />
       <main id="main-content">
         <HeroSection />
         <TrustTiles />
