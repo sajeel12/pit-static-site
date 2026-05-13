@@ -1151,11 +1151,11 @@ const TestimonialCarousel = () => {
       <div className="relative z-10">
         {/* Logo */}
         {t.logo && (
-          <div className="mb-6">
+          <div className="mb-8 p-4 bg-white/10 rounded-lg inline-block">
             <img
               src={t.logo}
               alt=""
-              className="h-8 w-auto opacity-90"
+              className="h-10 w-auto opacity-90"
               onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
             />
           </div>
