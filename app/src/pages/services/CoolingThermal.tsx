@@ -424,7 +424,7 @@ const HeroSection = () => (
         <div className="absolute -left-2 top-[3.2rem] h-[130px] w-0.5 bg-gradient-to-b from-[#0f62fe] to-[#8a3ffc] animate-slot-draw hidden lg:block" />
         <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-100 rounded-full mb-6">
           <span className="w-2 h-2 bg-[#24a148] rounded-full animate-pulse" />
-          <span className="carbon-label-02 text-[#0f62fe]">Engineered for Pakistan&apos;s 45C summers</span>
+          <span className="carbon-label-02" style={{ color: "#0f62fe" }}>Engineered for Pakistan&apos;s 45C summers</span>
         </div>
         <h1 className="carbon-fluid-display-03 text-[#161616] mb-6 relative">
           <span className="block">Precision Cooling &</span>
@@ -517,7 +517,7 @@ const TrustTiles = () => {
 const ServicesHeader = () => (
   <section id="services" className="py-16 bg-[#FAFAFA] border-b border-gray-100">
     <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center carbon-font">
-      <span className="carbon-label-02 uppercase tracking-[0.16px] text-[#0f62fe] mb-4 block">Services</span>
+      <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>Services</span>
       <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">From Assessment to 24/7 Monitoring</h2>
       <p className="carbon-body-02 text-gray-600 max-w-2xl mx-auto mb-8">
         A clear 4-phase pathway with defined deliverables at each stage.
@@ -577,7 +577,7 @@ const AssessmentSection = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="mb-10 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] text-[#0f62fe] mb-4 block">01 Assessment</span>
+          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>01 Assessment</span>
           <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-3">Choose Your Assessment Path</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Two options. One goal: understand your thermal reality before you spend.</p>
         </div>
@@ -587,7 +587,7 @@ const AssessmentSection = () => {
           <img src="/3D images/Cooling and Airflow/Cooling - Assesment.png" alt="Thermal assessment" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
-            <p className="carbon-label-02 text-[#0f62fe] uppercase mb-3">01 Assessment</p>
+            <p className="carbon-label-02 uppercase mb-3" style={{ color: "#0f62fe" }}>01 Assessment</p>
             <h3 className="carbon-fluid-heading-04 text-white mb-4 leading-tight">Thermal clarity before capital spend</h3>
             <p className="carbon-body-02 text-white/75">Rapid health check for routine confidence. Engineering-grade analysis before major investment.</p>
           </div>
@@ -648,7 +648,7 @@ const AssessmentSection = () => {
                 </ul>
               </div>
               <div className="p-6 bg-gray-50 rounded-xl border border-gray-100">
-                <p className="carbon-label-02 text-[#0f62fe] uppercase mb-2">Engineering-Grade — Precision</p>
+                <p className="carbon-label-02 uppercase mb-2" style={{ color: "#0f62fe" }}>Engineering-Grade — Precision</p>
                 <p className="carbon-label-02 text-gray-400 uppercase mb-1">From</p>
                 <p className="carbon-fluid-heading-03 text-gray-900 font-light mb-1">PKR 180,000*</p>
                 <ul className="space-y-3">
@@ -708,7 +708,7 @@ const ProcurementSection = () => {
     <section id="hardware" className="py-20 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-10 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] text-[#0f62fe] mb-4 block">02 Procurement</span>
+          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: '#0f62fe' }}>02 Procurement</span>
           <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-3">Cooling Hardware</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Right-sized hardware, certified for Pakistan&apos;s 45C ambient, monsoon humidity, and dust infiltration.</p>
         </div>
@@ -717,7 +717,7 @@ const ProcurementSection = () => {
           <img src="/3D images/Cooling and Airflow/Cooling - Procurement.png" alt="Cooling hardware procurement" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
-            <p className="carbon-label-02 text-[#0f62fe] uppercase mb-3">02 Procurement</p>
+            <p className="carbon-label-02 uppercase mb-3" style={{ color: '#0f62fe' }}>02 Procurement</p>
             <h3 className="carbon-fluid-heading-04 text-white mb-4 leading-tight">Direct from tier-1 manufacturers</h3>
             <p className="carbon-body-02 text-white/75">We source from Huawei, Vertiv, Stulz, and others. Every unit is factory-accepted and pre-validated before shipping.</p>
           </div>
@@ -771,7 +771,7 @@ const ProcurementSection = () => {
                 </ul>
               </div>
               <div className="p-6 bg-white rounded-xl border border-gray-100">
-                <p className="carbon-label-02 text-[#0f62fe] uppercase mb-4">Precision (CRAC/CRAH)</p>
+                <p className="carbon-label-02 uppercase mb-4" style={{ color: "#0f62fe" }}>Precision (CRAC/CRAH)</p>
                 <ul className="space-y-3">
                   {[{l:'Best for',v:'Data centres, high-density racks'},{l:'Capacity',v:'50kW – 500kW+ per unit'},{l:'Precision',v:'±1C, ±5% RH'},{l:'Lead time',v:'4–8 weeks'}].map((item) => (
                     <li key={item.l} className="flex items-start gap-2 carbon-body-02 text-gray-600"><CheckmarkFilled className="w-4 h-4 text-[#0f62fe] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">{item.l}:</strong> {item.v}</span></li>
@@ -864,7 +864,7 @@ const DeploymentSection = () => {
     <section id="installation" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-10 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] text-[#0f62fe] mb-4 block">03 Deployment</span>
+          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>03 Deployment</span>
           <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-3">Deployment & Commissioning</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Thermal continuity is won or lost at installation. 4-phase deployment with full validation.</p>
         </div>
@@ -873,7 +873,7 @@ const DeploymentSection = () => {
           <img src="/3D images/Cooling and Airflow/Deployment- Cooling.png" alt="Cooling system deployment" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
-            <p className="carbon-label-02 text-[#0f62fe] uppercase mb-3">03 Deployment</p>
+            <p className="carbon-label-02 uppercase mb-3" style={{ color: "#0f62fe" }}>03 Deployment</p>
             <h3 className="carbon-fluid-heading-04 text-white mb-4 leading-tight">Installation is where cooling wins or fails</h3>
             <p className="carbon-body-02 text-white/75">60% of cooling failures are installation-related. Our protocol prevents that.</p>
           </div>
@@ -932,7 +932,7 @@ const DeploymentSection = () => {
                 </ul>
               </div>
               <div className="p-6 bg-gray-50 rounded-xl border border-gray-100">
-                <p className="carbon-label-02 text-[#0f62fe] uppercase mb-4">Our Deployment Protocol</p>
+                <p className="carbon-label-02 uppercase mb-4" style={{ color: "#0f62fe" }}>Our Deployment Protocol</p>
                 <ul className="space-y-3">
                   {[{l:'Site survey',v:'Thermal load, airflow path, electrical capacity'},{l:'Placement design',v:'CFD-validated layout for optimal airflow'},{l:'Monsoon hardening',v:'Drain sizing, seal verification, humidity buffers'},{l:'Start-up & balancing',v:'Load-bank test, setpoint calibration, failover'},{l:'As-built docs',v:'Full documentation and operator handover'}].map((item) => (
                     <li key={item.l} className="flex items-start gap-2 carbon-body-02 text-gray-600"><CheckmarkFilled className="w-4 h-4 text-[#0f62fe] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">{item.l}:</strong> {item.v}</span></li>
@@ -1224,7 +1224,7 @@ const ProjectCard = ({ project, index }: { project: typeof PROJECTS[0]; index: n
         <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full"><span className="carbon-label-01 text-gray-600">{project.year}</span></div>
       </div>
       <div className="p-6">
-        <p className="carbon-label-02 text-[#0f62fe] uppercase mb-2">{project.org}</p>
+        <p className="carbon-label-02 uppercase mb-2" style={{ color: "#0f62fe" }}>{project.org}</p>
         <h3 className="carbon-heading-02 text-gray-900 mb-3">{project.title}</h3>
         <p className="carbon-body-02 text-gray-500 mb-4">{project.desc}</p>
         <button onClick={() => setExpanded(!expanded)} className="inline-flex items-center gap-2 text-[#0f62fe] carbon-heading-02 hover:underline">
@@ -1274,7 +1274,7 @@ const ResultsSection = () => {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-12 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] text-[#0f62fe] mb-4 block">Results</span>
+          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>Results</span>
           <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">What Our Clients Say</h2>
         </div>
         <div className="mb-16">
@@ -1305,7 +1305,7 @@ const EcosystemSection = () => {
     <section className="py-20 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-12 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] text-[#0f62fe] mb-4 block">Ecosystem</span>
+          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>Ecosystem</span>
           <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">Integrated Data Centre Services</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Cooling does not exist in isolation. Our services connect thermal management with power, cabling, security, and cloud — from a single accountable team.</p>
         </div>
@@ -1357,7 +1357,7 @@ const FAQSection = () => {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-12 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] text-[#0f62fe] mb-4 block">FAQ</span>
+          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>FAQ</span>
           <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">Frequently Asked Questions</h2>
         </div>
         <div className="max-w-4xl">
