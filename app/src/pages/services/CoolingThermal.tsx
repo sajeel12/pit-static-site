@@ -265,8 +265,14 @@ const CarbonHeader = () => {
       'About': '/#/about',
     };
     return (
-      <div style={{ position: 'relative', height: '100%' }} onClick={() => hasDropdown && setActiveMenu(activeMenu === label ? null : label)}>
-        <HeaderMenuItem href={hrefMap[label] || '/#/services'} style={{ color: 'var(--cds-text-inverse)' }}>
+      <div
+        style={{ position: 'relative', height: '100%' }}
+        onMouseEnter={() => hasDropdown && setActiveMenu(label)}
+      >
+        <HeaderMenuItem
+          href={hasDropdown ? undefined : hrefMap[label] || '/#/services'}
+          style={{ color: 'var(--cds-text-inverse)' }}
+        >
           <span className="cooling-nav-text">{label}</span>
         </HeaderMenuItem>
       </div>
