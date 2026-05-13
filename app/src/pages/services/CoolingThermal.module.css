@@ -74,6 +74,11 @@
 }
 
 /* Force white text on dark header nav items */
-.cooling-nav-text {
+.cooling-nav-text,
+.cooling-airflow-v2-header .cds--header__menu-item,
+.cooling-airflow-v2-header .cds--header__menu-item:hover,
+.cooling-airflow-v2-header .cds--header__menu-item:focus,
+.cooling-airflow-v2-header .cds--header__menu-item--active,
+.cooling-airflow-v2-header .cds--header__menu-item[aria-expanded="true"] {
   color: #ffffff !important;
 }
