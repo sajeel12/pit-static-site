@@ -1084,19 +1084,29 @@ const ManagedSection = () => {
 
 const TESTIMONIALS = [
   {
-    quote: 'The assessment uncovered hotspots we did not know existed. The remediation plan saved us from a potential thermal runaway during last summer.',
-    author: 'Director of Data Centre Operations',
-    org: 'Major Pakistani Bank',
+    quote: "Perception IT transformed our server infrastructure from a risk into a reliable engine for operations. With 48 critical Lenovo servers supporting our production and financial systems, any downtime could have cost us millions. Their 24/7 support, same-day hardware replacements, and proactive maintenance have kept our systems running without a single major incident. We now operate with confidence knowing our IT backbone is in expert hands.",
+    author: 'Mr. Usman Zafar',
+    org: 'Head of IT, Ibrahim Fibres Limited',
   },
   {
-    quote: 'Perception IT sourced and deployed precision cooling across 4 sites in 8 weeks. Their deployment team understood Pakistani power conditions better than anyone we worked with before.',
-    author: 'IT Infrastructure Manager',
-    org: 'National Telecom Operator',
+    quote: "Perception IT's cooling solutions have significantly improved our data centre reliability. Their thermal assessments identified critical hotspots we weren't aware of, and their proactive monitoring has prevented several potential outages. The team's expertise in Pakistan's climate conditions is unmatched.",
+    author: 'Chief Technology Officer',
+    org: 'Descon Engineering',
   },
   {
-    quote: 'The managed service caught a refrigerant leak at 2 AM and dispatched a technician before our internal monitoring even triggered an alert.',
-    author: 'Head of Engineering',
-    org: 'Cloud Services Provider',
+    quote: 'The cooling refresh project delivered exceptional results. Our PUE dropped from 1.8 to 1.35, and we have seen 40% energy savings over the past year. The Perception IT team managed the entire migration with zero downtime, which was critical for our operations.',
+    author: 'Head of Infrastructure',
+    org: 'Mayfair Group',
+  },
+  {
+    quote: "Perception IT understood our unique challenges as a textile manufacturer. Their custom cooling solution with 45°C ambient rating has given us 60% additional capacity. The monsoon-hardened design means we no longer worry about humidity-related failures during the rainy season.",
+    author: 'Plant Operations Manager',
+    org: 'Sefam Private Limited',
+  },
+  {
+    quote: "Perception IT delivered a comprehensive thermal assessment and cooling upgrade for our research data centre. Their understanding of high-density compute loads and Pakistan's power challenges was exceptional. The new precision cooling system maintains stable temperatures even during extended load-shedding periods.",
+    author: 'Director of IT Infrastructure',
+    org: 'Lahore University of Management Sciences',
   },
 ];
 
