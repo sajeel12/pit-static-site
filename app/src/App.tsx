@@ -58,6 +58,7 @@ import AIAccelerator from './pages/services/AIAccelerator';
 import AIModelDevelopment from './pages/services/AIModelDevelopment';
 import MLOps from './pages/services/MLOps';
 import AIConsulting from './pages/services/AIConsulting';
+import { HuaweiPartnership } from './pages/partners';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -173,6 +174,9 @@ function App() {
             <Route path="/cover" element={<Cover />} />
             <Route path="/cover2" element={<Cover2 />} />
             <Route path="/cover3" element={<Cover3 />} />
+            
+            {/* Partner Pages */}
+            <Route path="/partners/huawei" element={<HuaweiPartnership />} />
           </Routes>
           <Chatbot />
           <FloatingWhatsApp />
