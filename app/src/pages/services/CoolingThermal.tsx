@@ -1178,6 +1178,19 @@ const CoolingThermal = () => {
   return (
     <div className="min-h-screen bg-white">
       <CoolingNav />
+      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-2">
+          <ol className="flex items-center gap-2 carbon-helper-text-01 text-gray-400">
+            <li><a href="/#/" className="hover:text-[#0f62fe] transition-colors">Home</a></li>
+            <li className="text-gray-300">/</li>
+            <li><a href="/#/services" className="hover:text-[#0f62fe] transition-colors">Services</a></li>
+            <li className="text-gray-300">/</li>
+            <li><a href="/#/services/datacenter2" className="hover:text-[#0f62fe] transition-colors">Data Centre Services</a></li>
+            <li className="text-gray-300">/</li>
+            <li className="text-gray-900" aria-current="page">Cooling &amp; Airflow</li>
+          </ol>
+        </div>
+      </nav>
       <main id="main-content">
         <HeroSection />
         <StickyAnchorNav />
