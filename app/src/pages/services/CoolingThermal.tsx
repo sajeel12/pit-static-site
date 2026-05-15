@@ -188,8 +188,8 @@ const TrustTiles = () => {
               <div className="w-10 h-10 bg-white flex items-center justify-center mb-3 group-hover:scale-110 transition-transform rounded-lg">
                 <tile.icon className="w-5 h-5" style={{ color: tile.color }} />
               </div>
-              <p className="text-[13px] text-gray-900 font-semibold leading-tight mb-1">{tile.headline}</p>
-              <p className="text-[11px] text-gray-500">{tile.subtext}</p>
+              <p className="carbon-label-02 text-gray-900 leading-tight mb-1">{tile.headline}</p>
+              <p className="carbon-helper-text-01 text-gray-500">{tile.subtext}</p>
             </div>
           ))}
         </div>
@@ -219,9 +219,9 @@ const ServicesHeader = () => (
         ].map((step, i) => (
           <div key={step.label} className="flex items-center gap-2 md:gap-4">
             <div className="flex items-center gap-2 md:gap-3 px-3 py-2 md:px-4 md:py-3 bg-white border border-gray-200 rounded-lg">
-              <span className="w-6 h-6 md:w-7 md:h-7 bg-[#0f62fe] text-white flex items-center justify-center text-[10px] md:text-xs font-semibold rounded">{step.num}</span>
+              <span className="w-6 h-6 md:w-7 md:h-7 bg-[#0f62fe] text-white flex items-center justify-center carbon-label-01 rounded">{step.num}</span>
               <step.icon className="w-4 h-4 md:w-5 md:h-5 hidden sm:block" style={{ color: step.color }} />
-              <span className="text-xs md:text-sm font-medium text-gray-900">{step.label}</span>
+              <span className="carbon-label-02 text-gray-900">{step.label}</span>
             </div>
             {i < 3 && <ArrowRight className="w-4 h-4 text-gray-300 hidden sm:block" />}
           </div>
@@ -265,7 +265,7 @@ const AssessmentSection = () => {
         {/* Header */}
         <div className="mb-10 carbon-font">
           <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>01 Assessment</span>
-          <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-3">Choose Your Assessment Path</h2>
+          <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Choose Your Assessment Path</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Two options. One goal: Understand your thermal reality before you spend.</p>
         </div>
 
@@ -275,7 +275,7 @@ const AssessmentSection = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
             <p className="carbon-label-01 uppercase mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>01 Assessment</p>
-            <h3 className="carbon-fluid-heading-04 text-white mb-4 leading-tight">Thermal clarity before capital spend</h3>
+            <h3 className="carbon-fluid-heading-03 text-white mb-4 leading-tight">Thermal clarity before capital spend</h3>
             <p className="carbon-body-02 text-white/75">Rapid health check for routine confidence. Engineering-grade analysis before major investment.</p>
           </div>
         </div>
@@ -396,7 +396,7 @@ const ProcurementSection = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-10 carbon-font">
           <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: '#0f62fe' }}>02 Procurement</span>
-          <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-3">Cooling Hardware</h2>
+          <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Cooling Hardware</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Right-sized hardware, certified for Pakistan&apos;s 45°C ambient, monsoon humidity, and dust infiltration.</p>
         </div>
 
@@ -405,7 +405,7 @@ const ProcurementSection = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
             <p className="carbon-label-01 uppercase mb-3" style={{ color: 'rgba(255,255,255,0.7)' }}>02 Procurement</p>
-            <h3 className="carbon-fluid-heading-04 text-white mb-4 leading-tight">Direct from Tier 1 manufacturers</h3>
+            <h3 className="carbon-fluid-heading-03 text-white mb-4 leading-tight">Direct from Tier 1 manufacturers</h3>
             <p className="carbon-body-02 text-white/75">We source from Huawei, Vertiv, Stulz, and others. Every unit is factory-accepted and pre-validated before shipping.</p>
           </div>
         </div>
@@ -497,15 +497,15 @@ const ProcurementSection = () => {
         {/* Featured Product */}
         <div className="grid grid-cols-1 md:grid-cols-[380px_1fr] gap-0 rounded-xl overflow-hidden bg-white border border-gray-100 shadow-sm">
           <div className="relative bg-gray-50 flex items-center justify-center p-8 min-h-[280px]">
-            <span className="absolute top-4 left-4 px-3 py-1 bg-[#0f62fe] text-white carbon-label-02 uppercase tracking-wider rounded-full text-xs">Featured Hardware</span>
+            <span className="absolute top-4 left-4 px-3 py-1 bg-[#0f62fe] text-white carbon-label-02 uppercase tracking-wider rounded-full">Featured Hardware</span>
             <img src="/3D images/Cooling and Airflow/FusionCool.png" alt="FusionCol8000-E cooling unit" className="max-w-[90%] max-h-[220px] object-contain" loading="lazy" />
           </div>
           <div className="p-8 flex flex-col justify-center">
-            <h3 className="carbon-heading-02 text-gray-900 font-semibold mb-3">FusionCol8000-E</h3>
+            <h3 className="carbon-heading-02 text-gray-900 mb-3">FusionCol8000-E</h3>
             <p className="carbon-body-02 text-gray-600 mb-6">Enterprise-grade precision cooling for high-density data centres. In-row and perimeter deployment, ±1°C control, N+1 redundancy ready.</p>
             <div className="grid grid-cols-2 gap-4 mb-6">
               {[{l:'Cooling Capacity',v:'Up to 100kW'},{l:'Control Precision',v:'±1°C / ±5% RH'},{l:'Redundancy',v:'N+1 ready'},{l:'Deploy',v:'In-row or perimeter'}].map((s) => (
-                <div key={s.l}><p className="carbon-label-02 text-gray-400 uppercase text-[11px] mb-1">{s.l}</p><p className="carbon-body-02 text-gray-900 font-medium">{s.v}</p></div>
+                <div key={s.l}><p className="carbon-label-02 text-gray-400 uppercase mb-1">{s.l}</p><p className="carbon-heading-02 text-gray-900">{s.v}</p></div>
               ))}
             </div>
             <div className="flex gap-3">
@@ -561,7 +561,7 @@ const DeploymentSection = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-10 carbon-font">
           <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>03 Deployment</span>
-          <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-3">Deployment & Commissioning</h2>
+          <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Deployment & Commissioning</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Thermal continuity is won or lost at installation. 4-phase deployment with full validation.</p>
         </div>
 
@@ -570,7 +570,7 @@ const DeploymentSection = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
             <p className="carbon-label-01 uppercase mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>03 Deployment</p>
-            <h3 className="carbon-fluid-heading-04 text-white mb-4 leading-tight">Installation is where cooling wins or fails</h3>
+            <h3 className="carbon-fluid-heading-03 text-white mb-4 leading-tight">Installation is where cooling wins or fails</h3>
             <p className="carbon-body-02 text-white/75">60% of cooling failures are installation-related. Our protocol prevents that.</p>
           </div>
         </div>
@@ -583,7 +583,7 @@ const DeploymentSection = () => {
                 <div className="w-12 h-12 rounded-full bg-[#0f62fe]/5 flex items-center justify-center group-hover:bg-[#0f62fe]/10 transition-colors">
                   <step.icon className="w-6 h-6 text-[#0f62fe]" />
                 </div>
-                <span className="carbon-fluid-heading-04 text-gray-200 font-light">{step.num}</span>
+                <span className="carbon-fluid-heading-03 text-gray-200 font-light">{step.num}</span>
               </div>
               <h3 className="carbon-heading-02 text-gray-900 mb-3">{step.title}</h3>
               <p className="carbon-body-02 text-gray-500">{step.desc}</p>
@@ -595,7 +595,7 @@ const DeploymentSection = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           {[{n:'8 weeks',l:'Typical deployment'},{n:'45°C',l:'Tested ambient'},{n:'100%',l:'Load-bank validated'},{n:'Validated commissioning*',l:'Minimal service disruption'}].map((s) => (
             <div key={s.l} className="p-6 bg-gray-50 rounded-xl text-center border border-gray-100">
-              <p className="carbon-fluid-heading-04 text-[#0f62fe] font-light mb-1">{s.n}</p>
+              <p className="carbon-fluid-heading-03 text-[#0f62fe] font-light mb-1">{s.n}</p>
               <p className="carbon-body-02 text-gray-500">{s.l}</p>
             </div>
           ))}
@@ -693,7 +693,7 @@ const ManagedSection = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-10 carbon-font">
           <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: '#0f62fe' }}>04 Managed Services</span>
-          <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-3">24/7 Managed Thermal Services</h2>
+          <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">24/7 Managed Thermal Services</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Filters clog. Refrigerant leaks. Setpoints drift. Our managed service catches degradation before it becomes an outage.</p>
         </div>
 
@@ -702,7 +702,7 @@ const ManagedSection = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
             <p className="carbon-label-01 uppercase mb-3" style={{ color: 'rgba(255,255,255,0.7)' }}>04 Managed Services</p>
-            <h3 className="carbon-fluid-heading-04 text-white mb-4 leading-tight">Thermal continuity does not end at handover</h3>
+            <h3 className="carbon-fluid-heading-03 text-white mb-4 leading-tight">Thermal continuity does not end at handover</h3>
             <p className="carbon-body-02 text-white/75">Quarterly validation, monsoon standby engineers, and 24/7 NOC monitoring.</p>
           </div>
         </div>
@@ -712,7 +712,7 @@ const ManagedSection = () => {
           {tiers.map((tier) => (
             <div key={tier.name} className={`group relative p-8 bg-white rounded-xl border transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${tier.recommended ? 'border-[#0f62fe] ring-1 ring-[#0f62fe]' : 'border-gray-100 hover:border-[#0f62fe]'}`}>
               {tier.recommended && (
-                <span className="absolute -top-3 left-8 px-3 py-1 bg-[#0f62fe] text-white carbon-label-02 uppercase tracking-wider text-[10px] rounded-full">Recommended</span>
+                <span className="absolute -top-3 left-8 px-3 py-1 bg-[#0f62fe] text-white carbon-label-02 uppercase tracking-wider rounded-full">Recommended</span>
               )}
               <div className="mb-6">
                 <p className="carbon-label-02 uppercase mb-2" style={{ color: tier.accent }}>{tier.name}</p>
@@ -891,7 +891,7 @@ const TestimonialCarousel = () => {
     >
       <Quotes className="absolute top-6 left-6 w-16 h-16 text-white/10" />
       <div className="relative z-10">
-        <p className="carbon-fluid-heading-04 text-white mt-4 mb-8 leading-relaxed px-4 md:px-8">"{t.quote}"</p>
+        <p className="carbon-fluid-quotation-01 text-white mt-4 mb-8 leading-relaxed px-4 md:px-8">"{t.quote}"</p>
         <div className="flex items-center gap-4 px-4 md:px-8">
           {t.logo && (
             <div className="p-2 bg-white rounded-lg shadow-sm flex-shrink-0">
@@ -909,11 +909,11 @@ const TestimonialCarousel = () => {
         </div>
         {t.project && (
           <div className="mt-14 pl-4 border-l-2 border-white/20">
-            <p className="text-white/90 text-sm font-medium mb-1">{t.project.headline}</p>
-            <p className="text-white/50 text-sm mb-2">{t.project.desc}</p>
+            <p className="carbon-label-02 text-white/90 mb-1">{t.project.headline}</p>
+            <p className="carbon-body-02 text-white/50 mb-2">{t.project.desc}</p>
             <a
               href={t.project.link}
-              className="inline-flex items-center gap-1 text-xs text-white/60 hover:text-white transition-colors"
+              className="inline-flex items-center gap-1 carbon-label-01 text-white/60 hover:text-white transition-colors"
             >
               View Solution Details <ArrowRight className="w-3 h-3" />
             </a>
@@ -983,22 +983,22 @@ const ProjectCard = ({ project, index }: { project: typeof PROJECTS[0]; index: n
         )}
       </div>
       <div className="p-6">
-        <p className="text-xs font-semibold text-[#0f62fe] uppercase tracking-wider mb-2">{project.org}</p>
-        <h3 className="text-lg font-semibold text-gray-900 mb-3 leading-snug">{project.title}</h3>
-        <p className="text-sm text-gray-500 mb-5 leading-relaxed">{project.desc}</p>
+        <p className="carbon-label-01 text-[#0f62fe] uppercase tracking-wider mb-2">{project.org}</p>
+        <h3 className="carbon-heading-02 text-gray-900 mb-3 leading-snug">{project.title}</h3>
+        <p className="carbon-body-02 text-gray-500 mb-5 leading-relaxed">{project.desc}</p>
         {project.tags && (
           <div className="flex flex-wrap gap-2 mb-5">
             {project.tags.map((tag) => (
-              <span key={tag} className="px-2.5 py-1 bg-gray-50 text-gray-500 text-xs font-medium rounded-full border border-gray-100">{tag}</span>
+              <span key={tag} className="px-2.5 py-1 bg-gray-50 text-gray-500 carbon-label-01 rounded-full border border-gray-100">{tag}</span>
             ))}
           </div>
         )}
         <div className="flex items-center gap-5">
-          <button onClick={() => setExpanded(!expanded)} className="inline-flex items-center gap-1.5 text-sm font-medium text-[#0f62fe] hover:underline">
+          <button onClick={() => setExpanded(!expanded)} className="inline-flex items-center gap-1.5 carbon-body-02 text-[#0f62fe] hover:underline">
             {expanded ? 'Hide outcomes' : 'Show outcomes'} {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
           </button>
           {project.caseStudy && (
-            <a href={project.caseStudy} className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#0f62fe] transition-colors">
+            <a href={project.caseStudy} className="inline-flex items-center gap-1 carbon-body-02 text-gray-400 hover:text-[#0f62fe] transition-colors">
               Read case study <ArrowRight className="w-4 h-4" />
             </a>
           )}
@@ -1009,7 +1009,7 @@ const ProjectCard = ({ project, index }: { project: typeof PROJECTS[0]; index: n
           <div className="pt-4 border-t border-gray-100">
             <ul className="space-y-3">
               {project.outcomes.map((outcome) => (
-                <li key={outcome} className="flex items-start gap-3 text-sm text-gray-600"><CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0 mt-0.5" /><span>{outcome}</span></li>
+                <li key={outcome} className="flex items-start gap-3 carbon-body-02 text-gray-600"><CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0 mt-0.5" /><span>{outcome}</span></li>
               ))}
             </ul>
           </div>
@@ -1050,14 +1050,14 @@ const ResultsSection = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-12 carbon-font">
           <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>Results</span>
-          <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-3">Trusted Across Infrastructure Projects</h2>
+          <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Trusted Across Infrastructure Projects</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Real outcomes from infrastructure engagements across Pakistan.</p>
         </div>
         <div className="mb-12">
           <TestimonialCarousel />
         </div>
         <div className="mb-8">
-          <h3 className="carbon-fluid-heading-04 text-[#0F172A] mb-6">Project Outcomes</h3>
+          <h3 className="carbon-fluid-heading-03 text-[#0F172A] mb-6">Project Outcomes</h3>
           <ProjectCardGrid />
         </div>
       </div>
@@ -1092,9 +1092,9 @@ const EcosystemSection = () => {
               className="group p-5 bg-white rounded-lg border border-gray-100 hover:border-gray-300 transition-all duration-200"
             >
               <item.icon className="w-5 h-5 text-gray-400 mb-3" />
-              <p className="text-sm font-semibold text-gray-900 mb-1">{item.title}</p>
-              <p className="text-xs text-gray-500 leading-relaxed mb-3">{item.desc}</p>
-              <span className="inline-flex items-center gap-1 text-xs text-gray-400 group-hover:text-[#0f62fe] transition-colors">
+              <p className="carbon-heading-02 text-gray-900 mb-1">{item.title}</p>
+              <p className="carbon-body-02 text-gray-500 leading-relaxed mb-3">{item.desc}</p>
+              <span className="inline-flex items-center gap-1 carbon-label-01 text-gray-400 group-hover:text-[#0f62fe] transition-colors">
                 Learn more <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
               </span>
             </a>
@@ -1102,7 +1102,7 @@ const EcosystemSection = () => {
         </div>
 
         <div className="mt-8 text-center">
-          <a href="/#/services/datacenter2" className="inline-flex items-center gap-1.5 text-sm text-[#0f62fe] font-medium hover:underline">
+          <a href="/#/services/datacenter2" className="inline-flex items-center gap-1.5 carbon-body-02 text-[#0f62fe] hover:underline">
             Explore the full facility services portfolio <ArrowRight className="w-3.5 h-3.5" />
           </a>
         </div>
@@ -1114,7 +1114,7 @@ const EcosystemSection = () => {
           </div>
           <a
             href="mailto:contact@perception-it.com?subject=Integrated%20Facility%20Ecosystem%20Enquiry"
-            className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white text-sm font-medium rounded-lg hover:bg-[#0353e9] transition-colors flex-shrink-0"
+            className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-heading-02 rounded-lg hover:bg-[#0353e9] transition-colors flex-shrink-0"
           >
             Enquire <ArrowRight className="w-4 h-4" />
           </a>
@@ -1166,7 +1166,7 @@ const FAQSection = () => {
 const DisclaimerSection = () => (
   <section className="py-6 bg-gray-50 border-t border-gray-100">
     <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-      <p className="text-[11px] text-gray-400 leading-relaxed">
+      <p className="carbon-helper-text-01 text-gray-400 leading-relaxed">
         *Service levels, uptime targets, and response times are defined exclusively in signed contractual agreements following site assessment. Actual performance depends on facility condition, environmental factors, and force majeure exclusions.
       </p>
     </div>
