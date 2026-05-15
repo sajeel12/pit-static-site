@@ -181,7 +181,7 @@ const TrustTiles = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-10 carbon-font">
           <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Why Perception IT</h2>
-          <p className="carbon-body-02 text-gray-500 max-w-2xl mx-auto">Engineered for Pakistan's climate. Validated for your facility.</p>
+          <p className="carbon-body-02 text-gray-500 max-w-2xl mx-auto">Six reasons data centre operators across Pakistan trust Perception IT.</p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
           {tiles.map((tile) => (
@@ -206,10 +206,9 @@ const TrustTiles = () => {
 const ServicesHeader = () => (
   <section id="services" className="py-16 bg-[#FAFAFA] border-b border-gray-100">
     <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center carbon-font">
-      <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>Services</span>
-      <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">From Assessment to 24/7 Monitoring</h2>
+      <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">Cooling engineered for Pakistan&apos;s climate. Validated for your facility.</h2>
       <p className="carbon-body-02 text-gray-600 max-w-2xl mx-auto mb-10">
-        A clear 4-phase pathway with defined deliverables at each stage.
+        One partner from assessment through 24/7 monitoring. No handoff gaps. No blame gaps.
       </p>
       <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4">
         {[
