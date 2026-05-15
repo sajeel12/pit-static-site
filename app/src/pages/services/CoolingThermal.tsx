@@ -430,17 +430,17 @@ const ProcurementSection = () => {
           ))}
         </div>
 
-        <div className="p-8 rounded-xl relative overflow-hidden mb-6 bg-white border border-[#0f62fe]">
+        <div className="p-8 rounded-xl relative overflow-hidden mb-6 bg-[#161616]">
           <div className="flex flex-wrap items-center justify-between gap-6 relative">
             <div className="flex-1 min-w-[300px]">
-              <h3 className="carbon-heading-02 text-gray-900 mb-2">Need help choosing hardware?</h3>
-              <p className="carbon-body-02 text-gray-600">We procure from Tier 1 manufacturers with free site survey before order placement.</p>
+              <h3 className="carbon-heading-02 text-white mb-2">Need help choosing hardware?</h3>
+              <p className="carbon-body-02 text-white/70">We procure from Tier 1 manufacturers with free site survey before order placement.</p>
             </div>
             <div className="flex gap-3 flex-wrap">
-              <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-heading-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg">
+              <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center gap-2 px-5 py-3 border border-white/30 text-white carbon-heading-02 hover:bg-white/10 transition-colors rounded-lg">
                 {isOpen ? 'Close' : 'Compare Hardware'} {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
               </button>
-              <a href="mailto:contact@perception-it.com?subject=Hardware%20Consultation%20Request" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-heading-02 hover:bg-[#0353e9] transition-colors rounded-lg">Speak to an Engineer</a>
+              <a href="mailto:contact@perception-it.com?subject=Hardware%20Consultation%20Request" className="inline-flex items-center gap-2 px-5 py-3 bg-white text-[#0f62fe] carbon-heading-02 hover:bg-gray-50 transition-colors rounded-lg">Speak to an Engineer</a>
             </div>
           </div>
         </div>
@@ -890,7 +890,7 @@ const TestimonialCarousel = () => {
     >
       <Quotes className="absolute top-6 left-6 w-16 h-16 text-white/10" />
       <div className="relative z-10">
-        <p className="carbon-fluid-quotation-03 text-white mt-4 mb-8 leading-relaxed px-4 md:px-8">"{t.quote}"</p>
+        <p className="carbon-fluid-quotation-03 text-white mt-4 mb-8 leading-relaxed px-8 md:px-16">"{t.quote}"</p>
         <div className="flex items-center gap-4 px-4 md:px-8">
           {t.logo && (
             <div className="p-2 bg-white rounded-lg shadow-sm flex-shrink-0">
