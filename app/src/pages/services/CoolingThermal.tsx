@@ -148,15 +148,9 @@ const HeroSection = () => (
               </div>
             ))}
           </div>
-          <div className="flex flex-col sm:flex-row items-start gap-4">
-            <a href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request" className="group inline-flex items-center gap-3 px-8 h-14 bg-gradient-to-r from-[#0f62fe] to-[#4589ff] text-white carbon-heading-02 hover:from-[#0353e9] hover:to-[#0f62fe] transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5 rounded-lg">
-              Speak to an Engineer
-            </a>
-            <a href="/downloads/Thermal-Readiness-Checklist.pdf" download className="inline-flex items-center gap-2 text-[#0f62fe] carbon-body-02 hover:underline mt-2 sm:mt-0">
-              <Download className="w-4 h-4" />
-              Download Self-Assessment Checklist
-            </a>
-          </div>
+          <a href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request" className="group inline-flex items-center gap-3 px-8 h-14 bg-gradient-to-r from-[#0f62fe] to-[#4589ff] text-white carbon-heading-02 hover:from-[#0353e9] hover:to-[#0f62fe] transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5 rounded-lg">
+            Speak to an Engineer
+          </a>
         </div>
 
         {/* Right: credibility card */}
@@ -833,13 +827,13 @@ const TESTIMONIALS = [
 ];
 
 const PROJECTS = [
-  { title: 'Out-of-Warranty Infrastructure Support', org: 'Manufacturing', desc: '48 Lenovo servers running mission-critical MES, ERP, and production scheduling were out of OEM warranty. Perception IT implemented 24x7 hardware support, local replacement parts, proactive maintenance, and automated patching.', outcomes: ['Zero unplanned outages','$750K+ downtime risk avoided','48 servers under 24/7 SLA','Automated patching implemented'], tags: ['Lenovo Servers SLA','24/7 Support','Preventive Maintenance'], caseStudy: '/projects/manufacturing-infrastructure', image: '/case-studies/ibrahim-fibres/hero-optimized.jpg' },
-  { title: 'Multi-Site Precision Cooling Deployment', org: 'Leading Pakistani Bank', desc: 'Deployed precision cooling units across four data centres, reducing PUE from 1.8 to 1.35.', outcomes: ['PUE reduced from 1.8 to 1.35','N+1 redundancy achieved','8-week deployment timeline'], tags: ['Multi-Site','PUE Optimisation','N+1 Redundancy'], caseStudy: '/case-studies/multi-site-precision-cooling', image: '/3D images/Cooling and Airflow/Cooling - Assesment.png' },
-  { title: 'Thermal Runaway Prevention', org: 'Financial Institution', desc: 'Redesigned airflow management preventing thermal runaway and extending equipment lifespan.', outcomes: ['Hotspots eliminated','3°C average temperature reduction','Annual cooling cost savings of 25%'], tags: ['Airflow Redesign','Thermal Mapping','Cost Reduction'], caseStudy: '/case-studies/thermal-runaway-prevention', image: '/3D images/Cooling and Airflow/perceptionit_thermal_validation_final.webp' },
-  { title: 'Monsoon Season Resilience', org: 'E-commerce Platform', desc: 'Implemented humidity control and drainage systems to maintain operations during monsoon season.', outcomes: ['Zero humidity-related outages','99.9% uptime maintained','Reduced equipment corrosion by 40%'], tags: ['Humidity Control','Drainage Systems','Monsoon Hardening'], caseStudy: '/case-studies/monsoon-season-resilience', image: '/3D images/Cooling and Airflow/Deployment- Cooling.png' },
-  { title: 'Legacy Cooling System Modernisation', org: 'Government Agency', desc: 'Upgraded 15-year-old cooling infrastructure with modern precision units and smart controls.', outcomes: ['Cooling efficiency improved by 45%','Remote monitoring implemented','Maintenance costs reduced by 30%'], tags: ['Retrofit','Smart Controls','Efficiency Gain'], caseStudy: '/case-studies/legacy-cooling-modernisation', image: '/3D images/Cooling and Airflow/Cooling - Procurement.png' },
-  { title: 'Edge Site Thermal Management', org: 'Telecom Provider', desc: 'Designed and deployed compact cooling solutions for 12 edge data centres across Pakistan.', outcomes: ['Standardised cooling across all sites','Remote monitoring for all locations','Deployment completed in 6 weeks'], tags: ['Edge Deployment','Standardisation','Remote Monitoring'], caseStudy: '/case-studies/edge-thermal-management', image: '/3D images/Cooling and Airflow/perceptionit_monitoring_integration.png' },
-  { title: 'Data Centre Expansion Cooling', org: 'Cloud Provider', desc: 'Scaled cooling capacity by 200% to support data centre expansion while maintaining efficiency.', outcomes: ['200% capacity increase','PUE maintained at 1.4','Phased deployment minimising downtime'], tags: ['Capacity Scaling','Phased Deploy','PUE Maintenance'], caseStudy: '/case-studies/data-centre-expansion-cooling', image: '/3D images/Cooling and Airflow/perceptionit_noc_bigscreens_v2.png' },
+  { title: 'Out-of-Warranty Infrastructure Support', sector: 'Manufacturing / Textile', org: 'Ibrahim Fibres Limited', desc: '48 Lenovo servers running mission-critical MES, ERP, and production scheduling were out of OEM warranty. Perception IT implemented 24x7 hardware support, local replacement parts, proactive maintenance, and automated patching.', outcomes: ['Zero unplanned outages','$750K+ downtime risk avoided','48 servers under 24/7 SLA','Automated patching implemented'], tags: ['Lenovo Servers SLA','24/7 Support','Preventive Maintenance'], caseStudy: '/projects/manufacturing-infrastructure', image: '/case-studies/ibrahim-fibres/hero-optimized.jpg' },
+  { title: 'Multi-Site Precision Cooling Deployment', sector: 'Banking / Financial Services', org: 'Leading Pakistani Bank', desc: 'Deployed precision cooling units across four data centres, reducing PUE from 1.8 to 1.35.', outcomes: ['PUE reduced from 1.8 to 1.35','N+1 redundancy achieved','8-week deployment timeline'], tags: ['Multi-Site','PUE Optimisation','N+1 Redundancy'], caseStudy: '/case-studies/multi-site-precision-cooling', image: '/3D images/Cooling and Airflow/Cooling - Assesment.png' },
+  { title: 'Thermal Runaway Prevention', sector: 'Financial Services', org: 'Financial Institution', desc: 'Redesigned airflow management preventing thermal runaway and extending equipment lifespan.', outcomes: ['Hotspots eliminated','3°C average temperature reduction','Annual cooling cost savings of 25%'], tags: ['Airflow Redesign','Thermal Mapping','Cost Reduction'], caseStudy: '/case-studies/thermal-runaway-prevention', image: '/3D images/Cooling and Airflow/perceptionit_thermal_validation_final.webp' },
+  { title: 'Monsoon Season Resilience', sector: 'E-commerce / Retail', org: 'E-commerce Platform', desc: 'Implemented humidity control and drainage systems to maintain operations during monsoon season.', outcomes: ['Zero humidity-related outages','99.9% uptime maintained','Reduced equipment corrosion by 40%'], tags: ['Humidity Control','Drainage Systems','Monsoon Hardening'], caseStudy: '/case-studies/monsoon-season-resilience', image: '/3D images/Cooling and Airflow/Deployment- Cooling.png' },
+  { title: 'Legacy Cooling System Modernisation', sector: 'Government / Public Sector', org: 'Government Agency', desc: 'Upgraded 15-year-old cooling infrastructure with modern precision units and smart controls.', outcomes: ['Cooling efficiency improved by 45%','Remote monitoring implemented','Maintenance costs reduced by 30%'], tags: ['Retrofit','Smart Controls','Efficiency Gain'], caseStudy: '/case-studies/legacy-cooling-modernisation', image: '/3D images/Cooling and Airflow/Cooling - Procurement.png' },
+  { title: 'Edge Site Thermal Management', sector: 'Telecommunications', org: 'Telecom Provider', desc: 'Designed and deployed compact cooling solutions for 12 edge data centres across Pakistan.', outcomes: ['Standardised cooling across all sites','Remote monitoring for all locations','Deployment completed in 6 weeks'], tags: ['Edge Deployment','Standardisation','Remote Monitoring'], caseStudy: '/case-studies/edge-thermal-management', image: '/3D images/Cooling and Airflow/perceptionit_monitoring_integration.png' },
+  { title: 'Data Centre Expansion Cooling', sector: 'Cloud / Technology', org: 'Cloud Provider', desc: 'Scaled cooling capacity by 200% to support data centre expansion while maintaining efficiency.', outcomes: ['200% capacity increase','PUE maintained at 1.4','Phased deployment minimising downtime'], tags: ['Capacity Scaling','Phased Deploy','PUE Maintenance'], caseStudy: '/case-studies/data-centre-expansion-cooling', image: '/3D images/Cooling and Airflow/perceptionit_noc_bigscreens_v2.png' },
 ];
 
 const TestimonialCarousel = () => {
@@ -964,8 +958,11 @@ const ProjectCard = ({ project, index }: { project: typeof PROJECTS[0]; index: n
         )}
       </div>
       <div className="p-6">
-        <p className="carbon-label-02 text-[#0f62fe] uppercase tracking-wider mb-2">{project.org}</p>
-        <h3 className="carbon-fluid-heading-03 text-gray-900 mb-3 leading-snug">{project.title}</h3>
+        <div className="flex items-center gap-2 mb-2">
+          <span className="px-2 py-0.5 bg-[#0f62fe]/5 text-[#0f62fe] carbon-label-01 rounded">{project.sector}</span>
+        </div>
+        <h3 className="carbon-fluid-heading-03 text-gray-900 mb-2 leading-snug">{project.title}</h3>
+        <p className="carbon-label-02 text-gray-400 mb-3">{project.org}</p>
         <p className="carbon-body-02 text-gray-500 mb-5 leading-relaxed">{project.desc}</p>
         {project.tags && (
           <div className="flex flex-wrap gap-2 mb-5">
@@ -1202,16 +1199,16 @@ const CoolingThermal = () => {
   return (
     <div className="min-h-screen bg-white">
       <CoolingNav />
-      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-2">
-          <ol className="flex items-center gap-2 carbon-helper-text-01 text-gray-400">
+      <nav aria-label="Breadcrumb" className="bg-[#FAFAFA] border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-2.5">
+          <ol className="flex items-center gap-2 carbon-label-01 text-gray-400">
             <li><a href="/#/" className="hover:text-[#0f62fe] transition-colors">Home</a></li>
             <li className="text-gray-300">/</li>
             <li><a href="/#/services/infrastructure" className="hover:text-[#0f62fe] transition-colors">Infrastructure</a></li>
             <li className="text-gray-300">/</li>
             <li><a href="/#/services/datacenter2" className="hover:text-[#0f62fe] transition-colors">Data Centre Services</a></li>
             <li className="text-gray-300">/</li>
-            <li className="text-gray-900" aria-current="page">Cooling &amp; Airflow</li>
+            <li className="text-gray-900 font-medium" aria-current="page">Cooling &amp; Airflow</li>
           </ol>
         </div>
       </nav>
