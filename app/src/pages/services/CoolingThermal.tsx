@@ -789,7 +789,7 @@ const ManagedSection = () => {
 
 const TESTIMONIALS = [
   {
-    quote: "Perception IT transformed our server infrastructure from a risk into a reliable engine for operations. Any downtime could have cost us millions. Their 24/7 support, same-day hardware replacements, and proactive maintenance have kept our systems running without a single major incident. We now operate with confidence knowing our IT backbone is in expert hands.",
+    quote: "Perception IT transformed our server infrastructure from a risk into a reliable engine for operations. Any downtime could have cost us millions. Their 24/7 support, same-day hardware replacements, and proactive maintenance have kept our systems running without a single major incident.\n\nWe now operate with confidence knowing our IT backbone is in expert hands.",
     author: 'Mr. Usman Zafar',
     org: 'Head of IT, Ibrahim Fibres Limited',
     logo: '/logos/clients/IFL-logo.png',
@@ -890,7 +890,7 @@ const TestimonialCarousel = () => {
     >
       <Quotes className="absolute top-6 left-6 w-16 h-16 text-white/10" />
       <div className="relative z-10">
-        <p className="carbon-fluid-quotation-03 text-white mt-4 mb-8 leading-relaxed px-8 md:px-16">"{t.quote}"</p>
+        <p className="carbon-fluid-quotation-03 text-white mt-4 mb-8 leading-relaxed px-8 md:px-16 whitespace-pre-line">"{t.quote}"</p>
         <div className="flex items-center gap-4 px-8 md:px-16">
           {t.logo && (
             <div className="p-2 bg-white rounded-lg shadow-sm flex-shrink-0">
