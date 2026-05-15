@@ -891,7 +891,7 @@ const TestimonialCarousel = () => {
       <Quotes className="absolute top-6 left-6 w-16 h-16 text-white/10" />
       <div className="relative z-10">
         <p className="carbon-fluid-quotation-03 text-white mt-4 mb-8 leading-relaxed px-8 md:px-16">"{t.quote}"</p>
-        <div className="flex items-center gap-4 px-4 md:px-8">
+        <div className="flex items-center gap-4 px-8 md:px-16">
           {t.logo && (
             <div className="p-2 bg-white rounded-lg shadow-sm flex-shrink-0">
               <img
@@ -902,8 +902,8 @@ const TestimonialCarousel = () => {
             </div>
           )}
           <div>
-            <p className="carbon-heading-02 text-white">{t.author}</p>
-            <p className="carbon-body-02 text-white/70 mt-1">{t.org}</p>
+            <p className="carbon-body-02 text-white/70">{t.org}</p>
+            <p className="carbon-heading-02 text-white mt-0.5">{t.author}</p>
           </div>
         </div>
         {t.project && (
