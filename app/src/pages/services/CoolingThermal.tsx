@@ -160,14 +160,10 @@ const HeroSection = () => (
    ============================================================================== */
 
 const TrustTiles = () => {
-  const tiles = [
-    { icon: TemperatureHot, headline: '45°C Ambient Rated', subtext: 'Pakistan-specific derating', color: '#0f62fe' },
-    { icon: Meter, headline: 'IR Thermal Mapping', subtext: '90-minute on-site audit', color: '#6929c4' },
-    { icon: Dashboard, headline: '24/7 NOC Monitoring', subtext: 'Real-time thermal alerts', color: '#24a148' },
-    { icon: Certificate, headline: 'SLA-Backed Uptime*', subtext: '99.9%* with 4-hour* response', color: '#0f62fe' },
-    { icon: Settings, headline: 'Zero-Downtime Deploy', subtext: 'Install without interruption', color: '#6929c4' },
-    { icon: CheckmarkFilled, headline: 'Monsoon Hardened', subtext: 'Humidity & dust validated', color: '#24a148' },
-    { icon: Certificate, headline: 'Certified Supply Chain', subtext: 'Tier 1 manufacturers only', color: '#e78f00' },
+  const reasons = [
+    'Certified Tier 1 Supply Chain',
+    'Pakistan-Specific Engineering Protocols',
+    'Single-Partner Accountability',
   ];
   return (
     <section className="py-16 bg-white border-t border-gray-100">
@@ -176,14 +172,11 @@ const TrustTiles = () => {
           <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Why Perception IT</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl mx-auto">Six reasons data centre operators across Pakistan trust Perception IT.</p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-          {tiles.map((tile) => (
-            <div key={tile.headline} className="group p-4 bg-gray-50 border border-gray-100 hover:border-[#0f62fe] hover:shadow-md transition-all cursor-default rounded-lg">
-              <div className="w-10 h-10 bg-white flex items-center justify-center mb-3 group-hover:scale-110 transition-transform rounded-lg">
-                <tile.icon className="w-5 h-5" style={{ color: tile.color }} />
-              </div>
-              <p className="carbon-label-02 text-gray-900 leading-tight mb-1">{tile.headline}</p>
-              <p className="carbon-helper-text-01 text-gray-500">{tile.subtext}</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {reasons.map((reason) => (
+            <div key={reason} className="flex items-center gap-3 p-4 bg-gray-50 border border-gray-100 rounded-lg">
+              <CheckmarkFilled className="w-5 h-5 text-[#24a148] flex-shrink-0" />
+              <span className="carbon-label-02 text-gray-900">{reason}</span>
             </div>
           ))}
         </div>
