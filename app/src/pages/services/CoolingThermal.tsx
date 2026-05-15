@@ -141,7 +141,7 @@ const HeroSection = () => (
         <div className="flex flex-wrap items-center gap-1 carbon-label-02 mb-8">
           {['Assessment','Procurement','Deployment','24/7 Monitoring'].map((step,i)=> (
             <div key={step} className="flex items-center">
-              <span className={`px-2 py-1 transition-colors ${i===3?'bg-[#0f62fe] text-white rounded':'text-[#6f6f6f]'}`}>{step}</span>
+              <span className={`px-2 py-1 transition-colors ${i===3?'text-[#0f62fe] font-semibold':'text-[#6f6f6f]'}`}>{step}</span>
               {i<3 && <span className="text-[#c6c6c6] mx-1">→</span>}
             </div>
           ))}
