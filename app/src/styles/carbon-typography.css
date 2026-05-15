@@ -219,6 +219,14 @@
   letter-spacing: 0;
 }
 
+.carbon-fluid-quotation-03 {
+  font-family: 'IBM Plex Serif', Georgia, Times, serif;
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.875rem; /* 30px */
+  font-weight: 400; /* Regular */
+  letter-spacing: 0;
+}
+
 /* Label Styles */
 .carbon-label-02 {
   font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;

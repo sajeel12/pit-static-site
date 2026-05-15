@@ -793,7 +793,7 @@ const TESTIMONIALS = [
     author: 'Mr. Usman Zafar',
     org: 'Head of IT, Ibrahim Fibres Limited',
     logo: '/logos/clients/IFL-logo.png',
-    bg: 'from-[#0f62fe] to-[#4589ff]',
+    bg: 'from-[#b28600] to-[#e78f00]',
     project: {
       headline: 'Deployed ServerLife Extend™ to 48 Critical Servers',
       desc: 'Eliminated hardware downtime risk and deferred CapEx spend without compromise on quality or continuity',
@@ -829,7 +829,7 @@ const TESTIMONIALS = [
     author: 'Plant Operations Manager',
     org: 'Sefam Private Limited',
     logo: '/logos/clients/client-Sefam.jpeg',
-    bg: 'from-[#0043ce] to-[#0f62fe]',
+    bg: 'from-[#9f1853] to-[#d02670]',
     project: {
       headline: 'Monsoon-Hardened Precision Cooling Deployment',
       desc: 'Custom 45°C ambient-rated solution delivering 60% additional cooling capacity with humidity resilience',
@@ -890,7 +890,7 @@ const TestimonialCarousel = () => {
     >
       <Quotes className="absolute top-6 left-6 w-16 h-16 text-white/10" />
       <div className="relative z-10">
-        <p className="carbon-body-02 text-white mt-4 mb-8 leading-relaxed px-4 md:px-8">"{t.quote}"</p>
+        <p className="carbon-fluid-quotation-03 text-white mt-4 mb-8 leading-relaxed px-4 md:px-8">"{t.quote}"</p>
         <div className="flex items-center gap-4 px-4 md:px-8">
           {t.logo && (
             <div className="p-2 bg-white rounded-lg shadow-sm flex-shrink-0">
