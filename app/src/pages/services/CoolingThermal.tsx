@@ -212,15 +212,14 @@ const ServicesHeader = () => (
       </p>
       <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4">
         {[
-          { num: '01', label: 'Assess', icon: Search, color: '#0f62fe' },
-          { num: '02', label: 'Procure', icon: Temperature, color: '#6929c4' },
-          { num: '03', label: 'Deploy', icon: Settings, color: '#0f62fe' },
-          { num: '04', label: 'Monitor', icon: Dashboard, color: '#6929c4' },
+          { num: '01', label: 'Assess', color: '#0f62fe' },
+          { num: '02', label: 'Procure', color: '#6929c4' },
+          { num: '03', label: 'Deploy', color: '#0f62fe' },
+          { num: '04', label: 'Monitor', color: '#6929c4' },
         ].map((step, i) => (
           <div key={step.label} className="flex items-center gap-2 md:gap-4">
-            <div className="flex items-center gap-2 md:gap-3 px-3 py-2 md:px-4 md:py-3 bg-white border border-gray-200 rounded-lg">
-              <span className="w-6 h-6 md:w-7 md:h-7 bg-[#0f62fe] text-white flex items-center justify-center carbon-label-01 rounded">{step.num}</span>
-              <step.icon className="w-4 h-4 md:w-5 md:h-5 hidden sm:block" style={{ color: step.color }} />
+            <div className="flex items-center gap-2 px-3 py-2 md:px-4 md:py-3 bg-white border border-gray-200 rounded-lg" style={{ borderLeftWidth: '3px', borderLeftColor: step.color }}>
+              <span className="carbon-label-01" style={{ color: step.color }}>{step.num}</span>
               <span className="carbon-label-02 text-gray-900">{step.label}</span>
             </div>
             {i < 3 && <ArrowRight className="w-4 h-4 text-gray-300 hidden sm:block" />}
