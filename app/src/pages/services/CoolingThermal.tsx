@@ -124,9 +124,20 @@ const StickyAnchorNav = () => {
 const HeroSection = () => (
   <section id="overview" className="relative min-h-[85vh] flex items-center bg-white overflow-hidden pt-20 carbon-font">
     <HeroCoolingGraphics />
-    <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
+    <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-8 pb-16 lg:pb-20">
       <div className="max-w-3xl lg:pl-6 relative">
-        <div className="absolute -left-2 top-[3.2rem] h-[130px] w-0.5 bg-gradient-to-b from-[#0f62fe] to-[#8a3ffc] animate-slot-draw hidden lg:block" />
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex items-center gap-2 carbon-label-01 text-gray-400">
+            <li><a href="/#/" className="hover:text-[#0f62fe] transition-colors">Home</a></li>
+            <li className="text-gray-300">/</li>
+            <li><a href="/#/services/infrastructure" className="hover:text-[#0f62fe] transition-colors">Infrastructure</a></li>
+            <li className="text-gray-300">/</li>
+            <li><a href="/#/services/datacenter2" className="hover:text-[#0f62fe] transition-colors">Data Centre Services</a></li>
+            <li className="text-gray-300">/</li>
+            <li className="text-gray-900 font-medium" aria-current="page">Cooling &amp; Airflow</li>
+          </ol>
+        </nav>
+        <div className="absolute -left-2 top-[5.5rem] h-[130px] w-0.5 bg-gradient-to-b from-[#0f62fe] to-[#8a3ffc] animate-slot-draw hidden lg:block" />
         <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-100 rounded-full mb-6">
           <span className="w-2 h-2 bg-[#24a148] rounded-full animate-pulse" />
           <span className="carbon-label-02" style={{ color: "#0f62fe" }}>Engineered for Pakistan&apos;s 45°C summers</span>
@@ -1174,19 +1185,6 @@ const CoolingThermal = () => {
   return (
     <div className="min-h-screen bg-white">
       <CoolingNav />
-      <nav aria-label="Breadcrumb" className="bg-[#FAFAFA] border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-2.5">
-          <ol className="flex items-center gap-2 carbon-label-01 text-gray-400">
-            <li><a href="/#/" className="hover:text-[#0f62fe] transition-colors">Home</a></li>
-            <li className="text-gray-300">/</li>
-            <li><a href="/#/services/infrastructure" className="hover:text-[#0f62fe] transition-colors">Infrastructure</a></li>
-            <li className="text-gray-300">/</li>
-            <li><a href="/#/services/datacenter2" className="hover:text-[#0f62fe] transition-colors">Data Centre Services</a></li>
-            <li className="text-gray-300">/</li>
-            <li className="text-gray-900 font-medium" aria-current="page">Cooling &amp; Airflow</li>
-          </ol>
-        </div>
-      </nav>
       <main id="main-content">
         <HeroSection />
         <StickyAnchorNav />
