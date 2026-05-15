@@ -125,55 +125,30 @@ const HeroSection = () => (
   <section id="overview" className="relative min-h-[85vh] flex items-center bg-white overflow-hidden pt-20 carbon-font">
     <HeroCoolingGraphics />
     <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
-      <div className="grid lg:grid-cols-5 gap-12 items-center">
-        {/* Left: text content */}
-        <div className="lg:col-span-3 relative">
-          <div className="absolute -left-2 top-[3.2rem] h-[130px] w-0.5 bg-gradient-to-b from-[#0f62fe] to-[#8a3ffc] animate-slot-draw hidden lg:block" />
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-100 rounded-full mb-6">
-            <span className="w-2 h-2 bg-[#24a148] rounded-full animate-pulse" />
-            <span className="carbon-label-02" style={{ color: "#0f62fe" }}>Engineered for Pakistan&apos;s 45°C summers</span>
-          </div>
-          <h1 className="carbon-fluid-display-03 text-[#161616] mb-6 relative">
-            <span className="block">Data Centre Cooling</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0f62fe] to-[#8a3ffc]">Built for Pakistan&apos;s Climate</span>
-          </h1>
-          <p className="carbon-fluid-heading-03 text-[#525252] mb-8">
-            We engineer for Pakistan&apos;s operational extremes, providing site-specific thermal validation across every layer of your infrastructure.
-          </p>
-          <div className="flex flex-wrap items-center gap-1 carbon-label-02 mb-8">
-            {['Assessment','Procurement','Deployment','24/7 Monitoring'].map((step,i)=> (
-              <div key={step} className="flex items-center">
-                <span className={`px-2 py-1 transition-colors ${i===3?'text-[#0f62fe] font-semibold':'text-[#6f6f6f]'}`}>{step}</span>
-                {i<3 && <span className="text-[#c6c6c6] mx-1">→</span>}
-              </div>
-            ))}
-          </div>
-          <a href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request" className="group inline-flex items-center gap-3 px-8 h-14 bg-gradient-to-r from-[#0f62fe] to-[#4589ff] text-white carbon-heading-02 hover:from-[#0353e9] hover:to-[#0f62fe] transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5 rounded-lg">
-            Speak to an Engineer
-          </a>
+      <div className="max-w-3xl lg:pl-6 relative">
+        <div className="absolute -left-2 top-[3.2rem] h-[130px] w-0.5 bg-gradient-to-b from-[#0f62fe] to-[#8a3ffc] animate-slot-draw hidden lg:block" />
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-100 rounded-full mb-6">
+          <span className="w-2 h-2 bg-[#24a148] rounded-full animate-pulse" />
+          <span className="carbon-label-02" style={{ color: "#0f62fe" }}>Engineered for Pakistan&apos;s 45°C summers</span>
         </div>
-
-        {/* Right: credibility card */}
-        <div className="lg:col-span-2">
-          <div className="bg-gray-50 border border-gray-100 rounded-xl p-6 lg:p-8">
-            <p className="carbon-label-02 text-gray-400 uppercase tracking-wider mb-4">At a Glance</p>
-            <div className="space-y-4">
-              {[
-                { num: '45°C', label: 'Ambient Rated', desc: 'Pakistan-specific derating' },
-                { num: '99.9%', label: 'Uptime Target*', desc: 'SLA-backed commitment' },
-                { num: '4 hrs', label: 'Response Time*', desc: 'On-site emergency support' },
-              ].map((stat) => (
-                <div key={stat.label} className="flex items-start gap-3">
-                  <span className="text-2xl font-light text-[#0f62fe] w-16 flex-shrink-0">{stat.num}</span>
-                  <div>
-                    <p className="carbon-heading-02 text-gray-900">{stat.label}</p>
-                    <p className="carbon-helper-text-01 text-gray-400">{stat.desc}</p>
-                  </div>
-                </div>
-              ))}
+        <h1 className="carbon-fluid-display-03 text-[#161616] mb-6 relative">
+          <span className="block">Data Centre Cooling</span>
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0f62fe] to-[#8a3ffc]">Built for Pakistan&apos;s Climate</span>
+        </h1>
+        <p className="carbon-fluid-heading-03 text-[#525252] mb-8">
+          We engineer for Pakistan&apos;s operational extremes, providing site-specific thermal validation across every layer of your infrastructure.
+        </p>
+        <div className="flex flex-wrap items-center gap-1 carbon-label-02 mb-8">
+          {['Assessment','Procurement','Deployment','24/7 Monitoring'].map((step,i)=> (
+            <div key={step} className="flex items-center">
+              <span className={`px-2 py-1 transition-colors ${i===3?'text-[#0f62fe] font-semibold':'text-[#6f6f6f]'}`}>{step}</span>
+              {i<3 && <span className="text-[#c6c6c6] mx-1">→</span>}
             </div>
-          </div>
+          ))}
         </div>
+        <a href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request" className="group inline-flex items-center gap-3 px-8 h-14 bg-gradient-to-r from-[#0f62fe] to-[#4589ff] text-white carbon-heading-02 hover:from-[#0353e9] hover:to-[#0f62fe] transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5 rounded-lg">
+          Speak to an Engineer
+        </a>
       </div>
     </div>
     <style>{`@keyframes slot-draw{from{transform:scaleY(0)}to{transform:scaleY(1)}}.animate-slot-draw{animation:slot-draw 1.5s ease-out forwards;transform-origin:top}`}</style>
