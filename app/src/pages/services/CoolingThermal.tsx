@@ -260,7 +260,7 @@ const AssessmentSection = () => {
   ];
 
   return (
-    <section id="assessment" className="py-20 bg-[#FAFAFA]">
+    <section id="assessment" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="mb-10 carbon-font">
@@ -689,7 +689,7 @@ const ManagedSection = () => {
   ];
 
   return (
-    <section id="managed" className="py-20 bg-white">
+    <section id="managed" className="py-20 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-10 carbon-font">
           <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: '#0f62fe' }}>04 Managed Services</span>
@@ -1139,7 +1139,7 @@ const FAQ_ITEMS = [
 
 const FAQSection = () => {
   return (
-    <section id="faq" className="py-20 bg-[#FAFAFA]">
+    <section id="faq" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-12 carbon-font">
           <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>FAQ</span>
