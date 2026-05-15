@@ -303,7 +303,7 @@ const DesktopNavItem = ({
           aria-expanded={isOpen}
           aria-haspopup="true"
           aria-label={`Toggle ${item.label} menu`}
-          className={`px-1 py-2 transition-colors ${
+          className={`px-0.5 py-2 transition-colors ${
             isOpen ? 'text-white' : 'text-white/50 hover:text-white'
           }`}
         >
@@ -452,7 +452,7 @@ export default function CoolingNav() {
 
             {/* Desktop nav */}
             <nav
-              className="hidden lg:flex items-center ml-8 gap-0.5"
+              className="hidden lg:flex items-center ml-8 gap-2"
               aria-label="Main navigation"
             >
               {NAV_ITEMS.map((item) => (

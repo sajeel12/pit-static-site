@@ -33,7 +33,7 @@ const trackEvent = (eventName: string, params?: Record<string, any>) => {
    ============================================================================== */
 
 const PAGE_SECTIONS = [
-  { id: 'services', label: 'Services', inNav: true },
+  { id: 'services', label: 'Services', inNav: false },
   { id: 'assessment', label: '01 Assessment', inNav: true },
   { id: 'hardware', label: '02 Procurement', inNav: true },
   { id: 'installation', label: '03 Deployment', inNav: true },
@@ -63,7 +63,7 @@ const PAGE_SECTIONS = [
    ============================================================================== */
 
 const StickyAnchorNav = () => {
-  const [activeSection, setActiveSection] = useState('services');
+  const [activeSection, setActiveSection] = useState('assessment');
   const [navScrolled, setNavScrolled] = useState(false);
   const navItems = PAGE_SECTIONS.filter((s) => s.inNav);
 
