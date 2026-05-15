@@ -884,13 +884,13 @@ const TestimonialCarousel = () => {
 
   return (
     <div
-      className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#0F172A] to-[#1e293b] pt-10 px-8 pb-6 md:pt-14 md:px-12 md:pb-8 transition-all duration-700"
+      className={`relative overflow-hidden rounded-xl bg-gradient-to-r ${t.bg} pt-10 px-8 pb-6 md:pt-14 md:px-12 md:pb-8 transition-all duration-700`}
       onMouseEnter={pause}
       onMouseLeave={resume}
     >
       <Quotes className="absolute top-6 left-6 w-16 h-16 text-white/10" />
       <div className="relative z-10">
-        <p className="carbon-fluid-quotation-01 text-white mt-4 mb-8 leading-relaxed px-4 md:px-8">"{t.quote}"</p>
+        <p className="carbon-body-02 text-white mt-4 mb-8 leading-relaxed px-4 md:px-8">"{t.quote}"</p>
         <div className="flex items-center gap-4 px-4 md:px-8">
           {t.logo && (
             <div className="p-2 bg-white rounded-lg shadow-sm flex-shrink-0">
