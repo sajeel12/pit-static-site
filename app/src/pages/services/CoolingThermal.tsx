@@ -174,6 +174,7 @@ const TrustTiles = () => {
     { icon: Certificate, headline: 'SLA-Backed Uptime*', subtext: '99.9%* with 4-hour* response', color: '#0f62fe' },
     { icon: Settings, headline: 'Zero-Downtime Deploy', subtext: 'Install without interruption', color: '#6929c4' },
     { icon: CheckmarkFilled, headline: 'Monsoon Hardened', subtext: 'Humidity & dust validated', color: '#24a148' },
+    { icon: Certificate, headline: 'Certified Supply Chain', subtext: 'Tier 1 manufacturers only', color: '#e78f00' },
   ];
   return (
     <section className="py-16 bg-white border-t border-gray-100">
@@ -182,7 +183,7 @@ const TrustTiles = () => {
           <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Why Perception IT</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl mx-auto">Engineered for Pakistan's climate. Validated for your facility.</p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
           {tiles.map((tile) => (
             <div key={tile.headline} className="group p-4 bg-gray-50 border border-gray-100 hover:border-[#0f62fe] hover:shadow-md transition-all cursor-default rounded-lg">
               <div className="w-10 h-10 bg-white flex items-center justify-center mb-3 group-hover:scale-110 transition-transform rounded-lg">
@@ -1194,11 +1195,11 @@ const CTASection = () => {
               Speak to an Engineer
             </a>
             <a
-              href="mailto:contact@perception-it.com?subject=Hardware%20Consultation%20Request"
+              href="mailto:contact@perception-it.com?subject=Send%20me%20the%20Thermal%20Readiness%20Checklist"
               className="inline-flex items-center justify-center gap-2 px-6 py-4 border-2 border-white text-white carbon-heading-02 hover:bg-white/10 transition-colors rounded-lg"
-              onClick={() => trackEvent('cta_conversion', { type: 'consultation', location: 'bottom_cta' })}
+              onClick={() => trackEvent('cta_conversion', { type: 'checklist', location: 'bottom_cta' })}
             >
-              Speak to an Engineer
+              Get a Thermal Health Checklist
             </a>
           </div>
         </div>
