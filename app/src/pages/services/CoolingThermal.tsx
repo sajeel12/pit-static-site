@@ -1176,7 +1176,7 @@ const CoolingThermal = () => {
           <ol className="flex items-center gap-2 carbon-helper-text-01 text-gray-400">
             <li><a href="/#/" className="hover:text-[#0f62fe] transition-colors">Home</a></li>
             <li className="text-gray-300">/</li>
-            <li><a href="/#/services" className="hover:text-[#0f62fe] transition-colors">Services</a></li>
+            <li><a href="/#/services/infrastructure" className="hover:text-[#0f62fe] transition-colors">Infrastructure</a></li>
             <li className="text-gray-300">/</li>
             <li><a href="/#/services/datacenter2" className="hover:text-[#0f62fe] transition-colors">Data Centre Services</a></li>
             <li className="text-gray-300">/</li>
