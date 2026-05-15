@@ -132,14 +132,11 @@ const HeroSection = () => (
           <span className="carbon-label-02" style={{ color: "#0f62fe" }}>Engineered for Pakistan&apos;s 45°C summers</span>
         </div>
         <h1 className="carbon-fluid-display-03 text-[#161616] mb-6 relative">
-          <span className="block">Precision Cooling &amp; Thermal Continuity</span>
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0f62fe] to-[#8a3ffc]">for Data Centres</span>
+          <span className="block">Data Centre Cooling</span>
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0f62fe] to-[#8a3ffc]">Built for Pakistan&apos;s Climate</span>
         </h1>
-        <p className="carbon-fluid-heading-03 text-[#525252] mb-5">
-          Cooling engineered for Pakistan&apos;s climate. Validated for your facility.
-        </p>
-        <p className="carbon-body-02 text-[#525252] mb-8">
-          One partner from assessment through 24/7 monitoring.
+        <p className="carbon-fluid-heading-03 text-[#525252] mb-8">
+          Most cooling systems fail here because they are deployed using global standards that don&apos;t account for 45°C summers, monsoon humidity, and grid instability. We don&apos;t just install equipment; we engineer thermal infrastructure specifically for Pakistan&apos;s operational extremes.
         </p>
         <div className="flex flex-wrap items-center gap-1 carbon-label-02 mb-8">
           {['Assessment','Procurement','Deployment','24/7 Monitoring'].map((step,i)=> (
