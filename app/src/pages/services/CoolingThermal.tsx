@@ -135,8 +135,8 @@ const HeroSection = () => (
           <span className="block">Precision Cooling &amp; Thermal Continuity</span>
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0f62fe] to-[#8a3ffc]">for Data Centres</span>
         </h1>
-        <p className="carbon-fluid-heading-03 text-[#525252] mb-5">
-          One partner, End-to-End Thermal Management.
+        <p className="carbon-fluid-heading-03 text-[#525252] mb-8">
+          Most cooling failures in Pakistan aren&apos;t equipment faults — they&apos;re installation, sizing, and maintenance gaps. We engineer thermal continuity from assessment through 24/7 monitoring.
         </p>
         <div className="flex flex-wrap items-center gap-1 carbon-label-02 mb-8">
           {['Assessment','Procurement','Deployment','24/7 Monitoring'].map((step,i)=> (
@@ -146,16 +146,9 @@ const HeroSection = () => (
             </div>
           ))}
         </div>
-        <div className="max-w-2xl mb-8">
-          <p className="carbon-body-02 text-[#525252]">
-            Engineered for Pakistan: 45°C summers, monsoon humidity, dust, and grid instability.
-          </p>
-        </div>
-        <div className="flex flex-wrap items-stretch gap-4">
-          <a href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request" className="group inline-flex items-center gap-3 px-8 h-14 bg-gradient-to-r from-[#0f62fe] to-[#4589ff] text-white carbon-heading-02 hover:from-[#0353e9] hover:to-[#0f62fe] transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5 rounded-lg">
-            Speak to an Engineer
-          </a>
-        </div>
+        <a href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request" className="group inline-flex items-center gap-3 px-8 h-14 bg-gradient-to-r from-[#0f62fe] to-[#4589ff] text-white carbon-heading-02 hover:from-[#0353e9] hover:to-[#0f62fe] transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5 rounded-lg">
+          Speak to an Engineer
+        </a>
       </div>
     </div>
     <style>{`@keyframes slot-draw{from{transform:scaleY(0)}to{transform:scaleY(1)}}.animate-slot-draw{animation:slot-draw 1.5s ease-out forwards;transform-origin:top}`}</style>
@@ -198,41 +191,6 @@ const TrustTiles = () => {
     </section>
   );
 };
-
-/* ==============================================================================
-   SECTION HEADER — clickable 01-04 links
-   ============================================================================== */
-
-const ServicesHeader = () => (
-  <section id="services" className="py-16 bg-[#FAFAFA] border-b border-gray-100">
-    <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center carbon-font">
-      <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">Cooling engineered for Pakistan&apos;s climate. Validated for your facility.</h2>
-      <p className="carbon-body-02 text-gray-600 max-w-2xl mx-auto mb-10">
-        One partner from assessment through 24/7 monitoring. No handoff gaps. No blame gaps.
-      </p>
-      <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4">
-        {[
-          { num: '01', label: 'Assess', color: '#0f62fe' },
-          { num: '02', label: 'Procure', color: '#6929c4' },
-          { num: '03', label: 'Deploy', color: '#0f62fe' },
-          { num: '04', label: 'Monitor', color: '#6929c4' },
-        ].map((step, i) => (
-          <div key={step.label} className="flex items-center gap-2 md:gap-4">
-            <div className="flex items-center gap-2 px-3 py-2 md:px-4 md:py-3 bg-white border border-gray-200 rounded-lg" style={{ borderLeftWidth: '3px', borderLeftColor: step.color }}>
-              <span className="carbon-label-01" style={{ color: step.color }}>{step.num}</span>
-              <span className="carbon-label-02 text-gray-900">{step.label}</span>
-            </div>
-            {i < 3 && <ArrowRight className="w-4 h-4 text-gray-300 hidden sm:block" />}
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
-/* ==============================================================================
-   01 ASSESSMENT OPTIONS — Bento with image overlay, hover cards, comparison
-   ============================================================================== */
 
 /* ==============================================================================
    01 ASSESSMENT — Image banner + floating cards + hover reveal
@@ -1223,15 +1181,14 @@ const CoolingThermal = () => {
       <main id="main-content">
         <HeroSection />
         <StickyAnchorNav />
-        <ServicesHeader />
         <AssessmentSection />
         <ProcurementSection />
         <DeploymentSection />
         <ManagedSection />
+        <TrustTiles />
         <ResultsSection />
         <EcosystemSection />
         <FAQSection />
-        <TrustTiles />
         <DisclaimerSection />
         <CTASection />
       </main>
