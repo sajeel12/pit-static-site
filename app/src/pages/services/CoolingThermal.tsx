@@ -902,8 +902,8 @@ const TestimonialCarousel = () => {
             </div>
           )}
           <div>
-            <p className="carbon-body-02 text-white/70">{t.org}</p>
-            <p className="carbon-heading-02 text-white mt-0.5">{t.author}</p>
+            <p className="carbon-heading-02 text-white">{t.author}</p>
+            <p className="carbon-body-02 text-white/70 mt-0.5">{t.org}</p>
           </div>
         </div>
         {t.project && (
@@ -982,8 +982,8 @@ const ProjectCard = ({ project, index }: { project: typeof PROJECTS[0]; index: n
         )}
       </div>
       <div className="p-6">
-        <p className="carbon-label-01 text-[#0f62fe] uppercase tracking-wider mb-2">{project.org}</p>
-        <h3 className="carbon-heading-02 text-gray-900 mb-3 leading-snug">{project.title}</h3>
+        <p className="carbon-label-02 text-[#0f62fe] uppercase tracking-wider mb-2">{project.org}</p>
+        <h3 className="carbon-fluid-heading-03 text-gray-900 mb-3 leading-snug">{project.title}</h3>
         <p className="carbon-body-02 text-gray-500 mb-5 leading-relaxed">{project.desc}</p>
         {project.tags && (
           <div className="flex flex-wrap gap-2 mb-5">
