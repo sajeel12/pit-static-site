@@ -276,8 +276,7 @@ const AssessmentSection = () => {
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
             <p className="carbon-label-01 uppercase mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>01 Assessment</p>
             <h3 className="carbon-fluid-heading-03 text-white mb-4 leading-tight">Thermal clarity before capital spend</h3>
-            <p className="carbon-body-02 text-white/75">Rapid health check for routine confidence.</p>
-            <p className="carbon-body-02 text-white/75 mt-2">Engineering-grade analysis before major investment.</p>
+            <p className="carbon-body-02 text-white/75">Rapid health check for routine confidence.<br />Engineering-grade analysis before major investment.</p>
           </div>
         </div>
 
