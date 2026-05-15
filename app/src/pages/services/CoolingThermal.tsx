@@ -1180,33 +1180,29 @@ const DisclaimerSection = () => (
 const CTASection = () => {
   return (
     <section id="cta" className="py-20 bg-[#0f62fe]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-          <div className="text-center lg:text-left">
-            <h2 className="carbon-fluid-heading-05 text-white mb-4">Ready to optimise your data centre cooling?</h2>
-            <p className="carbon-body-02 text-white/80 max-w-xl">Not sure where to start? Book a free 15-minute call with our thermal team. We&apos;ll help you identify the right way forward.</p>
-          </div>
-          <div className="flex flex-col items-center lg:items-end gap-4">
-            <a
-              href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0f62fe] carbon-heading-02 hover:bg-gray-50 transition-colors rounded-lg"
-              onClick={() => trackEvent('cta_conversion', { type: 'consultation', location: 'bottom_cta' })}
-            >
-              Speak to an Engineer
-            </a>
-            <div className="flex flex-col items-center lg:items-end gap-1">
-              <a
-                href="/downloads/Thermal-Readiness-Checklist.pdf"
-                download
-                className="inline-flex items-center gap-2 text-white/90 hover:text-white carbon-body-02 hover:underline transition-colors"
-                onClick={() => trackEvent('cta_conversion', { type: 'checklist_download', location: 'bottom_cta' })}
-              >
-                <Download className="w-4 h-4" />
-                Download the Thermal Health Checklist for self-assessment
-              </a>
-              <p className="carbon-helper-text-01 text-white/50">*PDF download. Self-assessment guide only. Not a substitute for professional engineering evaluation.</p>
-            </div>
-          </div>
+      <div className="max-w-2xl mx-auto px-6 text-center">
+        <h2 className="carbon-fluid-heading-05 text-white mb-4">Ready to optimise your data centre cooling?</h2>
+        <p className="carbon-body-02 text-white/80 mb-10">Book a free 15-minute call. We&apos;ll identify the right path forward.</p>
+
+        <a
+          href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request"
+          className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0f62fe] carbon-heading-02 hover:bg-gray-50 transition-colors rounded-lg"
+          onClick={() => trackEvent('cta_conversion', { type: 'consultation', location: 'bottom_cta' })}
+        >
+          Speak to an Engineer
+        </a>
+
+        <div className="mt-8 flex flex-col items-center gap-2">
+          <a
+            href="/downloads/Thermal-Readiness-Checklist.pdf"
+            download
+            className="inline-flex items-center gap-2 text-white/90 hover:text-white carbon-body-02 hover:underline transition-colors"
+            onClick={() => trackEvent('cta_conversion', { type: 'checklist_download', location: 'bottom_cta' })}
+          >
+            <Download className="w-4 h-4" />
+            Download the Thermal Health Checklist for self-assessment
+          </a>
+          <p className="carbon-helper-text-01 text-white/50 max-w-md">*PDF download. Self-assessment guide only. Not a substitute for professional engineering evaluation.</p>
         </div>
       </div>
     </section>
