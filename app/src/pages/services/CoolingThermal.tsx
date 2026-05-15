@@ -135,8 +135,11 @@ const HeroSection = () => (
           <span className="block">Precision Cooling &amp; Thermal Continuity</span>
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0f62fe] to-[#8a3ffc]">for Data Centres</span>
         </h1>
-        <p className="carbon-fluid-heading-03 text-[#525252] mb-8">
-          Most cooling failures in Pakistan aren&apos;t equipment faults — they&apos;re installation, sizing, and maintenance gaps. We engineer thermal continuity from assessment through 24/7 monitoring.
+        <p className="carbon-fluid-heading-03 text-[#525252] mb-5">
+          Cooling engineered for Pakistan&apos;s climate. Validated for your facility.
+        </p>
+        <p className="carbon-body-02 text-[#525252] mb-8">
+          One partner from assessment through 24/7 monitoring.
         </p>
         <div className="flex flex-wrap items-center gap-1 carbon-label-02 mb-8">
           {['Assessment','Procurement','Deployment','24/7 Monitoring'].map((step,i)=> (
