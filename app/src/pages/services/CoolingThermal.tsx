@@ -345,17 +345,16 @@ const AssessmentSection = () => {
 
 const RemoteAdvisorySection = () => {
   return (
-    <section id="international" className="py-20 bg-[#f8f9fa] border-t border-gray-200">
+    <section id="international" className="py-20 bg-white border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="bg-white rounded-2xl border border-gray-200 border-l-[3px] border-l-[#8d8d8d] p-8 md:p-10 shadow-sm">
-          {/* Header */}
-          <div className="mb-10 carbon-font">
-            <span className="inline-block bg-[#edf5ff] text-[#0f62fe] text-xs font-medium px-3 py-1 rounded-full mb-4">Remote Advisory Only</span>
-            <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">International Thermal Advisory</h2>
-            <p className="carbon-body-02 text-gray-600 max-w-3xl leading-relaxed">
-              Strategic thermal guidance for offshore data centres — delivered entirely remotely. We review your designs, specifications, and airflow plans, then provide actionable recommendations validated for extreme heat, humidity, and operational stress. No travel. No site dependency.
-            </p>
-          </div>
+        {/* Header */}
+        <div className="mb-10 carbon-font">
+          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block text-[#0f62fe]">International Advisory</span>
+          <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Remote Thermal Consulting</h2>
+          <p className="carbon-body-02 text-gray-500 max-w-2xl">
+            Strategic thermal guidance for offshore data centres — delivered entirely remotely. We review your designs, specifications, and airflow plans, then provide actionable recommendations validated for extreme heat, humidity, and operational stress.
+          </p>
+        </div>
 
           {/* Ideal For */}
           <div className="mb-10 p-6 bg-[#f4f9ff] rounded-2xl border border-[#dbeafe]">
@@ -472,7 +471,6 @@ const RemoteAdvisorySection = () => {
               Request Remote Advisory Consultation
             </a>
           </div>
-        </div>
       </div>
     </section>
   );
