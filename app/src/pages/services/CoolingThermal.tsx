@@ -349,7 +349,7 @@ const RemoteAdvisorySection = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="mb-10 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block text-[#0f62fe]">International Advisory</span>
+          <span className="inline-block bg-[#edf5ff] text-[#0f62fe] text-xs font-medium px-3 py-1 rounded-full mb-4">International Advisory</span>
           <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Remote Thermal Consulting</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">
             Strategic thermal guidance for offshore data centres — delivered entirely remotely. We review your designs, specifications, and airflow plans, then provide actionable recommendations validated for extreme heat, humidity, and operational stress.
