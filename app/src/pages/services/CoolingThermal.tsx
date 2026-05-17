@@ -345,107 +345,120 @@ const AssessmentSection = () => {
    ============================================================================== */
 
 const RemoteAdvisorySection = () => {
-  const benefits = [
-    'Thermal assessment from drawings and equipment data — CFD analysis, airflow strategy, and cooling design reviewed remotely without site visit.',
-    'Extreme climate risk validation — thermal assessment for 45°C ambient, high-humidity, and monsoon conditions using Pakistan-validated derating models.',
-    'Vendor specification and capacity review — independent validation of equipment specs, redundancy sizing, and manufacturer claims against your load profile.',
-    'Implementation roadmap with clear boundaries — phased delivery plan and commissioning guidance; final physical validation and handover typically require local site checks.',
-  ];
-
   return (
     <section id="international" className="py-20 bg-[#f8f9fa] border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="bg-white rounded-2xl border border-gray-200 border-l-[3px] border-l-[#8d8d8d] p-8 md:p-10 shadow-sm">
-          <div className="mb-8 carbon-font">
+          {/* Header */}
+          <div className="mb-10 carbon-font">
             <span className="inline-block bg-[#edf5ff] text-[#0f62fe] text-xs font-medium px-3 py-1 rounded-full mb-4">Remote Advisory Only</span>
             <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">International Thermal Advisory</h2>
-            <p className="carbon-body-02 text-gray-500 max-w-2xl">
-              Advisory-only thermal consulting for clients outside Pakistan. Delivered remotely — no site visit required.
+            <p className="carbon-body-02 text-gray-600 max-w-3xl leading-relaxed">
+              Strategic thermal guidance for offshore data centres — delivered entirely remotely. We review your designs, specifications, and airflow plans, then provide actionable recommendations validated for extreme heat, humidity, and operational stress. No travel. No site dependency.
             </p>
           </div>
 
-          <div className="mb-8 p-6 bg-[#f4f9ff] rounded-2xl border border-[#dbeafe]">
-            <p className="carbon-label-02 text-[#0f62fe] uppercase mb-3">Who this is for</p>
-            <ul className="space-y-2 carbon-body-02 text-gray-700">
+          {/* Ideal For */}
+          <div className="mb-10 p-6 bg-[#f4f9ff] rounded-2xl border border-[#dbeafe]">
+            <p className="carbon-label-02 text-[#0f62fe] uppercase mb-4">Ideal For</p>
+            <ul className="space-y-3 carbon-body-02 text-gray-700">
               <li className="flex items-start gap-3">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0f62fe] flex-shrink-0" />
-                <span><strong>International clients</strong> outside Pakistan who need thermal expertise without travel overhead.</span>
+                <CheckmarkFilled className="w-5 h-5 text-[#0f62fe] flex-shrink-0 mt-0.5" />
+                <span><strong>International operators</strong> designing for emerging-market or extreme climates</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0f62fe] flex-shrink-0" />
-                <span><strong>Pre-sales and early-stage planning</strong> — teams that need thermal direction before committing to procurement or site mobilization.</span>
+                <CheckmarkFilled className="w-5 h-5 text-[#0f62fe] flex-shrink-0 mt-0.5" />
+                <span><strong>Pre-sales and planning teams</strong> needing thermal direction before procurement or site mobilization</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0f62fe] flex-shrink-0" />
-                <span><strong>Design-phase validation</strong> — architects and engineers reviewing cooling strategy during construction or refurbishment planning.</span>
+                <CheckmarkFilled className="w-5 h-5 text-[#0f62fe] flex-shrink-0 mt-0.5" />
+                <span><strong>Architects and engineers</strong> validating cooling strategy during design or refurbishment phases</span>
               </li>
             </ul>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          {/* What You Receive + Why Choose */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
             <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200">
-              <p className="carbon-label-02 text-[#475569] uppercase mb-3">What we provide</p>
-              <ul className="space-y-3 carbon-body-02 text-gray-600">
-                {benefits.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-1 text-[#475569]">•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="p-8 bg-gray-50 rounded-2xl border border-gray-200">
-              <p className="carbon-label-02 uppercase tracking-[0.16px] mb-3 text-[#475569]">Why offshore clients choose this</p>
+              <p className="carbon-label-02 text-[#475569] uppercase mb-4">What You Receive</p>
               <ul className="space-y-4 carbon-body-02 text-gray-600">
-                <li><strong className="text-[#475569]">Faster start</strong> — begin strategy and specification review without waiting for travel schedules.</li>
-                <li><strong className="text-[#475569]">Lower cost</strong> — remote consultancy avoids site mobilization fees and daily allowances.</li>
-                <li><strong className="text-[#475569]">Design confidence</strong> — get expert review of thermal strategy before you finalize procurement.</li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 text-[#0f62fe] flex-shrink-0">◆</span>
+                  <span><strong className="text-gray-900">Remote CFD &amp; Airflow Strategy Review</strong> — Optimised using your supplied layouts and load data</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 text-[#0f62fe] flex-shrink-0">◆</span>
+                  <span><strong className="text-gray-900">Extreme-Climate Risk Assessment</strong> — Thermal validation for 45°C+ ambient, high-humidity, and monsoon conditions using Pakistan-validated derating models</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 text-[#0f62fe] flex-shrink-0">◆</span>
+                  <span><strong className="text-gray-900">Vendor Specification &amp; Capacity Review</strong> — Independent validation of equipment specs, redundancy sizing, and manufacturer claims against your actual load profile</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 text-[#0f62fe] flex-shrink-0">◆</span>
+                  <span><strong className="text-gray-900">Implementation Roadmap</strong> — Phased delivery plan with clear boundaries; final physical validation and handover typically require local site engagement</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200">
+              <p className="carbon-label-02 uppercase tracking-[0.16px] mb-4 text-[#475569]">Why International Teams Choose This</p>
+              <ul className="space-y-4 carbon-body-02 text-gray-600">
+                <li className="flex items-start gap-3">
+                  <span className="text-lg flex-shrink-0">⚡</span>
+                  <span><strong className="text-gray-900">Accelerate Timelines</strong> — Begin strategy and spec review immediately, without travel logistics</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-lg flex-shrink-0">💰</span>
+                  <span><strong className="text-gray-900">Reduce Advisory Overhead</strong> — Expert engineering without mobilization fees or daily allowances</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-lg flex-shrink-0">🎯</span>
+                  <span><strong className="text-gray-900">De-risk Procurement</strong> — Validate thermal design and vendor claims before capital commitment</span>
+                </li>
               </ul>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          {/* How It Works + Scope */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
             <div className="p-6 bg-white rounded-2xl border border-gray-200">
-              <p className="carbon-label-02 text-[#475569] uppercase mb-3">How it works</p>
-              <ol className="space-y-3 carbon-body-02 text-gray-600 list-decimal list-inside">
-                <li>You supply room layouts, equipment schedules, and environmental data.</li>
-                <li>We review drawings, run CFD analysis, and assess thermal risk remotely.</li>
-                <li>You receive a practical thermal roadmap with specifications and recommendations.</li>
+              <p className="carbon-label-02 text-[#475569] uppercase mb-4">How It Works</p>
+              <ol className="space-y-4 carbon-body-02 text-gray-600 list-decimal list-inside">
+                <li><strong className="text-gray-900">Data Submission</strong> — You share room layouts, equipment schedules, and environmental parameters via secure portal</li>
+                <li><strong className="text-gray-900">Remote Analysis</strong> — We run CFD modelling, assess thermal risk, and validate vendor specifications</li>
+                <li><strong className="text-gray-900">Roadmap Delivery</strong> — You receive a practical thermal strategy with prioritised recommendations and implementation boundaries</li>
               </ol>
+              <p className="mt-4 carbon-label-02 text-gray-400">Typical turnaround: 10–15 business days from data receipt.</p>
             </div>
             <div className="p-6 bg-white rounded-2xl border border-gray-200">
-              <p className="carbon-label-02 text-[#475569] uppercase mb-3">What is not included</p>
-              <ul className="space-y-3 carbon-body-02 text-gray-600">
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 text-gray-400">•</span>
-                  <span>Physical site surveys or instrumented validation</span>
+              <p className="carbon-label-02 text-[#475569] uppercase mb-4">Scope &amp; Delivery Boundaries</p>
+              <p className="carbon-body-02 text-gray-600 mb-3">This engagement delivers strategic advisory only. To ensure clarity:</p>
+              <ul className="space-y-2 carbon-body-02 text-gray-600 mb-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 flex-shrink-0">✅</span>
+                  <span><strong>Included:</strong> Methodology validation, design logic review, specification alignment, risk modelling</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 text-gray-400">•</span>
-                  <span>On-site commissioning or installation supervision</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 text-gray-400">•</span>
-                  <span>Final handover sign-off requiring physical presence</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 text-gray-400">•</span>
-                  <span>Assumes accurate client-supplied data — we validate methodology, not measurements</span>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 flex-shrink-0">❌</span>
+                  <span><strong>Excluded:</strong> Physical site surveys, instrumented testing, on-site commissioning, final handover sign-off, verification of client-supplied data accuracy</span>
                 </li>
               </ul>
+              <p className="carbon-body-02 text-gray-500 text-sm">Physical validation, commissioning, and managed services are available separately for Pakistan-based deployments.</p>
             </div>
           </div>
 
+          {/* CTA */}
           <div className="rounded-2xl bg-gray-100 border border-gray-200 p-8 md:flex md:items-center md:justify-between">
             <div className="max-w-2xl">
               <h3 className="carbon-heading-02 text-[#0F172A] mb-2">Ready to review your thermal strategy?</h3>
+              <p className="carbon-body-02 text-gray-600">Request a Remote Advisory Consultation and receive a scoping call within 48 hours.</p>
             </div>
-            <a href="mailto:contact@perception-it.com?subject=Remote%20Thermal%20Advisory%20Request" className="mt-6 inline-flex items-center justify-center rounded-lg bg-[#0f62fe] px-6 py-3 text-white carbon-body-02 hover:bg-[#0353e9] transition-colors md:mt-0">
-              Request remote advisory
+            <a href="mailto:contact@perception-it.com?subject=Remote%20Advisory%20Consultation%20Request" className="mt-6 inline-flex items-center justify-center rounded-lg bg-[#0f62fe] px-6 py-3 text-white carbon-body-02 hover:bg-[#0353e9] transition-colors md:mt-0">
+              Request Remote Advisory Consultation
             </a>
           </div>
-      </div>
+        </div>
       </div>
     </section>
   );
