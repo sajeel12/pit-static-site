@@ -219,6 +219,7 @@ const TrustTiles = () => {
 
 const AssessmentSection = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [cfdOpen, setCfdOpen] = useState(false);
 
   const cards = [
     {
@@ -307,55 +308,155 @@ const AssessmentSection = () => {
                 <p className="carbon-label-02 text-gray-400 uppercase mb-1">From</p>
                 <p className="carbon-fluid-heading-03 text-gray-900 font-light mb-1">PKR 45,000*</p>
                 <ul className="space-y-3">
-                  {[{l:'Best for',v:'Routine maintenance, edge sites, budget planning'},{l:'Deliverable',v:'Photo log + Fix/Watch/OK list'},{l:'Precision',v:'Qualitative assessment'},{l:'Method',v:'Visual inspection + structured checklist'},{l:'Time on-site',v:'2–4 hours'},{l:'Turnaround',v:'Report within 48 hours'}].map((item) => (
+                  {[{l:'Best for',v:'Routine maintenance, edge sites, budget planning'},{l:'Deliverable',v:'Visual documentation with Action/Monitor/Clear scoring'},{l:'Precision',v:'Qualitative assessment'},{l:'Method',v:'Visual inspection + structured checklist'},{l:'Time on-site',v:'2–4 hours'},{l:'Turnaround',v:'Report within 48 hours'}].map((item) => (
                     <li key={item.l} className="flex items-start gap-2 carbon-body-02 text-gray-600"><CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">{item.l}:</strong> {item.v}</span></li>
                   ))}
                 </ul>
               </div>
               <div className="p-6 bg-gray-50 rounded-xl border border-gray-100">
-                <p className="carbon-label-02 uppercase mb-2 text-[#0f62fe]">Engineering-Grade — Precision</p>
-                <p className="carbon-label-02 text-gray-400 uppercase mb-1">From</p>
-                <p className="carbon-fluid-heading-03 text-gray-900 font-light mb-1">PKR 180,000*</p>
+                <p className="carbon-label-02 uppercase mb-6 text-[#0f62fe]">Engineering-Grade — Precision</p>
+
                 <ul className="space-y-3">
                   {[{l:'Best for',v:'New builds, high-density, compliance, root cause'},{l:'Deliverable',v:'3D heat maps + capacity calculations'},{l:'Precision',v:'Quantitative analysis'},{l:'Method',v:'CFD modelling + engineering analysis'},{l:'Time on-site',v:'1–2 days'},{l:'Turnaround',v:'Analysis within 1–2 weeks'}].map((item) => (
                     <li key={item.l} className="flex items-start gap-2 carbon-body-02 text-gray-600"><CheckmarkFilled className="w-4 h-4 text-[#0f62fe] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">{item.l}:</strong> {item.v}</span></li>
                   ))}
                 </ul>
                 <div className="mt-4 pt-4 border-t border-gray-200">
-                  <p className="carbon-label-02 text-[#0f62fe] uppercase mb-2">CFD Capabilities</p>
-                  <ul className="space-y-1.5 carbon-body-short-01 text-gray-600">
-                    <li>• Visually assess cooling airflow and equipment temperatures</li>
-                    <li>• Investigate causes of and solutions to overheating</li>
-                    <li>• Pinpoint which IT assets will fail in a given configuration</li>
-                    <li>• Run failure scenarios (power outage, fan failure, cooling loss)</li>
-                    <li>• Increase rack utilisation without sacrificing availability</li>
-                    <li>• Determine best location for new equipment deployment</li>
-                    <li>• Design and configure IT devices with risk-free testing</li>
-                    <li>• Understand impact of planned changes before committing</li>
-                    <li>• Plan refreshes using future equipment without downtime risk</li>
-                    <li>• Predict availability, capacity and cooling efficiency interaction</li>
-                    <li>• Know true boundary conditions for power density and outflow</li>
-                    <li>• Ensure critical components operate below temperature specs under stress</li>
-                    <li>• Hot-aisle vs cold-aisle containment comparison</li>
-                    <li>• Analyse floor space power consumption and heat load</li>
-                    <li>• Calculate cooling distribution airflow requirements from HVAC</li>
-                    <li>• Predict data centre temperature distribution</li>
-                    <li>• Suggest floor tile additions and rack relocation</li>
-                    <li>• Find optimal position of a new asset</li>
-                    <li>• Reduce costs by optimising airflow and cooling unit operation</li>
-                    <li>• Prevent equipment failure via what-if scenario simulation</li>
-                    <li>• Dimension and position primary and backup cooling units</li>
-                  </ul>
+                  <button
+                    onClick={() => setCfdOpen(!cfdOpen)}
+                    className="w-full flex items-center justify-between text-left group bg-[#edf5ff] hover:bg-[#e0eeff] border border-[#0f62fe]/20 rounded-lg p-3.5 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-[#0f62fe] flex items-center justify-center">
+                        <DataCenter className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <p className="carbon-heading-02 text-[#0f62fe]">CFD Capabilities</p>
+                        <p className="carbon-body-short-01 text-[#0f62fe]/70">21</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white text-[#0f62fe] text-sm font-bold shadow-sm">21</span>
+                      {cfdOpen ? (
+                        <ChevronUp className="w-5 h-5 text-[#0f62fe] transition-transform duration-200" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-[#0f62fe] transition-transform duration-200" />
+                      )}
+                    </div>
+                  </button>
+                  {cfdOpen && (
+                    <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 animate-fade-in">
+                      {[
+                        {
+                          label: 'Visualise & Diagnose',
+                          items: [
+                            'Visually assess cooling airflow and equipment temperatures',
+                            'Predict data centre temperature distribution',
+                            'Investigate causes of and solutions to overheating',
+                            'Pinpoint which IT assets will fail in a given configuration',
+                          ]
+                        },
+                        {
+                          label: 'Simulate & Validate',
+                          items: [
+                            'Run failure scenarios (power outage, fan failure, cooling loss)',
+                            'Prevent equipment failure via what-if scenario simulation',
+                            'Ensure critical components operate below temperature specs under stress',
+                            'Know true boundary conditions for power density and outflow',
+                          ]
+                        },
+                        {
+                          label: 'Plan & Deploy',
+                          items: [
+                            'Increase rack utilisation without sacrificing availability',
+                            'Determine best location for new equipment deployment',
+                            'Find optimal position of a new asset',
+                            'Plan refreshes using future equipment without downtime risk',
+                            'Understand impact of planned changes before committing',
+                          ]
+                        },
+                        {
+                          label: 'Airflow & Containment',
+                          items: [
+                            'Hot-aisle vs cold-aisle containment comparison',
+                            'Calculate cooling distribution airflow requirements from HVAC',
+                            'Reduce costs by optimising airflow and cooling unit operation',
+                            'Suggest floor tile additions and rack relocation',
+                          ]
+                        },
+                        {
+                          label: 'Engineering & Design',
+                          items: [
+                            'Design and configure IT devices with risk-free testing',
+                            'Dimension and position primary and backup cooling units',
+                            'Analyse floor space power consumption and heat load',
+                            'Predict availability, capacity and cooling efficiency interaction',
+                          ]
+                        },
+                      ].map((group) => (
+                        <div key={group.label} className="p-3 bg-white rounded-lg border border-gray-100">
+                          <p className="carbon-label-02 text-[#0f62fe] uppercase mb-2">{group.label}</p>
+                          <ul className="space-y-1 carbon-body-short-01 text-gray-600">
+                            {group.items.map((item) => (
+                              <li key={item} className="flex items-start gap-1.5">
+                                <span className="text-[#0f62fe] flex-shrink-0 mt-0.5">•</span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
-            <div className="p-5 bg-[#24a148]/5 rounded-xl border border-[#24a148]/20 flex gap-4 items-start">
-              <Certificate className="w-6 h-6 text-[#24a148] flex-shrink-0 mt-0.5" />
-              <div><p className="carbon-label-02 text-[#24a148] uppercase mb-1">Upgrade Path</p><p className="carbon-body-02 text-gray-600">If your Health Check reveals complexity, <strong className="text-gray-900">20% of your report fee</strong> is potentially credited toward Precision Thermal Engineering when upgraded within 60 days, subject to mutual agreement. Travel and visitation charges are not included.</p></div>
-            </div>
+            {/* Terms */}
             <div className="p-5 bg-gray-100 rounded-xl flex gap-4 items-start">
               <Warning className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" />
-              <div><p className="carbon-label-02 text-gray-500 uppercase mb-1">Provisioning Terms</p><p className="carbon-body-02 text-gray-600">Both Assessments cover audit, scoring, and recommendation only. Excludes implementation, hardware supply, ongoing monitoring, day rate and travel charges. Prices shown are starting estimates. Final quotes depend on site size, rack count, travel distance, and scope complexity.</p></div>
+              <div className="w-full">
+                <p className="carbon-label-02 text-gray-500 uppercase mb-1">Terms</p>
+                <p className="carbon-body-short-01 text-gray-600">
+                  <strong className="text-gray-700">Prices are indicative starting points.</strong> Final quotes depend on site size, rack count, travel distance, and scope, and are subject to site survey. All prices exclude applicable taxes.
+                </p>
+              </div>
+            </div>
+
+            {/* Upgrade Path */}
+            <div className="p-5 bg-[#24a148]/5 rounded-xl border border-[#24a148]/20">
+              <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
+                {/* Left: Stat */}
+                <div className="flex-shrink-0">
+                  <p className="carbon-label-02 text-[#24a148] uppercase mb-1">Upgrade Path</p>
+                  <div className="flex items-baseline gap-2">
+                    <span className="carbon-fluid-heading-03 text-[#24a148] font-light">20%</span>
+                    <span className="carbon-body-02 text-gray-600">of your Rapid Health Check fee<br className="hidden sm:block" /> credited as a discount on<br className="hidden sm:block" /> Precision Thermal Engineering</span>
+                  </div>
+                </div>
+                {/* Middle: Arrow */}
+                <div className="hidden md:flex flex-col items-center flex-shrink-0 px-2">
+                  <div className="w-px h-6 bg-[#24a148]/30" />
+                  <ArrowRight className="w-5 h-5 text-[#24a148] rotate-90 md:rotate-0 my-1" />
+                  <div className="w-px h-6 bg-[#24a148]/30" />
+                </div>
+                {/* Right: Conditions */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-col gap-2">
+                    <span className="inline-flex items-center gap-2 carbon-body-short-01 text-gray-600 bg-white/60 rounded-md px-3 py-1.5 border border-[#24a148]/10">
+                      <CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0" />
+                      Valid for 60 days from report delivery
+                    </span>
+                    <span className="inline-flex items-center gap-2 carbon-body-short-01 text-gray-600 bg-white/60 rounded-md px-3 py-1.5 border border-[#24a148]/10">
+                      <CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0" />
+                      Documented in your upgrade proposal
+                    </span>
+                    <span className="inline-flex items-center gap-2 carbon-body-short-01 text-gray-500 bg-white/60 rounded-md px-3 py-1.5 border border-gray-200">
+                      <Warning className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                      Travel charges are additional
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         )}
