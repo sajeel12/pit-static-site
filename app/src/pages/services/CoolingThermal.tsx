@@ -168,11 +168,12 @@ const HeroSection = () => (
             <a href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-8 h-12 sm:h-14 bg-gradient-to-r from-[#0f62fe] to-[#4589ff] text-white carbon-body-02 hover:from-[#0353e9] hover:to-[#0f62fe] shadow-lg shadow-blue-500/25 rounded-lg">
               Speak to an Engineer
             </a>
-            <a href="#international" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 sm:h-14 border border-white/50 text-white carbon-body-02 hover:bg-white/10 transition-colors rounded-lg">
-              International Advisory
-              <ArrowRight className="w-4 h-4" />
+            <a href="/downloads/Perception-IT-Thermal-Readiness-Checklist.pdf" download className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 sm:h-14 border border-white/50 text-white carbon-body-02 hover:bg-white/10 transition-colors rounded-lg">
+              Self-Assessment Checklist
+              <Download className="w-4 h-4" />
             </a>
           </div>
+          <p className="mt-3 carbon-helper-text-01 text-white/50 max-w-md text-center">Self-assessment guide only. Not a substitute for professional engineering evaluation.</p>
         </div>
 
       </div>
@@ -457,7 +458,6 @@ const RemoteAdvisorySection = () => {
 const ProcurementSection = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [datasheetOpen, setDatasheetOpen] = useState(false);
-  const showInternalLink = import.meta.env.VITE_SHOW_INTERNAL === 'true';
 
   const cards = [
     {
@@ -608,12 +608,6 @@ const ProcurementSection = () => {
                 </button>
                 <a href="mailto:contact@perception-it.com?subject=FusionCol8000-E%20Enquiry" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] transition-colors rounded-lg">Speak to an Engineer</a>
               </div>
-              {showInternalLink && (
-                <div className="text-center">
-                  <a href="/perception-it-internal-checklist.html" className="inline-flex items-center justify-center gap-2 mt-3 px-5 py-3 bg-[#da1e28] text-white carbon-body-02 rounded-lg">Perception IT internal</a>
-                  <p className="carbon-helper-text-01 text-gray-400 mt-2">Self-assessment guide only. Not a substitute for professional engineering evaluation.</p>
-                </div>
-              )}
             </div>
           </div>
         </div>
@@ -1402,6 +1396,9 @@ const DisclaimerSection = () => (
    ============================================================================== */
 
 const CTASection = () => {
+  const [isToolPopupOpen, setIsToolPopupOpen] = useState(false);
+  const showInternalLink = import.meta.env.VITE_SHOW_INTERNAL === 'true';
+
   return (
     <section id="cta" className="py-20 bg-[#0f62fe]">
       <div className="max-w-2xl mx-auto px-6 text-center">
@@ -1427,8 +1424,74 @@ const CTASection = () => {
             Download the Thermal Health Checklist for self-assessment
           </a>
           <p className="carbon-helper-text-01 text-white/50 max-w-md">*PDF download. Self-assessment guide only. Not a substitute for professional engineering evaluation.</p>
+          {showInternalLink && (
+            <button
+              type="button"
+              onClick={() => setIsToolPopupOpen(true)}
+              className="inline-flex items-center justify-center gap-2 mt-4 px-6 py-3 bg-[#da1e28] text-white carbon-body-02 rounded-lg"
+            >
+              Optimized tool selection
+            </button>
+          )}
         </div>
       </div>
+
+      {isToolPopupOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="w-full max-w-3xl rounded-3xl bg-white p-8 shadow-2xl overflow-y-auto max-h-[90vh]">
+            <div className="flex items-start justify-between gap-4 mb-6">
+              <div>
+                <p className="carbon-label-02 uppercase tracking-[0.2em] text-[#0f62fe] mb-3">Optimized tool selection</p>
+                <h2 className="carbon-fluid-heading-04 text-slate-950">Partner types and selection notes for cooling delivery</h2>
+              </div>
+              <button type="button" onClick={() => setIsToolPopupOpen(false)} className="text-slate-500 hover:text-slate-900">
+                Close
+              </button>
+            </div>
+
+            <div className="space-y-6 text-slate-700">
+              <div>
+                <p className="carbon-heading-03 text-slate-900 mb-3">Partner types (who to partner with and why)</p>
+                <ul className="space-y-3 list-inside list-disc carbon-body-02">
+                  <li><strong>Thermal engineering / CFD consultancies:</strong> run airflow modelling, CFD validation, thermal strategy and remote assessments.</li>
+                  <li><strong>Data-centre HVAC equipment OEMs:</strong> CRAC/CRAH, evaporative coolers, in-row coolers, chilled-water plant suppliers for spec, lead times, warranties.</li>
+                  <li><strong>Controls / BMS integrators:</strong> supply and integrate building management, control sequences, and thermostatic/pressure controls.</li>
+                  <li><strong>Row/rack cooling & containment specialists:</strong> hot/cold aisle containment, blanking, aisle doors, in-rack cooling hardware.</li>
+                  <li><strong>Electrical power / UPS vendors:</strong> for load/capacity alignment, derating, and redundancy planning.</li>
+                  <li><strong>Fluid systems / pipework installers:</strong> chilled-water piping, pumps, valves, and commissioning.</li>
+                  <li><strong>Instrumentation & test labs:</strong> temp/humidity sensors, data loggers, and third-party commissioning/validation (certified labs).</li>
+                  <li><strong>Commissioning & site services contractors:</strong> on-site commissioning, validation, and final acceptance testing.</li>
+                  <li><strong>Logistics and spares suppliers:</strong> secure shipping, customs handling, spares stocking and fast replacement parts.</li>
+                  <li><strong>DCIM / monitoring software vendors:</strong> telemetry, alerting, capacity planning and remote monitoring dashboards.</li>
+                  <li><strong>Energy efficiency / sustainability specialists:</strong> PUE optimisation, economiser strategies, and renewable integration (if relevant).</li>
+                  <li><strong>Local civil / MEP contractors:</strong> local permitting, site works, rooftop plant supports and local codes compliance.</li>
+                  <li><strong>Managed services providers / remote NOC partners:</strong> ongoing monitoring, threshold management, and SLA-driven response.</li>
+                  <li><strong>Financing / leasing partners:</strong> for CAPEX smoothing, equipment-as-a-service, and OPEX models.</li>
+                </ul>
+              </div>
+
+              <div>
+                <p className="carbon-heading-03 text-slate-900 mb-3">Selection & integration notes</p>
+                <ul className="space-y-3 list-inside list-disc carbon-body-02">
+                  <li>Prioritize partners with proven data-centre references and standards compliance (ASHRAE, ISO).</li>
+                  <li>Request sample CFD reports and commissioning checklists to verify technical quality.</li>
+                  <li>Define clear SLAs for remote deliverables vs. on-site tasks; separate scopes to avoid scope creep.</li>
+                  <li>Ensure interoperability: BMS/DCIM APIs, sensor compatibility, and vendor control protocols.</li>
+                  <li>Local partner must handle final commissioning and warranty-linked site acceptance.</li>
+                </ul>
+              </div>
+
+              <div>
+                <p className="carbon-heading-03 text-slate-900 mb-3">Next practical steps</p>
+                <ul className="space-y-3 list-inside list-disc carbon-body-02">
+                  <li>Shortlist 3 vendors per category and request RFI with references, sample deliverables, typical timelines, and pricing.</li>
+                  <li>Draft a partner brief (scope + responsibilities + SLA boundaries) and share for review.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
