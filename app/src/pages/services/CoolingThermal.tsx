@@ -375,46 +375,48 @@ const RemoteAdvisorySection = () => {
             </ul>
           </div>
 
-          {/* What You Receive + Why Choose */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200">
-              <p className="carbon-label-02 text-[#475569] uppercase mb-4">What You Receive</p>
-              <ul className="space-y-4 carbon-body-02 text-gray-600">
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 text-[#0f62fe] flex-shrink-0">◆</span>
-                  <span><strong className="text-gray-900">Remote CFD &amp; Airflow Strategy Review</strong> — Optimised using your supplied layouts and load data</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 text-[#0f62fe] flex-shrink-0">◆</span>
-                  <span><strong className="text-gray-900">Extreme-Climate Risk Assessment</strong> — Thermal validation for 45°C+ ambient, high-humidity, and monsoon conditions using Pakistan-validated derating models</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 text-[#0f62fe] flex-shrink-0">◆</span>
-                  <span><strong className="text-gray-900">Vendor Specification &amp; Capacity Review</strong> — Independent validation of equipment specs, redundancy sizing, and manufacturer claims against your actual load profile</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 text-[#0f62fe] flex-shrink-0">◆</span>
-                  <span><strong className="text-gray-900">Implementation Roadmap</strong> — Phased delivery plan with clear boundaries; final physical validation and handover typically require local site engagement</span>
-                </li>
-              </ul>
+          {/* What You Receive */}
+          <div className="mb-10">
+            <p className="carbon-label-02 text-[#475569] uppercase mb-6">What You Receive</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-6 bg-white rounded-2xl border border-gray-200">
+                <p className="carbon-heading-02 text-gray-900 mb-2">Remote CFD &amp; Airflow Strategy Review</p>
+                <p className="carbon-body-02 text-gray-600">Optimised using your supplied layouts and load data. We model airflow patterns, identify hotspots, and recommend containment strategies without visiting your site.</p>
+              </div>
+              <div className="p-6 bg-white rounded-2xl border border-gray-200">
+                <p className="carbon-heading-02 text-gray-900 mb-2">Extreme-Climate Risk Assessment</p>
+                <p className="carbon-body-02 text-gray-600">Thermal validation for 45°C+ ambient, high-humidity, and monsoon conditions using Pakistan-validated derating models. We stress-test your design against real-world extremes.</p>
+              </div>
+              <div className="p-6 bg-white rounded-2xl border border-gray-200">
+                <p className="carbon-heading-02 text-gray-900 mb-2">Vendor Specification &amp; Capacity Review</p>
+                <p className="carbon-body-02 text-gray-600">Independent validation of equipment specs, redundancy sizing, and manufacturer claims against your actual load profile. We flag under-sizing before procurement.</p>
+              </div>
+              <div className="p-6 bg-white rounded-2xl border border-gray-200">
+                <p className="carbon-heading-02 text-gray-900 mb-2">Implementation Roadmap</p>
+                <p className="carbon-body-02 text-gray-600">Phased delivery plan with clear boundaries, prioritised actions, and vendor-agnostic recommendations. Final physical validation and handover typically require local site engagement.</p>
+              </div>
             </div>
+          </div>
 
-            <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200">
-              <p className="carbon-label-02 uppercase tracking-[0.16px] mb-4 text-[#475569]">Why International Teams Choose This</p>
-              <ul className="space-y-4 carbon-body-02 text-gray-600">
-                <li className="flex items-start gap-3">
-                  <span className="text-lg flex-shrink-0">⚡</span>
-                  <span><strong className="text-gray-900">Accelerate Timelines</strong> — Begin strategy and spec review immediately, without travel logistics</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-lg flex-shrink-0">💰</span>
-                  <span><strong className="text-gray-900">Reduce Advisory Overhead</strong> — Expert engineering without mobilization fees or daily allowances</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-lg flex-shrink-0">🎯</span>
-                  <span><strong className="text-gray-900">De-risk Procurement</strong> — Validate thermal design and vendor claims before capital commitment</span>
-                </li>
-              </ul>
+          {/* Why International Teams Choose This */}
+          <div className="mb-10 p-6 bg-gray-50 rounded-2xl border border-gray-200">
+            <p className="carbon-label-02 uppercase tracking-[0.16px] mb-4 text-[#475569]">Why International Teams Choose This</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div>
+                <p className="text-2xl mb-2">⚡</p>
+                <p className="carbon-heading-02 text-gray-900 mb-1">Accelerate Timelines</p>
+                <p className="carbon-body-02 text-gray-600">Begin strategy and spec review immediately, without travel logistics or visa delays.</p>
+              </div>
+              <div>
+                <p className="text-2xl mb-2">💰</p>
+                <p className="carbon-heading-02 text-gray-900 mb-1">Reduce Advisory Overhead</p>
+                <p className="carbon-body-02 text-gray-600">Expert engineering without mobilisation fees, daily allowances, or travel costs.</p>
+              </div>
+              <div>
+                <p className="text-2xl mb-2">🎯</p>
+                <p className="carbon-heading-02 text-gray-900 mb-1">De-risk Procurement</p>
+                <p className="carbon-body-02 text-gray-600">Validate thermal design and vendor claims before capital commitment or contract signature.</p>
+              </div>
             </div>
           </div>
 
