@@ -345,8 +345,12 @@ const AssessmentSection = () => {
 
 const RemoteAdvisorySection = () => {
   return (
-    <section id="international" className="py-20 bg-white border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="international" className="relative py-20 bg-white border-t border-gray-200">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-10 -right-10 w-80 h-80 rounded-full bg-[radial-gradient(circle,_rgba(248,113,113,0.18),_transparent_60%)] blur-3xl" />
+        <div className="absolute top-1/3 left-0 w-56 h-56 rounded-full bg-[radial-gradient(circle,_rgba(251,191,36,0.12),_transparent_60%)] blur-3xl" />
+      </div>
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="mb-10 carbon-font">
           <span className="inline-block bg-[#edf5ff] text-[#0f62fe] text-xs sm:text-sm font-medium px-3 py-1 rounded-full mb-4 whitespace-nowrap">International Advisory</span>
@@ -358,7 +362,7 @@ const RemoteAdvisorySection = () => {
 
           {/* Ideal For */}
           <div className="mb-10">
-            <p className="carbon-label-02 text-[#475569] uppercase mb-6">Ideal For</p>
+            <p className="carbon-label-02 uppercase tracking-[0.16px] mb-6 block text-[#475569]">Ideal For</p>
             <div className="bg-white rounded-2xl border border-gray-200 divide-y divide-gray-100">
               <div className="p-5 md:p-6 flex items-start gap-4">
                 <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -392,7 +396,7 @@ const RemoteAdvisorySection = () => {
 
           {/* What You Receive */}
           <div className="mb-10">
-            <p className="carbon-label-02 text-[#475569] uppercase mb-6">What You Receive</p>
+            <p className="carbon-label-02 uppercase tracking-[0.16px] mb-6 block text-[#475569]">What You Receive</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="p-6 bg-white rounded-2xl border border-gray-200">
                 <p className="carbon-heading-02 text-gray-900 mb-2">Remote CFD &amp; Airflow Strategy Review</p>
@@ -415,7 +419,7 @@ const RemoteAdvisorySection = () => {
 
           {/* Save on Time and Costs */}
           <div className="mb-10 p-6 bg-gray-50 rounded-2xl border border-gray-200">
-            <p className="carbon-label-02 uppercase tracking-[0.16px] mb-4 text-[#475569]">Why International Teams Choose This</p>
+            <p className="carbon-label-02 uppercase tracking-[0.16px] mb-6 block text-[#475569]">Save on Time and Costs</p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div>
                 <p className="text-2xl mb-2">⚡</p>
@@ -1472,7 +1476,7 @@ const CTASection = () => {
               onClick={() => setIsToolPopupOpen(true)}
               className="inline-flex items-center justify-center gap-2 mt-4 px-6 py-3 bg-[#da1e28] text-white carbon-body-02 rounded-lg"
             >
-              Optimized tool selection
+              Optimized tool selection — remove this red btn later
             </button>
           )}
         </div>
