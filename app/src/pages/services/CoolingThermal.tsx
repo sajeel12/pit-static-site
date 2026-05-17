@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import usePageSEO from '../../hooks/usePageSEO';
 import styles from './CoolingThermal.module.css';
 import {
   Accordion, AccordionItem,
@@ -11,7 +12,6 @@ import {
 } from '@carbon/icons-react';
 
 import CoolingNav from './CoolingNav';
-import HeroCoolingGraphics from '../../components/HeroCoolingGraphics';
 import Footer from '../../sections/Footer';
 import '../../styles/carbon-typography.css';
 
@@ -35,8 +35,8 @@ const trackEvent = (eventName: string, params?: Record<string, any>) => {
 const PAGE_SECTIONS = [
   { id: 'services', label: 'Services', inNav: false },
   { id: 'assessment', label: '01 Assessment', inNav: true },
-  { id: 'hardware', label: '02 Procurement', inNav: true },
-  { id: 'installation', label: '03 Deployment', inNav: true },
+  { id: 'procurement', label: '02 Procurement', inNav: true },
+  { id: 'deployment', label: '03 Deployment', inNav: true },
   { id: 'managed', label: '04 Managed Services', inNav: true },
   { id: 'results', label: 'Results', inNav: true },
   { id: 'ecosystem', label: 'Facility Ecosystem', inNav: true },
@@ -122,47 +122,63 @@ const StickyAnchorNav = () => {
 };
 
 const HeroSection = () => (
-  <section id="overview" className="relative min-h-[85vh] flex items-center bg-white overflow-hidden pt-20 carbon-font">
-    <HeroCoolingGraphics />
-    <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-8 pb-16 lg:pb-20">
-      <div className="max-w-3xl lg:pl-6 relative">
-        <nav aria-label="Breadcrumb" className="mb-6">
-          <ol className="flex items-center gap-2 carbon-label-01 text-gray-400">
-            <li><a href="/#/" className="hover:text-[#0f62fe] transition-colors">Home</a></li>
-            <li className="text-gray-300">/</li>
-            <li><a href="/#/services/infrastructure" className="hover:text-[#0f62fe] transition-colors">Infrastructure</a></li>
-            <li className="text-gray-300">/</li>
-            <li><a href="/#/services/datacenter2" className="hover:text-[#0f62fe] transition-colors">Data Centre Services</a></li>
-            <li className="text-gray-300">/</li>
-            <li className="text-gray-900 font-medium" aria-current="page">Cooling &amp; Airflow</li>
-          </ol>
-        </nav>
-        <div className="absolute -left-2 top-[5.5rem] h-[130px] w-0.5 bg-gradient-to-b from-[#0f62fe] to-[#8a3ffc] animate-slot-draw hidden lg:block" />
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-100 rounded-full mb-6">
-          <span className="w-2 h-2 bg-[#24a148] rounded-full animate-pulse" />
-          <span className="carbon-label-02" style={{ color: "#0f62fe" }}>Engineered for Pakistan&apos;s 45°C summers</span>
+  <section id="overview" className="relative min-h-[85vh] flex items-center bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#334155] overflow-hidden pt-20 carbon-font text-white">
+    <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle at top right, rgba(100,116,139,0.10), transparent 35%), radial-gradient(circle at left, rgba(71,85,105,0.06), transparent 30%)' }} />
+    <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-6 pb-16 lg:pb-20">
+      <nav aria-label="Breadcrumb" className="mb-10">
+        <ol className="flex flex-wrap items-center gap-2 carbon-label-01 text-slate-300">
+          <li><a href="/#/" className="hover:text-[#0f62fe] transition-colors">Home</a></li>
+          <li className="text-slate-600">/</li>
+          <li><a href="/#/services/infrastructure" className="hover:text-[#0f62fe] transition-colors">Infrastructure</a></li>
+          <li className="text-slate-600">/</li>
+          <li><a href="/#/services/datacenter2" className="hover:text-[#0f62fe] transition-colors">Data Centre Infrastructure Services</a></li>
+          <li className="text-slate-600">/</li>
+          <li className="text-white font-medium" aria-current="page">Cooling</li>
+        </ol>
+      </nav>
+      <div className="grid gap-10 items-center">
+        <div className="relative max-w-3xl">
+          <div className="absolute -left-16 top-10 w-72 h-72 rounded-full bg-[radial-gradient(circle,_rgba(100,116,139,0.10),transparent_55%)] blur-3xl pointer-events-none" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/15 rounded-full mb-6">
+            <span className="w-2 h-2 bg-[#24a148] rounded-full" />
+            <span className="carbon-label-02 text-slate-100">Engineered for Pakistan&apos;s 45°C summers</span>
+          </div>
+          <div className="relative mb-6">
+            <div className="absolute inset-x-0 top-0 h-36 rounded-full bg-[radial-gradient(circle,_rgba(71,85,105,0.10),transparent_55%)] blur-3xl opacity-80 pointer-events-none" />
+            <h1 className="relative carbon-fluid-display-03 text-white">
+              <span className="block">Data Centre Cooling</span>
+              <span className="block">Built for Pakistan&apos;s Climate</span>
+            </h1>
+          </div>
+          <p className="carbon-fluid-heading-03 text-slate-100 mb-3">
+            One partner, end-to-end thermal solution.
+          </p>
+          <p className="carbon-body-02 text-slate-400 mb-8">
+            We engineer for Pakistan&apos;s operational extremes, providing site-specific thermal validation at every step of the process.
+          </p>
+          <div className="flex flex-wrap items-center gap-1 carbon-label-02 mb-8 text-slate-300">
+            {['Assessment','Procurement','Deployment','24/7 Monitoring'].map((step,i)=> (
+              <div key={step} className="flex items-center">
+                <span className="px-2 py-1 text-slate-300">{step}</span>
+                {i<3 && <ArrowRight className="w-3.5 h-3.5 text-slate-600 mx-1" />}
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+            <a href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-8 h-12 sm:h-14 bg-gradient-to-r from-[#0f62fe] to-[#4589ff] text-white carbon-body-02 hover:from-[#0353e9] hover:to-[#0f62fe] shadow-lg shadow-blue-500/25 rounded-lg">
+              Speak to an Engineer
+            </a>
+            <a href="#international" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 sm:h-14 border border-white/50 text-white carbon-body-02 hover:bg-white/10 transition-colors rounded-lg">
+              International Advisory
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
         </div>
-        <h1 className="carbon-fluid-display-03 text-[#161616] mb-6 relative">
-          <span className="block">Data Centre Cooling</span>
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#0f62fe] to-[#8a3ffc]">Built for Pakistan&apos;s Climate</span>
-        </h1>
-        <p className="carbon-fluid-heading-03 text-[#525252] mb-8">
-          We engineer for Pakistan&apos;s operational extremes, providing site-specific thermal validation across every layer of your infrastructure.
-        </p>
-        <div className="flex flex-wrap items-center gap-1 carbon-label-02 mb-8">
-          {['Assessment','Procurement','Deployment','24/7 Monitoring'].map((step,i)=> (
-            <div key={step} className="flex items-center">
-              <span className={`px-2 py-1 transition-colors ${i===3?'text-[#0f62fe] font-semibold':'text-[#6f6f6f]'}`}>{step}</span>
-              {i<3 && <span className="text-[#c6c6c6] mx-1">→</span>}
-            </div>
-          ))}
-        </div>
-        <a href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request" className="group inline-flex items-center gap-3 px-8 h-14 bg-gradient-to-r from-[#0f62fe] to-[#4589ff] text-white carbon-heading-02 hover:from-[#0353e9] hover:to-[#0f62fe] transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5 rounded-lg">
-          Speak to an Engineer
-        </a>
+
       </div>
     </div>
-    <style>{`@keyframes slot-draw{from{transform:scaleY(0)}to{transform:scaleY(1)}}.animate-slot-draw{animation:slot-draw 1.5s ease-out forwards;transform-origin:top}`}</style>
+    {/* Stack Layer Bar — Cooling: steel-full */}
+    <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, #94a3b8 0%, #475569 100%)' }} />
   </section>
 );
 
@@ -174,16 +190,17 @@ const TrustTiles = () => {
   const reasons = [
     'Certified Tier 1 Supply Chain',
     'Pakistan-Specific Engineering Protocols',
-    'Single-Partner Accountability',
+    'Single-Partner Accountability for precision cooling, containment and temperature stability.',
+    'Single-Partner Accountability for the full purchase, installation and commissioning cycle.',
   ];
   return (
-    <section className="py-16 bg-white border-t border-gray-100">
+    <section className="py-20 bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-10 carbon-font">
           <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Why Perception IT</h2>
-          <p className="carbon-body-02 text-gray-500 max-w-2xl mx-auto">Six reasons data centre operators across Pakistan trust Perception IT.</p>
+          <p className="carbon-body-02 text-gray-500 max-w-2xl mx-auto">Four reasons data centre operators across Pakistan trust Perception IT.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {reasons.map((reason) => (
             <div key={reason} className="flex items-center gap-3 p-4 bg-gray-50 border border-gray-100 rounded-lg">
               <CheckmarkFilled className="w-5 h-5 text-[#24a148] flex-shrink-0" />
@@ -225,7 +242,7 @@ const AssessmentSection = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="mb-10 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>01 Assessment</span>
+          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block text-[#0f62fe]">01 Assessment</span>
           <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Choose Your Assessment Path</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Two options. One goal: Understand your thermal reality before you spend.</p>
         </div>
@@ -235,7 +252,7 @@ const AssessmentSection = () => {
           <img src="/3D images/Cooling and Airflow/Cooling - Assesment.png" alt="Thermal assessment" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
-            <p className="carbon-label-01 uppercase mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>01 Assessment</p>
+            <p className="carbon-label-01 uppercase mb-3 text-white/70">01 Assessment</p>
             <h3 className="carbon-fluid-heading-03 text-white mb-4 leading-tight">Thermal clarity before capital spend</h3>
             <p className="carbon-body-02 text-white/75">Rapid health check for routine confidence.<br />Engineering-grade analysis before major investment.</p>
           </div>
@@ -296,7 +313,7 @@ const AssessmentSection = () => {
                 </ul>
               </div>
               <div className="p-6 bg-gray-50 rounded-xl border border-gray-100">
-                <p className="carbon-label-02 uppercase mb-2" style={{ color: "#0f62fe" }}>Engineering-Grade — Precision</p>
+                <p className="carbon-label-02 uppercase mb-2 text-[#0f62fe]">Engineering-Grade — Precision</p>
                 <p className="carbon-label-02 text-gray-400 uppercase mb-1">From</p>
                 <p className="carbon-fluid-heading-03 text-gray-900 font-light mb-1">PKR 180,000*</p>
                 <ul className="space-y-3">
@@ -312,10 +329,122 @@ const AssessmentSection = () => {
             </div>
             <div className="p-5 bg-gray-100 rounded-xl flex gap-4 items-start">
               <Warning className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" />
-              <div><p className="carbon-label-02 text-gray-500 uppercase mb-1">What&apos;s Not Included</p><p className="carbon-body-02 text-gray-600">Both Assessments cover audit, scoring, and recommendation only. Excludes implementation, hardware supply, ongoing monitoring, day rate and travel charges.</p></div>
+              <div><p className="carbon-label-02 text-gray-500 uppercase mb-1">Provisioning Terms</p><p className="carbon-body-02 text-gray-600">Both Assessments cover audit, scoring, and recommendation only. Excludes implementation, hardware supply, ongoing monitoring, day rate and travel charges. Prices shown are starting estimates. Final quotes depend on site size, rack count, travel distance, and scope complexity.</p></div>
             </div>
           </div>
         )}
+
+      </div>
+    </section>
+  );
+};
+
+/* ==============================================================================
+   REMOTE ADVISORY — International clients, no physical validation
+   ============================================================================== */
+
+const RemoteAdvisorySection = () => {
+  const benefits = [
+    'Thermal assessment from drawings and equipment data — CFD analysis, airflow strategy, and cooling design reviewed remotely without site visit.',
+    'Extreme climate risk validation — thermal assessment for 45°C ambient, high-humidity, and monsoon conditions using Pakistan-validated derating models.',
+    'Vendor specification and capacity review — independent validation of equipment specs, redundancy sizing, and manufacturer claims against your load profile.',
+    'Implementation roadmap with clear boundaries — phased delivery plan and commissioning guidance; final physical validation and handover typically require local site checks.',
+  ];
+
+  return (
+    <section id="international" className="py-20 bg-[#f8f9fa] border-t border-gray-200">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="bg-white rounded-2xl border border-gray-200 border-l-[3px] border-l-[#8d8d8d] p-8 md:p-10 shadow-sm">
+          <div className="mb-8 carbon-font">
+            <span className="inline-block bg-[#edf5ff] text-[#0f62fe] text-xs font-medium px-3 py-1 rounded-full mb-4">Remote Advisory Only</span>
+            <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">International Thermal Advisory</h2>
+            <p className="carbon-body-02 text-gray-500 max-w-2xl">
+              Advisory-only thermal consulting for clients outside Pakistan. Delivered remotely — no site visit required.
+            </p>
+          </div>
+
+          <div className="mb-8 p-6 bg-[#f4f9ff] rounded-2xl border border-[#dbeafe]">
+            <p className="carbon-label-02 text-[#0f62fe] uppercase mb-3">Who this is for</p>
+            <ul className="space-y-2 carbon-body-02 text-gray-700">
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0f62fe] flex-shrink-0" />
+                <span><strong>International clients</strong> outside Pakistan who need thermal expertise without travel overhead.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0f62fe] flex-shrink-0" />
+                <span><strong>Pre-sales and early-stage planning</strong> — teams that need thermal direction before committing to procurement or site mobilization.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0f62fe] flex-shrink-0" />
+                <span><strong>Design-phase validation</strong> — architects and engineers reviewing cooling strategy during construction or refurbishment planning.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200">
+              <p className="carbon-label-02 text-[#475569] uppercase mb-3">What we provide</p>
+              <ul className="space-y-3 carbon-body-02 text-gray-600">
+                {benefits.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-1 text-[#475569]">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="p-8 bg-gray-50 rounded-2xl border border-gray-200">
+              <p className="carbon-label-02 uppercase tracking-[0.16px] mb-3 text-[#475569]">Why offshore clients choose this</p>
+              <ul className="space-y-4 carbon-body-02 text-gray-600">
+                <li><strong className="text-[#475569]">Faster start</strong> — begin strategy and specification review without waiting for travel schedules.</li>
+                <li><strong className="text-[#475569]">Lower cost</strong> — remote consultancy avoids site mobilization fees and daily allowances.</li>
+                <li><strong className="text-[#475569]">Design confidence</strong> — get expert review of thermal strategy before you finalize procurement.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="p-6 bg-white rounded-2xl border border-gray-200">
+              <p className="carbon-label-02 text-[#475569] uppercase mb-3">How it works</p>
+              <ol className="space-y-3 carbon-body-02 text-gray-600 list-decimal list-inside">
+                <li>You supply room layouts, equipment schedules, and environmental data.</li>
+                <li>We review drawings, run CFD analysis, and assess thermal risk remotely.</li>
+                <li>You receive a practical thermal roadmap with specifications and recommendations.</li>
+              </ol>
+            </div>
+            <div className="p-6 bg-white rounded-2xl border border-gray-200">
+              <p className="carbon-label-02 text-[#475569] uppercase mb-3">What is not included</p>
+              <ul className="space-y-3 carbon-body-02 text-gray-600">
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 text-gray-400">•</span>
+                  <span>Physical site surveys or instrumented validation</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 text-gray-400">•</span>
+                  <span>On-site commissioning or installation supervision</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 text-gray-400">•</span>
+                  <span>Final handover sign-off requiring physical presence</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 text-gray-400">•</span>
+                  <span>Assumes accurate client-supplied data — we validate methodology, not measurements</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="rounded-2xl bg-gray-100 border border-gray-200 p-8 md:flex md:items-center md:justify-between">
+            <div className="max-w-2xl">
+              <h3 className="carbon-heading-02 text-[#0F172A] mb-2">Ready to review your thermal strategy?</h3>
+            </div>
+            <a href="mailto:contact@perception-it.com?subject=Remote%20Thermal%20Advisory%20Request" className="mt-6 inline-flex items-center justify-center rounded-lg bg-[#0f62fe] px-6 py-3 text-white carbon-heading-02 hover:bg-[#0353e9] transition-colors md:mt-0">
+              Request remote advisory
+            </a>
+          </div>
+      </div>
       </div>
     </section>
   );
@@ -327,6 +456,7 @@ const AssessmentSection = () => {
 
 const ProcurementSection = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [datasheetOpen, setDatasheetOpen] = useState(false);
 
   const cards = [
     {
@@ -353,10 +483,10 @@ const ProcurementSection = () => {
   ];
 
   return (
-    <section id="hardware" className="py-20 bg-[#FAFAFA]">
+    <section id="procurement" className="py-20 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-10 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: '#0f62fe' }}>02 Procurement</span>
+          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block text-[#0f62fe]">02 Procurement</span>
           <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Cooling Hardware</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Right-sized hardware, certified for Pakistan&apos;s 45°C ambient, monsoon humidity, and dust infiltration.</p>
         </div>
@@ -365,7 +495,7 @@ const ProcurementSection = () => {
           <img src="/3D images/Cooling and Airflow/Cooling - Procurement.png" alt="Cooling hardware procurement" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
-            <p className="carbon-label-01 uppercase mb-3" style={{ color: 'rgba(255,255,255,0.7)' }}>02 Procurement</p>
+            <p className="carbon-label-01 uppercase mb-3 text-white/70">02 Procurement</p>
             <h3 className="carbon-fluid-heading-03 text-white mb-4 leading-tight">Direct from Tier 1 manufacturers</h3>
             <p className="carbon-body-02 text-white/75">We source from Huawei, Vertiv, Stulz, and others. Every unit is factory-accepted and pre-validated before shipping.</p>
           </div>
@@ -419,7 +549,7 @@ const ProcurementSection = () => {
                 </ul>
               </div>
               <div className="p-6 bg-white rounded-xl border border-gray-100">
-                <p className="carbon-label-02 uppercase mb-4" style={{ color: "#0f62fe" }}>Precision (CRAC/CRAH)</p>
+                <p className="carbon-label-02 uppercase mb-4 text-[#0f62fe]">Precision (CRAC/CRAH)</p>
                 <ul className="space-y-3">
                   {[{l:'Best for',v:'Data centres, high-density racks'},{l:'Capacity',v:'50kW – 500kW+ per unit'},{l:'Precision',v:'±1°C, ±5% RH'},{l:'Lead time',v:'4–8 weeks'}].map((item) => (
                     <li key={item.l} className="flex items-start gap-2 carbon-body-02 text-gray-600"><CheckmarkFilled className="w-4 h-4 text-[#0f62fe] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">{item.l}:</strong> {item.v}</span></li>
@@ -441,14 +571,14 @@ const ProcurementSection = () => {
         {/* Partner Logos */}
         <div className="mb-10">
           <p className="carbon-label-02 uppercase tracking-[0.16px] text-gray-500 mb-4">Certified Supply Chain</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-gray-200 rounded-xl overflow-hidden">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-y divide-gray-200 border border-gray-200 rounded-xl overflow-hidden">
             {[
               { name: 'Huawei', src: '/logos/partners/Partner-Huawei-Logo.svg' },
               { name: 'Lenovo', src: '/logos/partners/Partner-Lenovo-Logo.svg' },
               { name: 'Dell', src: '/logos/partners/Partner-Dell-logo.svg' },
               { name: 'HP', src: '/logos/partners/Partner-%20Hewlett-Packard-Logo.svg' },
             ].map((p) => (
-              <div key={p.name} className="flex items-center justify-center p-6 bg-white border-r border-b border-gray-200 last:border-r-0">
+              <div key={p.name} className="flex items-center justify-center p-6 bg-white">
                 <img src={p.src} alt={p.name} className="max-w-[180px] max-h-[48px] opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
               </div>
             ))}
@@ -463,14 +593,17 @@ const ProcurementSection = () => {
           </div>
           <div className="p-8 flex flex-col justify-center">
             <h3 className="carbon-heading-02 text-gray-900 mb-3">FusionCol8000-E</h3>
-            <p className="carbon-body-02 text-gray-600 mb-6">Enterprise-grade precision cooling for high-density data centres. In-row and perimeter deployment, ±1°C control, N+1 redundancy ready.</p>
-            <div className="grid grid-cols-2 gap-4 mb-6">
+            <p className="carbon-body-02 text-gray-600 mb-6">Enterprise-grade precision cooling for high-density data centres.</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
               {[{l:'Cooling Capacity',v:'Up to 100kW'},{l:'Control Precision',v:'±1°C / ±5% RH'},{l:'Redundancy',v:'N+1 ready'},{l:'Deploy',v:'In-row or perimeter'}].map((s) => (
-                <div key={s.l}><p className="carbon-label-02 text-gray-400 uppercase mb-1">{s.l}</p><p className="carbon-heading-02 text-gray-900">{s.v}</p></div>
+                <div key={s.l}><p className="carbon-label-02 text-gray-400 uppercase mb-0.5">{s.l}</p><p className="carbon-heading-02 text-gray-900">{s.v}</p></div>
               ))}
             </div>
             <div className="flex gap-3">
-              <button onClick={() => alert('Datasheet coming soon')} className="inline-flex items-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-heading-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg">Get Datasheet</button>
+              <button onClick={() => setDatasheetOpen(true)} className="inline-flex items-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-heading-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg">
+                <Download className="w-4 h-4" />
+                Get Datasheet
+              </button>
               <a href="mailto:contact@perception-it.com?subject=FusionCol8000-E%20Enquiry" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-heading-02 hover:bg-[#0353e9] transition-colors rounded-lg">Speak to an Engineer</a>
             </div>
           </div>
@@ -485,6 +618,34 @@ const ProcurementSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Datasheet Gated Modal */}
+      {datasheetOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm" onClick={() => setDatasheetOpen(false)}>
+          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full mx-4 p-8 relative" onClick={(e) => e.stopPropagation()}>
+            <button onClick={() => setDatasheetOpen(false)} className="absolute top-4 right-4 p-1 text-gray-400 hover:text-gray-600 transition-colors">
+              <ChevronDown className="w-5 h-5 rotate-180" />
+            </button>
+            <h3 className="carbon-heading-02 text-gray-900 mb-2">FusionCol8000-E Datasheet</h3>
+            <p className="carbon-body-02 text-gray-500 mb-6">This datasheet is available on request. Send us a quick email and we&apos;ll deliver the full technical specifications to your inbox.</p>
+            <div className="flex flex-col gap-3">
+              <a href="mailto:contact@perception-it.com?subject=Request:%20FusionCol8000-E%20Datasheet" className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-heading-02 hover:bg-[#0353e9] transition-colors rounded-lg">
+                Request via Email
+              </a>
+              <a href="/downloads/Perception-IT-FusionCol8000-E-Datasheet.pdf" download className="inline-flex items-center justify-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-heading-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg">
+                <Download className="w-4 h-4" />
+                Download Directly
+              </a>
+            
+              <div className="mt-4 pt-4 border-t border-gray-100">
+                <a href="/perception-it-internal-checklist.html" className="text-[#0f62fe] carbon-body-02 inline-block">Perception IT internal</a>
+                <p className="carbon-helper-text-01 text-gray-400 mt-2">Self-assessment guide only. Not a substitute for professional engineering evaluation.</p>
+              </div>
+            </div>
+            <p className="carbon-helper-text-01 text-gray-400 mt-4 text-center">File: Perception-IT-FusionCol8000-E-Datasheet.pdf</p>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
@@ -518,10 +679,10 @@ const DeploymentSection = () => {
   ];
 
   return (
-    <section id="installation" className="py-20 bg-white">
+    <section id="deployment" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-10 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>03 Deployment</span>
+          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block text-[#0f62fe]">03 Deployment</span>
           <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Deployment & Commissioning</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Thermal continuity is won or lost at installation. 4-phase deployment with full validation.</p>
         </div>
@@ -530,7 +691,7 @@ const DeploymentSection = () => {
           <img src="/3D images/Cooling and Airflow/Deployment- Cooling.png" alt="Cooling system deployment" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
-            <p className="carbon-label-01 uppercase mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>03 Deployment</p>
+            <p className="carbon-label-01 uppercase mb-3 text-white/70">03 Deployment</p>
             <h3 className="carbon-fluid-heading-03 text-white mb-4 leading-tight">Installation is where cooling wins or fails</h3>
             <p className="carbon-body-02 text-white/75">60% of cooling failures are installation-related. Our protocol prevents that.</p>
           </div>
@@ -589,7 +750,7 @@ const DeploymentSection = () => {
                 </ul>
               </div>
               <div className="p-6 bg-gray-50 rounded-xl border border-gray-100">
-                <p className="carbon-label-02 uppercase mb-4" style={{ color: "#0f62fe" }}>Our Deployment Protocol</p>
+                <p className="carbon-label-02 uppercase mb-4 text-[#0f62fe]">Our Deployment Protocol</p>
                 <ul className="space-y-3">
                   {[{l:'Site survey',v:'Thermal load, airflow path, electrical capacity'},{l:'Placement design',v:'CFD-validated layout for optimal airflow'},{l:'Monsoon hardening',v:'Drain sizing, seal verification, humidity buffers'},{l:'Start-up & balancing',v:'Load-bank test, setpoint calibration, failover'},{l:'As-built docs',v:'Full documentation and operator handover'}].map((item) => (
                     <li key={item.l} className="flex items-start gap-2 carbon-body-02 text-gray-600"><CheckmarkFilled className="w-4 h-4 text-[#0f62fe] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">{item.l}:</strong> {item.v}</span></li>
@@ -601,17 +762,17 @@ const DeploymentSection = () => {
               <Certificate className="w-6 h-6 text-[#24a148] flex-shrink-0 mt-0.5" />
               <div><p className="carbon-label-02 text-[#24a148] uppercase mb-1">45°C+ Ambient Rated</p><p className="carbon-body-02 text-gray-600">Every installation is validated for Pakistan&apos;s peak summer conditions. We test at 45°C ambient and 80% RH.</p></div>
             </div>
+
+            {/* Scope Boundary */}
+            <div className="p-5 bg-gray-100 rounded-xl flex gap-4 items-start">
+              <Warning className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="carbon-label-02 text-gray-500 uppercase mb-1">Scope</p>
+                <p className="carbon-body-02 text-gray-600">Deployment covers mechanical installation, thermal validation, and commissioning only. Capacity planning, monsoon/dust hardening engineering, and SLA-backed uptime targets are scoped separately under Assessment and Managed Services.</p>
+              </div>
+            </div>
           </div>
         )}
-
-        {/* Scope Boundary */}
-        <div className="mt-10 p-5 bg-gray-100 rounded-xl flex gap-4 items-start">
-          <Warning className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" />
-          <div>
-            <p className="carbon-label-02 text-gray-500 uppercase mb-1">Scope</p>
-            <p className="carbon-body-02 text-gray-600">Deployment covers mechanical installation, thermal validation, and commissioning only. Capacity planning, monsoon/dust hardening engineering, and SLA-backed uptime targets are scoped separately under Assessment and Managed Services.</p>
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -653,7 +814,7 @@ const ManagedSection = () => {
     <section id="managed" className="py-20 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-10 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: '#0f62fe' }}>04 Managed Services</span>
+          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block text-[#0f62fe]">04 Managed Services</span>
           <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">24/7 Managed Thermal Services</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Filters clog. Refrigerant leaks. Setpoints drift. Our managed service catches degradation before it becomes an outage.</p>
         </div>
@@ -662,7 +823,7 @@ const ManagedSection = () => {
           <img src="/3D images/Cooling and Airflow/managed service - Cooling - page.png" alt="Managed thermal services" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
-            <p className="carbon-label-01 uppercase mb-3" style={{ color: 'rgba(255,255,255,0.7)' }}>04 Managed Services</p>
+            <p className="carbon-label-01 uppercase mb-3 text-white/70">04 Managed Services</p>
             <h3 className="carbon-fluid-heading-03 text-white mb-4 leading-tight">Thermal continuity does not end at handover</h3>
             <p className="carbon-body-02 text-white/75">Quarterly validation, monsoon standby engineers, and 24/7 NOC monitoring.</p>
           </div>
@@ -716,29 +877,72 @@ const ManagedSection = () => {
 
         {isOpen && (
           <div className="space-y-4 mb-6 animate-fade-in">
-            <div className="grid md:grid-cols-3 gap-4">
-              {tiers.map((tier) => (
-                <div key={tier.name} className="p-6 bg-white rounded-xl border border-gray-100" style={{ borderTopWidth: '4px', borderTopColor: tier.accent }}>
-                  <p className="carbon-label-01 uppercase mb-3" style={{ color: tier.accent }}>{tier.name}</p>
-                  <p className="carbon-label-01 text-gray-400 uppercase mb-1">From</p>
-                  <div className="flex items-baseline mb-4">
-                    <span className="carbon-fluid-heading-03 text-gray-900 font-light">{tier.price}</span>
-                    <span className="carbon-body-02 text-gray-400 ml-0.5">{tier.period}</span>
-                  </div>
-                  <ul className="space-y-2">
-                    {tier.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2 carbon-body-02 text-gray-600"><CheckmarkFilled className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: tier.accent }} /><span>{item}</span></li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+            <div className="p-4 bg-[#0f62fe]/5 rounded-lg border border-[#0f62fe]/20 flex items-start gap-3">
+              <div className="w-8 h-8 rounded-full bg-[#0f62fe]/10 flex items-center justify-center flex-shrink-0">
+                <span className="text-[#0f62fe] carbon-heading-02">?</span>
+              </div>
+              <div>
+                <p className="carbon-label-02 text-[#0f62fe] uppercase mb-0.5">Quick Recommendation</p>
+                <p className="carbon-body-02 text-gray-600">Most mid-size data centres start with Professional. We can assess your cooling load in a 30-minute call.</p>
+              </div>
             </div>
-            <div className="p-5 bg-[#24a148]/5 rounded-xl border border-[#24a148]/20 flex gap-4 items-start">
-              <Certificate className="w-6 h-6 text-[#24a148] flex-shrink-0 mt-0.5" />
-              <div><p className="carbon-label-02 text-[#24a148] uppercase mb-1">SLA-Backed Uptime</p><p className="carbon-body-02 text-gray-600">Enterprise tier includes a signed SLA with 99.9% uptime target, 4-hour on-site response, and dedicated monsoon standby engineers.</p></div>
+
+            {/* Feature Comparison */}
+            <div className="overflow-x-auto rounded-xl border border-gray-200">
+              <table className="w-full text-left min-w-[600px]">
+                <thead>
+                  <tr className="bg-gray-50 border-b border-gray-200">
+                    <th className="p-2 md:p-4 carbon-label-02 text-gray-500 uppercase">Feature</th>
+                    <th className="p-2 md:p-4 carbon-label-02 text-gray-500 uppercase text-center">Essential</th>
+                    <th className="p-2 md:p-4 carbon-label-02 text-[#0f62fe] uppercase text-center">Professional</th>
+                    <th className="p-2 md:p-4 carbon-label-02 text-[#6929c4] uppercase text-center">Enterprise</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    {f:'Preventive maintenance',e:'Quarterly',p:'Monthly',ent:'Monthly + quarterly room integrity'},
+                    {f:'Response SLA',e:'—',p:'8-hour',ent:'4-hour'},
+                    {f:'NOC monitoring',e:'Basic telemetry',p:'Remote monitoring',ent:'24/7 NOC (3 hubs)'},
+                    {f:'Predictive alerts',e:false,p:true,ent:true},
+                    {f:'Thermal trending report',e:false,p:true,ent:true},
+                    {f:'Spare parts pre-staging',e:false,p:true,ent:'On-site pre-staged'},
+                    {f:'Monsoon standby engineers',e:false,p:false,ent:true},
+                    {f:'Uptime target (SLA)',e:false,p:false,ent:'99.9%*'},
+                  ].map((row, i) => {
+                    const Cell = ({v}:{v:string|boolean}) => {
+                      if (v === true) return <CheckmarkFilled className="w-4 h-4 text-gray-400 inline-block" />;
+                      if (v === false || v === '—') return <span className="text-gray-400 text-lg">—</span>;
+                      return <span className="inline-flex items-center justify-center gap-1.5 text-gray-600"><CheckmarkFilled className="w-4 h-4 text-gray-400 flex-shrink-0" />{v}</span>;
+                    };
+                    return (
+                      <tr key={row.f} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
+                        <td className="p-2 md:p-4 carbon-body-02 text-gray-700 border-b border-gray-100">{row.f}</td>
+                        <td className="p-2 md:p-4 carbon-body-short-01 text-gray-500 text-center border-b border-gray-100"><Cell v={row.e} /></td>
+                        <td className="p-2 md:p-4 carbon-body-short-01 text-gray-700 text-center border-b border-gray-100 font-medium"><Cell v={row.p} /></td>
+                        <td className="p-2 md:p-4 carbon-body-short-01 text-gray-700 text-center border-b border-gray-100 font-medium"><Cell v={row.ent} /></td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
+
+            {/* Important Pricing & Service Terms */}
+            <div className="p-5 bg-gray-50 rounded-xl border border-gray-100">
+              <p className="carbon-heading-02 text-gray-700 uppercase tracking-wide mb-4">Important Pricing &amp; Service Terms</p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 carbon-body-short-01 text-gray-600"><span className="text-gray-400 mt-0.5">•</span><span><strong className="text-gray-900">Pricing:</strong> All prices shown are starting points (PKR/month) for baseline configurations. Final pricing is determined following site assessment and scales with: cooling load (kW), facility complexity, redundancy requirements (N+1/2N), SLA tier, and geographic location. Travel, visitation, and non-standard parts are billed separately unless included in your agreement.</span></li>
+                <li className="flex items-start gap-2 carbon-body-short-01 text-gray-600"><span className="text-gray-400 mt-0.5">•</span><span><strong className="text-gray-900">Service Levels:</strong> Uptime targets (e.g., 99.9%), response times (e.g., 4-hour), and performance metrics are engineering baselines. Contractual commitments, remedies, exclusions, and credit calculations are defined exclusively in signed Service Level Agreements (SLAs) following site assessment.</span></li>
+                <li className="flex items-start gap-2 carbon-body-short-01 text-gray-600"><span className="text-gray-400 mt-0.5">•</span><span><strong className="text-gray-900">Performance Dependencies:</strong> Actual service performance depends on: facility infrastructure condition, client-provided access/utilities, environmental factors (monsoon, dust, grid instability), and force majeure events. Perception IT is not liable for failures caused by client infrastructure, third-party services, or events beyond reasonable control.</span></li>
+                <li className="flex items-start gap-2 carbon-body-short-01 text-gray-600"><span className="text-gray-400 mt-0.5">•</span><span><strong className="text-gray-900">Scope Boundaries:</strong> Hardware replacement costs, facility structural modifications, third-party software licensing, and non-cooling infrastructure repairs are excluded unless explicitly scoped in your agreement.</span></li>
+                <li className="flex items-start gap-2 carbon-body-short-01 text-gray-600"><span className="text-gray-400 mt-0.5">•</span><span><strong className="text-gray-900">Regulatory Compliance:</strong> Support for SBP/SECP/NFPA alignment does not constitute regulatory certification. Clients remain responsible for their own compliance obligations.</span></li>
+              </ul>
+            </div>
+
+
           </div>
         )}
+
       </div>
     </section>
   );
@@ -1013,7 +1217,7 @@ const ResultsSection = () => {
     <section id="results" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-12 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>Results</span>
+          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block text-[#0f62fe]">Results</span>
           <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Trusted Across Infrastructure Projects</h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Real outcomes from infrastructure engagements across Pakistan.</p>
         </div>
@@ -1041,7 +1245,7 @@ const ECOSYSTEM_ITEMS = [
 
 const EcosystemSection = () => {
   return (
-    <section id="ecosystem" className="py-16 bg-[#FAFAFA] border-t border-gray-100">
+    <section id="ecosystem" className="py-20 bg-[#FAFAFA] border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-10 carbon-font">
           <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Integrated Facility Ecosystem</h2>
@@ -1106,7 +1310,7 @@ const FAQSection = () => {
     <section id="faq" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-12 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block" style={{ color: "#0f62fe" }}>FAQ</span>
+          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block text-[#0f62fe]">FAQ</span>
           <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-4">Frequently Asked Questions</h2>
         </div>
         <div className="max-w-4xl">
@@ -1158,7 +1362,7 @@ const CTASection = () => {
 
         <div className="mt-8 flex flex-col items-center gap-2">
           <a
-            href="/downloads/Thermal-Readiness-Checklist.pdf"
+            href="/downloads/Perception-IT-Thermal-Readiness-Checklist.pdf"
             download
             className="inline-flex items-center gap-2 text-white/90 hover:text-white carbon-body-02 hover:underline transition-colors"
             onClick={() => trackEvent('cta_conversion', { type: 'checklist_download', location: 'bottom_cta' })}
@@ -1178,6 +1382,40 @@ const CTASection = () => {
    ============================================================================== */
 
 const CoolingThermal = () => {
+  usePageSEO({
+    title: 'Data Centre Cooling & Airflow Services Pakistan | Perception IT',
+    description: 'End-to-end data centre cooling for Pakistan\'s climate: thermal assessment, precision cooling hardware, installation, and 24/7 managed thermal services. One partner, one SLA.',
+    canonicalPath: '/infrastructure/data-centre-services/cooling-thermal',
+    ogType: 'website',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Data Centre Cooling & Airflow Services',
+      provider: {
+        '@type': 'Organization',
+        name: 'Perception IT',
+        url: 'https://perception-it.com',
+        logo: 'https://perception-it.com/logos/Perception IT_logo_in-white.png',
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'Pakistan',
+      },
+      serviceType: 'Data Centre Cooling & Thermal Management',
+      description: 'End-to-end data centre cooling services including thermal assessment, precision cooling hardware supply, installation, and 24/7 managed thermal monitoring.',
+      url: 'https://perception-it.com/#/infrastructure/data-centre-services/cooling-thermal',
+      breadcrumb: {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://perception-it.com/#/' },
+          { '@type': 'ListItem', position: 2, name: 'Infrastructure', item: 'https://perception-it.com/#/services/infrastructure' },
+          { '@type': 'ListItem', position: 3, name: 'Data Centre Infrastructure Services', item: 'https://perception-it.com/#/services/datacenter2' },
+          { '@type': 'ListItem', position: 4, name: 'Cooling & Airflow', item: 'https://perception-it.com/#/infrastructure/data-centre-services/cooling-thermal' },
+        ],
+      },
+    },
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -1192,6 +1430,7 @@ const CoolingThermal = () => {
         <ProcurementSection />
         <DeploymentSection />
         <ManagedSection />
+        <RemoteAdvisorySection />
         <TrustTiles />
         <ResultsSection />
         <EcosystemSection />

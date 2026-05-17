@@ -50,12 +50,12 @@ const HeroVariant = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-100 rounded-full mb-6">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            <span className="text-xs font-medium text-blue-600 uppercase tracking-wide">THE SERVER EXPERTS</span>
+            <span className="text-xs font-medium text-[#475569] uppercase tracking-wide">THE SERVER EXPERTS</span>
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             Server Continuity
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#475569] to-[#64748b]">
               Without Compromise
             </span>
           </h1>
@@ -67,13 +67,8 @@ const HeroVariant = () => {
           
           {/* 4-Stage Portfolio */}
           <div className="flex flex-wrap gap-3 mb-8">
-            {['ServerAudit™', 'ServerSure™', 'ServerLife Extend™', 'ModServe™'].map((service, i) => (
-              <span key={service} className={`px-3 py-1.5 rounded-full text-sm font-medium ${
-                i === 0 ? 'bg-green-100 text-green-700' :
-                i === 1 ? 'bg-blue-100 text-blue-700' :
-                i === 2 ? 'bg-purple-100 text-purple-700' :
-                'bg-orange-100 text-orange-700'
-              }`}>
+            {['ServerAudit™', 'ServerSure™', 'ServerLife Extend™', 'ModServe™'].map((service) => (
+              <span key={service} className="px-3 py-1.5 rounded-full text-sm font-medium bg-slate-100 text-[#475569]">
                 {service}
               </span>
             ))}
@@ -106,12 +101,14 @@ const HeroVariant = () => {
             { value: '6+', label: 'Enterprise Clients' }
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="text-3xl font-bold text-blue-600">{stat.value}</div>
+              <div className="text-3xl font-bold text-[#475569]">{stat.value}</div>
               <div className="text-xs text-gray-500 uppercase tracking-wide mt-1">{stat.label}</div>
             </div>
           ))}
         </div>
       </div>
+      {/* Stack Layer Bar — Infrastructure: steel-start */}
+      <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, #e2e8f0 0%, #94a3b8 100%)' }} />
     </section>
   );
 };
@@ -123,7 +120,7 @@ const ProblemSection = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">The Reality</span>
+            <span className="text-[#475569] font-semibold text-sm uppercase tracking-wide">The Reality</span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-6">
               Fragmented Accountability Leaves You Exposed
             </h2>
@@ -251,7 +248,7 @@ const ServerSuiteSection = () => {
     <section id="suite" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-16">
-          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Server Continuity Suite</span>
+          <span className="text-[#475569] font-semibold text-sm uppercase tracking-wide">Server Continuity Suite</span>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-4">
             Four Stages. One Accountability Point.
           </h2>
@@ -298,7 +295,7 @@ const ServerSuiteSection = () => {
         </div>
         
         {/* Cross-sell banner */}
-        <div className="mt-16 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
+        <div className="mt-16 bg-gradient-to-r from-gray-100 to-slate-100 rounded-2xl p-8 border border-gray-200">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Need Facility-Layer Continuity?</h3>
@@ -381,15 +378,15 @@ const DataCentreSection = () => {
   ];
 
   return (
-    <section id="datacentre" className="py-20 bg-gray-900 text-white">
+    <section id="datacentre" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="text-blue-400 font-semibold text-sm uppercase tracking-wide">Data Centre Services</span>
+          <span className="text-[#475569] font-semibold text-sm uppercase tracking-wide">Data Centre Services</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
             Thermal Integrity as the Foundation of Operational Continuity
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Server continuity is incomplete without facility continuity. You cannot credibly promise "99.95% uptime" 
             while outsourcing the power and cooling that keeps servers alive.
           </p>
@@ -407,13 +404,13 @@ const DataCentreSection = () => {
                 { tier: 'Tier 2', title: 'Operate', desc: 'Ongoing Services - 24/7 Lahore NOC, predictive maintenance, 99.98%+ uptime.', price: 'PKR 480K–2.1M/mo' },
                 { tier: 'Tier 3', title: 'Optimise', desc: 'Proactive Value - PUE tuning, refresh planning, DR validation. ROI proven year after year.', price: 'Custom' }
               ].map((item) => (
-                <div key={item.tier} className="bg-white/5 p-4 rounded-lg border border-white/10">
+                <div key={item.tier} className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-blue-400 font-bold">{item.tier}</span>
-                    <span className="text-xs text-gray-400">{item.price}</span>
+                    <span className="text-[#475569] font-bold">{item.tier}</span>
+                    <span className="text-xs text-gray-500">{item.price}</span>
                   </div>
-                  <h4 className="font-semibold text-white mb-1">{item.title}</h4>
-                  <p className="text-gray-400 text-sm">{item.desc}</p>
+                  <h4 className="font-semibold text-gray-900 mb-1">{item.title}</h4>
+                  <p className="text-gray-500 text-sm">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -428,47 +425,47 @@ const DataCentreSection = () => {
           </div>
 
           {/* Right: Pakistan Reality */}
-          <div className="lg:col-span-2 bg-white/5 p-8 rounded-2xl border border-white/10">
+          <div className="lg:col-span-2 bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
             <h3 className="text-xl font-bold mb-8">Pakistan-Specific Engineering</h3>
             <div className="space-y-6">
-              <div className="pb-6 border-b border-white/10">
+              <div className="pb-6 border-b border-gray-200">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-red-400 font-semibold">Global Standard:</span>
-                  <span className="text-gray-400">"Design for 35°C ambient"</span>
+                  <span className="text-gray-500">"Design for 35°C ambient"</span>
                 </div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-yellow-400 font-semibold">Pakistan Reality:</span>
-                  <span className="text-gray-300">45°C+ sustained (Lahore summer peaks)</span>
+                  <span className="text-gray-600">45°C+ sustained (Lahore summer peaks)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-green-400 font-semibold">Our Response:</span>
-                  <span className="text-white">Cooling capacity derated 40% at 45°C → oversize by 60%</span>
+                  <span className="text-gray-900">Cooling capacity derated 40% at 45°C → oversize by 60%</span>
                 </div>
               </div>
               
-              <div className="pb-6 border-b border-white/10">
+              <div className="pb-6 border-b border-gray-200">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-red-400 font-semibold">Global Standard:</span>
-                  <span className="text-gray-400">"Annual maintenance"</span>
+                  <span className="text-gray-500">"Annual maintenance"</span>
                 </div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-yellow-400 font-semibold">Pakistan Reality:</span>
-                  <span className="text-gray-300">Monsoon degradation in weeks (June–Sept = 80-95% RH)</span>
+                  <span className="text-gray-600">Monsoon degradation in weeks (June–Sept = 80-95% RH)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-green-400 font-semibold">Our Response:</span>
-                  <span className="text-white">Quarterly validation protocols; precision CRAC/CRAH mandatory</span>
+                  <span className="text-gray-900">Quarterly validation protocols; precision CRAC/CRAH mandatory</span>
                 </div>
               </div>
 
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-red-400 font-semibold">Standard AC Units:</span>
-                  <span className="text-gray-400">Fail at &gt;70% RH</span>
+                  <span className="text-gray-500">Fail at &gt;70% RH</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-green-400 font-semibold">Our Solution:</span>
-                  <span className="text-white">Residential-grade units rejected; precision cooling only</span>
+                  <span className="text-gray-900">Residential-grade units rejected; precision cooling only</span>
                 </div>
               </div>
             </div>
@@ -480,44 +477,44 @@ const DataCentreSection = () => {
           <h3 className="text-2xl font-bold mb-8 text-center">Complete Cooling Service Translation</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {coolingServices.map((service, index) => (
-              <div key={index} className="bg-white/5 p-5 rounded-lg border border-white/10 hover:border-blue-500/50 transition-colors">
-                <h4 className="font-semibold text-blue-400 text-sm mb-1">{service.category}</h4>
-                <h5 className="font-bold text-white mb-2">{service.service}</h5>
-                <p className="text-gray-400 text-sm leading-relaxed">{service.outcome}</p>
+              <div key={index} className="bg-white p-5 rounded-lg border border-gray-200 hover:border-[#475569] transition-colors shadow-sm">
+                <h4 className="font-semibold text-[#475569] text-sm mb-1">{service.category}</h4>
+                <h5 className="font-bold text-gray-900 mb-2">{service.service}</h5>
+                <p className="text-gray-500 text-sm leading-relaxed">{service.outcome}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Business Model */}
-        <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 p-8 rounded-2xl border border-blue-500/20">
+        <div className="bg-gradient-to-r from-gray-100 to-slate-100 p-8 rounded-2xl border border-gray-200">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-xl font-bold mb-4">Two-Tier Business Strategy</h3>
               <div className="space-y-4">
-                <div className="bg-white/5 p-4 rounded-lg">
+                <div className="bg-white p-4 rounded-lg shadow-sm">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-bold text-green-400">Tier 1: SLA-Backed Continuity</span>
-                    <span className="text-sm text-gray-400">Core Engine</span>
+                    <span className="font-bold text-green-600">Tier 1: SLA-Backed Continuity</span>
+                    <span className="text-sm text-gray-500">Core Engine</span>
                   </div>
-                  <p className="text-gray-300 text-sm mb-2">Continuity assurance with engineered validation, monsoon/dust hardening</p>
+                  <p className="text-gray-600 text-sm mb-2">Continuity assurance with engineered validation, monsoon/dust hardening</p>
                   <div className="flex items-center gap-4 text-sm">
-                    <span className="text-green-400">45-60% margin</span>
+                    <span className="text-green-600">45-60% margin</span>
                     <span className="text-gray-500">|</span>
-                    <span className="text-gray-400">24-36 month contracts</span>
+                    <span className="text-gray-500">24-36 month contracts</span>
                   </div>
                 </div>
                 
-                <div className="bg-white/5 p-4 rounded-lg">
+                <div className="bg-white p-4 rounded-lg shadow-sm">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-bold text-blue-400">Tier 2: Product Suppliers</span>
-                    <span className="text-sm text-gray-400">Strategic Gateway</span>
+                    <span className="font-bold text-[#475569]">Tier 2: Product Suppliers</span>
+                    <span className="text-sm text-gray-500">Strategic Gateway</span>
                   </div>
-                  <p className="text-gray-300 text-sm mb-2">Hardware components with installation and basic maintenance</p>
+                  <p className="text-gray-600 text-sm mb-2">Hardware components with installation and basic maintenance</p>
                   <div className="flex items-center gap-4 text-sm">
-                    <span className="text-blue-400">12-18% margin</span>
+                    <span className="text-[#475569]">12-18% margin</span>
                     <span className="text-gray-500">|</span>
-                    <span className="text-gray-400">0-12 months transactional</span>
+                    <span className="text-gray-500">0-12 months transactional</span>
                   </div>
                 </div>
               </div>
@@ -533,8 +530,8 @@ const DataCentreSection = () => {
                   'Telecommunications - subscriber-facing infrastructure'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-300">{item}</span>
+                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-600">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -552,7 +549,7 @@ const ProcessSection = () => {
     <section id="process" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-16">
-          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">How It Works</span>
+          <span className="text-[#475569] font-semibold text-sm uppercase tracking-wide">How It Works</span>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-4">
             From Assessment to Continuous Operations
           </h2>
@@ -585,7 +582,7 @@ const CaseStudySection = () => {
         <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Featured Case Study</span>
+              <span className="text-[#475569] font-semibold text-sm uppercase tracking-wide">Featured Case Study</span>
               <h2 className="text-3xl font-bold text-gray-900 mt-4 mb-4">
                 99.99% Uptime for Pakistan's Largest Telecom
               </h2>
@@ -596,15 +593,15 @@ const CaseStudySection = () => {
               
               <div className="grid grid-cols-3 gap-6 mb-8">
                 <div>
-                  <div className="text-3xl font-bold text-blue-600">99.99%</div>
+                  <div className="text-3xl font-bold text-[#475569]">99.99%</div>
                   <div className="text-sm text-gray-500">Uptime Achieved</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-blue-600">3</div>
+                  <div className="text-3xl font-bold text-[#475569]">3</div>
                   <div className="text-sm text-gray-500">Data Centers</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-blue-600">60M+</div>
+                  <div className="text-3xl font-bold text-[#475569]">60M+</div>
                   <div className="text-sm text-gray-500">Subscribers</div>
                 </div>
               </div>

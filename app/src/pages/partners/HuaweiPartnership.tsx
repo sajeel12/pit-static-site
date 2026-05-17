@@ -38,7 +38,7 @@ export default function HuaweiPartnership() {
               to="/infrastructure/data-centre-services/cooling-airflow"
               className="inline-flex items-center gap-2 px-6 h-12 bg-[#0f62fe] text-white carbon-body-02 font-medium hover:bg-[#0353e9] transition-colors"
             >
-              Explore Cooling & Airflow <ArrowRight className="w-4 h-4" />
+              Explore Cooling <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -178,7 +178,7 @@ export default function HuaweiPartnership() {
               to="/infrastructure/data-centre-services/cooling-airflow"
               className="inline-flex items-center gap-2 px-6 h-12 bg-[#0f62fe] text-white carbon-body-02 font-medium hover:bg-[#0353e9] transition-colors"
             >
-              Explore Cooling & Airflow <ArrowRight className="w-4 h-4" />
+              Explore Cooling <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/contact"

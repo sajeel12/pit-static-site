@@ -297,17 +297,17 @@ const ServicesVariant = () => {
       </section>
 
       {/* SECTION 2: Engineering for the Future */}
-      <section className="py-20 bg-[#0A2C50]">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Header */}
           <div className="text-center mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-blue-400 mb-4 block">
               Extend Your Partnership
             </span>
-            <h2 className="text-4xl sm:text-5xl font-semibold text-white leading-tight tracking-tight mb-4">
+            <h2 className="text-4xl sm:text-5xl font-semibold text-gray-900 leading-tight tracking-tight mb-4">
               Engineering for the Future
             </h2>
-            <p className="text-lg text-blue-200 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Scaling capabilities without scaling complexity.
             </p>
           </div>
@@ -737,7 +737,7 @@ const HeroVariant = () => {
           {/* Left: Content (6 columns) */}
           <div className="lg:col-span-6 relative z-10">
             {/* Eyebrow */}
-            <span className="inline-block text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 mb-6">
+            <span className="inline-block text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 mb-6">
               24/7 Network Operations Center
             </span>
             
@@ -745,7 +745,7 @@ const HeroVariant = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-[48px] font-bold text-white mb-6 leading-[1.1] tracking-tight">
               Controlled Complexity.
               <br />
-              <span className="text-cyan-400">Absolute Governance.</span>
+              <span className="text-slate-400">Absolute Governance.</span>
             </h1>
             
             {/* Sub-head */}
@@ -801,6 +801,8 @@ const HeroVariant = () => {
           </div>
         </div>
       </div>
+      {/* Stack Layer Bar — Home: warm-neutral → steel-hint */}
+      <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, #cbd5e1 0%, #64748b 100%)' }} />
     </section>
   );
 };

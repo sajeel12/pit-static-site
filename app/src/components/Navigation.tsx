@@ -40,7 +40,7 @@ const networkOperationsServices = [
 ];
 
 const dataCentreServices = [
-  { id: 'cooling-airflow', title: 'Cooling & Airflow Management', description: 'Precision cooling from hardware supply to 24/7 managed thermal continuity.', link: '/infrastructure/data-centre-services/cooling-thermal' },
+  { id: 'cooling-airflow', title: 'Cooling Management', description: 'Precision cooling from hardware supply to 24/7 managed thermal continuity.', link: '/infrastructure/data-centre-services/cooling-thermal' },
 
   { id: 'power-ups', title: 'Power & UPS Solutions', description: 'UPS systems, power distribution, and backup power for critical infrastructure.', link: '/services/power-ups' },
   { id: 'rack-cabinets', title: 'Rack & Cabinet Solutions', description: 'Server cabinets, acoustic racks, and outdoor enclosures.', link: '/services/rack-cabinets' },

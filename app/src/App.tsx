@@ -30,6 +30,8 @@ import ServerContinuity from './pages/services/ServerContinuity';
 import Datacenter from './pages/services/Datacenter';
 import Datacenter2 from './pages/services/Datacenter2';
 import CoolingThermal from './pages/services/CoolingThermal';
+import CoreInfrastructure from './pages/services/CoreInfrastructure';
+import NetworkOperations from './pages/services/NetworkOperations';
 
 
 
@@ -117,6 +119,8 @@ function App() {
             <Route path="/services/server-continuity" element={<ServerContinuity />} />
             <Route path="/services/datacenter" element={<Datacenter />} />
             <Route path="/services/datacenter2" element={<Datacenter2 />} />
+            <Route path="/services/core-infrastructure" element={<CoreInfrastructure />} />
+            <Route path="/services/network-operations" element={<NetworkOperations />} />
             <Route path="/services/cooling-airflow" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
             <Route path="/services/cooling-airflow2" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
             <Route path="/infrastructure/data-centre-services/cooling-airflow" element={<CoolingThermal />} />

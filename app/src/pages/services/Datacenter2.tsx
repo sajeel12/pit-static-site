@@ -82,6 +82,16 @@ const Datacenter2 = () => {
     <div className="min-h-screen bg-[var(--cds-background)]">
       <Navigation />
 
+      {/* Under Construction Banner */}
+      <div className="bg-amber-50 border-b border-amber-200">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-3 flex items-center gap-3">
+          <WarningAlt className="w-5 h-5 text-amber-600 flex-shrink-0" />
+          <p className="carbon-label-02 text-amber-700">
+            <strong className="font-semibold">Under Construction —</strong> This page is being rebuilt. Content may be incomplete or change without notice.
+          </p>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section id="overview" className="relative pt-40 pb-20 bg-[#0a1628] overflow-hidden">
         <HeroGradientPlanes />
@@ -183,6 +193,8 @@ const Datacenter2 = () => {
             </p>
           </div>
         </div>
+      {/* Stack Layer Bar — Data Centre: steel-mid */}
+      <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, #cbd5e1 0%, #64748b 100%)' }} />
       </section>
 
       {/* Trust Bar */}
@@ -212,7 +224,7 @@ const Datacenter2 = () => {
       {/* Compliance Strip */}
       <section className="w-full bg-[var(--cds-background)] py-8 border-b border-[var(--cds-border-subtle)]">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <p className="carbon-label-01 text-[#cf0a2c] uppercase mb-3">Regulatory & Partner Credentials</p>
+          <p className="carbon-label-01 text-[#475569] uppercase mb-3">Regulatory & Partner Credentials</p>
           <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">Trusted by Regulated Sectors</h2>
           <div className="flex flex-wrap justify-center gap-3 mb-4">
             {['SBP Circular DRD2-141 Support', 'NFPA 2001 Alignment', 'ISO 27001 Ready', 'PUE &le;1.4 Target by 2027'].map((tag) => (
@@ -223,7 +235,7 @@ const Datacenter2 = () => {
           </div>
           <div className="flex flex-wrap justify-center gap-3 mb-6">
             {['Huawei Enterprise', 'Vertiv Certified', 'APC by Schneider', 'Mitsubishi Cooling'].map((tag) => (
-              <span key={tag} className="px-3 py-1 border border-[#cf0a2c] text-[#cf0a2c] text-xs font-medium rounded-sm">
+              <span key={tag} className="px-3 py-1 border border-[#475569] text-[#475569] text-xs font-medium rounded-sm">
                 {tag}
               </span>
             ))}
@@ -559,7 +571,7 @@ const Datacenter2 = () => {
               {/* Section: Pakistan Engineering */}
               <section id="engineering" className="py-12 border-b border-[var(--cds-border-subtle)]">
                 <div className="max-w-5xl mx-auto px-6">
-                  <p className="carbon-label-01 text-[#cf0a2c] uppercase mb-3">Local Engineering</p>
+                  <p className="carbon-label-01 text-[#475569] uppercase mb-3">Local Engineering</p>
                   <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">Global Templates Fail Here. We Engineer for Monsoons, Dust & Load-Shedding.</h2>
                   <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-8">Standard data centre designs assume &quot;textbook conditions.&quot; We design for Lahore&apos;s 45&deg;C summers, Karachi&apos;s dust, and 8-12hr daily load-shedding first-efficiency second.</p>
 
@@ -594,7 +606,7 @@ const Datacenter2 = () => {
                   {/* Visual break placeholder */}
                   <div className="h-48 bg-gradient-to-r from-[var(--cds-background)] to-[#e5e5e5] border border-[var(--cds-border-subtle)] flex items-center justify-center p-6">
                     <div className="text-center">
-                      <TemperatureHot className="w-12 h-12 text-[#cf0a2c] mx-auto mb-3" />
+                      <TemperatureHot className="w-12 h-12 text-[#475569] mx-auto mb-3" />
                       <p className="carbon-label-01 text-[var(--cds-text-primary)] font-semibold mb-1">Thermal Imaging Visual</p>
                       <p className="carbon-helper-text-01 text-[var(--cds-text-secondary)]">Before/after thermal imaging showing hotspot elimination post-engineered validation vs. standard install</p>
                     </div>
@@ -604,7 +616,7 @@ const Datacenter2 = () => {
               {/* Section: Risk Calculator */}
               <section id="calculator" className="py-12 border-b border-[var(--cds-border-subtle)] bg-[var(--cds-background)]">
                 <div className="max-w-5xl mx-auto px-6">
-                  <p className="carbon-label-01 text-[#cf0a2c] uppercase mb-3">Risk Awareness</p>
+                  <p className="carbon-label-01 text-[#475569] uppercase mb-3">Risk Awareness</p>
                   <h2 className="carbon-fluid-heading-05 text-[var(--cds-text-primary)] mb-6">What&apos;s Your Facility&apos;s Risk Profile?</h2>
                   <p className="carbon-body-01 text-[var(--cds-text-secondary)] mb-8">Illustrative assessment only. Formal risk analysis requires on-site assessment and is subject to contractual terms.</p>
 

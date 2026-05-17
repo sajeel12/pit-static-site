@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, X, Menu } from 'lucide-react';
+import { ChevronDown, X, Menu, ArrowUpRight, ArrowRight } from 'lucide-react';
 
 /* ------------------------------------------------------------------
    TYPES
@@ -13,6 +13,7 @@ interface LinkItem {
 
 interface SectionGroup {
   heading: string;
+  href?: string;
   links: LinkItem[];
 }
 
@@ -34,7 +35,7 @@ const NAV_ITEMS: NavItemConfig[] = [
         heading: 'Core Services',
         links: [
           { title: 'View All Solutions', href: '/services', desc: '' },
-          { title: 'Cooling & Airflow', href: '/infrastructure/data-centre-services/cooling-thermal', desc: 'Precision cooling & thermal continuity' },
+          { title: 'Cooling', href: '/infrastructure/data-centre-services/cooling-thermal', desc: 'Precision cooling & thermal continuity' },
           { title: 'Power & UPS', href: '/services/power-ups', desc: 'UPS & power distribution' },
           { title: 'Server Continuity', href: '/services/server-continuity', desc: 'Business continuity & disaster recovery' },
           { title: 'Hardware Support', href: '/services/hardware-support', desc: 'Save 60% vs vendor contracts' },
@@ -80,9 +81,10 @@ const NAV_ITEMS: NavItemConfig[] = [
     href: '/services/infrastructure',
     groups: [
       {
-        heading: 'Data Centre Services',
+        heading: 'Data Centre Infrastructure Services',
+        href: '/services/datacenter2',
         links: [
-          { title: 'Cooling & Airflow', href: '/infrastructure/data-centre-services/cooling-thermal', desc: 'Precision cooling & thermal continuity' },
+          { title: 'Cooling', href: '/infrastructure/data-centre-services/cooling-thermal', desc: 'Precision cooling & thermal continuity' },
           { title: 'Power & UPS', href: '/services/power-ups', desc: 'UPS systems & power distribution' },
           { title: 'Rack & Cabinet', href: '/services/rack-cabinets', desc: 'Server cabinets & enclosures' },
           { title: 'Environmental Monitoring', href: '/services/environmental-monitoring', desc: 'Temp, humidity, leak detection' },
@@ -94,6 +96,7 @@ const NAV_ITEMS: NavItemConfig[] = [
       },
       {
         heading: 'Core Infrastructure',
+        href: '/services/core-infrastructure',
         links: [
           { title: 'Server Continuity', href: '/services/server-continuity', desc: 'Business continuity & disaster recovery' },
           { title: 'Hardware Support', href: '/services/hardware-support', desc: 'Save 60% vs vendor contracts' },
@@ -102,6 +105,7 @@ const NAV_ITEMS: NavItemConfig[] = [
       },
       {
         heading: 'Network Operations',
+        href: '/services/network-operations',
         links: [
           { title: 'Cross-Domain Automation', href: '/services/cross-domain-automation', desc: 'Automate alarm correlation' },
           { title: 'Network Monitoring', href: '/services/network-monitoring', desc: 'Real-time visibility & optimisation' },
@@ -185,28 +189,56 @@ const DesktopDropdown = ({
         <div className="flex">
           {groups.map((group) => (
             <div key={group.heading} className="min-w-[260px] border-r border-gray-50 last:border-r-0 px-1">
-              <p className="px-4 pt-5 pb-2 text-[11px] font-semibold text-[#a8a8a8] uppercase tracking-[0.16px]">
-                {group.heading}
-              </p>
-              <ul className="pb-4">
+              {group.href ? (
+                <Link
+                  to={group.href}
+                  onClick={onClose}
+                  className="flex items-center gap-2 px-4 pt-5 pb-2 text-xs font-semibold text-[#0f62fe] hover:underline transition-colors"
+                >
+                  {group.heading}
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
+              ) : (
+                <p className="px-4 pt-5 pb-2 text-xs font-semibold text-[#6f6f6f]">
+                  {group.heading}
+                </p>
+              )}
+              <ul className="space-y-1 pb-2">
                 {group.links.map((link) => (
                   <li key={link.title} role="none">
                     <Link
                       to={link.href}
                       role="menuitem"
                       onClick={onClose}
-                      className="block px-4 py-2 text-sm text-[#161616] hover:bg-[#f4f4f4] hover:text-[#0f62fe] transition-colors"
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm text-[#161616] hover:bg-[#f4f4f4] hover:text-[#0f62fe] transition-colors group rounded-sm"
                     >
-                      <span className="font-medium">{link.title}</span>
-                      {link.desc && (
-                        <span className="block text-xs text-gray-400 mt-0.5 leading-snug">
-                          {link.desc}
-                        </span>
-                      )}
+                      <div className="flex-1 min-w-0">
+                        <span className="font-medium">{link.title}</span>
+                        {link.desc && (
+                          <span className="block text-[11px] text-[#525252] mt-0.5 leading-snug">
+                            {link.desc}
+                          </span>
+                        )}
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-[#8d8d8d] group-hover:text-[#0f62fe] opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
                     </Link>
                   </li>
                 ))}
               </ul>
+              {group.href && (
+                <>
+                  <div className="border-t border-[#e0e0e0] mx-4 my-2" />
+                  <div className="px-4 pb-4">
+                    <Link
+                      to={group.href}
+                      onClick={onClose}
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#0f62fe] hover:text-[#0353e9] transition-colors"
+                    >
+                      View All <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>
@@ -216,7 +248,7 @@ const DesktopDropdown = ({
             onClick={onClose}
             className={`inline-flex items-center gap-2 text-sm font-semibold transition-colors ${showPartnerBadge ? 'text-white/80 hover:text-white' : 'text-[#0f62fe] hover:text-[#0353e9]'}`}
           >
-            View All Infrastructure <ChevronDown className="w-4 h-4 -rotate-90" />
+            View All Infrastructure <ArrowRight className="w-4 h-4" />
           </Link>
 
           {showPartnerBadge && (
@@ -353,11 +385,11 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
             const isActive = location.pathname.startsWith(item.href);
             return (
               <li key={item.label}>
-                <div className="flex items-center justify-between">
+                <div className={`flex items-center justify-between border rounded-lg transition-colors ${isOpen ? 'border-gray-700 bg-white/[0.03]' : 'border-gray-800/50'}`}>
                   <Link
                     to={item.href}
                     onClick={onClose}
-                    className={`flex-1 py-3 text-base font-medium transition-colors ${
+                    className={`flex-1 py-3 px-3 rounded-lg text-base font-medium transition-colors ${
                       isActive
                         ? 'text-[#0f62fe]'
                         : 'text-white hover:text-[#0f62fe]'
@@ -369,7 +401,7 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
                     onClick={() => setOpenIndex(isOpen ? null : idx)}
                     aria-expanded={isOpen}
                     aria-label={`Toggle ${item.label}`}
-                    className={`p-2 rounded-lg transition-colors ${
+                    className={`p-2 mr-1 rounded-lg transition-colors ${
                       isOpen ? 'text-white bg-white/10' : 'text-white/50 hover:text-white hover:bg-white/10'
                     }`}
                   >
@@ -380,25 +412,55 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
                 </div>
 
                 {isOpen && (
-                  <div className="pl-4 pb-2 ml-2 space-y-4">
-                    {item.groups.map((group) => (
-                      <div key={group.heading}>
-                        <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-[0.16px] mb-1">
-                          {group.heading}
-                        </p>
-                        <ul className="space-y-1 border-l-2 border-gray-700 pl-3">
+                  <div className="mt-2 p-3 bg-white/[0.03] border border-gray-800/40 rounded-xl space-y-4">
+                    {item.groups.map((group, gIdx) => (
+                      <div key={group.heading} className={gIdx > 0 ? 'border-t border-gray-800/40 pt-3' : ''}>
+                        {group.href ? (
+                          <Link
+                            to={group.href}
+                            onClick={onClose}
+                            className="inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-semibold text-[#0f62fe] mb-2 hover:bg-white/5 transition-colors"
+                          >
+                            {group.heading}
+                            <ArrowUpRight className="w-3.5 h-3.5" />
+                          </Link>
+                        ) : (
+                          <p className="text-xs font-semibold text-gray-400 mb-2">
+                            {group.heading}
+                          </p>
+                        )}
+                        <ul className="space-y-2">
                           {group.links.map((link) => (
                             <li key={link.title}>
                               <Link
                                 to={link.href}
                                 onClick={onClose}
-                                className="block py-1.5 text-sm text-gray-300 hover:text-white transition-colors"
+                                className="flex items-center gap-3 p-3 border border-gray-700/50 rounded-lg text-sm text-gray-300 hover:text-white hover:border-gray-600 hover:bg-white/5 transition-colors"
                               >
-                                {link.title}
+                                <div className="flex-1 min-w-0">
+                                  <span className="font-medium block">{link.title}</span>
+                                  {link.desc && (
+                                    <span className="block text-[11px] text-gray-500 mt-0.5 leading-snug">
+                                      {link.desc}
+                                    </span>
+                                  )}
+                                </div>
+                                <ArrowRight className="w-4 h-4 text-gray-600 flex-shrink-0" />
                               </Link>
                             </li>
                           ))}
                         </ul>
+                        {group.href && (
+                          <div className="mt-2 pt-2 border-t border-gray-700/50">
+                            <Link
+                              to={group.href}
+                              onClick={onClose}
+                              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#0f62fe] hover:text-[#78a9ff] transition-colors"
+                            >
+                              View All <ArrowRight className="w-4 h-4" />
+                            </Link>
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -414,10 +476,10 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
                 <Link
                   to={link.href}
                   onClick={onClose}
-                  className={`block py-3 text-base font-medium transition-colors ${
+                  className={`block py-3 px-3 rounded-lg text-base font-medium transition-colors ${
                     isActive
                       ? 'text-[#0f62fe]'
-                      : 'text-white hover:text-[#0f62fe]'
+                      : 'text-white hover:text-[#0f62fe] hover:bg-white/5'
                   }`}
                 >
                   {link.label}

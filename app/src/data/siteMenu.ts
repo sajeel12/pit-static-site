@@ -112,7 +112,7 @@ export const siteMenu: MenuCategory[] = [
       {
         label: 'Data Centre Services',
         children: [
-          { label: 'Cooling & Airflow', href: '/#/infrastructure/data-centre-services/cooling-thermal', desc: 'Precision cooling & thermal continuity' },
+          { label: 'Cooling', href: '/#/infrastructure/data-centre-services/cooling-thermal', desc: 'Precision cooling & thermal continuity' },
           { label: 'Power & UPS', href: '/#/services/power-ups', desc: 'UPS & power distribution' },
           { label: 'Rack & Cabinet', href: '/#/services/rack-cabinets', desc: 'Server cabinets & enclosures' },
           { label: 'Environmental Monitoring', href: '/#/services/environmental-monitoring', desc: 'Temp, humidity, leak detection' },
