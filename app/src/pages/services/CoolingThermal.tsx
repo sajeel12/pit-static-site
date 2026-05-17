@@ -357,22 +357,31 @@ const RemoteAdvisorySection = () => {
         </div>
 
           {/* Ideal For */}
-          <div className="mb-10 p-6 bg-[#f4f9ff] rounded-2xl border border-[#dbeafe]">
-            <p className="carbon-label-02 text-[#0f62fe] uppercase mb-4">Ideal For</p>
-            <ul className="space-y-3 carbon-body-02 text-gray-700">
-              <li className="flex items-start gap-3">
-                <CheckmarkFilled className="w-5 h-5 text-[#0f62fe] flex-shrink-0 mt-0.5" />
-                <span><strong>International operators</strong> designing for emerging-market or extreme climates</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckmarkFilled className="w-5 h-5 text-[#0f62fe] flex-shrink-0 mt-0.5" />
-                <span><strong>Pre-sales and planning teams</strong> needing thermal direction before procurement or site mobilization</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckmarkFilled className="w-5 h-5 text-[#0f62fe] flex-shrink-0 mt-0.5" />
-                <span><strong>Architects and engineers</strong> validating cooling strategy during design or refurbishment phases</span>
-              </li>
-            </ul>
+          <div className="mb-10">
+            <p className="carbon-label-02 text-[#475569] uppercase mb-6">Ideal For</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="p-6 bg-white rounded-2xl border border-gray-200">
+                <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center mb-4">
+                  <ChartLine className="w-5 h-5 text-[#0f62fe]" />
+                </div>
+                <p className="carbon-heading-02 text-gray-900 mb-2">Pre-Sales &amp; Planning Teams</p>
+                <p className="carbon-body-02 text-gray-600">Need thermal direction before procurement or site mobilization. Validate feasibility before budget commitment.</p>
+              </div>
+              <div className="p-6 bg-white rounded-2xl border border-gray-200">
+                <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center mb-4">
+                  <TemperatureHot className="w-5 h-5 text-[#0f62fe]" />
+                </div>
+                <p className="carbon-heading-02 text-gray-900 mb-2">International Operators</p>
+                <p className="carbon-body-02 text-gray-600">Designing for emerging-market or extreme climates where local thermal expertise is unavailable.</p>
+              </div>
+              <div className="p-6 bg-white rounded-2xl border border-gray-200">
+                <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center mb-4">
+                  <Settings className="w-5 h-5 text-[#0f62fe]" />
+                </div>
+                <p className="carbon-heading-02 text-gray-900 mb-2">Architects &amp; Engineers</p>
+                <p className="carbon-body-02 text-gray-600">Validating cooling strategy during design or refurbishment phases. Independent engineering sign-off.</p>
+              </div>
+            </div>
           </div>
 
           {/* What You Receive */}
