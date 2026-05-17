@@ -169,7 +169,7 @@ const HeroSection = () => (
               Speak to an Engineer
             </a>
             <button onClick={() => { const el = document.getElementById('international'); if (el) { const headerOffset = 80; const pos = el.getBoundingClientRect().top + window.scrollY; window.scrollTo({ top: pos - headerOffset, behavior: 'smooth' }); } }} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 sm:h-14 border border-white/50 text-white carbon-body-02 hover:bg-white/10 transition-colors rounded-lg cursor-pointer">
-              International Thermal Advisory
+              Remote Thermal Consulting
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
