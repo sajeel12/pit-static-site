@@ -122,7 +122,7 @@ const StickyAnchorNav = () => {
 };
 
 const HeroSection = () => (
-  <section id="overview" className="relative min-h-[85vh] flex items-center bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#334155] overflow-hidden pt-20 carbon-font text-white">
+  <section id="overview" className="relative min-h-[75vh] sm:min-h-[85vh] flex items-center bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#334155] overflow-hidden pt-20 carbon-font text-white">
     <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle at top right, rgba(100,116,139,0.10), transparent 35%), radial-gradient(circle at left, rgba(71,85,105,0.06), transparent 30%)' }} />
     <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-6 pb-16 lg:pb-20">
       <nav aria-label="Breadcrumb" className="mb-10">
@@ -288,10 +288,10 @@ const AssessmentSection = () => {
               <p className="carbon-body-02 text-gray-600">Our engineers can recommend the right path based on your rack density and compliance requirements.</p>
             </div>
             <div className="flex gap-3 flex-wrap">
-              <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-heading-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg">
+              <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-body-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg">
                 {isOpen ? 'Close' : 'Compare Both'} {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
               </button>
-              <a href="mailto:contact@perception-it.com?subject=Assessment%20Consultation%20Request" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-heading-02 hover:bg-[#0353e9] transition-colors rounded-lg">
+              <a href="mailto:contact@perception-it.com?subject=Assessment%20Consultation%20Request" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] transition-colors rounded-lg">
                 Speak to an Engineer
               </a>
             </div>
@@ -440,7 +440,7 @@ const RemoteAdvisorySection = () => {
             <div className="max-w-2xl">
               <h3 className="carbon-heading-02 text-[#0F172A] mb-2">Ready to review your thermal strategy?</h3>
             </div>
-            <a href="mailto:contact@perception-it.com?subject=Remote%20Thermal%20Advisory%20Request" className="mt-6 inline-flex items-center justify-center rounded-lg bg-[#0f62fe] px-6 py-3 text-white carbon-heading-02 hover:bg-[#0353e9] transition-colors md:mt-0">
+            <a href="mailto:contact@perception-it.com?subject=Remote%20Thermal%20Advisory%20Request" className="mt-6 inline-flex items-center justify-center rounded-lg bg-[#0f62fe] px-6 py-3 text-white carbon-body-02 hover:bg-[#0353e9] transition-colors md:mt-0">
               Request remote advisory
             </a>
           </div>
@@ -457,6 +457,7 @@ const RemoteAdvisorySection = () => {
 const ProcurementSection = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [datasheetOpen, setDatasheetOpen] = useState(false);
+  const showInternalLink = import.meta.env.VITE_SHOW_INTERNAL === 'true';
 
   const cards = [
     {
@@ -529,10 +530,10 @@ const ProcurementSection = () => {
               <p className="carbon-body-02 text-gray-600">We procure from Tier 1 manufacturers with free site survey before order placement.</p>
             </div>
             <div className="flex gap-3 flex-wrap">
-              <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-heading-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg">
+              <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-body-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg">
                 {isOpen ? 'Close' : 'Compare Hardware'} {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
               </button>
-              <a href="mailto:contact@perception-it.com?subject=Hardware%20Consultation%20Request" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-heading-02 hover:bg-[#0353e9] transition-colors rounded-lg">Speak to an Engineer</a>
+              <a href="mailto:contact@perception-it.com?subject=Hardware%20Consultation%20Request" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] transition-colors rounded-lg">Speak to an Engineer</a>
             </div>
           </div>
         </div>
@@ -599,12 +600,20 @@ const ProcurementSection = () => {
                 <div key={s.l}><p className="carbon-label-02 text-gray-400 uppercase mb-0.5">{s.l}</p><p className="carbon-heading-02 text-gray-900">{s.v}</p></div>
               ))}
             </div>
-            <div className="flex gap-3">
-              <button onClick={() => setDatasheetOpen(true)} className="inline-flex items-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-heading-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg">
-                <Download className="w-4 h-4" />
-                Get Datasheet
-              </button>
-              <a href="mailto:contact@perception-it.com?subject=FusionCol8000-E%20Enquiry" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-heading-02 hover:bg-[#0353e9] transition-colors rounded-lg">Speak to an Engineer</a>
+            <div className="flex flex-col gap-3">
+              <div className="flex gap-3 flex-wrap">
+                <button onClick={() => setDatasheetOpen(true)} className="inline-flex items-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-body-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg">
+                  <Download className="w-4 h-4" />
+                  Get Datasheet
+                </button>
+                <a href="mailto:contact@perception-it.com?subject=FusionCol8000-E%20Enquiry" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] transition-colors rounded-lg">Speak to an Engineer</a>
+              </div>
+              {showInternalLink && (
+                <div className="text-center">
+                  <a href="/perception-it-internal-checklist.html" className="inline-flex items-center justify-center gap-2 mt-3 px-5 py-3 bg-[#da1e28] text-white carbon-body-02 rounded-lg">Perception IT internal</a>
+                  <p className="carbon-helper-text-01 text-gray-400 mt-2">Self-assessment guide only. Not a substitute for professional engineering evaluation.</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -629,18 +638,13 @@ const ProcurementSection = () => {
             <h3 className="carbon-heading-02 text-gray-900 mb-2">FusionCol8000-E Datasheet</h3>
             <p className="carbon-body-02 text-gray-500 mb-6">This datasheet is available on request. Send us a quick email and we&apos;ll deliver the full technical specifications to your inbox.</p>
             <div className="flex flex-col gap-3">
-              <a href="mailto:contact@perception-it.com?subject=Request:%20FusionCol8000-E%20Datasheet" className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-heading-02 hover:bg-[#0353e9] transition-colors rounded-lg">
+              <a href="mailto:contact@perception-it.com?subject=Request:%20FusionCol8000-E%20Datasheet" className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] transition-colors rounded-lg">
                 Request via Email
               </a>
-              <a href="/downloads/Perception-IT-FusionCol8000-E-Datasheet.pdf" download className="inline-flex items-center justify-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-heading-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg">
+              <a href="/downloads/Perception-IT-FusionCol8000-E-Datasheet.pdf" download className="inline-flex items-center justify-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-body-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg">
                 <Download className="w-4 h-4" />
                 Download Directly
               </a>
-            
-              <div className="mt-4 pt-4 border-t border-gray-100">
-                <a href="/perception-it-internal-checklist.html" className="text-[#0f62fe] carbon-body-02 inline-block">Perception IT internal</a>
-                <p className="carbon-helper-text-01 text-gray-400 mt-2">Self-assessment guide only. Not a substitute for professional engineering evaluation.</p>
-              </div>
             </div>
             <p className="carbon-helper-text-01 text-gray-400 mt-4 text-center">File: Perception-IT-FusionCol8000-E-Datasheet.pdf</p>
           </div>
@@ -730,10 +734,10 @@ const DeploymentSection = () => {
               <p className="carbon-body-02 text-white/80">Our deployment team understands Pakistani power conditions better than anyone.</p>
             </div>
             <div className="flex gap-3 flex-wrap">
-              <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center gap-2 px-5 py-3 border border-white/40 text-white carbon-heading-02 hover:bg-white/10 transition-colors rounded-lg">
+              <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center gap-2 px-5 py-3 border border-white/40 text-white carbon-body-02 hover:bg-white/10 transition-colors rounded-lg">
                 {isOpen ? 'Close' : 'View Full Process'} {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
               </button>
-              <a href="mailto:contact@perception-it.com?subject=Deployment%20Consultation%20Request" className="inline-flex items-center gap-2 px-5 py-3 bg-white text-[#0f62fe] carbon-heading-02 hover:bg-gray-50 transition-colors rounded-lg">Speak to an Engineer</a>
+              <a href="mailto:contact@perception-it.com?subject=Deployment%20Consultation%20Request" className="inline-flex items-center gap-2 px-5 py-3 bg-white text-[#0f62fe] carbon-body-02 hover:bg-gray-50 transition-colors rounded-lg">Speak to an Engineer</a>
             </div>
           </div>
         </div>
@@ -853,7 +857,7 @@ const ManagedSection = () => {
                   </li>
                 ))}
               </ul>
-              <a href="mailto:contact@perception-it.com?subject=Managed%20Services%20Enquiry" className={`inline-flex items-center gap-2 px-5 py-3 w-full justify-center carbon-heading-02 rounded-lg transition-colors ${tier.recommended ? 'bg-[#0f62fe] text-white hover:bg-[#0353e9]' : 'border border-gray-300 text-gray-700 hover:border-[#0f62fe] hover:text-[#0f62fe]'}`}>
+              <a href="mailto:contact@perception-it.com?subject=Managed%20Services%20Enquiry" className={`inline-flex items-center gap-2 px-5 py-3 w-full justify-center carbon-body-02 rounded-lg transition-colors ${tier.recommended ? 'bg-[#0f62fe] text-white hover:bg-[#0353e9]' : 'border border-gray-300 text-gray-700 hover:border-[#0f62fe] hover:text-[#0f62fe]'}`}>
                 Choose {tier.name}
               </a>
             </div>
@@ -867,10 +871,10 @@ const ManagedSection = () => {
               <p className="carbon-body-02 text-white/80">Most mid-size data centres start with Professional. We can assess your cooling load in a 30-minute call.</p>
             </div>
             <div className="flex gap-3 flex-wrap">
-              <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center gap-2 px-5 py-3 border border-white/40 text-white carbon-heading-02 hover:bg-white/10 transition-colors rounded-lg">
+              <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center gap-2 px-5 py-3 border border-white/40 text-white carbon-body-02 hover:bg-white/10 transition-colors rounded-lg">
                 {isOpen ? 'Close' : 'Compare All Tiers'} {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
               </button>
-              <a href="mailto:contact@perception-it.com?subject=Managed%20Services%20Consultation" className="inline-flex items-center gap-2 px-5 py-3 bg-white text-[#0f62fe] carbon-heading-02 hover:bg-gray-50 transition-colors rounded-lg">Speak to an Engineer</a>
+              <a href="mailto:contact@perception-it.com?subject=Managed%20Services%20Consultation" className="inline-flex items-center gap-2 px-5 py-3 bg-white text-[#0f62fe] carbon-body-02 hover:bg-gray-50 transition-colors rounded-lg">Speak to an Engineer</a>
             </div>
           </div>
         </div>
@@ -887,9 +891,9 @@ const ManagedSection = () => {
               </div>
             </div>
 
-            {/* Feature Comparison */}
-            <div className="overflow-x-auto rounded-xl border border-gray-200">
-              <table className="w-full text-left min-w-[600px]">
+            {/* Feature Comparison — Desktop Table */}
+            <div className="hidden md:block overflow-x-auto rounded-xl border border-gray-200">
+              <table className="w-full text-left">
                 <thead>
                   <tr className="bg-gray-50 border-b border-gray-200">
                     <th className="p-2 md:p-4 carbon-label-02 text-gray-500 uppercase">Feature</th>
@@ -925,6 +929,58 @@ const ManagedSection = () => {
                   })}
                 </tbody>
               </table>
+            </div>
+
+            {/* Feature Comparison — Mobile Cards */}
+            <div className="md:hidden space-y-4">
+              {[
+                { name: 'Essential', accent: 'text-gray-500', bg: 'bg-gray-50', features: [
+                  {label:'Preventive maintenance', value:'Quarterly'},
+                  {label:'Response SLA', value:'—'},
+                  {label:'NOC monitoring', value:'Basic telemetry'},
+                  {label:'Predictive alerts', value:false},
+                  {label:'Thermal trending report', value:false},
+                  {label:'Spare parts pre-staging', value:false},
+                  {label:'Monsoon standby engineers', value:false},
+                  {label:'Uptime target (SLA)', value:false},
+                ]},
+                { name: 'Professional', accent: 'text-[#0f62fe]', bg: 'bg-[#f4f9ff]', features: [
+                  {label:'Preventive maintenance', value:'Monthly'},
+                  {label:'Response SLA', value:'8-hour'},
+                  {label:'NOC monitoring', value:'Remote monitoring'},
+                  {label:'Predictive alerts', value:true},
+                  {label:'Thermal trending report', value:true},
+                  {label:'Spare parts pre-staging', value:true},
+                  {label:'Monsoon standby engineers', value:false},
+                  {label:'Uptime target (SLA)', value:false},
+                ]},
+                { name: 'Enterprise', accent: 'text-[#6929c4]', bg: 'bg-[#f6f2ff]', features: [
+                  {label:'Preventive maintenance', value:'Monthly + quarterly room integrity'},
+                  {label:'Response SLA', value:'4-hour'},
+                  {label:'NOC monitoring', value:'24/7 NOC (3 hubs)'},
+                  {label:'Predictive alerts', value:true},
+                  {label:'Thermal trending report', value:true},
+                  {label:'Spare parts pre-staging', value:'On-site pre-staged'},
+                  {label:'Monsoon standby engineers', value:true},
+                  {label:'Uptime target (SLA)', value:'99.9%*'},
+                ]},
+              ].map((tier) => (
+                <div key={tier.name} className={`rounded-xl border border-gray-200 p-4 ${tier.bg}`}>
+                  <p className={`carbon-label-02 uppercase mb-3 ${tier.accent}`}>{tier.name}</p>
+                  <ul className="space-y-2">
+                    {tier.features.map((feat) => (
+                      <li key={feat.label} className="flex items-start justify-between gap-3 carbon-body-short-01">
+                        <span className="text-gray-600">{feat.label}</span>
+                        <span className="text-gray-900 font-medium text-right flex-shrink-0">
+                          {feat.value === true ? <CheckmarkFilled className="w-4 h-4 text-gray-400" /> :
+                           feat.value === false ? <span className="text-gray-400">—</span> :
+                           feat.value}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
 
             {/* Important Pricing & Service Terms */}
@@ -1130,7 +1186,7 @@ const ProjectCard = ({ project, index }: { project: typeof PROJECTS[0]; index: n
 
   return (
     <article className={`${styles.projectCard} group rounded-xl overflow-hidden bg-white transition-all duration-500 border border-[#e0e0e0] hover:border-[#0f62fe] hover:shadow-lg`} style={{ animationDelay: `${index * 100}ms` }}>
-      <div className="relative h-40 overflow-hidden bg-gray-100">
+      <div className="relative h-48 sm:h-40 overflow-hidden bg-gray-100">
         {project.image ? (
           <img
             src={project.image}
@@ -1252,7 +1308,7 @@ const EcosystemSection = () => {
           <p className="carbon-body-02 text-gray-500 max-w-2xl">Cooling does not exist in isolation. Our services connect thermal management with the infrastructure layers that dictate its performance from a single accountable team.</p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {ECOSYSTEM_ITEMS.map((item) => (
             <a
               key={item.title}
