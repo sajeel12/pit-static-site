@@ -168,10 +168,10 @@ const HeroSection = () => (
             <a href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-8 h-12 sm:h-14 bg-gradient-to-r from-[#0f62fe] to-[#4589ff] text-white carbon-body-02 hover:from-[#0353e9] hover:to-[#0f62fe] shadow-lg shadow-blue-500/25 rounded-lg">
               Speak to an Engineer
             </a>
-            <a href="#international" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 sm:h-14 border border-white/50 text-white carbon-body-02 hover:bg-white/10 transition-colors rounded-lg">
+            <button onClick={() => { const el = document.getElementById('international'); if (el) { const headerOffset = 80; const pos = el.getBoundingClientRect().top + window.scrollY; window.scrollTo({ top: pos - headerOffset, behavior: 'smooth' }); } }} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 sm:h-14 border border-white/50 text-white carbon-body-02 hover:bg-white/10 transition-colors rounded-lg cursor-pointer">
               International Thermal Advisory
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </button>
           </div>
         </div>
 
@@ -510,7 +510,7 @@ const ProcurementSection = () => {
           <div className="relative z-10 p-8 lg:p-12 max-w-lg">
             <p className="carbon-label-01 uppercase mb-3 text-white/70">02 Procurement</p>
             <h3 className="carbon-fluid-heading-03 text-white mb-4 leading-tight">Direct from Tier 1 manufacturers</h3>
-            <p className="carbon-body-02 text-white/75">We source from Huawei, Vertiv, Stulz, and others. Every unit is factory-accepted and pre-validated before shipping.</p>
+            <p className="carbon-body-02 text-white/75">We source from Huawei, Lenovo, HP, and other Tier 1 manufacturers. Every unit is factory-accepted and pre-validated before shipping.</p>
           </div>
         </div>
 
