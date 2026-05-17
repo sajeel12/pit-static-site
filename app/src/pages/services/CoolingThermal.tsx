@@ -321,6 +321,32 @@ const AssessmentSection = () => {
                     <li key={item.l} className="flex items-start gap-2 carbon-body-02 text-gray-600"><CheckmarkFilled className="w-4 h-4 text-[#0f62fe] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">{item.l}:</strong> {item.v}</span></li>
                   ))}
                 </ul>
+                <div className="mt-4 pt-4 border-t border-gray-200">
+                  <p className="carbon-label-02 text-[#0f62fe] uppercase mb-2">CFD Capabilities</p>
+                  <ul className="space-y-1.5 carbon-body-02 text-gray-600">
+                    <li>• Visually assess cooling airflow and equipment temperatures</li>
+                    <li>• Investigate causes of and solutions to overheating</li>
+                    <li>• Pinpoint which IT assets will fail in a given configuration</li>
+                    <li>• Run failure scenarios (power outage, fan failure, cooling loss)</li>
+                    <li>• Increase rack utilisation without sacrificing availability</li>
+                    <li>• Determine best location for new equipment deployment</li>
+                    <li>• Design and configure IT devices with risk-free testing</li>
+                    <li>• Understand impact of planned changes before committing</li>
+                    <li>• Plan refreshes using future equipment without downtime risk</li>
+                    <li>• Predict availability, capacity and cooling efficiency interaction</li>
+                    <li>• Know true boundary conditions for power density and outflow</li>
+                    <li>• Ensure critical components operate below temperature specs under stress</li>
+                    <li>• Hot-aisle vs cold-aisle containment comparison</li>
+                    <li>• Analyse floor space power consumption and heat load</li>
+                    <li>• Calculate cooling distribution airflow requirements from HVAC</li>
+                    <li>• Predict data centre temperature distribution</li>
+                    <li>• Suggest floor tile additions and rack relocation</li>
+                    <li>• Find optimal position of a new asset</li>
+                    <li>• Reduce costs by optimising airflow and cooling unit operation</li>
+                    <li>• Prevent equipment failure via what-if scenario simulation</li>
+                    <li>• Dimension and position primary and backup cooling units</li>
+                  </ul>
+                </div>
               </div>
             </div>
             <div className="p-5 bg-[#24a148]/5 rounded-xl border border-[#24a148]/20 flex gap-4 items-start">
@@ -406,7 +432,7 @@ const RemoteAdvisorySection = () => {
                   <span className="carbon-label-02 text-[#0f62fe]">01</span>
                 </div>
                 <p className="carbon-heading-02 text-gray-900 mb-2">CFD &amp; Airflow Review</p>
-                <p className="carbon-body-02 text-gray-600">Modelling, hotspot identification, and containment recommendations from your supplied layouts.</p>
+                <p className="carbon-body-02 text-gray-600">Remote CFD modelling and airflow analysis from your supplied drawings. Includes equipment placement recommendations, containment strategy comparison, and what-if scenario simulation.</p>
               </div>
               <div className="p-6 bg-white rounded-2xl border border-gray-200">
                 <div className="flex items-center gap-3 mb-4">
