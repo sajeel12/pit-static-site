@@ -168,12 +168,11 @@ const HeroSection = () => (
             <a href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-8 h-12 sm:h-14 bg-gradient-to-r from-[#0f62fe] to-[#4589ff] text-white carbon-body-02 hover:from-[#0353e9] hover:to-[#0f62fe] shadow-lg shadow-blue-500/25 rounded-lg">
               Speak to an Engineer
             </a>
-            <a href="/downloads/Perception-IT-Thermal-Readiness-Checklist.pdf" download className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 sm:h-14 border border-white/50 text-white carbon-body-02 hover:bg-white/10 transition-colors rounded-lg">
-              Self-Assessment Checklist
-              <Download className="w-4 h-4" />
+            <a href="#international" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 sm:h-14 border border-white/50 text-white carbon-body-02 hover:bg-white/10 transition-colors rounded-lg">
+              International Thermal Advisory
+              <ArrowRight className="w-4 h-4" />
             </a>
           </div>
-          <p className="mt-3 carbon-helper-text-01 text-white/50 max-w-md text-center">Self-assessment guide only. Not a substitute for professional engineering evaluation.</p>
         </div>
 
       </div>
