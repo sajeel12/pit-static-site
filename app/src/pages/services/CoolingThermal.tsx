@@ -419,32 +419,47 @@ const RemoteAdvisorySection = () => {
             </div>
           </div>
 
-          {/* How It Works + Scope */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            <div className="p-6 bg-white rounded-2xl border border-gray-200">
-              <p className="carbon-label-02 text-[#475569] uppercase mb-4">How It Works</p>
-              <ol className="space-y-4 carbon-body-02 text-gray-600 list-decimal list-inside">
-                <li><strong className="text-gray-900">Data Submission</strong> — You share room layouts, equipment schedules, and environmental parameters via secure portal</li>
-                <li><strong className="text-gray-900">Remote Analysis</strong> — We run CFD modelling, assess thermal risk, and validate vendor specifications</li>
-                <li><strong className="text-gray-900">Roadmap Delivery</strong> — You receive a practical thermal strategy with prioritised recommendations and implementation boundaries</li>
-              </ol>
-              <p className="mt-4 carbon-label-02 text-gray-400">Typical turnaround: 10–15 business days from data receipt.</p>
-            </div>
-            <div className="p-6 bg-white rounded-2xl border border-gray-200">
-              <p className="carbon-label-02 text-[#475569] uppercase mb-4">Scope &amp; Delivery Boundaries</p>
-              <p className="carbon-body-02 text-gray-600 mb-3">This engagement delivers strategic advisory only. To ensure clarity:</p>
-              <ul className="space-y-2 carbon-body-02 text-gray-600 mb-4">
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 flex-shrink-0">✅</span>
-                  <span><strong>Included:</strong> Methodology validation, design logic review, specification alignment, risk modelling</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-red-500 flex-shrink-0">❌</span>
-                  <span><strong>Excluded:</strong> Physical site surveys, instrumented testing, on-site commissioning, final handover sign-off, verification of client-supplied data accuracy</span>
-                </li>
-              </ul>
-              <p className="carbon-body-02 text-gray-500 text-sm">Physical validation, commissioning, and managed services are available separately for Pakistan-based deployments.</p>
-            </div>
+          {/* How It Works + Scope — Accordion for space efficiency */}
+          <div className="mb-10 bg-white rounded-2xl border border-gray-200 overflow-hidden">
+            <Accordion>
+              <AccordionItem title="How It Works — 3 steps, 10–15 business days">
+                <div className="pb-2">
+                  <ol className="space-y-4 carbon-body-02 text-gray-600 list-decimal list-inside mb-4">
+                    <li><strong className="text-gray-900">Data Submission</strong> — You share room layouts, equipment schedules, and environmental parameters via secure portal</li>
+                    <li><strong className="text-gray-900">Remote Analysis</strong> — We run CFD modelling, assess thermal risk, and validate vendor specifications</li>
+                    <li><strong className="text-gray-900">Roadmap Delivery</strong> — You receive a practical thermal strategy with prioritised recommendations and implementation boundaries</li>
+                  </ol>
+                  <p className="carbon-label-02 text-gray-400">Typical turnaround: 10–15 business days from data receipt.</p>
+                </div>
+              </AccordionItem>
+              <AccordionItem title="Scope &amp; Delivery Boundaries — What is and is not included">
+                <div className="pb-2">
+                  <p className="carbon-body-02 text-gray-600 mb-3">This engagement delivers strategic advisory only. To ensure clarity:</p>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="p-4 bg-green-50 rounded-xl border border-green-100">
+                      <p className="carbon-label-02 text-green-700 uppercase mb-2">✅ Included</p>
+                      <ul className="space-y-1.5 carbon-body-02 text-gray-600">
+                        <li>Methodology validation</li>
+                        <li>Design logic review</li>
+                        <li>Specification alignment</li>
+                        <li>Risk modelling</li>
+                      </ul>
+                    </div>
+                    <div className="p-4 bg-red-50 rounded-xl border border-red-100">
+                      <p className="carbon-label-02 text-red-600 uppercase mb-2">❌ Excluded</p>
+                      <ul className="space-y-1.5 carbon-body-02 text-gray-600">
+                        <li>Physical site surveys</li>
+                        <li>Instrumented testing</li>
+                        <li>On-site commissioning</li>
+                        <li>Final handover sign-off</li>
+                        <li>Verification of client-supplied data accuracy</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p className="mt-4 carbon-body-02 text-gray-500 text-sm">Physical validation, commissioning, and managed services are available separately for Pakistan-based deployments.</p>
+                </div>
+              </AccordionItem>
+            </Accordion>
           </div>
 
           {/* CTA */}
