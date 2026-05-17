@@ -359,27 +359,33 @@ const RemoteAdvisorySection = () => {
           {/* Ideal For */}
           <div className="mb-10">
             <p className="carbon-label-02 text-[#475569] uppercase mb-6">Ideal For</p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-6 bg-white rounded-2xl border border-gray-200">
-                <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center mb-4">
+            <div className="bg-white rounded-2xl border border-gray-200 divide-y divide-gray-100">
+              <div className="p-5 md:p-6 flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <ChartLine className="w-5 h-5 text-[#0f62fe]" />
                 </div>
-                <p className="carbon-heading-02 text-gray-900 mb-2">Pre-Sales &amp; Planning Teams</p>
-                <p className="carbon-body-02 text-gray-600">Need thermal direction before procurement or site mobilization. Validate feasibility before budget commitment.</p>
+                <div>
+                  <p className="carbon-heading-02 text-gray-900 mb-1">Pre-Sales &amp; Planning Teams</p>
+                  <p className="carbon-body-02 text-gray-600">Need thermal direction before procurement or site mobilization. Validate feasibility before budget commitment.</p>
+                </div>
               </div>
-              <div className="p-6 bg-white rounded-2xl border border-gray-200">
-                <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center mb-4">
+              <div className="p-5 md:p-6 flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <TemperatureHot className="w-5 h-5 text-[#0f62fe]" />
                 </div>
-                <p className="carbon-heading-02 text-gray-900 mb-2">International Operators</p>
-                <p className="carbon-body-02 text-gray-600">Designing for emerging-market or extreme climates where local thermal expertise is unavailable.</p>
+                <div>
+                  <p className="carbon-heading-02 text-gray-900 mb-1">International Operators</p>
+                  <p className="carbon-body-02 text-gray-600">Designing for emerging-market or extreme climates where local thermal expertise is unavailable.</p>
+                </div>
               </div>
-              <div className="p-6 bg-white rounded-2xl border border-gray-200">
-                <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center mb-4">
+              <div className="p-5 md:p-6 flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Settings className="w-5 h-5 text-[#0f62fe]" />
                 </div>
-                <p className="carbon-heading-02 text-gray-900 mb-2">Architects &amp; Engineers</p>
-                <p className="carbon-body-02 text-gray-600">Validating cooling strategy during design or refurbishment phases. Independent engineering sign-off.</p>
+                <div>
+                  <p className="carbon-heading-02 text-gray-900 mb-1">Architects &amp; Engineers</p>
+                  <p className="carbon-body-02 text-gray-600">Validating cooling strategy during design or refurbishment phases. Independent engineering sign-off.</p>
+                </div>
               </div>
             </div>
           </div>
