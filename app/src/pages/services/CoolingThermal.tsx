@@ -323,7 +323,7 @@ const AssessmentSection = () => {
                 </ul>
                 <div className="mt-4 pt-4 border-t border-gray-200">
                   <p className="carbon-label-02 text-[#0f62fe] uppercase mb-2">CFD Capabilities</p>
-                  <ul className="space-y-1.5 carbon-body-02 text-gray-600">
+                  <ul className="space-y-1.5 carbon-body-short-01 text-gray-600">
                     <li>• Visually assess cooling airflow and equipment temperatures</li>
                     <li>• Investigate causes of and solutions to overheating</li>
                     <li>• Pinpoint which IT assets will fail in a given configuration</li>
