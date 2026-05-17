@@ -397,22 +397,46 @@ const RemoteAdvisorySection = () => {
           {/* What You Receive */}
           <div className="mb-10">
             <p className="carbon-label-02 uppercase tracking-[0.16px] mb-6 block text-[#475569]">What You Receive</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="p-6 bg-white rounded-2xl border border-gray-200">
-                <p className="carbon-heading-02 text-gray-900 mb-2">Remote CFD &amp; Airflow Strategy Review</p>
-                <p className="carbon-body-02 text-gray-600">Optimised using your supplied layouts and load data. We model airflow patterns, identify hotspots, and recommend containment strategies without visiting your site.</p>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center">
+                    <Windy className="w-4 h-4 text-[#0f62fe]" />
+                  </div>
+                  <span className="carbon-label-02 text-[#0f62fe]">01</span>
+                </div>
+                <p className="carbon-heading-02 text-gray-900 mb-2">CFD &amp; Airflow Review</p>
+                <p className="carbon-body-02 text-gray-600">Modelling, hotspot identification, and containment recommendations from your supplied layouts.</p>
               </div>
               <div className="p-6 bg-white rounded-2xl border border-gray-200">
-                <p className="carbon-heading-02 text-gray-900 mb-2">Extreme-Climate Risk Assessment</p>
-                <p className="carbon-body-02 text-gray-600">Thermal validation for 45°C+ ambient, high-humidity, and monsoon conditions using Pakistan-validated derating models. We stress-test your design against real-world extremes.</p>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center">
+                    <TemperatureHot className="w-4 h-4 text-[#0f62fe]" />
+                  </div>
+                  <span className="carbon-label-02 text-[#0f62fe]">02</span>
+                </div>
+                <p className="carbon-heading-02 text-gray-900 mb-2">Climate Risk Assessment</p>
+                <p className="carbon-body-02 text-gray-600">Thermal validation for 45°C+ ambient and monsoon conditions using Pakistan-validated derating.</p>
               </div>
               <div className="p-6 bg-white rounded-2xl border border-gray-200">
-                <p className="carbon-heading-02 text-gray-900 mb-2">Vendor Specification &amp; Capacity Review</p>
-                <p className="carbon-body-02 text-gray-600">Independent validation of equipment specs, redundancy sizing, and manufacturer claims against your actual load profile. We flag under-sizing before procurement.</p>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center">
+                    <Certificate className="w-4 h-4 text-[#0f62fe]" />
+                  </div>
+                  <span className="carbon-label-02 text-[#0f62fe]">03</span>
+                </div>
+                <p className="carbon-heading-02 text-gray-900 mb-2">Vendor Spec Review</p>
+                <p className="carbon-body-02 text-gray-600">Independent validation of equipment specs, redundancy, and manufacturer claims against your load.</p>
               </div>
               <div className="p-6 bg-white rounded-2xl border border-gray-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center">
+                    <Dashboard className="w-4 h-4 text-[#0f62fe]" />
+                  </div>
+                  <span className="carbon-label-02 text-[#0f62fe]">04</span>
+                </div>
                 <p className="carbon-heading-02 text-gray-900 mb-2">Implementation Roadmap</p>
-                <p className="carbon-body-02 text-gray-600">Phased delivery plan with clear boundaries, prioritised actions, and vendor-agnostic recommendations. Final physical validation and handover typically require local site engagement.</p>
+                <p className="carbon-body-02 text-gray-600">Phased plan with prioritised actions and clear boundaries. Physical validation requires local engagement.</p>
               </div>
             </div>
           </div>
