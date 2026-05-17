@@ -398,7 +398,7 @@ const RemoteAdvisorySection = () => {
             </div>
           </div>
 
-          {/* Why International Teams Choose This */}
+          {/* Save on Time and Costs */}
           <div className="mb-10 p-6 bg-gray-50 rounded-2xl border border-gray-200">
             <p className="carbon-label-02 uppercase tracking-[0.16px] mb-4 text-[#475569]">Why International Teams Choose This</p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
