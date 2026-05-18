@@ -7,7 +7,7 @@ import {
 import {
   ArrowRight, CheckmarkFilled, ChevronLeft, ChevronRight,
   TemperatureHot, Warning, Settings, Meter, Certificate,
-  Dashboard, Search, ChevronUp, ChevronDown, DataCenter,
+  Dashboard, ChevronUp, ChevronDown, DataCenter,
   Quotes, Windy, Temperature, ChartLine, Download,
 } from '@carbon/icons-react';
 
@@ -34,7 +34,7 @@ const trackEvent = (eventName: string, params?: Record<string, any>) => {
 
 const PAGE_SECTIONS = [
   { id: 'services', label: 'Services', inNav: false },
-  { id: 'assessment', label: '01 Assessment', inNav: true },
+  { id: 'assessment', label: '01 / Assessment', inNav: true },
   { id: 'procurement', label: '02 Procurement', inNav: true },
   { id: 'deployment', label: '03 Deployment', inNav: true },
   { id: 'managed', label: '04 Managed Services', inNav: true },
@@ -218,67 +218,171 @@ const TrustTiles = () => {
    ============================================================================== */
 
 const AssessmentSection = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [cfdOpen, setCfdOpen] = useState(false);
-
-  const cards = [
-    {
-      icon: Search,
-      tag: 'Entry',
-      title: 'Rapid Thermal Health Check',
-      desc: '90-minute on-site audit with IR mapping and risk scorecard. Ideal for routine maintenance, edge sites, and budget planning.',
-      features: ['Infrared thermal mapping of all racks','Structured checklist with Fix/Watch/OK scoring','Pakistan-specific derating validation','48-hour report delivery'],
-    },
-    {
-      icon: ChartLine,
-      tag: 'Engineering',
-      title: 'Precision Thermal Engineering',
-      desc: 'CFD modelling, capacity calculations, and engineering sign-off. For new builds, high-density, and compliance.',
-      features: ['3D heat maps and hotspot predictions','CFD airflow simulation','Capacity calculations with derating','Engineering sign-off documentation'],
-    },
-  ];
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <section id="assessment" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="mb-10 carbon-font">
-          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block text-[#0f62fe]">01 Assessment</span>
-          <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Choose Your Assessment Path</h2>
-          <p className="carbon-body-02 text-gray-500 max-w-2xl">Two options. One goal: Understand your thermal reality before you spend.</p>
+        <div className="mb-12 carbon-font">
+          <span className="carbon-label-02 uppercase tracking-[0.16px] mb-4 block text-[#0f62fe]">01 / Assessment</span>
+          <h2 className="carbon-fluid-heading-04 text-[#0F172A]">Choose Your Assessment Path</h2>
         </div>
 
         {/* Image Banner */}
-        <div className="relative rounded-2xl overflow-hidden mb-10 min-h-[320px] lg:min-h-[380px]">
+        <div className="relative rounded-2xl overflow-hidden mb-12 min-h-[360px] lg:min-h-[420px]">
           <img src="/3D images/Cooling and Airflow/Cooling - Assesment.png" alt="Thermal assessment" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/50 to-transparent" />
-          <div className="relative z-10 p-8 lg:p-12 max-w-lg">
-            <p className="carbon-label-01 uppercase mb-3 text-white/70">01 Assessment</p>
-            <h3 className="carbon-fluid-heading-03 text-white mb-4 leading-tight">Thermal clarity before capital spend</h3>
-            <p className="carbon-body-02 text-white/75">Rapid health check for routine confidence.<br />Engineering-grade analysis before major investment.</p>
+          <div className="relative z-10 p-10 lg:p-14 max-w-xl">
+            <h3 className="carbon-fluid-heading-03 text-white mb-3 leading-tight">Two paths. One goal: Validate before you spend.</h3>
+            <ul className="space-y-1 carbon-body-02 text-white/75">
+              <li className="flex items-start gap-2"><span className="text-white/50 mt-1.5">•</span>Rapid Thermal Audit for existing facilities</li>
+              <li className="flex items-start gap-2"><span className="text-white/50 mt-1.5">•</span>Precision Engineering for planning, new builds or high-density upgrades</li>
+            </ul>
           </div>
         </div>
 
-        {/* Option Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-          {cards.map((card) => (
-            <div key={card.title} className="group relative p-8 bg-white rounded-xl border border-gray-100 hover:border-[#0f62fe] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-              <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-[#0f62fe]/5 flex items-center justify-center group-hover:bg-[#0f62fe]/10 transition-colors">
-                <card.icon className="w-6 h-6 text-[#0f62fe]" />
-              </div>
-              <p className="carbon-label-02 text-gray-400 uppercase mb-3">{card.tag}</p>
-              <h3 className="carbon-heading-02 text-gray-900 mb-3 pr-16">{card.title}</h3>
-              <p className="carbon-body-02 text-gray-500 mb-5">{card.desc}</p>
-              <div className="space-y-2 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-                {card.features.slice(0, 3).map((f) => (
-                  <div key={f} className="flex items-start gap-2 carbon-body-02 text-gray-600">
-                    <CheckmarkFilled className="w-4 h-4 text-[#0f62fe] flex-shrink-0 mt-0.5" />
-                    <span>{f}</span>
-                  </div>
+        {/* Option Cards — Full Detail */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 items-stretch">
+          {/* Rapid Health Check */}
+          <div className="group relative p-8 bg-white rounded-xl border border-gray-100 hover:border-[#24a148] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col h-full">
+            <div className="flex items-center justify-between mb-5">
+              <p className="carbon-heading-02 text-gray-900">Rapid Thermal Audit</p>
+              <span className="inline-flex items-center carbon-label-02 text-white uppercase bg-[#24a148] px-2 py-0.5 rounded">Entry</span>
+            </div>
+            <div className="mb-5">
+              <p className="carbon-label-02 text-gray-400 uppercase">From</p>
+              <p className="carbon-fluid-heading-03 text-gray-900 font-bold">PKR 45,000*</p>
+            </div>
+            <div className="flex-1 flex flex-col justify-end">
+              <ul className="space-y-2.5 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                {[{l:'Best for',v:'Routine maintenance, edge sites, and budget planning.'}].map((item) => (
+                  <li key={item.l} className="flex items-start gap-2 carbon-body-02 text-gray-600"><CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">{item.l}:</strong> {item.v}</span></li>
                 ))}
+              </ul>
+              <div className="mt-5 pt-5 border-t border-gray-100 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="carbon-label-02 text-[#24a148] uppercase mb-3">Key Deliverables</p>
+                <ul className="space-y-2.5 carbon-body-02 text-gray-600">
+                  <li className="flex items-start gap-2"><CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">Thermal Mapping:</strong> Infrared thermal mapping of all active racks</span></li>
+                  <li className="flex items-start gap-2"><CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">Risk Scorecard:</strong> Structured checklist with a clear Fix / Watch / OK risk scorecard</span></li>
+                  <li className="flex items-start gap-2"><CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">Derating Validation:</strong> Pakistan-specific equipment derating validation</span></li>
+                </ul>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Precision Thermal Engineering */}
+          <div className="group relative p-8 bg-white rounded-xl border border-gray-100 hover:border-[#0f62fe] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col h-full">
+            <div className="flex items-center justify-between mb-5">
+              <p className="carbon-heading-02 text-gray-900">Precision Thermal Engineering</p>
+              <span className="inline-flex items-center carbon-label-02 text-white uppercase bg-[#0f62fe] px-2 py-0.5 rounded">Engineering</span>
+            </div>
+            <div className="mb-5">
+              <span className="inline-block carbon-label-02 text-gray-500 uppercase bg-gray-100 px-2 py-0.5 rounded">Custom Scope Only</span>
+            </div>
+            <div className="flex-1 flex flex-col justify-end">
+              <ul className="space-y-2.5 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                {[{l:'Best for',v:'New builds, high-density environments, compliance, and root-cause analysis.'}].map((item) => (
+                  <li key={item.l} className="flex items-start gap-2 carbon-body-02 text-gray-600"><CheckmarkFilled className="w-4 h-4 text-[#0f62fe] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">{item.l}:</strong> {item.v}</span></li>
+                ))}
+              </ul>
+              <div className="mt-5 pt-5 border-t border-gray-100 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="carbon-label-02 text-[#0f62fe] uppercase mb-3">Key Deliverables</p>
+                <ul className="space-y-2.5 carbon-body-02 text-gray-600">
+                  <li className="flex items-start gap-2"><CheckmarkFilled className="w-4 h-4 text-[#0f62fe] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">Thermal Modelling:</strong> 3D thermal heat maps and predictive hotspot modeling</span></li>
+                  <li className="flex items-start gap-2"><CheckmarkFilled className="w-4 h-4 text-[#0f62fe] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">CFD Simulation:</strong> Full CFD airflow and fluid dynamics simulation</span></li>
+                  <li className="flex items-start gap-2"><CheckmarkFilled className="w-4 h-4 text-[#0f62fe] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">Capacity Analysis:</strong> Exact capacity calculations factored for local ambient extremes</span></li>
+                  <li className="flex items-start gap-2"><CheckmarkFilled className="w-4 h-4 text-[#0f62fe] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">Engineering Validation Report:</strong> Formal engineering validation and optimization roadmap</span></li>
+                </ul>
+              </div>
+            </div>
+            <div className="mt-5 pt-5 border-t border-gray-100">
+              <button
+                onClick={() => { setCfdOpen(!cfdOpen); trackEvent('cfd_capabilities_view', { event_category: 'engagement', event_label: 'precision_cfd_expand', page_path: '/cooling' }); }}
+                className="w-full flex items-center justify-between text-left bg-[#edf5ff] hover:bg-[#e0eeff] border border-[#0f62fe]/20 rounded-lg p-3 transition-colors"
+              >
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-md bg-[#0f62fe] flex items-center justify-center">
+                    <DataCenter className="w-3.5 h-3.5 text-white" />
+                  </div>
+                  <p className="carbon-heading-02 text-[#0f62fe] text-sm">View 21 Core CFD Capabilities</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white text-[#0f62fe] text-xs font-bold shadow-sm">21</span>
+                  {cfdOpen ? (
+                    <ChevronUp className="w-4 h-4 text-[#0f62fe] transition-transform duration-200" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4 text-[#0f62fe] transition-transform duration-200" />
+                  )}
+                </div>
+              </button>
+              {cfdOpen && (
+                <div className="mt-2 grid grid-cols-1 gap-2 animate-fade-in">
+                  {[
+                    {
+                      label: 'Visualise & Diagnose',
+                      items: [
+                        'Visually assess cooling airflow and equipment temperatures',
+                        'Predict data centre temperature distribution',
+                        'Investigate causes of and solutions to overheating',
+                        'Pinpoint which IT assets will fail in a given configuration',
+                      ]
+                    },
+                    {
+                      label: 'Simulate & Validate',
+                      items: [
+                        'Run failure scenarios (power outage, fan failure, cooling loss)',
+                        'Prevent equipment failure via what-if scenario simulation',
+                        'Ensure critical components operate below temperature specs under stress',
+                        'Know true boundary conditions for power density and outflow',
+                      ]
+                    },
+                    {
+                      label: 'Plan & Deploy',
+                      items: [
+                        'Increase rack utilisation without sacrificing availability',
+                        'Determine best location for new equipment deployment',
+                        'Find optimal position of a new asset',
+                        'Plan refreshes using future equipment without downtime risk',
+                        'Understand impact of planned changes before committing',
+                      ]
+                    },
+                    {
+                      label: 'Airflow & Containment',
+                      items: [
+                        'Hot-aisle vs cold-aisle containment comparison',
+                        'Calculate cooling distribution airflow requirements from HVAC',
+                        'Reduce costs by optimising airflow and cooling unit operation',
+                        'Suggest floor tile additions and rack relocation',
+                      ]
+                    },
+                    {
+                      label: 'Engineering & Design',
+                      items: [
+                        'Design and configure IT devices with risk-free testing',
+                        'Dimension and position primary and backup cooling units',
+                        'Analyse floor space power consumption and heat load',
+                        'Predict availability, capacity and cooling efficiency interaction',
+                      ]
+                    },
+                  ].map((group) => (
+                    <div key={group.label} className="p-2.5 bg-gray-50 rounded-lg border border-gray-100">
+                      <p className="carbon-label-02 text-[#0f62fe] uppercase mb-1.5">{group.label}</p>
+                      <ul className="space-y-0.5 carbon-body-short-01 text-gray-600">
+                        {group.items.map((item) => (
+                          <li key={item} className="flex items-start gap-1.5">
+                            <span className="text-[#0f62fe] flex-shrink-0 mt-0.5 text-xs">•</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
 
         {/* CTA Band */}
@@ -288,178 +392,170 @@ const AssessmentSection = () => {
               <h3 className="carbon-heading-02 text-gray-900 mb-2">Not sure which thermal assessment fits?</h3>
               <p className="carbon-body-02 text-gray-600">Our engineers can recommend the right path based on your rack density and compliance requirements.</p>
             </div>
-            <div className="flex gap-3 flex-wrap">
-              <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-body-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg">
-                {isOpen ? 'Close' : 'Compare Both'} {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-              </button>
-              <a href="mailto:contact@perception-it.com?subject=Assessment%20Consultation%20Request" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] transition-colors rounded-lg">
-                Speak to an Engineer
-              </a>
+            <button onClick={() => { setIsOpen(!isOpen); trackEvent('assessment_comparison_view', { event_category: 'engagement', event_label: 'rapid_vs_precision_compare', page_path: '/cooling' }); }} className="inline-flex items-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-body-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg">
+              {isOpen ? 'Close' : 'Compare Both'} {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+            </button>
+            <a href="mailto:contact@perception-it.com?subject=Assessment%20Consultation%20Request" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] transition-colors rounded-lg">
+              Speak to an Engineer
+            </a>
+          </div>
+        </div>
+
+        {/* Comparison Table */}
+        {isOpen && (
+          <div className="mb-6 animate-fade-in space-y-6">
+            {/* Mobile Horizontal Scroll Table */}
+            <div className="md:hidden">
+              <p className="carbon-label-02 text-gray-400 uppercase mb-2 text-center">← Swipe to compare →</p>
+              <div className="relative -mx-6 px-6">
+                {/* Scroll hint shadow */}
+                <div className="absolute right-0 top-0 bottom-4 w-12 bg-gradient-to-l from-white to-transparent pointer-events-none z-20" />
+                <div className="overflow-x-auto snap-x snap-mandatory pb-2 touch-pan-x" style={{ WebkitOverflowScrolling: 'touch' }}>
+                  <table className="w-full text-left border-collapse min-w-[140%]">
+                  <tbody className="divide-y divide-gray-100">
+                    {/* Service Profile */}
+                    <tr>
+                      <td className="px-3 py-3 bg-gray-200 carbon-label-02 text-gray-900 uppercase tracking-wide font-bold sticky left-0 z-10">Service Profile</td>
+                      <td className="px-3 py-3 bg-[#24a148] carbon-label-02 text-white uppercase font-bold snap-start">Rapid Thermal Audit</td>
+                      <td className="px-3 py-3 bg-[#0f62fe] carbon-label-02 text-white uppercase font-bold snap-start">Precision Thermal Engineering</td>
+                    </tr>
+                    {[
+                      {d:'Best for', r:'Routine maintenance, edge sites, and budget planning.', p:'New builds, high-density environments, compliance, and root-cause analysis.'},
+                      {d:'Precision Level', r:'Qualitative assessment', p:'Quantitative engineering analysis'},
+                      {d:'Methodology', r:'Visual inspection, structured checklist, and Infrared (IR) thermal mapping', p:'CFD modeling and complete system analysis'},
+                      {d:'Time On-Site', r:'2–4 hours (90-minute core audit)', p:'1–2 days (Site scale dependent)'},
+                      {d:'Turnaround', r:'Actionable report within 48 hours', p:'Comprehensive analysis within 1–2 weeks'},
+                      {d:'Pricing', r:'From PKR 45,000*', p:'Custom Scope Only'},
+                    ].map((row) => (
+                      <tr key={row.d}>
+                        <td className="p-3 carbon-body-02 text-gray-800 border-r border-gray-100 font-medium sticky left-0 bg-white z-10">{row.d}</td>
+                        <td className="p-3 carbon-body-short-01 text-gray-700 border-r border-gray-100 bg-[#24a148]/5 snap-start">{row.r}</td>
+                        <td className="p-3 carbon-body-short-01 text-gray-700 bg-[#0f62fe]/5 snap-start font-medium">{row.p}</td>
+                      </tr>
+                    ))}
+                    {/* Key Deliverables */}
+                    <tr className="bg-gray-200">
+                      <td className="px-3 py-3 bg-gray-200 carbon-label-02 text-gray-900 uppercase tracking-wide font-bold sticky left-0 z-10">Key Deliverables</td>
+                      <td className="px-3 py-3 bg-gray-200 snap-start" />
+                      <td className="px-3 py-3 bg-gray-200 snap-start" />
+                    </tr>
+                    {[
+                      {d:'Thermal Mapping', r:'Infrared thermal mapping of all active racks', p:'3D heat maps and predictive hotspot modeling'},
+                      {d:'Risk Scorecard', r:'Structured Fix / Watch / OK scorecard', p:'—'},
+                      {d:'Derating Validation', r:'Pakistan-specific equipment derating validation', p:'—'},
+                      {d:'CFD Simulation', r:'—', p:'Full airflow and fluid dynamics simulation'},
+                      {d:'Capacity Analysis', r:'—', p:'Exact capacity calculations for local ambient extremes'},
+                      {d:'Engineering Validation Report', r:'—', p:'Validation and optimization roadmap'},
+                    ].map((row) => (
+                      <tr key={row.d}>
+                        <td className="p-3 carbon-body-02 text-gray-800 border-r border-gray-100 font-medium sticky left-0 bg-white z-10">{row.d}</td>
+                        <td className="p-3 carbon-body-short-01 text-gray-700 border-r border-gray-100 bg-[#24a148]/5 snap-start">{row.r === '—' ? <span className="text-gray-400">—</span> : row.r}</td>
+                        <td className="p-3 carbon-body-short-01 text-gray-700 bg-[#0f62fe]/5 snap-start font-medium">{row.p === '—' ? <span className="text-gray-400">—</span> : row.p}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+            {/* Key Deliverables Heading */}
+            <div className="hidden md:flex items-center gap-4 pt-2">
+              <div className="flex-1 h-px bg-gray-200" />
+              <h4 className="carbon-label-02 text-gray-600 uppercase tracking-wide font-semibold">Complete Comparison</h4>
+              <div className="flex-1 h-px bg-gray-200" />
+            </div>
+
+            {/* 3-Column Comparison Table */}
+            <div className="hidden md:block overflow-hidden rounded-xl border border-gray-200">
+              <table className="w-full text-left border-collapse">
+                <tbody className="divide-y divide-gray-100">
+                  {/* Service Profile Section */}
+                  <tr>
+                    <td className="px-3 py-3 bg-gray-200 carbon-label-02 text-gray-900 uppercase tracking-wide font-bold">Service Profile</td>
+                    <td className="px-3 py-3 bg-[#24a148] carbon-label-02 text-white uppercase font-bold">Rapid Thermal Audit</td>
+                    <td className="px-3 py-3 bg-[#0f62fe] carbon-label-02 text-white uppercase font-bold">Precision Thermal Engineering</td>
+                  </tr>
+                  {[
+                    {d:'Best for', r:'Routine maintenance, edge sites, and budget planning.', p:'New builds, high-density environments, compliance, and root-cause analysis.'},
+                    {d:'Precision Level', r:'Qualitative assessment', p:'Quantitative engineering analysis'},
+                    {d:'Methodology', r:'Visual inspection, structured checklist, and Infrared (IR) thermal mapping', p:'CFD modeling and complete system analysis'},
+                    {d:'Time On-Site', r:'2–4 hours (90-minute core audit)', p:'1–2 days (Site scale dependent)'},
+                    {d:'Turnaround', r:'Actionable report within 48 hours', p:'Comprehensive analysis within 1–2 weeks'},
+                    {d:'Pricing', r:'From PKR 45,000*', p:'Custom Scope Only'},
+                  ].map((row) => (
+                    <tr key={row.d} className="group hover:bg-gray-50/80 transition-colors">
+                      <td className="p-3 carbon-body-02 text-gray-800 border-r border-gray-100 font-medium">{row.d}</td>
+                      <td className="p-3 carbon-body-short-01 text-gray-700 border-r border-gray-100 bg-[#24a148]/5">{row.r}</td>
+                      <td className="p-3 carbon-body-short-01 text-gray-700 bg-[#0f62fe]/5 font-medium">{row.p}</td>
+                    </tr>
+                  ))}
+
+                  {/* Key Deliverables Section */}
+                  <tr className="bg-gray-200">
+                    <td colSpan={3} className="px-3 py-3 carbon-label-02 text-gray-900 uppercase tracking-wide font-bold">Key Deliverables</td>
+                  </tr>
+                  {[
+                    {d:'Thermal Mapping', r:'Infrared thermal mapping of all active racks', p:'3D heat maps and predictive hotspot modeling'},
+                    {d:'Risk Scorecard', r:'Structured Fix / Watch / OK scorecard', p:'—'},
+                    {d:'Derating Validation', r:'Pakistan-specific equipment derating validation', p:'—'},
+                    {d:'CFD Simulation', r:'—', p:'Full airflow and fluid dynamics simulation'},
+                    {d:'Capacity Analysis', r:'—', p:'Exact capacity calculations for local ambient extremes'},
+                    {d:'Engineering Validation Report', r:'—', p:'Validation and optimization roadmap'},
+                  ].map((row) => (
+                    <tr key={row.d} className="group hover:bg-gray-50/80 transition-colors">
+                      <td className="p-3 carbon-body-02 text-gray-800 border-r border-gray-100 font-medium">{row.d}</td>
+                      <td className="p-3 carbon-body-short-01 text-gray-700 border-r border-gray-100 bg-[#24a148]/5">{row.r === '—' ? <span className="text-gray-400">—</span> : row.r}</td>
+                      <td className="p-3 carbon-body-short-01 text-gray-700 bg-[#0f62fe]/5 font-medium">{row.p === '—' ? <span className="text-gray-400">—</span> : row.p}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {/* Upgrade Path */}
+        <div className="p-5 bg-[#24a148]/5 rounded-xl border border-[#24a148]/20 mb-4">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
+            {/* Left: Stat */}
+            <div className="flex-shrink-0">
+              <p className="carbon-label-02 text-[#24a148] uppercase mb-1">Upgrade Path</p>
+              <div className="flex items-baseline gap-2">
+                <span className="carbon-fluid-heading-03 text-[#24a148] font-light">20%</span>
+                <span className="carbon-body-02 text-gray-600">of your Rapid Health Check fee<br className="hidden sm:block" /> credited as a discount on<br className="hidden sm:block" /> Precision Thermal Engineering</span>
+              </div>
+            </div>
+            {/* Middle: Arrow */}
+            <div className="hidden md:flex flex-col items-center flex-shrink-0 px-2">
+              <div className="w-px h-6 bg-[#24a148]/30" />
+              <ArrowRight className="w-5 h-5 text-[#24a148] rotate-90 md:rotate-0 my-1" />
+              <div className="w-px h-6 bg-[#24a148]/30" />
+            </div>
+            {/* Right: Conditions */}
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-col gap-2">
+                <span className="inline-flex items-center gap-2 carbon-body-short-01 text-gray-600 bg-white/60 rounded-md px-3 py-1.5 border border-[#24a148]/10">
+                  <CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0" />
+                  Valid for 60 days from report delivery
+                </span>
+                <span className="inline-flex items-center gap-2 carbon-body-short-01 text-gray-600 bg-white/60 rounded-md px-3 py-1.5 border border-[#24a148]/10">
+                  <CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0" />
+                  Documented in your upgrade proposal
+                </span>
+                <span className="inline-flex items-center gap-2 carbon-body-short-01 text-gray-500 bg-white/60 rounded-md px-3 py-1.5 border border-gray-200">
+                  <Warning className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                  Travel charges are additional
+                </span>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Expandable Comparison */}
-        {isOpen && (
-          <div className="space-y-4 mb-6 animate-fade-in">
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="p-6 bg-gray-50 rounded-xl border border-gray-100">
-                <p className="carbon-label-02 text-[#24a148] uppercase mb-2">Rapid — Health Check</p>
-                <p className="carbon-label-02 text-gray-400 uppercase mb-1">From</p>
-                <p className="carbon-fluid-heading-03 text-gray-900 font-light mb-1">PKR 45,000*</p>
-                <ul className="space-y-3">
-                  {[{l:'Best for',v:'Routine maintenance, edge sites, budget planning'},{l:'Deliverable',v:'Visual documentation with Action/Monitor/Clear scoring'},{l:'Precision',v:'Qualitative assessment'},{l:'Method',v:'Visual inspection + structured checklist'},{l:'Time on-site',v:'2–4 hours'},{l:'Turnaround',v:'Report within 48 hours'}].map((item) => (
-                    <li key={item.l} className="flex items-start gap-2 carbon-body-02 text-gray-600"><CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">{item.l}:</strong> {item.v}</span></li>
-                  ))}
-                </ul>
-              </div>
-              <div className="p-6 bg-gray-50 rounded-xl border border-gray-100">
-                <p className="carbon-label-02 uppercase mb-6 text-[#0f62fe]">Engineering-Grade — Precision</p>
-
-                <ul className="space-y-3">
-                  {[{l:'Best for',v:'New builds, high-density, compliance, root cause'},{l:'Deliverable',v:'3D heat maps + capacity calculations'},{l:'Precision',v:'Quantitative analysis'},{l:'Method',v:'CFD modelling + engineering analysis'},{l:'Time on-site',v:'1–2 days'},{l:'Turnaround',v:'Analysis within 1–2 weeks'}].map((item) => (
-                    <li key={item.l} className="flex items-start gap-2 carbon-body-02 text-gray-600"><CheckmarkFilled className="w-4 h-4 text-[#0f62fe] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">{item.l}:</strong> {item.v}</span></li>
-                  ))}
-                </ul>
-                <div className="mt-4 pt-4 border-t border-gray-200">
-                  <button
-                    onClick={() => setCfdOpen(!cfdOpen)}
-                    className="w-full flex items-center justify-between text-left group bg-[#edf5ff] hover:bg-[#e0eeff] border border-[#0f62fe]/20 rounded-lg p-3.5 transition-colors"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-[#0f62fe] flex items-center justify-center">
-                        <DataCenter className="w-4 h-4 text-white" />
-                      </div>
-                      <div>
-                        <p className="carbon-heading-02 text-[#0f62fe]">CFD Capabilities</p>
-                        <p className="carbon-body-short-01 text-[#0f62fe]/70">21</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white text-[#0f62fe] text-sm font-bold shadow-sm">21</span>
-                      {cfdOpen ? (
-                        <ChevronUp className="w-5 h-5 text-[#0f62fe] transition-transform duration-200" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5 text-[#0f62fe] transition-transform duration-200" />
-                      )}
-                    </div>
-                  </button>
-                  {cfdOpen && (
-                    <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 animate-fade-in">
-                      {[
-                        {
-                          label: 'Visualise & Diagnose',
-                          items: [
-                            'Visually assess cooling airflow and equipment temperatures',
-                            'Predict data centre temperature distribution',
-                            'Investigate causes of and solutions to overheating',
-                            'Pinpoint which IT assets will fail in a given configuration',
-                          ]
-                        },
-                        {
-                          label: 'Simulate & Validate',
-                          items: [
-                            'Run failure scenarios (power outage, fan failure, cooling loss)',
-                            'Prevent equipment failure via what-if scenario simulation',
-                            'Ensure critical components operate below temperature specs under stress',
-                            'Know true boundary conditions for power density and outflow',
-                          ]
-                        },
-                        {
-                          label: 'Plan & Deploy',
-                          items: [
-                            'Increase rack utilisation without sacrificing availability',
-                            'Determine best location for new equipment deployment',
-                            'Find optimal position of a new asset',
-                            'Plan refreshes using future equipment without downtime risk',
-                            'Understand impact of planned changes before committing',
-                          ]
-                        },
-                        {
-                          label: 'Airflow & Containment',
-                          items: [
-                            'Hot-aisle vs cold-aisle containment comparison',
-                            'Calculate cooling distribution airflow requirements from HVAC',
-                            'Reduce costs by optimising airflow and cooling unit operation',
-                            'Suggest floor tile additions and rack relocation',
-                          ]
-                        },
-                        {
-                          label: 'Engineering & Design',
-                          items: [
-                            'Design and configure IT devices with risk-free testing',
-                            'Dimension and position primary and backup cooling units',
-                            'Analyse floor space power consumption and heat load',
-                            'Predict availability, capacity and cooling efficiency interaction',
-                          ]
-                        },
-                      ].map((group) => (
-                        <div key={group.label} className="p-3 bg-white rounded-lg border border-gray-100">
-                          <p className="carbon-label-02 text-[#0f62fe] uppercase mb-2">{group.label}</p>
-                          <ul className="space-y-1 carbon-body-short-01 text-gray-600">
-                            {group.items.map((item) => (
-                              <li key={item} className="flex items-start gap-1.5">
-                                <span className="text-[#0f62fe] flex-shrink-0 mt-0.5">•</span>
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-            {/* Terms */}
-            <div className="p-5 bg-gray-100 rounded-xl flex gap-4 items-start">
-              <Warning className="w-6 h-6 text-gray-400 flex-shrink-0 mt-0.5" />
-              <div className="w-full">
-                <p className="carbon-label-02 text-gray-500 uppercase mb-1">Terms</p>
-                <p className="carbon-body-short-01 text-gray-600">
-                  <strong className="text-gray-700">Prices are indicative starting points.</strong> Final quotes depend on site size, rack count, travel distance, and scope, and are subject to site survey. All prices exclude applicable taxes.
-                </p>
-              </div>
-            </div>
-
-            {/* Upgrade Path */}
-            <div className="p-5 bg-[#24a148]/5 rounded-xl border border-[#24a148]/20">
-              <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
-                {/* Left: Stat */}
-                <div className="flex-shrink-0">
-                  <p className="carbon-label-02 text-[#24a148] uppercase mb-1">Upgrade Path</p>
-                  <div className="flex items-baseline gap-2">
-                    <span className="carbon-fluid-heading-03 text-[#24a148] font-light">20%</span>
-                    <span className="carbon-body-02 text-gray-600">of your Rapid Health Check fee<br className="hidden sm:block" /> credited as a discount on<br className="hidden sm:block" /> Precision Thermal Engineering</span>
-                  </div>
-                </div>
-                {/* Middle: Arrow */}
-                <div className="hidden md:flex flex-col items-center flex-shrink-0 px-2">
-                  <div className="w-px h-6 bg-[#24a148]/30" />
-                  <ArrowRight className="w-5 h-5 text-[#24a148] rotate-90 md:rotate-0 my-1" />
-                  <div className="w-px h-6 bg-[#24a148]/30" />
-                </div>
-                {/* Right: Conditions */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-col gap-2">
-                    <span className="inline-flex items-center gap-2 carbon-body-short-01 text-gray-600 bg-white/60 rounded-md px-3 py-1.5 border border-[#24a148]/10">
-                      <CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0" />
-                      Valid for 60 days from report delivery
-                    </span>
-                    <span className="inline-flex items-center gap-2 carbon-body-short-01 text-gray-600 bg-white/60 rounded-md px-3 py-1.5 border border-[#24a148]/10">
-                      <CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0" />
-                      Documented in your upgrade proposal
-                    </span>
-                    <span className="inline-flex items-center gap-2 carbon-body-short-01 text-gray-500 bg-white/60 rounded-md px-3 py-1.5 border border-gray-200">
-                      <Warning className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                      Travel charges are additional
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Terms */}
+        <p className="text-xs text-gray-400 leading-relaxed">
+          * Prices are indicative starting points. Final quotes depend on site size, rack count, travel distance, and scope, and are subject to site survey. All prices exclude applicable taxes.
+        </p>
 
       </div>
     </section>
@@ -1175,9 +1271,9 @@ const ManagedSection = () => {
             </div>
 
             {/* Important Pricing & Service Terms */}
-            <div className="p-5 bg-gray-50 rounded-xl border border-gray-100">
+            <div className="group p-5 bg-gray-50 rounded-xl border border-gray-100 hover:border-gray-300 transition-colors duration-300">
               <p className="carbon-heading-02 text-gray-700 uppercase tracking-wide mb-4">Important Pricing &amp; Service Terms</p>
-              <ul className="space-y-2">
+              <ul className="space-y-2 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                 <li className="flex items-start gap-2 carbon-body-short-01 text-gray-600"><span className="text-gray-400 mt-0.5">•</span><span><strong className="text-gray-900">Pricing:</strong> All prices shown are starting points (PKR/month) for baseline configurations. Final pricing is determined following site assessment and scales with: cooling load (kW), facility complexity, redundancy requirements (N+1/2N), SLA tier, and geographic location. Travel, visitation, and non-standard parts are billed separately unless included in your agreement.</span></li>
                 <li className="flex items-start gap-2 carbon-body-short-01 text-gray-600"><span className="text-gray-400 mt-0.5">•</span><span><strong className="text-gray-900">Service Levels:</strong> Uptime targets (e.g., 99.9%), response times (e.g., 4-hour), and performance metrics are engineering baselines. Contractual commitments, remedies, exclusions, and credit calculations are defined exclusively in signed Service Level Agreements (SLAs) following site assessment.</span></li>
                 <li className="flex items-start gap-2 carbon-body-short-01 text-gray-600"><span className="text-gray-400 mt-0.5">•</span><span><strong className="text-gray-900">Performance Dependencies:</strong> Actual service performance depends on: facility infrastructure condition, client-provided access/utilities, environmental factors (monsoon, dust, grid instability), and force majeure events. Perception IT is not liable for failures caused by client infrastructure, third-party services, or events beyond reasonable control.</span></li>
