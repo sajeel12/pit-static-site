@@ -892,7 +892,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                                 Data Centre Services
                                 <ArrowRight className="w-4 h-4 text-[#8d8d8d] group-hover:text-[#0f62fe] transition-colors" />
                               </Link>
-                              <p className="text-xs text-[#525252] leading-relaxed mb-4">Comprehensive data centre infrastructure — engineered for Pakistan&apos;s climate and grid reality.</p>
+                              <p className="text-xs text-[#525252] leading-relaxed mb-4">Comprehensive data centre infrastructure, engineered for Pakistan&apos;s climate and grid reality.</p>
                               
                               {/* Section Label */}
                               <div className="flex items-center justify-between mb-2">
@@ -1643,7 +1643,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
             {/* Infrastructure Mobile */}
             {mobileActiveTab === 'infrastructure' && (
               <div className="space-y-4">
-                <p className="text-sm text-[#525252]">Hardware support, data center services, and 24×7 SLA support</p>
+                <p className="text-sm text-[#525252]">Hardware support, data centre services, and 24×7 SLA support</p>
                 <div className="space-y-3">
                   {infrastructureServices.map((service) => (
                     <a 

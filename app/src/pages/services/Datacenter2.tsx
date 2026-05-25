@@ -87,7 +87,7 @@ const Datacenter2 = () => {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-3 flex items-center gap-3">
           <WarningAlt className="w-5 h-5 text-amber-600 flex-shrink-0" />
           <p className="carbon-label-02 text-amber-700">
-            <strong className="font-semibold">Under Construction —</strong> This page is being rebuilt. Content may be incomplete or change without notice.
+            <strong className="font-semibold">Under Construction:</strong> This page is being rebuilt. Content may be incomplete or change without notice.
           </p>
         </div>
       </div>
@@ -193,7 +193,7 @@ const Datacenter2 = () => {
             </p>
           </div>
         </div>
-      {/* Stack Layer Bar — Data Centre: steel-mid */}
+      {/* Stack Layer Bar | Data Centre: steel-mid */}
       <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, #cbd5e1 0%, #64748b 100%)' }} />
       </section>
 
@@ -283,7 +283,7 @@ const Datacenter2 = () => {
                     {[
                       { icon: TemperatureHot, title: 'Cooling', tag: 'Managed Services / Build', desc: 'Thermal integrity foundation; prevents 31% of server downtime' },
                       { icon: Lightning, title: 'Power', tag: 'Managed Services / Build', desc: 'Load-shedding hardened; validates UPS/generator/ATS failover' },
-                      { icon: Meter, title: 'Energy', tag: 'Consultation / Managed Services', desc: 'Continuity multiplier; funds resilience via PUE/tariff optimization' },
+                      { icon: Meter, title: 'Energy', tag: 'Consultation / Managed Services', desc: 'Continuity multiplier; funds resilience via PUE/tariff optimisation' },
                       { icon: Dashboard, title: 'Monitoring', tag: 'Managed Services', desc: 'Proactive prevention; auto-triggers failover, <60-sec flood alerts' },
                       { icon: Building, title: 'Racks / Physical', tag: 'Build / Hardware', desc: 'Dust exclusion, IP54 validation, airflow integrity; protects ServerLife Extend™' },
                       { icon: Settings, title: 'Bespoke Infra', tag: 'Custom quote', desc: 'Non-standard layouts, legacy integration, or specialist vendor requirements' }

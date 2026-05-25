@@ -1,450 +1,441 @@
 
-  VITE v7.3.1  ready in 289 ms
+  VITE v7.3.1  ready in 193 ms
 
   ➜  Local:   http://localhost:5174/
-  ➜  Network: http://10.92.64.153:5174/
-6:12:08 PM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
-6:12:34 PM [vite] (client) hmr update /src/components/FeaturedTestimonial.tsx
-7:00:05 PM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
-7:00:25 PM [vite] (client) hmr update /src/components/FeaturedTestimonial.tsx
-7:02:23 PM [vite] (client) hmr update /src/components/FeaturedTestimonial.tsx
-7:03:04 PM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
-7:09:26 PM [vite] (client) hmr update /src/components/FeaturedTestimonial.tsx
-7:09:58 PM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
-7:15:08 PM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
-7:18:14 PM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
-7:31:34 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx
-7:32:38 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-7:35:13 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-7:53:35 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx
-7:55:03 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-8:01:58 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-8:05:27 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-8:05:55 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx
-8:11:17 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-8:16:19 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-1:04:52 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-1:04:52 PM [vite] Internal server error: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (14:14)
-
-  12 |                 ))}
-  13 |               </div>
-> 14 |               <p className="cds--helper-text-01" style={{ color: 'var(--cds-text-helper)', lineHeight: 1.4 }}>
-     |               ^
-  15 |                 *PKR 75,000 fixed report fee. Excludes site-visit Day Rate and expenses.
-  16 |               </p>
-  Plugin: vite:react-babel
-  File: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx:14:14
-  12 |                  ))}
-  13 |                </div>
-  14 |                <p className="cds--helper-text-01" style={{ color: 'var(--cds-text-helper)', lineHeight: 1.4 }}>
-     |                ^
-  15 |                  *PKR 75,000 fixed report fee. Excludes site-visit Day Rate and expenses.
-  16 |                </p>
-      at constructor (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:365:19)
-      at TypeScriptParserMixin.raise (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:6599:19)
-      at TypeScriptParserMixin.jsxParseElementAt (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:4742:18)
-      at TypeScriptParserMixin.jsxParseElement (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:4749:17)
-      at TypeScriptParserMixin.parseExprAtom (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:4759:19)
-      at TypeScriptParserMixin.parseExprSubscripts (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:11081:23)
-      at TypeScriptParserMixin.parseUpdate (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:11066:21)
-      at TypeScriptParserMixin.parseMaybeUnary (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:11046:23)
-      at TypeScriptParserMixin.parseMaybeUnary (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9837:18)
-      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10899:61)
-      at TypeScriptParserMixin.parseExprOps (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10904:23)
-      at TypeScriptParserMixin.parseMaybeConditional (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10881:23)
-      at TypeScriptParserMixin.parseMaybeAssign (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10831:21)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9775:39
-      at TypeScriptParserMixin.tryParse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:6907:20)
-      at TypeScriptParserMixin.parseMaybeAssign (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9775:18)
-      at TypeScriptParserMixin.parseExpressionBase (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10784:23)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10780:39
-      at TypeScriptParserMixin.allowInAnd (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12421:16)
-      at TypeScriptParserMixin.parseExpression (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10780:17)
-      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12895:23)
-      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9508:18)
-      at TypeScriptParserMixin.parseStatementLike (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12767:17)
-      at TypeScriptParserMixin.parseModuleItem (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12744:17)
-      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13316:36)
-      at TypeScriptParserMixin.parseBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13309:10)
-      at TypeScriptParserMixin.parseProgram (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12622:10)
-      at TypeScriptParserMixin.parseTopLevel (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12612:25)
-      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14488:25)
-      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10126:18)
-      at parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14522:38)
-      at parser (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/parser/index.js:41:34)
-      at parser.next (<anonymous>)
-      at normalizeFile (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
-      at normalizeFile.next (<anonymous>)
-      at run (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/index.js:22:50)
-      at run.next (<anonymous>)
-      at transform (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transform.js:22:33)
-      at transform.next (<anonymous>)
-      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:261:32)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
-      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:189:28
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:113:33
-      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:287:14)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
-      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
-1:04:52 PM [vite] Internal server error: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (14:14)
-
-  12 |                 ))}
-  13 |               </div>
-> 14 |               <p className="cds--helper-text-01" style={{ color: 'var(--cds-text-helper)', lineHeight: 1.4 }}>
-     |               ^
-  15 |                 *PKR 75,000 fixed report fee. Excludes site-visit Day Rate and expenses.
-  16 |               </p>
-  Plugin: vite:react-babel
-  File: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx:14:14
-  12 |                  ))}
-  13 |                </div>
-  14 |                <p className="cds--helper-text-01" style={{ color: 'var(--cds-text-helper)', lineHeight: 1.4 }}>
-     |                ^
-  15 |                  *PKR 75,000 fixed report fee. Excludes site-visit Day Rate and expenses.
-  16 |                </p>
-      at constructor (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:365:19)
-      at TypeScriptParserMixin.raise (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:6599:19)
-      at TypeScriptParserMixin.jsxParseElementAt (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:4742:18)
-      at TypeScriptParserMixin.jsxParseElement (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:4749:17)
-      at TypeScriptParserMixin.parseExprAtom (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:4759:19)
-      at TypeScriptParserMixin.parseExprSubscripts (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:11081:23)
-      at TypeScriptParserMixin.parseUpdate (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:11066:21)
-      at TypeScriptParserMixin.parseMaybeUnary (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:11046:23)
-      at TypeScriptParserMixin.parseMaybeUnary (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9837:18)
-      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10899:61)
-      at TypeScriptParserMixin.parseExprOps (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10904:23)
-      at TypeScriptParserMixin.parseMaybeConditional (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10881:23)
-      at TypeScriptParserMixin.parseMaybeAssign (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10831:21)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9775:39
-      at TypeScriptParserMixin.tryParse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:6907:20)
-      at TypeScriptParserMixin.parseMaybeAssign (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9775:18)
-      at TypeScriptParserMixin.parseExpressionBase (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10784:23)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10780:39
-      at TypeScriptParserMixin.allowInAnd (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12421:16)
-      at TypeScriptParserMixin.parseExpression (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10780:17)
-      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12895:23)
-      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9508:18)
-      at TypeScriptParserMixin.parseStatementLike (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12767:17)
-      at TypeScriptParserMixin.parseModuleItem (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12744:17)
-      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13316:36)
-      at TypeScriptParserMixin.parseBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13309:10)
-      at TypeScriptParserMixin.parseProgram (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12622:10)
-      at TypeScriptParserMixin.parseTopLevel (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12612:25)
-      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14488:25)
-      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10126:18)
-      at parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14522:38)
-      at parser (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/parser/index.js:41:34)
-      at parser.next (<anonymous>)
-      at normalizeFile (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
-      at normalizeFile.next (<anonymous>)
-      at run (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/index.js:22:50)
-      at run.next (<anonymous>)
-      at transform (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transform.js:22:33)
-      at transform.next (<anonymous>)
-      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:261:32)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
-      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:189:28
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:113:33
-      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:287:14)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
-      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
-1:04:52 PM [vite] Internal server error: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (14:14)
-
-  12 |                 ))}
-  13 |               </div>
-> 14 |               <p className="cds--helper-text-01" style={{ color: 'var(--cds-text-helper)', lineHeight: 1.4 }}>
-     |               ^
-  15 |                 *PKR 75,000 fixed report fee. Excludes site-visit Day Rate and expenses.
-  16 |               </p>
-  Plugin: vite:react-babel
-  File: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx:14:14
-  12 |                  ))}
-  13 |                </div>
-  14 |                <p className="cds--helper-text-01" style={{ color: 'var(--cds-text-helper)', lineHeight: 1.4 }}>
-     |                ^
-  15 |                  *PKR 75,000 fixed report fee. Excludes site-visit Day Rate and expenses.
-  16 |                </p>
-      at constructor (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:365:19)
-      at TypeScriptParserMixin.raise (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:6599:19)
-      at TypeScriptParserMixin.jsxParseElementAt (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:4742:18)
-      at TypeScriptParserMixin.jsxParseElement (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:4749:17)
-      at TypeScriptParserMixin.parseExprAtom (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:4759:19)
-      at TypeScriptParserMixin.parseExprSubscripts (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:11081:23)
-      at TypeScriptParserMixin.parseUpdate (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:11066:21)
-      at TypeScriptParserMixin.parseMaybeUnary (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:11046:23)
-      at TypeScriptParserMixin.parseMaybeUnary (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9837:18)
-      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10899:61)
-      at TypeScriptParserMixin.parseExprOps (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10904:23)
-      at TypeScriptParserMixin.parseMaybeConditional (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10881:23)
-      at TypeScriptParserMixin.parseMaybeAssign (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10831:21)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9775:39
-      at TypeScriptParserMixin.tryParse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:6907:20)
-      at TypeScriptParserMixin.parseMaybeAssign (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9775:18)
-      at TypeScriptParserMixin.parseExpressionBase (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10784:23)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10780:39
-      at TypeScriptParserMixin.allowInAnd (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12421:16)
-      at TypeScriptParserMixin.parseExpression (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10780:17)
-      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12895:23)
-      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9508:18)
-      at TypeScriptParserMixin.parseStatementLike (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12767:17)
-      at TypeScriptParserMixin.parseModuleItem (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12744:17)
-      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13316:36)
-      at TypeScriptParserMixin.parseBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13309:10)
-      at TypeScriptParserMixin.parseProgram (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12622:10)
-      at TypeScriptParserMixin.parseTopLevel (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12612:25)
-      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14488:25)
-      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10126:18)
-      at parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14522:38)
-      at parser (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/parser/index.js:41:34)
-      at parser.next (<anonymous>)
-      at normalizeFile (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
-      at normalizeFile.next (<anonymous>)
-      at run (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/index.js:22:50)
-      at run.next (<anonymous>)
-      at transform (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transform.js:22:33)
-      at transform.next (<anonymous>)
-      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:261:32)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
-      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:189:28
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:113:33
-      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:287:14)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
-      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
-1:06:42 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-1:20:24 PM [vite] (client) hmr update /src/components/FeaturedTestimonial.tsx
-1:22:48 PM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
-1:30:17 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-1:47:40 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-1:50:42 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-1:57:46 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-2:33:08 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-2:33:57 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-2:44:48 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-2:52:50 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-2:53:26 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-2:54:03 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-3:15:19 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-4:20:05 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-4:26:01 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-4:27:48 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-4:35:24 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-4:36:01 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-5:02:33 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-5:07:08 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-5:07:08 PM [vite] Internal server error: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx: Identifier 'Windy' has already been declared. (56:2)
-
-  54 | import {
-  55 |   AirConditioner,
-> 56 |   Windy,
-     |   ^
-  57 |   ServerRack,
-  58 |   CloudManagedServices,
-  59 |   CloudServices,
-  Plugin: vite:react-babel
-  File: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx:56:2
-  54 |  import {
-  55 |    AirConditioner,
-  56 |    Windy,
-     |    ^
-  57 |    ServerRack,
-  58 |    CloudManagedServices,
-      at constructor (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:365:19)
-      at TypeScriptParserMixin.raise (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:6599:19)
-      at TypeScriptScopeHandler.declareName (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:4866:21)
-      at TypeScriptParserMixin.declareNameFromIdentifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7567:16)
-      at TypeScriptParserMixin.checkIdentifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7563:12)
-      at TypeScriptParserMixin.checkLVal (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7500:12)
-      at TypeScriptParserMixin.finishImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14266:10)
-      at TypeScriptParserMixin.parseImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14419:17)
-      at TypeScriptParserMixin.parseImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10148:18)
-      at TypeScriptParserMixin.parseNamedImportSpecifiers (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14398:36)
-      at TypeScriptParserMixin.parseImportSpecifiersAndAfter (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14242:37)
-      at TypeScriptParserMixin.parseImport (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14235:17)
-      at TypeScriptParserMixin.parseImport (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9353:26)
-      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12876:27)
-      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9508:18)
-      at TypeScriptParserMixin.parseStatementLike (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12767:17)
-      at TypeScriptParserMixin.parseModuleItem (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12744:17)
-      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13316:36)
-      at TypeScriptParserMixin.parseBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13309:10)
-      at TypeScriptParserMixin.parseProgram (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12622:10)
-      at TypeScriptParserMixin.parseTopLevel (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12612:25)
-      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14488:25)
-      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10126:18)
-      at parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14522:38)
-      at parser (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/parser/index.js:41:34)
-      at parser.next (<anonymous>)
-      at normalizeFile (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
-      at normalizeFile.next (<anonymous>)
-      at run (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/index.js:22:50)
-      at run.next (<anonymous>)
-      at transform (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transform.js:22:33)
-      at transform.next (<anonymous>)
-      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:261:32)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
-      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:189:28
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:113:33
-      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:287:14)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
-      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
-5:07:08 PM [vite] Internal server error: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx: Identifier 'Windy' has already been declared. (56:2)
-
-  54 | import {
-  55 |   AirConditioner,
-> 56 |   Windy,
-     |   ^
-  57 |   ServerRack,
-  58 |   CloudManagedServices,
-  59 |   CloudServices,
-  Plugin: vite:react-babel
-  File: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx:56:2
-  54 |  import {
-  55 |    AirConditioner,
-  56 |    Windy,
-     |    ^
-  57 |    ServerRack,
-  58 |    CloudManagedServices,
-      at constructor (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:365:19)
-      at TypeScriptParserMixin.raise (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:6599:19)
-      at TypeScriptScopeHandler.declareName (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:4866:21)
-      at TypeScriptParserMixin.declareNameFromIdentifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7567:16)
-      at TypeScriptParserMixin.checkIdentifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7563:12)
-      at TypeScriptParserMixin.checkLVal (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7500:12)
-      at TypeScriptParserMixin.finishImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14266:10)
-      at TypeScriptParserMixin.parseImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14419:17)
-      at TypeScriptParserMixin.parseImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10148:18)
-      at TypeScriptParserMixin.parseNamedImportSpecifiers (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14398:36)
-      at TypeScriptParserMixin.parseImportSpecifiersAndAfter (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14242:37)
-      at TypeScriptParserMixin.parseImport (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14235:17)
-      at TypeScriptParserMixin.parseImport (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9353:26)
-      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12876:27)
-      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9508:18)
-      at TypeScriptParserMixin.parseStatementLike (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12767:17)
-      at TypeScriptParserMixin.parseModuleItem (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12744:17)
-      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13316:36)
-      at TypeScriptParserMixin.parseBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13309:10)
-      at TypeScriptParserMixin.parseProgram (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12622:10)
-      at TypeScriptParserMixin.parseTopLevel (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12612:25)
-      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14488:25)
-      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10126:18)
-      at parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14522:38)
-      at parser (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/parser/index.js:41:34)
-      at parser.next (<anonymous>)
-      at normalizeFile (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
-      at normalizeFile.next (<anonymous>)
-      at run (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/index.js:22:50)
-      at run.next (<anonymous>)
-      at transform (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transform.js:22:33)
-      at transform.next (<anonymous>)
-      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:261:32)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
-      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:189:28
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:113:33
-      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:287:14)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
-      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
-5:07:08 PM [vite] Internal server error: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx: Identifier 'Windy' has already been declared. (56:2)
-
-  54 | import {
-  55 |   AirConditioner,
-> 56 |   Windy,
-     |   ^
-  57 |   ServerRack,
-  58 |   CloudManagedServices,
-  59 |   CloudServices,
-  Plugin: vite:react-babel
-  File: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingAirflow.tsx:56:2
-  54 |  import {
-  55 |    AirConditioner,
-  56 |    Windy,
-     |    ^
-  57 |    ServerRack,
-  58 |    CloudManagedServices,
-      at constructor (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:365:19)
-      at TypeScriptParserMixin.raise (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:6599:19)
-      at TypeScriptScopeHandler.declareName (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:4866:21)
-      at TypeScriptParserMixin.declareNameFromIdentifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7567:16)
-      at TypeScriptParserMixin.checkIdentifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7563:12)
-      at TypeScriptParserMixin.checkLVal (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:7500:12)
-      at TypeScriptParserMixin.finishImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14266:10)
-      at TypeScriptParserMixin.parseImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14419:17)
-      at TypeScriptParserMixin.parseImportSpecifier (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10148:18)
-      at TypeScriptParserMixin.parseNamedImportSpecifiers (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14398:36)
-      at TypeScriptParserMixin.parseImportSpecifiersAndAfter (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14242:37)
-      at TypeScriptParserMixin.parseImport (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14235:17)
-      at TypeScriptParserMixin.parseImport (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9353:26)
-      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12876:27)
-      at TypeScriptParserMixin.parseStatementContent (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:9508:18)
-      at TypeScriptParserMixin.parseStatementLike (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12767:17)
-      at TypeScriptParserMixin.parseModuleItem (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12744:17)
-      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13316:36)
-      at TypeScriptParserMixin.parseBlockBody (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:13309:10)
-      at TypeScriptParserMixin.parseProgram (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12622:10)
-      at TypeScriptParserMixin.parseTopLevel (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:12612:25)
-      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14488:25)
-      at TypeScriptParserMixin.parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:10126:18)
-      at parse (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/parser/lib/index.js:14522:38)
-      at parser (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/parser/index.js:41:34)
-      at parser.next (<anonymous>)
-      at normalizeFile (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/normalize-file.js:64:37)
-      at normalizeFile.next (<anonymous>)
-      at run (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transformation/index.js:22:50)
-      at run.next (<anonymous>)
-      at transform (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/transform.js:22:33)
-      at transform.next (<anonymous>)
-      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:261:32)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
-      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:189:28
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/@babel/core/lib/gensync-utils/async.js:67:7
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:113:33
-      at step (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:287:14)
-      at /Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:273:13
-      at async.call.result.err.err (/Users/home/Documents/Perception_Website_Kimi/app/node_modules/gensync/index.js:223:11)
-5:07:25 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-5:18:02 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-5:21:09 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-5:23:38 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-6:42:48 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-6:46:56 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-6:48:19 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-6:59:16 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-7:15:29 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-7:15:55 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-7:35:40 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-7:37:18 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-7:53:17 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-7:55:42 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-8:06:11 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-8:08:04 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-8:10:34 PM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
-8:17:27 PM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
-8:18:09 PM [vite] (client) hmr update /src/components/FeaturedTestimonial.tsx
-8:19:51 PM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
-8:20:04 PM [vite] (client) hmr update /src/components/FeaturedTestimonial.tsx
-8:22:00 PM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
-8:23:05 PM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
-8:24:57 PM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
-8:25:55 PM [vite] (client) hmr update /src/components/FeaturedTestimonial.tsx
-1:27:53 AM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
-1:29:20 AM [vite] (client) hmr update /src/components/FeaturedTestimonial.tsx
-1:30:28 AM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
-1:35:06 AM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
-1:38:01 AM [vite] (client) hmr update /src/components/FeaturedTestimonial.tsx
-1:38:34 AM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-1:41:28 AM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-1:45:40 AM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-1:46:40 AM [vite] (client) hmr update /src/components/FeaturedTestimonial.tsx
-12:27:04 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx, /src/index.css
-12:28:20 PM [vite] (client) hmr update /src/pages/services/CoolingAirflow.tsx
-3:24:06 PM [vite] (client) hmr update /src/index.css, /src/components/FeaturedTestimonial.tsx
+  ➜  Network: use --host to expose
+10:34:52 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:36:03 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:38:44 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:39:12 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:39:34 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:46:21 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:52:57 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:54:39 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:56:32 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:58:05 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:04:35 PM [vite] (client) hmr update /src/styles/carbon.scss
+11:04:49 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:07:53 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:12:15 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:14:23 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:22:29 PM [vite] (client) hmr update /src/styles/carbon.scss
+11:22:46 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:23:13 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:25:16 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:26:42 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:29:39 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:29:51 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx
+11:34:31 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:35:51 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:40:50 PM [vite] (client) hmr update /src/styles/carbon.scss
+11:41:20 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:41:59 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:43:00 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:43:58 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:44:25 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:46:46 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+12:56:28 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+12:58:08 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+12:59:55 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+1:00:18 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+1:03:53 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+1:05:18 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+1:09:17 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:36:42 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:37:50 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:42:33 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:45:01 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:47:47 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:49:29 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:50:26 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:55:29 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:58:49 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:00:52 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:01:09 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:02:00 AM [vite] (client) hmr update /src/pages/services/InfrastructureHub.tsx, /src/index.css
+9:02:08 AM [vite] (client) hmr update /src/pages/services/Datacenter2.tsx, /src/index.css
+9:02:15 AM [vite] (client) hmr update /src/pages/Cover3.tsx, /src/index.css
+9:02:26 AM [vite] (client) hmr update /src/index.css, /src/pages/partners/HuaweiPartnership.tsx
+9:02:37 AM [vite] (client) hmr update /src/pages/ProjectDetail.tsx, /src/index.css
+9:03:42 AM [vite] (client) hmr update /src/index.css, /src/components/Navigation.tsx
+9:03:54 AM [vite] (client) hmr update /src/pages/services/InfrastructureHub.tsx, /src/index.css
+9:04:00 AM [vite] (client) hmr update /src/pages/services/Datacenter2.tsx, /src/index.css
+9:04:07 AM [vite] (client) hmr update /src/pages/Cover3.tsx, /src/index.css
+9:04:18 AM [vite] (client) hmr update /src/pages/ProjectDetail.tsx, /src/index.css
+9:04:32 AM [vite] (client) hmr update /src/index.css
+9:04:57 AM [vite] (client) hmr update /src/index.css
+9:05:03 AM [vite] (client) hmr update /src/pages/services/JiraServiceManagement.tsx, /src/index.css
+9:05:11 AM [vite] (client) hmr update /src/pages/services/ServerContinuity.tsx, /src/index.css
+9:05:19 AM [vite] (client) hmr update /src/pages/Cover.tsx, /src/index.css
+9:05:26 AM [vite] (client) hmr update /src/pages/Cover2.tsx, /src/index.css
+9:05:33 AM [vite] (client) hmr update /src/pages/Services.tsx, /src/index.css
+9:05:39 AM [vite] (client) hmr update /src/index.css, /src/components/Navigation.tsx
+9:05:49 AM [vite] (client) hmr update /src/index.css, /src/components/InfrastructureHeroGraphics.tsx
+9:07:24 AM [vite] (client) hmr update /src/index.css
+9:07:30 AM [vite] (client) hmr update /src/index.css
+9:10:42 AM [vite] (client) hmr update /src/index.css, /src/pages/Projects.tsx, /src/components/Navigation.tsx
+9:12:12 AM [vite] (client) hmr update /src/index.css, /src/pages/Projects.tsx, /src/components/Navigation.tsx
+9:12:28 AM [vite] (client) hmr update /src/App.tsx, /src/index.css
+9:24:56 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:25:20 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:26:32 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:28:46 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:30:19 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:34:24 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:35:13 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:38:32 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:42:16 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:44:39 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:45:57 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:46:51 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:47:34 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:48:22 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:50:18 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:51:01 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:52:44 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:54:15 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:56:17 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:57:25 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:59:28 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:31:42 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:33:42 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:35:21 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+1:49:19 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+1:54:53 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+1:59:32 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+2:00:29 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:26:36 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:28:40 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:32:00 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:37:00 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:37:53 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:40:30 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:42:24 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:44:37 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:46:33 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:47:36 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:48:28 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:50:40 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:51:48 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:53:56 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:56:24 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:15:46 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:25:19 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:27:24 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:27:37 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:27:50 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:28:07 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:28:43 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:34:08 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:34:27 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:38:02 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:38:54 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:39:32 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:42:17 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:55:11 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:57:18 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:00:33 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:03:06 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:04:53 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:06:37 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:07:42 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:08:37 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:10:20 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:12:53 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:15:32 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:17:06 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:52:10 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:52:55 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:54:04 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+12:02:11 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+12:04:26 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+12:14:24 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+12:15:15 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+12:16:06 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+12:16:46 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+12:17:02 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+12:17:29 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+12:18:22 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+12:18:51 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+12:19:23 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+12:20:12 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+1:24:14 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+6:56:19 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+7:28:20 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+7:48:18 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+7:49:27 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+7:09:24 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+7:17:02 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+7:17:54 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+7:19:18 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:02:57 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:03:31 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:05:32 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:05:53 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:07:54 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:10:49 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:14:40 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:33:47 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:42:36 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:45:16 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:46:35 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:50:25 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:52:58 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:55:39 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+8:57:59 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:00:30 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:11:24 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:13:20 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:20:10 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:22:14 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:28:01 AM [vite] (client) hmr update /src/styles/carbon.scss
+9:30:03 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:35:20 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:37:23 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:43:57 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:48:17 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:51:32 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:53:20 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:57:16 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:59:22 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:00:56 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:06:11 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:07:06 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:07:40 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:07:53 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:08:13 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:08:28 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:08:35 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:09:05 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:09:12 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:09:31 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:09:40 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:09:45 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:09:46 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:10:05 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:10:17 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:10:23 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:10:23 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:10:30 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:11:32 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:11:42 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:15:02 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:17:10 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:18:25 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:21:31 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:24:43 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:31:00 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+1:57:58 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+2:03:42 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+2:04:59 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+2:06:15 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+2:07:58 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+2:35:43 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+2:40:22 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+2:43:33 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+2:46:57 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+2:55:18 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+2:56:52 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+2:59:09 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+3:11:27 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+3:16:47 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+3:17:43 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+3:18:29 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+3:20:18 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+3:25:39 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+3:25:45 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+3:25:51 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+3:25:56 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+3:32:39 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+3:36:11 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+3:38:40 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+3:39:57 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+3:41:20 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+3:55:41 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+4:10:41 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+4:12:24 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+4:15:21 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+4:15:38 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+4:19:07 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+4:21:08 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+4:27:07 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+4:31:16 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+4:34:38 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+4:36:59 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+4:40:04 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+4:43:19 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+4:44:44 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+4:46:51 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+4:59:44 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+6:29:31 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+6:31:07 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+6:32:58 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+6:33:14 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+6:39:37 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+6:42:22 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+6:49:01 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+6:51:27 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+6:53:49 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+6:56:09 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:51:48 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:54:33 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:56:39 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:59:02 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:04:30 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:05:00 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:05:16 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:05:45 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:14:32 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:25:42 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:27:55 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:29:23 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:38:57 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:44:17 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:48:24 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:51:59 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:54:04 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:56:26 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:08:22 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+9:10:47 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+10:02:33 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:00:43 AM [vite] (client) hmr update /src/index.css, /src/App.css, /src/styles/carbon-typography.css, /src/pages/services/CoolingThermal.tsx, /src/components/FeaturedTestimonial.tsx, /src/styles/carbon.scss
+11:02:47 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:02:48 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:02:49 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:03:01 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:03:02 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:03:15 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:03:29 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:03:55 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:12:00 AM [vite] (client) hmr update /src/index.css, /src/App.css, /src/styles/carbon-typography.css, /src/pages/services/CoolingThermal.tsx, /src/components/FeaturedTestimonial.tsx, /src/styles/carbon.scss
+11:12:10 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:12:26 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+11:15:11 AM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+7:22:45 PM [vite] (client) hmr update /src/styles/carbon-typography.css
+7:23:28 PM [vite] (client) hmr update /src/index.css, /src/App.css, /src/styles/carbon-typography.css, /src/pages/services/CoolingThermal.tsx, /src/components/FeaturedTestimonial.tsx, /src/styles/carbon.scss
+7:23:52 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+7:37:00 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx
+7:37:00 PM [vite] (client) Pre-transform error: Failed to load url /src/pages/services/CoolingThermal.module.css (resolved id: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingThermal.module.css) in /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingThermal.tsx. Does the file exist?
+7:43:04 PM [vite] (client) hmr update /src/pages/services/CoolingThermal.tsx, /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:43:51 PM [vite] (client) hmr update /src/index.css
+7:44:36 PM [vite] (client) Pre-transform error: Failed to load url /src/pages/services/CoolingThermal.tsx (resolved id: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingThermal.tsx) in /Users/home/Documents/Perception_Website_Kimi/app/src/App.tsx. Does the file exist?
+7:46:22 PM [vite] (client) hmr update /src/index.css
+7:46:22 PM [vite] (client) hmr update /src/index.css
+7:46:22 PM [vite] (client) hmr update /src/index.css
+7:46:22 PM [vite] (client) hmr update /src/index.css
+7:46:22 PM [vite] (client) hmr update /src/index.css
+7:46:22 PM [vite] (client) hmr update /src/index.css
+7:46:22 PM [vite] (client) hmr update /src/index.css
+7:46:22 PM [vite] (client) hmr update /src/index.css
+7:46:22 PM [vite] (client) hmr update /src/index.css
+7:48:55 PM [vite] (client) hmr update /src/index.css
+7:48:55 PM [vite] (client) hmr update /src/index.css
+7:50:21 PM [vite] (client) hmr update /src/index.css
+7:50:21 PM [vite] (client) hmr update /src/index.css
+7:50:21 PM [vite] (client) hmr update /src/index.css
+7:50:21 PM [vite] (client) hmr update /src/index.css
+7:50:21 PM [vite] (client) hmr update /src/index.css
+7:52:45 PM [vite] (client) hmr update /src/index.css
+7:52:45 PM [vite] (client) hmr update /src/index.css
+7:52:45 PM [vite] (client) hmr update /src/index.css
+7:52:45 PM [vite] (client) hmr update /src/index.css
+7:52:45 PM [vite] (client) hmr update /src/index.css
+7:52:45 PM [vite] (client) hmr update /src/index.css
+7:52:45 PM [vite] (client) hmr update /src/index.css
+7:52:45 PM [vite] (client) hmr update /src/index.css
+7:52:45 PM [vite] (client) hmr update /src/index.css
+7:52:45 PM [vite] (client) hmr update /src/index.css
+7:52:45 PM [vite] (client) hmr update /src/index.css
+7:52:45 PM [vite] (client) hmr update /src/index.css
+7:52:45 PM [vite] (client) hmr update /src/index.css
+7:52:45 PM [vite] (client) hmr update /src/index.css
+7:52:45 PM [vite] (client) hmr update /src/index.css
+7:52:45 PM [vite] (client) hmr update /src/index.css
+7:53:00 PM [vite] (client) hmr update /src/index.css
+7:53:53 PM [vite] (client) hmr update /src/index.css
+7:53:54 PM [vite] (client) hmr update /src/index.css
+7:54:23 PM [vite] (client) hmr update /src/index.css
+7:55:00 PM [vite] (client) hmr update /src/index.css
+7:55:00 PM [vite] (client) hmr update /src/index.css
+7:55:00 PM [vite] (client) hmr update /src/index.css
+7:55:00 PM [vite] (client) hmr update /src/index.css
+7:55:00 PM [vite] (client) hmr update /src/index.css
+7:55:00 PM [vite] (client) hmr update /src/index.css
+7:55:00 PM [vite] (client) hmr update /src/index.css
+7:55:00 PM [vite] (client) hmr update /src/index.css
+7:55:00 PM [vite] (client) hmr update /src/index.css
+7:55:00 PM [vite] (client) hmr update /src/index.css
+7:55:00 PM [vite] (client) hmr update /src/index.css
+7:55:00 PM [vite] (client) hmr update /src/index.css
+7:55:00 PM [vite] (client) hmr update /src/index.css
+7:55:00 PM [vite] (client) hmr update /src/index.css
+7:55:00 PM [vite] (client) hmr update /src/index.css
+7:55:00 PM [vite] (client) hmr update /src/index.css
+7:56:02 PM [vite] (client) hmr update /src/index.css
+7:56:48 PM [vite] (client) hmr update /src/index.css
+7:56:48 PM [vite] (client) hmr update /src/index.css
+7:56:48 PM [vite] (client) hmr update /src/index.css
+7:56:48 PM [vite] (client) hmr update /src/index.css
+7:56:48 PM [vite] (client) hmr update /src/index.css
+7:56:48 PM [vite] (client) hmr update /src/index.css
+7:56:48 PM [vite] (client) hmr update /src/index.css
+7:56:48 PM [vite] (client) hmr update /src/index.css
+7:56:48 PM [vite] (client) hmr update /src/index.css
+7:56:48 PM [vite] (client) hmr update /src/index.css
+7:56:48 PM [vite] (client) hmr update /src/index.css
+7:56:48 PM [vite] (client) hmr update /src/index.css
+7:56:48 PM [vite] (client) hmr update /src/index.css
+7:56:48 PM [vite] (client) hmr update /src/index.css
+7:56:48 PM [vite] (client) hmr update /src/index.css
+7:56:48 PM [vite] (client) hmr update /src/index.css
+8:00:56 PM [vite] (client) hmr update /src/styles/carbon-typography.css
+8:01:10 PM [vite] (client) hmr update /src/index.css
+8:01:10 PM [vite] (client) hmr update /src/index.css
+8:01:10 PM [vite] (client) hmr update /src/index.css
+8:01:10 PM [vite] (client) hmr update /src/index.css
+8:01:10 PM [vite] (client) hmr update /src/index.css
+8:01:10 PM [vite] (client) hmr update /src/index.css
+8:01:10 PM [vite] (client) hmr update /src/index.css
+8:01:10 PM [vite] (client) hmr update /src/index.css
+8:01:10 PM [vite] (client) hmr update /src/index.css
+8:01:10 PM [vite] (client) hmr update /src/index.css
+8:01:10 PM [vite] (client) hmr update /src/index.css
+8:01:10 PM [vite] (client) hmr update /src/index.css
+8:01:10 PM [vite] (client) hmr update /src/index.css
+8:01:10 PM [vite] (client) hmr update /src/index.css
+8:01:10 PM [vite] (client) hmr update /src/index.css
+8:01:10 PM [vite] (client) hmr update /src/index.css
+8:01:11 PM [vite] (client) hmr update /src/index.css
+8:01:11 PM [vite] (client) hmr update /src/index.css
+8:01:11 PM [vite] (client) hmr update /src/index.css
+8:01:11 PM [vite] (client) hmr update /src/index.css
+8:01:11 PM [vite] (client) hmr update /src/index.css
+8:01:11 PM [vite] (client) hmr update /src/index.css
+8:01:11 PM [vite] (client) hmr update /src/index.css
+8:01:11 PM [vite] (client) hmr update /src/index.css
+8:01:11 PM [vite] (client) hmr update /src/index.css
+8:01:11 PM [vite] (client) hmr update /src/index.css
+8:01:11 PM [vite] (client) hmr update /src/index.css
+8:01:11 PM [vite] (client) hmr update /src/index.css
+8:01:11 PM [vite] (client) hmr update /src/index.css
+8:01:11 PM [vite] (client) hmr update /src/index.css
+8:01:11 PM [vite] (client) hmr update /src/index.css
+8:01:11 PM [vite] (client) hmr update /src/index.css
+8:04:36 PM [vite] (client) Pre-transform error: Failed to load url /src/pages/services/CoolingThermal.tsx (resolved id: /Users/home/Documents/Perception_Website_Kimi/app/src/pages/services/CoolingThermal.tsx) in /Users/home/Documents/Perception_Website_Kimi/app/src/App.tsx. Does the file exist?

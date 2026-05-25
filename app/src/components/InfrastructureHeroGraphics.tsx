@@ -172,7 +172,7 @@ const InfrastructureHeroGraphics = () => {
         {/* === LAYER 3: REFINED NETWORK TOPOLOGY === */}
         <g className="animate-float" opacity="0.75" transform="translate(100, -30)">
           
-          {/* Main Hub - Central Data Center */}
+          {/* Main Hub - Central Data Centre */}
           <g transform="translate(850, 320)">
             {/* Outer ring */}
             <circle r="38" fill="none" stroke="#0f62fe" strokeWidth="1" opacity="0.2" className="animate-breathe" />

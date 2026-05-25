@@ -392,6 +392,87 @@
 .scroll-animate-delay-5 { transition-delay: 0.5s; }
 .scroll-animate-delay-6 { transition-delay: 0.6s; }
 
+/* ============================================================================
+   PRODUCT-PAGE EXPRESSIVE TOKENS
+   Extensions to the Carbon scale for dense service/product pages.
+   These fill gaps between Carbon's fixed heading sizes (16px, 20px, 28px)
+   and its fluid display sizes (42px, 60px).
+   
+   Hierarchy:
+     Display (hero)     → .carbon-fluid-display-03  (60px / 300wt)
+     Banner             → .carbon-banner-heading    (36→30→24px / 600wt)
+     Section title      → .carbon-fluid-heading-04  (28px / 400wt)
+     Card title         → .carbon-card-title        (24px / 600wt)
+     Price / spec       → .carbon-price             (18px / 600wt)
+     Body               → .carbon-body-02           (16px / 400wt)
+     Label              → .carbon-label-01          (12px / 400wt)
+     Micro label        → .carbon-micro             (10px / 600wt)
+   ============================================================================ */
+
+.carbon-banner-heading {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 2.25rem; /* 36px */
+  line-height: 2.75rem; /* 44px */
+  font-weight: 600; /* SemiBold */
+  letter-spacing: 0;
+}
+
+.carbon-card-title {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+  font-weight: 600; /* SemiBold */
+  letter-spacing: 0;
+}
+
+.carbon-price {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+  font-weight: 600; /* SemiBold */
+  letter-spacing: 0;
+}
+
+.carbon-stat {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+  font-weight: 300; /* Light */
+  letter-spacing: 0;
+}
+
+.carbon-micro {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.625rem; /* 10px */
+  line-height: 0.875rem; /* 14px */
+  font-weight: 600; /* SemiBold */
+  letter-spacing: 0.16px;
+}
+
+.carbon-badge {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+  font-weight: 600; /* SemiBold */
+  letter-spacing: 0.16px;
+  text-transform: uppercase;
+}
+
+/* Responsive: banner headings scale down on smaller screens (Carbon desktop-first pattern) */
+@media (max-width: 1056px) {
+  .carbon-banner-heading {
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.375rem; /* 38px */
+  }
+}
+
+@media (max-width: 672px) {
+  .carbon-banner-heading {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+  }
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .animate-drift,

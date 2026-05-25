@@ -123,7 +123,7 @@ const projectsData: Project[] = [
     ],
     result: [
       'ServiceNow platform availability achieved 99.95% SLA',
-      'Ticket resolution time reduced by 52% through automation and workflow optimization',
+      'Ticket resolution time reduced by 52% through automation and workflow optimisation',
       '24/7 follow-the-sun support model enabled with cloud-based access',
       'Operational costs reduced by removing on-premises Maximo hardware and licensing dependencies',
     ],
@@ -433,9 +433,9 @@ The backbone of their business continuity relies on 48 Lenovo servers. These sys
     solutions: [
       { icon: 'Tools', title: 'Preventive Maintenance', desc: 'Regular health checks to proactively identify issues; servers kept up-to-date with fix packs and patch upgrades' },
       { icon: 'Headset', title: '24/7 Coverage', desc: 'Round-the-clock support for 48 mission-critical Lenovo servers' },
-      { icon: 'Security', title: 'Zero Downtime', desc: 'No unplanned outages via proactive maintenance and optimized system care' },
+      { icon: 'Security', title: 'Zero Downtime', desc: 'No unplanned outages via proactive maintenance and optimised system care' },
       { icon: 'Delivery', title: 'Rapid Response', desc: 'Sourcing and installation of replacement parts for out-of-warranty hardware to maintain business continuity' },
-      { icon: 'Document', title: 'Tailored SLA', desc: 'Customized Service Level Agreement prioritizing high availability and operational continuity' },
+      { icon: 'Document', title: 'Tailored SLA', desc: 'Customised Service Level Agreement prioritising high availability and operational continuity' },
     ],
     results: [
       { icon: 'Checkmark', title: 'Zero Unplanned Outages', desc: 'Zero incidents in 12 months vs. 3–4/year previously (avg. 12h each)' },
@@ -502,7 +502,7 @@ The backbone of their business continuity relies on 48 Lenovo servers. These sys
       { name: 'ServerLife Extend™', link: '/services/server-continuity' },
       { name: 'Hardware Support', link: '/services/hardware-support' },
       { name: 'Server Continuity', link: '/services/server-continuity' },
-      { name: 'Data Center Operations', link: '/services/data-center' },
+      { name: 'Data Centre Operations', link: '/services/data-center' },
       { name: 'Network Operations', link: '/services/network-operations' },
       { name: '24/7 SLA Support', link: '/services/sla-support' },
     ],
@@ -722,7 +722,7 @@ const ProjectDetail = () => {
         </section>
       )}
 
-      {/* Problem / Solution / Outcome — scannable hook */}
+      {/* Problem / Solution / Outcome | scannable hook */}
       <section className="py-12 bg-white border-b border-[#e0e0e0]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="carbon-label-01 text-[#0f62fe] uppercase tracking-wider mb-2">Solution Summary</p>
@@ -778,7 +778,7 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {/* Client Testimonial — shared FeaturedTestimonial component */}
+      {/* Client Testimonial | shared FeaturedTestimonial component */}
       {project.quote && (
         <section className="py-16 bg-[#161616]">
           <div className="max-w-5xl mx-auto px-6">

@@ -257,7 +257,7 @@ const JiraServiceManagement = () => {
         <div className="max-w-7xl mx-auto py-6 px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { icon: Cloud, headline: "Cloud & Data Center", subtext: 'Flexible Deployment' },
+              { icon: Cloud, headline: "Cloud & Data Centre", subtext: 'Flexible Deployment' },
               { icon: AppConnectivity, headline: '500+ Integrations', subtext: 'Atlassian Marketplace' },
               { icon: Group, headline: 'Dev + Ops Together', subtext: 'Unified Platform' },
               { icon: Lightning, headline: 'Rapid Deployment', subtext: 'Weeks, Not Months' }

@@ -259,10 +259,10 @@ const ServicesVariant = () => {
               description={
                 <>
                   <p className="font-semibold text-gray-800 mb-2 group-hover:text-blue-700 transition-colors">Leveraging our global alliances, we procure, deploy, and manage the physical assets that power your enterprise.</p>
-                  <p className="text-gray-500 max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-2 transition-all duration-300">From the shipping to the data center floor and final integration, your 24/7 uptime is our absolute accountability.</p>
+                  <p className="text-gray-500 max-h-0 opacity-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-2 transition-all duration-300">From the shipping to the data centre floor and final integration, your 24/7 uptime is our absolute accountability.</p>
                 </>
               }
-              tags={['Server Continuity', 'Data Center', 'Hardware Support', 'Network Operations']}
+              tags={['Server Continuity', 'Data Centre', 'Hardware Support', 'Network Operations']}
               cta="Explore Infrastructure"
               ctaLink="/services/infrastructure"
             />
@@ -801,7 +801,7 @@ const HeroVariant = () => {
           </div>
         </div>
       </div>
-      {/* Stack Layer Bar — Home: warm-neutral → steel-hint */}
+      {/* Stack Layer Bar | Home: warm-neutral to steel-hint */}
       <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, #cbd5e1 0%, #64748b 100%)' }} />
     </section>
   );

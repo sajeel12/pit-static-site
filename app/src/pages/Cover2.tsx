@@ -128,7 +128,7 @@ const Cover2 = () => {
                     </div>
                     <div className="lg:w-2/3">
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                        {['Server Continuity', 'Data Center', 'Hardware Support', 'Network Operations'].map((item) => (
+                        {['Server Continuity', 'Data Centre', 'Hardware Support', 'Network Operations'].map((item) => (
                           <span key={item} className="px-3 py-2 bg-[#F1F5F9] rounded-lg text-sm text-[#475569] text-center">
                             {item}
                           </span>

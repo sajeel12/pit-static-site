@@ -256,7 +256,7 @@ const cloudCaseStudies: CaseStudy[] = [
       '**20,000+** pod deployments per month with **99.95%** success rate',
       'Pod propagation latency reduced to **<500ms**',
       'Unplanned downtime reduced by **87%**',
-      'Cluster utilization optimized: **78%** average (vs. **42%** industry baseline)'
+      'Cluster utilisation optimised: **78%** average (vs. **42%** industry baseline)'
     ],
     technologies: ['Kubernetes', 'Karpenter', 'Prometheus', 'Grafana', 'Sealed Secrets'],
     slug: 'k8s-cluster-operations',
@@ -352,7 +352,7 @@ const infrastructureServices: ServiceItem[] = [
   },
   {
     id: 'datacenter',
-    title: 'Data Center Services',
+    title: 'Data Centre Services',
     description: 'On-premise + cloud that actually works',
     link: '/services/datacenter'
   },
@@ -632,7 +632,7 @@ const dataCaseStudies: CaseStudy[] = [
     subtitle: 'Data warehouse enabling **90%** faster insights for regional managers',
     client: 'Major African Telecom Operator',
     industry: 'Telecommunications',
-    description: 'Implemented data warehouse with regional reporting and BI dashboards. Enables regional managers to analyze performance trends independently, reducing insights generation time by **90%**.',
+    description: 'Implemented data warehouse with regional reporting and BI dashboards. Enables regional managers to analyse performance trends independently, reducing insights generation time by **90%**.',
     outcomes: [
       'Insights generation time reduced by **90%**',
       'Predictive analytics for maintenance scheduling **45 days** ahead',
@@ -673,7 +673,7 @@ const dataCaseStudies: CaseStudy[] = [
     description: 'Implemented a hybrid edge-cloud data orchestration platform that processes telemetry at tower-edge, consolidates with cloud data lakes, and routes key insights to real-time dashboards.',
     outcomes: [
       'Latency reduced to **<1 second** for critical edge alerts',
-      'Data pipeline cost optimized by **45%** via edge pre-aggregation',
+      'Data pipeline cost optimised by **45%** via edge pre-aggregation',
       'Operational insights generated at **100x** frequency versus legacy',
       'Seamless edge-cloud failover with **99.95%** availability'
     ],
@@ -1103,7 +1103,7 @@ const aiCaseStudies: CaseStudy[] = [
     id: 'mlops-production-pipeline',
     title: 'MLOps Production Pipeline & Model Governance',
     subtitle: 'End-to-end ML deployment enabling monthly model updates',
-    client: 'Enterprise Technology Organization',
+    client: 'Enterprise Technology Organisation',
     industry: 'Technology',
     description: 'Built production-ready MLOps infrastructure with model governance, enabling rapid iteration on operational AI models. Automated model deployment, monitoring, and rollback reducing deployment time **90%**.',
     outcomes: [
@@ -1161,7 +1161,7 @@ export const serviceCategories: ServiceCategory[] = [
     id: 'infrastructure',
     label: 'Infrastructure',
     navLabel: 'Infrastructure',
-    description: 'Hardware support, data center services, and 24×7 SLA support',
+    description: 'Hardware support, data centre services, and 24×7 SLA support',
     icon: Server,
     color: {
       bg: 'bg-slate-100',

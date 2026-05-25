@@ -107,7 +107,7 @@ const HeroVariant = () => {
           ))}
         </div>
       </div>
-      {/* Stack Layer Bar — Infrastructure: steel-start */}
+      {/* Stack Layer Bar | Infrastructure: steel-start */}
       <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, #e2e8f0 0%, #94a3b8 100%)' }} />
     </section>
   );
@@ -328,12 +328,12 @@ const DataCentreSection = () => {
     {
       category: "Data Centre Cooling Systems",
       service: "Cooling System Supply",
-      outcome: "Engineered Thermal Resilience - In-row precision cooling, CRAC, and liquid cooling integration with airflow management, hot/cold aisle containment, and PUE optimization to 1.15 or below"
+      outcome: "Engineered Thermal Resilience - In-row precision cooling, CRAC, and liquid cooling integration with airflow management, hot/cold aisle containment, and PUE optimisation to 1.15 or below"
     },
     {
       category: "Air Conditioner Sizing",
       service: "AC Sizing Service",
-      outcome: "Thermal Capacity Planning - Load-profiled cooling design with 30% headroom for growth, seasonal variation modeling, and cooling-compatibility validation with power infrastructure"
+      outcome: "Thermal Capacity Planning - Load-profiled cooling design with 30% headroom for growth, seasonal variation modelling, and cooling-compatibility validation with power infrastructure"
     },
     {
       category: "Cooling Site Surveys",
@@ -367,8 +367,8 @@ const DataCentreSection = () => {
     },
     {
       category: "Energy Efficiency",
-      service: "PUE Optimization",
-      outcome: "Thermal Energy Intelligence - Cooling system optimization with VFD control, free-cooling integration, and AI-driven setpoint adjustments to reduce energy consumption by 25-40%"
+      service: "PUE Optimisation",
+      outcome: "Thermal Energy Intelligence - Cooling system optimisation with VFD control, free-cooling integration, and AI-driven setpoint adjustments to reduce energy consumption by 25-40%"
     },
     {
       category: "Airflow Management",
@@ -587,7 +587,7 @@ const CaseStudySection = () => {
                 99.99% Uptime for Pakistan's Largest Telecom
               </h2>
               <p className="text-gray-600 text-lg mb-8">
-                Deployed and manage a multi-site infrastructure spanning 3 data centers, 
+                Deployed and manage a multi-site infrastructure spanning 3 data centres, 
                 supporting 60+ million subscribers with zero unplanned downtime in 3 years.
               </p>
               
@@ -598,7 +598,7 @@ const CaseStudySection = () => {
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-[#475569]">3</div>
-                  <div className="text-sm text-gray-500">Data Centers</div>
+                  <div className="text-sm text-gray-500">Data Centres</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-[#475569]">60M+</div>

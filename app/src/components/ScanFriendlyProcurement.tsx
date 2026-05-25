@@ -75,7 +75,7 @@ export default function ScanFriendlyProcurement() {
           <div>
             <img
               src="/3D images/Cooling and Airflow/FusionCool.png"
-              alt="Precision cooling hardware showcase — CRAC and ACU units in a data centre environment"
+              alt="Precision cooling hardware showcase: CRAC and ACU units in a data centre environment"
               className="w-full h-auto object-cover"
               loading="lazy"
             />
@@ -273,7 +273,7 @@ export default function ScanFriendlyProcurement() {
               {/* Label + warranty text */}
               <div className="md:w-1/2">
                 <p className="carbon-body-01 text-[#525252]">
-                  Warranty administered through Perception-IT. One partner for claims, diagnostics, and replacement — not the manufacturer.
+                  Warranty administered through Perception-IT. One partner for claims, diagnostics, and replacement, not the manufacturer.
                 </p>
               </div>
 

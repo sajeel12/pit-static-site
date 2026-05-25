@@ -26,13 +26,13 @@ const serviceCategories = [
   {
     id: 'infrastructure',
     title: 'Infrastructure',
-    description: 'Hardware support, data center services, and 24×7 SLA support',
+    description: 'Hardware support, data centre services, and 24×7 SLA support',
     icon: Server,
     link: '/services#infrastructure',
     color: 'bg-slate-500',
     services: [
       { title: 'Server Continuity', link: '/services/server-continuity' },
-      { title: 'Data Center Services', link: '/services/datacenter' },
+      { title: 'Data Centre Services', link: '/services/datacenter' },
       { title: 'Hardware Support', link: '/services/hardware-support' },
       { title: '24×7 SLA Support', link: '/services/sla-support' },
       { title: 'Business Continuity', link: '/services/business-continuity' },

@@ -68,11 +68,11 @@ const ServerContinuity = () => {
       id: 'descon',
       tags: [
         { text: 'Manufacturing', color: 'blue' },
-        { text: 'Data Centers', color: 'gray' },
+        { text: 'Data Centres', color: 'gray' },
         { text: 'Mission-Critical Support', color: 'orange' }
       ],
       title: 'Descon - Multi-Site Infrastructure Resilience',
-      description: 'Deployed and manage multi-site infrastructure spanning 3 data centers with zero unplanned downtime in 3 years supporting critical manufacturing operations.',
+      description: 'Deployed and manage multi-site infrastructure spanning 3 data centres with zero unplanned downtime in 3 years supporting critical manufacturing operations.',
       logo: '/logos/clients/Descon-logo.png',
       companyName: 'Descon',
       solutionName: 'ServerLife Extend™',
@@ -80,7 +80,7 @@ const ServerContinuity = () => {
       image: '/case-studies/descon/carousel.jpg',
       stats: [
         { value: '99.99%', label: 'Uptime SLA', icon: Activity, color: '#f97316' },
-        { value: '3', label: 'Data Centers', icon: Building, color: '#24a148' },
+        { value: '3', label: 'Data Centres', icon: Building, color: '#24a148' },
         { value: 'Zero', label: 'Unplanned Downtime', icon: CheckmarkFilled, color: '#6929c4' }
       ]
     },

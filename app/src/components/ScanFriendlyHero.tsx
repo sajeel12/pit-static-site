@@ -22,7 +22,7 @@ export default function ScanFriendlyHero() {
         </h2>
 
         <p className="carbon-body-01 text-[#525252] mb-10 max-w-3xl">
-          Pakistan&apos;s summer peaks push standard cooling beyond its design limits. When ambient exceeds 35°C and humidity crosses 80%, three failure modes cascade — and they cascade fast.
+          Pakistan&apos;s summer peaks push standard cooling beyond its design limits. When ambient exceeds 35°C and humidity crosses 80%, three failure modes cascade, and they cascade fast.
         </p>
 
         <div className="grid md:grid-cols-3 gap-8 mb-10">

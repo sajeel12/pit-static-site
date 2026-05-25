@@ -161,7 +161,7 @@ function App() {
             <Route path="/services/mlops" element={<MLOps />} />
             <Route path="/services/ai-consulting" element={<AIConsulting />} />
 
-            {/* Infrastructure — Under Construction placeholders */}
+            {/* Infrastructure | Under Construction placeholders */}
             <Route path="/services/power-ups" element={<UnderConstruction />} />
             <Route path="/services/rack-cabinets" element={<UnderConstruction />} />
             <Route path="/services/environmental-monitoring" element={<UnderConstruction />} />

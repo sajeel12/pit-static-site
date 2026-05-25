@@ -55,7 +55,7 @@ const Services = () => {
     {
       icon: Server,
       title: 'Infrastructure',
-      description: 'Network, security, server management and data center operations.',
+      description: 'Network, security, server management and data centre operations.',
       tags: ['Network', 'Security', 'Storage'],
       href: '#services',
     },

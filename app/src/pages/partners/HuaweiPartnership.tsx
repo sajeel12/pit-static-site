@@ -30,7 +30,7 @@ export default function HuaweiPartnership() {
             <p className="carbon-body-02 text-white/70 max-w-2xl mb-8">
               Perception IT is an authorized infrastructure solutions provider for Huawei
               Enterprise in Pakistan. We supply, deploy, and support Huawei data centre
-              equipment — from precision cooling to power distribution — with certified
+              equipment, from precision cooling to power distribution, with certified
               engineers and local SLA backing.
             </p>
 
@@ -111,7 +111,7 @@ export default function HuaweiPartnership() {
               <p className="carbon-body-02 text-[#525252] mb-8">
                 Our deployment and support engineers maintain active Huawei certifications.
                 This means your infrastructure is handled by technicians who have trained
-                directly with Huawei — not generalists learning on the job.
+                directly with Huawei, not generalists learning on the job.
               </p>
 
               <ul className="space-y-3">
