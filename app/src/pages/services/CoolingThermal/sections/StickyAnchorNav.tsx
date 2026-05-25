@@ -4,7 +4,7 @@ import {
 } from '@carbon/icons-react';
 import styles from '../CoolingThermal.module.css';
 import { PAGE_SECTIONS } from '../data';
-import '../../../../styles/carbon-typography.css';
+
 
 export default function StickyAnchorNav() {
 

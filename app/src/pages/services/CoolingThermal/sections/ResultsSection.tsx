@@ -1,6 +1,6 @@
 import TestimonialCarousel from './TestimonialCarousel';
 import ProjectCardGrid from './ProjectCardGrid';
-import '../../../../styles/carbon-typography.css';
+
 
 export default function ResultsSection() {
 

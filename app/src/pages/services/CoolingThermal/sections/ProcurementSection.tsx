@@ -3,7 +3,7 @@ import {
   Warning, ChevronUp, ChevronDown, DataCenter,
   Windy, Temperature, Download,
 } from '@carbon/icons-react';
-import '../../../../styles/carbon-typography.css';
+
 
 export default function ProcurementSection() {
 

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import {
   CheckmarkFilled, ChevronUp, ChevronDown,
 } from '@carbon/icons-react';
-import '../../../../styles/carbon-typography.css';
+
 
 export default function ManagedSection() {
 

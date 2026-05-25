@@ -4,7 +4,7 @@ import {
   ChevronLeft, ChevronRight,
 } from '@carbon/icons-react';
 import { PROJECTS } from '../data';
-import '../../../../styles/carbon-typography.css';
+
 
 export default function ProjectCardGrid() {
 

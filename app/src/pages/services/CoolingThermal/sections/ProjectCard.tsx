@@ -4,7 +4,7 @@ import {
 } from '@carbon/icons-react';
 import styles from '../CoolingThermal.module.css';
 import { PROJECTS } from '../data';
-import '../../../../styles/carbon-typography.css';
+
 
 export default function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: number }) {
 

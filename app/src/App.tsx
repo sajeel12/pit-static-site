@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import './App.css';
 import Projects from './pages/Projects';
@@ -29,7 +29,7 @@ import TechnologyRoadmap from './pages/services/TechnologyRoadmap';
 import ServerContinuity from './pages/services/ServerContinuity';
 import Datacenter from './pages/services/Datacenter';
 import Datacenter2 from './pages/services/Datacenter2';
-import CoolingThermal from './pages/services/CoolingThermal';
+const CoolingThermal = lazy(() => import('./pages/services/CoolingThermal'));
 import CoreInfrastructure from './pages/services/CoreInfrastructure';
 import NetworkOperations from './pages/services/NetworkOperations';
 
@@ -123,7 +123,11 @@ function App() {
             <Route path="/services/network-operations" element={<NetworkOperations />} />
             <Route path="/services/cooling-airflow" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
             <Route path="/services/cooling-airflow2" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
-            <Route path="/infrastructure/data-centre-services/cooling-airflow" element={<CoolingThermal />} />
+            <Route path="/infrastructure/data-centre-services/cooling-airflow" element={
+              <Suspense fallback={<div className="min-h-screen bg-white" />}>
+                <CoolingThermal />
+              </Suspense>
+            } />
             <Route path="/infrastructure/data-centre-services/cooling-thermal" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
 
 

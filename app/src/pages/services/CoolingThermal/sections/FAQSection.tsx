@@ -2,7 +2,7 @@ import {
   Accordion, AccordionItem,
 } from '@carbon/react';
 import { FAQ_ITEMS } from '../data';
-import '../../../../styles/carbon-typography.css';
+
 
 export default function FAQSection() {
 

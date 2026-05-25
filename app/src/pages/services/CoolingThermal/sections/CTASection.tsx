@@ -3,7 +3,7 @@ import {
   Download,
 } from '@carbon/icons-react';
 import { trackEvent } from '../utils';
-import '../../../../styles/carbon-typography.css';
+
 
 export default function CTASection() {
 

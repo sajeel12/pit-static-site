@@ -6,7 +6,7 @@ import {
 import {
   Accordion, AccordionItem,
 } from '@carbon/react';
-import '../../../../styles/carbon-typography.css';
+
 
 export default function RemoteAdvisorySection() {
 

@@ -1,7 +1,7 @@
 import {
   ArrowRight,
 } from '@carbon/icons-react';
-import '../../../../styles/carbon-typography.css';
+
 
 export default function HeroSection() {
 

@@ -3,7 +3,7 @@ import {
   ArrowRight, ChevronLeft, ChevronRight, Quotes,
 } from '@carbon/icons-react';
 import { TESTIMONIALS } from '../data';
-import '../../../../styles/carbon-typography.css';
+
 
 export default function TestimonialCarousel() {
 

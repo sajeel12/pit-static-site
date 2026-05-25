@@ -3,7 +3,7 @@ import {
   TemperatureHot, Warning, Settings, Certificate,
   ChevronUp, ChevronDown,
 } from '@carbon/icons-react';
-import '../../../../styles/carbon-typography.css';
+
 
 export default function DeploymentSection() {
 

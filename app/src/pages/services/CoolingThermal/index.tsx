@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import usePageSEO from '../../../hooks/usePageSEO';
-import CoolingNav from '../CoolingNav';
-import Footer from '../../../sections/Footer';
-import '../../../styles/carbon-typography.css';
+import usePageSEO from '@/hooks/usePageSEO';
+import CoolingNav from '@/pages/services/CoolingNav';
+import Footer from '@/sections/Footer';
+import '@/styles/carbon-typography.css';
 import StickyAnchorNav from './sections/StickyAnchorNav';
 import HeroSection from './sections/HeroSection';
 import TrustTiles from './sections/TrustTiles';

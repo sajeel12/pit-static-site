@@ -2,7 +2,7 @@ import {
   ArrowRight,
 } from '@carbon/icons-react';
 import { ECOSYSTEM_ITEMS } from '../data';
-import '../../../../styles/carbon-typography.css';
+
 
 export default function EcosystemSection() {
 

@@ -1,4 +1,4 @@
-import '../../../../styles/carbon-typography.css';
+
 
 export default function TrustTiles() {
 

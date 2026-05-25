@@ -3,9 +3,9 @@ import {
   ArrowRight, CheckmarkFilled, Warning, Settings,
   ChevronUp, ChevronDown, Calendar, Document,
 } from '@carbon/icons-react';
-import { useInView } from '../../../../hooks/useInView';
+import { useInView } from '@/hooks/useInView';
 import { trackEvent } from '../utils';
-import '../../../../styles/carbon-typography.css';
+
 
 export default function AssessmentSection() {
 
