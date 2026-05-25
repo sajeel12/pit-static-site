@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Design Tokens — Single source of truth for colors, spacing, shadows
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------------
+     Brand Colors
+     ------------------------------------------------------------------------ */
+  --color-brand-primary: #0f62fe;
+  --color-brand-primary-hover: #0353e9;
+  --color-brand-secondary: #4589ff;
+
+  /* ------------------------------------------------------------------------
+     Cooling Page — Dark Gradient Hero
+     ------------------------------------------------------------------------ */
+  --cooling-hero-gradient-start: #0f172a;
+  --cooling-hero-gradient-mid: #1e293b;
+  --cooling-hero-gradient-end: #334155;
+  --cooling-hero-accent-cyan: #00d4ff;
+  --cooling-hero-accent-magenta: #ff00ff;
+  --cooling-hero-accent-green: #00ff88;
+  --cooling-hero-glow-green: rgba(0, 255, 136, 0.8);
+  --cooling-hero-text-primary: #ffffff;
+  --cooling-hero-text-secondary: #e2e8f0;   /* slate-200 */
+  --cooling-hero-text-muted: #94a3b8;       /* slate-400 */
+  --cooling-hero-text-subtle: #475569;      /* slate-600 */
+
+  /* ------------------------------------------------------------------------
+     Stack Layer Bar Colors ( Cooling: steel-full )
+     ------------------------------------------------------------------------ */
+  --stack-bar-cooling-start: #94a3b8;
+  --stack-bar-cooling-end: #475569;
+
+  /* ------------------------------------------------------------------------
+     Shadows
+     ------------------------------------------------------------------------ */
+  --shadow-cooling-cta: 0 0 30px rgba(15, 98, 254, 0.5);
+  --shadow-cooling-green-glow: 0 0 8px rgba(0, 255, 136, 0.8);
+
+  /* ------------------------------------------------------------------------
+     Spacing Scale (semantic)
+     ------------------------------------------------------------------------ */
+  --space-hero-breadcrumb-bottom: 1.5rem;    /* 24px  mb-6 */
+  --space-hero-badge-bottom: 1.5rem;         /* 24px  mb-6 */
+  --space-hero-headline-bottom: 1.5rem;      /* 24px  mb-6 */
+  --space-hero-subhead-bottom: 1.25rem;      /* 20px  mb-5 */
+  --space-hero-body-bottom: 2rem;            /* 32px  mb-8 */
+  --space-hero-cta-top: 2.5rem;              /* 40px  mt-10 */
+}
