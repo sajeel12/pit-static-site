@@ -3,6 +3,8 @@ import ArrowRight from '@carbon/icons-react/es/ArrowRight';
 import CheckmarkFilled from '@carbon/icons-react/es/CheckmarkFilled';
 import Warning from '@carbon/icons-react/es/Warning';
 import Settings from '@carbon/icons-react/es/Settings';
+import Scale from '@carbon/icons-react/es/Scale';
+import Subtract from '@carbon/icons-react/es/Subtract';
 import ChevronUp from '@carbon/icons-react/es/ChevronUp';
 import ChevronDown from '@carbon/icons-react/es/ChevronDown';
 import Calendar from '@carbon/icons-react/es/Calendar';
@@ -1529,7 +1531,7 @@ export default function AssessmentSection() {
 
 
 
-                              <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
+                              <Subtract className="w-3.5 h-3.5 text-gray-300" />
 
 
 
@@ -1581,7 +1583,7 @@ export default function AssessmentSection() {
 
 
 
-                              <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
+                              <Subtract className="w-3.5 h-3.5 text-gray-300" />
 
 
 
@@ -1641,7 +1643,8 @@ export default function AssessmentSection() {
 
 
 
-              <h4 className="carbon-label-02 text-gray-600 uppercase tracking-wide font-semibold">Complete Comparison</h4>
+              <Scale className="w-4 h-4 text-gray-400" />
+              <h4 className="carbon-label-02 text-gray-700 uppercase tracking-[0.12em] font-bold">Complete Comparison</h4>
 
 
 
@@ -1661,7 +1664,7 @@ export default function AssessmentSection() {
 
 
 
-            <div className="hidden md:block overflow-hidden rounded-xl border border-gray-200">
+            <div className="hidden md:block overflow-hidden rounded-xl border border-gray-200 shadow-lg shadow-slate-200/40">
 
 
 
@@ -1681,11 +1684,11 @@ export default function AssessmentSection() {
 
 
 
-                    <td className="px-4 py-3 bg-gray-300 carbon-label-02 text-gray-900 uppercase tracking-wide font-bold w-[28%]">Service Profile</td>
+                    <td className="px-4 py-3 bg-slate-100 carbon-label-02 text-slate-700 uppercase tracking-wide font-bold w-[28%]">Service Profile</td>
 
 
 
-                    <td className="px-4 py-3 bg-[#6f6f6f] carbon-label-02 text-white uppercase font-bold w-[36%]">
+                    <td className="px-4 py-3 bg-slate-600 carbon-label-02 text-white uppercase font-bold w-[36%]">
 
 
 
@@ -1773,7 +1776,7 @@ export default function AssessmentSection() {
 
 
 
-                      <td className="px-4 py-3.5 carbon-body-short-01 text-gray-700 border-r border-[#e0e0e0] border-l-[3px] border-l-[#6f6f6f] bg-[#6f6f6f]/[0.04]">
+                      <td className="px-4 py-3.5 carbon-body-short-01 text-gray-700 border-r border-[#e0e0e0] border-l-[3px] border-l-slate-400 bg-slate-50/60">
 
 
 
@@ -1821,15 +1824,15 @@ export default function AssessmentSection() {
 
 
 
-                    <td className="px-4 py-3 bg-gray-300 carbon-label-02 text-gray-900 uppercase tracking-wide font-bold">Key Deliverables</td>
+                    <td className="px-4 py-3 bg-slate-100 carbon-label-02 text-slate-700 uppercase tracking-wide font-bold">Key Deliverables</td>
 
 
 
-                    <td className="px-4 py-3 bg-[#6f6f6f]/10 carbon-label-02 text-[#6f6f6f] uppercase font-bold text-center">Rapid Audit Includes</td>
+                    <td className="px-4 py-3 bg-slate-50 carbon-label-02 text-slate-600 uppercase font-bold text-center">Rapid Audit Includes</td>
 
 
 
-                    <td className="px-4 py-3 bg-[#6929c4]/10 carbon-label-02 text-[#6929c4] uppercase font-bold text-center">Precision Engineering Includes</td>
+                    <td className="px-4 py-3 bg-purple-50 carbon-label-02 text-[#6929c4] uppercase font-bold text-center">Precision Engineering Includes</td>
 
 
 
@@ -1877,7 +1880,7 @@ export default function AssessmentSection() {
 
 
 
-                      <td className="px-4 py-3.5 carbon-body-short-01 text-gray-700 border-r border-[#e0e0e0] border-l-[3px] border-l-[#6f6f6f] bg-[#6f6f6f]/[0.04]">
+                      <td className="px-4 py-3.5 carbon-body-short-01 text-gray-700 border-r border-[#e0e0e0] border-l-[3px] border-l-slate-400 bg-slate-50/60">
 
 
 
@@ -1889,7 +1892,7 @@ export default function AssessmentSection() {
 
 
 
-                            <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
+                            <Subtract className="w-3.5 h-3.5 text-gray-300" />
 
 
 
@@ -1941,7 +1944,7 @@ export default function AssessmentSection() {
 
 
 
-                            <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
+                            <Subtract className="w-3.5 h-3.5 text-gray-300" />
 
 
 
