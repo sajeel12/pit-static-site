@@ -1279,11 +1279,23 @@ export default function AssessmentSection() {
 
 
 
-                <div className="text-center py-3 border-r border-gray-200">
+                <div className="text-center border-r border-gray-200">
 
 
 
-                  <p className="carbon-label-02 text-gray-600 uppercase font-bold">Rapid Audit</p>
+                  <div className="h-1.5 w-full bg-gradient-to-r from-[#6f6f6f] to-[#9ca3af]" />
+
+
+
+                  <div className="py-3">
+
+
+
+                    <p className="carbon-badge text-gray-600">Rapid Audit</p>
+
+
+
+                  </div>
 
 
 
@@ -1291,11 +1303,23 @@ export default function AssessmentSection() {
 
 
 
-                <div className="text-center py-3">
+                <div className="text-center">
 
 
 
-                  <p className="carbon-label-02 text-gray-600 uppercase font-bold">Precision Engineering</p>
+                  <div className="h-1.5 w-full bg-gradient-to-r from-[#6929c4] to-[#a855f7]" />
+
+
+
+                  <div className="py-3">
+
+
+
+                    <p className="carbon-badge text-gray-600">Precision Engineering</p>
+
+
+
+                  </div>
 
 
 
@@ -1319,7 +1343,7 @@ export default function AssessmentSection() {
 
 
 
-                <p className="carbon-label-02 text-gray-500 uppercase tracking-wide font-bold mb-3">Service Profile</p>
+                <p className="carbon-label-02 text-gray-500 uppercase tracking-wide font-bold mb-3 text-center">Service Profile</p>
 
 
 
@@ -1371,11 +1395,11 @@ export default function AssessmentSection() {
 
 
 
-                      <div className="grid grid-cols-2 divide-x divide-gray-100">
+                      <div className="grid grid-cols-2">
 
 
 
-                        <div className="p-3 bg-gray-50/30">
+                        <div className="p-3 bg-slate-50 border-r border-gray-200">
 
 
 
@@ -1391,7 +1415,7 @@ export default function AssessmentSection() {
 
 
 
-                        <div className="p-3 bg-[#6929c4]/[0.02]">
+                        <div className="p-3 bg-purple-50/40">
 
 
 
@@ -1439,7 +1463,7 @@ export default function AssessmentSection() {
 
 
 
-                <p className="carbon-label-02 text-gray-500 uppercase tracking-wide font-bold mb-3">Key Deliverables</p>
+                <p className="carbon-label-02 text-gray-500 uppercase tracking-wide font-bold mb-3 text-center">Key Deliverables</p>
 
 
 
@@ -1499,7 +1523,7 @@ export default function AssessmentSection() {
 
 
 
-                        <div className={`p-3 ${row.r === 'None' ? 'bg-gray-50/50' : ''}`}>
+                        <div className={`p-3 bg-slate-50 border-r border-gray-200 ${row.r === 'None' ? 'opacity-60' : ''}`}>
 
 
 
@@ -1551,7 +1575,7 @@ export default function AssessmentSection() {
 
 
 
-                        <div className={`p-3 ${row.p === 'None' ? 'bg-gray-50/50' : ''}`}>
+                        <div className={`p-3 bg-purple-50/40 ${row.p === 'None' ? 'opacity-60' : ''}`}>
 
 
 
@@ -1688,15 +1712,19 @@ export default function AssessmentSection() {
 
 
 
-                    <td className="px-4 py-3 bg-slate-600 carbon-label-02 text-white uppercase font-bold w-[36%]">
+                    <td className="bg-slate-50 carbon-label-02 text-slate-600 uppercase font-bold w-[36%]">
 
 
 
-                      <div className="flex items-center gap-2">
+                      <div className="h-1.5 w-full bg-gradient-to-r from-[#6f6f6f] to-[#9ca3af]" />
 
 
 
-                        <div className="w-2 h-2 rounded-full bg-white/70" />
+                      <div className="px-4 py-3 flex items-center gap-2">
+
+
+
+                        <div className="w-2 h-2 rounded-full bg-slate-400" />
 
 
 
@@ -1712,15 +1740,19 @@ export default function AssessmentSection() {
 
 
 
-                    <td className="px-4 py-3 bg-[#6929c4] carbon-label-02 text-white uppercase font-bold w-[36%]">
+                    <td className="bg-purple-50 carbon-label-02 text-[#6929c4] uppercase font-bold w-[36%]">
 
 
 
-                      <div className="flex items-center gap-2">
+                      <div className="h-1.5 w-full bg-gradient-to-r from-[#6929c4] to-[#a855f7]" />
 
 
 
-                        <div className="w-2 h-2 rounded-full bg-white/70" />
+                      <div className="px-4 py-3 flex items-center gap-2">
+
+
+
+                        <div className="w-2 h-2 rounded-full bg-[#a855f7]" />
 
 
 
@@ -1828,11 +1860,35 @@ export default function AssessmentSection() {
 
 
 
-                    <td className="px-4 py-3 bg-slate-50 carbon-label-02 text-slate-600 uppercase font-bold text-center">Rapid Audit Includes</td>
+                    <td className="bg-slate-50 carbon-badge text-slate-600 text-center">
 
 
 
-                    <td className="px-4 py-3 bg-purple-50 carbon-label-02 text-[#6929c4] uppercase font-bold text-center">Precision Engineering Includes</td>
+                      <div className="h-1.5 w-full bg-gradient-to-r from-[#6f6f6f] to-[#9ca3af]" />
+
+
+
+                      <div className="px-4 py-3">Rapid Audit Includes</div>
+
+
+
+                    </td>
+
+
+
+                    <td className="bg-purple-50 carbon-badge text-[#6929c4] text-center">
+
+
+
+                      <div className="h-1.5 w-full bg-gradient-to-r from-[#6929c4] to-[#a855f7]" />
+
+
+
+                      <div className="px-4 py-3">Precision Engineering Includes</div>
+
+
+
+                    </td>
 
 
 
