@@ -340,11 +340,11 @@ export default function ManagedSection() {
 
 
 
-          <div className="flex flex-wrap items-center justify-between gap-6 relative">
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 relative text-center md:text-left">
 
 
 
-            <div className="flex-1 min-w-[300px]">
+            <div className="flex-1 min-w-0 md:min-w-[300px]">
 
 
 
@@ -360,11 +360,11 @@ export default function ManagedSection() {
 
 
 
-            <div className="flex gap-3 flex-wrap">
+            <div className="flex flex-col sm:flex-row gap-3 items-center w-full sm:w-auto">
 
 
 
-              <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center gap-2 px-5 py-3 bg-white/15 border border-white/40 text-white carbon-body-02 font-medium hover:bg-white/25 transition-colors rounded-lg">
+              <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white/15 border border-white/40 text-white carbon-body-02 font-medium hover:bg-white/25 transition-colors rounded-lg w-full sm:w-auto">
 
 
 
@@ -376,7 +376,7 @@ export default function ManagedSection() {
 
 
 
-              <a href="mailto:contact@perception-it.com?subject=Managed%20Services%20Consultation" className="inline-flex items-center gap-2 px-5 py-3 bg-white text-[#0f62fe] carbon-body-02 hover:bg-gray-50 transition-colors rounded-lg">Speak to an Engineer</a>
+              <a href="mailto:contact@perception-it.com?subject=Managed%20Services%20Consultation" className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white text-[#0f62fe] carbon-body-02 hover:bg-gray-50 transition-colors rounded-lg w-full sm:w-auto">Speak to an Engineer</a>
 
 
 

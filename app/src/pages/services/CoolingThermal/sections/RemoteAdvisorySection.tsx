@@ -600,7 +600,7 @@ export default function RemoteAdvisorySection() {
 
 
 
-        <div className="rounded-2xl bg-gradient-to-r from-[#0f62fe] to-[#4589ff] p-8 sm:p-10 md:flex md:items-center md:justify-between gap-6">
+        <div className="rounded-2xl bg-gradient-to-r from-[#0f62fe] to-[#4589ff] p-8 sm:p-10 md:flex md:items-center md:justify-between gap-6 text-center md:text-left">
 
 
 

@@ -1185,7 +1185,7 @@ export default function AssessmentSection() {
 
 
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 relative">
+          <div className="flex flex-col sm:flex-row items-center sm:items-center justify-center sm:justify-between gap-4 sm:gap-6 relative text-center sm:text-left">
 
 
 

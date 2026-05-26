@@ -146,7 +146,7 @@ export default function EcosystemSection() {
 
 
 
-        <div className="mt-10 pt-8 border-t border-gray-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="mt-10 pt-8 border-t border-gray-200 flex flex-col sm:flex-row items-center sm:items-center justify-center sm:justify-between gap-4 text-center sm:text-left">
 
 
 
