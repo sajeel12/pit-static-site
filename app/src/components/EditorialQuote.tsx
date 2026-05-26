@@ -14,7 +14,7 @@
  */
 
 import { Link } from 'react-router-dom';
-import { ArrowRight } from '@carbon/icons-react';
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
 import styles from './EditorialQuote.module.css';
 
 /* ─── Types ─── */

@@ -13,13 +13,11 @@
  */
 
 import CarbonHeroDark from './CarbonHeroDark';
-import {
-  Security,
-  Time,
-  Headphones,
-  Locked,
-  Building
-} from '@carbon/icons-react';
+import Security from '@carbon/icons-react/es/Security';
+import Time from '@carbon/icons-react/es/Time';
+import Headphones from '@carbon/icons-react/es/Headphones';
+import Locked from '@carbon/icons-react/es/Locked';
+import Building from '@carbon/icons-react/es/Building';
 
 interface ServiceNowHeroProps {
   onScrollToSection?: (id: string) => void;

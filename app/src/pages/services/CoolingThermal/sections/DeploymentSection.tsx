@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import {
-  TemperatureHot, Warning, Settings, Certificate,
-  ChevronUp, ChevronDown,
-} from '@carbon/icons-react';
+import TemperatureHot from '@carbon/icons-react/es/TemperatureHot';
+import Warning from '@carbon/icons-react/es/Warning';
+import Settings from '@carbon/icons-react/es/Settings';
+import Certificate from '@carbon/icons-react/es/Certificate';
+import ChevronUp from '@carbon/icons-react/es/ChevronUp';
+import ChevronDown from '@carbon/icons-react/es/ChevronDown';
 
 
 export default function DeploymentSection() {

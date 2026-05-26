@@ -1,6 +1,4 @@
-import {
-  ArrowRight,
-} from '@carbon/icons-react';
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
 import { ECOSYSTEM_ITEMS } from '../data';
 
 

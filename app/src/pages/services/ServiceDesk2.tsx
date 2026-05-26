@@ -1,14 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import '../../styles/carbon-typography.css';
 import Footer from '../../sections/Footer';
 import Navigation from '../../components/Navigation';
-import HeroGradientPlanes from '../../components/HeroGradientPlanes';
-import {
-  ArrowRight, CheckmarkFilled, WarningAlt,
-  Ticket, User, Book, MagicWand, ChartLine, 
-  Headset, Report, DataBase,
-  ChevronRight, Building, Time, Task
-} from '@carbon/icons-react';
+const HeroGradientPlanes = lazy(() => import('../../components/HeroGradientPlanes'));
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+import CheckmarkFilled from '@carbon/icons-react/es/CheckmarkFilled';
+import WarningAlt from '@carbon/icons-react/es/WarningAlt';
+import Ticket from '@carbon/icons-react/es/Ticket';
+import User from '@carbon/icons-react/es/User';
+import Book from '@carbon/icons-react/es/Book';
+import MagicWand from '@carbon/icons-react/es/MagicWand';
+import ChartLine from '@carbon/icons-react/es/ChartLine';
+import Headset from '@carbon/icons-react/es/Headset';
+import Report from '@carbon/icons-react/es/Report';
+import DataBase from '@carbon/icons-react/es/DataBase';
+import ChevronRight from '@carbon/icons-react/es/ChevronRight';
+import Building from '@carbon/icons-react/es/Building';
+import Time from '@carbon/icons-react/es/Time';
+import Task from '@carbon/icons-react/es/Task';
 
 const ServiceDesk2 = () => {
   const [activeSection, setActiveSection] = useState('overview');
@@ -154,7 +163,9 @@ const ServiceDesk2 = () => {
       
       {/* Hero Section */}
       <section id="overview" className="relative pt-40 pb-20 bg-[#0a1628] overflow-hidden">
-        <HeroGradientPlanes />
+        <Suspense fallback={<div className="h-[500px] bg-slate-900" />}>
+          <HeroGradientPlanes />
+        </Suspense>
         
         <div className="relative z-10 max-w-[1584px] mx-auto px-6">
           {/* Breadcrumb */}

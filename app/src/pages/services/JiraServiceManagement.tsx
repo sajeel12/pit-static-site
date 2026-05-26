@@ -1,15 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import '../../styles/carbon-typography.css';
 import Footer from '../../sections/Footer';
 import Navigation from '../../components/Navigation';
-import HeroCubeAnimationOrange from '../../components/HeroCubeAnimationOrange';
-import HeroGradientPlanesOrange from '../../components/HeroGradientPlanesOrange';
-import {
-  ArrowRight, WarningAlt,
-  Lightning, Time, ChartLine,
-  ChevronRight, Cloud, Group,
-  Dashboard, Catalog, Book, Settings, Asset, Task, AppConnectivity, Building
-} from '@carbon/icons-react';
+const HeroCubeAnimationOrange = lazy(() => import('../../components/HeroCubeAnimationOrange'));
+const HeroGradientPlanesOrange = lazy(() => import('../../components/HeroGradientPlanesOrange'));
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+import WarningAlt from '@carbon/icons-react/es/WarningAlt';
+import Lightning from '@carbon/icons-react/es/Lightning';
+import Time from '@carbon/icons-react/es/Time';
+import ChartLine from '@carbon/icons-react/es/ChartLine';
+import ChevronRight from '@carbon/icons-react/es/ChevronRight';
+import Cloud from '@carbon/icons-react/es/Cloud';
+import Group from '@carbon/icons-react/es/Group';
+import Dashboard from '@carbon/icons-react/es/Dashboard';
+import Catalog from '@carbon/icons-react/es/Catalog';
+import Book from '@carbon/icons-react/es/Book';
+import Settings from '@carbon/icons-react/es/Settings';
+import Asset from '@carbon/icons-react/es/Asset';
+import Task from '@carbon/icons-react/es/Task';
+import AppConnectivity from '@carbon/icons-react/es/AppConnectivity';
+import Building from '@carbon/icons-react/es/Building';
 
 const JiraServiceManagement = () => {
   const [activeSection, setActiveSection] = useState('overview');
@@ -126,8 +136,12 @@ const JiraServiceManagement = () => {
       
       {/* Hero Section */}
       <section id="overview" className="relative pt-40 pb-20 bg-[#0a1628] overflow-hidden">
-        <HeroCubeAnimationOrange />
-        <HeroGradientPlanesOrange />
+        <Suspense fallback={<div className="h-[500px] bg-slate-900" />}>
+          <HeroCubeAnimationOrange />
+        </Suspense>
+        <Suspense fallback={<div className="h-[500px] bg-slate-900" />}>
+          <HeroGradientPlanesOrange />
+        </Suspense>
         
         <div className="relative z-10 cds--css-grid" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
           <div className="cds--col-span-16 lg:cds--col-span-14 lg:cds--col-start-2">

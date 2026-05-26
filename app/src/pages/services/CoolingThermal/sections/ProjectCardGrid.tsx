@@ -1,8 +1,7 @@
 import ProjectCard from './ProjectCard';
 import { useState } from 'react';
-import {
-  ChevronLeft, ChevronRight,
-} from '@carbon/icons-react';
+import ChevronLeft from '@carbon/icons-react/es/ChevronLeft';
+import ChevronRight from '@carbon/icons-react/es/ChevronRight';
 import { PROJECTS } from '../data';
 
 

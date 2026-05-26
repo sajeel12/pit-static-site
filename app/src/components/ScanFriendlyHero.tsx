@@ -1,4 +1,4 @@
-import { ArrowRight } from '@carbon/icons-react';
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
 
 /**
  * Thermal Risk Hero — Scan-Friendly Demo

@@ -1,4 +1,4 @@
-import { ArrowRight } from '@carbon/icons-react';
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
 
 /**
  * Services Overview — Scan-Friendly Demo

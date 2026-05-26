@@ -1,8 +1,12 @@
 import { useState } from 'react';
-import {
-  ArrowRight, CheckmarkFilled, Warning, Settings,
-  ChevronUp, ChevronDown, Calendar, Document,
-} from '@carbon/icons-react';
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+import CheckmarkFilled from '@carbon/icons-react/es/CheckmarkFilled';
+import Warning from '@carbon/icons-react/es/Warning';
+import Settings from '@carbon/icons-react/es/Settings';
+import ChevronUp from '@carbon/icons-react/es/ChevronUp';
+import ChevronDown from '@carbon/icons-react/es/ChevronDown';
+import Calendar from '@carbon/icons-react/es/Calendar';
+import Document from '@carbon/icons-react/es/Document';
 import { useInView } from '@/hooks/useInView';
 import { trackEvent } from '../utils';
 

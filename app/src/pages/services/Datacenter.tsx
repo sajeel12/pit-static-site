@@ -1,20 +1,47 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import '../../styles/carbon-typography.css';
 import Footer from '../../sections/Footer';
 import Navigation from '../../components/Navigation';
-import HeroGradientPlanes from '../../components/HeroGradientPlanes';
-import {
-  ArrowRight, CheckmarkFilled, WarningAlt,
-  Security as Shield, ChartLine, Trophy as Award, Growth as TrendingUp,
-  Building, Lightning, RainDrop, TemperatureHot,
-  Meter, Tools, Certificate, Settings,
-  ChevronRight, DataBase, Fire, Security,
-  Dashboard, Task, Calendar, View,
-  Group, AppConnectivity, Book, Catalog,
-  Money, Time, Activity, Report,
-  CheckmarkOutline, WarningHex, Information,
-  ChevronDown, ChevronUp, Search
-} from '@carbon/icons-react';
+const HeroGradientPlanes = lazy(() => import('../../components/HeroGradientPlanes'));
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+import CheckmarkFilled from '@carbon/icons-react/es/CheckmarkFilled';
+import WarningAlt from '@carbon/icons-react/es/WarningAlt';
+import Security from '@carbon/icons-react/es/Security';
+const Shield = Security;
+import ChartLine from '@carbon/icons-react/es/ChartLine';
+import Trophy from '@carbon/icons-react/es/Trophy';
+const Award = Trophy;
+import Growth from '@carbon/icons-react/es/Growth';
+const TrendingUp = Growth;
+import Building from '@carbon/icons-react/es/Building';
+import Lightning from '@carbon/icons-react/es/Lightning';
+import RainDrop from '@carbon/icons-react/es/RainDrop';
+import TemperatureHot from '@carbon/icons-react/es/TemperatureHot';
+import Meter from '@carbon/icons-react/es/Meter';
+import Tools from '@carbon/icons-react/es/Tools';
+import Certificate from '@carbon/icons-react/es/Certificate';
+import Settings from '@carbon/icons-react/es/Settings';
+import ChevronRight from '@carbon/icons-react/es/ChevronRight';
+import DataBase from '@carbon/icons-react/es/DataBase';
+import Fire from '@carbon/icons-react/es/Fire';
+import Dashboard from '@carbon/icons-react/es/Dashboard';
+import Task from '@carbon/icons-react/es/Task';
+import Calendar from '@carbon/icons-react/es/Calendar';
+import View from '@carbon/icons-react/es/View';
+import Group from '@carbon/icons-react/es/Group';
+import AppConnectivity from '@carbon/icons-react/es/AppConnectivity';
+import Book from '@carbon/icons-react/es/Book';
+import Catalog from '@carbon/icons-react/es/Catalog';
+import Money from '@carbon/icons-react/es/Money';
+import Time from '@carbon/icons-react/es/Time';
+import Activity from '@carbon/icons-react/es/Activity';
+import Report from '@carbon/icons-react/es/Report';
+import CheckmarkOutline from '@carbon/icons-react/es/CheckmarkOutline';
+import WarningHex from '@carbon/icons-react/es/WarningHex';
+import Information from '@carbon/icons-react/es/Information';
+import ChevronDown from '@carbon/icons-react/es/ChevronDown';
+import ChevronUp from '@carbon/icons-react/es/ChevronUp';
+import Search from '@carbon/icons-react/es/Search';
 
 const SECTIONS = ['overview', 'tiers', 'engineering', 'build', 'portfolio', 'integration', 'calculator', 'faq', 'audit', 'cases'] as const;
 
@@ -85,7 +112,9 @@ const Datacenter = () => {
 
       {/* Hero Section */}
       <section id="overview" className="relative pt-40 pb-20 bg-[#0a1628] overflow-hidden">
-        <HeroGradientPlanes />
+        <Suspense fallback={<div className="h-[500px] bg-slate-900" />}>
+          <HeroGradientPlanes />
+        </Suspense>
         <div className="relative z-10 cds--css-grid" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
           <div className="cds--col-span-16 lg:cds--col-span-14 lg:cds--col-start-2">
             {/* Breadcrumb */}

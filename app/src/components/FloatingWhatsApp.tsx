@@ -1,4 +1,4 @@
-import { Phone } from '@carbon/icons-react';
+import Phone from '@carbon/icons-react/es/Phone';
 
 const FloatingWhatsApp = () => {
   return (

@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { 
-  ArrowRight, 
-  CheckmarkFilled,
-  Time,
-  Globe,
-  ChevronRight,
-  ChevronDown
-} from '@carbon/icons-react';
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+import CheckmarkFilled from '@carbon/icons-react/es/CheckmarkFilled';
+import Time from '@carbon/icons-react/es/Time';
+import Globe from '@carbon/icons-react/es/Globe';
+import ChevronRight from '@carbon/icons-react/es/ChevronRight';
+import ChevronDown from '@carbon/icons-react/es/ChevronDown';
 import '../styles/carbon-typography.css';
 import Navigation from '../components/Navigation';
 import Footer from '../sections/Footer';

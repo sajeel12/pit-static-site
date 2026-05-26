@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import {
-  Download,
-} from '@carbon/icons-react';
+import Download from '@carbon/icons-react/es/Download';
 import { trackEvent } from '../utils';
 
 

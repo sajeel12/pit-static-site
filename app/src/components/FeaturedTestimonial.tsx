@@ -26,7 +26,9 @@
  */
 
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronLeft, ChevronRight } from '@carbon/icons-react';
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+import ChevronLeft from '@carbon/icons-react/es/ChevronLeft';
+import ChevronRight from '@carbon/icons-react/es/ChevronRight';
 import styles from './FeaturedTestimonial.module.css';
 
 /* ─── Types ─── */

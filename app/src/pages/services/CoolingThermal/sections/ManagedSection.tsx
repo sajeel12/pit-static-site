@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import {
-  CheckmarkFilled, ChevronUp, ChevronDown,
-} from '@carbon/icons-react';
+import CheckmarkFilled from '@carbon/icons-react/es/CheckmarkFilled';
+import ChevronUp from '@carbon/icons-react/es/ChevronUp';
+import ChevronDown from '@carbon/icons-react/es/ChevronDown';
 
 
 export default function ManagedSection() {

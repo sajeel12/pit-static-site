@@ -1,54 +1,52 @@
-import {
-  ArrowRight,
-  Chat,
-  Settings,
-  Headphones,
-  Time,
-  Activity,
-  BareMetalServer,
-  DataBase,
-  Cloud,
-  Security,
-  WorkflowAutomation,
-  Network_2,
-  Enterprise,
-  Lightning,
-  Growth,
-  Locked,
-  User,
-  Menu,
-  Close,
-  ChevronDown,
-  ChevronUp,
-  Checkmark,
-  Add,
-  Subtract,
-  Warning,
-  Information,
-  CheckmarkFilled,
-  WarningFilled,
-  ErrorFilled,
-  Home,
-  Phone,
-  Email,
-  Location,
-  Document,
-  Folder,
-  Calendar,
-  Search,
-  Edit,
-  TrashCan,
-  Download,
-  Upload,
-  Launch,
-  Link,
-  Copy,
-  Share,
-  Bookmark,
-  Favorite,
-  Star,
-  StarFilled,
-} from '@carbon/icons-react';
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+import Chat from '@carbon/icons-react/es/Chat';
+import Settings from '@carbon/icons-react/es/Settings';
+import Headphones from '@carbon/icons-react/es/Headphones';
+import Time from '@carbon/icons-react/es/Time';
+import Activity from '@carbon/icons-react/es/Activity';
+import BareMetalServer from '@carbon/icons-react/es/BareMetalServer';
+import DataBase from '@carbon/icons-react/es/DataBase';
+import Cloud from '@carbon/icons-react/es/Cloud';
+import Security from '@carbon/icons-react/es/Security';
+import WorkflowAutomation from '@carbon/icons-react/es/WorkflowAutomation';
+import Network_2 from '@carbon/icons-react/es/Network_2';
+import Enterprise from '@carbon/icons-react/es/Enterprise';
+import Lightning from '@carbon/icons-react/es/Lightning';
+import Growth from '@carbon/icons-react/es/Growth';
+import Locked from '@carbon/icons-react/es/Locked';
+import User from '@carbon/icons-react/es/User';
+import Menu from '@carbon/icons-react/es/Menu';
+import Close from '@carbon/icons-react/es/Close';
+import ChevronDown from '@carbon/icons-react/es/ChevronDown';
+import ChevronUp from '@carbon/icons-react/es/ChevronUp';
+import Checkmark from '@carbon/icons-react/es/Checkmark';
+import Add from '@carbon/icons-react/es/Add';
+import Subtract from '@carbon/icons-react/es/Subtract';
+import Warning from '@carbon/icons-react/es/Warning';
+import Information from '@carbon/icons-react/es/Information';
+import CheckmarkFilled from '@carbon/icons-react/es/CheckmarkFilled';
+import WarningFilled from '@carbon/icons-react/es/WarningFilled';
+import ErrorFilled from '@carbon/icons-react/es/ErrorFilled';
+import Home from '@carbon/icons-react/es/Home';
+import Phone from '@carbon/icons-react/es/Phone';
+import Email from '@carbon/icons-react/es/Email';
+import Location from '@carbon/icons-react/es/Location';
+import Document from '@carbon/icons-react/es/Document';
+import Folder from '@carbon/icons-react/es/Folder';
+import Calendar from '@carbon/icons-react/es/Calendar';
+import Search from '@carbon/icons-react/es/Search';
+import Edit from '@carbon/icons-react/es/Edit';
+import TrashCan from '@carbon/icons-react/es/TrashCan';
+import Download from '@carbon/icons-react/es/Download';
+import Upload from '@carbon/icons-react/es/Upload';
+import Launch from '@carbon/icons-react/es/Launch';
+import Link from '@carbon/icons-react/es/Link';
+import Copy from '@carbon/icons-react/es/Copy';
+import Share from '@carbon/icons-react/es/Share';
+import Bookmark from '@carbon/icons-react/es/Bookmark';
+import Favorite from '@carbon/icons-react/es/Favorite';
+import Star from '@carbon/icons-react/es/Star';
+import StarFilled from '@carbon/icons-react/es/StarFilled';
 
 export const iconMap = {
   ArrowRight,

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight, CheckCircle, Server, Phone, Clock, Shield, AlertTriangle } from 'lucide-react';
-import { View } from '@carbon/icons-react';
+import View from '@carbon/icons-react/es/View';
 
 import { Link } from 'react-router-dom';
 import Navigation from '../../components/Navigation';

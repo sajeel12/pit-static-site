@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Grid, Column } from '@carbon/react';
-import { LogoLinkedin, Email, Phone, Location } from '@carbon/icons-react';
+import LogoLinkedin from '@carbon/icons-react/es/LogoLinkedin';
+import Email from '@carbon/icons-react/es/Email';
+import Phone from '@carbon/icons-react/es/Phone';
+import Location from '@carbon/icons-react/es/Location';
 
 const Footer = () => {
   const footerLinks = {

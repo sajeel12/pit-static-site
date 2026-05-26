@@ -1,8 +1,13 @@
 
-import { 
-  ArrowRight, ChevronRight, ChevronDown, ChevronUp, Phone, 
-  Building, CheckmarkFilled, WarningAlt, CheckmarkOutline
-} from '@carbon/icons-react';
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+import ChevronRight from '@carbon/icons-react/es/ChevronRight';
+import ChevronDown from '@carbon/icons-react/es/ChevronDown';
+import ChevronUp from '@carbon/icons-react/es/ChevronUp';
+import Phone from '@carbon/icons-react/es/Phone';
+import Building from '@carbon/icons-react/es/Building';
+import CheckmarkFilled from '@carbon/icons-react/es/CheckmarkFilled';
+import WarningAlt from '@carbon/icons-react/es/WarningAlt';
+import CheckmarkOutline from '@carbon/icons-react/es/CheckmarkOutline';
 import '../styles/carbon-typography.css';
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';

@@ -1,6 +1,4 @@
-import {
-  ArrowRight,
-} from '@carbon/icons-react';
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
 
 
 export default function HeroSection() {

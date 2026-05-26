@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import {
-  CheckmarkFilled, ChevronUp, ChevronDown,
-} from '@carbon/icons-react';
+import CheckmarkFilled from '@carbon/icons-react/es/CheckmarkFilled';
+import ChevronUp from '@carbon/icons-react/es/ChevronUp';
+import ChevronDown from '@carbon/icons-react/es/ChevronDown';
 import styles from '../CoolingThermal.module.css';
 import { PAGE_SECTIONS } from '../data';
 

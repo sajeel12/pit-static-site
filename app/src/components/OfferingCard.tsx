@@ -1,5 +1,5 @@
-import { ArrowRight } from '@carbon/icons-react';
-import { Time } from '@carbon/icons-react';
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+import Time from '@carbon/icons-react/es/Time';
 
 interface DetailBullet {
   title: string;

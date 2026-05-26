@@ -1,55 +1,42 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, lazy, Suspense } from 'react';
 import '../../styles/carbon-typography.css';
-// Batch 1: Carbon Icons (exact name matches)
-import {
-  ArrowRight,
-  Settings,
-  Activity,
-  Code,
-  Layers,
-  ArrowUpRight,
-  ChevronLeft,
-  ChevronRight
-} from '@carbon/icons-react';
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+import Settings from '@carbon/icons-react/es/Settings';
+import Activity from '@carbon/icons-react/es/Activity';
+import Code from '@carbon/icons-react/es/Code';
+import Layers from '@carbon/icons-react/es/Layers';
+import ArrowUpRight from '@carbon/icons-react/es/ArrowUpRight';
+import ChevronLeft from '@carbon/icons-react/es/ChevronLeft';
+import ChevronRight from '@carbon/icons-react/es/ChevronRight';
 
-// Batch 2: Carbon Icons (simple name changes)
-import {
-  Chat,
-  Building,
-  Security,
-  Lightning,
-  Locked,
-  Quotes,
-  Headphones
-} from '@carbon/icons-react';
+import Chat from '@carbon/icons-react/es/Chat';
+import Building from '@carbon/icons-react/es/Building';
+import Security from '@carbon/icons-react/es/Security';
+import Lightning from '@carbon/icons-react/es/Lightning';
+import Locked from '@carbon/icons-react/es/Locked';
+import Quotes from '@carbon/icons-react/es/Quotes';
+import Headphones from '@carbon/icons-react/es/Headphones';
 
-// Batch 3: Carbon Icons (complex mappings)
-import {
-  Time,
-  DataBase,
-  Network_1,
-  ServerDns
-} from '@carbon/icons-react';
+import Time from '@carbon/icons-react/es/Time';
+import DataBase from '@carbon/icons-react/es/DataBase';
+import Network_1 from '@carbon/icons-react/es/Network_1';
+import ServerDns from '@carbon/icons-react/es/ServerDns';
 
 // Pictograms
-import { 
-  IbmAutomationPlatform,
-  Cloud
-} from '@carbon/pictograms-react';
+import IbmAutomationPlatform from '@carbon/pictograms-react/es/ibm--automation-platform';
+import Cloud from '@carbon/pictograms-react/es/cloud';
 
-// Batch 4: Final Lucide→Carbon migrations
-import {
-  ArrowUp,
-  Alarm,
-  Terminal,
-  ChartLine,
-  Chip,
-  EdgeNode,
-  Money,
-  ArrowDown,
-  Plug,
-  LogoLinkedin as LinkedIn
-} from '@carbon/icons-react';
+import ArrowUp from '@carbon/icons-react/es/ArrowUp';
+import Alarm from '@carbon/icons-react/es/Alarm';
+import Terminal from '@carbon/icons-react/es/Terminal';
+import ChartLine from '@carbon/icons-react/es/ChartLine';
+import Chip from '@carbon/icons-react/es/Chip';
+import EdgeNode from '@carbon/icons-react/es/EdgeNode';
+import Money from '@carbon/icons-react/es/Money';
+import ArrowDown from '@carbon/icons-react/es/ArrowDown';
+import Plug from '@carbon/icons-react/es/Plug';
+import LogoLinkedin from '@carbon/icons-react/es/LogoLinkedin';
+const LinkedIn = LogoLinkedin;
 
 // Batch 5: Remaining Lucide icons (no Carbon equivalent)
 // Server kept from Batch 3
@@ -57,7 +44,7 @@ import { Link } from 'react-router-dom';
 import Navigation from '../../components/Navigation';
 import Footer from '../../sections/Footer';
 import OfferingCard from '../../components/OfferingCard';
-import HeroWebGL from '../../components/HeroWebGL';
+const HeroWebGL = lazy(() => import('../../components/HeroWebGL'));
 
 const ServiceNow = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
@@ -281,7 +268,9 @@ const ServiceNow = () => {
       {/* Hero Section with Integrated Navigation */}
       <section id="overview" className="relative pt-40 pb-20 bg-[#0F172A] overflow-hidden">
         {/* WebGL Background Effects - Floating Orbs */}
-        <HeroWebGL />
+        <Suspense fallback={<div className="h-[500px] bg-slate-900" />}>
+          <HeroWebGL />
+        </Suspense>
         
         <div className="relative z-10 cds--css-grid" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
           <div className="cds--col-span-16 lg:cds--col-span-14 lg:cds--col-start-2">

@@ -1,8 +1,12 @@
-import {
-  ArrowRight, CheckmarkFilled, TemperatureHot, Settings,
-  Meter, Certificate, Dashboard, Windy,
-  ChartLine,
-} from '@carbon/icons-react';
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+import CheckmarkFilled from '@carbon/icons-react/es/CheckmarkFilled';
+import TemperatureHot from '@carbon/icons-react/es/TemperatureHot';
+import Settings from '@carbon/icons-react/es/Settings';
+import Meter from '@carbon/icons-react/es/Meter';
+import Certificate from '@carbon/icons-react/es/Certificate';
+import Dashboard from '@carbon/icons-react/es/Dashboard';
+import Windy from '@carbon/icons-react/es/Windy';
+import ChartLine from '@carbon/icons-react/es/ChartLine';
 import {
   Accordion, AccordionItem,
 } from '@carbon/react';

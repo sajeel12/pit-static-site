@@ -1,15 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import '../../styles/carbon-typography.css';
 import Footer from '../../sections/Footer';
 import Navigation from '../../components/Navigation';
-import HeroCubeAnimation from '../../components/HeroCubeAnimation';
-import HeroGradientPlanes from '../../components/HeroGradientPlanes';
-import {
-  ArrowRight, DataBase, WarningAlt,
-  CheckmarkFilled, Settings, Layers, Plug, Migrate,
-  Calendar, Tools, Box, Report, Activity, Security, Money,
-  ChevronRight, Building
-} from '@carbon/icons-react';
+const HeroCubeAnimation = lazy(() => import('../../components/HeroCubeAnimation'));
+const HeroGradientPlanes = lazy(() => import('../../components/HeroGradientPlanes'));
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+import DataBase from '@carbon/icons-react/es/DataBase';
+import WarningAlt from '@carbon/icons-react/es/WarningAlt';
+import CheckmarkFilled from '@carbon/icons-react/es/CheckmarkFilled';
+import Settings from '@carbon/icons-react/es/Settings';
+import Layers from '@carbon/icons-react/es/Layers';
+import Plug from '@carbon/icons-react/es/Plug';
+import Migrate from '@carbon/icons-react/es/Migrate';
+import Calendar from '@carbon/icons-react/es/Calendar';
+import Tools from '@carbon/icons-react/es/Tools';
+import Box from '@carbon/icons-react/es/Box';
+import Report from '@carbon/icons-react/es/Report';
+import Activity from '@carbon/icons-react/es/Activity';
+import Security from '@carbon/icons-react/es/Security';
+import Money from '@carbon/icons-react/es/Money';
+import ChevronRight from '@carbon/icons-react/es/ChevronRight';
+import Building from '@carbon/icons-react/es/Building';
 
 const Maximo = () => {
   const [activeSection, setActiveSection] = useState('overview');
@@ -115,8 +126,12 @@ const Maximo = () => {
       {/* Hero Section with Integrated Navigation */}
       <section id="overview" className="relative pt-40 pb-20 bg-[#0a1628] overflow-hidden">
         {/* WebGL Background Effects */}
-        <HeroCubeAnimation />
-        <HeroGradientPlanes />
+        <Suspense fallback={<div className="h-[500px] bg-slate-900" />}>
+          <HeroCubeAnimation />
+        </Suspense>
+        <Suspense fallback={<div className="h-[500px] bg-slate-900" />}>
+          <HeroGradientPlanes />
+        </Suspense>
         
         <div className="relative z-10 cds--css-grid" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
           <div className="cds--col-span-16 lg:cds--col-span-14 lg:cds--col-start-2">

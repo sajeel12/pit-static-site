@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import Navigation from '../../components/Navigation';
 import Footer from '../../sections/Footer';
-import { Tools, ArrowLeft } from '@carbon/icons-react';
+import Tools from '@carbon/icons-react/es/Tools';
+import ArrowLeft from '@carbon/icons-react/es/ArrowLeft';
 
 const NetworkOperations = () => (
   <div className="min-h-screen bg-[var(--cds-background)] flex flex-col">

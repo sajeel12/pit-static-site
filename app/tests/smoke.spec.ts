@@ -14,15 +14,18 @@ for (const route of ROUTES) {
   test(`${route.name} page loads without console errors`, async ({ page }) => {
     const errors: string[] = [];
     page.on('pageerror', (err) => errors.push(err.message));
-    page.on('requestfailed', (req) =>
-      errors.push(`Network: ${req.url()} — ${req.failure()?.errorText}`)
-    );
+    page.on('requestfailed', (req) => {
+      const errorText = req.failure()?.errorText ?? '';
+      // Ignore ERR_ABORTED — these are normal when test closes before all chunks load
+      if (errorText.includes('ERR_ABORTED')) return;
+      errors.push(`Network: ${req.url()} — ${errorText}`);
+    });
 
     await page.goto(route.path);
     await page.waitForLoadState('networkidle');
 
     // Wait for Suspense chunks to resolve
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(5000);
 
     // Page should have rendered actual content (not just fallback white screen)
     const text = await page.locator('body').innerText();

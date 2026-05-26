@@ -1,15 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import '../../styles/carbon-typography.css';
 import Footer from '../../sections/Footer';
 import Navigation from '../../components/Navigation';
-import HeroCubeAnimationOrange from '../../components/HeroCubeAnimationOrange';
-import HeroGradientPlanesOrange from '../../components/HeroGradientPlanesOrange';
-import {
-  ArrowRight, CheckmarkFilled, WarningAlt,
-  Tools, Calendar, Activity, Money, View,
-  ChevronRight, Building, DataBase,
-  Restart, Time
-} from '@carbon/icons-react';
+const HeroCubeAnimationOrange = lazy(() => import('../../components/HeroCubeAnimationOrange'));
+const HeroGradientPlanesOrange = lazy(() => import('../../components/HeroGradientPlanesOrange'));
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+import CheckmarkFilled from '@carbon/icons-react/es/CheckmarkFilled';
+import WarningAlt from '@carbon/icons-react/es/WarningAlt';
+import Tools from '@carbon/icons-react/es/Tools';
+import Calendar from '@carbon/icons-react/es/Calendar';
+import Activity from '@carbon/icons-react/es/Activity';
+import Money from '@carbon/icons-react/es/Money';
+import View from '@carbon/icons-react/es/View';
+import ChevronRight from '@carbon/icons-react/es/ChevronRight';
+import Building from '@carbon/icons-react/es/Building';
+import DataBase from '@carbon/icons-react/es/DataBase';
+import Restart from '@carbon/icons-react/es/Restart';
+import Time from '@carbon/icons-react/es/Time';
 
 const ServerContinuity = () => {
   const [activeSection, setActiveSection] = useState('value');
@@ -172,8 +179,12 @@ const ServerContinuity = () => {
       
       {/* Hero Section */}
       <section id="overview" className="relative pt-40 pb-20 bg-[#0a1628] overflow-hidden">
-        <HeroCubeAnimationOrange />
-        <HeroGradientPlanesOrange />
+        <Suspense fallback={<div className="h-[500px] bg-slate-900" />}>
+          <HeroCubeAnimationOrange />
+        </Suspense>
+        <Suspense fallback={<div className="h-[500px] bg-slate-900" />}>
+          <HeroGradientPlanesOrange />
+        </Suspense>
         
         <div className="relative z-10 cds--css-grid" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
           <div className="cds--col-span-16 lg:cds--col-span-14 lg:cds--col-start-2">

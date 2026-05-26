@@ -1,8 +1,11 @@
 import { useState } from 'react';
-import {
-  Warning, ChevronUp, ChevronDown, DataCenter,
-  Windy, Temperature, Download,
-} from '@carbon/icons-react';
+import Warning from '@carbon/icons-react/es/Warning';
+import ChevronUp from '@carbon/icons-react/es/ChevronUp';
+import ChevronDown from '@carbon/icons-react/es/ChevronDown';
+import DataCenter from '@carbon/icons-react/es/DataCenter';
+import Windy from '@carbon/icons-react/es/Windy';
+import Temperature from '@carbon/icons-react/es/Temperature';
+import Download from '@carbon/icons-react/es/Download';
 
 
 export default function ProcurementSection() {

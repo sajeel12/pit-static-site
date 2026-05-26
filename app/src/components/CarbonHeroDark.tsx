@@ -39,12 +39,10 @@
  */
 
 import { Link } from 'react-router-dom';
-import {
-  ArrowRight,
-  ArrowUpRight,
-  ChevronRight,
-  type CarbonIconType
-} from '@carbon/icons-react';
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+import ArrowUpRight from '@carbon/icons-react/es/ArrowUpRight';
+import ChevronRight from '@carbon/icons-react/es/ChevronRight';
+import type { CarbonIconType } from '@carbon/icons-react';
 
 interface BreadcrumbItem {
   label: string;

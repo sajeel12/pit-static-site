@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import {
-  ArrowRight, Settings, ChevronUp, ChevronDown,
-} from '@carbon/icons-react';
+import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+import Settings from '@carbon/icons-react/es/Settings';
+import ChevronUp from '@carbon/icons-react/es/ChevronUp';
+import ChevronDown from '@carbon/icons-react/es/ChevronDown';
 import styles from '../CoolingThermal.module.css';
 import { PROJECTS } from '../data';
 

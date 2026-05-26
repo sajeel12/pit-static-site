@@ -1,20 +1,16 @@
 import { ArrowRight, Shield, Clock, Award, Users, Globe } from 'lucide-react';
-import { 
-  BareMetalServer, 
-  Cloud, 
-  Ai, 
-  View, 
-  Headphones, 
-  Activity,
-  CheckmarkFilled,
-  WarningAlt
-} from '@carbon/icons-react';
-import { 
-  DataScience,
-  EventAutomation,
-  Robotics,
-  EdgeComputing
-} from '@carbon/pictograms-react';
+import BareMetalServer from '@carbon/icons-react/es/BareMetalServer';
+import Cloud from '@carbon/icons-react/es/Cloud';
+import Ai from '@carbon/icons-react/es/Ai';
+import View from '@carbon/icons-react/es/View';
+import Headphones from '@carbon/icons-react/es/Headphones';
+import Activity from '@carbon/icons-react/es/Activity';
+import CheckmarkFilled from '@carbon/icons-react/es/CheckmarkFilled';
+import WarningAlt from '@carbon/icons-react/es/WarningAlt';
+import DataScience from '@carbon/pictograms-react/es/data--science';
+import EventAutomation from '@carbon/pictograms-react/es/event--automation';
+import Robotics from '@carbon/pictograms-react/es/robotics';
+import EdgeComputing from '@carbon/pictograms-react/es/edge--computing';
 
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
