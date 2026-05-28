@@ -6,6 +6,7 @@ const ROUTES = [
   { path: '/#/infrastructure/data-centre-services/cooling-airflow', name: 'Cooling' },
   { path: '/#/services/servicenow', name: 'ServiceNow' },
   { path: '/#/services/infrastructure', name: 'InfrastructureHub' },
+  { path: '/#/infrastructure/operational-efficiency', name: 'CostOptimisation' },
   { path: '/#/about', name: 'About' },
   { path: '/#/contact', name: 'Contact' },
 ];
