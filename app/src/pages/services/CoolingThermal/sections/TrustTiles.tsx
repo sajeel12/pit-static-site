@@ -116,7 +116,7 @@ export default function TrustTiles() {
         </div>
 
         {/* Our Performance Guarantee */}
-        <div className="bg-gradient-to-br from-[#0f62fe]/20 to-[#0353e9]/20 rounded-xl p-8 lg:p-12 border border-white/10">
+        <div className="bg-[#0a1224] rounded-xl p-8 lg:p-12">
           <div className="text-center mb-12">
             <h3 className="carbon-fluid-heading-03 text-white mb-2">
               Our Performance Guarantee

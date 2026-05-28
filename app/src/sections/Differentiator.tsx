@@ -117,7 +117,7 @@ const Differentiator = () => {
         </div>
 
         {/* Performance Guarantee */}
-        <div className="bg-gradient-to-br from-blue-600/20 to-blue-800/20 rounded-3xl p-8 lg:p-12 border border-blue-500/20">
+        <div className="bg-[#0a1224] rounded-3xl p-8 lg:p-12">
           <div className="text-center mb-10">
             <h3 className="text-2xl font-semibold text-white mb-2">Our Performance Guarantee</h3>
             <p className="text-gray-400">Backed by contractually defined SLAs and risk buffers.</p>
