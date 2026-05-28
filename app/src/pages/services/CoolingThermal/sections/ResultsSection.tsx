@@ -10,7 +10,7 @@ export default function ResultsSection() {
 
 
 
-    <section id="results" className="py-20 bg-white">
+    <section id="results" className="py-20 bg-gray-50">
 
 
 

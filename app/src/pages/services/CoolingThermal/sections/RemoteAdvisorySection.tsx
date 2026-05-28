@@ -143,7 +143,7 @@ export default function RemoteAdvisorySection() {
         </div>
 
         {/* How It Works + Scope | Accordion */}
-        <div className="mb-12 pt-4 border-t border-white/10">
+        <div className="my-20">
           <div className="bg-[#0f172a] border border-white/10 rounded-xl overflow-hidden">
           {[
             {

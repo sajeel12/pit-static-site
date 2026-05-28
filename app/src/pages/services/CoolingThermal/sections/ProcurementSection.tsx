@@ -152,7 +152,7 @@ export default function ProcurementSection() {
 
 
 
-          <img src="/3D images/Cooling and Airflow/Cooling - Procurement.png" alt="Cooling hardware procurement" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
+          <img src="/Sections/Cooling page/Images-cooling/Card hero/Cooling - Procurement.png" alt="Cooling hardware procurement" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
 
 
 
@@ -552,7 +552,7 @@ export default function ProcurementSection() {
 
 
 
-            <img src="/3D images/Cooling and Airflow/FusionCool.png" alt="FusionCol8000-E cooling unit" className="max-w-[90%] max-h-[220px] object-contain" loading="lazy" />
+            <img src="/Sections/Cooling page/Images-cooling/not used 3d/FusionCool.png" alt="FusionCol8000-E cooling unit" className="max-w-[90%] max-h-[220px] object-contain" loading="lazy" />
 
 
 
@@ -732,7 +732,7 @@ export default function ProcurementSection() {
 
 
 
-              <a href="/downloads/Perception-IT-FusionCol8000-E-Datasheet.pdf" download className="inline-flex items-center justify-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-body-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg">
+              <a href="/Sections/Cooling page/Data sheets-cooling /Perception-IT-FusionCol8000-E-Datasheet.pdf" download className="inline-flex items-center justify-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-body-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg">
 
 
 

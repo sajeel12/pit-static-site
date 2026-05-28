@@ -422,7 +422,7 @@ const infrastructureCaseStudies: CaseStudy[] = [
     ],
     technologies: ['Lenovo Servers SLA', '24/7 Support', 'Preventive Maintenance', 'Hardware Support'],
     slug: 'out-of-warranty-server-support-ibrahim-fibres',
-    image: '/case-studies/ibrahim-fibres/hero-optimized.jpg',
+    image: '/Sections/Cooling page/Images-cooling/Case studies/ibrahim-fibres/Ibrahim Fibres -case study- 1600 × 700 px.webp',
     relatedServiceIds: ['hardware-support', 'server-continuity', 'sla-support']
   },
   {

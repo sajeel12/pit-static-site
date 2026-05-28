@@ -83,7 +83,7 @@ export default function CTASection() {
 
 
 
-            href="/downloads/Perception-IT-Thermal-Readiness-Checklist.pdf"
+            href="/Sections/Cooling page/downloads-cooling/Perception-IT-Thermal-Readiness-Checklist.pdf"
 
 
 

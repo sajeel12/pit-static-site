@@ -39,7 +39,7 @@ const ServerContinuity = () => {
       solutionName: 'ServerLife Extend™',
       solutionContext: 'Critical Infrastructure',
       caseStudyLink: '/#/projects/case-study/out-of-warranty-server-support-ibrahim-fibres',
-      image: '/case-studies/ibrahim-fibres/Ibrahim Fibres -case study-1080x1350.jpg',
+      image: '/Sections/Cooling page/Images-cooling/Case studies/ibrahim-fibres/Ibrahim Fibres -case study- 1600 × 700 px.webp',
       stats: [
         { value: 'Zero', label: 'Unplanned Downtime', icon: CheckmarkFilled, color: '#f97316' },
         { value: '<6hrs', label: 'MTTR', icon: Activity, color: '#24a148' },
@@ -64,7 +64,7 @@ const ServerContinuity = () => {
       companyName: 'LUMS',
       solutionName: 'ServerSure™',
       solutionContext: 'Departmental Systems',
-      image: '/case-studies/lumhs/carousel.jpg',
+      image: '/Sections/Cooling page/Images-cooling/Case studies/sefam/carousel.jpg',
       stats: [
         { value: '40+', label: 'Servers Managed', icon: DataBase, color: '#f97316' },
         { value: '70%', label: 'Cost Reduction', icon: Money, color: '#24a148' },
@@ -84,7 +84,7 @@ const ServerContinuity = () => {
       companyName: 'Descon',
       solutionName: 'ServerLife Extend™',
       solutionContext: 'Multi-Site Infrastructure',
-      image: '/case-studies/descon/carousel.jpg',
+      image: '/Sections/Cooling page/Images-cooling/Case studies/descon/DESCON11600×700.webp',
       stats: [
         { value: '99.99%', label: 'Uptime SLA', icon: Activity, color: '#f97316' },
         { value: '3', label: 'Data Centres', icon: Building, color: '#24a148' },
@@ -104,7 +104,7 @@ const ServerContinuity = () => {
       companyName: 'Sefam',
       solutionName: 'ServerSure™',
       solutionContext: 'Manufacturing Operations',
-      image: '/case-studies/sefam/carousel.jpg',
+      image: '/Sections/Cooling page/Images-cooling/Case studies/sefam/carousel.jpg',
       quote: {
         text: "Perception IT's proactive monitoring and rapid response has eliminated unexpected downtime. Our production lines run continuously with full confidence in our server infrastructure.",
         author: "IT Manager, Sefam"
@@ -660,7 +660,7 @@ const ServerContinuity = () => {
                         <div className="relative">
                           <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#f97316] p-0.5">
                             <img 
-                              src="/team/harris_head.jpg" 
+                              src="/Sections/Team/harris_head.jpg" 
                               alt="Harris - Your Server Support Specialist" 
                               className="w-full h-full object-cover rounded-full"
                             />

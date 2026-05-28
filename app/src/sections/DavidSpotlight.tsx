@@ -39,7 +39,7 @@ const DavidSpotlight = () => {
           >
             <div className="relative max-w-[360px] mx-auto lg:mx-0">
               <img
-                src="/team/david_pridmore.jpg"
+                src="/Sections/Team/david_pridmore.jpg"
                 alt="David Pridmore"
                 className="w-full aspect-square object-cover rounded-xl shadow-card"
               />

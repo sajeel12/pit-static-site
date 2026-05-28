@@ -69,7 +69,7 @@ const Hero = () => {
               className="group inline-flex items-center gap-3 px-8 py-4 border border-white/20 text-white font-medium rounded-full hover:bg-white/10 transition-all duration-300"
             >
               <img 
-                src="/team/david_headshot.jpg" 
+                src="/Sections/Team/david_headshot.jpg" 
                 alt="David Pridmore" 
                 className="w-8 h-8 rounded-full object-cover border-2 border-blue-500"
               />

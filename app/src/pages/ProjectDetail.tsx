@@ -420,7 +420,7 @@ const projectsData: Project[] = [
     clientName: 'Ibrahim Fibres Limited',
     location: 'Pakistan',
     scale: '100+ acre polyester facility | 73.3 MW power plants | Allied Bank ownership',
-    heroImage: '/case-studies/ibrahim-fibres/hero-1920.jpg',
+    heroImage: '/Sections/Cooling page/Images-cooling/Case studies/ibrahim-fibres/Ibrahim Fibres -case study- 1600 × 700 px.webp',
     aboutClient: `Our client is a leading Pakistani industrial group with diverse interests in:
 
 • Polyester & Textiles: 100-acre facilities producing 390,600 tons annually

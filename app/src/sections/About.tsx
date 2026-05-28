@@ -47,7 +47,7 @@ const About = () => {
               {/* Modest Square Photo */}
               <div className="w-48 h-48 rounded overflow-hidden mb-6">
                 <img
-                  src="/team/david_headshot.jpg"
+                  src="/Sections/Team/david_headshot.jpg"
                   alt="David Pridmore, CEO & CTO"
                   className="w-full h-full object-cover"
                 />

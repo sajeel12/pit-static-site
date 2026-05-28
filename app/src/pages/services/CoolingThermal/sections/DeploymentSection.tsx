@@ -148,7 +148,7 @@ export default function DeploymentSection() {
 
 
 
-          <img src="/3D images/Cooling and Airflow/Deployment- Cooling.png" alt="Cooling system deployment" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
+          <img src="/Sections/Cooling page/Images-cooling/Card hero/Deployment- Cooling.png" alt="Cooling system deployment" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
 
 
 

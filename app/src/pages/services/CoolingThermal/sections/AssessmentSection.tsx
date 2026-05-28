@@ -77,7 +77,7 @@ export default function AssessmentSection() {
 
 
 
-          <img src="/3D images/Cooling and Airflow/Cooling - Assesment.png" alt="Thermal assessment" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
+          <img src="/Sections/Cooling page/Images-cooling/Card hero/Cooling - Assesment.png" alt="Thermal assessment" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
 
 
 

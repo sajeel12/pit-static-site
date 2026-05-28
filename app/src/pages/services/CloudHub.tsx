@@ -140,7 +140,7 @@ const CloudHub = () => {
         </div>
         {/* 
           <img 
-            src="/images/cloud-hero-bg.webp" 
+            src="/Sections/Cooling page/Images-cooling/not used 3d/hero_main_office.jpg" 
             alt="Cloud Infrastructure" 
             className="absolute inset-0 w-full h-full object-cover opacity-30"
           />
@@ -362,7 +362,7 @@ const CloudHub = () => {
                 metricLabel: 'Data Delivery',
                 tags: ['Azure', 'Databricks', 'Kubernetes'],
                 slug: 'iot-data-analytics-mobile-towers',
-                image: '/images/case-studies/iot-tower.webp'
+                image: '/Sections/Cooling page/Images-cooling/not used 3d/perceptionit_noc_bigscreens_v2.png'
               },
               {
                 title: 'Kubernetes-Driven Scalability',
@@ -372,7 +372,7 @@ const CloudHub = () => {
                 metricLabel: 'Cost Reduction',
                 tags: ['AWS', 'EKS', 'DevOps'],
                 slug: 'k8s-telco-scalability',
-                image: '/images/case-studies/k8s-cluster.webp'
+                image: '/Sections/Cooling page/Images-cooling/not used 3d/perceptionit_monitoring_integration.png'
               },
               {
                 title: 'Real-Time Event Stream Processing',

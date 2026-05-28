@@ -132,7 +132,7 @@ export default function ManagedSection() {
 
 
 
-          <img src="/3D images/Cooling and Airflow/managed service - Cooling - page.png" alt="Managed thermal services" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
+          <img src="/Sections/Cooling page/Images-cooling/Card hero/managed service - Cooling - page.png" alt="Managed thermal services" className="w-full h-full object-cover absolute inset-0" loading="lazy" />
 
 
 

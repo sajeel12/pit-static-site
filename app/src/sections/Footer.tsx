@@ -65,7 +65,7 @@ const Footer = () => {
       style={{
         backgroundColor: '#161616',
         color: '#ffffff',
-        padding: 'var(--cds-spacing-10) 0 0',
+        padding: 'var(--cds-spacing-10) var(--cds-spacing-05) 0',
       }}
     >
       {/* ── Main footer grid ───────────────────────────────────── */}
@@ -74,7 +74,7 @@ const Footer = () => {
         <Column lg={4} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-07)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)', marginBottom: 'var(--cds-spacing-05)' }}>
             <img
-              src="/logos/logo.png"
+              src="/logos/PIT/logo.png"
               alt="Perception IT"
               style={{ height: 40, width: 'auto', filter: 'brightness(0) invert(1)' }}
             />
@@ -266,7 +266,7 @@ const Footer = () => {
       </Grid>
 
       {/* ── Legal bar ──────────────────────────────────────────── */}
-      <div style={{ borderTop: '1px solid #393939', padding: 'var(--cds-spacing-05) 0' }}>
+      <div style={{ borderTop: '1px solid #393939', padding: 'var(--cds-spacing-05) var(--cds-spacing-05)' }}>
         <Grid>
           <Column lg={16} md={8} sm={4}>
             <div

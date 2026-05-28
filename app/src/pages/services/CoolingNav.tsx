@@ -510,7 +510,7 @@ export default function CoolingNav() {
           <div className="flex items-center h-12">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0">
-              <img src="/logos/Perception IT_logo_in-white.png?v=2" alt="Perception IT" className="h-9 w-auto" />
+              <img src="/logos/PIT/Perception IT_logo_in-white.png?v=2" alt="Perception IT" className="h-9 w-auto" />
             </Link>
 
             {/* Desktop nav */}
