@@ -328,11 +328,11 @@ export const PROJECTS = [
 
 
 
-  { title: 'Out-of-Warranty Infrastructure Support', sector: 'Manufacturing / Textile', org: 'Ibrahim Fibres Limited', desc: '48 Lenovo servers running mission-critical MES, ERP, and production scheduling were out of OEM warranty. Perception IT implemented 24x7 hardware support, local replacement parts, proactive maintenance, and automated patching.', outcomes: ['Zero unplanned outages','$750K+ downtime risk avoided','48 servers under 24/7 SLA','Automated patching implemented'], tags: ['Lenovo Servers SLA','24/7 Support','Preventive Maintenance'], caseStudy: '/projects/manufacturing-infrastructure', image: '/case-studies/ibrahim-fibres/hero-optimized.jpg' },
+  { title: 'Out-of-Warranty Infrastructure Support', sector: 'Manufacturing / Textile', org: 'Leading Textile Manufacturer', desc: 'A major textile manufacturer faced end-of-warranty risk across its entire server fleet running production-critical systems. Perception IT delivered 24x7 hardware support, local spare parts inventory, proactive maintenance, and automated patching — eliminating unplanned downtime exposure.', outcomes: ['Zero unplanned outages','$750K+ downtime risk avoided','Full fleet under 24/7 SLA','Automated patching implemented'], tags: ['Server Fleet SLA','24/7 Support','Preventive Maintenance'], caseStudy: '/projects/manufacturing-infrastructure', image: '/case-studies/ibrahim-fibres/Ibrahim Fibres -case study- 1600 × 700 px.webp' },
 
 
 
-  { title: 'Multi-Site Precision Cooling Deployment', sector: 'Banking / Financial Services', org: 'Leading Pakistani Bank', desc: 'Deployed precision cooling units across four data centres, reducing PUE from 1.8 to 1.35.', outcomes: ['PUE reduced from 1.8 to 1.35','N+1 redundancy achieved','8-week deployment timeline'], tags: ['Multi-Site','PUE Optimisation','N+1 Redundancy'], caseStudy: '/case-studies/multi-site-precision-cooling', image: '/3D images/Cooling and Airflow/Cooling - Assesment.png' },
+  { title: 'Hardware Maintenance', sector: 'University / Education', org: 'LUMS', desc: 'Deployed precision cooling units across four data centres, reducing PUE from 1.8 to 1.35.', outcomes: ['PUE reduced from 1.8 to 1.35','N+1 redundancy achieved','8-week deployment timeline'], tags: ['Multi-Site','PUE Optimisation','N+1 Redundancy'], caseStudy: '/case-studies/multi-site-precision-cooling', image: '/case-studies/LUMS/LUMS-1-1600×700.webp' },
 
 
 

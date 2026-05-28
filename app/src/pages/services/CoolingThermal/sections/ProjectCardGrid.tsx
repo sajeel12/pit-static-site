@@ -13,7 +13,7 @@ export default function ProjectCardGrid() {
 
 
 
-  const perPage = 3;
+  const perPage = 2;
 
 
 
@@ -33,7 +33,7 @@ export default function ProjectCardGrid() {
 
 
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
 
 
 

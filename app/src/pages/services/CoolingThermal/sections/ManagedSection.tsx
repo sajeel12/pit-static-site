@@ -270,49 +270,52 @@ export default function ManagedSection() {
 
 
 
-        {/* Emergency Response — On-Demand */}
-        <div className="group relative bg-white rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 mb-8 md:mb-12">
-          <div className="h-1.5 w-full rounded-t-xl bg-gradient-to-r from-gray-200 to-gray-100" />
-          <div className="p-6 sm:p-8">
-            <div className="flex justify-end mb-4">
-              <span className="inline-flex items-center px-2 py-0.5 text-white carbon-label-01 uppercase tracking-wider rounded-full border border-white/20" style={{ backgroundColor: '#da1e28' }}>On-Demand</span>
-            </div>
-            <div className="mb-5">
-              <p className="carbon-heading-02 text-gray-900 leading-tight">Emergency Response</p>
-              <p className="carbon-label-02 text-gray-500 uppercase mt-2">Emergency AC Hire</p>
-            </div>
-            <div className="pt-5 border-t border-gray-100">
-              <p className="carbon-body-02 text-gray-600">
-                <strong className="text-gray-900">Thermal Continuity Bridging</strong> — Rapid-deployment cooling rental with certified engineers on-site within 4 hours for outage recovery or capacity gaps.
-              </p>
-            </div>
-            <a href="https://wa.me/923093955577?text=Emergency%20AC%20Hire%20Request%20-%20Cooling%20Services" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center justify-center gap-2 px-5 py-3 w-full carbon-body-02 rounded-lg border border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M12.04 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.35 5L2 22l5.09-1.34A9.96 9.96 0 0012.04 22c5.52 0 10-4.48 10-10S17.56 2 12.04 2zm0 18c-1.66 0-3.22-.51-4.52-1.38l-.32-.21-3.02.79.8-2.94-.21-.33A8.02 8.02 0 014.04 12c0-4.42 3.58-8 8-8s8 3.58 8 8-3.58 8-8 8zm4.24-5.78c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.02-.37.1-.49.12-.12.24-.29.37-.43.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.31-.75-1.79-.2-.46-.39-.4-.54-.41-.14 0-.3 0-.45 0-.16 0-.42.06-.64.29-.22.22-.85.83-.85 2.03 0 1.2.87 2.36.99 2.53.12.17 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.5.58.19 1.11.16 1.52.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.27z"/></svg>
-              Request Emergency Response
-            </a>
-          </div>
-        </div>
+        {/* Service Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 md:mb-12">
 
-        {/* Energy Optimisation */}
-        <div className="group relative bg-white rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 mb-8 md:mb-12">
-          <div className="h-1.5 w-full rounded-t-xl bg-gradient-to-r from-gray-200 to-gray-100" />
-          <div className="p-6 sm:p-8">
-            <div className="flex justify-end mb-4">
-              <span className="inline-flex items-center px-2 py-0.5 text-white carbon-label-01 uppercase tracking-wider rounded-full border border-white/20" style={{ backgroundColor: '#22c55e' }}>Optimisation</span>
+          {/* Emergency Response — On-Demand */}
+          <div className="group relative bg-white rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col">
+            <div className="p-6 sm:p-8 flex flex-col flex-1">
+              <div className="flex items-start justify-between mb-5">
+                <div>
+                  <p className="carbon-heading-02 text-gray-900 leading-tight">Emergency Response</p>
+                  <p className="carbon-label-02 text-gray-500 uppercase mt-1">Emergency AC Hire</p>
+                </div>
+                <span className="inline-flex items-center px-2.5 py-1 text-white carbon-label-01 uppercase tracking-wider rounded-full shrink-0 ml-3" style={{ backgroundColor: '#da1e28' }}>On-Demand</span>
+              </div>
+              <div className="pt-4 border-t border-gray-100 flex-1">
+                <p className="carbon-body-02 text-gray-600 leading-relaxed">
+                  <strong className="text-gray-900">Thermal Continuity Bridging</strong> — Rapid-deployment cooling rental with certified engineers on-site within 4 hours for outage recovery or capacity gaps.
+                </p>
+              </div>
+              <a href="https://wa.me/923093955577?text=Emergency%20AC%20Hire%20Request%20-%20Cooling%20Services" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center justify-center gap-2 px-5 py-3 w-full carbon-body-02 rounded-lg border border-[#25D366] text-black hover:bg-[#25D366] hover:text-white active:bg-[#128C7E] active:text-white transition-colors">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M12.04 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.35 5L2 22l5.09-1.34A9.96 9.96 0 0012.04 22c5.52 0 10-4.48 10-10S17.56 2 12.04 2zm0 18c-1.66 0-3.22-.51-4.52-1.38l-.32-.21-3.02.79.8-2.94-.21-.33A8.02 8.02 0 014.04 12c0-4.42 3.58-8 8-8s8 3.58 8 8-3.58 8-8 8zm4.24-5.78c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.02-.37.1-.49.12-.12.24-.29.37-.43.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.31-.75-1.79-.2-.46-.39-.4-.54-.41-.14 0-.3 0-.45 0-.16 0-.42.06-.64.29-.22.22-.85.83-.85 2.03 0 1.2.87 2.36.99 2.53.12.17 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.5.58.19 1.11.16 1.52.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.27z"/></svg>
+                Request Emergency Response
+              </a>
             </div>
-            <div className="mb-5">
-              <p className="carbon-heading-02 text-gray-900 leading-tight">Energy Efficiency</p>
-              <p className="carbon-label-02 text-gray-500 uppercase mt-2">PUE Optimisation</p>
-            </div>
-            <div className="pt-5 border-t border-gray-100">
-              <p className="carbon-body-02 text-gray-600">
-                <strong className="text-gray-900">Thermal Energy Intelligence</strong> — Cooling system optimisation with VFD control, free-cooling integration, and AI-driven setpoint adjustments to reduce energy consumption by 25-40%.
-              </p>
-            </div>
-            <a href="#/infrastructure/operational-efficiency" className="mt-6 inline-flex items-center justify-center gap-2 px-5 py-3 w-full carbon-body-02 rounded-lg border border-gray-300 text-gray-700 hover:border-[#22c55e] hover:text-[#22c55e] transition-colors">
-              See Full Infrastructure ROI
-            </a>
           </div>
+
+          {/* Energy Optimisation */}
+          <div className="group relative bg-white rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col">
+            <div className="p-6 sm:p-8 flex flex-col flex-1">
+              <div className="flex items-start justify-between mb-5">
+                <div>
+                  <p className="carbon-heading-02 text-gray-900 leading-tight">Energy Efficiency</p>
+                  <p className="carbon-label-02 text-gray-500 uppercase mt-1">PUE Optimisation</p>
+                </div>
+                <span className="inline-flex items-center px-2.5 py-1 text-white carbon-label-01 uppercase tracking-wider rounded-full shrink-0 ml-3" style={{ backgroundColor: '#059669' }}>Optimisation</span>
+              </div>
+              <div className="pt-4 border-t border-gray-100 flex-1">
+                <p className="carbon-body-02 text-gray-600 leading-relaxed">
+                  <strong className="text-gray-900">Thermal Energy Intelligence</strong> — Cooling system optimisation with VFD control, free-cooling integration, and AI-driven setpoint adjustments to reduce energy consumption by 25-40%.
+                </p>
+              </div>
+              <a href="#/infrastructure/operational-efficiency" className="mt-6 inline-flex items-center justify-center gap-2 px-5 py-3 w-full carbon-body-02 rounded-lg border border-gray-300 text-black hover:bg-[#0f62fe] hover:border-[#0f62fe] hover:text-white active:bg-[#0353e9] active:border-[#0353e9] active:text-white transition-colors">
+                See Full Infrastructure ROI
+              </a>
+            </div>
+          </div>
+
         </div>
 
 
