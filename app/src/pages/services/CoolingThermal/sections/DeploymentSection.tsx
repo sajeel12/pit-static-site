@@ -3,6 +3,7 @@ import TemperatureHot from '@carbon/icons-react/es/TemperatureHot';
 import Warning from '@carbon/icons-react/es/Warning';
 import Settings from '@carbon/icons-react/es/Settings';
 import Certificate from '@carbon/icons-react/es/Certificate';
+import FlowStream from '@carbon/icons-react/es/FlowStream';
 import ChevronUp from '@carbon/icons-react/es/ChevronUp';
 import ChevronDown from '@carbon/icons-react/es/ChevronDown';
 
@@ -79,6 +80,30 @@ export default function DeploymentSection() {
 
 
 
+      icon: FlowStream,
+
+
+
+      title: 'Airflow Management',
+
+
+
+      desc: 'Hot/cold aisle containment design with Containment Integrity Validation (pressure decay testing) to eliminate hotspots and ensure fire suppression efficacy.',
+
+
+
+    },
+
+
+
+    {
+
+
+
+      num: '04',
+
+
+
       icon: Certificate,
 
 
@@ -119,7 +144,7 @@ export default function DeploymentSection() {
 
 
 
-        <div className="relative rounded-2xl overflow-hidden mb-10 min-h-[320px] lg:min-h-[380px]">
+        <div className="relative rounded-2xl overflow-hidden mb-8 md:mb-12 min-h-[320px] lg:min-h-[380px]">
 
 
 
@@ -135,23 +160,14 @@ export default function DeploymentSection() {
 
 
 
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full mb-8">
-
-
-
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full mb-4 md:mb-6">
               <span className="w-5 h-5 rounded-full bg-[#0f62fe] flex items-center justify-center text-[10px] font-bold text-white">03</span>
-
-
-
               <span className="carbon-label-02 text-white/90 uppercase tracking-wider">Deployment</span>
-
-
-
             </div>
 
 
 
-            <h3 className="carbon-banner-heading text-white mb-8 leading-[1.4]">Installation is where cooling systems win or fail.</h3>
+            <h3 className="carbon-fluid-heading-05 text-white mb-4 leading-[1.4]">Installation is where cooling systems win or fail.</h3>
 
 
 
@@ -175,7 +191,7 @@ export default function DeploymentSection() {
 
 
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 md:mb-12">
 
 
 
@@ -211,7 +227,7 @@ export default function DeploymentSection() {
 
 
 
-                  <span className="carbon-fluid-heading-03 text-gray-200 font-light">{step.num}</span>
+                  <span className="carbon-heading-02 md:carbon-fluid-heading-03 text-gray-400 font-light">{step.num}</span>
 
 
 
@@ -251,7 +267,7 @@ export default function DeploymentSection() {
 
 
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
 
 
 
@@ -263,7 +279,7 @@ export default function DeploymentSection() {
 
 
 
-              <p className="carbon-fluid-heading-03 text-[#374151] font-light mb-1">{s.n}</p>
+              <p className="carbon-heading-02 md:carbon-fluid-heading-03 text-[#374151] font-light mb-1">{s.n}</p>
 
 
 
@@ -463,11 +479,11 @@ export default function DeploymentSection() {
 
 
 
-                <p className="carbon-label-02 text-gray-500 uppercase mb-1">Scope</p>
+                <p className="carbon-label-01 text-gray-500 uppercase mb-1">Scope</p>
 
 
 
-                <p className="carbon-body-02 text-gray-600">Deployment covers mechanical installation, thermal validation, and commissioning only. Capacity planning, monsoon/dust hardening engineering, and SLA-backed uptime targets are scoped separately under Assessment and Managed Services.</p>
+                <p className="carbon-helper-text-01 text-gray-500">Deployment covers mechanical installation, thermal validation, and commissioning only. Capacity planning, monsoon/dust hardening engineering, and SLA-backed uptime targets are scoped separately under Assessment and Managed Services.</p>
 
 
 

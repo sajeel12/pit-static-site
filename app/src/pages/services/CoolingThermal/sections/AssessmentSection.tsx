@@ -69,7 +69,7 @@ export default function AssessmentSection() {
 
 
 
-          className={`relative rounded-2xl overflow-hidden mb-10 min-h-[360px] lg:min-h-[420px] transition-all duration-700 ease-out ${bannerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+          className={`relative rounded-2xl overflow-hidden mb-8 md:mb-12 min-h-[360px] lg:min-h-[420px] transition-all duration-700 ease-out ${bannerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
 
 
 
@@ -89,7 +89,7 @@ export default function AssessmentSection() {
 
 
 
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full mb-4 md:mb-6">
 
 
 
@@ -105,7 +105,7 @@ export default function AssessmentSection() {
 
 
 
-            <h3 className="carbon-banner-heading text-white mb-8 leading-[1.4]">Two paths. One goal: <span className="block">Validate before you spend.</span></h3>
+            <h3 className="carbon-fluid-heading-05 text-white mb-4 md:mb-8 leading-[1.4]">Two paths. One goal: <span className="block">Validate before you spend.</span></h3>
 
 
 
@@ -167,7 +167,7 @@ export default function AssessmentSection() {
 
 
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 md:items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 md:mb-12 md:items-start">
 
 
 
@@ -183,7 +183,7 @@ export default function AssessmentSection() {
 
 
 
-            className={`group relative bg-white rounded-xl border border-[#e0e0e0] hover:border-[#6f6f6f] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer ${card1InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`group relative bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer ${card1InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
 
 
 
@@ -199,7 +199,7 @@ export default function AssessmentSection() {
 
 
 
-            <div className="h-1.5 w-full rounded-t-xl bg-gradient-to-r from-[#6f6f6f] to-[#9ca3af]" />
+            <div className="h-1.5 w-full rounded-t-xl bg-gradient-to-r from-gray-200 to-gray-100" />
 
 
 
@@ -207,30 +207,12 @@ export default function AssessmentSection() {
 
 
 
-              {/* Header Row */}
+              <div className="flex justify-end mb-4">
+                <span className="inline-flex items-center px-2 py-0.5 text-white carbon-label-01 uppercase tracking-wider rounded-full border border-white/20" style={{ backgroundColor: '#9ca3af' }}>Entry</span>
+              </div>
 
-
-
-              <div className="flex items-start justify-between gap-3 mb-4">
-
-
-
-                <div>
-
-
-
-                  <p className="carbon-card-title text-gray-900 leading-tight">Rapid Thermal Audit</p>
-
-
-
-                </div>
-
-
-
-                <span className="inline-flex items-center carbon-label-02 text-white uppercase bg-[#6f6f6f] px-2.5 py-1 rounded-md flex-shrink-0 mt-0.5">Entry</span>
-
-
-
+              <div className="mb-5">
+                <p className="carbon-heading-02 text-gray-900 leading-tight">Rapid Thermal Audit</p>
               </div>
 
 
@@ -243,11 +225,11 @@ export default function AssessmentSection() {
 
 
 
-                <p className="carbon-label-02 text-gray-400 uppercase mb-1">From</p>
+                <p className="carbon-label-02 text-gray-500 uppercase mb-1">From</p>
 
 
 
-                <p className="carbon-price text-gray-900">PKR 45,000*</p>
+                <p className="carbon-heading-02 md:carbon-price text-gray-900">PKR 45,000*</p>
 
 
 
@@ -263,11 +245,11 @@ export default function AssessmentSection() {
 
 
 
-                <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded carbon-badge mb-2">Best For</span>
+                <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded-lg carbon-badge mb-2">Best For</span>
 
 
 
-                <p className="carbon-body-02 text-gray-700">Routine maintenance, edge sites, and budget planning.</p>
+                <p className="carbon-body-02 text-gray-600">Routine maintenance, edge sites, and budget planning.</p>
 
 
 
@@ -279,15 +261,15 @@ export default function AssessmentSection() {
 
 
 
-              <div className="pt-5 border-t border-[#e0e0e0]">
+              <div className="pt-5 border-t border-gray-100">
 
 
 
-                <p className="carbon-label-02 text-[#6f6f6f] uppercase mb-3">Key Deliverables</p>
+                <p className="carbon-label-02 text-gray-500 uppercase mb-3">Key Deliverables</p>
 
 
 
-                <div className="space-y-4">
+                <div className="space-y-3">
 
 
 
@@ -303,11 +285,11 @@ export default function AssessmentSection() {
 
 
 
-                      <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded carbon-badge mb-1">Thermal Mapping</span>
+                      <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded-lg carbon-badge mb-1">Thermal Mapping</span>
 
 
 
-                      <p className="carbon-body-02 text-gray-500">Infrared thermal mapping of all active racks</p>
+                      <p className="carbon-body-02 text-gray-600">Infrared thermal mapping of all active racks</p>
 
 
 
@@ -331,11 +313,11 @@ export default function AssessmentSection() {
 
 
 
-                      <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded carbon-badge mb-1">Risk Scorecard</span>
+                      <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded-lg carbon-badge mb-1">Risk Scorecard</span>
 
 
 
-                      <p className="carbon-body-02 text-gray-500">Structured Fix / Watch / OK risk scorecard</p>
+                      <p className="carbon-body-02 text-gray-600">Structured Fix / Watch / OK risk scorecard</p>
 
 
 
@@ -359,11 +341,11 @@ export default function AssessmentSection() {
 
 
 
-                      <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded carbon-badge mb-1">Derating Validation</span>
+                      <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded-lg carbon-badge mb-1">Derating Validation</span>
 
 
 
-                      <p className="carbon-body-02 text-gray-500">Pakistan-specific equipment derating validation</p>
+                      <p className="carbon-body-02 text-gray-600">Pakistan-specific equipment derating validation</p>
 
 
 
@@ -375,7 +357,7 @@ export default function AssessmentSection() {
 
 
 
-                  <div className="flex items-start gap-3 pt-3 border-t border-[#e0e0e0]/60">
+                  <div className="flex items-start gap-3 pt-3 border-t border-gray-100/60">
 
 
 
@@ -387,7 +369,7 @@ export default function AssessmentSection() {
 
 
 
-                      <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded carbon-badge mb-1">CFD Simulation (Computational Fluid Dynamics)</span>
+                      <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded-lg carbon-badge mb-1">CFD Simulation (Computational Fluid Dynamics)</span>
 
 
 
@@ -435,7 +417,7 @@ export default function AssessmentSection() {
 
 
 
-            className={`group relative bg-white rounded-xl border border-[#e0e0e0] hover:border-[#6929c4] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer ${card2InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`group relative bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer ${card2InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
 
 
 
@@ -451,7 +433,7 @@ export default function AssessmentSection() {
 
 
 
-            <div className="h-1.5 w-full rounded-t-xl bg-gradient-to-r from-[#6929c4] to-[#a855f7]" />
+            <div className="h-1.5 w-full rounded-t-xl bg-gradient-to-r from-gray-200 to-gray-100" />
 
 
 
@@ -463,18 +445,12 @@ export default function AssessmentSection() {
 
 
 
-              <div className="flex items-start justify-between gap-3 mb-4">
+              <div className="flex justify-end mb-4">
+                <span className="inline-flex items-center px-2 py-0.5 text-white carbon-label-01 uppercase tracking-wider rounded-full border border-white/20" style={{ backgroundColor: '#a855f7' }}>Enterprise</span>
+              </div>
 
-
-
-                <p className="carbon-card-title text-gray-900 leading-tight">Precision Thermal Engineering</p>
-
-
-
-                <span className="inline-flex items-center carbon-label-02 text-white uppercase bg-[#6929c4] px-2.5 py-1 rounded-md flex-shrink-0 mt-0.5">Enterprise</span>
-
-
-
+              <div className="mb-5">
+                <p className="carbon-heading-02 text-gray-900 leading-tight">Precision Thermal Engineering</p>
               </div>
 
 
@@ -491,7 +467,7 @@ export default function AssessmentSection() {
 
 
 
-                <p className="carbon-price text-gray-900">Custom Scope</p>
+                <p className="carbon-heading-02 md:carbon-price text-gray-900">Custom Scope</p>
 
 
 
@@ -511,11 +487,11 @@ export default function AssessmentSection() {
 
 
 
-                <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded carbon-badge mb-2">Best For</span>
+                <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded-lg carbon-badge mb-2">Best For</span>
 
 
 
-                <p className="carbon-body-02 text-gray-700">New builds, high-density environments, compliance, and root-cause analysis.</p>
+                <p className="carbon-body-02 text-gray-600">New builds, high-density environments, compliance, and root-cause analysis.</p>
 
 
 
@@ -527,15 +503,15 @@ export default function AssessmentSection() {
 
 
 
-              <div className="pt-5 border-t border-[#e0e0e0]">
+              <div className="pt-5 border-t border-gray-100">
 
 
 
-                <p className="carbon-label-02 text-[#6929c4] uppercase mb-3">Key Deliverables</p>
+                <p className="carbon-label-02 text-gray-500 uppercase mb-3">Key Deliverables</p>
 
 
 
-                <div className="space-y-4">
+                <div className="space-y-3">
 
 
 
@@ -551,11 +527,11 @@ export default function AssessmentSection() {
 
 
 
-                      <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded carbon-badge mb-1">Thermal Modelling</span>
+                      <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded-lg carbon-badge mb-1">Thermal Modelling</span>
 
 
 
-                      <p className="carbon-body-02 text-gray-500">3D thermal heat maps and predictive hotspot modelling</p>
+                      <p className="carbon-body-02 text-gray-600">3D thermal heat maps and predictive hotspot modelling</p>
 
 
 
@@ -579,39 +555,11 @@ export default function AssessmentSection() {
 
 
 
-                      <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded carbon-badge mb-1">CFD Simulation (Computational Fluid Dynamics)</span>
+                      <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded-lg carbon-badge mb-1">CFD Simulation (Computational Fluid Dynamics)</span>
 
 
 
-                      <p className="carbon-body-02 text-gray-500">Full airflow and fluid dynamics simulation</p>
-
-
-
-                    </div>
-
-
-
-                  </div>
-
-
-
-                  <div className="flex items-start gap-3">
-
-
-
-                    <CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0 mt-1" />
-
-
-
-                    <div>
-
-
-
-                      <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded carbon-badge mb-1">Capacity Analysis</span>
-
-
-
-                      <p className="carbon-body-02 text-gray-500">Exact capacity calculations calibrated for local ambient</p>
+                      <p className="carbon-body-02 text-gray-600">Full airflow and fluid dynamics simulation</p>
 
 
 
@@ -635,11 +583,39 @@ export default function AssessmentSection() {
 
 
 
-                      <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded carbon-badge mb-1">Engineering Validation Report</span>
+                      <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded-lg carbon-badge mb-1">Capacity Analysis</span>
 
 
 
-                      <p className="carbon-body-02 text-gray-500">Formal engineering validation and optimisation roadmap</p>
+                      <p className="carbon-body-02 text-gray-600">Exact capacity calculations calibrated for local ambient</p>
+
+
+
+                    </div>
+
+
+
+                  </div>
+
+
+
+                  <div className="flex items-start gap-3">
+
+
+
+                    <CheckmarkFilled className="w-4 h-4 text-[#24a148] flex-shrink-0 mt-1" />
+
+
+
+                    <div>
+
+
+
+                      <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded-lg carbon-badge mb-1">Engineering Validation Report</span>
+
+
+
+                      <p className="carbon-body-02 text-gray-600">Formal engineering validation and optimisation roadmap</p>
 
 
 
@@ -663,11 +639,11 @@ export default function AssessmentSection() {
 
 
 
-              <div className="mt-6 pt-6 border-t border-[#e0e0e0]">
+              <div className="mt-6 pt-6 border-t border-gray-100">
 
 
 
-                <div className="bg-[#6929c4]/5 rounded-xl p-5 border border-[#6929c4]/15">
+                <div className="bg-[#6929c4]/5 rounded-lg p-4 border border-[#6929c4]/15">
 
 
 
@@ -935,7 +911,7 @@ export default function AssessmentSection() {
 
 
 
-                        <div key={group.label} className="p-4 bg-white rounded-lg border border-[#e0e0e0]">
+                        <div key={group.label} className="p-4 bg-white rounded-lg border border-gray-100">
 
 
 
@@ -1195,7 +1171,7 @@ export default function AssessmentSection() {
 
 
 
-              <h3 className="carbon-heading-02 text-gray-900 mb-2">Rapid Audit or Precision Engineering?</h3>
+              <h3 className="carbon-heading-02 text-gray-900 mb-2">Rapid Thermal Audit or Precision Thermal Engineering?</h3>
 
 
 
@@ -1291,7 +1267,7 @@ export default function AssessmentSection() {
 
 
 
-                    <p className="carbon-badge text-gray-600">Rapid Audit</p>
+                    <p className="carbon-heading-01 text-[#161616]">Rapid Thermal Audit</p>
 
 
 
@@ -1315,7 +1291,7 @@ export default function AssessmentSection() {
 
 
 
-                    <p className="carbon-badge text-gray-600">Precision Engineering</p>
+                    <p className="carbon-heading-01 text-[#161616]">Precision Thermal Engineering</p>
 
 
 
@@ -1379,7 +1355,7 @@ export default function AssessmentSection() {
 
 
 
-                    <div key={row.d} className="bg-white rounded-lg border border-[#e0e0e0] overflow-hidden">
+                    <div key={row.d} className="bg-white rounded-lg border border-gray-100 overflow-hidden">
 
 
 
@@ -1387,7 +1363,7 @@ export default function AssessmentSection() {
 
 
 
-                        <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded carbon-badge">{row.d}</span>
+                        <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded-lg carbon-badge">{row.d}</span>
 
 
 
@@ -1503,7 +1479,7 @@ export default function AssessmentSection() {
 
 
 
-                    <div key={row.d} className="bg-white rounded-lg border border-[#e0e0e0] overflow-hidden">
+                    <div key={row.d} className="bg-white rounded-lg border border-gray-100 overflow-hidden">
 
 
 
@@ -1511,7 +1487,7 @@ export default function AssessmentSection() {
 
 
 
-                        <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded carbon-badge">{row.d}</span>
+                        <span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded-lg carbon-badge">{row.d}</span>
 
 
 
@@ -1696,7 +1672,7 @@ export default function AssessmentSection() {
 
 
 
-                <tbody className="divide-y divide-gray-100">
+                <tbody>
 
 
 
@@ -1704,27 +1680,23 @@ export default function AssessmentSection() {
 
 
 
-                  <tr>
+                  <tr className="bg-white border-b border-gray-200">
 
 
 
-                    <td className="px-4 py-3 bg-slate-100 carbon-label-02 text-slate-700 uppercase tracking-wide font-bold w-[28%]">Service Profile</td>
+                    <td className="px-5 py-4 carbon-label-02 text-slate-500 uppercase tracking-wide font-bold w-[28%]">Service Profile</td>
 
 
 
-                    <td className="bg-slate-50 carbon-label-02 text-slate-600 uppercase font-bold w-[36%]">
+                    <td className="px-5 py-4 carbon-label-02 text-slate-600 uppercase font-bold w-[36%]">
 
 
 
-                      <div className="h-1.5 w-full bg-gradient-to-r from-[#6f6f6f] to-[#9ca3af]" />
+                      <span className="inline-flex items-center gap-2">
 
 
 
-                      <div className="px-4 py-3 flex items-center gap-2">
-
-
-
-                        <div className="w-2 h-2 rounded-full bg-slate-400" />
+                        <span className="w-2 h-2 rounded-full bg-slate-400" />
 
 
 
@@ -1732,7 +1704,7 @@ export default function AssessmentSection() {
 
 
 
-                      </div>
+                      </span>
 
 
 
@@ -1740,19 +1712,15 @@ export default function AssessmentSection() {
 
 
 
-                    <td className="bg-purple-50 carbon-label-02 text-[#6929c4] uppercase font-bold w-[36%]">
+                    <td className="px-5 py-4 carbon-label-02 text-purple-700 uppercase font-bold w-[36%]">
 
 
 
-                      <div className="h-1.5 w-full bg-gradient-to-r from-[#6929c4] to-[#a855f7]" />
+                      <span className="inline-flex items-center gap-2">
 
 
 
-                      <div className="px-4 py-3 flex items-center gap-2">
-
-
-
-                        <div className="w-2 h-2 rounded-full bg-[#a855f7]" />
+                        <span className="w-2 h-2 rounded-full bg-purple-500" />
 
 
 
@@ -1760,7 +1728,7 @@ export default function AssessmentSection() {
 
 
 
-                      </div>
+                      </span>
 
 
 
@@ -1800,15 +1768,15 @@ export default function AssessmentSection() {
 
 
 
-                    <tr key={row.d} className="group hover:bg-gray-50/60 transition-colors">
+                    <tr key={row.d} className="group border-b border-gray-100 last:border-b-0">
 
 
 
-                      <td className="px-4 py-3.5 border-r border-gray-100 bg-gray-50/60"><span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded carbon-badge">{row.d}</span></td>
+                      <td className="px-5 py-4 border-r border-gray-100 carbon-label-02 text-slate-600 font-medium align-top">{row.d}</td>
 
 
 
-                      <td className="px-4 py-3.5 carbon-body-short-01 text-gray-700 border-r border-[#e0e0e0] border-l-[3px] border-l-slate-400 bg-slate-50/60">
+                      <td className="px-5 py-4 border-r border-gray-100 carbon-body-short-01 text-gray-700 bg-slate-50/40 align-top">
 
 
 
@@ -1824,7 +1792,7 @@ export default function AssessmentSection() {
 
 
 
-                      <td className="px-4 py-3.5 carbon-body-short-01 text-gray-700 border-l-[3px] border-l-[#6929c4] bg-[#6929c4]/[0.04] font-medium">
+                      <td className="px-5 py-4 carbon-body-short-01 text-gray-700 bg-purple-50/30 align-top">
 
 
 
@@ -1852,23 +1820,31 @@ export default function AssessmentSection() {
 
 
 
-                  <tr>
+                  <tr className="bg-white border-b border-gray-200">
 
 
 
-                    <td className="px-4 py-3 bg-slate-100 carbon-label-02 text-slate-700 uppercase tracking-wide font-bold">Key Deliverables</td>
+                    <td className="px-5 py-4 carbon-label-02 text-slate-500 uppercase tracking-wide font-bold">Key Deliverables</td>
 
 
 
-                    <td className="bg-slate-50 carbon-badge text-slate-600 text-center">
+                    <td className="px-5 py-4 carbon-label-02 text-slate-600 uppercase font-bold">
 
 
 
-                      <div className="h-1.5 w-full bg-gradient-to-r from-[#6f6f6f] to-[#9ca3af]" />
+                      <span className="inline-flex items-center gap-2">
 
 
 
-                      <div className="px-4 py-3">Rapid Audit Includes</div>
+                        <span className="w-2 h-2 rounded-full bg-slate-400" />
+
+
+
+                        Rapid Thermal Audit Includes
+
+
+
+                      </span>
 
 
 
@@ -1876,15 +1852,23 @@ export default function AssessmentSection() {
 
 
 
-                    <td className="bg-purple-50 carbon-badge text-[#6929c4] text-center">
+                    <td className="px-5 py-4 carbon-label-02 text-purple-700 uppercase font-bold">
 
 
 
-                      <div className="h-1.5 w-full bg-gradient-to-r from-[#6929c4] to-[#a855f7]" />
+                      <span className="inline-flex items-center gap-2">
 
 
 
-                      <div className="px-4 py-3">Precision Engineering Includes</div>
+                        <span className="w-2 h-2 rounded-full bg-purple-500" />
+
+
+
+                        Precision Engineering Includes
+
+
+
+                      </span>
 
 
 
@@ -1928,15 +1912,15 @@ export default function AssessmentSection() {
 
 
 
-                    <tr key={row.d} className="group hover:bg-gray-50/60 transition-colors">
+                    <tr key={row.d} className="group border-b border-gray-100 last:border-b-0">
 
 
 
-                      <td className="px-4 py-3.5 border-r border-gray-100 bg-gray-50/60"><span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded carbon-badge">{row.d}</span></td>
+                      <td className="px-5 py-4 border-r border-gray-100 carbon-label-02 text-slate-600 font-medium align-top">{row.d}</td>
 
 
 
-                      <td className="px-4 py-3.5 carbon-body-short-01 text-gray-700 border-r border-[#e0e0e0] border-l-[3px] border-l-slate-400 bg-slate-50/60">
+                      <td className="px-5 py-4 border-r border-gray-100 carbon-body-short-01 text-gray-700 bg-slate-50/40 align-top">
 
 
 
@@ -1988,7 +1972,7 @@ export default function AssessmentSection() {
 
 
 
-                      <td className="px-4 py-3.5 carbon-body-short-01 text-gray-700 border-l-[3px] border-l-[#6929c4] bg-[#6929c4]/[0.04] font-medium">
+                      <td className="px-5 py-4 carbon-body-short-01 text-gray-700 bg-purple-50/30 align-top">
 
 
 
@@ -2052,19 +2036,19 @@ export default function AssessmentSection() {
 
 
 
-                  <tr className="group hover:bg-gray-50/60 transition-colors">
+                  <tr className="group border-b-0">
 
 
 
-                    <td className="px-4 py-3.5 border-r border-gray-100 bg-gray-50/60"><span className="inline-flex px-2 py-0.5 bg-gray-100 text-gray-900 rounded carbon-badge">Pricing</span></td>
+                    <td className="px-5 py-4 border-r border-gray-100 carbon-label-02 text-slate-600 font-medium align-top">Pricing</td>
 
 
 
-                    <td className="px-4 py-3.5 carbon-body-short-01 text-gray-900 border-r border-gray-100 font-semibold">From PKR 45,000*</td>
+                    <td className="px-5 py-4 border-r border-gray-100 carbon-body-short-01 text-gray-900 bg-slate-50/40 font-semibold align-top">From PKR 45,000*</td>
 
 
 
-                    <td className="px-4 py-3.5 carbon-body-short-01 text-gray-900 font-semibold">Custom Scope Only</td>
+                    <td className="px-5 py-4 carbon-body-short-01 text-gray-900 bg-purple-50/30 font-semibold align-top">Custom Scope Only</td>
 
 
 

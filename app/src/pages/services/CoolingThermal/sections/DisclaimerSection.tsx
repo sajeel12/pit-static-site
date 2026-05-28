@@ -4,7 +4,7 @@ export default function DisclaimerSection() {
 
 
 
-  return (<section className="py-6 bg-gray-50 border-t border-gray-100">
+  return (<section className="py-6 bg-white border-t border-gray-100">
 
 
 

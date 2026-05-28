@@ -23,7 +23,7 @@ export default function ProjectCard({ project, index }: { project: typeof PROJEC
 
 
 
-    <article className={`${styles.projectCard} group rounded-xl overflow-hidden bg-white transition-all duration-500 border border-[#e0e0e0] hover:border-[#00d4ff] hover:shadow-lg`} style={{ animationDelay: `${index * 100}ms` }}>
+    <article className={`${styles.projectCard} group rounded-xl overflow-hidden bg-white transition-all duration-500 border border-gray-200 hover:border-[#0f62fe] hover:shadow-lg`} style={{ animationDelay: `${index * 100}ms` }}>
 
 
 
@@ -75,7 +75,7 @@ export default function ProjectCard({ project, index }: { project: typeof PROJEC
 
 
 
-              <Settings className="w-10 h-10 text-[#00d4ff]/15" />
+              <Settings className="w-10 h-10 text-[#0f62fe]/15" />
 
 
 
@@ -103,7 +103,7 @@ export default function ProjectCard({ project, index }: { project: typeof PROJEC
 
 
 
-          <span className="px-2 py-0.5 bg-[#00d4ff]/5 text-[#00d4ff] carbon-label-01 rounded">{project.sector}</span>
+          <span className="px-2 py-0.5 bg-[#0f62fe]/5 text-[#0f62fe] carbon-label-01 rounded">{project.sector}</span>
 
 
 
@@ -111,7 +111,7 @@ export default function ProjectCard({ project, index }: { project: typeof PROJEC
 
 
 
-        <h3 className="carbon-fluid-heading-03 text-gray-900 mb-2 leading-snug">{project.title}</h3>
+        <h3 className="carbon-heading-02 md:carbon-fluid-heading-03 text-gray-900 mb-2 leading-snug">{project.title}</h3>
 
 
 
@@ -155,7 +155,7 @@ export default function ProjectCard({ project, index }: { project: typeof PROJEC
 
 
 
-          <button onClick={() => setExpanded(!expanded)} className="inline-flex items-center gap-1.5 carbon-body-02 text-[#00d4ff] hover:underline">
+          <button onClick={() => setExpanded(!expanded)} className="inline-flex items-center gap-1.5 carbon-body-02 text-[#0f62fe] hover:underline">
 
 
 
@@ -171,7 +171,7 @@ export default function ProjectCard({ project, index }: { project: typeof PROJEC
 
 
 
-            <a href={project.caseStudy} className="inline-flex items-center gap-1 carbon-body-02 text-gray-400 hover:text-[#00d4ff] transition-colors">
+            <a href={project.caseStudy} className="inline-flex items-center gap-1 carbon-body-02 text-gray-400 hover:text-[#0f62fe] transition-colors">
 
 
 

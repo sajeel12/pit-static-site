@@ -95,6 +95,14 @@
   letter-spacing: 0;
 }
 
+.carbon-fluid-heading-03-strong {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
+  font-weight: 600; /* SemiBold */
+  letter-spacing: 0;
+}
+
 .carbon-fluid-heading-04 {
   font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.75rem; /* 28px */

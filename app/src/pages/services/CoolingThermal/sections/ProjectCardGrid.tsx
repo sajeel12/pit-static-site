@@ -69,7 +69,7 @@ export default function ProjectCardGrid() {
 
 
 
-            <button key={i} onClick={() => setPage(i)} className={`w-10 h-10 rounded-lg flex items-center justify-center carbon-body-02 transition-all ${page === i ? 'bg-[#00d4ff] text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>{i + 1}</button>
+            <button key={i} onClick={() => setPage(i)} className={`w-10 h-10 rounded-lg flex items-center justify-center carbon-body-02 transition-all ${page === i ? 'bg-[#0f62fe] text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>{i + 1}</button>
 
 
 

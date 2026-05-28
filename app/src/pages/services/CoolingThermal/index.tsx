@@ -222,7 +222,7 @@ const CoolingThermal = () => {
 
 
 
-        <TrustTiles />
+        <EcosystemSection />
 
 
 
@@ -230,7 +230,7 @@ const CoolingThermal = () => {
 
 
 
-        <EcosystemSection />
+        <TrustTiles />
 
 
 

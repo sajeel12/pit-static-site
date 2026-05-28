@@ -22,23 +22,11 @@ export default function ResultsSection() {
 
 
 
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#24a148]/8 border border-[#24a148]/15 rounded-full mb-5">
+          <p className="carbon-label-01 text-[#0f62fe] uppercase mb-3">Results</p>
 
 
 
-            <span className="w-2 h-2 rounded-full bg-[#24a148]" />
-
-
-
-            <span className="carbon-label-02 text-[#24a148] uppercase tracking-wider">Results</span>
-
-
-
-          </div>
-
-
-
-          <h2 className="carbon-fluid-heading-04 text-[#0F172A] mb-3">Trusted Across Infrastructure Projects</h2>
+          <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">Trusted Across Infrastructure Projects</h2>
 
 
 
@@ -66,7 +54,7 @@ export default function ResultsSection() {
 
 
 
-          <h3 className="carbon-fluid-heading-03 text-[#0F172A] mb-6">Project Outcomes</h3>
+          <p className="carbon-label-02 text-gray-500 uppercase mb-6">Project Outcomes</p>
 
 
 

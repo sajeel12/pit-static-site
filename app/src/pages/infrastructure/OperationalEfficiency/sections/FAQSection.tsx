@@ -1,6 +1,32 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { FAQ_ITEMS } from '../data';
+
+const faqs = [
+  {
+    q: 'How do you verify the savings numbers?',
+    a: 'Every figure on this page is client-verified. We use utility bills before and after engagement, manufacturer efficiency curves, and third-party commissioning reports. We do not publish projections as outcomes.',
+  },
+  {
+    q: 'What is the typical payback period?',
+    a: 'Most clients see full ROI within 18–24 months for comprehensive optimisation engagements. Simple cooling retrofits can pay back in 12–18 months. The calculator above uses conservative estimates.',
+  },
+  {
+    q: 'Can you work with our existing infrastructure?',
+    a: 'Yes. Our assessment includes retrofit recommendations designed to maximise reuse of existing equipment. We only recommend replacement when the efficiency gain justifies the capital outlay.',
+  },
+  {
+    q: 'Do you guarantee the savings?',
+    a: 'We provide engineering baselines and projected savings ranges based on site assessment. Contractual performance guarantees, remedies, and credit calculations are defined exclusively in signed Service Level Agreements.',
+  },
+  {
+    q: 'Is the ROI calculator accurate?',
+    a: 'The calculator is an estimator only. It uses industry-standard formulas for PUE-based energy cost modelling. Actual savings depend on facility condition, infrastructure age, utility rates, and scope of work. A formal proposal requires site assessment.',
+  },
+  {
+    q: 'What services can be bundled for better pricing?',
+    a: 'Cooling + Power + Monitoring under a single SLA averages 30% lower total cost than individual contracts. We also offer Infrastructure-as-a-Service models that convert CapEx to predictable monthly OpEx.',
+  },
+];
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -11,15 +37,15 @@ export default function FAQSection() {
         <div className="mb-12 text-center">
           <p className="carbon-label-01 text-[#0f62fe] uppercase mb-3">FAQ</p>
           <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">
-            Frequently Asked Questions
+            Questions About Cost & ROI
           </h2>
           <p className="carbon-body-02 text-gray-500">
-            Common questions about cooling assessments, procurement, deployment timelines, and managed service terms.
+            Straight answers for budget holders and technical buyers building a business case.
           </p>
         </div>
 
         <div className="space-y-4">
-          {FAQ_ITEMS.map((faq, i) => {
+          {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
               <div

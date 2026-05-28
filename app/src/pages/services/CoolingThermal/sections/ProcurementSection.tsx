@@ -44,11 +44,11 @@ export default function ProcurementSection() {
 
 
 
-      desc: 'Edge sites & small server rooms up to 50kW. Wall-mounted, ceiling-suspended, and portable units.',
+      desc: 'For edge sites & small server rooms up to 50kW.',
 
 
 
-      features: ['Wall-mounted, ceiling-suspended, and portable units','Designed for edge sites up to 50kW heat load','Split-system and ducted configurations'],
+      features: ['Wall-mounted, ceiling-suspended, and portable units','Tier 1 cooling hardware designed for edge sites up to 50kW heat load','Split-system and ducted configurations'],
 
 
 
@@ -76,11 +76,11 @@ export default function ProcurementSection() {
 
 
 
-      desc: 'Data centres requiring ±1°C control. In-row and perimeter units with redundancy options.',
+      desc: 'For data centres requiring ±1°C control.',
 
 
 
-      features: ['In-row and perimeter CRAC/CRAH units','±1°C temperature control for mission-critical','N+1 and 2N redundancy configurations'],
+      features: ['In-row and perimeter CRAC/CRAH units','±1°C temperature control for mission-critical systems','N+1 and 2N redundancy configurations'],
 
 
 
@@ -108,7 +108,7 @@ export default function ProcurementSection() {
 
 
 
-      desc: 'Chillers, cooling towers, free cooling. Custom designs for facilities >500kW cooling load.',
+      desc: 'For facilities >500kW cooling load.',
 
 
 
@@ -148,7 +148,7 @@ export default function ProcurementSection() {
 
 
 
-        <div className="relative rounded-2xl overflow-hidden mb-10 min-h-[320px] lg:min-h-[380px]">
+        <div className="relative rounded-2xl overflow-hidden mb-8 md:mb-12 min-h-[320px] lg:min-h-[380px]">
 
 
 
@@ -164,23 +164,14 @@ export default function ProcurementSection() {
 
 
 
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full mb-8">
-
-
-
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full mb-4 md:mb-6">
               <span className="w-5 h-5 rounded-full bg-[#0f62fe] flex items-center justify-center text-[10px] font-bold text-white">02</span>
-
-
-
               <span className="carbon-label-02 text-white/90 uppercase tracking-wider">Procurement</span>
-
-
-
             </div>
 
 
 
-            <h3 className="carbon-banner-heading text-white mb-8 leading-[1.4]">Cooling Hardware from Tier 1 manufacturers.</h3>
+            <h3 className="carbon-fluid-heading-05 text-white mb-4 leading-[1.4]">Cooling Hardware from Tier 1 manufacturers.</h3>
 
 
 
@@ -236,7 +227,7 @@ export default function ProcurementSection() {
 
 
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 md:mb-12">
 
 
 
@@ -244,74 +235,35 @@ export default function ProcurementSection() {
 
 
 
-            <div key={card.title} className="group relative bg-white rounded-xl border border-[#e0e0e0] hover:border-[var(--card-color)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer" style={{ '--card-color': card.color, '--card-gradient-to': card.tag === 'Entry' ? '#9ca3af' : card.tag === 'Professional' ? '#4f8eff' : '#a855f7', '--card-bg': card.color + '0D', '--card-bg-hover': card.color + '1A' } as React.CSSProperties}>
+            <div key={card.title} className="group relative bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
 
 
 
-              <div className="h-1.5 w-full rounded-t-xl bg-gradient-to-r from-[var(--card-color)] to-[var(--card-gradient-to)]" />
+              <div className="h-1.5 w-full rounded-t-xl bg-gradient-to-r from-gray-200 to-gray-100" />
 
 
 
               <div className="p-6 sm:p-8">
-
-
-
-                <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-[var(--card-bg)] flex items-center justify-center group-hover:bg-[var(--card-bg-hover)] transition-colors">
-
-
-
-                  <card.icon className="w-6 h-6 text-[var(--card-color)]" />
-
-
-
+                <div className="flex justify-end mb-4">
+                  <span className="inline-flex items-center px-2 py-0.5 text-white carbon-label-01 uppercase tracking-wider rounded-full border border-white/20" style={{ backgroundColor: card.color === '#6f6f6f' ? '#9ca3af' : card.color === '#1565c0' ? '#4f8eff' : '#a855f7' }}>{card.tag}</span>
                 </div>
 
-
-
-                <p className="carbon-label-02 text-gray-400 uppercase mb-3">{card.tag}</p>
-
-
-
-                <h3 className="carbon-card-title text-gray-900 leading-tight mb-3 pr-12">{card.title}</h3>
-
-
-
-                <p className="carbon-body-02 text-gray-500 mb-5">{card.desc}</p>
-
-
-
-                <div className="space-y-2 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-
-
-
-                  {card.features.map((f) => (
-
-
-
-                    <div key={f} className="flex items-start gap-2 carbon-body-02 text-gray-600">
-
-
-
-                      <span className="w-1 h-1 rounded-full bg-gray-400 flex-shrink-0 mt-2" />
-
-
-
-                      <span>{f}</span>
-
-
-
-                    </div>
-
-
-
-                  ))}
-
-
-
+                <div className="mb-5">
+                  <p className="carbon-heading-02 text-gray-900 leading-tight">{card.title}</p>
+                  <p className="carbon-body-02 text-gray-600 mt-2">{card.desc}</p>
                 </div>
 
-
-
+                <div className="pt-5 border-t border-gray-100">
+                  <p className="carbon-label-02 text-gray-500 uppercase mb-3">Solutions</p>
+                  <ul className="space-y-3">
+                    {card.features.map((f) => (
+                      <li key={f} className="flex items-start gap-3 carbon-body-02 text-gray-600">
+                        <span className="w-1 h-1 rounded-full bg-gray-400 flex-shrink-0 mt-1" />
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
 
@@ -520,7 +472,7 @@ export default function ProcurementSection() {
 
 
 
-        <div className="mb-10">
+        <div className="mb-8 md:mb-12">
 
 
 
@@ -612,7 +564,7 @@ export default function ProcurementSection() {
 
 
 
-            <h3 className="carbon-card-title text-gray-900 mb-3 leading-tight">FusionCol8000-E</h3>
+            <h3 className="carbon-heading-02 text-gray-900 mb-3 leading-tight">FusionCol8000-E</h3>
 
 
 
@@ -628,7 +580,7 @@ export default function ProcurementSection() {
 
 
 
-                <div key={s.l} className="bg-gray-50 rounded-lg p-3 border border-gray-100"><p className="carbon-label-02 text-gray-400 uppercase mb-1">{s.l}</p><p className="carbon-price text-gray-900">{s.v}</p></div>
+                <div key={s.l} className="bg-gray-50 rounded-lg p-3 border border-gray-100"><p className="carbon-label-02 text-gray-400 uppercase mb-1">{s.l}</p><p className="carbon-heading-01 md:carbon-price text-gray-900">{s.v}</p></div>
 
 
 
@@ -644,7 +596,7 @@ export default function ProcurementSection() {
 
 
 
-              <div className="flex gap-3 flex-wrap">
+              <div className="flex gap-3 flex-wrap justify-center sm:justify-start">
 
 
 
@@ -704,11 +656,11 @@ export default function ProcurementSection() {
 
 
 
-            <p className="carbon-label-02 text-gray-500 uppercase mb-1">Scope</p>
+            <p className="carbon-label-01 text-gray-500 uppercase mb-1">Scope</p>
 
 
 
-            <p className="carbon-body-02 text-gray-600">Procurement covers hardware supply and manufacturer warranty administration only. Installation, piping, ducting, commissioning validation, and ongoing maintenance are scoped separately under Deployment and Managed Services.</p>
+            <p className="carbon-helper-text-01 text-gray-500">Procurement covers hardware supply and manufacturer warranty administration only. Installation, piping, ducting, commissioning validation, and ongoing maintenance are scoped separately under Deployment and Managed Services.</p>
 
 
 

@@ -35,7 +35,7 @@ export default function CTASection() {
 
 
 
-        <p className="carbon-body-02 text-white/80 mb-10">Book a free 15-minute call. We&apos;ll identify the right path forward.</p>
+        <p className="carbon-body-02 text-white/80 mb-10">Request a free consultation. We&apos;ll identify the right path forward and respond within one business day.</p>
 
 
 
@@ -51,7 +51,7 @@ export default function CTASection() {
 
 
 
-          className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#00d4ff] carbon-heading-02 hover:bg-gray-50 transition-colors rounded-lg"
+          className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0f62fe] carbon-heading-02 hover:bg-gray-50 transition-colors rounded-lg"
 
 
 
@@ -187,11 +187,11 @@ export default function CTASection() {
 
 
 
-                <p className="carbon-label-02 uppercase tracking-[0.2em] text-[#00d4ff] mb-3">Optimised tool selection</p>
+                <p className="carbon-label-01 text-[#0f62fe] uppercase mb-3">Optimised tool selection</p>
 
 
 
-                <h2 className="carbon-fluid-heading-04 text-slate-950">Partner types and selection notes for cooling delivery</h2>
+                <h2 className="carbon-fluid-heading-05 text-slate-950">Partner types and selection notes for cooling delivery</h2>
 
 
 

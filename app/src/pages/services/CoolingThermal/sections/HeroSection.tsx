@@ -18,35 +18,35 @@ export default function HeroSection() {
 
 
 
-        <ol className="flex flex-wrap items-center gap-1.5 text-xs text-slate-400">
+        <ol className="flex flex-wrap items-center gap-1.5 text-xs text-gray-400">
 
 
 
-          <li><a href="/#/" className="hover:text-[#00d4ff] transition-colors">Home</a></li>
+          <li><a href="/#/" className="hover:text-[#78a9ff] transition-colors">Home</a></li>
 
 
 
-          <li className="text-slate-600">/</li>
+          <li className="text-gray-600">/</li>
 
 
 
-          <li><a href="/#/services/infrastructure" className="hover:text-[#00d4ff] transition-colors">Infrastructure</a></li>
+          <li><a href="/#/services/infrastructure" className="hover:text-[#78a9ff] transition-colors">Infrastructure</a></li>
 
 
 
-          <li className="text-slate-600">/</li>
+          <li className="text-gray-600">/</li>
 
 
 
-          <li><a href="/#/services/datacenter2" className="hover:text-[#00d4ff] transition-colors">Data Centre</a></li>
+          <li><a href="/#/services/datacenter2" className="hover:text-[#78a9ff] transition-colors">Data Centre</a></li>
 
 
 
-          <li className="text-slate-600">/</li>
+          <li className="text-gray-600">/</li>
 
 
 
-          <li className="text-slate-200 font-medium" aria-current="page">Cooling</li>
+          <li className="text-gray-300 font-medium" aria-current="page">Cooling</li>
 
 
 
@@ -74,11 +74,11 @@ export default function HeroSection() {
 
 
 
-            <span className="w-2 h-2 bg-[#00ff88] rounded-full shadow-[0_0_8px_rgba(0,255,136,0.8)]" />
+            <span className="w-2 h-2 bg-[#00d4ff] rounded-full shadow-[0_0_8px_rgba(0,212,255,0.6)]" />
 
 
 
-            <span className="carbon-label-02 text-slate-100">Engineered for Pakistan&apos;s 45°C summers</span>
+            <span className="carbon-label-02 text-slate-100">Engineered for 45°C Ambients</span>
 
 
 
@@ -98,7 +98,7 @@ export default function HeroSection() {
 
 
 
-              <span className="block bg-gradient-to-r from-[#00d4ff] to-[#ff00ff] bg-clip-text text-transparent">Data Centre Cooling</span>
+              <span className="block bg-gradient-to-r from-[#78a9ff] to-[#0f62fe] bg-clip-text text-transparent">Data Centre Cooling</span>
 
 
 
@@ -178,7 +178,7 @@ export default function HeroSection() {
 
 
 
-                  <span className="w-5 h-5 rounded-full bg-[#00d4ff]/20 flex items-center justify-center text-[10px] font-bold text-[#78a9ff]">{step.num}</span>
+                  <span className="w-5 h-5 rounded-full bg-[#0f62fe]/20 flex items-center justify-center text-[10px] font-bold text-[#78a9ff]">{step.num}</span>
 
 
 
