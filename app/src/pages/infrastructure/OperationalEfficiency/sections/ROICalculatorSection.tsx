@@ -227,9 +227,9 @@ export default function ROICalculatorSection() {
   const [activeTab, setActiveTab] = useState<Tab>('pue');
 
   const tabs: { id: Tab; label: string; icon: typeof Zap; activeBg: string; activeShadow: string; inactiveBorder: string; inactiveHover: string }[] = [
-    { id: 'pue', label: 'PUE Energy', icon: Zap, activeBg: 'bg-[#0f62fe]', activeShadow: 'shadow-[#0f62fe]/20', inactiveBorder: 'border-white/10', inactiveHover: 'hover:border-white/20' },
-    { id: 'downtime', label: 'Downtime Cost', icon: AlertTriangle, activeBg: 'bg-[#da1e28]', activeShadow: 'shadow-[#da1e28]/20', inactiveBorder: 'border-white/10', inactiveHover: 'hover:border-white/20' },
-    { id: 'capex', label: 'Deferred CapEx', icon: Clock, activeBg: 'bg-[#22c55e]', activeShadow: 'shadow-[#22c55e]/20', inactiveBorder: 'border-white/10', inactiveHover: 'hover:border-white/20' },
+    { id: 'pue', label: 'PUE Energy', icon: Zap, activeBg: 'bg-[#0f62fe]', activeShadow: 'shadow-[#0f62fe]/20', inactiveBorder: 'border-[#0f62fe]/30', inactiveHover: 'hover:border-[#0f62fe]/50' },
+    { id: 'downtime', label: 'Downtime Cost', icon: AlertTriangle, activeBg: 'bg-[#da1e28]', activeShadow: 'shadow-[#da1e28]/20', inactiveBorder: 'border-[#da1e28]/30', inactiveHover: 'hover:border-[#da1e28]/50' },
+    { id: 'capex', label: 'Deferred CapEx', icon: Clock, activeBg: 'bg-[#22c55e]', activeShadow: 'shadow-[#22c55e]/20', inactiveBorder: 'border-[#22c55e]/30', inactiveHover: 'hover:border-[#22c55e]/50' },
   ];
 
   return (
@@ -246,7 +246,7 @@ export default function ROICalculatorSection() {
         </div>
 
         {/* Toggle */}
-        <div className="flex gap-2 mb-10 overflow-x-auto pb-2 -mx-6 px-6 sm:mx-0 sm:px-0 no-scrollbar">
+        <div className="flex flex-wrap gap-2 mb-10">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -254,13 +254,13 @@ export default function ROICalculatorSection() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all flex-shrink-0 ${
+                className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all ${
                   isActive
                     ? `${tab.activeBg} text-white shadow-lg ${tab.activeShadow}`
                     : `bg-[#1e293b] text-gray-400 border ${tab.inactiveBorder} ${tab.inactiveHover} hover:text-white`
                 }`}
               >
-                <Icon className="w-4 h-4" />
+                <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 {tab.label}
               </button>
             );
