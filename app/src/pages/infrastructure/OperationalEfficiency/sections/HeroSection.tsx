@@ -25,8 +25,8 @@ export default function HeroSection() {
 
         <div className="max-w-3xl">
           <h1 className="carbon-fluid-display-03 text-white mb-6 leading-[1.15]">
-            Reduce Data Centre Costs.
-            <span className="block bg-gradient-to-r from-[#78a9ff] to-[#0f62fe] bg-clip-text text-transparent">
+            Reduce Data Centre Costs.{" "}
+            <span className="lg:block bg-gradient-to-r from-[#78a9ff] to-[#0f62fe] bg-clip-text text-transparent">
               Defer Capital Expenditure.
             </span>
           </h1>

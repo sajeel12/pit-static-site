@@ -4,7 +4,7 @@ import { Zap, AlertTriangle, Clock } from 'lucide-react';
 type Tab = 'pue' | 'downtime' | 'capex';
 
 /* ------------------------------------------------------------------ */
-/*  PUE ENERGY CALCULATOR                                             */
+/*  PUE ENERGY CALCULATOR — BLUE THEME                                */
 /* ------------------------------------------------------------------ */
 function PUECalculator() {
   const [loadKw, setLoadKw] = useState(100);
@@ -35,38 +35,36 @@ function PUECalculator() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      {/* Inputs */}
-      <div className="bg-[#1e293b] rounded-xl border border-white/10 p-5 sm:p-8">
+      <div className="bg-[#0f172a] rounded-xl border border-[#0f62fe]/20 p-5 sm:p-8">
         <div className="flex items-center gap-3 mb-6 sm:mb-8">
-          <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/20 flex items-center justify-center flex-shrink-0"><Zap className="w-5 h-5 text-[#78a9ff]" /></div>
+          <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/20 flex items-center justify-center"><Zap className="w-5 h-5 text-[#78a9ff]" /></div>
           <p className="carbon-heading-02 text-white">Your Facility</p>
         </div>
         <div className="space-y-8">
-          <Slider label="IT Load" value={loadKw} min={10} max={1000} step={10} unit="kW" display={`${loadKw} kW`} onChange={setLoadKw} />
-          <Slider label="Current PUE" value={currentPue} min={1.1} max={3.0} step={0.1} unit="" display={currentPue.toFixed(1)} onChange={setCurrentPue} />
-          <Slider label="Target PUE" value={targetPue} min={1.1} max={2.5} step={0.1} unit="" display={targetPue.toFixed(1)} onChange={setTargetPue} />
-          <Slider label="Electricity Rate" value={costPerKwh} min={15} max={80} step={1} unit="PKR/kWh" display={`PKR ${costPerKwh}/kWh`} onChange={setCostPerKwh} />
+          <Slider label="IT Load" value={loadKw} min={10} max={1000} step={10} unit="kW" display={`${loadKw} kW`} onChange={setLoadKw} accent="#0f62fe" />
+          <Slider label="Current PUE" value={currentPue} min={1.1} max={3.0} step={0.1} unit="" display={currentPue.toFixed(1)} onChange={setCurrentPue} accent="#0f62fe" />
+          <Slider label="Target PUE" value={targetPue} min={1.1} max={2.5} step={0.1} unit="" display={targetPue.toFixed(1)} onChange={setTargetPue} accent="#0f62fe" />
+          <Slider label="Electricity Rate" value={costPerKwh} min={15} max={80} step={1} unit="PKR/kWh" display={`PKR ${costPerKwh}/kWh`} onChange={setCostPerKwh} accent="#0f62fe" />
         </div>
       </div>
 
-      {/* Results */}
       <div className="space-y-6">
-        <div className="bg-[#1e293b] rounded-xl border border-white/10 p-5 sm:p-8">
+        <div className="bg-[#0f172a] rounded-xl border border-[#0f62fe]/20 p-5 sm:p-8">
           <p className="carbon-label-02 text-gray-400 uppercase mb-6">Estimated Annual Impact</p>
-          <ResultRow label="Current annual energy cost" value={fmt(results.currentCost)} highlight={false} />
-          <ResultRow label="Optimised annual energy cost" value={fmt(results.targetCost)} highlight={false} color="text-[#78a9ff]" />
-          <ResultRow label="Annual savings" value={fmt(results.annualSavings)} highlight border />
-          <ResultRow label="Savings percentage" value={`${results.savingsPercent}%`} highlight={false} />
-          <ResultRow label="Estimated CO₂ reduction" value={`${results.co2ReductionTons} tons/year`} highlight={false} color="text-[#22c55e]" />
+          <ResultRow label="Current annual energy cost" value={fmt(results.currentCost)} />
+          <ResultRow label="Optimised annual energy cost" value={fmt(results.targetCost)} color="text-[#78a9ff]" />
+          <ResultRow label="Annual savings" value={fmt(results.annualSavings)} highlight highlightColor="border-[#0f62fe]/30" textColor="text-[#0f62fe]" />
+          <ResultRow label="Savings percentage" value={`${results.savingsPercent}%`} />
+          <ResultRow label="Estimated CO₂ reduction" value={`${results.co2ReductionTons} tons/year`} color="text-[#22c55e]" />
         </div>
-        <Disclaimer />
+        <Disclaimer borderColor="border-[#0f62fe]/20" bgColor="bg-[#0f62fe]/10" />
       </div>
     </div>
   );
 }
 
 /* ------------------------------------------------------------------ */
-/*  DOWNTIME COST CALCULATOR                                          */
+/*  DOWNTIME COST CALCULATOR — RED THEME                              */
 /* ------------------------------------------------------------------ */
 function DowntimeCalculator() {
   const [revenuePerHour, setRevenuePerHour] = useState(500000);
@@ -78,7 +76,7 @@ function DowntimeCalculator() {
   const results = useMemo(() => {
     const revenueLoss = revenuePerHour * recoveryHours;
     const productivityLoss = employees * hourlyWage * recoveryHours;
-    const recoveryCost = recoveryHours * 50000; // rough engineer + parts estimate
+    const recoveryCost = recoveryHours * 50000;
     const perOutage = revenueLoss + productivityLoss + recoveryCost;
     const annualExposure = perOutage * outagesPerYear;
 
@@ -95,37 +93,37 @@ function DowntimeCalculator() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      <div className="bg-[#1e293b] rounded-xl border border-white/10 p-5 sm:p-8">
+      <div className="bg-[#0f172a] rounded-xl border border-[#da1e28]/20 p-5 sm:p-8">
         <div className="flex items-center gap-3 mb-6 sm:mb-8">
-          <div className="w-10 h-10 rounded-lg bg-[#da1e28]/20 flex items-center justify-center flex-shrink-0"><AlertTriangle className="w-5 h-5 text-[#da1e28]" /></div>
+          <div className="w-10 h-10 rounded-lg bg-[#da1e28]/20 flex items-center justify-center"><AlertTriangle className="w-5 h-5 text-[#da1e28]" /></div>
           <p className="carbon-heading-02 text-white">Downtime Scenario</p>
         </div>
         <div className="space-y-8">
-          <Slider label="Revenue per hour" value={revenuePerHour} min={50000} max={5000000} step={50000} unit="PKR" display={`PKR ${(revenuePerHour / 1000).toFixed(0)}K`} onChange={setRevenuePerHour} />
-          <Slider label="Employees affected" value={employees} min={5} max={500} step={5} unit="" display={`${employees}`} onChange={setEmployees} />
-          <Slider label="Average hourly wage" value={hourlyWage} min={200} max={5000} step={100} unit="PKR" display={`PKR ${hourlyWage}`} onChange={setHourlyWage} />
-          <Slider label="Estimated recovery time" value={recoveryHours} min={1} max={48} step={1} unit="hours" display={`${recoveryHours} hours`} onChange={setRecoveryHours} />
-          <Slider label="Unplanned outages per year" value={outagesPerYear} min={0} max={12} step={1} unit="" display={`${outagesPerYear}`} onChange={setOutagesPerYear} />
+          <Slider label="Revenue per hour" value={revenuePerHour} min={50000} max={5000000} step={50000} unit="PKR" display={`PKR ${(revenuePerHour / 1000).toFixed(0)}K`} onChange={setRevenuePerHour} accent="#da1e28" />
+          <Slider label="Employees affected" value={employees} min={5} max={500} step={5} unit="" display={`${employees}`} onChange={setEmployees} accent="#da1e28" />
+          <Slider label="Average hourly wage" value={hourlyWage} min={200} max={5000} step={100} unit="PKR" display={`PKR ${hourlyWage}`} onChange={setHourlyWage} accent="#da1e28" />
+          <Slider label="Estimated recovery time" value={recoveryHours} min={1} max={48} step={1} unit="hours" display={`${recoveryHours} hours`} onChange={setRecoveryHours} accent="#da1e28" />
+          <Slider label="Unplanned outages per year" value={outagesPerYear} min={0} max={12} step={1} unit="" display={`${outagesPerYear}`} onChange={setOutagesPerYear} accent="#da1e28" />
         </div>
       </div>
 
       <div className="space-y-6">
-        <div className="bg-[#1e293b] rounded-xl border border-white/10 p-5 sm:p-8">
+        <div className="bg-[#0f172a] rounded-xl border border-[#da1e28]/20 p-5 sm:p-8">
           <p className="carbon-label-02 text-gray-400 uppercase mb-6">Cost per Outage</p>
-          <ResultRow label="Revenue loss" value={fmt(results.revenueLoss)} highlight={false} />
-          <ResultRow label="Productivity loss" value={fmt(results.productivityLoss)} highlight={false} />
-          <ResultRow label="Recovery cost (engineers + parts)" value={fmt(results.recoveryCost)} highlight={false} />
-          <ResultRow label="Total per outage" value={fmt(results.perOutage)} highlight border />
-          <ResultRow label="Annual risk exposure" value={fmt(results.annualExposure)} highlight={false} color="text-[#da1e28]" />
+          <ResultRow label="Revenue loss" value={fmt(results.revenueLoss)} />
+          <ResultRow label="Productivity loss" value={fmt(results.productivityLoss)} />
+          <ResultRow label="Recovery cost (engineers + parts)" value={fmt(results.recoveryCost)} />
+          <ResultRow label="Total per outage" value={fmt(results.perOutage)} highlight highlightColor="border-[#da1e28]/30" textColor="text-[#da1e28]" />
+          <ResultRow label="Annual risk exposure" value={fmt(results.annualExposure)} color="text-[#da1e28]" />
         </div>
-        <Disclaimer />
+        <Disclaimer borderColor="border-[#da1e28]/20" bgColor="bg-[#da1e28]/10" />
       </div>
     </div>
   );
 }
 
 /* ------------------------------------------------------------------ */
-/*  DEFERRED CAPEX CALCULATOR                                         */
+/*  DEFERRED CAPEX CALCULATOR — GREEN THEME                           */
 /* ------------------------------------------------------------------ */
 function CapExCalculator() {
   const [replacementCost, setReplacementCost] = useState(5000000);
@@ -154,29 +152,29 @@ function CapExCalculator() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      <div className="bg-[#1e293b] rounded-xl border border-white/10 p-5 sm:p-8">
+      <div className="bg-[#0f172a] rounded-xl border border-[#22c55e]/20 p-5 sm:p-8">
         <div className="flex items-center gap-3 mb-6 sm:mb-8">
-          <div className="w-10 h-10 rounded-lg bg-[#22c55e]/20 flex items-center justify-center flex-shrink-0"><Clock className="w-5 h-5 text-[#22c55e]" /></div>
+          <div className="w-10 h-10 rounded-lg bg-[#22c55e]/20 flex items-center justify-center"><Clock className="w-5 h-5 text-[#22c55e]" /></div>
           <p className="carbon-heading-02 text-white">Equipment Profile</p>
         </div>
         <div className="space-y-8">
-          <Slider label="Replacement cost" value={replacementCost} min={500000} max={50000000} step={500000} unit="PKR" display={`PKR ${(replacementCost / 1000000).toFixed(1)}M`} onChange={setReplacementCost} />
-          <Slider label="Current equipment age" value={currentAge} min={1} max={25} step={1} unit="years" display={`${currentAge} years`} onChange={setCurrentAge} />
-          <Slider label="Expected lifespan" value={expectedLifespan} min={5} max={30} step={1} unit="years" display={`${expectedLifespan} years`} onChange={setExpectedLifespan} />
-          <Slider label="Optimisation spend" value={optimisationSpend} min={100000} max={10000000} step={100000} unit="PKR" display={`PKR ${(optimisationSpend / 1000000).toFixed(1)}M`} onChange={setOptimisationSpend} />
-          <Slider label="Efficiency gain" value={efficiencyGain} min={5} max={60} step={5} unit="%" display={`${efficiencyGain}%`} onChange={setEfficiencyGain} />
+          <Slider label="Replacement cost" value={replacementCost} min={500000} max={50000000} step={500000} unit="PKR" display={`PKR ${(replacementCost / 1000000).toFixed(1)}M`} onChange={setReplacementCost} accent="#22c55e" />
+          <Slider label="Current equipment age" value={currentAge} min={1} max={25} step={1} unit="years" display={`${currentAge} years`} onChange={setCurrentAge} accent="#22c55e" />
+          <Slider label="Expected lifespan" value={expectedLifespan} min={5} max={30} step={1} unit="years" display={`${expectedLifespan} years`} onChange={setExpectedLifespan} accent="#22c55e" />
+          <Slider label="Optimisation spend" value={optimisationSpend} min={100000} max={10000000} step={100000} unit="PKR" display={`PKR ${(optimisationSpend / 1000000).toFixed(1)}M`} onChange={setOptimisationSpend} accent="#22c55e" />
+          <Slider label="Efficiency gain" value={efficiencyGain} min={5} max={60} step={5} unit="%" display={`${efficiencyGain}%`} onChange={setEfficiencyGain} accent="#22c55e" />
         </div>
       </div>
 
       <div className="space-y-6">
-        <div className="bg-[#1e293b] rounded-xl border border-white/10 p-5 sm:p-8">
+        <div className="bg-[#0f172a] rounded-xl border border-[#22c55e]/20 p-5 sm:p-8">
           <p className="carbon-label-02 text-gray-400 uppercase mb-6">Deferral Impact</p>
-          <ResultRow label="Equipment life extended by" value={`${results.monthsExtended} months`} highlight={false} color="text-[#78a9ff]" />
-          <ResultRow label="New replacement date" value={results.deferredDate} highlight={false} />
-          <ResultRow label="Replacement cost avoided now" value={fmt(results.netSavings)} highlight border />
-          <ResultRow label="Return on optimisation spend" value={`${results.roi}%`} highlight={false} color="text-[#22c55e]" />
+          <ResultRow label="Equipment life extended by" value={`${results.monthsExtended} months`} color="text-[#78a9ff]" />
+          <ResultRow label="New replacement date" value={results.deferredDate} />
+          <ResultRow label="Replacement cost avoided now" value={fmt(results.netSavings)} highlight highlightColor="border-[#22c55e]/30" textColor="text-[#22c55e]" />
+          <ResultRow label="Return on optimisation spend" value={`${results.roi}%`} color="text-[#22c55e]" />
         </div>
-        <Disclaimer />
+        <Disclaimer borderColor="border-[#22c55e]/20" bgColor="bg-[#22c55e]/10" />
       </div>
     </div>
   );
@@ -185,8 +183,8 @@ function CapExCalculator() {
 /* ------------------------------------------------------------------ */
 /*  SHARED UI COMPONENTS                                              */
 /* ------------------------------------------------------------------ */
-function Slider({ label, value, min, max, step, unit, display, onChange }: {
-  label: string; value: number; min: number; max: number; step: number; unit: string; display: string; onChange: (v: number) => void;
+function Slider({ label, value, min, max, step, unit, display, onChange, accent }: {
+  label: string; value: number; min: number; max: number; step: number; unit: string; display: string; onChange: (v: number) => void; accent: string;
 }) {
   return (
     <div>
@@ -194,7 +192,7 @@ function Slider({ label, value, min, max, step, unit, display, onChange }: {
         <label className="carbon-label-02 text-gray-400 uppercase">{label}</label>
         <span className="carbon-body-02 text-white">{display}</span>
       </div>
-      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(Number(e.target.value))} className="w-full accent-[#0f62fe]" />
+      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(Number(e.target.value))} className="w-full" style={{ accentColor: accent }} />
       <div className="flex justify-between mt-1">
         <span className="carbon-helper-text-01 text-gray-500">{min} {unit}</span>
         <span className="carbon-helper-text-01 text-gray-500">{max} {unit}</span>
@@ -203,18 +201,18 @@ function Slider({ label, value, min, max, step, unit, display, onChange }: {
   );
 }
 
-function ResultRow({ label, value, highlight, border, color }: { label: string; value: string; highlight?: boolean; border?: boolean; color?: string }) {
+function ResultRow({ label, value, highlight, highlightColor, textColor, color }: { label: string; value: string; highlight?: boolean; highlightColor?: string; textColor?: string; color?: string }) {
   return (
-    <div className={`flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 sm:gap-0 pb-4 ${border ? 'border-b border-[#0f62fe]/30' : 'border-b border-white/10'}`}>
+    <div className={`flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 sm:gap-0 pb-4 ${highlight ? `border-b ${highlightColor}` : 'border-b border-white/10'}`}>
       <span className={`carbon-body-02 ${highlight ? 'text-white font-medium' : 'text-gray-400'}`}>{label}</span>
-      <span className={`carbon-heading-02 ${highlight ? 'text-[#0f62fe]' : color ?? 'text-white'}`}>{value}</span>
+      <span className={`carbon-heading-02 ${highlight ? textColor : color ?? 'text-white'}`}>{value}</span>
     </div>
   );
 }
 
-function Disclaimer() {
+function Disclaimer({ borderColor, bgColor }: { borderColor: string; bgColor: string }) {
   return (
-    <div className="p-5 bg-[#0f62fe]/10 rounded-xl border border-[#0f62fe]/20">
+    <div className={`p-5 rounded-xl border ${borderColor} ${bgColor}`}>
       <p className="carbon-body-02 text-gray-300">
         <strong className="text-white">This is an estimate only.</strong> Actual outcomes depend on facility condition, infrastructure age, utility rates, and scope of work. A site assessment is required for a firm proposal.
       </p>
@@ -228,10 +226,10 @@ function Disclaimer() {
 export default function ROICalculatorSection() {
   const [activeTab, setActiveTab] = useState<Tab>('pue');
 
-  const tabs: { id: Tab; label: string; icon: typeof Zap }[] = [
-    { id: 'pue', label: 'PUE Energy', icon: Zap },
-    { id: 'downtime', label: 'Downtime Cost', icon: AlertTriangle },
-    { id: 'capex', label: 'Deferred CapEx', icon: Clock },
+  const tabs: { id: Tab; label: string; icon: typeof Zap; activeBg: string; activeShadow: string; inactiveBorder: string; inactiveHover: string }[] = [
+    { id: 'pue', label: 'PUE Energy', icon: Zap, activeBg: 'bg-[#0f62fe]', activeShadow: 'shadow-[#0f62fe]/20', inactiveBorder: 'border-white/10', inactiveHover: 'hover:border-white/20' },
+    { id: 'downtime', label: 'Downtime Cost', icon: AlertTriangle, activeBg: 'bg-[#da1e28]', activeShadow: 'shadow-[#da1e28]/20', inactiveBorder: 'border-white/10', inactiveHover: 'hover:border-white/20' },
+    { id: 'capex', label: 'Deferred CapEx', icon: Clock, activeBg: 'bg-[#22c55e]', activeShadow: 'shadow-[#22c55e]/20', inactiveBorder: 'border-white/10', inactiveHover: 'hover:border-white/20' },
   ];
 
   return (
@@ -256,10 +254,10 @@ export default function ROICalculatorSection() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all flex-shrink-0 ${
                   isActive
-                    ? 'bg-[#0f62fe] text-white shadow-lg shadow-[#0f62fe]/20'
-                    : 'bg-[#1e293b] text-gray-400 border border-white/10 hover:border-white/20 hover:text-white'
+                    ? `${tab.activeBg} text-white shadow-lg ${tab.activeShadow}`
+                    : `bg-[#1e293b] text-gray-400 border ${tab.inactiveBorder} ${tab.inactiveHover} hover:text-white`
                 }`}
               >
                 <Icon className="w-4 h-4" />

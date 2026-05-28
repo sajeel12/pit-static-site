@@ -77,11 +77,10 @@ export default function ServiceCategoriesSection() {
           <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">
             Where the Savings Come From
           </h2>
-          <p className="carbon-body-02 text-gray-500 max-w-2xl mb-3">
+          <p className="carbon-body-02 text-gray-500 max-w-2xl">
             Each infrastructure discipline contributes to the total cost picture.
-          </p>
-          <p className="carbon-label-01 text-[#0f62fe] uppercase">
-            Click any card to explore full specifications, pricing tiers, and deployment methodologies.
+            <br />
+            <span className="text-[#0f62fe]">Click any card to explore full specifications, pricing tiers, and deployment methodologies.</span>
           </p>
         </div>
 
@@ -90,24 +89,19 @@ export default function ServiceCategoriesSection() {
             <Link
               key={s.title}
               to={s.link}
-              className="group relative bg-white rounded-xl border border-gray-200 hover:border-[#0f62fe] transition-all duration-300 hover:shadow-lg"
+              className="group relative bg-white rounded-xl border border-gray-200 hover:border-[#0f62fe] transition-all duration-300 hover:shadow-lg flex flex-col"
             >
               <div className="h-1.5 w-full rounded-t-xl bg-gradient-to-r from-gray-200 to-gray-100 group-hover:from-[#0f62fe]/30 group-hover:to-[#78a9ff]/20 transition-all" />
-              <div className="p-6 sm:p-8">
-                <div className="flex items-center justify-between mb-5">
-                  <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center">
-                    <s.icon className="w-5 h-5 text-[#0f62fe]" />
-                  </div>
-                  <span className="inline-flex items-center px-2 py-0.5 text-[#0f62fe] carbon-label-01 uppercase tracking-wider rounded-full bg-[#0f62fe]/10">
-                    {s.metric}
-                  </span>
+              <div className="p-6 sm:p-8 flex flex-col flex-1">
+                <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center mb-5">
+                  <s.icon className="w-5 h-5 text-[#0f62fe]" />
                 </div>
 
                 <p className="carbon-heading-02 text-gray-900 mb-1">{s.title}</p>
-                <p className="carbon-label-02 text-gray-500 uppercase mb-3">{s.headline}</p>
-                <p className="carbon-body-02 text-gray-600">{s.desc}</p>
+                <p className="carbon-label-01 text-[#0f62fe] uppercase tracking-wider mb-3">{s.metric}</p>
+                <p className="carbon-body-02 text-gray-600 flex-1">{s.desc}</p>
 
-                <div className="mt-5 pt-4 border-t border-gray-100 flex items-center gap-1 text-[#0f62fe] carbon-label-01 uppercase group-hover:gap-2 transition-all">
+                <div className="mt-auto pt-4 border-t border-gray-100 flex items-center gap-1 text-[#0f62fe] carbon-label-01 uppercase group-hover:gap-2 transition-all">
                   View Service <span className="text-lg leading-none">→</span>
                 </div>
               </div>
