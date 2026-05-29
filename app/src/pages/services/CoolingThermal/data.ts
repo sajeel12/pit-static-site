@@ -98,7 +98,7 @@ export const TESTIMONIALS = [
 
 
 
-    bg: 'from-[#1565c0] to-[#4589ff]',
+    bg: 'from-[#0043ce] to-[#002d9c]',
 
 
 
@@ -146,7 +146,7 @@ export const TESTIMONIALS = [
 
 
 
-    bg: 'from-[#6929c4] to-[#8a3ffc]',
+    bg: 'from-[#002d9c] to-[#0043ce]',
 
 
 
@@ -194,7 +194,7 @@ export const TESTIMONIALS = [
 
 
 
-    bg: 'from-[#009d9a] to-[#007d79]',
+    bg: 'from-[#001d6c] to-[#0043ce]',
 
 
 
@@ -242,7 +242,7 @@ export const TESTIMONIALS = [
 
 
 
-    bg: 'from-[#9f1853] to-[#d02670]',
+    bg: 'from-[#0f62fe] to-[#0353e9]',
 
 
 
@@ -290,7 +290,7 @@ export const TESTIMONIALS = [
 
 
 
-    bg: 'from-[#8a3ffc] to-[#6929c4]',
+    bg: 'from-[#0353e9] to-[#0f62fe]',
 
 
 
