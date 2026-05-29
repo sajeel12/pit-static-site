@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 import ArrowRight from '@carbon/icons-react/es/ArrowRight';
 import ChevronDown from '@carbon/icons-react/es/ChevronDown';
 import CheckmarkFilled from '@carbon/icons-react/es/CheckmarkFilled';
@@ -13,6 +14,8 @@ import ChartLine from '@carbon/icons-react/es/ChartLine';
 export default function RemoteAdvisorySection() {
 
   const [openIdx, setOpenIdx] = useState<number | null>(0);
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
+  const isMobile = useIsMobile();
 
   return (
 
@@ -66,7 +69,7 @@ export default function RemoteAdvisorySection() {
         <div className="mb-12 pt-4 border-t border-white/10">
           <p className="carbon-label-02 text-white uppercase tracking-wider mb-8">What You Receive</p>
 
-          <div className="group grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
             {[
 
@@ -80,14 +83,24 @@ export default function RemoteAdvisorySection() {
 
             ].map((item) => (
 
-              <div key={item.num} className="relative bg-[#1e293b] border border-white/10 rounded-xl overflow-hidden flex flex-col hover:border-white/20 transition-colors duration-300">
+              <div
+                key={item.num}
+                onClick={() => isMobile && setExpandedCard(expandedCard === item.num ? null : item.num)}
+                className={`relative bg-[#1e293b] border rounded-xl overflow-hidden flex flex-col hover:border-white/20 transition-colors duration-300 cursor-pointer sm:cursor-default ${expandedCard === item.num ? 'border-[#78a9ff]' : 'border-white/10'}`}
+              >
                 <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-white/10 to-white/5" />
                 <div className="p-5 flex-1 flex flex-col">
                   <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 bg-[#0f62fe]/20`}>
                     <item.icon className={`w-4 h-4 text-[#78a9ff]`} />
                   </div>
-                  <p className="carbon-heading-02 text-white mb-2 group-hover:text-[#78a9ff] transition-colors duration-300">{item.title}</p>
-                  <ul className="carbon-body-02 text-slate-400 max-h-0 opacity-0 overflow-hidden group-hover:max-h-60 group-hover:opacity-100 group-hover:mt-3 transition-all duration-300 list-disc list-outside pl-4 space-y-1">
+                  <p className="carbon-heading-02 text-white mb-2 sm:group-hover:text-[#78a9ff] transition-colors duration-300">{item.title}</p>
+                  {isMobile && (
+                    <p className="carbon-label-01 text-[#78a9ff] mb-2 flex items-center gap-1">
+                      {expandedCard === item.num ? 'Tap to collapse' : 'Tap to expand'}
+                      <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${expandedCard === item.num ? 'rotate-180' : ''}`} />
+                    </p>
+                  )}
+                  <ul className={`carbon-body-02 text-slate-400 overflow-hidden transition-all duration-300 list-disc list-outside pl-4 space-y-1 ${isMobile ? (expandedCard === item.num ? 'max-h-60 opacity-100 mt-3' : 'max-h-0 opacity-0 mt-0') : 'max-h-0 opacity-0 mt-0 group-hover:max-h-60 group-hover:opacity-100 group-hover:mt-3'}`}>
                     {item.bullets.map((b) => (
                       <li key={b}>{b}</li>
                     ))}
