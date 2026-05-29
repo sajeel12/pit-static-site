@@ -25,8 +25,11 @@ export default function RemoteAdvisorySection() {
 
         {/* Header */}
         <div className="mb-8 carbon-font">
-          <p className="carbon-label-01 text-[#78a9ff] uppercase mb-3">05 / International Advisory</p>
-          <h2 className="carbon-fluid-heading-05 text-white mb-4">Offshore Technical Consultation</h2>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full mb-4 md:mb-6">
+            <span className="w-5 h-5 rounded-full bg-[#0f62fe] flex items-center justify-center text-[10px] font-bold text-white">05</span>
+            <span className="carbon-label-02 text-white/90 uppercase tracking-wider">International Advisory</span>
+          </div>
+          <h2 className="carbon-fluid-heading-05 text-white mb-4 md:mb-6">Offshore Technical Consultation</h2>
           <p className="carbon-body-02 text-gray-400 max-w-3xl">
             Strategic thermal guidance for offshore data centres, delivered entirely remotely. We review your designs, specifications, and airflow plans, then provide actionable recommendations validated for extreme heat, humidity, and operational stress.
           </p>
@@ -41,7 +44,7 @@ export default function RemoteAdvisorySection() {
 
             {[
 
-              { icon: ChartLine, title: 'Pre-Sales & Planning Teams', desc: 'Need thermal direction before procurement or site mobilization. Validate feasibility before budget commitment.' },
+              { icon: ChartLine, title: 'Pre-Sales & Planning Teams', desc: 'Need thermal direction before procurement or site mobilisation. Validate feasibility before budget commitment.' },
 
               { icon: TemperatureHot, title: 'International Operators', desc: 'Designing for emerging-market or extreme climates where local thermal expertise is unavailable.' },
 
@@ -69,7 +72,7 @@ export default function RemoteAdvisorySection() {
         <div className="mb-12 pt-4 border-t border-white/10">
           <p className="carbon-label-02 text-white uppercase tracking-wider mb-8">What You Receive</p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="group grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
             {[
 

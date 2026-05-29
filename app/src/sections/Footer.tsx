@@ -74,9 +74,9 @@ const Footer = () => {
         <Column lg={4} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-07)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)', marginBottom: 'var(--cds-spacing-05)' }}>
             <img
-              src="/logos/PIT/logo.png"
+              src="/logos/PIT/logo-icon-white.png"
               alt="Perception IT"
-              style={{ height: 40, width: 'auto', filter: 'brightness(0) invert(1)' }}
+              style={{ height: 40, width: 'auto' }}
             />
           </div>
           <p

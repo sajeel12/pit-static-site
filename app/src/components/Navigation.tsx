@@ -342,7 +342,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
           <div className="flex items-center h-16 lg:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center group flex-shrink-0">
-              <img src="/logos/PIT/logo_icon.png" alt="Perception IT" className="h-8 w-auto" />
+              <img src="/logos/PIT/logo-icon-black.png" alt="Perception IT" className="h-8 w-auto" />
             </Link>
 
             <div className="hidden lg:flex items-center ml-8" ref={megaMenuRef}>
@@ -1512,7 +1512,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
         <div className={`fixed inset-0 z-40 lg:hidden bg-white ${showHighlightBar ? 'top-[84px]' : 'top-[48px]'}`}>
           <div className="flex items-center justify-between px-4 h-16 border-b border-gray-100">
             <Link to="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
-              <img src="/logos/PIT/logo_icon.png" alt="Perception IT" className="h-8 w-auto" />
+              <img src="/logos/PIT/logo-icon-black.png" alt="Perception IT" className="h-8 w-auto" />
             </Link>
             <button onClick={() => setIsMobileMenuOpen(false)} className={`p-2 ${isDark ? "text-white" : "text-[#161616]"}`}><X className="w-6 h-6" /></button>
           </div>
