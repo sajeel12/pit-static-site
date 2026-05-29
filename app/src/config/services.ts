@@ -79,19 +79,9 @@ export interface ServiceCategory {
 
 const cloudHubs: HubItem[] = [
   {
-    id: 'cloud-management',
-    title: 'Cloud Management',
-    description: 'Strategic cloud adoption and migration services for seamless infrastructure transition.',
-    spokes: [
-      { id: 'cloud-migration', title: 'Cloud Migration', link: '/services/cloud-migration', icon: 'Cloud' },
-      { id: 'cloud-provisioning', title: 'Cloud Provisioning', link: '/services/cloud-provisioning', icon: 'Server' },
-      { id: 'architecture-patterns', title: 'Architecture Patterns', link: '/services/architecture-patterns', icon: 'LayoutGrid' }
-    ]
-  },
-  {
     id: 'cloud-cost-optimisation',
     title: 'Cloud Cost Optimisation',
-    description: 'FinOps practices and tools to reduce cloud spend while maintaining performance.',
+    description: 'Reduce spend by 30–40% with FinOps practices and intelligent resource management.',
     badge: 'POPULAR',
     spokes: [
       { id: 'cost-explorer', title: 'Cost Explorer', link: '/services/cost-explorer', icon: 'PieChart' },
@@ -99,6 +89,26 @@ const cloudHubs: HubItem[] = [
       { id: 'reserved-instance-planner', title: 'Reserved Instance Planner', link: '/services/reserved-instance-planner', icon: 'Calendar' },
       { id: 'usage-analytics', title: 'Usage Analytics', link: '/services/usage-analytics', icon: 'BarChart3' },
       { id: 'savings-recommendations', title: 'Savings Recommendations', link: '/services/savings-recommendations', icon: 'Lightbulb' }
+    ]
+  },
+  {
+    id: 'cloud-strategy',
+    title: 'Cloud Strategy',
+    description: 'Multi-cloud roadmap & governance.',
+    spokes: [
+      { id: 'cloud-assessment', title: 'Cloud Assessment', link: '/services/cloud-assessment', icon: 'ClipboardCheck' },
+      { id: 'roadmap-planning', title: 'Roadmap Planning', link: '/services/roadmap-planning', icon: 'Map' },
+      { id: 'governance-framework', title: 'Governance Framework', link: '/services/governance-framework', icon: 'Shield' }
+    ]
+  },
+  {
+    id: 'cloud-management',
+    title: 'Cloud Management',
+    description: 'Operations & monitoring.',
+    spokes: [
+      { id: 'cloud-migration', title: 'Cloud Migration', link: '/services/cloud-migration', icon: 'Cloud' },
+      { id: 'cloud-provisioning', title: 'Cloud Provisioning', link: '/services/cloud-provisioning', icon: 'Server' },
+      { id: 'architecture-patterns', title: 'Architecture Patterns', link: '/services/architecture-patterns', icon: 'LayoutGrid' }
     ]
   },
   {

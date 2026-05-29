@@ -259,15 +259,19 @@ export default function StickyAnchorNav() {
 
 
 
-        background: navScrolled ? 'var(--cds-layer)' : 'var(--cds-background)',
+        background: navScrolled ? '#f4f4f4' : '#ffffff',
 
 
 
-        boxShadow: navScrolled ? 'var(--cds-shadow)' : 'none',
+        boxShadow: navScrolled ? '0 4px 12px rgba(0, 0, 0, 0.08)' : '0 1px 3px rgba(0, 0, 0, 0.06)',
 
 
 
         top: '3rem',
+
+
+
+        borderBottom: '1px solid #e0e0e0',
 
 
 
@@ -295,7 +299,7 @@ export default function StickyAnchorNav() {
 
 
 
-            {navItems.map((item, idx) => (
+            {navItems.map((item) => (
 
 
 
@@ -303,11 +307,7 @@ export default function StickyAnchorNav() {
 
 
 
-                {/* Divider between process steps (01-04) and content sections */}
-
-
-
-                {idx === 4 && <span className="anchor-nav-divider" aria-hidden="true" />}
+                {/* Divider removed for cleaner look */}
 
 
 

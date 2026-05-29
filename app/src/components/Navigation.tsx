@@ -689,7 +689,9 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                                   className={`block w-full text-left px-3 py-2 text-sm transition-all border-l-2 ${
                                     isActive 
                                       ? 'bg-[#f4f4f4] text-[#161616] border-[#0f62fe] font-semibold' 
-                                      : 'text-[#161616] hover:bg-[#f4f4f4] border-transparent'
+                                      : hub.badge === 'POPULAR'
+                                        ? 'bg-[#edf5ff] text-[#161616] hover:bg-[#dbeaff] border-transparent'
+                                        : 'text-[#161616] hover:bg-[#f4f4f4] border-transparent'
                                   }`}
                                 >
                                   <div className="flex items-center justify-between">
