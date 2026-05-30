@@ -328,7 +328,7 @@ export const PROJECTS = [
 
 
 
-  { title: 'Out-of-Warranty Infrastructure Support', sector: 'Manufacturing / Textile', org: 'Leading Textile Manufacturer', desc: 'A major textile manufacturer faced end-of-warranty risk across its entire server fleet running production-critical systems. Perception IT delivered 24x7 hardware support, local spare parts inventory, proactive maintenance, and automated patching — eliminating unplanned downtime exposure.', outcomes: ['Zero unplanned outages','$750K+ downtime risk avoided','Full fleet under 24/7 SLA','Automated patching implemented'], tags: ['Server Fleet SLA','24/7 Support','Preventive Maintenance'], caseStudy: '/projects/manufacturing-infrastructure', image: '/Sections/Cooling page/Images-cooling/Case studies/ibrahim-fibres/Ibrahim Fibres -case study- 1600 × 700 px.webp' },
+  { title: 'Out-of-Warranty Infrastructure Support', sector: 'Manufacturing / Textile', org: 'Leading Textile Manufacturer and Exporter', desc: 'A major textile manufacturer faced end-of-warranty risk across its entire server fleet running production-critical systems. Perception IT delivered 24x7 hardware support, local spare parts inventory, proactive maintenance, and automated patching — eliminating unplanned downtime exposure.', outcomes: ['Zero unplanned outages','PKR 750K+ downtime risk avoided','Full fleet under 24/7 SLA','Automated patching implemented'], tags: ['Server Fleet SLA','24/7 Support','Preventive Maintenance'], caseStudy: '/projects/manufacturing-infrastructure', image: '/Sections/Cooling page/Images-cooling/Case studies/ibrahim-fibres/Ibrahim Fibres -case study- 1600 × 700 px.webp' },
 
 
 

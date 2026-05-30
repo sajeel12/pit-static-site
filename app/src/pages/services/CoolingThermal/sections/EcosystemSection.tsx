@@ -71,7 +71,7 @@ export default function EcosystemSection() {
 
             <p className="carbon-fluid-heading-03 text-gray-900 mb-1">One partner. One SLA. No gaps.</p>
 
-            <p className="carbon-body-02 text-gray-500 mb-4">When power, airflow, monitoring, and suppression are validated together, cooling performance is engineered, not assumed.</p>
+            <p className="carbon-body-02 text-gray-500 mb-4">When power, airflow, monitoring, and suppression are validated together, cooling performance is engineered, not assumed.<br /><span className="text-[#0f62fe] font-medium">Enterprise volume pricing available for our complete Data Centre Ecosystem Integration.</span></p>
 
           </div>
 
@@ -83,7 +83,7 @@ export default function EcosystemSection() {
 
           >
 
-            Speak to an Engineer
+            Request Technical Consultation
 
           </a>
 

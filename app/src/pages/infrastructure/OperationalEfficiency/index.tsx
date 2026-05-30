@@ -6,9 +6,12 @@ import '@/styles/carbon-typography.css';
 import '@/styles/design-tokens.css';
 import HeroSection from './sections/HeroSection';
 import StickyAnchorNav from './sections/StickyAnchorNav';
+import StatsSection from './sections/StatsSection';
 import ServiceCategoriesSection from './sections/ServiceCategoriesSection';
 import ROICalculatorSection from './sections/ROICalculatorSection';
-
+import DeploymentOptionsSection from './sections/DeploymentOptionsSection';
+import CaseStudiesSection from './sections/CaseStudiesSection';
+import TestimonialsSection from './sections/TestimonialsSection';
 import FAQSection from './sections/FAQSection';
 import CTASection from './sections/CTASection';
 
@@ -49,8 +52,12 @@ const OperationalEfficiency = () => {
         <HeroSection />
         <div className="h-3 bg-white md:h-4" aria-hidden="true" />
         <StickyAnchorNav />
+        <StatsSection />
         <ServiceCategoriesSection />
         <ROICalculatorSection />
+        <DeploymentOptionsSection />
+        <TestimonialsSection />
+        <CaseStudiesSection />
         <FAQSection />
         <CTASection />
       </main>

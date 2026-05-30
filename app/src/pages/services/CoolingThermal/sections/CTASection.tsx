@@ -35,7 +35,7 @@ export default function CTASection() {
 
 
 
-        <p className="carbon-body-02 text-white/80 mb-10">Request a free consultation. We&apos;ll identify the right path forward and respond within one business day.</p>
+        <p className="carbon-body-02 text-white/80 mb-10"><span className="text-white font-medium">Enterprise volume pricing available for our complete Data Centre Ecosystem Integration.</span><br />Request a free consultation, we&apos;ll identify the right path forward and respond within one business day.</p>
 
 
 
@@ -63,7 +63,7 @@ export default function CTASection() {
 
 
 
-          Speak to an Engineer
+          Request Technical Consultation
 
 
 

@@ -324,7 +324,7 @@ export default function ProcurementSection() {
 
 
 
-              <a href="mailto:contact@perception-it.com?subject=Hardware%20Consultation%20Request" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] hover:shadow-[0_0_20px_rgba(15,98,254,0.6)] transition-colors rounded-lg">Speak to an Engineer</a>
+              <a href="mailto:contact@perception-it.com?subject=Hardware%20Consultation%20Request" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] hover:shadow-[0_0_20px_rgba(15,98,254,0.6)] transition-colors rounded-lg">Request Technical Consultation</a>
 
 
 
@@ -616,7 +616,7 @@ export default function ProcurementSection() {
 
 
 
-                <a href="mailto:contact@perception-it.com?subject=FusionCol8000-E%20Enquiry" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] hover:shadow-[0_0_20px_rgba(15,98,254,0.6)] transition-colors rounded-lg">Speak to an Engineer</a>
+                <a href="mailto:contact@perception-it.com?subject=FusionCol8000-E%20Enquiry" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] hover:shadow-[0_0_20px_rgba(15,98,254,0.6)] transition-colors rounded-lg">Request Technical Consultation</a>
 
 
 

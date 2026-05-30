@@ -1,5 +1,6 @@
-import TestimonialCarousel from './TestimonialCarousel';
-import ProjectCardGrid from './ProjectCardGrid';
+import TestimonialCarousel from '@/components/TestimonialCarousel';
+import ProjectCardGrid from '@/components/ProjectCardGrid';
+import { PROJECTS, TESTIMONIALS } from '../data';
 
 
 export default function ResultsSection() {
@@ -42,7 +43,7 @@ export default function ResultsSection() {
 
 
 
-          <TestimonialCarousel />
+          <TestimonialCarousel testimonials={TESTIMONIALS} />
 
 
 
@@ -58,7 +59,7 @@ export default function ResultsSection() {
 
 
 
-          <ProjectCardGrid />
+          <ProjectCardGrid projects={PROJECTS} />
 
 
 

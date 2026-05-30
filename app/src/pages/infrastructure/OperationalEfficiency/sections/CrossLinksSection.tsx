@@ -16,22 +16,22 @@ export default function CrossLinksSection() {
   return (
     <section className="py-20 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="mb-12">
+        <div className="mb-10">
           <p className="carbon-label-01 text-[#0f62fe] uppercase mb-3">Explore Services</p>
           <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">
             Dive into the Technical Detail
           </h2>
-          <p className="carbon-body-02 text-gray-500 max-w-2xl">
+          <p className="carbon-body-02 text-gray-500 max-w-2xl mb-6">
             Each service page contains full specifications, pricing tiers, and deployment methodologies.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {links.map((l) => (
             <Link
               key={l.title}
               to={l.href}
-              className="group flex items-center gap-4 p-5 bg-white rounded-xl border border-gray-200 hover:border-[#0f62fe] transition-all duration-300 hover:shadow-md"
+              className="group flex items-center gap-4 p-6 bg-white rounded-xl border border-gray-200 hover:border-[#0f62fe] transition-all duration-300 hover:shadow-md"
             >
               <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center group-hover:bg-[#0f62fe]/10 transition-colors">
                 <l.icon className="w-5 h-5 text-gray-500 group-hover:text-[#0f62fe] transition-colors" />

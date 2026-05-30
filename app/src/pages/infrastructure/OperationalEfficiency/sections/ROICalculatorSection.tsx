@@ -246,7 +246,7 @@ export default function ROICalculatorSection() {
         </div>
 
         {/* Toggle */}
-        <div className="flex flex-wrap gap-2 mb-10">
+        <div className="flex flex-wrap gap-4 mb-12">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;

@@ -1,184 +1,111 @@
-/**
- * TestimonialCarousel
- * ──────────────────────────────────────────────
- * Multi-item testimonial carousel, IBM Carbon Design System.
- *
- * Carbon compliance:
- *   • 0px border-radius (sharp corners)
- *   • Solid layer backgrounds (no gradients)
- *   • Carbon spacing + color tokens
- *   • Decorative quotation mark (IBM Plex Serif)
- */
+import { useState, useEffect, useRef } from 'react';
+import { ArrowRight, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import ArrowRight from '@carbon/icons-react/es/ArrowRight';
-import ChevronLeft from '@carbon/icons-react/es/ChevronLeft';
-import ChevronRight from '@carbon/icons-react/es/ChevronRight';
-import styles from './TestimonialCarousel.module.css';
-
-export interface TestimonialItem {
+export interface TestimonialData {
   quote: string;
   author: string;
-  role: string;
-  client: string;
-  tags?: string[];
-  initials?: string;
-  clientLogo?: string | null;
-  bgImage?: string | null;
-  contextDesc?: string;
-  contextLink?: string | null;
-  solutionLink?: string | null;
-  solutionLabel?: string;
+  org: string;
+  logo?: string;
+  bg: string;
+  project?: {
+    headline: string;
+    desc: string;
+    link: string;
+  };
 }
 
-export interface TestimonialCarouselProps {
-  items: TestimonialItem[];
+interface TestimonialCarouselProps {
+  testimonials: TestimonialData[];
 }
 
-export default function TestimonialCarousel({ items }: TestimonialCarouselProps) {
+export default function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) {
   const [current, setCurrent] = useState(0);
-  const total = items.length;
-  const item = items[current];
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const total = testimonials.length;
 
-  if (total === 0) return null;
+  const goTo = (idx: number) => {
+    setCurrent(((idx % total) + total) % total);
+  };
+
+  useEffect(() => {
+    timerRef.current = setInterval(() => setCurrent((c) => (c + 1) % total), 8000);
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [total]);
+
+  const pause = () => { if (timerRef.current) clearInterval(timerRef.current); };
+  const resume = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => setCurrent((c) => (c + 1) % total), 8000);
+  };
+
+  const t = testimonials[current];
 
   return (
-    <div className={styles['tc-wrap']}>
-      <div className={styles['tc-card']}>
-        <div className={styles['tc-grid']}>
-          {/* Left: Image panel */}
-          <div className={styles['tc-left']}>
-            {item.bgImage ? (
-              <>
-                <img src={item.bgImage} alt="" className={styles['tc-left__bg']} />
-                <div className={styles['tc-left__overlay']} />
-                {item.tags && item.tags.length > 0 && (
-                  <div className={styles['tc-left__tags']}>
-                    {item.tags.map((tag) => (
-                      <span key={tag} className={styles['tc-left__tag']}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </>
-            ) : (
-              <div className={styles['tc-left__fallback']} />
-            )}
-          </div>
+    <div
+      className={`relative overflow-hidden rounded-xl bg-gradient-to-r ${t.bg} pt-10 px-8 pb-6 md:pt-14 md:px-12 md:pb-8 transition-all duration-700`}
+      onMouseEnter={pause}
+      onMouseLeave={resume}
+    >
+      <Quote className="absolute top-6 left-6 w-16 h-16 text-white/10" />
 
-          {/* Right: Content panel */}
-          <div className={styles['tc-right']}>
-            {/* Context header: logo + name + desc + link */}
-            <div className={styles['tc-context']}>
-              {item.clientLogo && (
-                <div className={styles['tc-context__logo']}>
-                  <img
-                    src={item.clientLogo}
-                    alt={item.client}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
-                  />
-                </div>
-              )}
-              <div className={styles['tc-context__text']}>
-                <span className={`cds--body-01 ${styles['tc-context__client']}`}>
-                  {item.client}
-                </span>
-                {item.contextDesc && (
-                  <p className={`cds--body-compact-01 ${styles['tc-context__desc']}`}>
-                    {item.contextDesc}
-                  </p>
-                )}
-                {item.solutionLink && (
-                  <Link
-                    to={item.solutionLink}
-                    className={`cds--label-01 ${styles['tc-context__link']}`}
-                  >
-                    {item.solutionLabel || 'Solution details'}
-                    <ArrowRight size={14} />
-                  </Link>
-                )}
-              </div>
-            </div>
+      <div className="relative z-10">
+        <p className="carbon-fluid-quotation-03 text-white mt-4 mb-8 leading-relaxed px-8 md:px-16 whitespace-pre-line">"{t.quote}"</p>
 
-            {/* Quote with decorative mark */}
-            <div className={styles['tc-quote-wrap']}>
-              <span className={styles['tc-quote__mark']} aria-hidden="true">
-                &ldquo;
-              </span>
-              <blockquote className={styles['tc-quote']}>
-                <div className={styles['tc-quote__body']}>
-                  {item.quote.split('\n\n').map((para, idx) => (
-                    <p key={idx}>{para}</p>
-                  ))}
-                </div>
-              </blockquote>
+        <div className="flex items-center gap-4 px-8 md:px-16">
+          {t.logo && (
+            <div className="p-2 bg-white rounded-lg shadow-sm flex-shrink-0">
+              <img src={t.logo} alt={t.org} className="h-8 w-auto" />
             </div>
-
-            {/* Author + CTA row */}
-            <div className={styles['tc-author-block']}>
-              <div className={styles['tc-author']}>
-                <span className={`cds--body-01 ${styles['tc-author__name']}`}>
-                  {item.author}
-                </span>
-                <span className={`cds--helper-text-01 ${styles['tc-author__role']}`}>
-                  {item.role}
-                </span>
-              </div>
-              {item.contextLink && (
-                <Link
-                  to={item.contextLink}
-                  className={`cds--label-01 ${styles['tc-study-link']}`}
-                >
-                  Full case study
-                  <ArrowRight size={16} />
-                </Link>
-              )}
-            </div>
+          )}
+          <div>
+            <p className="carbon-heading-02 text-white">{t.author}</p>
+            <p className="carbon-body-02 text-white/70 mt-0.5">{t.org}</p>
           </div>
         </div>
 
-        {/* Bottom bar: dots + counter + nav */}
-        <div className={styles['tc-footer']}>
-          <div className={styles['tc-footer__left']}>
-            <div className={styles['tc-dots']}>
-              {Array.from({ length: total }).map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrent(idx)}
-                  className={
-                    idx === current
-                      ? styles['tc-dot--active']
-                      : styles['tc-dot--inactive']
-                  }
-                  aria-label={`Go to testimonial ${idx + 1}`}
-                />
-              ))}
-            </div>
-            <span className={`cds--label-01 ${styles['tc-counter']}`}>
-              {current + 1} / {total}
-            </span>
+        {t.project && (
+          <div className="mt-14 pl-4 border-l-2 border-white/20">
+            <p className="carbon-label-02 text-white/90 mb-1">{t.project.headline}</p>
+            <p className="carbon-body-02 text-white/50 mb-2">{t.project.desc}</p>
+            <a href={t.project.link} className="inline-flex items-center gap-1 carbon-label-01 text-white/60 hover:text-white transition-colors">
+              View Solution Details <ArrowRight className="w-3 h-3" />
+            </a>
           </div>
+        )}
+      </div>
 
-          <div className={styles['tc-nav']}>
-            <button
-              className={styles['tc-nav__btn']}
-              onClick={() => setCurrent((prev) => (prev - 1 + total) % total)}
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button
-              className={styles['tc-nav__btn']}
-              onClick={() => setCurrent((prev) => (prev + 1) % total)}
-              aria-label="Next testimonial"
-            >
-              <ChevronRight size={20} />
-            </button>
+      <div className="flex items-center justify-between mt-6">
+        <div className="flex items-center gap-3">
+          <div className="flex gap-2">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className={`h-3 rounded-full transition-all ${i === current ? 'bg-white w-8' : 'bg-white/40 w-3'}`}
+                aria-label={`Go to testimonial ${i + 1}`}
+              />
+            ))}
           </div>
+          <span className="carbon-label-01 text-white/60">
+            {current + 1} / {total}
+          </span>
+        </div>
+
+        <div className="flex gap-2">
+          <button
+            onClick={() => goTo(current - 1)}
+            className="w-12 h-12 rounded-lg border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            onClick={() => goTo(current + 1)}
+            className="w-12 h-12 rounded-lg border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
         </div>
       </div>
     </div>

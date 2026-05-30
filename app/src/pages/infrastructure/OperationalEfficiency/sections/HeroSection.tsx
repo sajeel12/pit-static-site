@@ -1,8 +1,17 @@
 export default function HeroSection() {
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const headerOffset = 80;
+      const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: elementPosition - headerOffset, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section
       id="hero"
-      className="relative py-20 lg:py-24 bg-[#0F172A] overflow-hidden"
+      className="relative py-20 bg-[#0F172A] overflow-hidden"
     >
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#0f62fe]/10 rounded-full blur-3xl" />
@@ -28,26 +37,29 @@ export default function HeroSection() {
             Reduce Data Centre Costs.{" "}
             <span className="lg:block bg-gradient-to-r from-[#78a9ff] to-[#0f62fe] bg-clip-text text-transparent">
               Defer Capital Expenditure.
+            </span>{" "}
+            <span className="lg:block text-white">
+              Strengthen Service Continuity.
             </span>
           </h1>
           <p className="carbon-body-02 text-gray-400 max-w-2xl mb-10">
-            Cost avoidance and reduction outcomes across cooling, power, rack, and environmental
-            infrastructure for data centres in Pakistan. Real savings from real engagements.
+            Cost avoidance and reduction across cooling, power, rack, and environmental
+            infrastructure for data centres in Pakistan.
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <a
-              href="#savings"
+            <button
+              onClick={() => scrollTo('savings')}
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#0f62fe] text-white carbon-body-02 rounded-lg hover:bg-[#0353e9] transition-colors"
             >
               Explore Savings
-            </a>
-            <a
-              href="#calculator"
+            </button>
+            <button
+              onClick={() => scrollTo('calculator')}
               className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white carbon-body-02 rounded-lg hover:bg-white/10 transition-colors"
             >
               Run the Numbers
-            </a>
+            </button>
           </div>
         </div>
       </div>

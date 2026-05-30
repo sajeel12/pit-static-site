@@ -1,0 +1,88 @@
+/* ============================================================================
+   Cooling & Airflow — Page-specific utilities
+   
+   These are low-level UI patterns used only on this page.
+   For typography tokens, see ../../../styles/carbon-typography.css
+   ============================================================================ */
+
+/* Skip link — visible only on keyboard focus */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #0f62fe;
+  color: #ffffff;
+  padding: 8px 16px;
+  z-index: 10000;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 400;
+  border-radius: 0 0 4px 0;
+  transition: top 110ms cubic-bezier(0.2, 0, 0.38, 0.9);
+}
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid #0f62fe;
+  outline-offset: 2px;
+}
+
+/* Scrollbar hide for anchor nav */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Sticky anchor nav */
+.sticky-nav {
+  position: sticky;
+  top: 3rem;
+  z-index: 30;
+  border-bottom: 1px solid var(--cds-border-subtle);
+  transition: all 150ms ease;
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .sticky-nav {
+    border-bottom: none;
+  }
+}
+
+/* ============================================================================
+   Navigation compact mode — 48px height override
+   
+   Apply this class to a wrapper around the page content when you want
+   the global navigation to render at 48px instead of its default 64px/80px.
+   
+   Usage: <div className={styles['nav-compact']}>
+   ============================================================================ */
+
+.nav-compact nav.fixed,
+.nav-compact nav.fixed > div,
+.nav-compact nav.fixed .flex.items-center.h-16,
+.nav-compact nav.fixed .flex.items-center.lg\:h-20 {
+  height: 3rem !important;
+  min-height: 3rem !important;
+}
+
+.nav-compact nav.fixed .h-8 {
+  height: 1.5rem !important;
+  width: auto;
+}
+
+.nav-compact nav.fixed button,
+.nav-compact nav.fixed a {
+  padding-top: 0.375rem !important;
+  padding-bottom: 0.375rem !important;
+}

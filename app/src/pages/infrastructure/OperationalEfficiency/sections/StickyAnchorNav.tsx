@@ -1,8 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 
 const NAV_ITEMS = [
+  { id: 'savings', label: 'Savings' },
   { id: 'services', label: 'Services' },
   { id: 'calculator', label: 'Calculator' },
+  { id: 'deployment', label: 'Deployment' },
+  { id: 'testimonials', label: 'Testimonials' },
+  { id: 'cases', label: 'Case Studies' },
   { id: 'faq', label: 'FAQ' },
   { id: 'cta', label: 'Get Started' },
 ];

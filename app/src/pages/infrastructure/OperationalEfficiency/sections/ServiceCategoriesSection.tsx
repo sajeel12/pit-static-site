@@ -72,16 +72,45 @@ export default function ServiceCategoriesSection() {
   return (
     <section id="services" className="py-20 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="mb-12">
-          <p className="carbon-label-01 text-[#0f62fe] uppercase mb-3">By Service Category</p>
-          <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">
-            Where the Savings Come From
-          </h2>
-          <p className="carbon-body-02 text-gray-500 max-w-2xl">
-            Each infrastructure discipline contributes to the total cost picture.
-            <br />
-            <span className="text-[#0f62fe]">Click any card to explore full specifications, pricing tiers, and deployment methodologies.</span>
-          </p>
+        <div className="mb-16">
+          <div className="max-w-4xl">
+            <p className="carbon-label-01 text-[#0f62fe] uppercase mb-3">Cost Optimisation</p>
+            <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-6">
+              Infrastructure disciplines that drive cost reduction
+            </h2>
+            <p className="carbon-body-02 text-[#161616] mb-4">
+              We deliver measurable ROI across three fronts
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+              <div className="flex items-start gap-4 p-6 bg-white rounded-lg border border-gray-200 border-l-[3px] border-l-[#0f62fe]">
+                <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center flex-shrink-0">
+                  <span className="text-[#0f62fe] carbon-heading-02">01</span>
+                </div>
+                <div>
+                  <p className="carbon-heading-02 text-gray-900 mb-1">Lower OpEx</p>
+                  <p className="carbon-body-02 text-gray-500">Reduce energy, maintenance, and emergency spend</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4 p-6 bg-white rounded-lg border border-gray-200 border-l-[3px] border-l-[#0f62fe]">
+                <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center flex-shrink-0">
+                  <span className="text-[#0f62fe] carbon-heading-02">02</span>
+                </div>
+                <div>
+                  <p className="carbon-heading-02 text-gray-900 mb-1">Higher Resilience</p>
+                  <p className="carbon-body-02 text-gray-500">Avoid costly downtime and emergency repairs</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4 p-6 bg-white rounded-lg border border-gray-200 border-l-[3px] border-l-[#a855f7]">
+                <div className="w-10 h-10 rounded-lg bg-[#a855f7]/10 flex items-center justify-center flex-shrink-0">
+                  <span className="text-[#a855f7] carbon-heading-02">03</span>
+                </div>
+                <div>
+                  <p className="carbon-heading-02 text-gray-900 mb-1">Flexible Deployment</p>
+                  <p className="carbon-body-02 text-gray-500">Ecosystem bundles or phased individual services</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -364,7 +364,7 @@ export default function ManagedSection() {
 
 
 
-              <a href="mailto:contact@perception-it.com?subject=Managed%20Services%20Consultation" className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white text-[#0f62fe] carbon-body-02 hover:bg-gray-50 transition-colors rounded-lg w-full sm:w-auto">Speak to an Engineer</a>
+              <a href="mailto:contact@perception-it.com?subject=Managed%20Services%20Consultation" className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white text-[#0f62fe] carbon-body-02 hover:bg-gray-50 transition-colors rounded-lg w-full sm:w-auto">Request Technical Consultation</a>
 
 
 

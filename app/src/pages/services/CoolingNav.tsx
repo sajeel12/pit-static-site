@@ -84,7 +84,7 @@ const NAV_ITEMS: NavItemConfig[] = [
         heading: 'Data Centre Infrastructure Services',
         href: '/services/datacenter2',
         links: [
-          { title: 'Cost Optimisation', href: '/infrastructure/operational-efficiency', desc: 'Cost reduction & ROI across Data Centre infrastructure' },
+          { title: 'Cost Optimisation', href: '/infrastructure/operational-efficiency', desc: 'Cost reduction & ROI across Data Centre infrastructure. Also available as part of our Ecosystem Integration.' },
           { title: 'Cooling', href: '/infrastructure/data-centre-services/cooling-thermal', desc: 'Precision cooling & thermal continuity' },
           { title: 'Power & UPS', href: '/services/power-ups', desc: 'UPS systems & power distribution' },
           { title: 'Rack & Cabinet', href: '/services/rack-cabinets', desc: 'Server cabinets & enclosures' },

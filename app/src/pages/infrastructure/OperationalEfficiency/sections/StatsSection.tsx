@@ -5,37 +5,37 @@ const stats = [
     icon: TrendingDown,
     value: '1.8 → 1.35',
     label: 'Average PUE reduction',
-    desc: 'Across all cooling optimisation engagements',
+    desc: 'Achievable with precision engineering and targeted retrofit',
   },
   {
     icon: Zap,
     value: '25–40%',
     label: 'Energy cost reduction',
-    desc: 'Through VFD, free-cooling & AI setpoints',
+    desc: 'Through VFD, free-cooling and AI-driven setpoint optimisation',
   },
   {
     icon: Shield,
     value: 'PKR 750K+',
     label: 'Downtime risk avoided',
-    desc: 'Per manufacturing client (Ibrahim Fibres)',
+    desc: 'Through proactive hardware support and rapid parts replacement',
   },
   {
     icon: Clock,
     value: '18–24 mo',
     label: 'Typical payback period',
-    desc: 'For full infrastructure optimisation',
+    desc: 'Typical payback for comprehensive infrastructure programmes',
   },
   {
     icon: BarChart,
     value: '45%',
     label: 'Cooling efficiency gain',
-    desc: 'From legacy system modernisation',
+    desc: 'Through legacy system modernisation and smart control integration',
   },
   {
     icon: Award,
     value: '99.9%',
     label: 'Uptime SLA achieved',
-    desc: 'Under Enterprise managed services tier',
+    desc: 'Under SLA-backed enterprise managed services',
   },
 ];
 
@@ -43,14 +43,13 @@ export default function StatsSection() {
   return (
     <section id="savings" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="mb-12">
-          <p className="carbon-label-01 text-[#0f62fe] uppercase mb-3">Savings Overview</p>
+        <div className="mb-10">
+          <p className="carbon-label-01 text-[#0f62fe] uppercase mb-3">Benchmarks</p>
           <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">
-            Real Outcomes from Real Infrastructure
+            Infrastructure optimisation benchmarks
           </h2>
-          <p className="carbon-body-02 text-gray-500 max-w-2xl">
-            Aggregated across data centre cooling, power, UPS, rack, monitoring, and fire suppression engagements.
-            Every figure is client-verified.
+          <p className="carbon-body-02 text-gray-500 max-w-2xl mb-6">
+            Representative outcomes based on industry benchmarks and documented best-practice infrastructure engagements. Actual results depend on facility condition, scope, and implementation.
           </p>
         </div>
 

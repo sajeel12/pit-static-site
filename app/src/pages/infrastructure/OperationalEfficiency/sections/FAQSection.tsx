@@ -4,11 +4,11 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 const faqs = [
   {
     q: 'How do you verify the savings numbers?',
-    a: 'Every figure on this page is client-verified. We use utility bills before and after engagement, manufacturer efficiency curves, and third-party commissioning reports. We do not publish projections as outcomes.',
+    a: 'Industry benchmarks from Uptime Institute, ASHRAE, and IDC inform our modelling. We cross-reference manufacturer efficiency curves, regional utility tariffs, and third-party commissioning standards. Projected savings are validated through site assessment and baseline measurement.',
   },
   {
     q: 'What is the typical payback period?',
-    a: 'Most clients see full ROI within 18–24 months for comprehensive optimisation engagements. Simple cooling retrofits can pay back in 12–18 months. The calculator above uses conservative estimates.',
+    a: 'Most clients see full ROI within 18–24 months for comprehensive optimisation engagements. Simple cooling retrofits can pay back in 12–18 months. The calculators above use conservative estimates.',
   },
   {
     q: 'Can you work with our existing infrastructure?',
@@ -19,8 +19,12 @@ const faqs = [
     a: 'We provide engineering baselines and projected savings ranges based on site assessment. Contractual performance guarantees, remedies, and credit calculations are defined exclusively in signed Service Level Agreements.',
   },
   {
-    q: 'Is the ROI calculator accurate?',
-    a: 'The calculator is an estimator only. It uses industry-standard formulas for PUE-based energy cost modelling. Actual savings depend on facility condition, infrastructure age, utility rates, and scope of work. A formal proposal requires site assessment.',
+    q: 'Which calculator should I use?',
+    a: '<ul class="space-y-2"><li><strong>PUE Energy:</strong> Estimate annual savings from improving power usage effectiveness and reducing energy waste.</li><li><strong>Downtime:</strong> Quantify risk exposure, cost per outage, and annual financial impact of unplanned interruptions.</li><li><strong>CapEx Deferral:</strong> Compare optimisation spend against premature replacement costs and equipment lifecycle extension.</li></ul><p class="mt-3">Each calculator uses industry-standard formulas. Actual savings require site assessment.</p>',
+  },
+  {
+    q: 'Are the calculators accurate?',
+    a: 'All three calculators are estimators using industry-standard formulas. PUE-based energy modelling, downtime cost averages for Pakistan, and equipment lifecycle curves inform the outputs. Actual savings depend on facility condition, infrastructure age, utility rates, and scope of work. A formal proposal requires site assessment.',
   },
   {
     q: 'What services can be bundled for better pricing?',
@@ -34,7 +38,7 @@ export default function FAQSection() {
   return (
     <section id="faq" className="py-20 bg-white">
       <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="mb-12 text-center">
+        <div className="mb-10 text-center">
           <p className="carbon-label-01 text-[#0f62fe] uppercase mb-3">FAQ</p>
           <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">
             Questions About Cost & ROI
@@ -69,7 +73,11 @@ export default function FAQSection() {
                 </button>
                 {isOpen && (
                   <div className="px-5 pb-5">
-                    <p className="carbon-body-02 text-gray-600 leading-relaxed">{faq.a}</p>
+                    {faq.a.startsWith('<') ? (
+                      <div className="carbon-body-02 text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: faq.a }} />
+                    ) : (
+                      <p className="carbon-body-02 text-gray-600 leading-relaxed">{faq.a}</p>
+                    )}
                   </div>
                 )}
               </div>
