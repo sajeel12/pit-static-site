@@ -11,7 +11,7 @@ export default function ResultsSection() {
 
 
 
-    <section id="results" className="py-20 bg-gray-50">
+    <section id="results" className="py-20 bg-[#f4f4f4]">
 
 
 

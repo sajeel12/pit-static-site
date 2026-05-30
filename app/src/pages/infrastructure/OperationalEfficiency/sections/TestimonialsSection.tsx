@@ -71,7 +71,7 @@ export default function TestimonialsSection() {
         <div className="mb-10">
           <p className="carbon-label-01 text-[#0f62fe] uppercase mb-3">Testimonials</p>
           <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">
-            What clients say about working with us
+            Client feedback
           </h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl">
             Direct feedback from infrastructure leaders who have seen measurable cost and continuity outcomes.

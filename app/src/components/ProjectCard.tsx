@@ -22,7 +22,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
   return (
     <article
-      className="group rounded-xl overflow-hidden bg-white transition-all duration-500 border border-gray-200 hover:border-[#0f62fe] hover:shadow-lg"
+      className="group rounded-xl overflow-hidden bg-white transition-all duration-500 border border-gray-200 hover:border-[#0f62fe] hover:shadow-lg flex flex-col"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       <div className="relative h-48 sm:h-40 overflow-hidden bg-gray-100">
@@ -43,7 +43,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         )}
       </div>
 
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-1">
         <div className="flex items-center gap-2 mb-2">
           <span className="px-2 py-0.5 bg-[#0f62fe]/5 text-[#0f62fe] carbon-label-01 rounded">
             {project.sector}
@@ -71,10 +71,12 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           </div>
         )}
 
-        <div className="flex items-center gap-5">
+        <div className="flex-1" />
+
+        <div className="flex items-center gap-5 pt-5 border-t border-gray-100">
           <button
             onClick={() => setExpanded(!expanded)}
-            className="inline-flex items-center gap-1.5 carbon-body-02 text-[#0f62fe] hover:underline"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md carbon-body-02 text-[#0f62fe] hover:bg-[#0f62fe]/10 transition-colors"
           >
             {expanded ? 'Hide outcomes' : 'Show outcomes'}
             {expanded ? (
@@ -86,7 +88,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           {project.link && (
             <a
               href={project.link}
-              className="inline-flex items-center gap-1 carbon-body-02 text-gray-400 hover:text-[#0f62fe] transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md carbon-body-02 text-[#0f62fe] hover:bg-[#0f62fe]/10 transition-colors"
             >
               Read case study <ArrowRight className="w-4 h-4" />
             </a>
