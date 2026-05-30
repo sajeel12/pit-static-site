@@ -66,7 +66,7 @@ const testimonials: TestimonialData[] = [
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-20 bg-[#f4f4f4]">
+    <section id="testimonials" className="py-20 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-10">
           <p className="carbon-label-01 text-[#0f62fe] uppercase mb-3">Testimonials</p>

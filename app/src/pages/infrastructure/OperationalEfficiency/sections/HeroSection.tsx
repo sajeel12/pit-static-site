@@ -42,10 +42,24 @@ export default function HeroSection() {
               Strengthen Service Continuity.
             </span>
           </h1>
-          <p className="carbon-body-02 text-gray-400 max-w-2xl mb-10">
+          <p className="carbon-body-02 text-gray-400 max-w-2xl mb-4">
             Cost avoidance and reduction across cooling, power, rack, and environmental
             infrastructure for data centres in Pakistan.
           </p>
+          <div className="flex flex-wrap items-center gap-3 mb-10">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-white/10 bg-white/5 carbon-helper-text-01 text-gray-400">
+              <span className="w-1 h-1 rounded-full bg-[#78a9ff]" />
+              ASHRAE-aligned
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-white/10 bg-white/5 carbon-helper-text-01 text-gray-400">
+              <span className="w-1 h-1 rounded-full bg-[#78a9ff]" />
+              Uptime Institute benchmarks
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-white/10 bg-white/5 carbon-helper-text-01 text-gray-400">
+              <span className="w-1 h-1 rounded-full bg-[#78a9ff]" />
+              Pakistan climate-adjusted
+            </span>
+          </div>
 
           <div className="flex flex-wrap gap-4">
             <button

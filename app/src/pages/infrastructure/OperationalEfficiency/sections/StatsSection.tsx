@@ -3,38 +3,68 @@ import { TrendingDown, Zap, Shield, Clock, BarChart, Award } from 'lucide-react'
 const stats = [
   {
     icon: TrendingDown,
-    value: '1.8 → 1.35',
-    label: 'Average PUE reduction',
-    desc: 'Achievable with precision engineering and targeted retrofit',
+    value: (
+      <>
+        <span className="block carbon-label-02 text-[#0f62fe] uppercase tracking-wide mb-1">Target</span>
+        <span className="block">1.8 → 1.35</span>
+      </>
+    ),
+    label: 'Typical PUE reduction (cooling-led)',
+    desc: 'Achieved via precision engineering + ASHRAE-aligned retrofit',
   },
   {
     icon: Zap,
-    value: '25–40%',
+    value: (
+      <>
+        <span className="block carbon-label-02 text-[#0f62fe] uppercase tracking-wide mb-1">Target</span>
+        <span className="block">25–40%</span>
+      </>
+    ),
     label: 'Energy cost reduction',
-    desc: 'Through VFD, free-cooling and AI-driven setpoint optimisation',
+    desc: 'Via VFD, free-cooling, AI setpoint optimisation',
   },
   {
     icon: Shield,
-    value: 'PKR 750K+',
-    label: 'Downtime risk avoided',
-    desc: 'Through proactive hardware support and rapid parts replacement',
+    value: (
+      <>
+        <span className="block carbon-label-02 text-[#0f62fe] uppercase tracking-wide mb-1">Target</span>
+        <span className="block">Up to 60%</span>
+      </>
+    ),
+    label: 'Downtime exposure reduction',
+    desc: 'Via proactive monitoring + SLA-backed rapid response',
   },
   {
     icon: Clock,
-    value: '18–24 mo',
-    label: 'Typical payback period',
-    desc: 'Typical payback for comprehensive infrastructure programmes',
+    value: (
+      <>
+        <span className="block carbon-label-02 text-[#0f62fe] uppercase tracking-wide mb-1">Target</span>
+        <span className="block">18–24 mo</span>
+      </>
+    ),
+    label: 'Typical payback (comprehensive programmes)',
+    desc: 'Validated via site-specific modelling',
   },
   {
     icon: BarChart,
-    value: '45%',
-    label: 'Cooling efficiency gain',
-    desc: 'Through legacy system modernisation and smart control integration',
+    value: (
+      <>
+        <span className="block carbon-label-02 text-[#0f62fe] uppercase tracking-wide mb-1">Target</span>
+        <span className="block">30–50%</span>
+      </>
+    ),
+    label: 'Cooling efficiency gain (target range)',
+    desc: 'Via legacy modernisation + smart control integration',
   },
   {
     icon: Award,
-    value: '99.9%',
-    label: 'Uptime SLA achieved',
+    value: (
+      <>
+        <span className="block carbon-label-02 text-[#0f62fe] uppercase tracking-wide mb-1">Target</span>
+        <span className="block">99.9%</span>
+      </>
+    ),
+    label: 'Uptime SLA',
     desc: 'Under SLA-backed enterprise managed services',
   },
 ];
@@ -49,7 +79,7 @@ export default function StatsSection() {
             Infrastructure optimisation benchmarks
           </h2>
           <p className="carbon-body-02 text-gray-500 max-w-2xl mb-6">
-            Representative outcomes based on industry benchmarks and documented best-practice infrastructure engagements. Actual results depend on facility condition, scope, and implementation.
+            We design interventions to achieve ASHRAE and Uptime Institute efficiency ranges adjusted for Pakistan's climate, utility profiles, and facility classes. Actual results depend on facility condition, scope, and implementation.
           </p>
         </div>
 
@@ -66,7 +96,7 @@ export default function StatsSection() {
                     <s.icon className="w-5 h-5 text-[#0f62fe]" />
                   </div>
                 </div>
-                <p className="carbon-fluid-heading-03 text-[#0F172A] font-light mb-1">{s.value}</p>
+                <div className="carbon-fluid-heading-03 text-[#0F172A] font-light mb-1">{s.value}</div>
                 <p className="carbon-heading-02 text-gray-900 mb-2">{s.label}</p>
                 <p className="carbon-body-02 text-gray-500">{s.desc}</p>
               </div>

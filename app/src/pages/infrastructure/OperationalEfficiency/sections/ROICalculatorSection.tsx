@@ -214,7 +214,7 @@ function Disclaimer({ borderColor, bgColor }: { borderColor: string; bgColor: st
   return (
     <div className={`p-5 rounded-xl border ${borderColor} ${bgColor}`}>
       <p className="carbon-body-02 text-gray-300">
-        <strong className="text-white">This is an estimate only.</strong> Actual outcomes depend on facility condition, infrastructure age, utility rates, and scope of work. A site assessment is required for a firm proposal.
+        <strong className="text-white">Directional estimate.</strong> Site assessment required for firm proposal.
       </p>
     </div>
   );

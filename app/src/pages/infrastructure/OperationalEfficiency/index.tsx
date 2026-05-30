@@ -5,8 +5,7 @@ import Footer from '@/sections/Footer';
 import '@/styles/carbon-typography.css';
 import '@/styles/design-tokens.css';
 import HeroSection from './sections/HeroSection';
-import StickyAnchorNav from './sections/StickyAnchorNav';
-import StatsSection from './sections/StatsSection';
+import StickyAnchorNav from '@/components/StickyAnchorNav';
 import ServiceCategoriesSection from './sections/ServiceCategoriesSection';
 import ROICalculatorSection from './sections/ROICalculatorSection';
 import DeploymentOptionsSection from './sections/DeploymentOptionsSection';
@@ -14,6 +13,16 @@ import CaseStudiesSection from './sections/CaseStudiesSection';
 import TestimonialsSection from './sections/TestimonialsSection';
 import FAQSection from './sections/FAQSection';
 import CTASection from './sections/CTASection';
+
+const NAV_ITEMS = [
+  { id: 'services', label: 'Services' },
+  { id: 'calculator', label: 'Calculator' },
+  { id: 'deployment', label: 'Deployment' },
+  { id: 'testimonials', label: 'Testimonials' },
+  { id: 'cases', label: 'Case Studies' },
+  { id: 'faq', label: 'FAQ' },
+  { id: 'cta', label: 'Get Started' },
+];
 
 const OperationalEfficiency = () => {
   usePageSEO({
@@ -51,8 +60,7 @@ const OperationalEfficiency = () => {
       <main id="main-content">
         <HeroSection />
         <div className="h-3 bg-white md:h-4" aria-hidden="true" />
-        <StickyAnchorNav />
-        <StatsSection />
+        <StickyAnchorNav items={NAV_ITEMS} defaultActive="services" />
         <ServiceCategoriesSection />
         <ROICalculatorSection />
         <DeploymentOptionsSection />

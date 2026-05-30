@@ -4,7 +4,8 @@ import CoolingNav from '@/pages/services/CoolingNav';
 import Footer from '@/sections/Footer';
 import '@/styles/carbon-typography.css';
 import '@/styles/design-tokens.css';
-import StickyAnchorNav from './sections/StickyAnchorNav';
+import StickyAnchorNav from '@/components/StickyAnchorNav';
+import { PAGE_SECTIONS } from './data';
 import HeroSection from './sections/HeroSection';
 import TrustTiles from './sections/TrustTiles';
 import AssessmentSection from './sections/AssessmentSection';
@@ -198,7 +199,7 @@ const CoolingThermal = () => {
 
 
 
-        <StickyAnchorNav />
+        <StickyAnchorNav items={PAGE_SECTIONS.filter((s) => s.inNav)} defaultActive="assessment" />
 
 
 
