@@ -392,15 +392,15 @@ export default function ManagedSection() {
 
 
 
-            <div className="p-4 bg-[#00d4ff]/5 rounded-lg border border-[#00d4ff]/20 flex items-start gap-3">
+            <div className="p-4 bg-[#0f62fe]/5 rounded-lg border border-[#0f62fe]/20 flex items-start gap-3">
 
 
 
-              <div className="w-8 h-8 rounded-full bg-[#00d4ff]/10 flex items-center justify-center flex-shrink-0">
+              <div className="w-8 h-8 rounded-full bg-[#0f62fe]/10 flex items-center justify-center flex-shrink-0">
 
 
 
-                <span className="text-[#00d4ff] carbon-heading-02">?</span>
+                <span className="text-[#0f62fe] carbon-heading-02">?</span>
 
 
 
@@ -412,7 +412,7 @@ export default function ManagedSection() {
 
 
 
-                <p className="carbon-label-02 text-[#00d4ff] uppercase mb-0.5">Quick Recommendation</p>
+                <p className="carbon-label-02 text-[#0f62fe] uppercase mb-0.5">Quick Recommendation</p>
 
 
 
