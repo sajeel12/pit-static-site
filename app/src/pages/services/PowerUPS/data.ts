@@ -291,7 +291,7 @@ export const FAQ_ITEMS = [
   { q: 'What is the typical lifespan of a UPS battery?', a: 'VRLA batteries last 3–5 years under normal conditions. Lithium-ion batteries last 10–15 years with 1.5x energy density and 30% smaller footprint. Our AI battery monitoring predicts failure 30–60 days in advance, so you never face an unexpected outage.' },
   { q: 'Can you replace my UPS without downtime?', a: 'Yes. We use maintenance bypass switches, temporary parallel systems, and phased cutover protocols. For critical environments, we deploy a temporary UPS during migration. Every cutover includes a 72-hour grid-fluctuation simulation before handover.' },
   { q: 'Do you support generator synchronization?', a: 'Absolutely. Our three-phase and modular UPS systems include auto-transfer switches and generator sync logic. We test every deployment against simulated grid failures to ensure seamless generator handoff.' },
-  { q: 'What does the 99.95% SLA actually cover?', a: 'Enterprise SLA covers: 24/7 NOC monitoring, <1 hour response, <2 hour on-site (Lahore/Karachi/Islamabad), predictive maintenance, quarterly reviews, and uptime guarantee with service credits. We provide transparent reporting via a real-time dashboard.' },
+
   { q: 'Is lithium-ion safe for Pakistani temperatures?', a: 'Yes. We specify Li-ion chemistries rated for 35°C+ ambient with built-in thermal management. Our designs include temperature monitoring and automatic load-shedding if thresholds are exceeded. All deployments are SBP and PTA compliant.' },
 ];
 
