@@ -53,7 +53,7 @@ export default function GridContextSection() {
             <div>
               <p className="carbon-heading-02 text-[#161616] mb-1">Voltage Swings</p>
               <p className="carbon-body-02 text-gray-600">
-                Fluctuations of <strong className="text-[#161616]">±15%</strong> common in Lahore/Karachi industrial zones — standard AVR can't always compensate.
+                Significant voltage fluctuations common in major industrial zones — standard AVR and entry-level UPS often cannot compensate, risking hardware damage and data corruption.
               </p>
             </div>
           </div>
@@ -65,7 +65,7 @@ export default function GridContextSection() {
             <div>
               <p className="carbon-heading-02 text-[#161616] mb-1">Frequency Drift</p>
               <p className="carbon-body-02 text-gray-600">
-                Grid frequency drifts <strong className="text-[#161616]">48–52Hz</strong> vs. nominal 50Hz. Online double-conversion UPS isolates sensitive loads.
+                Grid frequency instability outside nominal 50Hz tolerance. Online double-conversion UPS isolates sensitive loads from generator sync failures and phase mismatches.
               </p>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function GridContextSection() {
             <div>
               <p className="carbon-heading-02 text-[#161616] mb-1">Outage Frequency</p>
               <p className="carbon-body-02 text-gray-600">
-                Unprotected facilities experience <strong className="text-[#161616]">3–8 outages/month</strong>. Runtime modeling is essential, not optional.
+                Load-shedding and unplanned outages remain a operational reality across Pakistani industrial and commercial sectors. Runtime modeling and generator sync are essential, not optional.
               </p>
             </div>
           </div>

@@ -5,22 +5,20 @@ const ARTICLES = [
   {
     title: 'Why Pakistani Grids Need Specialized UPS',
     keyword: 'UPS for Pakistan voltage fluctuation',
-    content: `Pakistan's national grid presents unique challenges that off-the-shelf UPS systems simply aren't designed for. Voltage fluctuations of ±15% are routine in Lahore and Karachi industrial zones — well beyond the ±10% tolerance of many entry-level standby units. Frequency drift between 48–52Hz (vs. nominal 50Hz) forces generators to work harder and causes synchronization failures in standard three-phase UPS without intelligent sync logic.
+    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-The consequences of under-specified power protection are severe: unprotected facilities experience 3–8 outages per month, with each outage costing manufacturing operations PKR 150K–500K in lost production. Data centres without online double-conversion topology face micro-outages during grid switching that corrupt databases and damage SSD storage controllers.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-Perception-IT's UPS assessments include 72-hour grid-fluctuation simulation at your site — testing transfer times, AVR response curves, and generator handoff sequencing under real Pakistani grid conditions. We specify Line-Interactive + AVR for stable urban grids, Online Double-Conversion for mission-critical loads, and Industrial-grade UPS with extended temperature range (-10°C to 50°C) for factory floors.`,
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.`,
   },
   {
     title: 'Li-ion vs. VRLA in High-Temp Environments',
     keyword: 'lithium battery UPS Pakistan',
-    content: `In Pakistan's ambient conditions — where server room temperatures routinely reach 35°C+ during summer load-shedding periods — battery chemistry choice directly determines reliability and total cost of ownership.
+    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-VRLA (Valve-Regulated Lead-Acid) batteries degrade rapidly above 25°C ambient. At 35°C, their design life collapses from 5 years to just 18–24 months. This means Pakistani data centres using VRLA face replacement cycles every 2–3 years, with each replacement requiring scheduled downtime, disposal logistics, and re-commissioning.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-Lithium-ion batteries maintain stable chemistry up to 45°C ambient. Their 10–15 year design life at Pakistani temperatures translates to 3–5x fewer replacement cycles over a decade. The 1.5x energy density also reduces floor space by 30% — critical in space-constrained Lahore and Karachi facilities.
-
-Perception-IT's AI battery monitoring predicts cell degradation 30–60 days before failure, using temperature-corrected models calibrated for Pakistani ambient profiles. All Li-ion deployments include SBP-compliant disposal certification and documented chain-of-custody for end-of-life cells.`,
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.`,
   },
 ];
 
