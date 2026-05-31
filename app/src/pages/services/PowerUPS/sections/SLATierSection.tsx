@@ -101,24 +101,56 @@ export default function SLATierSection() {
           ))}
         </div>
 
-        {/* Trust Signal */}
-        <div className="bg-white rounded-xl border border-gray-200 p-6 sm:p-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div>
-              <p className="carbon-heading-02 text-[#161616] mb-1">Warranty + SLA Alignment</p>
-              <p className="carbon-body-02 text-gray-600">
-                Huawei hardware warranty + Perception-IT 99.95% uptime SLA = single-point accountability
-              </p>
+        {/* Trust Signals */}
+        <div className="space-y-4">
+          <div className="bg-white rounded-xl border border-gray-200 p-6 sm:p-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div>
+                <p className="carbon-heading-02 text-[#161616] mb-1">Warranty + SLA Alignment</p>
+                <p className="carbon-body-02 text-gray-600">
+                  Huawei hardware warranty + Perception-IT 99.95% uptime SLA = single-point accountability
+                </p>
+              </div>
+              <div className="flex items-center gap-4 text-gray-500 carbon-label-02">
+                <span className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-[#24a148]" />
+                  SBP Compliant
+                </span>
+                <span className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-[#24a148]" />
+                  Local Spares in Lahore
+                </span>
+              </div>
             </div>
-            <div className="flex items-center gap-4 text-gray-500 carbon-label-02">
-              <span className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[#24a148]" />
-                SBP Compliant
-              </span>
-              <span className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[#24a148]" />
-                Local Spares in Lahore
-              </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-white rounded-xl border border-gray-200 p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-[#24a148]/10 flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-[#24a148]" />
+                </div>
+                <div>
+                  <p className="carbon-heading-02 text-[#161616] mb-1">Battery Disposal Compliance</p>
+                  <p className="carbon-body-02 text-gray-600">
+                    All battery replacements include SBP-compliant disposal certification and documented chain-of-custody for Li-ion and VRLA cells.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl border border-gray-200 p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-[#0f62fe]" />
+                </div>
+                <div>
+                  <p className="carbon-heading-02 text-[#161616] mb-1">Local Spare Parts Commitment</p>
+                  <p className="carbon-body-02 text-gray-600">
+                    Critical UPS modules, batteries, and PDU components stocked in Lahore NOC for &lt;24hr replacement. No customs delays.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -18,6 +18,7 @@ import {
 export const PAGE_SECTIONS = [
   { id: 'services', label: 'Services', inNav: false },
   { id: 'systems', label: 'UPS Systems', inNav: true },
+  { id: 'calculator', label: 'Calculator', inNav: true },
   { id: 'usecases', label: 'Use Cases', inNav: true },
   { id: 'technologies', label: 'Technologies', inNav: true },
   { id: 'distribution', label: 'Power Distribution', inNav: true },
