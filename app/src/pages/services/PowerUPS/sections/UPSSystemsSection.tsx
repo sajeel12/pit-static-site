@@ -2,6 +2,26 @@ import { useState } from 'react';
 import { ArrowRight, Check, ChevronDown, ChevronUp } from 'lucide-react';
 import { UPS_SYSTEMS } from '../data';
 
+const SERVICE_LINKS: Record<string, string> = {
+  'ServerAudit': '/#/services/it-assessment',
+  'ServerExtend': '/#/services/server-continuity',
+  'ServerSure': '/#/services/hardware-support',
+  'Data Centre Design & Build': '/#/services/design-build',
+  'SLA-backed contracts': '/#/services/sla-support',
+  'ModServe': '/#/services/maintenance-support',
+  'Commercial Model Template': '/#/contact',
+  'Maintenance & Support': '/#/services/maintenance-support',
+  'Environmental Monitoring': '/#/services/environmental-monitoring',
+  'Network Operations': '/#/services/network-operations',
+  'Rack & Cabinet': '/#/services/rack-cabinets',
+  'Cooling & Airflow': '/#/infrastructure/data-centre-services/cooling-airflow',
+  'Cross-Domain Automation': '/#/services/cross-domain-automation',
+  '24×7 SLA Support': '/#/services/sla-support',
+  'Network Monitoring': '/#/services/network-monitoring',
+  'Generators': '/#/services/core-infrastructure',
+  'Smart Power Monitoring': '/#/services/observability',
+};
+
 export default function UPSSystemsSection() {
   const [drawerOpen, setDrawerOpen] = useState<string | null>(null);
 
@@ -92,13 +112,14 @@ export default function UPSSystemsSection() {
                     <p className="carbon-label-02 text-gray-500 uppercase mb-3">Related Services</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {system.links.slice(0, 2).map((link) => (
-                        <span
+                        <a
                           key={link}
-                          className="inline-flex items-center px-3 py-1.5 bg-white rounded-md border text-xs font-medium text-gray-700"
+                          href={SERVICE_LINKS[link] || '/#/contact'}
+                          className="inline-flex items-center px-3 py-1.5 bg-white rounded-md border text-xs font-medium text-gray-700 hover:text-[#0f62fe] hover:border-[#0f62fe]/30 transition-colors"
                           style={{ borderColor: system.color + '25' }}
                         >
                           {link}
-                        </span>
+                        </a>
                       ))}
                     </div>
 
@@ -114,10 +135,14 @@ export default function UPSSystemsSection() {
                     {isOpen && (
                       <div className="mt-4 grid grid-cols-1 gap-2 animate-fade-in">
                         {system.links.map((link) => (
-                          <div key={link} className="flex items-start gap-3 p-3 rounded-lg bg-gray-50">
+                          <a
+                            key={link}
+                            href={SERVICE_LINKS[link] || '/#/contact'}
+                            className="flex items-start gap-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
+                          >
                             <span className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: system.color }} />
-                            <span className="carbon-body-02 text-gray-700">{link}</span>
-                          </div>
+                            <span className="carbon-body-02 text-gray-700 hover:text-[#0f62fe]">{link}</span>
+                          </a>
                         ))}
                       </div>
                     )}
