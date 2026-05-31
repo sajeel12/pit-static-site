@@ -89,6 +89,7 @@ export default function UPSSystemsSection() {
 
                   {/* Related Services Drawer */}
                   <div className="mt-6 pt-5 border-t border-gray-100">
+                    <p className="carbon-label-02 text-gray-500 uppercase mb-3">Related Services</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {system.links.slice(0, 2).map((link) => (
                         <span
