@@ -183,7 +183,7 @@ export default function AssessmentSection() {
 
 
 
-            className={`group relative bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer ${card1InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`group relative bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${card1InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
 
 
 
@@ -417,7 +417,7 @@ export default function AssessmentSection() {
 
 
 
-            className={`group relative bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer ${card2InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`group relative bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${card2InView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
 
 
 

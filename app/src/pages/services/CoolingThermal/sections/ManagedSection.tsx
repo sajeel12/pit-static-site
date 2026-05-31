@@ -183,7 +183,7 @@ export default function ManagedSection() {
 
 
 
-            <div key={tier.name} className={`group relative bg-white rounded-xl border transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer border-gray-200 hover:border-gray-300`}>
+            <div key={tier.name} className={`group relative bg-white rounded-xl border transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-gray-200 hover:border-gray-300`}>
 
 
 

@@ -235,7 +235,7 @@ export default function ProcurementSection() {
 
 
 
-            <div key={card.title} className="group relative bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <div key={card.title} className="group relative bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
 
 
 

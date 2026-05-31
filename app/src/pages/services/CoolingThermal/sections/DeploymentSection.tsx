@@ -199,7 +199,7 @@ export default function DeploymentSection() {
 
 
 
-            <div key={step.title} className="group relative bg-white rounded-xl border border-[#e0e0e0] hover:border-[#374151] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <div key={step.title} className="group relative bg-white rounded-xl border border-[#e0e0e0] hover:border-[#374151] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
 
 
 
