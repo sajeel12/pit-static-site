@@ -14,6 +14,7 @@ import PowerDistributionSection from './sections/PowerDistributionSection';
 import MonitoringSection from './sections/MonitoringSection';
 import SLATierSection from './sections/SLATierSection';
 import EcosystemSection from './sections/EcosystemSection';
+import TestimonialsSection from './sections/TestimonialsSection';
 import ResultsSection from './sections/ResultsSection';
 import FAQSection from './sections/FAQSection';
 import CTASection from './sections/CTASection';
@@ -62,6 +63,7 @@ const PowerUPS = () => {
         <MonitoringSection />
         <SLATierSection />
         <EcosystemSection />
+        <TestimonialsSection />
         <ResultsSection />
         <FAQSection />
         <CTASection />

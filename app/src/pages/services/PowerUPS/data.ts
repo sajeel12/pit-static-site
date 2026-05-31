@@ -24,6 +24,7 @@ export const PAGE_SECTIONS = [
   { id: 'monitoring', label: 'Monitoring', inNav: true },
   { id: 'sla', label: 'SLA Tiers', inNav: true },
   { id: 'ecosystem', label: 'Ecosystem', inNav: true },
+  { id: 'testimonials', label: 'Testimonials', inNav: true },
   { id: 'results', label: 'Results', inNav: true },
   { id: 'faq', label: 'FAQ', inNav: true },
   { id: 'cta', label: 'Get Started', inNav: true },
