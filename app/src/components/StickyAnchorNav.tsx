@@ -123,7 +123,7 @@ export default function StickyAnchorNav({ items, defaultActive }: StickyAnchorNa
               aria-expanded={dropdownOpen}
               aria-haspopup="listbox"
             >
-              <span className="font-medium">Services</span>
+              <span className="font-medium">{items.find((item) => item.id === activeSection)?.label ?? 'Services'}</span>
               <svg
                 className={`w-4 h-4 flex-shrink-0 ml-2 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''} ${navScrolled ? 'text-gray-400' : 'text-gray-500'}`}
                 fill="none"
