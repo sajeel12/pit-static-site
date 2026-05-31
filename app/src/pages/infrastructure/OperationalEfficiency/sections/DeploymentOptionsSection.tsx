@@ -21,13 +21,22 @@ export default function DeploymentOptionsSection() {
 
             <div className="p-8 sm:p-10 flex flex-col flex-1">
               <div className="mb-8">
-                <p className="carbon-label-01 text-gray-500 uppercase tracking-wider mb-3">Ecosystem</p>
-                <h3 className="carbon-fluid-heading-03 text-[#0F172A] leading-tight mb-3">
-                  Data Centre Ecosystem Integration
-                </h3>
-                <p className="carbon-body-02 text-gray-600">
-                  Enterprise volume pricing. Unified scope across integrated layers.
-                </p>
+                <div className="flex items-center gap-3 mb-4">
+                  <span
+                    className="inline-flex items-center px-2.5 py-1 text-white carbon-label-01 uppercase tracking-wider rounded-full border border-white/20"
+                    style={{ backgroundColor: '#a855f7' }}
+                  >
+                    Ecosystem
+                  </span>
+                </div>
+                <div className="p-5 bg-[#f8f9ff] rounded-lg border border-[#e8ecff]">
+                  <h3 className="carbon-fluid-heading-03 text-[#0F172A] leading-tight mb-2">
+                    Data Centre Ecosystem Integration
+                  </h3>
+                  <p className="carbon-heading-02 text-[#0f62fe]">
+                    Enterprise volume pricing. Unified scope across integrated layers.
+                  </p>
+                </div>
               </div>
 
               <div className="space-y-4 mb-8">
@@ -78,13 +87,22 @@ export default function DeploymentOptionsSection() {
 
             <div className="p-8 sm:p-10 flex flex-col flex-1">
               <div className="mb-8">
-                <p className="carbon-label-01 text-gray-500 uppercase tracking-wider mb-3">Individual</p>
-                <h3 className="carbon-fluid-heading-03 text-[#0F172A] leading-tight mb-3">
-                  Deploy by Individual Service
-                </h3>
-                <p className="carbon-body-02 text-gray-600">
-                  Fixed scope, fixed price. Pay per layer.
-                </p>
+                <div className="flex items-center gap-3 mb-4">
+                  <span
+                    className="inline-flex items-center px-2.5 py-1 text-white carbon-label-01 uppercase tracking-wider rounded-full border border-white/20"
+                    style={{ backgroundColor: '#009d9a' }}
+                  >
+                    Individual
+                  </span>
+                </div>
+                <div className="p-5 bg-[#f8f9ff] rounded-lg border border-[#e8ecff]">
+                  <h3 className="carbon-fluid-heading-03 text-[#0F172A] leading-tight mb-2">
+                    Deploy by Individual Service
+                  </h3>
+                  <p className="carbon-heading-02 text-[#0f62fe]">
+                    Fixed scope, fixed price. Pay per layer.
+                  </p>
+                </div>
               </div>
 
               <div className="space-y-4 mb-8">
