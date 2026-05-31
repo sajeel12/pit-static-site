@@ -165,7 +165,7 @@ function App() {
               <Route path="/services/ai-consulting" element={<AIConsulting />} />
 
               {/* Infrastructure | Under Construction placeholders */}
-              <Route path="/services/power-ups" element={<UnderConstruction />} />
+              <Route path="/services/power-ups" element={<Navigate to="/infrastructure/data-centre-services/power-ups" replace />} />
               <Route path="/services/rack-cabinets" element={<UnderConstruction />} />
               <Route path="/services/environmental-monitoring" element={<UnderConstruction />} />
               <Route path="/services/fire-suppression" element={<UnderConstruction />} />
