@@ -70,11 +70,10 @@ export default function StickyAnchorNav({ items, defaultActive }: StickyAnchorNa
   return (
     <nav
       ref={navRef}
-      className="sticky z-30 border-b border-[var(--cds-border-subtle)] transition-all duration-150"
+      className={`sticky z-30 border-b border-[var(--cds-border-subtle)] transition-all duration-150 ${navScrolled ? 'bg-black md:bg-[#f4f4f4]' : 'bg-white'}`}
       style={{
         top: '3rem',
-        background: navScrolled ? '#f4f4f4' : '#ffffff',
-        boxShadow: navScrolled ? '0 4px 12px rgba(0, 0, 0, 0.08)' : '0 1px 3px rgba(0, 0, 0, 0.06)',
+        boxShadow: navScrolled ? '0 4px 12px rgba(0, 0, 0, 0.08)' : '0 1px 3px rgba(0, 0, 0, 0.06)'
       }}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -95,7 +94,7 @@ export default function StickyAnchorNav({ items, defaultActive }: StickyAnchorNa
         </div>
 
         {/* Mobile: integrated section jumper */}
-        <div className="md:hidden relative -mx-6 px-6 py-3">
+        <div className={`md:hidden relative -mx-6 px-6 transition-colors duration-150 ${navScrolled ? 'pt-3 pb-[18px]' : 'py-3'}`}>
           <select
             id="page-nav-mobile"
             name="page-nav-mobile"
