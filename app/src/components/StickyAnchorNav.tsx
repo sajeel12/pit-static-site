@@ -152,7 +152,7 @@ export default function StickyAnchorNav({ items, defaultActive }: StickyAnchorNa
                     className={`w-full text-left px-4 py-3 text-sm transition-colors ${
                       activeSection === item.id
                         ? 'bg-[#0f62fe] text-white font-medium'
-                        : 'text-gray-700 hover:bg-[#0f62fe]/10 hover:text-[#0f62fe]'
+                        : 'text-gray-700 [@media(hover:hover)]:hover:bg-[#0f62fe]/10 [@media(hover:hover)]:hover:text-[#0f62fe]'
                     }`}
                   >
                     {item.label}
