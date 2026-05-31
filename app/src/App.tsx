@@ -38,6 +38,7 @@ const ServerContinuity = lazy(() => import('./pages/services/ServerContinuity'))
 const Datacenter = lazy(() => import('./pages/services/Datacenter'));
 const Datacenter2 = lazy(() => import('./pages/services/Datacenter2'));
 const CoolingThermal = lazy(() => import('./pages/services/CoolingThermal'));
+const PowerUPS = lazy(() => import('./pages/services/PowerUPS'));
 const OperationalEfficiency = lazy(() => import('./pages/infrastructure/OperationalEfficiency'));
 const HardwareSupport = lazy(() => import('./pages/services/HardwareSupport'));
 const SLASupport = lazy(() => import('./pages/services/SLASupport'));
@@ -127,6 +128,7 @@ function App() {
               <Route path="/services/cooling-airflow2" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
               <Route path="/infrastructure/data-centre-services/cooling-airflow" element={<CoolingThermal />} />
               <Route path="/infrastructure/operational-efficiency" element={<OperationalEfficiency />} />
+              <Route path="/infrastructure/data-centre-services/power-ups" element={<PowerUPS />} />
               <Route path="/infrastructure/data-centre-services/cooling-thermal" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
 
               <Route path="/services/hardware-support" element={<HardwareSupport />} />
