@@ -307,7 +307,7 @@ export const POWER_CASES = [
     ],
     tags: ['Three Phase UPS', 'AVR', 'Generator Sync'],
     link: '/projects/manufacturing-infrastructure',
-    image: '/Sections/Power and UPS/Images/UPS-lithium 1/1600×700',
+    image: '/Sections/UPSandPower/UPS IMAGES/UPS case study images/UPS-lithium11600×700.webp',
   },
   {
     title: 'Modular UPS Expansion for Financial Services',
