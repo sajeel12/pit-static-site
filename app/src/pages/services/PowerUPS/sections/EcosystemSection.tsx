@@ -10,7 +10,7 @@ export default function EcosystemSection() {
           <span className="inline-block carbon-label-02 text-[#0f62fe] uppercase tracking-wider mb-3">
             Ecosystem
           </span>
-          <h2 className="carbon-fluid-display-02 text-[#161616] mb-4">
+          <h2 className="carbon-fluid-heading-05 text-[#161616] mb-4">
             Complete Data Centre Resilience
           </h2>
           <p className="carbon-body-02 text-gray-600">

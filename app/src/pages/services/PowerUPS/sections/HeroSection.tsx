@@ -20,7 +20,7 @@ export default function HeroSection() {
         </h1>
 
         {/* Subhead */}
-        <p className="carton-fluid-heading-03 text-slate-300 max-w-2xl mb-10">
+        <p className="carbon-fluid-heading-03 text-slate-300 max-w-2xl mb-10">
           Single Phase to 800kVA Three Phase — right-sized for your risk profile. 
           From grid-fluctuation resilience to AI-predicted battery health.
         </p>

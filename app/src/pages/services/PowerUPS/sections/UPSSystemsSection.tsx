@@ -13,7 +13,7 @@ export default function UPSSystemsSection() {
           <span className="inline-block carbon-label-02 text-[#0f62fe] uppercase tracking-wider mb-3">
             UPS Systems
           </span>
-          <h2 className="carbon-fluid-display-02 text-[#161616] mb-4">
+          <h2 className="carbon-fluid-heading-05 text-[#161616] mb-4">
             Right-Sized Power Resilience
           </h2>
           <p className="carbon-body-02 text-gray-600">

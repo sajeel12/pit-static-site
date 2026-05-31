@@ -6,7 +6,7 @@ export default function CTASection() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="text-center mb-10">
-          <h2 className="carbon-fluid-display-02 text-white mb-4">
+          <h2 className="carbon-fluid-heading-05 text-white mb-4">
             Ready to Secure Your Power?
           </h2>
           <p className="carbon-body-02 text-white/80 max-w-2xl mx-auto mb-8">
