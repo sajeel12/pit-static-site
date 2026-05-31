@@ -12,7 +12,7 @@ export default function CTASection() {
         {/* Headline */}
         <div className="text-center mb-10">
           <h2 className="carbon-fluid-heading-05 text-white mb-6">
-            Ready to optimise your data centre cooling?
+            Ready to Optimise Your Data Centre Cooling?
           </h2>
         </div>
 
@@ -37,18 +37,16 @@ export default function CTASection() {
               Enterprise Pricing
             </span>
             <span className="carbon-helper-text-01 text-white/60">
-              Volume discounts for complete ecosystem integration
+              Volume discounts when cooling is validated with the full facility stack
             </span>
           </div>
           <p className="carbon-body-02 text-white/90 leading-relaxed">
-            Enterprise volume pricing available for our complete{' '}
-            <span className="text-white font-medium">Data Centre Ecosystem Integration</span>.
-            Request a free consultation. We&apos;ll identify the right path forward and respond within one business day.
+            You can avail Enterprise Volume Pricing when cooling is integrated with power, monitoring, and containment from a single accountable team. Request a consultation. We&apos;ll assess your thermal profile and identify the right path forward within one business day.
           </p>
         </div>
 
         {/* Secondary action */}
-        <div className="border-t border-white/15 pt-8 flex flex-col items-center gap-3">
+        <div className="pt-8 flex flex-col items-center gap-3">
           <a
             href="/Sections/Cooling page/downloads-cooling/Perception-IT-Thermal-Readiness-Checklist.pdf"
             download

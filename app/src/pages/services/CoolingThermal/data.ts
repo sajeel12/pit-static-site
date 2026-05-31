@@ -8,23 +8,23 @@ export const PAGE_SECTIONS = [
 
 
 
-  { id: 'assessment', label: '01 / Assessment', inNav: true },
+  { id: 'assessment', label: 'Assessment', inNav: true },
 
 
 
-  { id: 'procurement', label: '02 / Procurement', inNav: true },
+  { id: 'procurement', label: 'Procurement', inNav: true },
 
 
 
-  { id: 'deployment', label: '03 / Deployment', inNav: true },
+  { id: 'deployment', label: 'Deployment', inNav: true },
 
 
 
-  { id: 'managed', label: '04 / Managed Services', inNav: true },
+  { id: 'managed', label: 'Managed Services', inNav: true },
 
 
 
-  { id: 'international', label: '05 / International Advisory', inNav: true },
+  { id: 'international', label: 'International Advisory', inNav: true },
 
 
 

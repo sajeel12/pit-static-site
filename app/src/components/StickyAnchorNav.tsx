@@ -13,8 +13,10 @@ interface StickyAnchorNavProps {
 export default function StickyAnchorNav({ items, defaultActive }: StickyAnchorNavProps) {
   const [activeSection, setActiveSection] = useState(defaultActive ?? items[0]?.id ?? '');
   const [navScrolled, setNavScrolled] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const navOffsetRef = useRef<number>(400);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Measure nav offset once after layout stabilises
   useEffect(() => {
@@ -58,6 +60,17 @@ export default function StickyAnchorNav({ items, defaultActive }: StickyAnchorNa
     return () => window.removeEventListener('scroll', handleScroll);
   }, [items]);
 
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -65,12 +78,15 @@ export default function StickyAnchorNav({ items, defaultActive }: StickyAnchorNa
       const elementPosition = el.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({ top: elementPosition - headerOffset, behavior: 'smooth' });
     }
+    setDropdownOpen(false);
   };
+
+
 
   return (
     <nav
       ref={navRef}
-      className={`sticky z-30 border-b border-[var(--cds-border-subtle)] transition-all duration-150 ${navScrolled ? 'bg-black md:bg-[#f4f4f4]' : 'bg-white'}`}
+      className={`sticky z-30 transition-all duration-150 ${navScrolled ? 'bg-black md:bg-[#f4f4f4] md:border-b md:border-[var(--cds-border-subtle)]' : 'bg-white border-b border-[var(--cds-border-subtle)]'}`}
       style={{
         top: '3rem',
         boxShadow: navScrolled ? '0 4px 12px rgba(0, 0, 0, 0.08)' : '0 1px 3px rgba(0, 0, 0, 0.06)'
@@ -93,24 +109,58 @@ export default function StickyAnchorNav({ items, defaultActive }: StickyAnchorNa
           </ul>
         </div>
 
-        {/* Mobile: integrated section jumper */}
+        {/* Mobile: custom dropdown */}
         <div className={`md:hidden relative -mx-6 px-6 transition-colors duration-150 ${navScrolled ? 'pt-3 pb-[18px]' : 'py-3'}`}>
-          <select
-            id="page-nav-mobile"
-            name="page-nav-mobile"
-            value={activeSection}
-            onChange={(e) => scrollTo(e.target.value)}
-            className="w-full h-11 px-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#0f62fe] focus:border-[#0f62fe]"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%236b7280' d='M8 11L3 6h10z'/%3E%3C/svg%3E")`,
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'right 12px center',
-            }}
-          >
-            {items.map((item) => (
-              <option key={item.id} value={item.id}>{item.label}</option>
-            ))}
-          </select>
+          <div ref={dropdownRef} className="relative">
+            <button
+              type="button"
+              onClick={() => setDropdownOpen((prev) => !prev)}
+              className={`w-full flex items-center justify-between px-4 py-2.5 text-sm rounded-lg border transition-colors ${
+                navScrolled
+                  ? 'bg-[#1a1a1a] border border-gray-700 text-white hover:border-gray-500'
+                  : 'bg-white border border-gray-300 text-gray-900 hover:border-gray-400'
+              }`}
+              aria-expanded={dropdownOpen}
+              aria-haspopup="listbox"
+            >
+              <span className="font-medium">Services</span>
+              <svg
+                className={`w-4 h-4 flex-shrink-0 ml-2 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''} ${navScrolled ? 'text-gray-400' : 'text-gray-500'}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {dropdownOpen && (
+              <div
+                className="absolute left-0 right-0 mt-2 bg-white rounded-lg border border-gray-200 shadow-lg z-50 overflow-hidden"
+                role="listbox"
+              >
+                {items.map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    role="option"
+                    aria-selected={activeSection === item.id}
+                    onClick={() => {
+                      setActiveSection(item.id);
+                      scrollTo(item.id);
+                    }}
+                    className={`w-full text-left px-4 py-3 text-sm transition-colors ${
+                      activeSection === item.id
+                        ? 'bg-[#0f62fe] text-white font-medium'
+                        : 'text-gray-700 hover:bg-[#0f62fe]/10 hover:text-[#0f62fe]'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </nav>

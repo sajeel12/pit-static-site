@@ -186,13 +186,14 @@ function CapExCalculator() {
 function Slider({ label, value, min, max, step, unit, display, onChange, accent }: {
   label: string; value: number; min: number; max: number; step: number; unit: string; display: string; onChange: (v: number) => void; accent: string;
 }) {
+  const id = label.toLowerCase().replace(/\s+/g, '-');
   return (
     <div>
       <div className="flex justify-between mb-2">
-        <label className="carbon-label-02 text-gray-400 uppercase">{label}</label>
+        <label htmlFor={id} className="carbon-label-02 text-gray-400 uppercase">{label}</label>
         <span className="carbon-body-02 text-white">{display}</span>
       </div>
-      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(Number(e.target.value))} className="w-full" style={{ accentColor: accent }} />
+      <input id={id} type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(Number(e.target.value))} className="w-full" style={{ accentColor: accent }} />
       <div className="flex justify-between mt-1">
         <span className="carbon-helper-text-01 text-gray-500">{min} {unit}</span>
         <span className="carbon-helper-text-01 text-gray-500">{max} {unit}</span>
