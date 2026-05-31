@@ -2,7 +2,7 @@ import { Shield, Battery, Wrench, Award, Clock, Phone } from 'lucide-react';
 
 const TRUST_ITEMS = [
   { icon: Clock, label: 'Lahore 24/7 NOC' },
-  { icon: Shield, label: 'SBP-Compliant' },
+  { icon: Shield, label: 'SBP Aligned' },
   { icon: Award, label: '99.95% SLA' },
   { icon: Wrench, label: 'Local Spares' },
   { icon: Battery, label: 'SBP Disposal' },
