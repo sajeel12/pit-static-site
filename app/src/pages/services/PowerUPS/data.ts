@@ -293,6 +293,65 @@ export const FAQ_ITEMS = [
   { q: 'Is lithium-ion safe for Pakistani temperatures?', a: 'Yes. We specify Li-ion chemistries rated for 35°C+ ambient with built-in thermal management. Our designs include temperature monitoring and automatic load-shedding if thresholds are exceeded. All deployments are SBP and PTA compliant.' },
 ];
 
+export const POWER_CASES = [
+  {
+    title: 'Voltage Spike Elimination for Textile Manufacturer',
+    sector: 'Manufacturing / Textile',
+    org: 'Leading Textile Manufacturer',
+    desc: 'Recurring voltage spikes during grid switching were causing server reboots and data corruption. Perception IT deployed a three-phase online UPS with AVR and generator sync, eliminating all power-related incidents.',
+    outcomes: [
+      'Zero power-related outages post-deployment',
+      '99.95% uptime achieved',
+      'Generator sync validated under 72hr simulation',
+      'NOC dashboard visibility across all sites',
+    ],
+    tags: ['Three Phase UPS', 'AVR', 'Generator Sync'],
+    link: '/projects/manufacturing-infrastructure',
+  },
+  {
+    title: 'Modular UPS Expansion for Financial Services',
+    sector: 'Banking / Financial Services',
+    org: 'Leading Pakistani Bank',
+    desc: 'Data centre power capacity was at 85% with no room for expansion. Perception IT installed a modular UPS architecture allowing incremental scaling without downtime, future-proofing the power infrastructure.',
+    outcomes: [
+      'Capacity scaled from 200kVA to 600kVA in phases',
+      'Zero downtime during expansion',
+      'PUE improved by 12%',
+      'N+1 redundancy maintained throughout',
+    ],
+    tags: ['Modular UPS', 'Phased Expansion', 'N+1 Redundancy'],
+    link: '/case-studies/multi-site-precision-cooling',
+  },
+  {
+    title: 'Li-ion Battery Upgrade for Edge Network',
+    sector: 'Telecommunications',
+    org: 'National Telecom Provider',
+    desc: 'Legacy VRLA batteries were failing every 2–3 years in edge cabinets across Pakistan. Perception IT upgraded to lithium-ion with AI health monitoring, reducing battery replacements and extending runtime.',
+    outcomes: [
+      'Battery life extended from 3 to 12+ years',
+      '30% reduction in battery floor space',
+      'AI predictions prevented 4 premature failures',
+      'PKR 2.1M saved in replacement costs',
+    ],
+    tags: ['Li-ion Batteries', 'AI Monitoring', 'Edge Computing'],
+    link: '/case-studies/edge-thermal-management',
+  },
+  {
+    title: 'Industrial Power Hardening for FMCG Factory',
+    sector: 'FMCG / Manufacturing',
+    org: 'Confectionery & Bakery Manufacturing',
+    desc: 'Factory floor equipment was failing due to wide voltage swings and dust ingress. Perception IT deployed industrial-grade UPS with extended temperature range and sealed enclosures.',
+    outcomes: [
+      'Voltage tolerance: -30% to +25% input range',
+      'Equipment failures reduced by 78%',
+      'Dust-proof IP54 rating achieved',
+      'Generator auto-transfer under 2 seconds',
+    ],
+    tags: ['Industrial UPS', 'Generator Sync', 'Load Shedding'],
+    link: '/case-studies/monsoon-season-resilience',
+  },
+];
+
 export const TESTIMONIALS = [
   {
     quote: "Before Perception IT, we lost a server rack every monsoon season to voltage spikes. Their three-phase UPS with AVR and generator sync eliminated outages entirely. The NOC dashboard gives us visibility we never had.",
