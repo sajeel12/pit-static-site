@@ -16,6 +16,20 @@ export default function CTASection() {
           </h2>
         </div>
 
+        {/* Primary CTA */}
+        <div className="text-center mb-10">
+          <a
+            href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0f62fe] carbon-heading-02 hover:bg-white/90 hover:shadow-xl hover:shadow-black/20 hover:-translate-y-0.5 transition-all rounded-lg"
+            onClick={() => trackEvent('cta_conversion', { type: 'consultation', location: 'bottom_cta' })}
+          >
+            Request Technical Consultation
+          </a>
+          <p className="carbon-helper-text-01 text-white/50 mt-4">
+            Response within 1 business day · No obligation
+          </p>
+        </div>
+
         {/* Value proposition card */}
         <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-8 sm:p-10 mb-10">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
@@ -30,20 +44,6 @@ export default function CTASection() {
             Enterprise volume pricing available for our complete{' '}
             <span className="text-white font-medium">Data Centre Ecosystem Integration</span>.
             Request a free consultation. We&apos;ll identify the right path forward and respond within one business day.
-          </p>
-        </div>
-
-        {/* Primary CTA */}
-        <div className="text-center mb-10">
-          <a
-            href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0f62fe] carbon-heading-02 hover:bg-white/90 hover:shadow-xl hover:shadow-black/20 hover:-translate-y-0.5 transition-all rounded-lg"
-            onClick={() => trackEvent('cta_conversion', { type: 'consultation', location: 'bottom_cta' })}
-          >
-            Request Technical Consultation
-          </a>
-          <p className="carbon-helper-text-01 text-white/50 mt-4">
-            Free consultation · Response within 1 business day · No obligation
           </p>
         </div>
 
