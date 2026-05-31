@@ -34,8 +34,11 @@ export default function UPSSystemsSection() {
                 onMouseLeave={() => setFlipped(null)}
               >
                 <div
-                  className={`relative w-full h-full transition-transform duration-500 preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}
-                  style={{ transformStyle: 'preserve-3d' }}
+                  className="relative w-full h-full transition-transform duration-500"
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                  }}
                 >
                   {/* Front */}
                   <div
@@ -62,7 +65,7 @@ export default function UPSSystemsSection() {
 
                   {/* Back */}
                   <div
-                    className="absolute inset-0 rounded-xl p-6 sm:p-8 flex flex-col text-white backface-hidden rotate-y-180"
+                    className="absolute inset-0 rounded-xl p-6 sm:p-8 flex flex-col text-white"
                     style={{
                       backfaceVisibility: 'hidden',
                       transform: 'rotateY(180deg)',

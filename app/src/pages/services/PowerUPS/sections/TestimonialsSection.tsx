@@ -3,7 +3,7 @@ import type { TestimonialData } from '@/components/TestimonialCarousel';
 
 const testimonials: TestimonialData[] = [
   {
-    quote: "Before Perception IT, we lost a server rack every monsoon season to voltage spikes. Their three-phase UPS with AVR and generator sync eliminated outages entirely. The NOC dashboard gives us visibility we never had.",
+    quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     author: 'Head of IT Infrastructure',
     org: 'Leading Textile Manufacturer',
     bg: 'from-[#0043ce] to-[#002d9c]',
@@ -14,7 +14,7 @@ const testimonials: TestimonialData[] = [
     },
   },
   {
-    quote: "We needed to upgrade our data centre power without downtime. Perception IT designed a modular UPS architecture that let us scale incrementally. Zero downtime during cutover, and our PUE dropped 12%.",
+    quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     author: 'Chief Technology Officer',
     org: 'Financial Services Firm',
     bg: 'from-[#0f62fe] to-[#0353e9]',
@@ -25,7 +25,7 @@ const testimonials: TestimonialData[] = [
     },
   },
   {
-    quote: "The battery health forecasting is a game-changer. We used to replace batteries on a fixed schedule—wasting money on good cells and risking failures on marginal ones. Now we replace precisely when needed.",
+    quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
     author: 'Director of Operations',
     org: 'Multi-Site Retail Chain',
     bg: 'from-[#002d9c] to-[#0043ce]',
