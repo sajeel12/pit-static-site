@@ -6,8 +6,18 @@ export default function TechnologySection() {
   const [openTech, setOpenTech] = useState<string | null>('Online (Double-Conversion)');
 
   return (
-    <section id="technologies" className="py-16 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="technologies" className="py-16 md:py-24 bg-white relative overflow-hidden">
+      {/* Background image — top right */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] md:w-[700px] md:h-[700px] opacity-[0.06] pointer-events-none z-0">
+        <img
+          src="/Sections/UPSandPower/Images/tech-bg.png"
+          alt=""
+          className="w-full h-full object-contain object-top-right"
+          aria-hidden="true"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mb-12 md:mb-16">
           <span className="inline-block carbon-label-02 text-[#0f62fe] uppercase tracking-wider mb-3">
