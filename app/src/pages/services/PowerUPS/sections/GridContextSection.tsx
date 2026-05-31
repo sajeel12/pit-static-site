@@ -1,47 +1,18 @@
-import { useState } from 'react';
-import { AlertTriangle, MapPin, Zap, Activity, Gauge } from 'lucide-react';
-
-const CITY_RECOMMENDATIONS: Record<string, { risk: string; rec: string; icon: string }> = {
-  Lahore: { risk: 'High fluctuation risk', rec: 'Line-Interactive + AVR + Generator sync', icon: 'high' },
-  Karachi: { risk: 'High fluctuation + humidity', rec: 'Online Double-Conversion + Li-ion', icon: 'high' },
-  Islamabad: { risk: 'Moderate fluctuation', rec: 'Line-Interactive + Extended backup', icon: 'medium' },
-  Faisalabad: { risk: 'High industrial load variance', rec: 'Three Phase + Modular + AVR', icon: 'high' },
-  Multan: { risk: 'Moderate + seasonal spikes', rec: 'Line-Interactive + Generator sync', icon: 'medium' },
-  Rawalpindi: { risk: 'Moderate fluctuation', rec: 'Online + SNMP monitoring', icon: 'medium' },
-};
+import { AlertTriangle, Zap, Activity, Gauge } from 'lucide-react';
 
 export default function GridContextSection() {
-  const [city, setCity] = useState('Lahore');
-  const data = CITY_RECOMMENDATIONS[city];
-
   return (
     <section className="py-12 md:py-16 bg-[#f4f4f4]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
-          <div>
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#da1e28]/10 text-[#da1e28] carbon-label-02 rounded-full mb-3">
-              <AlertTriangle className="w-4 h-4" />
-              Pakistani Grid Reality
-            </span>
-            <h2 className="carbon-fluid-heading-05 text-[#161616]">
-              Why Standard UPS Isn't Enough Here
-            </h2>
-          </div>
-
-          {/* City Selector */}
-          <div className="flex items-center gap-3">
-            <span className="carbon-body-02 text-gray-500">Your location:</span>
-            <select
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              className="px-4 py-2.5 bg-white border border-gray-300 rounded-lg carbon-body-02 text-gray-900 focus:outline-none focus:border-[#0f62fe] focus:ring-1 focus:ring-[#0f62fe]"
-            >
-              {Object.keys(CITY_RECOMMENDATIONS).map((c) => (
-                <option key={c} value={c}>{c}</option>
-              ))}
-            </select>
-          </div>
+        <div className="max-w-3xl mb-8">
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#da1e28]/10 text-[#da1e28] carbon-label-02 rounded-full mb-3">
+            <AlertTriangle className="w-4 h-4" />
+            Pakistani Grid Reality
+          </span>
+          <h2 className="carbon-fluid-heading-05 text-[#161616]">
+            Why Standard UPS Isn't Enough Here
+          </h2>
         </div>
 
         {/* 3 Grid Facts */}
@@ -77,26 +48,22 @@ export default function GridContextSection() {
             <div>
               <p className="carbon-heading-02 text-[#161616] mb-1">Outage Frequency</p>
               <p className="carbon-body-02 text-gray-600">
-                Load-shedding and unplanned outages remain a operational reality across Pakistani industrial and commercial sectors. Runtime modeling and generator sync are essential, not optional.
+                Load-shedding and unplanned outages remain an operational reality across Pakistani industrial and commercial sectors. Runtime modeling and generator sync are essential, not optional.
               </p>
             </div>
           </div>
         </div>
 
-        {/* City Recommendation */}
+        {/* CTA */}
         <div className="bg-[#0f1d3a] rounded-xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <MapPin className="w-6 h-6 text-[#78a9ff]" />
-            <div>
-              <p className="carbon-label-02 text-white/60 uppercase">{city} — {data.risk}</p>
-              <p className="carbon-heading-02 text-white">Recommended: {data.rec}</p>
-            </div>
-          </div>
+          <p className="carbon-body-02 text-white/90">
+            Every Perception-IT deployment includes grid-sync testing and 72-hour fluctuation simulation before handover.
+          </p>
           <a
             href="#/contact"
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#0f62fe] text-white carbon-heading-02 rounded-lg hover:bg-[#0353e9] transition-colors whitespace-nowrap"
           >
-            Get Location-Specific Assessment
+            Request Site Assessment
           </a>
         </div>
       </div>
