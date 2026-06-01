@@ -139,7 +139,7 @@ export default function DeploymentOptionsSection() {
               <div className="mt-auto pt-6 border-t border-gray-100">
                 <a
                   href="mailto:contact@perception-it.com?subject=Individual%20Service%20Enquiry"
-                  className="inline-flex items-center justify-center w-full px-6 py-3.5 bg-white text-[#0f62fe] carbon-heading-02 border border-[#0f62fe] hover:bg-[#0f62fe] hover:text-white transition-colors rounded-lg"
+                  className="inline-flex items-center justify-center w-full px-6 py-3.5 bg-[#0f62fe] text-white carbon-heading-02 hover:bg-[#0353e9] transition-colors rounded-lg"
                 >
                   Request Technical Consultation
                 </a>
