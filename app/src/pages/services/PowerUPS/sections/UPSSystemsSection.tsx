@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { ArrowRight, Check, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { UPS_SYSTEMS } from '../data';
 
 const SERVICE_LINKS: Record<string, string> = {
@@ -23,7 +22,7 @@ const SERVICE_LINKS: Record<string, string> = {
 };
 
 export default function UPSSystemsSection() {
-  const [drawerOpen, setDrawerOpen] = useState<string | null>(null);
+
 
   return (
     <section id="systems" className="py-16 md:py-24 bg-white">
@@ -44,9 +43,7 @@ export default function UPSSystemsSection() {
 
         {/* Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {UPS_SYSTEMS.map((system) => {
-            const isOpen = drawerOpen === system.title;
-            return (
+          {UPS_SYSTEMS.map((system) => (
               <div
                 key={system.title}
                 className="group relative bg-white rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
@@ -107,11 +104,11 @@ export default function UPSSystemsSection() {
                     </div>
                   </div>
 
-                  {/* Related Services Drawer */}
+                  {/* Related Services */}
                   <div className="mt-6 pt-5 border-t border-gray-100">
                     <p className="carbon-label-02 text-gray-500 uppercase mb-3">Related Services</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {system.links.slice(0, 2).map((link) => (
+                    <div className="flex flex-wrap gap-2">
+                      {system.links.map((link) => (
                         <a
                           key={link}
                           href={SERVICE_LINKS[link] || '/#/contact'}
@@ -122,35 +119,10 @@ export default function UPSSystemsSection() {
                         </a>
                       ))}
                     </div>
-
-                    <button
-                      onClick={() => setDrawerOpen(isOpen ? null : system.title)}
-                      className="w-full flex items-center justify-center gap-2 bg-white border text-gray-900 carbon-body-02 font-medium rounded-lg py-3 hover:bg-gray-50 transition-colors"
-                      style={{ borderColor: system.color + '40' }}
-                    >
-                      {isOpen ? 'Hide related services' : 'View related services'}
-                      {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                    </button>
-
-                    {isOpen && (
-                      <div className="mt-4 grid grid-cols-1 gap-2 animate-fade-in">
-                        {system.links.map((link) => (
-                          <a
-                            key={link}
-                            href={SERVICE_LINKS[link] || '/#/contact'}
-                            className="flex items-start gap-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
-                          >
-                            <span className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: system.color }} />
-                            <span className="carbon-body-02 text-gray-700 hover:text-[#0f62fe]">{link}</span>
-                          </a>
-                        ))}
-                      </div>
-                    )}
                   </div>
                 </div>
               </div>
-            );
-          })}
+            ))}
         </div>
 
         {/* Quick Recommendation CTA */}
