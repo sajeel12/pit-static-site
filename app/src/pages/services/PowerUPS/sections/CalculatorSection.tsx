@@ -83,11 +83,25 @@ export default function CalculatorSection() {
 
         {/* Form Card */}
         <div className="bg-[#262626] border border-[#393939] p-8 md:p-12">
-          {/* Title + Instruction */}
+          {/* Title */}
           <h3 className="carbon-heading-02 text-white mb-2">Two-Field Estimator</h3>
-          <p className="carbon-body-02 text-[#a8a8a8] mb-8">
-            (1) Input your peak load, (2) Select your criticality level. Get a recommended UPS topology, battery chemistry, and 10-year TCO range.
+
+          {/* Incentive */}
+          <p className="carbon-body-02 text-[#a8a8a8] mb-4">
+            Get a recommended UPS topology, battery chemistry, and 10-year TCO range.
           </p>
+
+          {/* Steps */}
+          <div className="flex items-center gap-3 mb-8">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0f62fe]/10 border border-[#0f62fe]/20 rounded-full">
+              <span className="w-5 h-5 flex items-center justify-center bg-[#0f62fe] text-white text-xs font-bold rounded-full">1</span>
+              <span className="carbon-label-02 text-[#78a9ff]">Input your peak load</span>
+            </span>
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0f62fe]/10 border border-[#0f62fe]/20 rounded-full">
+              <span className="w-5 h-5 flex items-center justify-center bg-[#0f62fe] text-white text-xs font-bold rounded-full">2</span>
+              <span className="carbon-label-02 text-[#78a9ff]">Select your criticality level</span>
+            </span>
+          </div>
 
           {/* Question 1 — Load */}
           <div className="mb-10">
