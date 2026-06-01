@@ -83,9 +83,10 @@ export default function CalculatorSection() {
 
         {/* Form Card */}
         <div className="bg-[#262626] border border-[#393939] p-8 md:p-12">
-          {/* Instruction */}
+          {/* Title + Instruction */}
+          <h3 className="carbon-heading-02 text-white mb-2">Two-Field Estimator</h3>
           <p className="carbon-body-02 text-[#a8a8a8] mb-8">
-            Two-field estimator: (1) Input your peak load, (2) Select your criticality level. Get a recommended UPS topology, battery chemistry, and 10-year TCO range.
+            (1) Input your peak load, (2) Select your criticality level. Get a recommended UPS topology, battery chemistry, and 10-year TCO range.
           </p>
 
           {/* Question 1 — Load */}
@@ -175,6 +176,10 @@ export default function CalculatorSection() {
                     <p className="carbon-fluid-heading-03 text-[#161616]">{result.tco}</p>
                   </div>
                 </div>
+
+                <p className="carbon-body-02 text-gray-500 mb-4">
+                  Disclaimer: Estimates are indicative only. Final pricing, topology, and runtime depend on site survey, load profile validation, and environmental assessment.
+                </p>
 
                 <div className="flex flex-wrap gap-3">
                   <a
