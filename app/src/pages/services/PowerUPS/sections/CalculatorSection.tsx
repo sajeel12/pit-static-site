@@ -76,45 +76,17 @@ export default function CalculatorSection() {
             <Calculator className="w-4 h-4" />
             Power Resilience Calculator
           </span>
-          <h2 className="carbon-fluid-heading-05 text-white mb-4">
+          <h2 className="carbon-fluid-heading-05 text-white">
             Find Your Right-Sized Architecture
           </h2>
-          <p className="carbon-body-02 text-[#a8a8a8] max-w-2xl mx-auto">
-            Two-field estimator: (1) Input your peak load, (2) Select your criticality level. Get a recommended UPS topology, battery chemistry, and 10-year TCO range.
-          </p>
         </div>
 
         {/* Form Card */}
         <div className="bg-[#262626] border border-[#393939] p-8 md:p-12">
-          {/* Progress */}
-          <div className="mb-10">
-            <div className="flex items-center justify-between max-w-md mx-auto relative">
-              <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-[#393939] -translate-y-1/2" />
-              <div
-                className={`absolute top-1/2 left-0 h-0.5 bg-[#0f62fe] -translate-y-1/2 transition-all duration-500 ${
-                  load && criticality ? 'w-full' : load ? 'w-1/2' : 'w-0'
-                }`}
-              />
-              <div className="relative z-10 flex flex-col items-center">
-                <div className={`w-8 h-8 flex items-center justify-center text-sm font-semibold transition-all duration-300 ${
-                  load ? 'bg-[#0f62fe] text-white' : 'bg-[#262626] border border-[#525252] text-[#a8a8a8]'
-                }`}>
-                  {load ? <Check className="w-4 h-4" /> : '1'}
-                </div>
-              </div>
-              <div className="relative z-10 flex flex-col items-center">
-                <div className={`w-8 h-8 flex items-center justify-center text-sm font-semibold transition-all duration-300 ${
-                  criticality ? 'bg-[#0f62fe] text-white' : load ? 'bg-[#262626] border-2 border-[#0f62fe] text-[#0f62fe]' : 'bg-[#262626] border border-[#525252] text-[#a8a8a8]'
-                }`}>
-                  {criticality ? <Check className="w-4 h-4" /> : '2'}
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-between max-w-md mx-auto mt-2">
-              <span className={`carbon-helper-text-01 ${load ? 'text-[#0f62fe]' : 'text-[#6f6f6f]'}`}>Peak Load</span>
-              <span className={`carbon-helper-text-01 ${criticality ? 'text-[#0f62fe]' : 'text-[#6f6f6f]'}`}>Criticality</span>
-            </div>
-          </div>
+          {/* Instruction */}
+          <p className="carbon-body-02 text-[#a8a8a8] mb-8">
+            Two-field estimator: (1) Input your peak load, (2) Select your criticality level. Get a recommended UPS topology, battery chemistry, and 10-year TCO range.
+          </p>
 
           {/* Question 1 — Load */}
           <div className="mb-10">
