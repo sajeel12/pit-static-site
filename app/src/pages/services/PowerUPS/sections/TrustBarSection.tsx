@@ -3,7 +3,7 @@ import { Clock, Shield, Award, Wrench, Battery } from 'lucide-react';
 const TRUST_ITEMS = [
   { icon: Clock, label: 'Lahore 24/7 NOC' },
   { icon: Shield, label: 'SBP Aligned' },
-  { icon: Award, label: '99.95% SLA' },
+  { icon: Award, label: 'SLA Backed' },
   { icon: Wrench, label: 'Local Spares' },
   { icon: Battery, label: 'SBP Disposal' },
 ];
@@ -20,12 +20,12 @@ export default function TrustBarSection() {
             </div>
           ))}
 
-          {/* Huawei Certified with logo */}
+          {/* Huawei Certified */}
           <div className="flex items-center gap-2 text-gray-500 carbon-label-02">
             <img
               src="/logos/partners/Partner-Huawei-Logo.svg"
               alt="Huawei"
-              className="h-4 w-auto"
+              className="h-3.5 w-auto"
             />
             <span>Huawei Certified</span>
           </div>
