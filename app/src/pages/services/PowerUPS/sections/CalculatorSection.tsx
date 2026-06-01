@@ -80,7 +80,7 @@ export default function CalculatorSection() {
             Find Your Right-Sized Architecture
           </h2>
           <p className="carbon-body-02 text-[#a8a8a8] max-w-2xl mx-auto">
-            2-field estimator: input your peak load and criticality level. Get a recommended UPS topology, battery chemistry, and 10-year TCO range.
+            Two-field estimator: (1) Input your peak load, (2) Select your criticality level. Get a recommended UPS topology, battery chemistry, and 10-year TCO range.
           </p>
         </div>
 
