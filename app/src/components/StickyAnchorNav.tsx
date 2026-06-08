@@ -86,7 +86,7 @@ export default function StickyAnchorNav({ items, defaultActive }: StickyAnchorNa
   return (
     <nav
       ref={navRef}
-      className={`sticky z-30 transition-all duration-150 ${navScrolled ? 'bg-black md:bg-[#f4f4f4] md:border-b md:border-[var(--cds-border-subtle)]' : 'bg-white border-b border-[var(--cds-border-subtle)]'}`}
+      className={`sticky z-50 transition-all duration-150 ${navScrolled ? 'bg-black md:bg-[#f4f4f4] md:border-b md:border-[var(--cds-border-subtle)]' : 'bg-white border-b border-[var(--cds-border-subtle)]'}`}
       style={{
         top: '3rem',
         boxShadow: navScrolled ? '0 4px 12px rgba(0, 0, 0, 0.08)' : '0 1px 3px rgba(0, 0, 0, 0.06)'

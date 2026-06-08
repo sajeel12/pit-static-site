@@ -1,8 +1,19 @@
+import { lazy, Suspense } from 'react';
 import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+
+const HeroCubeAnimation = lazy(() => import('@/components/HeroCubeAnimation'));
+const HeroGradientPlanes = lazy(() => import('@/components/HeroGradientPlanes'));
+
 export default function HeroSection() {
-  return (<section id="overview" className="relative min-h-[75vh] sm:min-h-[85vh] flex items-center bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#334155] overflow-hidden pt-20 carbon-font text-white">
-    <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle at top right, rgba(100,116,139,0.10), transparent 35%), radial-gradient(circle at left, rgba(71,85,105,0.06), transparent 30%)' }} />
-    <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-6 pb-20 lg:pb-24">
+  return (<section id="overview" className="relative min-h-[75vh] sm:min-h-[85vh] flex items-center bg-[#0a1628] overflow-hidden pt-20 carbon-font text-white">
+    {/* WebGL Backdrop from Maximo */}
+    <Suspense fallback={<div className="absolute inset-0 bg-[#0a1628]" />}>
+      <HeroCubeAnimation />
+    </Suspense>
+    <Suspense fallback={<div className="absolute inset-0 bg-[#0a1628]" />}>
+      <HeroGradientPlanes />
+    </Suspense>
+    <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-6 pb-20 lg:pb-24">
         <nav aria-label="Breadcrumb" className="mb-6">
         <ol className="flex flex-wrap items-center gap-1.5 text-xs text-gray-400">
           <li><a href="/#/" className="hover:text-[#78a9ff] transition-colors">Home</a></li>
@@ -44,7 +55,7 @@ export default function HeroSection() {
             ))}
           </div>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mt-10 lg:mt-12">
-            <a href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-8 h-12 sm:h-14 bg-gradient-to-r from-[#0f62fe] to-[#4589ff] text-white carbon-body-02 hover:from-[#0353e9] hover:to-[#0f62fe] shadow-lg shadow-blue-500/25 hover:shadow-[0_0_30px_rgba(15,98,254,0.5)] rounded-lg">
+            <a href="mailto:contact@perception-it.com?subject=Consultation%20Request%20for%20Cooling%20and%20Airflow" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-8 h-12 sm:h-14 bg-gradient-to-r from-[#0f62fe] to-[#4589ff] text-white carbon-body-02 hover:from-[#0353e9] hover:to-[#0f62fe] shadow-lg shadow-blue-500/25 hover:shadow-[0_0_30px_rgba(15,98,254,0.5)] rounded-lg">
               Request Technical Consultation
             </a>
             <button onClick={() => { const el = document.getElementById('international'); if (el) { const headerOffset = 80; const pos = el.getBoundingClientRect().top + window.scrollY; window.scrollTo({ top: pos - headerOffset, behavior: 'smooth' }); } }} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 sm:h-14 text-slate-300 carbon-body-02 hover:text-white transition-colors cursor-pointer">

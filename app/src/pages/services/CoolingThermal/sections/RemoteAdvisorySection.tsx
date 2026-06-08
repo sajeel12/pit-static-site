@@ -247,7 +247,9 @@ export default function RemoteAdvisorySection() {
                     <span className="carbon-label-02 text-white uppercase tracking-wider">{item.title}</span>
                     {item.meta && <span className="hidden sm:inline carbon-label-01 text-slate-500">{item.meta}</span>}
                   </div>
-                  <ChevronDown className={`w-5 h-5 text-slate-500 flex-shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${isOpen ? 'bg-[#0f62fe]/20' : 'bg-white/10'}`}>
+                    <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${isOpen ? 'rotate-180 text-[#78a9ff]' : 'text-slate-400'}`} />
+                  </div>
                 </button>
                 <div className={`grid transition-all duration-300 ease-out ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
                   <div className="overflow-hidden">

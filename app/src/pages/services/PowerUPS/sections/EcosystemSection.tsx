@@ -13,9 +13,11 @@ export default function EcosystemSection() {
           <h2 className="carbon-fluid-heading-05 text-[#161616] mb-4">
             Complete Data Centre Resilience
           </h2>
+          <h3 className="carbon-heading-02 text-[#161616] mb-2">
+            One partner. One SLA. No gaps.
+          </h3>
           <p className="carbon-body-02 text-gray-600">
-            Power doesn't exist in isolation. When cooling, airflow, monitoring, and suppression 
-            are validated together, gaps disappear.
+            We validate power, cooling, monitoring, and suppression as one integrated architecture.
           </p>
         </div>
 
@@ -24,7 +26,7 @@ export default function EcosystemSection() {
           {ECOSYSTEM_ITEMS.map((item) => (
             <a
               key={item.title}
-              href={`/#${item.link}`}
+              href={`/#${item.link.replace(/^\//, '')}`}
               className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-[#0f62fe]/30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-xl bg-[#0f62fe]/10 flex items-center justify-center mb-4 group-hover:bg-[#0f62fe] transition-colors">
@@ -47,15 +49,18 @@ export default function EcosystemSection() {
           </h3>
           <p className="carbon-body-02 text-white/70 max-w-2xl mx-auto mb-6">
             When power, cooling, monitoring, and suppression are validated together, 
-            your data centre operates as a single resilient system — not a collection of vendor contracts.
+            your data centre operates as a single resilient system. Not a collection of vendor contracts.
           </p>
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#0f62fe]/20 text-[#78a9ff] carbon-label-02 rounded-full mb-4">
+          <a
+            href="mailto:contact@perception-it.com?subject=Enterprise%20Pricing%20-%20Power%20and%20UPS"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-[#0f62fe]/20 text-[#78a9ff] carbon-label-02 rounded-full mb-4 hover:bg-[#0f62fe]/30 transition-colors"
+          >
             Enterprise Pricing
-          </span>
+          </a>
           <p className="carbon-body-02 text-white/60">
             Volume discounts for complete Ecosystem Integration.{' '}
-            <a href="/#/infrastructure/operational-efficiency" className="text-[#78a9ff] hover:underline">
-              View Cost Optimisation options
+            <a href="/#/infrastructure/operational-efficiency" className="text-[#78a9ff] hover:underline whitespace-nowrap">
+              View the full infrastructure ecosystem
             </a>
           </p>
         </div>

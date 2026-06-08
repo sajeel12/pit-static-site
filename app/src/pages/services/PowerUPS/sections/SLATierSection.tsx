@@ -86,7 +86,7 @@ export default function SLATierSection() {
                 <div className="pt-6 mt-6 border-t border-gray-100">
                   <p className="carbon-fluid-heading-03 text-[#161616] mb-4">{tier.price}</p>
                   <a
-                    href="#/contact"
+                    href={`mailto:contact@perception-it.com?subject=SLA%20Tiers%20/%20${tier.name}%20/%20Power%20and%20UPS`}
                     className={`inline-flex items-center justify-center w-full px-6 py-3 carbon-heading-02 rounded-lg transition-all ${
                       tier.recommended
                         ? 'bg-[#0f62fe] text-white hover:bg-[#0353e9] hover:shadow-lg'

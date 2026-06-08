@@ -165,7 +165,7 @@ const Scene = () => {
         offset={3}
       />
       <WireframeCube
-        position={[-4, -1.5, -3]}
+        position={[-1, -1.5, -3]}
         size={1.0}
         color="#22d3ee"
         speed={0.55}

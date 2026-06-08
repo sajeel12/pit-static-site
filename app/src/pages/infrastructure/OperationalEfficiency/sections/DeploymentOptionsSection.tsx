@@ -137,15 +137,15 @@ export default function DeploymentOptionsSection() {
               </div>
 
               <div className="mt-auto pt-6 border-t border-gray-100">
+                <p className="text-center carbon-helper-text-01 text-gray-500 mb-4">
+                  Begin with a single service. Consolidate under Ecosystem anytime, with no rework or penalty.
+                </p>
                 <a
                   href="mailto:contact@perception-it.com?subject=Individual%20Service%20Enquiry"
                   className="inline-flex items-center justify-center w-full px-6 py-3.5 bg-[#0f62fe] text-white carbon-heading-02 hover:bg-[#0353e9] transition-colors rounded-lg"
                 >
                   Request Technical Consultation
                 </a>
-                <p className="text-center carbon-helper-text-01 text-gray-500 mt-4">
-                  Begin with a single service. Consolidate under Ecosystem anytime, with no rework or penalty.
-                </p>
               </div>
             </div>
           </div>

@@ -27,6 +27,7 @@ const Footer = () => {
       { name: 'Partners', href: '#partnerships' },
       { name: 'Privacy Policy', href: '#' },
       { name: 'Terms of Service', href: '#' },
+      { name: 'Staff Portal', href: '/portal' },
     ],
   };
 

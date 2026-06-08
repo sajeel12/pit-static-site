@@ -64,6 +64,7 @@ const AIAccelerator = lazy(() => import('./pages/services/AIAccelerator'));
 const AIModelDevelopment = lazy(() => import('./pages/services/AIModelDevelopment'));
 const MLOps = lazy(() => import('./pages/services/MLOps'));
 const AIConsulting = lazy(() => import('./pages/services/AIConsulting'));
+const StaffPortal = lazy(() => import('./pages/StaffPortal'));
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -184,6 +185,9 @@ function App() {
 
               {/* Partner Pages */}
               <Route path="/partners/huawei" element={<HuaweiPartnership />} />
+
+              {/* Staff Portal */}
+              <Route path="/portal" element={<StaffPortal />} />
             </Routes>
           </Suspense>
           <Chatbot />

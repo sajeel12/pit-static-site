@@ -103,7 +103,7 @@ function LiIonArticle() {
         <h4 className="carbon-heading-02 text-[#161616] mb-4">Perception-IT's Recommendation Framework</h4>
         <p className="carbon-body-02 text-gray-600 mb-3">We don't prescribe chemistry first. We assess:</p>
         <ul className="space-y-2 mb-4">
-          {['Ambient temperature profile (site survey or historical data)', 'Load criticality (revenue impact per minute of downtime)', 'Maintenance accessibility (remote edge vs. urban data centre)', 'Budget structure (CapEx-constrained vs. OpEx-optimized)', 'Compliance requirements (SBP, PTA, internal ESG policies)'].map((item) => (
+          {['Ambient temperature profile (site survey or historical data)', 'Load criticality (revenue impact per minute of downtime)', 'Maintenance accessibility (remote edge vs. urban data centre)', 'Budget structure (CapEx-constrained vs. OpEx-optimised)', 'Compliance requirements (SBP, PTA, internal ESG policies)'].map((item) => (
             <li key={item} className="flex items-start gap-3 carbon-body-02 text-gray-700">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0f62fe] mt-2 flex-shrink-0" />
               {item}
@@ -111,7 +111,7 @@ function LiIonArticle() {
           ))}
         </ul>
         <p className="carbon-body-02 text-gray-600">
-          Only then do we recommend VRLA, Li-ion, or a hybrid architecture—with full TCO modeling in PKR and SLA impact analysis.
+          Only then do we recommend VRLA, Li-ion, or a hybrid architecture—with full TCO modelling in PKR and SLA impact analysis.
         </p>
       </div>
 
@@ -122,7 +122,7 @@ function LiIonArticle() {
           Get a no-obligation Battery Architecture Assessment from Perception-IT: site temperature profiling, 10-year TCO comparison in PKR, SBP-compliant disposal pathway documentation, and SLA impact analysis.
         </p>
         <a
-          href="#/contact"
+          href="mailto:contact@perception-it.com?subject=Battery%20Architecture%20Assessment%20Request"
           className="inline-flex items-center gap-2 px-6 py-3 bg-[#0f62fe] text-white carbon-heading-02 rounded-lg hover:bg-[#0353e9] transition-colors"
         >
           Request Assessment
@@ -183,7 +183,7 @@ export default function SEOContentSection() {
             >
               <div>
                 <h3 className={`carbon-heading-02 ${open === 1 ? 'text-[#0f62fe]' : 'text-[#161616]'}`}>
-                  Why Pakistani Grids Need Specialized UPS
+                  Why Pakistani Grids Need Specialised UPS
                 </h3>
                 <p className="carbon-label-01 text-gray-400 mt-1">Target: UPS for Pakistan voltage fluctuation</p>
               </div>

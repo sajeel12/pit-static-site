@@ -5,7 +5,7 @@ export default function HeroSection() {
     <section id="services" className="relative bg-[#0a1628] overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#0f1d3a] to-[#0a1628]" />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#0f62fe]/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-[#0f62fe]/5 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-20 pb-16 md:pt-28 md:pb-20">
         {/* Eyebrow */}
@@ -21,14 +21,14 @@ export default function HeroSection() {
 
         {/* Subhead */}
         <p className="carbon-fluid-heading-03 text-slate-300 max-w-2xl mb-10">
-          Single Phase to 800kVA Three Phase — right-sized for your risk profile. 
+          Single Phase to 800kVA Three Phase. Right-sized for your risk profile. 
           From grid-fluctuation resilience to AI-predicted battery health.
         </p>
 
         {/* CTA row */}
         <div className="flex flex-col sm:flex-row gap-4 mb-14">
           <a
-            href="#/contact"
+            href="mailto:contact@perception-it.com?subject=Power%20Resilience%20Assessment%20Request"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#0f62fe] text-white carbon-heading-02 rounded-lg hover:bg-[#0353e9] hover:shadow-xl hover:shadow-[#0f62fe]/25 hover:-translate-y-0.5 transition-all"
           >
             Request Power Assessment

@@ -40,7 +40,7 @@ export default function DeploymentSection() {
 
 
 
-      desc: 'Positioning, refrigerant lines, drains, electrical connections. Every install is validated for Pakistan\'s peak conditions.',
+      desc: ['Positioning, refrigerant lines, drains, electrical connections', 'Every install is validated for Pakistan\'s peak conditions'],
 
 
 
@@ -64,7 +64,7 @@ export default function DeploymentSection() {
 
 
 
-      desc: 'IR mapping, CFD simulation, load-bank testing. We test at 45°C ambient and 80% RH to guarantee performance.',
+      desc: ['IR mapping, CFD simulation, load-bank testing', 'Tested at 45°C ambient and 80% RH'],
 
 
 
@@ -88,7 +88,7 @@ export default function DeploymentSection() {
 
 
 
-      desc: 'Hot/cold aisle containment design with Containment Integrity Validation (pressure decay testing) to eliminate hotspots and ensure fire suppression efficacy.',
+      desc: ['Hot/cold aisle containment design', 'Containment Integrity Validation (pressure decay testing)', 'Eliminates hotspots and ensures fire suppression efficacy'],
 
 
 
@@ -112,7 +112,7 @@ export default function DeploymentSection() {
 
 
 
-      desc: 'Setpoint calibration, DCIM integration, as-built docs. Full operator handover with monitoring dashboard onboarding.',
+      desc: ['Setpoint calibration, DCIM integration, as-built docs', 'Full operator handover with monitoring dashboard onboarding'],
 
 
 
@@ -169,9 +169,13 @@ export default function DeploymentSection() {
 
             <h3 className="carbon-fluid-heading-05 text-white mb-4 leading-[1.4]">Installation is where cooling systems win or fail.</h3>
 
+            <p className="carbon-body-02 text-white/75 mb-4">
+              Most cooling failures trace back to installation errors, not equipment defects.
+            </p>
 
-
-            <p className="carbon-body-02 text-white/75">Because 60% of cooling failures are directly installation-related, our 4-phase deployment protocol introduces full validation to ensure permanent thermal continuity.</p>
+            <p className="carbon-body-02 text-white/75">
+              Our 4-phase deployment protocol introduces full validation at every stage to ensure permanent thermal continuity.
+            </p>
 
 
 
@@ -191,7 +195,7 @@ export default function DeploymentSection() {
 
 
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 md:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 md:mb-14">
 
 
 
@@ -236,10 +240,18 @@ export default function DeploymentSection() {
 
 
                 <h3 className="carbon-heading-02 text-gray-900 mb-3">{step.title}</h3>
-
-
-
-                <p className="carbon-body-02 text-gray-500">{step.desc}</p>
+                {Array.isArray(step.desc) ? (
+                  <ul className="space-y-1.5">
+                    {step.desc.map((point) => (
+                      <li key={point} className="flex items-start gap-2 carbon-body-02 text-gray-500">
+                        <span className="w-1 h-1 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="carbon-body-02 text-gray-500">{step.desc}</p>
+                )}
 
 
 
@@ -263,11 +275,31 @@ export default function DeploymentSection() {
 
 
 
+        {/* Common Installation Failures */}
+        <div className="mb-10 md:mb-14">
+          <div className="max-w-3xl mb-5">
+            <p className="carbon-label-02 text-[#da1e28] uppercase mb-2">What the 4-phase protocol prevents</p>
+            <h3 className="carbon-heading-02 text-[#161616] mb-2">These three installation errors cause the majority of first-year cooling failures.</h3>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              {l:'Refrigerant charge',v:'Incorrect charge is a leading cause of first-year cooling failures'},
+              {l:'Condensate drains',v:'Undersized drains flood during monsoon humidity spikes'},
+              {l:'Thermal validation',v:'Missing validation leaves hotspots undetected until failure'}
+            ].map((item) => (
+              <div key={item.l} className="flex items-start gap-3 p-5 bg-[#fff5f5] rounded-xl border border-[#fecaca]">
+                <Warning className="w-5 h-5 text-[#da1e28] flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="carbon-heading-02 text-[#161616] mb-1">{item.l}</p>
+                  <p className="carbon-body-02 text-gray-600">{item.v}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Stats bar */}
-
-
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 md:mb-20">
 
 
 
@@ -371,74 +403,22 @@ export default function DeploymentSection() {
 
 
 
-            <div className="grid md:grid-cols-2 gap-4">
-
-
-
-              <div className="p-6 bg-gray-50 rounded-xl border border-gray-100">
-
-
-
-                <p className="carbon-label-02 text-[#da1e28] uppercase mb-4">Common Installation Failures</p>
-
-
-
-                <ul className="space-y-3">
-
-
-
-                  {[{l:'Refrigerant charge',v:'Incorrect charge causes 40% of first-year failures'},{l:'Condensate drains',v:'Undersized drains flood during monsoon humidity'},{l:'Thermal validation',v:'Missing validation leaves hotspots undetected'}].map((item) => (
-
-
-
-                    <li key={item.l} className="flex items-start gap-2 carbon-body-02 text-gray-600"><Warning className="w-4 h-4 text-[#da1e28] flex-shrink-0 mt-0.5" /><span><strong className="text-gray-900">{item.l}:</strong> {item.v}</span></li>
-
-
-
-                  ))}
-
-
-
-                </ul>
-
-
-
-              </div>
-
-
-
-              <div className="p-6 bg-gray-50 rounded-xl border border-gray-100">
-
-
-
-                <p className="carbon-label-02 uppercase mb-4 text-[#374151]">Our Deployment Protocol</p>
-
-
-
-                <ul className="space-y-3">
-
-
-
-                  {[{l:'Site survey',v:'Thermal load, airflow path, electrical capacity'},{l:'Placement design',v:'CFD-validated layout for optimal airflow'},{l:'Monsoon hardening',v:'Drain sizing, seal verification, humidity buffers'},{l:'Start-up & balancing',v:'Load-bank test, setpoint calibration, failover'},{l:'As-built docs',v:'Full documentation and operator handover'}].map((item, index) => (
-
-
-
-                    <li key={item.l} className="flex items-start gap-2 carbon-body-02 text-gray-600"><span className="carbon-label-02 text-gray-400 w-5 flex-shrink-0">{String(index + 1).padStart(2, '0')}.</span><span><strong className="text-gray-900">{item.l}:</strong> {item.v}</span></li>
-
-
-
-                  ))}
-
-
-
-                </ul>
-
-
-
-              </div>
-
-
-
+            <div className="p-6 bg-gray-50 rounded-xl border border-gray-100">
+              <p className="carbon-label-02 uppercase mb-4 text-[#374151]">Our Deployment Protocol</p>
+              <ul className="space-y-3">
+                {[
+                  {l:'Site survey',v:'Thermal load, airflow path, electrical capacity'},
+                  {l:'Placement design',v:'CFD-validated layout for optimal airflow'},
+                  {l:'Monsoon hardening',v:'Drain sizing, seal verification, humidity buffers'},
+                  {l:'Start-up & balancing',v:'Load-bank test, setpoint calibration, failover'},
+                  {l:'As-built docs',v:'Full documentation and operator handover'}
+                ].map((item, index) => (
+                  <li key={item.l} className="flex items-start gap-2 carbon-body-02 text-gray-600">
+                    <span className="carbon-label-02 text-gray-400 w-5 flex-shrink-0">{String(index + 1).padStart(2, '0')}.</span>
+                    <span><strong className="text-gray-900">{item.l}:</strong> {item.v}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
 

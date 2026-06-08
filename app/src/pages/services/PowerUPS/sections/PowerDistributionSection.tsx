@@ -44,15 +44,28 @@ export default function PowerDistributionSection() {
                   >
                     <item.icon className="w-6 h-6" />
                   </div>
-                  <ChevronRight
-                    className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
-                      isActive ? 'rotate-90 text-[#0f62fe]' : ''
+                  <div
+                    className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
+                      isActive ? 'bg-[#0f62fe]/10' : 'bg-[#f4f4f4]'
                     }`}
-                  />
+                  >
+                    <ChevronRight
+                      className={`w-5 h-5 transition-transform duration-300 ${
+                        isActive ? 'rotate-90 text-[#0f62fe]' : 'text-gray-400'
+                      }`}
+                    />
+                  </div>
                 </div>
 
                 <h3 className="carbon-heading-02 text-[#161616] mb-2">{item.title}</h3>
-                <p className="carbon-body-02 text-gray-600 mb-4">{item.desc}</p>
+                <ul className="space-y-1 mb-4">
+                  {item.desc.split(' · ').map((point) => (
+                    <li key={point} className="flex items-start gap-2 carbon-body-02 text-gray-600">
+                      <span className="w-1 h-1 rounded-full bg-[#0f62fe] mt-2 flex-shrink-0" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
 
                 {isActive && (
                   <div className="pt-4 border-t border-gray-100 animate-fade-in">

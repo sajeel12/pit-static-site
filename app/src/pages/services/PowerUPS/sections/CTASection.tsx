@@ -1,4 +1,4 @@
-import { ArrowRight, Phone, MessageCircle } from 'lucide-react';
+import { ArrowRight, Mail, MessageCircle } from 'lucide-react';
 
 export default function CTASection() {
   return (
@@ -10,18 +10,18 @@ export default function CTASection() {
             Ready to Secure Your Power?
           </h2>
           <p className="carbon-body-02 text-white/80 max-w-2xl mx-auto mb-8">
-            Get a Power Resilience Assessment — includes load profiling, runtime modeling, 
+            Get a Power Resilience Assessment — includes load profiling, runtime modelling, 
             and recommended architecture. Response within 1 business day.
           </p>
           <a
-            href="#/contact"
+            href="mailto:contact@perception-it.com?subject=Power%20Resilience%20Assessment%20Request"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#0f62fe] carbon-heading-02 rounded-lg hover:bg-white/90 hover:shadow-xl hover:shadow-black/20 hover:-translate-y-0.5 transition-all"
           >
             Request Power Assessment
             <ArrowRight className="w-5 h-5" />
           </a>
           <p className="carbon-body-02 text-white/50 mt-4">
-            No obligation · PKR-based estimates · SBP-compliant options flagged
+            No obligation · PKR-based estimates
           </p>
         </div>
 
@@ -39,11 +39,11 @@ export default function CTASection() {
             </div>
             <div className="flex items-center gap-4">
               <a
-                href="tel:+924235111488"
+                href="mailto:contact@perception-it.com?subject=Enterprise%20Pricing%20Enquiry%20-%20Power%20and%20UPS"
                 className="inline-flex items-center gap-2 px-5 py-3 bg-white/15 border border-white/30 text-white carbon-body-02 rounded-lg hover:bg-white/25 transition-colors"
               >
-                <Phone className="w-4 h-4" />
-                Call Lahore NOC
+                <Mail className="w-4 h-4" />
+                Email Lahore NOC
               </a>
               <a
                 href="https://wa.me/923218445598"

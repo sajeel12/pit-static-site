@@ -48,7 +48,18 @@ export default function FAQSection() {
                 </button>
                 {isOpen && (
                   <div className="px-5 pb-5 animate-fade-in">
-                    <p className="carbon-body-02 text-gray-600 leading-relaxed">{item.a}</p>
+                    {Array.isArray(item.a) ? (
+                      <ul className="space-y-2">
+                        {item.a.map((point) => (
+                          <li key={point} className="flex items-start gap-2 carbon-body-02 text-gray-600 leading-relaxed">
+                            <span className="w-1 h-1 rounded-full bg-[#0f62fe] mt-2 flex-shrink-0" />
+                            {point}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="carbon-body-02 text-gray-600 leading-relaxed">{item.a}</p>
+                    )}
                   </div>
                 )}
               </div>

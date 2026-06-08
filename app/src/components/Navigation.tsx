@@ -826,30 +826,35 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                                 </Link>
                               );
                             })}
+                            {/* Category heading */}
+                            <div className="px-3 pt-3 pb-1">
+                              <span className="text-[10px] font-semibold text-[#0f62fe] uppercase tracking-wider">Service Groups</span>
+                            </div>
                             <Link 
                               to="/services/network-operations"
                               onMouseEnter={() => setActiveInfrastructureItem('network-operations')}
                               onClick={() => handleCategoryClick()}
                               className={`block w-full text-left px-3 py-2 text-sm transition-all border-l-2 ${
                                 activeInfrastructureItem === 'network-operations'
-                                  ? 'bg-[#f4f4f4] text-[#161616] border-[#0f62fe] font-semibold' 
+                                  ? 'bg-[#f4f4f4] text-[#161616] border-[#0f62fe]' 
                                   : 'text-[#161616] hover:bg-[#f4f4f4] border-transparent'
                               }`}
                             >
-                              <span className="font-normal">Network Operations</span>
+                              <span className="font-semibold">Network Operations</span>
+                              <span className="block text-[11px] text-[#525252] font-normal mt-0.5">2 sub-services</span>
                             </Link>
-                            <div className="border-t border-[#e0e0e0] my-2" />
                             <Link 
-                              to="#"
+                              to="/infrastructure/data-centre-services"
                               onMouseEnter={() => setActiveInfrastructureItem('data-centre-services')}
                               onClick={() => handleCategoryClick()}
                               className={`block w-full text-left px-3 py-2 text-sm transition-all border-l-2 ${
                                 activeInfrastructureItem === 'data-centre-services'
-                                  ? 'bg-[#f4f4f4] text-[#161616] border-[#0f62fe] font-semibold' 
+                                  ? 'bg-[#f4f4f4] text-[#161616] border-[#0f62fe]' 
                                   : 'text-[#161616] hover:bg-[#f4f4f4] border-transparent'
                               }`}
                             >
-                              <span className="font-normal">Data Centre Services</span>
+                              <span className="font-semibold">Data Centre Services</span>
+                              <span className="block text-[11px] text-[#525252] font-normal mt-0.5">{dataCentreServices.length} sub-services</span>
                             </Link>
                             <div className="border-t border-[#e0e0e0] my-2" />
                             <Link to="/services/infrastructure" onClick={() => setActiveMegaMenu(null)} className="flex items-center gap-2 px-3 py-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0353e9] hover:bg-[#f4f4f4] transition-colors">
@@ -885,31 +890,34 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                             </>
                           ) : activeInfrastructureItem === 'data-centre-services' ? (
                             <>
-                              {/* Hub Page Link */}
-                              <Link 
-                                to="/services/infrastructure" 
-                                onClick={() => handleCategoryClick()}
-                                className="group flex items-center gap-2 text-sm font-semibold text-[#161616] mb-1 hover:text-[#0f62fe] transition-colors"
-                              >
-                                Data Centre Services
-                                <ArrowRight className="w-4 h-4 text-[#8d8d8d] group-hover:text-[#0f62fe] transition-colors" />
-                              </Link>
-                              <p className="text-xs text-[#525252] leading-relaxed mb-4">Comprehensive data centre infrastructure, engineered for Pakistan&apos;s climate and grid reality.</p>
-                              
-                              {/* Section Label */}
-                              <div className="flex items-center justify-between mb-2">
-                                <p className="text-[11px] font-medium text-[#6f6f6f] uppercase tracking-[0.16px]">Service Pages</p>
-                                <span className="text-[11px] text-[#a8a8a8]">{dataCentreServices.length} services</span>
+                              {/* Category Header — visually dominant */}
+                              <div className="mb-5 pb-5 border-b border-[#e0e0e0]">
+                                <span className="inline-block px-2 py-0.5 bg-[#0f62fe]/10 text-[#0f62fe] text-[10px] font-semibold uppercase tracking-wider rounded mb-2">
+                                  Service Group
+                                </span>
+                                <Link 
+                                  to="/infrastructure/data-centre-services"
+                                  onClick={() => handleCategoryClick()}
+                                  className="group flex items-center gap-2 text-base font-semibold text-[#161616] mb-1 hover:text-[#0f62fe] transition-colors"
+                                >
+                                  Data Centre Services
+                                  <ArrowRight className="w-4 h-4 text-[#8d8d8d] group-hover:text-[#0f62fe] transition-colors" />
+                                </Link>
+                                <p className="text-sm text-[#525252] leading-relaxed">Comprehensive data centre infrastructure, engineered for Pakistan&apos;s climate and grid reality.</p>
                               </div>
                               
-                              {/* Compact 2-Column Grid */}
-                              <div className="grid grid-cols-2 gap-1 mb-4">
+                              {/* Sub-services Grid */}
+                              <div className="flex items-center justify-between mb-3">
+                                <p className="text-[11px] font-semibold text-[#6f6f6f] uppercase tracking-[0.16px]">Sub-services</p>
+                                <span className="text-[11px] text-[#a8a8a8]">{dataCentreServices.length} pages</span>
+                              </div>
+                              <div className="grid grid-cols-2 gap-2 mb-6">
                                 {dataCentreServices.map((service) => (
                                   <Link 
                                     key={service.id}
                                     to={service.link}
                                     onClick={() => handleCategoryClick()}
-                                    className="group px-2.5 py-2 text-[13px] text-[#161616] hover:bg-[#f4f4f4] hover:text-[#0f62fe] transition-colors rounded-sm"
+                                    className="group px-3 py-2.5 bg-[#f4f4f4] text-[13px] text-[#161616] hover:bg-[#e8e8e8] hover:text-[#0f62fe] transition-colors rounded-sm border border-transparent hover:border-[#0f62fe]/20"
                                   >
                                     <span className="font-medium block leading-tight">{service.title}</span>
                                     <span className="text-[11px] text-[#525252] group-hover:text-[#0f62fe] leading-tight block mt-0.5 line-clamp-2">{service.description}</span>
@@ -1647,6 +1655,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
               <div className="space-y-4">
                 <p className="text-sm text-[#525252]">Hardware support, data centre services, and 24×7 SLA support</p>
                 <div className="space-y-3">
+                  {/* Individual Services */}
                   {infrastructureServices.map((service) => (
                     <a 
                       key={service.id}
@@ -1658,8 +1667,13 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                       <p className="text-sm text-[#525252] mt-1">{service.description}</p>
                     </a>
                   ))}
+
+                  {/* Network Operations — Category Group */}
                   <div className="border border-gray-200 rounded-lg overflow-hidden">
                     <div className="p-4 bg-slate-50">
+                      <span className="inline-block px-2 py-0.5 bg-[#0f62fe]/10 text-[#0f62fe] text-[10px] font-semibold uppercase tracking-wider rounded mb-1.5">
+                        Service Group
+                      </span>
                       <h3 className="font-semibold text-[#161616]">Network Operations</h3>
                       <p className="text-sm text-[#525252] mt-1">Cross-domain automation and network monitoring</p>
                     </div>
@@ -1672,6 +1686,30 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           <span className="text-[13px] font-medium text-[#161616]">{service.title}</span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Data Centre Services — Category Group */}
+                  <div className="border border-gray-200 rounded-lg overflow-hidden">
+                    <div className="p-4 bg-slate-50">
+                      <span className="inline-block px-2 py-0.5 bg-[#0f62fe]/10 text-[#0f62fe] text-[10px] font-semibold uppercase tracking-wider rounded mb-1.5">
+                        Service Group · {dataCentreServices.length} services
+                      </span>
+                      <h3 className="font-semibold text-[#161616]">Data Centre Services</h3>
+                      <p className="text-sm text-[#525252] mt-1">Comprehensive data centre infrastructure for Pakistan&apos;s climate and grid reality</p>
+                    </div>
+                    <div className="p-2 space-y-1">
+                      {dataCentreServices.map((service) => (
+                        <a 
+                          key={service.id}
+                          href={service.link} 
+                          className="block p-3 hover:bg-slate-50 rounded-lg"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          <span className="text-[13px] font-medium text-[#161616]">{service.title}</span>
+                          <span className="block text-[11px] text-[#525252] mt-0.5">{service.description}</span>
                         </a>
                       ))}
                     </div>

@@ -188,21 +188,28 @@ const DesktopDropdown = ({
 
       <div className="relative bg-white shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-gray-100 rounded-xl overflow-hidden">
         <div className="flex">
-          {groups.map((group) => (
-            <div key={group.heading} className="min-w-[260px] border-r border-gray-50 last:border-r-0 px-1">
+          {groups.map((group, groupIdx) => (
+            <div key={group.heading} className={`min-w-[260px] border-r border-gray-50 last:border-r-0 px-1 ${groupIdx === 0 ? 'bg-[#fafbfc]' : ''}`}>
               {group.href ? (
                 <Link
                   to={group.href}
                   onClick={onClose}
-                  className="flex items-center gap-2 px-4 pt-5 pb-2 text-xs font-semibold text-[#0f62fe] hover:underline transition-colors"
+                  className={`flex items-center gap-2 px-4 pt-5 pb-2 hover:underline transition-colors ${
+                    groupIdx === 0
+                      ? 'text-sm font-bold text-[#161616]'
+                      : 'text-xs font-semibold text-[#0f62fe]'
+                  }`}
                 >
                   {group.heading}
-                  <ArrowUpRight className="w-3.5 h-3.5" />
+                  <ArrowUpRight className={`${groupIdx === 0 ? 'w-4 h-4' : 'w-3.5 h-3.5'}`} />
                 </Link>
               ) : (
-                <p className="px-4 pt-5 pb-2 text-xs font-semibold text-[#6f6f6f]">
+                <p className={`px-4 pt-5 pb-2 ${groupIdx === 0 ? 'text-sm font-bold text-[#161616]' : 'text-xs font-semibold text-[#6f6f6f]'}`}>
                   {group.heading}
                 </p>
+              )}
+              {groupIdx === 0 && (
+                <div className="mx-4 mb-2 h-px bg-[#e0e0e0]" />
               )}
               <ul className="space-y-1 pb-2">
                 {group.links.map((link) => (
@@ -415,18 +422,22 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
                 {isOpen && (
                   <div className="mt-2 p-3 bg-white/[0.03] border border-gray-800/40 rounded-xl space-y-4">
                     {item.groups.map((group, gIdx) => (
-                      <div key={group.heading} className={gIdx > 0 ? 'border-t border-gray-800/40 pt-3' : ''}>
+                      <div key={group.heading} className={`${gIdx > 0 ? 'border-t border-gray-800/40 pt-3' : ''} ${gIdx === 0 ? 'bg-white/[0.03] rounded-lg p-3 -mx-1' : ''}`}>
                         {group.href ? (
                           <Link
                             to={group.href}
                             onClick={onClose}
-                            className="inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-semibold text-[#0f62fe] mb-2 hover:bg-white/5 transition-colors"
+                            className={`inline-flex items-center gap-2 px-2 py-1 rounded hover:bg-white/5 transition-colors ${
+                              gIdx === 0
+                                ? 'text-sm font-bold text-white mb-2'
+                                : 'text-xs font-semibold text-[#0f62fe] mb-2'
+                            }`}
                           >
                             {group.heading}
-                            <ArrowUpRight className="w-3.5 h-3.5" />
+                            <ArrowUpRight className={`${gIdx === 0 ? 'w-4 h-4' : 'w-3.5 h-3.5'}`} />
                           </Link>
                         ) : (
-                          <p className="text-xs font-semibold text-gray-400 mb-2">
+                          <p className={`${gIdx === 0 ? 'text-sm font-bold text-white mb-2' : 'text-xs font-semibold text-gray-400 mb-2'}`}>
                             {group.heading}
                           </p>
                         )}

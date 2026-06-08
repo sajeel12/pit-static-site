@@ -1,0 +1,14 @@
+<html><head><title>404 Not Found</title><style>
+  .text-right { text-align: right;}.text-left {text-align: left;}.alb-grid-container {display: grid;grid-template-columns: 1fr 1fr;column-gap: 20px;row-gap: 12px;text-align: left;
+  }</style></head><body bgcolor="#EEEEEE">
+<center style="padding: 50px 0px 50px 0px;"><font face="Impact" style="font-size:40pt">404 Not Found</font></center>
+<center style="padding: 0px 0px 20px 0px;"><font face="fantasy" style="font-size:20pt">TIPS: Couldn't find any router rule, please check router config.</font></center><center><div class="alb-grid-container"><div class="text-right">CODE: </div><div>404000</div>
+<div class="text-right">HOST: </div>
+<div>e-file.huawei.com</div>
+<div class="text-right">URI:  </div>
+<div>/-/media/EBG/Images/ProductV2/network-energy/product/SmartLi-v3.png</div>
+<div class="text-right">PROXY IP: </div>
+<div>*.*.130.17</div>
+</div></center>
+<hr><center><p><font style='font-size:16pt'><b>Please contact your Web Application administrator if this problem persists.</b></font></p></center>
+<font style='font-size:10pt'><i style='position:fixed;bottom:0;right:4'>Powered by ALB</i></font></body></html>

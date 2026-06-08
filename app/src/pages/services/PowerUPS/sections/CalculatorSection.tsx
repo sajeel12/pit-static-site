@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Calculator, ArrowRight, Check, RefreshCw } from 'lucide-react';
+import { Calculator, ArrowRight, Check, RefreshCw, Zap, Battery } from 'lucide-react';
 
 const LOAD_OPTIONS = [
   { value: '5', label: '1–10 kVA', load: 'Small office / edge rack' },
@@ -37,11 +37,11 @@ export default function CalculatorSection() {
         tco = 'PKR 12M – 25M (10yr)';
       } else if (loadNum >= 150) {
         ups = crit === 'high' ? 'Three Phase Online + N+1' : 'Three Phase Online';
-        battery = crit === 'high' ? 'Li-ion' : 'VRLA';
+        battery = crit === 'high' ? 'Li ion' : 'VRLA';
         tco = 'PKR 4M – 8M (10yr)';
       } else if (loadNum >= 50) {
         ups = crit === 'high' ? 'Modular Online (N+1)' : 'Three Phase / Modular';
-        battery = crit === 'high' ? 'Li-ion' : 'VRLA';
+        battery = crit === 'high' ? 'Li ion' : 'VRLA';
         tco = 'PKR 1.5M – 3.5M (10yr)';
       } else if (loadNum >= 20) {
         ups = crit === 'high' ? 'Online Double-Conversion' : 'Line-Interactive + AVR';
@@ -72,8 +72,8 @@ export default function CalculatorSection() {
       <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="text-center mb-10">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0f62fe]/10 border border-[#0f62fe]/30 text-[#78a9ff] carbon-label-02 rounded-full mb-4">
-            <Calculator className="w-4 h-4" />
+          <span className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-[#0f62fe]/10 border border-[#0f62fe]/30 text-[#78a9ff] text-base font-semibold rounded-full mb-4">
+            <Calculator className="w-5 h-5" />
             Power Resilience Calculator
           </span>
           <h2 className="carbon-fluid-heading-05 text-white">
@@ -84,15 +84,15 @@ export default function CalculatorSection() {
         {/* Form Card */}
         <div className="bg-[#262626] border border-[#393939] p-8 md:p-12">
           {/* Title */}
-          <h3 className="carbon-heading-02 text-white mb-2">Two-Field Estimator</h3>
+          <h3 className="carbon-heading-02 text-white mb-3">Two-Field Estimator</h3>
 
           {/* Incentive */}
-          <p className="carbon-body-02 text-[#a8a8a8] mb-4">
-            Get a recommended UPS topology, battery chemistry, and 10-year TCO range.
+          <p className="carbon-body-02 text-[#a8a8a8] mb-5">
+            Get a recommended UPS topology, battery chemistry, and a 10-year TCO range in three simple steps.
           </p>
 
           {/* Steps */}
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex flex-wrap items-center gap-3 mb-8">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0f62fe]/10 border border-[#0f62fe]/20 rounded-full">
               <span className="w-5 h-5 flex items-center justify-center bg-[#0f62fe] text-white text-xs font-bold rounded-full">1</span>
               <span className="carbon-label-02 text-[#78a9ff]">Input your peak load</span>
@@ -101,12 +101,16 @@ export default function CalculatorSection() {
               <span className="w-5 h-5 flex items-center justify-center bg-[#0f62fe] text-white text-xs font-bold rounded-full">2</span>
               <span className="carbon-label-02 text-[#78a9ff]">Select your criticality level</span>
             </span>
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0f62fe]/10 border border-[#0f62fe]/20 rounded-full">
+              <span className="w-5 h-5 flex items-center justify-center bg-[#0f62fe] text-white text-xs font-bold rounded-full">3</span>
+              <span className="carbon-label-02 text-[#78a9ff]">Receive your tailored recommendation</span>
+            </span>
           </div>
 
           {/* Question 1 — Load */}
-          <div className="mb-10">
-            <div className="flex items-start gap-3 mb-4">
-              <span className="w-6 h-6 bg-[#0f62fe] flex items-center justify-center text-xs font-bold text-white mt-0.5">1</span>
+          <div className="border-t border-[#393939] pt-8 mb-8">
+            <div className="flex items-start gap-3 mb-5">
+              <span className="w-6 h-6 rounded-full bg-[#0f62fe] flex items-center justify-center text-xs font-bold text-white mt-0.5">1</span>
               <div>
                 <p className="carbon-heading-02 text-white mb-1">What's your peak load?</p>
                 <p className="carbon-body-01 text-[#a8a8a8]">Select the kVA range that matches your infrastructure</p>
@@ -135,9 +139,9 @@ export default function CalculatorSection() {
           </div>
 
           {/* Question 2 — Criticality */}
-          <div className="mb-6">
-            <div className="flex items-start gap-3 mb-4">
-              <span className="w-6 h-6 bg-[#0f62fe] flex items-center justify-center text-xs font-bold text-white mt-0.5">2</span>
+          <div className="border-t border-[#393939] pt-8">
+            <div className="flex items-start gap-3 mb-5">
+              <span className="w-6 h-6 rounded-full bg-[#0f62fe] flex items-center justify-center text-xs font-bold text-white mt-0.5">2</span>
               <div>
                 <p className="carbon-heading-02 text-white mb-1">How critical is downtime?</p>
                 <p className="carbon-body-01 text-[#a8a8a8]">This determines UPS topology and battery chemistry</p>
@@ -168,36 +172,62 @@ export default function CalculatorSection() {
 
         {/* Result — appears only when both fields are selected */}
         {showResult && result && (
-          <div className="mt-6 bg-[#f4f4f4] text-[#161616] p-8 md:p-10 border-l-4 border-[#0f62fe] animate-fade-in">
+          <div className="mt-8 bg-[#f4f4f4] text-[#161616] p-8 md:p-10 border-l-4 border-[#0f62fe] animate-fade-in">
+            <div className="flex items-start gap-3 mb-6">
+              <span className="w-6 h-6 rounded-full bg-[#0f62fe] flex items-center justify-center text-xs font-bold text-white mt-0.5 flex-shrink-0">3</span>
+              <div>
+                <p className="carbon-heading-02 text-[#161616] mb-1">Your recommended architecture</p>
+                <p className="carbon-body-01 text-gray-500">UPS topology, battery chemistry, and 10-year TCO estimate</p>
+              </div>
+            </div>
+
             <div className="flex items-start gap-5">
               <div className="w-14 h-14 bg-[#0f62fe] flex items-center justify-center flex-shrink-0">
                 <Check className="w-7 h-7 text-white" />
               </div>
               <div className="flex-1">
-                <p className="carbon-label-01 text-[#0f62fe] uppercase tracking-wider mb-1">Your Recommended Architecture</p>
+                <p className="carbon-label-01 text-[#0f62fe] uppercase tracking-wider mb-1">Recommendation Summary</p>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                  <div className="p-4 bg-white border border-gray-200">
-                    <p className="carbon-label-02 text-gray-500 uppercase mb-1">UPS Topology</p>
-                    <p className="carbon-heading-02 text-[#161616]">{result.ups}</p>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-200">
+                    <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center flex-shrink-0">
+                      <Zap className="w-5 h-5 text-[#0f62fe]" />
+                    </div>
+                    <div>
+                      <p className="carbon-label-02 text-gray-500 uppercase mb-0.5">UPS Topology</p>
+                      <p className="carbon-heading-02 text-[#161616]">{result.ups}</p>
+                    </div>
                   </div>
-                  <div className="p-4 bg-white border border-gray-200">
-                    <p className="carbon-label-02 text-gray-500 uppercase mb-1">Battery Chemistry</p>
-                    <p className="carbon-heading-02 text-[#161616]">{result.battery}</p>
+                  <div className="flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-200">
+                    <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center flex-shrink-0">
+                      <Battery className="w-5 h-5 text-[#0f62fe]" />
+                    </div>
+                    <div>
+                      <p className="carbon-label-02 text-gray-500 uppercase mb-0.5">Battery Chemistry</p>
+                      <p className="carbon-heading-02 text-[#161616]">{result.battery}</p>
+                    </div>
                   </div>
-                  <div className="p-4 bg-white border border-gray-200">
-                    <p className="carbon-label-02 text-gray-500 uppercase mb-1">10-Year TCO Estimate</p>
-                    <p className="carbon-fluid-heading-03 text-[#161616]">{result.tco}</p>
+                  <div className="flex items-center gap-4 p-5 bg-[#0f62fe]/5 rounded-xl border border-[#0f62fe]/20">
+                    <div className="w-12 h-12 rounded-xl bg-[#0f62fe] flex items-center justify-center flex-shrink-0">
+                      <Calculator className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="carbon-label-02 text-[#0f62fe] uppercase mb-0.5">10-Year TCO Estimate</p>
+                      <p className="carbon-fluid-heading-03 text-[#161616]">{result.tco}</p>
+                    </div>
                   </div>
                 </div>
 
-                <p className="carbon-body-02 text-gray-500 mb-4">
-                  Disclaimer: Estimates are indicative only. Final pricing, topology, and runtime depend on site survey, load profile validation, and environmental assessment.
-                </p>
+                <div className="flex items-start gap-3 p-4 bg-gray-100 rounded-lg mb-4">
+                  <span className="text-gray-400 carbon-label-01 uppercase flex-shrink-0 mt-0.5">Note</span>
+                  <p className="carbon-body-01 text-gray-500">
+                    Estimates are indicative only. Final pricing, topology, and runtime depend on site survey, load profile validation, and environmental assessment.
+                  </p>
+                </div>
 
                 <div className="flex flex-wrap gap-3">
                   <a
-                    href="#/contact"
+                    href="mailto:contact@perception-it.com?subject=UPS%20Quote%20Request"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-[#0f62fe] text-white carbon-heading-02 rounded-lg hover:bg-[#0353e9] transition-colors"
                   >
                     Get Detailed Quote
