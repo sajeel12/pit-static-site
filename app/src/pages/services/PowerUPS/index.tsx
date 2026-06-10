@@ -19,6 +19,7 @@ import TrustBarSection from './sections/TrustBarSection';
 import EcosystemSection from './sections/EcosystemSection';
 import TestimonialsSection from './sections/TestimonialsSection';
 import ResultsSection from './sections/ResultsSection';
+import FeaturedProductsSection from './sections/FeaturedProductsSection';
 import SEOContentSection from './sections/SEOContentSection';
 import FAQSection from './sections/FAQSection';
 import CTASection from './sections/CTASection';
@@ -91,6 +92,7 @@ const PowerUPS = () => {
         <div className="h-3 bg-white md:h-4" aria-hidden="true" />
         <StickyAnchorNav items={PAGE_SECTIONS.filter((s) => s.inNav)} defaultActive="systems" />
         <UPSSystemsSection />
+        <FeaturedProductsSection />
         <CalculatorSection />
         <UseCaseSection />
         <TechnologySection />

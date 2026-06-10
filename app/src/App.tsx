@@ -39,6 +39,7 @@ const Datacenter = lazy(() => import('./pages/services/Datacenter'));
 const Datacenter2 = lazy(() => import('./pages/services/Datacenter2'));
 const CoolingThermal = lazy(() => import('./pages/services/CoolingThermal'));
 const PowerUPS = lazy(() => import('./pages/services/PowerUPS'));
+const RackAndCabinets = lazy(() => import('./pages/services/RackAndCabinets'));
 const OperationalEfficiency = lazy(() => import('./pages/infrastructure/OperationalEfficiency'));
 const HardwareSupport = lazy(() => import('./pages/services/HardwareSupport'));
 const SLASupport = lazy(() => import('./pages/services/SLASupport'));
@@ -167,7 +168,7 @@ function App() {
 
               {/* Infrastructure | Under Construction placeholders */}
               <Route path="/services/power-ups" element={<Navigate to="/infrastructure/data-centre-services/power-ups" replace />} />
-              <Route path="/services/rack-cabinets" element={<UnderConstruction />} />
+              <Route path="/services/rack-cabinets" element={<RackAndCabinets />} />
               <Route path="/services/environmental-monitoring" element={<UnderConstruction />} />
               <Route path="/services/fire-suppression" element={<UnderConstruction />} />
               <Route path="/services/design-build" element={<UnderConstruction />} />
