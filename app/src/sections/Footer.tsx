@@ -60,6 +60,33 @@ const Footer = () => {
     e.currentTarget.style.outline = 'none';
   };
 
+  const sectionHeadingStyle: React.CSSProperties = {
+    color: '#ffffff',
+    textTransform: 'uppercase',
+    letterSpacing: '0.32px',
+    marginBottom: 'var(--cds-spacing-05)',
+    fontSize: '0.875rem',
+    fontWeight: 600,
+  };
+
+  const contactRowStyle: React.CSSProperties = {
+    color: '#c6c6c6',
+    fontSize: '0.875rem',
+    display: 'flex',
+    alignItems: 'center',
+    gap: 'var(--cds-spacing-03)',
+    lineHeight: 1.5,
+  };
+
+  const addressStyle: React.CSSProperties = {
+    color: '#8d8d8d',
+    fontSize: '0.875rem',
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: 'var(--cds-spacing-03)',
+    lineHeight: 1.5,
+  };
+
   return (
     <footer
       role="contentinfo"
@@ -69,7 +96,7 @@ const Footer = () => {
         padding: 'var(--cds-spacing-10) var(--cds-spacing-05) 0',
       }}
     >
-      {/* ── Main footer grid ───────────────────────────────────── */}
+      {/* ── Brand & links ──────────────────────────────────────── */}
       <Grid style={{ marginBottom: 'var(--cds-spacing-09)' }}>
         {/* Brand */}
         <Column lg={4} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-07)' }}>
@@ -92,251 +119,6 @@ const Footer = () => {
           >
             British-standard enterprise IT, engineered in Pakistan.
             Serving clients worldwide.
-          </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--cds-spacing-05)' }}>
-            {/* UK Office */}
-            <div>
-              <p
-                className="cds--label-01"
-                style={{
-                  color: '#ffffff',
-                  marginBottom: 'var(--cds-spacing-03)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.32px',
-                }}
-              >
-                Perception IT UK
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--cds-spacing-03)' }}>
-                <a
-                  href="tel:+447456457005"
-                  style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                >
-                  <Phone size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
-                  <span>+44 7456 457005</span>
-                </a>
-                <a
-                  href="tel:+442086388982"
-                  style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                >
-                  <Phone size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
-                  <span>+44 208 6388982</span>
-                </a>
-                <a
-                  href="mailto:info@perception-it.com"
-                  style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                >
-                  <Email size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
-                  <span>info@perception-it.com</span>
-                </a>
-                <span
-                  style={{
-                    color: '#8d8d8d',
-                    fontSize: '0.875rem',
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: 'var(--cds-spacing-03)',
-                    lineHeight: 1.5,
-                  }}
-                >
-                  <Location size={16} style={{ flexShrink: 0, marginTop: '0.125rem' }} />
-                  <span>
-                    12a Fleet Business Park, Sandy Lane,
-                    <br />
-                    Fleet, Hampshire, GU52 8BF
-                  </span>
-                </span>
-              </div>
-            </div>
-
-            {/* Pakistan Office */}
-            <div>
-              <p
-                className="cds--label-01"
-                style={{
-                  color: '#ffffff',
-                  marginBottom: 'var(--cds-spacing-03)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.32px',
-                }}
-              >
-                Perception IT Pakistan
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--cds-spacing-03)' }}>
-                <a
-                  href="tel:+923018436565"
-                  style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                >
-                  <Phone size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
-                  <span>+92 301 8436565</span>
-                </a>
-                <a
-                  href="tel:+924235710686"
-                  style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                >
-                  <Phone size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
-                  <span>+92 42 35710686</span>
-                </a>
-                <a
-                  href="mailto:info@perception-it.com"
-                  style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                >
-                  <Email size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
-                  <span>info@perception-it.com</span>
-                </a>
-                <span
-                  style={{
-                    color: '#8d8d8d',
-                    fontSize: '0.875rem',
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: 'var(--cds-spacing-03)',
-                    lineHeight: 1.5,
-                  }}
-                >
-                  <Location size={16} style={{ flexShrink: 0, marginTop: '0.125rem' }} />
-                  <span>
-                    Office # 01, 1st Floor, Liberty Gate Plaza,
-                    <br />
-                    Tariq Road, Block C2, Plot 10-C/II, Gulberg III,
-                    <br />
-                    Lahore, Pakistan
-                  </span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </Column>
-
-        {/* Services */}
-        <Column lg={3} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-06)' }}>
-          <p
-            className="cds--label-01"
-            style={{
-              color: '#ffffff',
-              textTransform: 'uppercase',
-              letterSpacing: '0.32px',
-              marginBottom: 'var(--cds-spacing-05)',
-            }}
-          >
-            Services
-          </p>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-            {footerLinks.services.map((link) => (
-              <li key={link.name} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
-                <Link
-                  to={link.href}
-                  style={linkStyle}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </Column>
-
-        {/* Company */}
-        <Column lg={3} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-06)' }}>
-          <p
-            className="cds--label-01"
-            style={{
-              color: '#ffffff',
-              textTransform: 'uppercase',
-              letterSpacing: '0.32px',
-              marginBottom: 'var(--cds-spacing-05)',
-            }}
-          >
-            Company
-          </p>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-            {footerLinks.company.map((link) => (
-              <li key={link.name} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
-                <Link
-                  to={link.href}
-                  style={linkStyle}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </Column>
-
-        {/* Resources */}
-        <Column lg={3} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-06)' }}>
-          <p
-            className="cds--label-01"
-            style={{
-              color: '#ffffff',
-              textTransform: 'uppercase',
-              letterSpacing: '0.32px',
-              marginBottom: 'var(--cds-spacing-05)',
-            }}
-          >
-            Resources
-          </p>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-            {footerLinks.resources.map((link) => (
-              <li key={link.name} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
-                <Link
-                  to={link.href}
-                  style={linkStyle}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </Column>
-
-        {/* Social */}
-        <Column lg={2} md={4} sm={4}>
-          <p
-            className="cds--label-01"
-            style={{
-              color: '#ffffff',
-              textTransform: 'uppercase',
-              letterSpacing: '0.32px',
-              marginBottom: 'var(--cds-spacing-05)',
-            }}
-          >
-            Connect
           </p>
           <a
             href="https://linkedin.com/company/perception-it"
@@ -364,7 +146,256 @@ const Footer = () => {
             <span>LinkedIn</span>
           </a>
         </Column>
+
+        {/* Services */}
+        <Column lg={3} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-06)' }}>
+          <p className="cds--label-01" style={sectionHeadingStyle}>
+            Services
+          </p>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            {footerLinks.services.map((link) => (
+              <li key={link.name} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
+                <Link
+                  to={link.href}
+                  style={linkStyle}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Column>
+
+        {/* Company */}
+        <Column lg={3} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-06)' }}>
+          <p className="cds--label-01" style={sectionHeadingStyle}>
+            Company
+          </p>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            {footerLinks.company.map((link) => (
+              <li key={link.name} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
+                <Link
+                  to={link.href}
+                  style={linkStyle}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Column>
+
+        {/* Resources */}
+        <Column lg={3} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-06)' }}>
+          <p className="cds--label-01" style={sectionHeadingStyle}>
+            Resources
+          </p>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            {footerLinks.resources.map((link) => (
+              <li key={link.name} style={{ marginBottom: 'var(--cds-spacing-03)' }}>
+                <Link
+                  to={link.href}
+                  style={linkStyle}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Column>
+
+        {/* Connect */}
+        <Column lg={3} md={4} sm={4}>
+          <p className="cds--label-01" style={sectionHeadingStyle}>
+            Connect
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--cds-spacing-03)' }}>
+            <a
+              href="mailto:info@perception-it.com"
+              style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            >
+              <Email size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
+              <span>info@perception-it.com</span>
+            </a>
+            <a
+              href="tel:+447456457005"
+              style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            >
+              <Phone size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
+              <span>+44 7456 457005</span>
+            </a>
+          </div>
+        </Column>
       </Grid>
+
+      {/* ── Office locations ───────────────────────────────────── */}
+      <div style={{ borderTop: '1px solid #393939', paddingTop: 'var(--cds-spacing-07)' }}>
+        <Grid style={{ marginBottom: 'var(--cds-spacing-09)' }}>
+          <Column lg={16} md={8} sm={4} style={{ marginBottom: 'var(--cds-spacing-05)' }}>
+            <p className="cds--label-01" style={sectionHeadingStyle}>
+              Our Offices
+            </p>
+          </Column>
+
+          {/* UK Office */}
+          <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-06)' }}>
+            <div
+              style={{
+                backgroundColor: '#262626',
+                border: '1px solid #393939',
+                borderRadius: '4px',
+                padding: 'var(--cds-spacing-05)',
+                height: '100%',
+              }}
+            >
+              <p
+                className="cds--label-01"
+                style={{
+                  color: '#ffffff',
+                  marginBottom: 'var(--cds-spacing-04)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.32px',
+                }}
+              >
+                Perception IT UK
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--cds-spacing-03)' }}>
+                <a
+                  href="tel:+447456457005"
+                  style={contactRowStyle}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                >
+                  <Phone size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
+                  <span>+44 7456 457005</span>
+                </a>
+                <a
+                  href="tel:+442086388982"
+                  style={contactRowStyle}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                >
+                  <Phone size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
+                  <span>+44 208 6388982</span>
+                </a>
+                <a
+                  href="mailto:info@perception-it.com"
+                  style={contactRowStyle}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                >
+                  <Email size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
+                  <span>info@perception-it.com</span>
+                </a>
+                <span style={addressStyle}>
+                  <Location size={16} style={{ flexShrink: 0, marginTop: '0.125rem' }} />
+                  <span>
+                    12a Fleet Business Park, Sandy Lane,
+                    <br />
+                    Fleet, Hampshire, GU52 8BF
+                  </span>
+                </span>
+              </div>
+            </div>
+          </Column>
+
+          {/* Pakistan Office */}
+          <Column lg={8} md={4} sm={4} style={{ marginBottom: 'var(--cds-spacing-06)' }}>
+            <div
+              style={{
+                backgroundColor: '#262626',
+                border: '1px solid #393939',
+                borderRadius: '4px',
+                padding: 'var(--cds-spacing-05)',
+                height: '100%',
+              }}
+            >
+              <p
+                className="cds--label-01"
+                style={{
+                  color: '#ffffff',
+                  marginBottom: 'var(--cds-spacing-04)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.32px',
+                }}
+              >
+                Perception IT Pakistan
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--cds-spacing-03)' }}>
+                <a
+                  href="tel:+923018436565"
+                  style={contactRowStyle}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                >
+                  <Phone size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
+                  <span>+92 301 8436565</span>
+                </a>
+                <a
+                  href="tel:+924235710686"
+                  style={contactRowStyle}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                >
+                  <Phone size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
+                  <span>+92 42 35710686</span>
+                </a>
+                <a
+                  href="mailto:info@perception-it.com"
+                  style={contactRowStyle}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                >
+                  <Email size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
+                  <span>info@perception-it.com</span>
+                </a>
+                <span style={addressStyle}>
+                  <Location size={16} style={{ flexShrink: 0, marginTop: '0.125rem' }} />
+                  <span>
+                    Office # 01, 1st Floor, Liberty Gate Plaza,
+                    <br />
+                    Tariq Road, Block C2, Plot 10-C/II, Gulberg III,
+                    <br />
+                    Lahore, Pakistan
+                  </span>
+                </span>
+              </div>
+            </div>
+          </Column>
+        </Grid>
+      </div>
 
       {/* ── Legal bar ──────────────────────────────────────────── */}
       <div style={{ borderTop: '1px solid #393939', padding: 'var(--cds-spacing-05) var(--cds-spacing-05)' }}>
