@@ -677,7 +677,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                       <div className="max-w-6xl mx-auto flex pb-8">
                         {/* Left Rail */}
                         <div className="w-[240px] bg-white p-4 flex-shrink-0 border-r border-[#e0e0e0]">
-                          <div className="space-y-1">
+                          <div className="space-y-1 max-h-[calc(100vh-180px)] overflow-y-auto pr-1">
                             {cloudCategory.hubs?.map((hub) => {
                               const isActive = activeServiceByCategory['cloud'] === hub.id;
                               return (
