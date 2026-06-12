@@ -93,42 +93,142 @@ const Footer = () => {
             British-standard enterprise IT, engineered in Pakistan.
             Serving clients worldwide.
           </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--cds-spacing-03)' }}>
-            <a
-              href="mailto:contact@perception-it.com"
-              style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            >
-              <Email size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
-              <span>contact@perception-it.com</span>
-            </a>
-            <a
-              href="tel:+924235947000"
-              style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            >
-              <Phone size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
-              <span>+92 42 3594 7000</span>
-            </a>
-            <span
-              style={{
-                color: '#8d8d8d',
-                fontSize: '0.875rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: 'var(--cds-spacing-03)',
-                lineHeight: 1.5,
-              }}
-            >
-              <Location size={16} style={{ flexShrink: 0 }} />
-              <span>Lahore, Pakistan</span>
-            </span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--cds-spacing-05)' }}>
+            {/* UK Office */}
+            <div>
+              <p
+                className="cds--label-01"
+                style={{
+                  color: '#ffffff',
+                  marginBottom: 'var(--cds-spacing-03)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.32px',
+                }}
+              >
+                Perception IT UK
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--cds-spacing-03)' }}>
+                <a
+                  href="tel:+447456457005"
+                  style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                >
+                  <Phone size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
+                  <span>+44 7456 457005</span>
+                </a>
+                <a
+                  href="tel:+442086388982"
+                  style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                >
+                  <Phone size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
+                  <span>+44 208 6388982</span>
+                </a>
+                <a
+                  href="mailto:info@perception-it.com"
+                  style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                >
+                  <Email size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
+                  <span>info@perception-it.com</span>
+                </a>
+                <span
+                  style={{
+                    color: '#8d8d8d',
+                    fontSize: '0.875rem',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: 'var(--cds-spacing-03)',
+                    lineHeight: 1.5,
+                  }}
+                >
+                  <Location size={16} style={{ flexShrink: 0, marginTop: '0.125rem' }} />
+                  <span>
+                    12a Fleet Business Park, Sandy Lane,
+                    <br />
+                    Fleet, Hampshire, GU52 8BF
+                  </span>
+                </span>
+              </div>
+            </div>
+
+            {/* Pakistan Office */}
+            <div>
+              <p
+                className="cds--label-01"
+                style={{
+                  color: '#ffffff',
+                  marginBottom: 'var(--cds-spacing-03)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.32px',
+                }}
+              >
+                Perception IT Pakistan
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--cds-spacing-03)' }}>
+                <a
+                  href="tel:+923018436565"
+                  style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                >
+                  <Phone size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
+                  <span>+92 301 8436565</span>
+                </a>
+                <a
+                  href="tel:+924235710686"
+                  style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                >
+                  <Phone size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
+                  <span>+92 42 35710686</span>
+                </a>
+                <a
+                  href="mailto:info@perception-it.com"
+                  style={{ ...linkStyle, display: 'flex', alignItems: 'center', gap: 'var(--cds-spacing-03)' }}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
+                >
+                  <Email size={16} style={{ color: '#8d8d8d', flexShrink: 0 }} />
+                  <span>info@perception-it.com</span>
+                </a>
+                <span
+                  style={{
+                    color: '#8d8d8d',
+                    fontSize: '0.875rem',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: 'var(--cds-spacing-03)',
+                    lineHeight: 1.5,
+                  }}
+                >
+                  <Location size={16} style={{ flexShrink: 0, marginTop: '0.125rem' }} />
+                  <span>
+                    Office # 01, 1st Floor, Liberty Gate Plaza,
+                    <br />
+                    Tariq Road, Block C2, Plot 10-C/II, Gulberg III,
+                    <br />
+                    Lahore, Pakistan
+                  </span>
+                </span>
+              </div>
+            </div>
           </div>
         </Column>
 
@@ -297,7 +397,7 @@ const Footer = () => {
                   lineHeight: 1.4,
                 }}
               >
-                VAT: GB123456789 &nbsp;|&nbsp; Company Reg: 12345678
+                VAT ID: GB373976838
               </p>
             </div>
           </Column>
