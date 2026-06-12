@@ -12,6 +12,10 @@ export const PAGE_SECTIONS = [
 
 
 
+  { id: 'ai-design', label: 'AI Design', inNav: true },
+
+
+
   { id: 'procurement', label: 'Procurement', inNav: true },
 
 

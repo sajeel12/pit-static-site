@@ -23,7 +23,8 @@ import FeaturedProductsSection from './sections/FeaturedProductsSection';
 import SEOContentSection from './sections/SEOContentSection';
 import FAQSection from './sections/FAQSection';
 import CTASection from './sections/CTASection';
-import { ArrowUp } from 'lucide-react';
+import AIDesignSection from '@/sections/AIDesignSection';
+import { ArrowUp, Zap, Battery, Activity, Gauge, Shield, Cable, Sun, Building2, Expand, Award } from 'lucide-react';
 
 const PowerUPS = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -96,6 +97,26 @@ const PowerUPS = () => {
         <CalculatorSection />
         <UseCaseSection />
         <TechnologySection />
+        <AIDesignSection
+          id="ai-design"
+          headline="Power Architecture Design at Machine Speed, Validated by Human Expertise"
+          description="UPS and power distribution design must balance load profiles, battery runtime, redundancy tiers, harmonic distortion and future expansion. Calculations that traditionally take days are compressed into hours by our AI-powered evaluation agents, while licensed engineers ensure every architecture is safe, compliant and accountable."
+          aiAdvantages={[
+            { icon: Zap, title: 'Load Profile Analysis', desc: 'AI ingests equipment nameplates, duty cycles and power factors to build an accurate kVA/kW demand profile.' },
+            { icon: Battery, title: 'Battery Runtime Sizing', desc: 'Autonomy calculations factor in battery chemistry, ageing curves, temperature derating and end-of-life capacity.' },
+            { icon: Shield, title: 'Redundancy Architecture', desc: 'N, N+1 and 2N topologies are validated against uptime targets, budget constraints and maintenance bypass requirements.' },
+            { icon: Activity, title: 'Harmonic & Power Quality', desc: 'THD and crest-factor analysis identifies transformer sizing, neutral loading and generator compatibility issues early.' },
+            { icon: Gauge, title: 'Efficiency & TCO Forecasting', desc: 'Projected energy losses, cooling impact and battery replacement cycles are modelled across UPS technology options.' },
+            { icon: Cable, title: 'Cable & PDU Positioning', desc: 'Automatic validation of cable sizing, voltage drop, phase balancing and PDU outlet density across the floor plan.' },
+          ]}
+          humanMandates={[
+            { icon: Building2, title: 'Site Electrical Surveys', desc: 'Engineers validate AI outputs against existing switchgear, earthing, generator capacity and utility supply stability.' },
+            { icon: Sun, title: 'Pakistan Grid Reality', desc: 'Designs account for load-shedding frequency, voltage fluctuations, generator run-hours and tropical battery ageing.' },
+            { icon: Expand, title: 'Expansion & Scalability', desc: 'Power pathways are sized for 3–5 year growth so modular capacity can be added without re-engineering the bus.' },
+            { icon: Award, title: 'Final Sign-Off & Liability', desc: 'Every single-line diagram, battery calculation and protection setting is signed off by a senior power engineer.' },
+          ]}
+          resultText="What traditionally takes 2–3 weeks of load assessment, battery sizing and vendor comparison is compressed into 48–72 hours. You get machine-speed power design without sacrificing the safety and accountability required for critical infrastructure."
+        />
         <PowerDistributionSection />
         <MonitoringSection />
         <SLATierSection />

@@ -18,7 +18,8 @@ import EcosystemSection from './sections/EcosystemSection';
 import FAQSection from './sections/FAQSection';
 import DisclaimerSection from './sections/DisclaimerSection';
 import CTASection from './sections/CTASection';
-import { ArrowUp } from 'lucide-react';
+import AIDesignSection from '@/sections/AIDesignSection';
+import { ArrowUp, Thermometer, Wind, Droplets, Gauge, Activity, Sun, Snowflake, Building2, Expand, Award } from 'lucide-react';
 
 const CoolingThermal = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -216,6 +217,27 @@ const CoolingThermal = () => {
         <AssessmentSection />
 
 
+
+        <AIDesignSection
+          id="ai-design"
+          headline="Precision Cooling Design at Machine Speed, Validated by Human Expertise"
+          description="Data centre cooling is a balancing act between heat load, airflow, humidity, monsoon resilience and future expansion. Thermal models that traditionally take days are compressed into hours by our AI-powered evaluation agents, while certified engineers ensure every design accounts for the environmental realities no algorithm can see."
+          aiAdvantages={[
+            { icon: Thermometer, title: 'Heat Load Simulation', desc: 'AI models rack-level BTU output, cabinet densities and hot-spot formation across the full equipment list.' },
+            { icon: Wind, title: 'CFD Airflow Modelling', desc: 'Computational fluid dynamics predicts cold/hot aisle effectiveness, bypass airflow and recirculation zones before installation.' },
+            { icon: Droplets, title: 'Humidity & Condensation Risk', desc: 'Monsoon-season psychrometric analysis ensures dew-point margins and corrosion risk are quantified for Pakistan\'s climate.' },
+            { icon: Gauge, title: 'Cooling Capacity Sizing', desc: 'Total cooling load, redundant capacity and part-load efficiency are calculated for every deployment scenario.' },
+            { icon: Activity, title: 'PUE & Efficiency Forecasting', desc: 'Projected annual energy consumption and PUE are generated across equipment options and operating profiles.' },
+            { icon: Snowflake, title: 'Redundancy Topology Validation', desc: 'N, N+1 and 2N configurations are validated against ASHRAE thermal guidelines and site uptime targets.' },
+          ]}
+          humanMandates={[
+            { icon: Building2, title: 'Site-Specific Reality Checks', desc: 'Engineers validate AI outputs against ceiling height, column locations, existing CRAC layout and ambient conditions.' },
+            { icon: Sun, title: 'Pakistan Climate Engineering', desc: 'Designs account for load-shedding cycles, monsoon humidity, dust ingress and 45°C+ ambient ratings.' },
+            { icon: Expand, title: 'Scalability & Future Load', desc: 'Cooling pathways are sized for 3–5 year growth so capacity can be added without ripping out infrastructure.' },
+            { icon: Award, title: 'Final Sign-Off & Liability', desc: 'Every thermal design is signed off by a senior engineer with 15+ years of critical cooling experience.' },
+          ]}
+          resultText="What traditionally takes 2–3 weeks of thermal modelling and back-and-forth design is compressed into 48–72 hours. You get machine-speed analysis without sacrificing the engineering judgement required for mission-critical cooling."
+        />
 
         <ProcurementSection />
 

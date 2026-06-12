@@ -22,6 +22,7 @@ export const PAGE_SECTIONS = [
   { id: 'calculator', label: 'Calculator', inNav: true },
   { id: 'usecases', label: 'Use Cases', inNav: true },
   { id: 'technologies', label: 'Technologies', inNav: true },
+  { id: 'ai-design', label: 'AI Design', inNav: true },
   { id: 'distribution', label: 'Power Distribution', inNav: true },
   { id: 'monitoring', label: 'Monitoring', inNav: true },
   { id: 'sla', label: 'SLA Tiers', inNav: true },
