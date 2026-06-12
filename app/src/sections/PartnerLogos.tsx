@@ -30,7 +30,7 @@ const PartnerLogos = () => {
   const partners: Partner[] = [
     { name: 'Huawei', logo: '/logos/partners/Partner-Huawei-Logo.svg' },
     { name: 'Dell', logo: '/logos/partners/Partner-Dell-logo.svg' },
-    { name: 'HP', logo: '/logos/partners/Partner- Hewlett-Packard-Logo.svg' },
+    { name: 'HP', logo: '/logos/partners/HPE logo /HPE Logo files/HPE Logo/HPE-logo-full-clr-pos-rgb (3).webp' },
     { name: 'VMware', logo: '/logos/partners/Partner-vmware-logo.svg' },
     { name: 'Broadcom', logo: '/logos/partners/Broadcom.-Logo.png' },
     { name: 'Lenovo', logo: '/logos/partners/Partner-Lenovo-Logo.svg' },

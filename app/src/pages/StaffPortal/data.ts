@@ -116,7 +116,7 @@ export const PORTAL_SECTIONS: PortalSection[] = [
     id: 'power',
     label: 'Power & UPS',
     publicPath: '/#/infrastructure/data-centre-services/power-ups',
-    categories: ['Sizing', 'Assessment', 'Operations', 'Pricing', 'Training'],
+    categories: ['Sizing', 'Assessment', 'Case Studies', 'Operations', 'Pricing', 'Training'],
     resources: [
       {
         id: 'power-sizing-guide',
@@ -149,6 +149,14 @@ export const PORTAL_SECTIONS: PortalSection[] = [
         fileName: 'power-site-survey.docx',
         fileType: 'Word',
         category: 'Assessment',
+      },
+      {
+        id: 'power-case-study-intake',
+        title: 'Case Study Intake Form',
+        description: 'Template for collecting project details, outcomes, and client quotes for Power & UPS case studies.',
+        fileName: 'case-study-intake-ups.docx',
+        fileType: 'Word',
+        category: 'Case Studies',
       },
       {
         id: 'power-battery-sop',

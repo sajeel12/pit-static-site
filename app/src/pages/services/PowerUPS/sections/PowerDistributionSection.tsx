@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { useState, useRef } from 'react';
 import { POWER_DISTRIBUTION } from '../data';
 
 export default function PowerDistributionSection() {
   const [activeDist, setActiveDist] = useState<string | null>(null);
+  const hoverTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   return (
     <section id="distribution" className="py-16 md:py-24 bg-[#f4f4f4]">
@@ -29,57 +29,74 @@ export default function PowerDistributionSection() {
             return (
               <div
                 key={item.title}
-                className={`group relative bg-white rounded-xl border p-6 sm:p-8 transition-all duration-300 cursor-default ${
+                className={`group relative bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${
                   isActive
-                    ? 'border-[#0f62fe] shadow-lg -translate-y-1'
-                    : 'border-gray-200 hover:border-gray-300 hover:shadow-md hover:-translate-y-0.5'
+                    ? 'border-[#0f62fe]/30 shadow-xl'
+                    : 'border-gray-200 hover:border-gray-300 hover:shadow-xl hover:-translate-y-1'
                 }`}
                 onClick={() => setActiveDist(isActive ? null : item.title)}
+                onMouseEnter={() => {
+                  if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
+                  setActiveDist(item.title);
+                }}
+                onMouseLeave={() => {
+                  hoverTimeout.current = setTimeout(() => setActiveDist(null), 500);
+                }}
               >
-                <div className="flex items-center justify-between mb-4">
-                  <div
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${
-                      isActive ? 'bg-[#0f62fe] text-white' : 'bg-[#f4f4f4] text-gray-600'
-                    }`}
-                  >
-                    <item.icon className="w-6 h-6" />
+                {/* Top accent bar */}
+                <div className="h-1.5 w-full" style={{ backgroundColor: item.color }} />
+
+                <div className="p-6 sm:p-8">
+                  {/* Icon + Tag row */}
+                  <div className="flex items-center justify-between mb-5">
+                    <div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center"
+                      style={{ backgroundColor: item.color + '12' }}
+                    >
+                      <item.icon className="w-6 h-6" style={{ color: item.color }} />
+                    </div>
+                    <span
+                      className="inline-flex items-center px-2.5 py-1 text-white text-[11px] font-semibold uppercase tracking-wider rounded-full"
+                      style={{ backgroundColor: item.color }}
+                    >
+                      {item.tag}
+                    </span>
                   </div>
+
+                  {/* Title */}
+                  <h3 className="carbon-heading-02 text-[#161616] mb-2">{item.title}</h3>
+
+                  {/* Description */}
+                  <ul className="space-y-1 mb-5">
+                    {item.desc.split(' · ').map((point) => (
+                      <li key={point} className="flex items-start gap-2 carbon-body-02 text-gray-600">
+                        <span className="w-1 h-1 rounded-full bg-[#0f62fe] mt-2 flex-shrink-0" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Expandable specs */}
                   <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
-                      isActive ? 'bg-[#0f62fe]/10' : 'bg-[#f4f4f4]'
+                    className={`grid transition-all duration-500 ease-out ${
+                      isActive ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
                     }`}
                   >
-                    <ChevronRight
-                      className={`w-5 h-5 transition-transform duration-300 ${
-                        isActive ? 'rotate-90 text-[#0f62fe]' : 'text-gray-400'
-                      }`}
-                    />
+                    <div className="overflow-hidden">
+                      <div className="pt-4 border-t border-gray-100">
+                        <p className="carbon-label-02 text-gray-500 uppercase mb-3">Specifications</p>
+                        <ul className="space-y-2">
+                          {item.specs.map((spec) => (
+                            <li key={spec} className="flex items-center gap-2 carbon-body-02 text-gray-700">
+                              <span className="w-1 h-1 rounded-full bg-[#0f62fe]" />
+                              {spec}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
-
-                <h3 className="carbon-heading-02 text-[#161616] mb-2">{item.title}</h3>
-                <ul className="space-y-1 mb-4">
-                  {item.desc.split(' · ').map((point) => (
-                    <li key={point} className="flex items-start gap-2 carbon-body-02 text-gray-600">
-                      <span className="w-1 h-1 rounded-full bg-[#0f62fe] mt-2 flex-shrink-0" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-
-                {isActive && (
-                  <div className="pt-4 border-t border-gray-100 animate-fade-in">
-                    <p className="carbon-label-02 text-gray-500 uppercase mb-3">Specifications</p>
-                    <ul className="space-y-2">
-                      {item.specs.map((spec) => (
-                        <li key={spec} className="flex items-center gap-2 carbon-body-02 text-gray-700">
-                          <span className="w-1 h-1 rounded-full bg-[#0f62fe]" />
-                          {spec}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
               </div>
             );
           })}
