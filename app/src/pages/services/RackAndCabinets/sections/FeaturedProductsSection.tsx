@@ -2,7 +2,7 @@ import { ArrowRight, ShieldCheck, Zap, Layers, Settings, Gauge, Sun, ChevronDown
 import { useState } from 'react';
 
 const ONE_CABINET_ENQUIRY_BODY = encodeURIComponent(
-  'Hi Perception IT Team,\n\nI am interested in the Huawei One Site One Cabinet solution for our site. Please find the initial details below:\n\n- Site location:\n- Number of cabinets required:\n- Target load capacity (kW):\n- Preferred installation mode (floor-mounted / stacked / rooftop):\n- Cooling requirement (heat exchanger / direct ventilation / air conditioner):\n- IP rating required (IP45 / IP55):\n- Input power mode (three-phase / single-phase / dual-live wire):\n- Planned deployment timeline:\n- Specific site conditions or constraints:\n\nPlease contact me to discuss the recommended model (MTS9300A / MTS9000A / iSuperSite) and next steps.\n\nBest regards,'
+  'Hi Perception IT Team,\n\nI am interested in the Huawei One Site One Cabinet solution for our site. Please find the initial details below.\n\nPlease provide as much information as you can — you do not need to fill out every field completely. Even partial details are helpful to start the conversation.\n\n- Site location:\n- Number of cabinets required:\n- Target load capacity (kW):\n- Preferred installation mode (floor-mounted / stacked / rooftop):\n- Cooling requirement (heat exchanger / direct ventilation / air conditioner):\n- IP rating required (IP45 / IP55):\n- Input power mode (three-phase / single-phase / dual-live wire):\n- Planned deployment timeline:\n- Specific site conditions or constraints:\n\nPlease contact me to discuss the recommended model (MTS9300A / MTS9000A / iSuperSite) and next steps.\n\nBest regards,'
 );
 
 export default function FeaturedProductsSection() {
