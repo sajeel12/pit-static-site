@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import EcosystemLandmark from '@/components/EcosystemLandmark';
 import { ECOSYSTEM_ITEMS } from '../data';
 
 export default function EcosystemSection() {
@@ -7,9 +8,12 @@ export default function EcosystemSection() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="max-w-3xl mb-12 md:mb-16">
-          <span className="inline-block carbon-label-02 text-[#0f62fe] uppercase tracking-wider mb-3">
-            The Ecosystem
-          </span>
+          <div className="inline-flex items-center gap-3 mb-3">
+            <EcosystemLandmark />
+            <span className="carbon-label-02 text-[#0f62fe] uppercase tracking-wider">
+              The Ecosystem
+            </span>
+          </div>
           <h2 className="carbon-fluid-heading-05 text-[#161616] mb-4">
             Complete Data Centre Resilience
           </h2>

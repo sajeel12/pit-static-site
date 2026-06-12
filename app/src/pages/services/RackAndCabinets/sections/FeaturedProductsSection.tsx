@@ -1,8 +1,12 @@
-import { ArrowRight, Download, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Zap, Layers, Settings, Gauge, Sun, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 
+const ONE_CABINET_ENQUIRY_BODY = encodeURIComponent(
+  'Hi Perception IT Team,\n\nI am interested in the Huawei One Site One Cabinet solution for our site. Please find the initial details below:\n\n- Site location:\n- Number of cabinets required:\n- Target load capacity (kW):\n- Preferred installation mode (floor-mounted / stacked / rooftop):\n- Cooling requirement (heat exchanger / direct ventilation / air conditioner):\n- IP rating required (IP45 / IP55):\n- Input power mode (three-phase / single-phase / dual-live wire):\n- Planned deployment timeline:\n- Specific site conditions or constraints:\n\nPlease contact me to discuss the recommended model (MTS9300A / MTS9000A / iSuperSite) and next steps.\n\nBest regards,'
+);
+
 export default function FeaturedProductsSection() {
-  const [datasheetOpen, setDatasheetOpen] = useState(false);
+  const [comparisonOpen, setComparisonOpen] = useState(false);
 
   return (
     <section id="featured-products" className="py-16 md:py-24 bg-[#f4f4f4]">
@@ -13,10 +17,10 @@ export default function FeaturedProductsSection() {
             Featured Product
           </span>
           <h2 className="carbon-fluid-heading-05 text-[#161616] mb-1">
-            Huawei Outdoor Power Solution
+            Huawei One Site One Cabinet
           </h2>
           <h3 className="carbon-heading-02 text-gray-500 mb-4">
-            Reliable Power for Remote and Edge Sites
+            Replacing multiple cabinets with one, achieving whole-link intelligence
           </h3>
           <p className="carbon-body-02 text-gray-600">
             As a Huawei Enterprise Certified Partner, we integrate outdoor power facilities for sites 
@@ -68,9 +72,9 @@ export default function FeaturedProductsSection() {
               Featured Hardware
             </span>
             <img
-              src="/logos/partners/Partner-Huawei-Logo.svg"
-              alt="Huawei Outdoor Power Solution"
-              className="max-w-[80%] max-h-[180px] object-contain"
+              src="/Sections/Racks and Cabinets/Racks and Cabinets - Images/Huawei- One Site One Cabinet.jpg"
+              alt="Huawei One Site One Cabinet outdoor power solution"
+              className="max-w-full max-h-[240px] object-contain rounded-lg"
               loading="lazy"
             />
           </div>
@@ -90,7 +94,7 @@ export default function FeaturedProductsSection() {
             </div>
 
             <h3 className="carbon-heading-02 text-gray-900 mb-3 leading-tight">
-              All-Weather Outdoor Power Facility
+              One Site One Cabinet
             </h3>
 
             <p className="carbon-body-02 text-gray-600 mb-5">
@@ -130,17 +134,10 @@ export default function FeaturedProductsSection() {
               </li>
             </ul>
 
-            {/* CTAs */}
+            {/* CTA */}
             <div className="flex gap-3 flex-wrap">
-              <button
-                onClick={() => setDatasheetOpen(true)}
-                className="inline-flex items-center gap-2 px-5 py-3 border border-gray-300 text-gray-700 carbon-body-02 hover:border-[#0f62fe] hover:text-[#0f62fe] transition-colors rounded-lg"
-              >
-                <Download className="w-4 h-4" />
-                Get Datasheet
-              </button>
               <a
-                href="mailto:contact@perception-it.com?subject=Huawei%20Outdoor%20Power%20Enquiry%20-%20Rack%20and%20Cabinet"
+                href={`mailto:contact@perception-it.com?subject=One%20Cabinet%20Enquiry%20-%20Rack%20%26%20Cabinet&body=${ONE_CABINET_ENQUIRY_BODY}`}
                 className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] transition-colors rounded-lg"
               >
                 Enquire About This Model
@@ -150,45 +147,100 @@ export default function FeaturedProductsSection() {
           </div>
         </div>
 
-      </div>
-
-      {/* Datasheet Modal */}
-      {datasheetOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm"
-          onClick={() => setDatasheetOpen(false)}
-        >
-          <div
-            className="bg-white rounded-xl shadow-2xl max-w-md w-full mx-4 p-8 relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setDatasheetOpen(false)}
-              className="absolute top-4 right-4 p-1 text-gray-400 hover:text-gray-600 transition-colors"
-            >
-              <span className="sr-only">Close</span>
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-            <h3 className="carbon-heading-02 text-gray-900 mb-2">Huawei Outdoor Power Datasheet</h3>
-            <p className="carbon-body-02 text-gray-500 mb-6">
-              This datasheet is available on request. Send us a quick email and we&apos;ll deliver
-              the full technical specifications to your inbox.
-            </p>
-
-            <div className="flex flex-col gap-3">
-              <a
-                href="mailto:contact@perception-it.com?subject=Request:%20Huawei%20Outdoor%20Power%20Datasheet"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] transition-colors rounded-lg"
+        {/* Technical Strengths */}
+        <div className="mb-10">
+          <h3 className="carbon-heading-02 text-[#161616] mb-6">Technical Strengths</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              {
+                icon: Layers,
+                title: 'High Density',
+                desc: 'High-density power supply and lithium battery with higher power density',
+              },
+              {
+                icon: Settings,
+                title: 'Simplified Deployment',
+                desc: 'Intelligent peak shaving and intelligent voltage boosting',
+              },
+              {
+                icon: Gauge,
+                title: 'Intelligent Power Consumption',
+                desc: 'Intelligent peak staggering and energy slicing for on-demand backup',
+              },
+              {
+                icon: Sun,
+                title: 'Smart PV Deployment',
+                desc: 'Low electricity cost and low carbon emissions',
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="bg-white rounded-xl border border-gray-200 p-5 hover:border-[#0f62fe]/30 hover:shadow-md transition-all duration-200"
               >
-                Request via Email
-              </a>
-            </div>
+                <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center mb-3">
+                  <item.icon className="w-5 h-5 text-[#0f62fe]" />
+                </div>
+                <h4 className="carbon-heading-02 text-[#161616] mb-2">{item.title}</h4>
+                <p className="carbon-body-02 text-gray-500">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
-      )}
+
+        {/* Product Comparison */}
+        <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <button
+            onClick={() => setComparisonOpen(!comparisonOpen)}
+            className="w-full flex items-center justify-between p-6 text-left hover:bg-[#f4f4f4] transition-colors"
+          >
+            <h3 className="carbon-heading-02 text-[#161616]">Model Comparison for One Site One Cabinet</h3>
+            <ChevronDown
+              className={`w-5 h-5 text-[#0f62fe] transition-transform duration-300 ${
+                comparisonOpen ? 'rotate-180' : ''
+              }`}
+            />
+          </button>
+          <div
+            className={`overflow-hidden transition-all duration-300 ${
+              comparisonOpen ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
+            }`}
+          >
+            <div className="overflow-x-auto border-t border-gray-200">
+              <table className="w-full min-w-[700px]">
+              <thead>
+                <tr className="bg-[#f4f4f4]">
+                  <th className="text-left p-4 carbon-label-02 text-gray-500 uppercase tracking-wider border-b border-gray-200">Item</th>
+                  <th className="text-left p-4 carbon-label-02 text-gray-500 uppercase tracking-wider border-b border-gray-200">MTS9300A</th>
+                  <th className="text-left p-4 carbon-label-02 text-gray-500 uppercase tracking-wider border-b border-gray-200">MTS9000A</th>
+                  <th className="text-left p-4 carbon-label-02 text-gray-500 uppercase tracking-wider border-b border-gray-200">iSuperSite</th>
+                </tr>
+              </thead>
+              <tbody className="carbon-body-02 text-gray-600">
+                {[
+                  { item: 'Cabinet material', mts9300a: 'Steel', mts9000a: 'PU', isupersite: 'PU' },
+                  { item: 'Dimensions (W x D)', mts9300a: '650 mm x 650 mm', mts9000a: '750 mm x 750 mm', isupersite: '900 mm x 1200 mm' },
+                  { item: 'Height', mts9300a: '1000 / 1600 / 2000 mm', mts9000a: '1600 / 2000 mm', isupersite: '2100 mm' },
+                  { item: 'System capacity', mts9300a: 'Max. 36 kW', mts9000a: 'Max. 24 kW', isupersite: 'Max. 36 kW' },
+                  { item: 'Installation mode', mts9300a: 'Floor-mounted / Stacked', mts9000a: 'Floor-mounted / Rooftop-mounted', isupersite: 'Floor-mounted' },
+                  { item: 'Cooling mode', mts9300a: 'Heat exchanger / Direct ventilation / Air conditioner', mts9000a: 'Air conditioner', isupersite: 'Air conditioner' },
+                  { item: 'IP rating', mts9300a: 'IP45, IP55', mts9000a: 'IP55', isupersite: 'IP55' },
+                  { item: 'Input mode', mts9300a: 'Three-phase / Single-phase / Three-live wire / Dual-live wire', mts9000a: 'Three-phase / Single-phase / Dual-live wire', isupersite: 'Three-phase / Single-phase / Dual-live wire' },
+                ].map((row, idx, arr) => (
+                  <tr key={row.item} className={idx === arr.length - 1 ? '' : 'border-b border-gray-100'}>
+                    <td className="p-4 font-medium text-[#161616]">{row.item}</td>
+                    <td className="p-4">{row.mts9300a}</td>
+                    <td className="p-4">{row.mts9000a}</td>
+                    <td className="p-4">{row.isupersite}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+
+      </div>
+
     </section>
   );
 }

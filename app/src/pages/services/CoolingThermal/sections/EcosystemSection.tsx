@@ -1,4 +1,5 @@
 import ArrowRight from '@carbon/icons-react/es/ArrowRight';
+import EcosystemLandmark from '@/components/EcosystemLandmark';
 import { ECOSYSTEM_ITEMS } from '../data';
 
 export default function EcosystemSection() {
@@ -7,7 +8,10 @@ export default function EcosystemSection() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="mb-12">
-          <p className="carbon-label-01 text-gray-500 uppercase tracking-wider mb-3">Our Ecosystem</p>
+          <div className="inline-flex items-center gap-3 mb-3">
+            <EcosystemLandmark />
+            <p className="carbon-label-01 text-gray-500 uppercase tracking-wider">Our Ecosystem</p>
+          </div>
           <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-3">Integrated Facility Ecosystem</h2>
           <p className="carbon-body-02 text-gray-600">Beyond cooling, the full facility stack.</p>
         </div>

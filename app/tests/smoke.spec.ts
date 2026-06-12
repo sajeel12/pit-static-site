@@ -4,6 +4,7 @@ const ROUTES = [
   { path: '/', name: 'Home' },
   { path: '/#/services', name: 'Services' },
   { path: '/#/infrastructure/data-centre-services/cooling-airflow', name: 'Cooling' },
+  { path: '/#/services/rack-cabinets', name: 'RackCabinets' },
   { path: '/#/services/servicenow', name: 'ServiceNow' },
   { path: '/#/services/infrastructure', name: 'InfrastructureHub' },
   { path: '/#/infrastructure/operational-efficiency', name: 'CostOptimisation' },

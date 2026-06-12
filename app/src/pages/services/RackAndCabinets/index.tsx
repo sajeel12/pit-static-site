@@ -19,7 +19,6 @@ import {
   Building2,
   Thermometer,
   Shield,
-  ExternalLink,
   ArrowUp,
   Award,
   Clock,
@@ -31,9 +30,14 @@ import {
   Lock,
   Activity,
   Zap,
+  ChevronDown,
+  Cpu,
 } from 'lucide-react';
 import ResultsSection from './sections/ResultsSection';
 import FeaturedProductsSection from './sections/FeaturedProductsSection';
+import EcosystemLandmark from '@/components/EcosystemLandmark';
+import StickyAnchorNav from '@/components/StickyAnchorNav';
+import { PAGE_SECTIONS } from './data';
 
 const CABINET_ENCLOSURES = [
   {
@@ -41,10 +45,10 @@ const CABINET_ENCLOSURES = [
     color: '#0f62fe',
     title: 'Enterprise Server Cabinets',
     features: [
-      'Standard 42U, 45U, 48U and 52U heights for high-density server configurations',
-      '1000mm to 1200mm depths to accommodate deep enterprise servers and storage arrays',
-      'Engineered for heavy, high-density compute loads in enterprise data centres',
-      'Lockable front/rear doors and removable side panels for controlled access',
+      { heading: 'Heights', desc: 'Standard 42U, 45U, 48U and 52U for high-density server configurations' },
+      { heading: 'Depths', desc: '1000mm to 1200mm to accommodate deep enterprise servers and storage arrays' },
+      { heading: 'Load', desc: 'Engineered for heavy, high-density compute loads in enterprise data centres' },
+      { heading: 'Access', desc: 'Lockable front/rear doors and removable side panels for controlled access' },
     ],
   },
   {
@@ -52,10 +56,10 @@ const CABINET_ENCLOSURES = [
     color: '#4589ff',
     title: 'Network & Patching Enclosures',
     features: [
-      '800mm wide cabinets with built-in vertical cable managers',
-      'Designed for high-volume copper and fibre structural patching',
-      'Clean bend radius management for network and distribution frame applications',
-      'Ideal for wiring closets and core network facilities',
+      { heading: 'Width', desc: '800mm wide cabinets with built-in vertical cable managers' },
+      { heading: 'Patching', desc: 'Designed for high-volume copper and fibre structural patching' },
+      { heading: 'Bend Radius', desc: 'Clean bend radius management for network and distribution frame applications' },
+      { heading: 'Use Cases', desc: 'Ideal for wiring closets and core network facilities' },
     ],
   },
   {
@@ -63,10 +67,11 @@ const CABINET_ENCLOSURES = [
     color: '#009d9a',
     title: 'Colocation (Split-Compartment) Racks',
     features: [
-      'Multi-tenant cabinets divided into 2-pod or 3-pod secure locking zones',
-      'Isolated cable pathways to maintain client separation within one enclosure',
-      'Separate apartments allow multiple clients to share a cabinet securely',
-      'Co-location ready with audit-trail compliant access control',
+      { heading: 'Who it is for', desc: 'Co-location data centres, MSPs and multi-tenant facilities' },
+      { heading: 'Compartments', desc: 'Multi-tenant cabinets divided into 2-pod or 3-pod secure locking zones' },
+      { heading: 'Separation', desc: 'Isolated cable pathways maintain client separation within one enclosure' },
+      { heading: 'Sharing', desc: 'Separate apartments allow multiple clients to share a cabinet securely' },
+      { heading: 'Compliance', desc: 'Audit-trail compliant access control per compartment' },
     ],
   },
   {
@@ -74,10 +79,10 @@ const CABINET_ENCLOSURES = [
     color: '#a855f7',
     title: 'Specialized & Edge Enclosures',
     features: [
-      'Wall-mount cabinets for space-constrained closets and edge sites',
-      'Soundproof acoustic quiet racks for noise-sensitive environments',
-      'IP-rated ruggedised enclosures for factory floors and harsh industrial sites',
-      'Seismic Zone 4, military and remote-environment options available',
+      { heading: 'Wall-mount', desc: 'Cabinets for space-constrained closets and edge sites' },
+      { heading: 'Acoustic', desc: 'Soundproof quiet racks for noise-sensitive environments' },
+      { heading: 'Ruggedised', desc: 'IP-rated enclosures for factory floors and harsh industrial sites' },
+      { heading: 'Extreme sites', desc: 'Seismic Zone 4, military and remote-environment options available' },
     ],
   },
 ];
@@ -85,7 +90,7 @@ const CABINET_ENCLOSURES = [
 const FORM_FACTORS = [
   {
     title: 'Floor Standing Rack Cabinets',
-    desc: 'Fitted with casters and adjustable levellers for uneven floors. Typical sizes: 500, 800 and 1000mm deep — 12U to 48U and higher. Removable side panels and lockable front/rear door access.',
+    desc: 'Fitted with casters and adjustable levellers for uneven floors. Typical sizes: 500, 800 and 1000mm deep. 12U to 48U and higher. Removable side panels and lockable front/rear door access.',
   },
   {
     title: 'Floor Standing Open-Frames',
@@ -169,7 +174,7 @@ const CONSIDERATIONS = [
   {
     icon: Expand,
     title: 'Expansion & Joining',
-    desc: 'Cabinets bolt together to form rows — perfect for hot-aisle/cold-aisle containment, floor-space optimisation and cooling efficiency.',
+    desc: 'Cabinets bolt together to form rows. Perfect for hot-aisle/cold-aisle containment, floor-space optimisation and cooling efficiency.',
   },
   {
     icon: Building2,
@@ -179,12 +184,25 @@ const CONSIDERATIONS = [
   {
     icon: Thermometer,
     title: 'Cooling & Heat Removal',
-    desc: 'Heat can be ducted directly away from the cabinet with cool air supplied via the front — part of an integrated cooling design.',
+    desc: 'Heat can be ducted directly away from the cabinet with cool air supplied via the front. Part of an integrated cooling design.',
   },
 ];
 
+const ASSESSMENT_EMAIL_BODY = encodeURIComponent(
+  'Hi Perception IT Team,\n\nI would like to schedule a rack and cabinet site assessment. Please find the initial details below:\n\n- Company name:\n- Contact name and role:\n- Site location:\n- Current setup (existing cabinets / open floor / co-location):\n- Number of cabinets required:\n- Equipment to be housed (servers / switches / storage / UPS / PDU):\n- Site constraints (ceiling height, floor load, access, cooling):\n- Preferred cabinet type (Enterprise / Network / Colocation / Edge):\n- Target U-height and depth:\n- Thermal or power concerns:\n- Planned deployment timeline:\n\nPlease contact me to arrange the site visit and assessment.\n\nBest regards,'
+);
+
+const TECHNICAL_CONSULTATION_EMAIL_BODY = encodeURIComponent(
+  'Hi Perception IT Team,\n\nI would like to request a technical consultation for rack and cabinet selection. Please find our requirements below:\n\n- Company name:\n- Contact name and role:\n- Site location and environment (server room / data centre / industrial / edge):\n- Equipment list (servers, switches, SAN, UPS, PDU, cable types):\n- Total U-space required:\n- Preferred cabinet width and depth:\n- Load capacity per cabinet:\n- Cooling and airflow requirements:\n- Power distribution and phase requirements:\n- Cable management preferences:\n- Security and access control needs:\n- Compliance standards (EIA-310 / TIA-942 / local electrical codes):\n- Deployment timeline:\n\nPlease recommend the most suitable cabinet configuration and any site-specific considerations.\n\nBest regards,'
+);
+
+const ENTERPRISE_PRICING_EMAIL_BODY = encodeURIComponent(
+  'Hi Perception IT Team,\n\nI would like to request enterprise pricing for rack and cabinet infrastructure. Please find our requirements below:\n\n- Company name:\n- Contact name and role:\n- Site location(s):\n- Number of cabinets required:\n- Cabinet types of interest (Enterprise / Network / Colocation / Edge):\n- Target U-height per cabinet:\n- Required depth and load capacity:\n- Cooling and thermal requirements:\n- Power and PDU requirements:\n- Monitoring and access control needs:\n- Deployment timeline:\n- Budget range (if available):\n- Any specific compliance or site constraints:\n\nPlease provide a tailored enterprise quotation and recommended approach.\n\nBest regards,'
+);
+
 export default function RackAndCabinets() {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [expandedVP, setExpandedVP] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setShowBackToTop(window.scrollY > 600);
@@ -227,6 +245,8 @@ export default function RackAndCabinets() {
         </div>
       </div>
 
+      <StickyAnchorNav items={PAGE_SECTIONS.filter((s) => s.inNav)} defaultActive="overview" />
+
       <main id="main-content">
         {/* Hero */}
         <section className="relative bg-[#0a1628] overflow-hidden">
@@ -263,16 +283,16 @@ export default function RackAndCabinets() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="mailto:contact@perception-it.com?subject=Rack%20%26%20Cabinet%20Assessment%20Request"
+                href={`mailto:contact@perception-it.com?subject=Rack%20%26%20Cabinet%20Assessment%20Request&body=${ASSESSMENT_EMAIL_BODY}`}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#0f62fe] text-white carbon-heading-02 rounded-lg hover:bg-[#0353e9] hover:shadow-xl hover:shadow-[#0f62fe]/25 hover:-translate-y-0.5 transition-all"
               >
                 Schedule Assessment
               </a>
               <a
-                href="#cabinet-enclosures"
+                href="#cabinets"
                 onClick={(e) => {
                   e.preventDefault();
-                  const el = document.getElementById('cabinet-enclosures');
+                  const el = document.getElementById('cabinets');
                   if (el) {
                     const pos = el.getBoundingClientRect().top + window.scrollY;
                     window.scrollTo({ top: pos - 80, behavior: 'smooth' });
@@ -287,7 +307,7 @@ export default function RackAndCabinets() {
         </section>
 
         {/* Introduction */}
-        <section className="py-16 md:py-24 bg-white">
+        <section id="overview" className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="max-w-3xl mb-10">
               <span className="inline-block carbon-label-02 text-[#0f62fe] uppercase tracking-wider mb-3">
@@ -297,19 +317,18 @@ export default function RackAndCabinets() {
                 Enclosures for Space, Footprint, Cooling and Cable Assembly
               </h2>
               <p className="carbon-body-02 text-gray-600">
-                We supply a wide range of enclosures and sizes to help you optimise space, footprint, 
-                cooling, airflow, power and network cable assemblies. Our cabinets are designed to take 
-                servers, switches, routers, SANs, telecoms, video conferencing, UPS systems, automatic 
-                transfer switches and PDUs — backed by a complete rack design and installation service.
+                We supply a wide range of enclosures and sizes to optimise space, footprint, cooling, 
+                airflow, power and network cable assemblies. Backed by a complete rack design and 
+                installation service.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { icon: Server, label: 'Servers & Compute', desc: 'Enterprise servers, storage arrays and high-density compute loads' },
-                { icon: Network, label: 'Network & Telecoms', desc: 'Switches, routers, patch panels and telecommunications hardware' },
+                { icon: Server, label: 'Servers & Compute', desc: 'Enterprise servers, SANs, storage arrays and high-density compute loads' },
+                { icon: Network, label: 'Network & Telecoms', desc: 'Switches, routers, patch panels, telecoms and video conferencing hardware' },
                 { icon: Thermometer, label: 'Thermal Integration', desc: 'Airflow, aisle containment and rack-level cooling design' },
-                { icon: Cable, label: 'Cable Assembly', desc: 'Structured copper, fibre, power and PDU routing' },
+                { icon: Cable, label: 'Cable Assembly', desc: 'Structured copper, fibre, power, UPS, ATS and PDU routing' },
               ].map((item) => (
                 <div key={item.label} className="flex items-start gap-3 p-4 bg-[#f4f4f4] rounded-xl">
                   <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center flex-shrink-0">
@@ -336,11 +355,22 @@ export default function RackAndCabinets() {
               <h2 className="carbon-fluid-heading-05 text-white mb-4">
                 The Enclosure Is a Commodity. The Architecture Is Not.
               </h2>
-              <p className="carbon-body-02 text-white/80">
-                We do not supply standard cabinets. We engineer integrated rack systems — 
-                thermal management, power distribution, cable routing and infrastructure monitoring — 
-                validated as a unified architecture for enterprise and mission-critical environments in Pakistan.
+              <p className="carbon-body-02 text-white/80 mb-4">
+                We do not supply standard cabinets. We engineer integrated rack systems validated as a unified architecture for enterprise and mission-critical environments in Pakistan.
               </p>
+              <ul className="space-y-2 carbon-body-02 text-white/80">
+                {[
+                  'Thermal management designed for Pakistani ambient conditions',
+                  'Power distribution and PDU routing integrated at the cabinet level',
+                  'Structured cable routing with bend-radius compliance',
+                  'Infrastructure monitoring tied to our 24/7 operations centre',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#78a9ff] mt-2 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -349,21 +379,122 @@ export default function RackAndCabinets() {
                 { icon: Award, label: 'Enterprise Architecture Heritage', desc: 'Twenty-four years of critical infrastructure design and deployment, combining British governance frameworks with Pakistani operational execution' },
                 { icon: Users, label: 'Regional Engineering Capability', desc: 'Pakistan-based deployment and field engineering teams experienced across seismic, industrial and classified-site environments' },
                 { icon: Layers, label: 'Vendor-Neutral Engineering', desc: 'Independent specification across Tier 1 manufacturers. Rack architecture is selected on technical fit and compliance, not commercial allegiance.' },
-              ].map((item) => (
-                <div key={item.label} className="p-5 bg-white/5 border border-white/10 rounded-xl">
-                  <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/20 flex items-center justify-center mb-3">
-                    <item.icon className="w-5 h-5 text-[#78a9ff]" />
+              ].map((item) => {
+                const isOpen = expandedVP === item.label;
+                return (
+                  <button
+                    key={item.label}
+                    onClick={() => setExpandedVP(isOpen ? null : item.label)}
+                    className={`text-left p-5 bg-white/5 border rounded-xl transition-all duration-300 ${
+                      isOpen
+                        ? 'border-[#0f62fe]/40 shadow-lg shadow-[#0f62fe]/10'
+                        : 'border-white/10 hover:border-white/20 hover:bg-white/[0.07]'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/20 flex items-center justify-center flex-shrink-0">
+                        <item.icon className="w-5 h-5 text-[#78a9ff]" />
+                      </div>
+                      <ChevronDown
+                        className={`w-5 h-5 text-[#78a9ff] flex-shrink-0 mt-2.5 transition-transform duration-300 ${
+                          isOpen ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </div>
+                    <p className="carbon-heading-02 text-white mb-2">{item.label}</p>
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ${
+                        isOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
+                      }`}
+                    >
+                      <p className="carbon-body-02 text-white/70 pt-1">{item.desc}</p>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* AI-Accelerated Rack Design */}
+        <section id="ai-design" className="py-16 md:py-24 bg-[#0a1628]">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            {/* Header */}
+            <div className="max-w-3xl mb-12 md:mb-16">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0f62fe]/10 border border-[#0f62fe]/20 rounded-full mb-4">
+                <Cpu className="w-4 h-4 text-[#78a9ff]" />
+                <span className="carbon-label-02 text-[#78a9ff] uppercase tracking-wider">AI-Accelerated Design</span>
+              </span>
+              <h2 className="carbon-fluid-heading-05 text-white mb-4">
+                Precision Engineering at Machine Speed, Validated by Human Expertise
+              </h2>
+              <p className="carbon-body-02 text-white/80">
+                Designing rack infrastructure requires balancing thermal dynamics, structural loads, cable pathways, 
+                and future expansion. Calculations that traditionally take days are compressed into hours by our 
+                AI-powered evaluation agents, while veteran architects ensure every design accounts for the physical 
+                realities no algorithm can see.
+              </p>
+            </div>
+
+            {/* AI Advantage */}
+            <div className="mb-12 md:mb-16">
+              <h3 className="carbon-heading-02 text-white mb-6">The AI Advantage: Exhaustive Technical Validation</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[
+                  { icon: Ruler, title: 'Instant U-Space Optimization', desc: 'Exact rack unit allocation across servers, switches, PDUs and cable managers with zero wasted vertical space and serviceability clearances.' },
+                  { icon: Weight, title: 'Automated Load Distribution', desc: 'Static and dynamic weight calculations for every cabinet position, ensuring floor load limits and seismic bracing requirements are met.' },
+                  { icon: Thermometer, title: 'Thermal Airflow Simulation', desc: 'Rack-level BTU analysis models hot/cold aisle containment effectiveness and identifies thermal hotspots before equipment is ordered.' },
+                  { icon: Cable, title: 'Cable Pathway Validation', desc: 'Bend radius compliance for fibre and copper, zero-U space utilisation for vertical managers, and rear-door egress clearance checks.' },
+                  { icon: Zap, title: 'PDU & Power Positioning', desc: 'Automatic validation of power distribution unit placement, outlet density and phase balancing across three-phase feeds.' },
+                  { icon: Shield, title: 'Compliance Cross-Checking', desc: 'Every design is validated against EIA-310 mounting standards, TIA-942 cable management guidelines and local electrical codes.' },
+                ].map((item) => (
+                  <div key={item.title} className="p-5 bg-white/5 border border-white/10 rounded-xl hover:border-white/20 transition-colors">
+                    <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/20 flex items-center justify-center mb-3">
+                      <item.icon className="w-5 h-5 text-[#78a9ff]" />
+                    </div>
+                    <h4 className="carbon-heading-02 text-white mb-2">{item.title}</h4>
+                    <p className="carbon-body-02 text-white/70">{item.desc}</p>
                   </div>
-                  <p className="carbon-heading-02 text-white mb-2">{item.label}</p>
-                  <p className="carbon-body-02 text-white/70">{item.desc}</p>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            {/* Human Mandate */}
+            <div className="mb-12 md:mb-16">
+              <h3 className="carbon-heading-02 text-white mb-6">The Human Mandate: Physical Context & Accountability</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { icon: Building2, title: 'Site-Specific Reality Checks', desc: 'Our engineers validate AI recommendations against floor conditions, column locations, ceiling heights and existing cooling infrastructure.' },
+                  { icon: Expand, title: 'Expansion & Scalability Judgment', desc: 'We design for your 3–5 year growth trajectory so cable pathways and power capacity do not become bottlenecks.' },
+                  { icon: LayoutGrid, title: 'Co-Location & Multi-Tenant Complexity', desc: 'Human experts design physical separation, independent metering and access control zones that meet audit requirements.' },
+                  { icon: Award, title: 'Final Sign-Off & Liability', desc: 'Every layout, cable schedule and thermal model is signed off by a senior engineer with 20+ years of critical infrastructure experience.' },
+                ].map((item) => (
+                  <div key={item.title} className="p-5 bg-white/5 border border-white/10 rounded-xl hover:border-white/20 transition-colors">
+                    <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/20 flex items-center justify-center mb-3">
+                      <item.icon className="w-5 h-5 text-[#78a9ff]" />
+                    </div>
+                    <h4 className="carbon-heading-02 text-white mb-2">{item.title}</h4>
+                    <p className="carbon-body-02 text-white/70">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Result */}
+            <div className="bg-[#0f62fe]/10 border border-[#0f62fe]/20 rounded-2xl p-8 sm:p-10">
+              <div className="max-w-3xl">
+                <h3 className="carbon-fluid-heading-04 text-white mb-3">The Result</h3>
+                <p className="carbon-body-02 text-white/80">
+                  What traditionally takes 2–3 weeks of back-and-forth design iterations is compressed into 48–72 hours. 
+                  You get machine-speed delivery without sacrificing the engineering rigor required for mission-critical deployments.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Cabinet Enclosures & Structural Varieties */}
-        <section id="cabinet-enclosures" className="py-16 md:py-24 bg-[#f4f4f4]">
+        <section id="cabinets" className="py-16 md:py-24 bg-[#f4f4f4]">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="max-w-3xl mb-12 md:mb-16">
               <span className="inline-block carbon-label-02 text-[#0f62fe] uppercase tracking-wider mb-3">
@@ -373,8 +504,8 @@ export default function RackAndCabinets() {
                 Structural Varieties for Every Environment
               </h2>
               <p className="carbon-body-02 text-gray-600">
-                In modern high-density environments, a rack is no longer just metal shelving — 
-                it is an engineered system integrated with cooling, power and monitoring.
+                In modern high-density environments, a rack is no longer just metal shelving. 
+                It is an engineered system integrated with cooling, power and monitoring.
               </p>
             </div>
 
@@ -397,9 +528,12 @@ export default function RackAndCabinets() {
                     </div>
                     <ul className="space-y-3">
                       {type.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-3 carbon-body-02 text-gray-600">
+                        <li key={feature.heading} className="flex items-start gap-3 carbon-body-02 text-gray-600">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#0f62fe] mt-2 flex-shrink-0" />
-                          {feature}
+                          <span>
+                            <span className="font-semibold text-[#161616]">{feature.heading}:</span>{' '}
+                            {feature.desc}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -423,7 +557,7 @@ export default function RackAndCabinets() {
         </section>
 
         {/* Thermal Management & Containment Integration */}
-        <section className="py-16 md:py-24 bg-white">
+        <section id="thermal" className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="max-w-3xl mb-12 md:mb-16">
               <span className="inline-block carbon-label-02 text-[#0f62fe] uppercase tracking-wider mb-3">
@@ -456,7 +590,7 @@ export default function RackAndCabinets() {
         </section>
 
         {/* High-Density Cable Management & Topology */}
-        <section className="py-16 md:py-24 bg-[#f4f4f4]">
+        <section id="cabling" className="py-16 md:py-24 bg-[#f4f4f4]">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="max-w-3xl mb-12 md:mb-16">
               <span className="inline-block carbon-label-02 text-[#0f62fe] uppercase tracking-wider mb-3">
@@ -489,7 +623,7 @@ export default function RackAndCabinets() {
         </section>
 
         {/* Cabinet Security & Environmental Integration */}
-        <section className="py-16 md:py-24 bg-white">
+        <section id="security" className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="max-w-3xl mb-12 md:mb-16">
               <span className="inline-block carbon-label-02 text-[#0f62fe] uppercase tracking-wider mb-3">
@@ -499,8 +633,8 @@ export default function RackAndCabinets() {
                 Physical Security, Monitoring & Grounding
               </h2>
               <p className="carbon-body-02 text-gray-600">
-                The right server cabinet delivers a safe environment for critical infrastructure — 
-                from smart access control and environmental sensors to grounding systems tied to the site matrix.
+                The right server cabinet delivers a safe environment for critical infrastructure. 
+                From smart access control and environmental sensors to grounding systems tied to the site matrix.
               </p>
             </div>
 
@@ -530,7 +664,7 @@ export default function RackAndCabinets() {
         </section>
 
         {/* Sizing & Specifications */}
-        <section className="py-16 md:py-24 bg-[#f4f4f4]">
+        <section id="sizing" className="py-16 md:py-24 bg-[#f4f4f4]">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
               <div>
@@ -597,7 +731,7 @@ export default function RackAndCabinets() {
         </section>
 
         {/* Key Considerations */}
-        <section className="py-16 md:py-24 bg-white">
+        <section id="planning" className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="max-w-3xl mb-12 md:mb-16">
               <span className="inline-block carbon-label-02 text-[#0f62fe] uppercase tracking-wider mb-3">
@@ -629,8 +763,8 @@ export default function RackAndCabinets() {
           </div>
         </section>
 
-        {/* Supply Chain — Tier 1 Procurement */}
-        <section className="py-16 md:py-24 bg-[#f4f4f4]">
+        {/* Supply Chain. Tier 1 Procurement */}
+        <section id="featured" className="py-16 md:py-24 bg-[#f4f4f4]">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start mb-12">
               <div>
@@ -642,12 +776,12 @@ export default function RackAndCabinets() {
                 </h2>
                 <p className="carbon-body-02 text-gray-600 mb-6">
                   We procure from Tier 1 manufacturers with free site survey before order placement. 
-                  British governance standards applied to Pakistani supply chain execution — 
+                  British governance standards applied to Pakistani supply chain execution. 
                   every cabinet is spec-validated before it ships.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
-                    href="mailto:contact@perception-it.com?subject=Rack%20Comparison%20%26%20Technical%20Consultation"
+                    href={`mailto:contact@perception-it.com?subject=Rack%20Comparison%20%26%20Technical%20Consultation&body=${TECHNICAL_CONSULTATION_EMAIL_BODY}`}
                     className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#0f62fe] text-white carbon-heading-02 rounded-lg hover:bg-[#0353e9] transition-colors"
                   >
                     Request Technical Consultation
@@ -681,12 +815,15 @@ export default function RackAndCabinets() {
         <ResultsSection />
 
         {/* Ecosystem Upsell */}
-        <section className="py-16 md:py-24 bg-white">
+        <section id="ecosystem" className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="max-w-3xl mb-10">
-              <span className="inline-block carbon-label-02 text-[#0f62fe] uppercase tracking-wider mb-3">
-                The Ecosystem
-              </span>
+              <div className="inline-flex items-center gap-3 mb-3">
+                <EcosystemLandmark />
+                <span className="carbon-label-02 text-[#0f62fe] uppercase tracking-wider">
+                  The Ecosystem
+                </span>
+              </div>
               <h2 className="carbon-fluid-heading-05 text-[#161616] mb-4">
                 Complete Data Centre Resilience
               </h2>
@@ -698,15 +835,18 @@ export default function RackAndCabinets() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
               {[
-                { title: 'Cooling & Airflow', desc: 'Precision thermal management for high-density racks', href: '/#/infrastructure/data-centre-services/cooling-airflow' },
-                { title: 'Power & UPS', desc: 'UPS, PDU and busbar power for every cabinet', href: '/#/infrastructure/data-centre-services/power-ups' },
-                { title: 'Monitoring', desc: 'Environmental sensors and NOC visibility per rack', href: '/#/services/observability' },
+                { icon: Snowflake, title: 'Cooling & Airflow', desc: 'Precision thermal management for high-density racks', href: '/#/infrastructure/data-centre-services/cooling-airflow' },
+                { icon: Zap, title: 'Power & UPS', desc: 'UPS, PDU and busbar power for every cabinet', href: '/#/infrastructure/data-centre-services/power-ups' },
+                { icon: Activity, title: 'Monitoring', desc: 'Environmental sensors and NOC visibility per rack', href: '/#/services/observability' },
               ].map((item) => (
                 <a
                   key={item.title}
                   href={item.href}
                   className="group bg-[#f4f4f4] rounded-xl border border-gray-200 p-6 hover:border-[#0f62fe]/30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
                 >
+                  <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/10 flex items-center justify-center mb-3 group-hover:bg-[#0f62fe] transition-colors">
+                    <item.icon className="w-5 h-5 text-[#0f62fe] group-hover:text-white transition-colors" />
+                  </div>
                   <h3 className="carbon-heading-02 text-[#161616] mb-2">{item.title}</h3>
                   <p className="carbon-body-02 text-gray-600 mb-4">{item.desc}</p>
                   <div className="flex items-center gap-2 text-[#0f62fe] carbon-label-02">
@@ -726,7 +866,7 @@ export default function RackAndCabinets() {
                 your data centre operates as a single resilient system.
               </p>
               <a
-                href="mailto:contact@perception-it.com?subject=Enterprise%20Pricing%20-%20Rack%20%26%20Cabinet"
+                href={`mailto:contact@perception-it.com?subject=Enterprise%20Pricing%20-%20Rack%20%26%20Cabinet&body=${ENTERPRISE_PRICING_EMAIL_BODY}`}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-[#0f62fe]/20 text-[#78a9ff] carbon-label-02 rounded-full hover:bg-[#0f62fe]/30 transition-colors"
               >
                 Enterprise Pricing
@@ -742,24 +882,15 @@ export default function RackAndCabinets() {
               Ready to Plan Your Rack Layout?
             </h2>
             <p className="carbon-body-02 text-white/80 max-w-2xl mx-auto mb-8">
-              Schedule a technical assessment — we survey your space, calculate load capacity, and 
+              Schedule a technical assessment. We survey your space, calculate load capacity, and 
               recommend the right cabinet configuration for your equipment.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="mailto:contact@perception-it.com?subject=Rack%20%26%20Cabinet%20Assessment%20Request"
+                href={`mailto:contact@perception-it.com?subject=Rack%20%26%20Cabinet%20Assessment%20Request&body=${ASSESSMENT_EMAIL_BODY}`}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0f62fe] carbon-heading-02 rounded-lg hover:bg-white/90 hover:shadow-xl hover:shadow-black/20 hover:-translate-y-0.5 transition-all"
               >
                 Schedule Assessment
-              </a>
-              <a
-                href="https://e.huawei.com/en/products/data-center"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/15 border border-white/30 text-white carbon-heading-02 rounded-lg hover:bg-white/25 transition-colors"
-              >
-                Explore Solutions
-                <ExternalLink className="w-4 h-4" />
               </a>
             </div>
           </div>

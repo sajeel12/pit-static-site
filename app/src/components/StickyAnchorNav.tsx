@@ -136,10 +136,10 @@ export default function StickyAnchorNav({ items, defaultActive }: StickyAnchorNa
 
             {dropdownOpen && (
               <div
-                className="absolute left-0 right-0 mt-2 bg-white rounded-lg border border-gray-200 shadow-lg z-50 overflow-hidden"
+                className="absolute left-0 right-0 mt-2 bg-white rounded-xl border border-gray-200 shadow-xl z-50 overflow-hidden py-1"
                 role="listbox"
               >
-                {items.map((item) => (
+                {items.map((item, idx) => (
                   <button
                     key={item.id}
                     type="button"
@@ -149,12 +149,18 @@ export default function StickyAnchorNav({ items, defaultActive }: StickyAnchorNa
                       setActiveSection(item.id);
                       scrollTo(item.id);
                     }}
-                    className={`w-full text-left px-4 py-3 text-sm transition-colors ${
+                    className={`w-full text-left px-4 py-3 text-sm transition-colors flex items-center gap-3 ${
                       activeSection === item.id
-                        ? 'bg-[#0f62fe] text-white font-medium'
-                        : 'text-gray-700 [@media(hover:hover)]:hover:bg-[#0f62fe]/10 [@media(hover:hover)]:hover:text-[#0f62fe]'
-                    }`}
+                        ? 'text-[#0f62fe] font-medium bg-[#0f62fe]/5'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-[#0f62fe]'
+                    } ${idx < items.length - 1 ? 'border-b border-gray-100' : ''}`}
                   >
+                    {/* Active indicator dot */}
+                    <span
+                      className={`w-2 h-2 rounded-full flex-shrink-0 transition-colors ${
+                        activeSection === item.id ? 'bg-[#0f62fe]' : 'bg-gray-300'
+                      }`}
+                    />
                     {item.label}
                   </button>
                 ))}

@@ -1,3 +1,17 @@
+export const PAGE_SECTIONS = [
+  { id: 'overview', label: 'Overview', inNav: true },
+  { id: 'ai-design', label: 'AI Design', inNav: true },
+  { id: 'cabinets', label: 'Cabinets', inNav: true },
+  { id: 'thermal', label: 'Thermal', inNav: true },
+  { id: 'cabling', label: 'Cabling', inNav: true },
+  { id: 'security', label: 'Security', inNav: true },
+  { id: 'sizing', label: 'Sizing', inNav: true },
+  { id: 'planning', label: 'Planning', inNav: true },
+  { id: 'featured', label: 'Featured', inNav: true },
+  { id: 'results', label: 'Results', inNav: true },
+  { id: 'ecosystem', label: 'Ecosystem', inNav: true },
+] as const;
+
 export const TESTIMONIALS = [
   {
     quote: "Perception IT ran a full site survey of our server room, identified airflow restrictions and cable congestion, and produced a revised rack layout with clear capacity planning. The implementation was completed over a weekend with no unplanned downtime, and cooling efficiency improved measurably.",
