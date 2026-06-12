@@ -1199,7 +1199,7 @@ export default function AssessmentSection() {
 
 
 
-              <a href="mailto:contact@perception-it.com?subject=Assessment%20Consultation%20Request" className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] hover:shadow-[0_0_20px_rgba(15,98,254,0.6)] transition-colors rounded-lg whitespace-nowrap">
+              <a href="mailto:info@perception-it.com?subject=Assessment%20Consultation%20Request" className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] hover:shadow-[0_0_20px_rgba(15,98,254,0.6)] transition-colors rounded-lg whitespace-nowrap">
 
 
 

@@ -860,7 +860,7 @@ const ServiceDesk2 = () => {
                       where you can improve-and how much you can save.
                     </p>
                     <a 
-                      href="mailto:contact@perception-it.com"
+                      href="mailto:info@perception-it.com"
                       className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--cds-layer-01)] text-[#24a148] font-semibold hover:bg-[var(--cds-background)] transition-colors"
                     >
                       Request Free Assessment

@@ -139,7 +139,7 @@ export default function FeaturedProductsSection() {
                 Get Datasheet
               </button>
               <a
-                href="mailto:contact@perception-it.com?subject=SmartLi%20Enquiry%20-%20Power%20and%20UPS"
+                href="mailto:info@perception-it.com?subject=SmartLi%20Enquiry%20-%20Power%20and%20UPS"
                 className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] transition-colors rounded-lg"
               >
                 Enquire About This Model
@@ -195,7 +195,7 @@ export default function FeaturedProductsSection() {
 
             <div className="flex flex-col gap-3">
               <a
-                href="mailto:contact@perception-it.com?subject=Request:%20Huawei%20SmartLi%20Datasheet"
+                href="mailto:info@perception-it.com?subject=Request:%20Huawei%20SmartLi%20Datasheet"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] transition-colors rounded-lg"
               >
                 Request via Email

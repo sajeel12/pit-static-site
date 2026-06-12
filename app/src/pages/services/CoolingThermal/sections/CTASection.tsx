@@ -19,7 +19,7 @@ export default function CTASection() {
         {/* Primary CTA */}
         <div className="text-center mb-10">
           <a
-            href="mailto:contact@perception-it.com?subject=Free%20Cooling%20Consultation%20Request"
+            href="mailto:info@perception-it.com?subject=Free%20Cooling%20Consultation%20Request"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0f62fe] carbon-heading-02 hover:bg-white/90 hover:shadow-xl hover:shadow-black/20 hover:-translate-y-0.5 transition-all rounded-lg"
             onClick={() => trackEvent('cta_conversion', { type: 'consultation', location: 'bottom_cta' })}
           >

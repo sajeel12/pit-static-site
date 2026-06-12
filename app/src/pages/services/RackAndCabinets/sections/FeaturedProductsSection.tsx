@@ -137,7 +137,7 @@ export default function FeaturedProductsSection() {
             {/* CTA */}
             <div className="flex gap-3 flex-wrap">
               <a
-                href={`mailto:contact@perception-it.com?subject=One%20Cabinet%20Enquiry%20-%20Rack%20%26%20Cabinet&body=${ONE_CABINET_ENQUIRY_BODY}`}
+                href={`mailto:info@perception-it.com?subject=One%20Cabinet%20Enquiry%20-%20Rack%20%26%20Cabinet&body=${ONE_CABINET_ENQUIRY_BODY}`}
                 className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] transition-colors rounded-lg"
               >
                 Enquire About This Model

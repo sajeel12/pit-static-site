@@ -278,7 +278,7 @@ export default function RemoteAdvisorySection() {
 
           </div>
 
-          <a href="mailto:contact@perception-it.com?subject=Remote%20Advisory%20Consultation%20Request" className="mt-6 md:mt-0 inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#0f62fe] carbon-body-02 hover:bg-slate-100 transition-colors rounded-lg flex-shrink-0">
+          <a href="mailto:info@perception-it.com?subject=Remote%20Advisory%20Consultation%20Request" className="mt-6 md:mt-0 inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#0f62fe] carbon-body-02 hover:bg-slate-100 transition-colors rounded-lg flex-shrink-0">
 
             Request Remote Advisory Consultation
 

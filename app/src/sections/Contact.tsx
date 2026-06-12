@@ -12,7 +12,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Form submission logic
-    window.location.href = `mailto:hello@perception-it.com?subject=Contact%20from%20${formData.name}&body=${formData.message}`;
+    window.location.href = `mailto:info@perception-it.com?subject=Contact%20from%20${formData.name}&body=${formData.message}`;
   };
 
   const offices = [
@@ -128,10 +128,10 @@ const Contact = () => {
                 <span className="text-gray-400">General inquiries</span>
               </div>
               <a 
-                href="mailto:hello@perception-it.com" 
+                href="mailto:info@perception-it.com" 
                 className="text-xl text-white hover:text-blue-400 transition-colors"
               >
-                hello@perception-it.com
+                info@perception-it.com
               </a>
             </div>
           </div>

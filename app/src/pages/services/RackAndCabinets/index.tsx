@@ -283,7 +283,7 @@ export default function RackAndCabinets() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href={`mailto:contact@perception-it.com?subject=Rack%20%26%20Cabinet%20Assessment%20Request&body=${ASSESSMENT_EMAIL_BODY}`}
+                href={`mailto:info@perception-it.com?subject=Rack%20%26%20Cabinet%20Assessment%20Request&body=${ASSESSMENT_EMAIL_BODY}`}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#0f62fe] text-white carbon-heading-02 rounded-lg hover:bg-[#0353e9] hover:shadow-xl hover:shadow-[#0f62fe]/25 hover:-translate-y-0.5 transition-all"
               >
                 Schedule Assessment
@@ -781,7 +781,7 @@ export default function RackAndCabinets() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
-                    href={`mailto:contact@perception-it.com?subject=Rack%20Comparison%20%26%20Technical%20Consultation&body=${TECHNICAL_CONSULTATION_EMAIL_BODY}`}
+                    href={`mailto:info@perception-it.com?subject=Rack%20Comparison%20%26%20Technical%20Consultation&body=${TECHNICAL_CONSULTATION_EMAIL_BODY}`}
                     className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#0f62fe] text-white carbon-heading-02 rounded-lg hover:bg-[#0353e9] transition-colors"
                   >
                     Request Technical Consultation
@@ -866,7 +866,7 @@ export default function RackAndCabinets() {
                 your data centre operates as a single resilient system.
               </p>
               <a
-                href={`mailto:contact@perception-it.com?subject=Enterprise%20Pricing%20-%20Rack%20%26%20Cabinet&body=${ENTERPRISE_PRICING_EMAIL_BODY}`}
+                href={`mailto:info@perception-it.com?subject=Enterprise%20Pricing%20-%20Rack%20%26%20Cabinet&body=${ENTERPRISE_PRICING_EMAIL_BODY}`}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-[#0f62fe]/20 text-[#78a9ff] carbon-label-02 rounded-full hover:bg-[#0f62fe]/30 transition-colors"
               >
                 Enterprise Pricing
@@ -887,7 +887,7 @@ export default function RackAndCabinets() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href={`mailto:contact@perception-it.com?subject=Rack%20%26%20Cabinet%20Assessment%20Request&body=${ASSESSMENT_EMAIL_BODY}`}
+                href={`mailto:info@perception-it.com?subject=Rack%20%26%20Cabinet%20Assessment%20Request&body=${ASSESSMENT_EMAIL_BODY}`}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0f62fe] carbon-heading-02 rounded-lg hover:bg-white/90 hover:shadow-xl hover:shadow-black/20 hover:-translate-y-0.5 transition-all"
               >
                 Schedule Assessment

@@ -122,7 +122,7 @@ function LiIonArticle() {
           Get a no-obligation Battery Architecture Assessment from Perception-IT: site temperature profiling, 10-year TCO comparison in PKR, SBP-compliant disposal pathway documentation, and SLA impact analysis.
         </p>
         <a
-          href="mailto:contact@perception-it.com?subject=Battery%20Architecture%20Assessment%20Request"
+          href="mailto:info@perception-it.com?subject=Battery%20Architecture%20Assessment%20Request"
           className="inline-flex items-center gap-2 px-6 py-3 bg-[#0f62fe] text-white carbon-heading-02 rounded-lg hover:bg-[#0353e9] transition-colors"
         >
           Request Assessment

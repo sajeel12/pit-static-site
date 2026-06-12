@@ -375,7 +375,7 @@ export default function DeploymentSection() {
 
 
 
-              <a href="mailto:contact@perception-it.com?subject=Deployment%20Consultation%20Request" className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white text-[#0f62fe] carbon-body-02 hover:bg-gray-50 transition-colors rounded-lg w-full sm:w-auto">Request Technical Consultation</a>
+              <a href="mailto:info@perception-it.com?subject=Deployment%20Consultation%20Request" className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white text-[#0f62fe] carbon-body-02 hover:bg-gray-50 transition-colors rounded-lg w-full sm:w-auto">Request Technical Consultation</a>
 
 
 

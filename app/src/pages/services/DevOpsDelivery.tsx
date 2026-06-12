@@ -112,7 +112,7 @@ const DevOpsDelivery = () => {
             
             <div className="flex flex-wrap gap-4">
               <a
-                href="mailto:devops@perception-it.com?subject=DevOps%20Inquiry"
+                href="mailto:info@perception-it.com?subject=DevOps%20Inquiry"
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-blue-500 text-white font-medium rounded-full hover:bg-blue-400 transition-all duration-300"
               >
                 <Mail className="w-5 h-5" />
@@ -328,7 +328,7 @@ const DevOpsDelivery = () => {
             Get a free DevOps maturity assessment. We'll identify your biggest bottlenecks.
           </p>
           <a 
-            href="mailto:devops@perception-it.com"
+            href="mailto:info@perception-it.com"
             className="inline-flex items-center gap-3 px-8 py-4 bg-blue-500 text-white font-medium rounded-full hover:bg-blue-400 transition-colors"
           >
             Request Assessment

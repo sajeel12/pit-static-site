@@ -836,7 +836,7 @@ const JiraServiceManagement = () => {
                       opportunities and create a roadmap tailored to your organization.
                     </p>
                     <a 
-                      href="mailto:contact@perception-it.com"
+                      href="mailto:info@perception-it.com"
                       className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#f97316] carbon-heading-02 hover:bg-gray-100 transition-colors"
                     >
                       Request Free Assessment

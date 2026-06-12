@@ -227,7 +227,7 @@ export default function CalculatorSection() {
 
                 <div className="flex flex-wrap gap-3">
                   <a
-                    href="mailto:contact@perception-it.com?subject=UPS%20Quote%20Request"
+                    href="mailto:info@perception-it.com?subject=UPS%20Quote%20Request"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-[#0f62fe] text-white carbon-heading-02 rounded-lg hover:bg-[#0353e9] transition-colors"
                   >
                     Get Detailed Quote

@@ -71,7 +71,7 @@ export default function EcosystemSection() {
               </a>
             </div>
             <a
-              href="mailto:contact@perception-it.com?subject=Integrated%20Facility%20Ecosystem%20Enquiry"
+              href="mailto:info@perception-it.com?subject=Integrated%20Facility%20Ecosystem%20Enquiry"
               className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#0f62fe] text-white carbon-heading-02 rounded-lg hover:bg-[#0353e9] hover:shadow-lg hover:shadow-[#0f62fe]/25 hover:-translate-y-0.5 transition-all"
             >
               Request Technical Consultation

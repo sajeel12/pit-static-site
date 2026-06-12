@@ -1,4 +1,4 @@
-import { Zap, Shield, BatteryCharging, Activity } from 'lucide-react';
+import { Zap, Shield, BatteryCharging, Activity, Gauge, Target, BrainCircuit } from 'lucide-react';
 
 export default function HeroSection() {
   return (
@@ -19,16 +19,29 @@ export default function HeroSection() {
           Power & UPS Solutions for Pakistani Data Centres
         </h1>
 
-        {/* Subhead */}
-        <p className="carbon-fluid-heading-03 text-slate-300 max-w-2xl mb-10">
-          Single Phase to 800kVA Three Phase. Right-sized for your risk profile. 
-          From grid-fluctuation resilience to AI-predicted battery health.
-        </p>
+        {/* Subhead — scannable value props */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mb-10">
+          {[
+            { icon: Gauge, label: '1 to 800kVA', desc: 'Single Phase to Three Phase coverage' },
+            { icon: Target, label: 'Right-Sized', desc: 'Matched to your actual risk profile' },
+            { icon: BrainCircuit, label: 'AI-Ready', desc: 'Grid resilience + predictive battery health' },
+          ].map((item) => (
+            <div key={item.label} className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/15 flex items-center justify-center flex-shrink-0">
+                <item.icon className="w-5 h-5 text-[#78a9ff]" />
+              </div>
+              <div>
+                <p className="carbon-heading-02 text-white mb-0.5">{item.label}</p>
+                <p className="carbon-body-02 text-slate-400">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
 
         {/* CTA row */}
         <div className="flex flex-col sm:flex-row gap-4 mb-14">
           <a
-            href="mailto:contact@perception-it.com?subject=Power%20Resilience%20Assessment%20Request"
+            href="mailto:info@perception-it.com?subject=Power%20Resilience%20Assessment%20Request"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#0f62fe] text-white carbon-heading-02 rounded-lg hover:bg-[#0353e9] hover:shadow-xl hover:shadow-[#0f62fe]/25 hover:-translate-y-0.5 transition-all"
           >
             Request Power Assessment
@@ -49,34 +62,32 @@ export default function HeroSection() {
           </a>
         </div>
 
-        {/* Trust bar */}
-        <div className="flex flex-wrap items-center gap-6 text-slate-400 carbon-body-02 mb-12">
-          <span className="flex items-center gap-2">
-            <Shield className="w-4 h-4 text-[#0f62fe]" />
-            99.95% SLA
-          </span>
-          <span className="flex items-center gap-2">
-            <BatteryCharging className="w-4 h-4 text-[#0f62fe]" />
-            Li-ion + VRLA
-          </span>
-          <span className="flex items-center gap-2">
-            <Activity className="w-4 h-4 text-[#0f62fe]" />
-            AI Battery Forecasting
-          </span>
-          <span className="flex items-center gap-2">
-            <Zap className="w-4 h-4 text-[#0f62fe]" />
-            SBP Compliant
-          </span>
+        {/* Trust bar — grid on mobile, flex on desktop */}
+        <div className="grid grid-cols-2 md:flex md:flex-wrap md:items-center gap-3 md:gap-6 text-slate-400 mb-10 md:mb-12">
+          {[
+            { icon: Shield, label: '99.95% SLA' },
+            { icon: BatteryCharging, label: 'Li-ion + VRLA' },
+            { icon: Activity, label: 'AI Battery Forecasting' },
+            { icon: Zap, label: 'SBP Compliant' },
+          ].map((item) => (
+            <div
+              key={item.label}
+              className="flex flex-col sm:flex-row items-center sm:items-center gap-2 sm:gap-2 text-center sm:text-left p-3 sm:p-0 rounded-lg sm:rounded-none bg-white/5 sm:bg-transparent border border-white/10 sm:border-transparent"
+            >
+              <item.icon className="w-5 h-5 sm:w-4 sm:h-4 text-[#0f62fe]" />
+              <span className="text-sm sm:carbon-body-02">{item.label}</span>
+            </div>
+          ))}
         </div>
 
-        {/* Service pills */}
-        <div className="flex flex-wrap items-center gap-2">
+        {/* Service pills — 2-col grid on mobile */}
+        <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
           {['UPS Systems', 'Power Distribution', 'Battery Monitoring', 'Generator Sync', 'SLA Contracts'].map((label) => (
             <span
               key={label}
-              className="inline-flex items-center gap-2 px-3 py-1 bg-white/8 border border-white/10 rounded-full carbon-label-02 text-slate-300"
+              className="inline-flex items-center justify-center sm:justify-start gap-2 px-3 py-2 sm:py-1 bg-white/8 border border-white/10 rounded-full carbon-label-02 text-slate-300 text-center sm:text-left"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0f62fe]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0f62fe] flex-shrink-0" />
               {label}
             </span>
           ))}

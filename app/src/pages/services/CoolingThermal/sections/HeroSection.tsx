@@ -55,7 +55,7 @@ export default function HeroSection() {
             ))}
           </div>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mt-10 lg:mt-12">
-            <a href="mailto:contact@perception-it.com?subject=Consultation%20Request%20for%20Cooling%20and%20Airflow" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-8 h-12 sm:h-14 bg-gradient-to-r from-[#0f62fe] to-[#4589ff] text-white carbon-body-02 hover:from-[#0353e9] hover:to-[#0f62fe] shadow-lg shadow-blue-500/25 hover:shadow-[0_0_30px_rgba(15,98,254,0.5)] rounded-lg">
+            <a href="mailto:info@perception-it.com?subject=Consultation%20Request%20for%20Cooling%20and%20Airflow" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-8 h-12 sm:h-14 bg-gradient-to-r from-[#0f62fe] to-[#4589ff] text-white carbon-body-02 hover:from-[#0353e9] hover:to-[#0f62fe] shadow-lg shadow-blue-500/25 hover:shadow-[0_0_30px_rgba(15,98,254,0.5)] rounded-lg">
               Request Technical Consultation
             </a>
             <button onClick={() => { const el = document.getElementById('international'); if (el) { const headerOffset = 80; const pos = el.getBoundingClientRect().top + window.scrollY; window.scrollTo({ top: pos - headerOffset, behavior: 'smooth' }); } }} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 sm:h-14 text-slate-300 carbon-body-02 hover:text-white transition-colors cursor-pointer">

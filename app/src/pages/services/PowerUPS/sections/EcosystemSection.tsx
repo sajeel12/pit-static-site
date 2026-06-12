@@ -56,7 +56,7 @@ export default function EcosystemSection() {
             your data centre operates as a single resilient system. Not a collection of vendor contracts.
           </p>
           <a
-            href="mailto:contact@perception-it.com?subject=Enterprise%20Pricing%20-%20Power%20and%20UPS"
+            href="mailto:info@perception-it.com?subject=Enterprise%20Pricing%20-%20Power%20and%20UPS"
             className="inline-flex items-center gap-2 px-4 py-2 bg-[#0f62fe]/20 text-[#78a9ff] carbon-label-02 rounded-full mb-4 hover:bg-[#0f62fe]/30 transition-colors"
           >
             Enterprise Pricing

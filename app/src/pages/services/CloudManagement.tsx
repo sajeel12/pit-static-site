@@ -125,7 +125,7 @@ const CloudManagement = () => {
             
             <div className="flex flex-wrap gap-4">
               <a
-                href="mailto:cloud@perception-it.com?subject=Cloud%20Management%20Inquiry"
+                href="mailto:info@perception-it.com?subject=Cloud%20Management%20Inquiry"
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-blue-500 text-white font-medium rounded-full hover:bg-blue-400 transition-all duration-300"
               >
                 <Mail className="w-5 h-5" />
@@ -200,7 +200,7 @@ const CloudManagement = () => {
                 
                 {/* CTA Button */}
                 <a 
-                  href={`mailto:cloud@perception-it.com?subject=${encodeURIComponent(service.title)}%20Inquiry`}
+                  href={`mailto:info@perception-it.com?subject=${encodeURIComponent(service.title)}%20Inquiry`}
                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-500 text-white text-sm font-medium rounded-lg hover:bg-blue-600 transition-colors group"
                 >
                   Get Started
@@ -369,7 +369,7 @@ const CloudManagement = () => {
               </p>
               
               <a 
-                href="mailto:cloud@perception-it.com?subject=Migration%20Assessment"
+                href="mailto:info@perception-it.com?subject=Migration%20Assessment"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-white text-blue-600 font-medium rounded-full hover:bg-blue-50 transition-colors"
               >
                 Request Free Assessment

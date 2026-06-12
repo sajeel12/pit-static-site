@@ -24,7 +24,7 @@ const Closing = () => {
 
         <div className="flex flex-wrap justify-center gap-4">
           <a
-            href="mailto:hello@perception-it.com"
+            href="mailto:info@perception-it.com"
             className="group inline-flex items-center gap-3 px-8 py-4 bg-blue-500 text-white font-medium rounded-full hover:bg-blue-400 transition-all duration-300"
           >
             <Mail className="w-5 h-5" />

@@ -135,7 +135,7 @@ const Datacenter2 = () => {
                 <p className="carbon-body-02 text-gray-300 mb-8">Five recognised capabilities-Cooling, Power, Energy, Monitoring, and Physical Infrastructure-engineered for Pakistan&apos;s reality. Engage via Consultancy, Build, Cooling design, or Custom quote. SLA-backed continuity available for revenue-critical systems.</p>
                 <div className="flex flex-wrap gap-4">
                   <a
-                    href="mailto:contact@perception-it.com"
+                    href="mailto:info@perception-it.com"
                     className="cds--btn cds--btn--primary bg-[#0f62fe] hover:bg-[#0353e9] inline-flex items-center"
                   >
                     Request Continuity Assessment
@@ -783,7 +783,7 @@ const Datacenter2 = () => {
                       Request a Continuity Assessment. PKR 15K fee, potentially credited toward future services subject to mutual agreement.
                     </p>
                     <a 
-                      href="mailto:contact@perception-it.com"
+                      href="mailto:info@perception-it.com"
                       className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#0f62fe] font-semibold hover:bg-[var(--cds-background)] transition-colors"
                     >
                       Request Assessment

@@ -111,7 +111,7 @@ export default function PasswordGate({ onAuth }: PasswordGateProps) {
 
           <p className="mt-4 text-center carbon-helper-text-01 text-gray-500">
             Need access?{' '}
-            <a href="mailto:it@perception-it.com" className="text-[#0f62fe] hover:underline">
+            <a href="mailto:info@perception-it.com" className="text-[#0f62fe] hover:underline">
               Contact IT
             </a>
           </p>

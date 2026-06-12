@@ -324,7 +324,7 @@ export default function ProcurementSection() {
 
 
 
-              <a href="mailto:contact@perception-it.com?subject=Hardware%20Consultation%20Request" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] hover:shadow-[0_0_20px_rgba(15,98,254,0.6)] transition-colors rounded-lg">Request Technical Consultation</a>
+              <a href="mailto:info@perception-it.com?subject=Hardware%20Consultation%20Request" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] hover:shadow-[0_0_20px_rgba(15,98,254,0.6)] transition-colors rounded-lg">Request Technical Consultation</a>
 
 
 
@@ -500,7 +500,7 @@ export default function ProcurementSection() {
 
 
 
-              { name: 'HP', src: '/logos/partners/Partner-%20Hewlett-Packard-Logo.svg' },
+              { name: 'HP', src: '/logos/partners/HPE logo /HPE Logo files/HPE Logo/HPE-logo-full-clr-pos-rgb (3).webp' },
 
 
 
@@ -616,7 +616,7 @@ export default function ProcurementSection() {
 
 
 
-                <a href="mailto:contact@perception-it.com?subject=FusionCol8000-E%20Enquiry" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] hover:shadow-[0_0_20px_rgba(15,98,254,0.6)] transition-colors rounded-lg">Request Technical Consultation</a>
+                <a href="mailto:info@perception-it.com?subject=FusionCol8000-E%20Enquiry" className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] hover:shadow-[0_0_20px_rgba(15,98,254,0.6)] transition-colors rounded-lg">Request Technical Consultation</a>
 
 
 
@@ -720,7 +720,7 @@ export default function ProcurementSection() {
 
 
 
-              <a href="mailto:contact@perception-it.com?subject=Request:%20FusionCol8000-E%20Datasheet" className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] hover:shadow-[0_0_20px_rgba(15,98,254,0.6)] transition-colors rounded-lg">
+              <a href="mailto:info@perception-it.com?subject=Request:%20FusionCol8000-E%20Datasheet" className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] hover:shadow-[0_0_20px_rgba(15,98,254,0.6)] transition-colors rounded-lg">
 
 
 

@@ -296,7 +296,7 @@ const CloudHub = () => {
                 </p>
               </div>
               <a 
-                href="mailto:cloud@perception-it.com"
+                href="mailto:info@perception-it.com"
                 className="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors"
               >
                 Request Assessment
@@ -468,7 +468,7 @@ const CloudHub = () => {
           
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a 
-              href="mailto:cloud@perception-it.com"
+              href="mailto:info@perception-it.com"
               className="group inline-flex items-center gap-3 px-8 py-4 bg-blue-500 text-white font-medium rounded-full hover:bg-blue-400 transition-all duration-300"
             >
               Schedule Cloud Assessment

@@ -5,15 +5,13 @@ export default function SLATierSection() {
   return (
     <section id="sla" className="py-16 md:py-24 bg-[#f4f4f4]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Header */}
-        <div className="max-w-3xl mb-12 md:mb-16">
-          <span className="inline-block carbon-label-02 text-[#0f62fe] uppercase tracking-wider mb-3">
-            SLA Tiers
-          </span>
+        {/* Header — Large stat + heading */}
+        <div className="mb-12 md:mb-16">
+          <p className="carbon-fluid-display-04 text-[#0f62fe] mb-2">99.95%</p>
           <h2 className="carbon-fluid-heading-05 text-[#161616] mb-4">
-            Predictable Uptime, Transparent Pricing
+            SLA-Backed Uptime, Transparent Pricing
           </h2>
-          <p className="carbon-body-02 text-gray-600">
+          <p className="carbon-body-02 text-gray-600 max-w-3xl">
             Choose the protection level that matches your risk tolerance. All tiers include 
             Perception-IT NOC monitoring and local 24/7 support.
           </p>
@@ -49,7 +47,7 @@ export default function SLATierSection() {
 
                 <div className="mb-6">
                   <div className="flex items-baseline gap-2">
-                    <span className="carbon-fluid-display-03 text-[#161616]">{tier.uptime}</span>
+                    <span className="text-2xl font-semibold text-[#161616]">{tier.uptime}</span>
                     <span className="carbon-body-02 text-gray-500">uptime</span>
                   </div>
                   <p className="carbon-body-02 text-gray-600 mt-1">
@@ -84,9 +82,9 @@ export default function SLATierSection() {
                 </div>
 
                 <div className="pt-6 mt-6 border-t border-gray-100">
-                  <p className="carbon-fluid-heading-03 text-[#161616] mb-4">{tier.price}</p>
+                  <p className="carbon-heading-02 text-[#161616] mb-4">{tier.price}</p>
                   <a
-                    href={`mailto:contact@perception-it.com?subject=SLA%20Tiers%20/%20${tier.name}%20/%20Power%20and%20UPS`}
+                    href={`mailto:info@perception-it.com?subject=SLA%20Tiers%20/%20${tier.name}%20/%20Power%20and%20UPS`}
                     className={`inline-flex items-center justify-center w-full px-6 py-3 carbon-heading-02 rounded-lg transition-all ${
                       tier.recommended
                         ? 'bg-[#0f62fe] text-white hover:bg-[#0353e9] hover:shadow-lg'
@@ -108,7 +106,7 @@ export default function SLATierSection() {
               <div>
                 <p className="carbon-heading-02 text-[#161616] mb-1">Warranty + SLA Alignment</p>
                 <p className="carbon-body-02 text-gray-600">
-                  Huawei hardware warranty + Perception-IT 99.95% uptime SLA = single-point accountability
+                  Tier 1 hardware warranty + Perception-IT 99.95% uptime SLA = single-point accountability
                 </p>
               </div>
               <div className="flex items-center gap-4 text-gray-500 carbon-label-02">

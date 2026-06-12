@@ -23,7 +23,7 @@ export default function CTASection() {
               Enterprise volume pricing. Unified scope across integrated layers.
             </p>
             <a
-              href="mailto:contact@perception-it.com?subject=Ecosystem%20Integration%20Consultation%20Request"
+              href="mailto:info@perception-it.com?subject=Ecosystem%20Integration%20Consultation%20Request"
               className="inline-flex items-center justify-center w-full px-6 py-3 bg-white text-[#0f62fe] carbon-heading-02 hover:bg-white/90 hover:shadow-lg hover:shadow-black/20 hover:-translate-y-0.5 transition-all rounded-lg"
             >
               Request Technical Consultation
@@ -45,7 +45,7 @@ export default function CTASection() {
               Fixed scope, fixed price. Pay per layer.
             </p>
             <a
-              href="mailto:contact@perception-it.com?subject=Individual%20Service%20Enquiry"
+              href="mailto:info@perception-it.com?subject=Individual%20Service%20Enquiry"
               className="inline-flex items-center justify-center w-full px-6 py-3 bg-white text-[#0f62fe] carbon-heading-02 hover:bg-white/90 hover:shadow-lg hover:shadow-black/20 hover:-translate-y-0.5 transition-all rounded-lg"
             >
               Request Technical Consultation

@@ -1281,7 +1281,7 @@ const ServerContinuity = () => {
                       need refresh-or can safely extend.
                     </p>
                     <a 
-                      href="mailto:contact@perception-it.com"
+                      href="mailto:info@perception-it.com"
                       className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#f97316] font-semibold hover:bg-[#f4f4f4] transition-colors"
                     >
                       Request Free ServerAudit™

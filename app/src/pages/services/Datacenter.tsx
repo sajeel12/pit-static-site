@@ -820,7 +820,7 @@ const Datacenter = () => {
                       Request a Power Resilience Assessment. PKR 15K fee, potentially credited toward future services subject to mutual agreement.
                     </p>
                     <a 
-                      href="mailto:contact@perception-it.com"
+                      href="mailto:info@perception-it.com"
                       className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#0f62fe] font-semibold hover:bg-[var(--cds-background)] transition-colors"
                     >
                       Request Assessment

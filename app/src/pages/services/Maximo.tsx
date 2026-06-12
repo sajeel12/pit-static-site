@@ -708,7 +708,7 @@ const Maximo = () => {
                         No commitment required-objective assessment delivered within 2 weeks.
                       </p>
                       <a 
-                        href="mailto:contact@perception-it.com"
+                        href="mailto:info@perception-it.com"
                         className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#00b4d8] carbon-label-01 hover:bg-[#e5e5e5] transition-colors"
                       >
                         Request Assessment

@@ -72,7 +72,7 @@ export default function DeploymentOptionsSection() {
 
               <div className="mt-auto pt-6 border-t border-gray-100">
                 <a
-                  href="mailto:contact@perception-it.com?subject=Ecosystem%20Integration%20Consultation%20Request"
+                  href="mailto:info@perception-it.com?subject=Ecosystem%20Integration%20Consultation%20Request"
                   className="inline-flex items-center justify-center w-full px-6 py-3.5 bg-[#0f62fe] text-white carbon-heading-02 hover:bg-[#0353e9] transition-colors rounded-lg"
                 >
                   Request Technical Consultation
@@ -141,7 +141,7 @@ export default function DeploymentOptionsSection() {
                   Begin with a single service. Consolidate under Ecosystem anytime, with no rework or penalty.
                 </p>
                 <a
-                  href="mailto:contact@perception-it.com?subject=Individual%20Service%20Enquiry"
+                  href="mailto:info@perception-it.com?subject=Individual%20Service%20Enquiry"
                   className="inline-flex items-center justify-center w-full px-6 py-3.5 bg-[#0f62fe] text-white carbon-heading-02 hover:bg-[#0353e9] transition-colors rounded-lg"
                 >
                   Request Technical Consultation

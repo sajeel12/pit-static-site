@@ -74,7 +74,7 @@ const CloudCostOptimisation = () => {
             </p>
             
             <a
-              href="mailto:cloud-audit@perception-it.com?subject=Waste%20Audit"
+              href="mailto:info@perception-it.com?subject=Waste%20Audit"
               className="group inline-flex items-center gap-3 px-8 py-4 bg-blue-500 text-white font-medium rounded-full hover:bg-blue-400 transition-all duration-300 text-lg"
             >
               <Mail className="w-5 h-5" />
@@ -591,10 +591,10 @@ const CloudCostOptimisation = () => {
               Email your last cloud bill to:
             </p>
             <a 
-              href="mailto:cloud-audit@perception-it.com?subject=Waste%20Audit"
+              href="mailto:info@perception-it.com?subject=Waste%20Audit"
               className="text-2xl sm:text-3xl font-medium text-blue-400 hover:text-blue-300 transition-colors"
             >
-              cloud-audit@perception-it.com
+              info@perception-it.com
             </a>
             <p className="text-sm text-gray-500 mt-4">
               Subject: Waste Audit

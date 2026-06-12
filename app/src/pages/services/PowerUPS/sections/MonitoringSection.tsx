@@ -51,7 +51,7 @@ export default function MonitoringSection() {
 
         {/* Deployment Options */}
         <div className="bg-[#0f1d3a] rounded-xl p-6 sm:p-8">
-          <h3 className="carbon-heading-02 text-white mb-5">Deployment Options</h3>
+          <h3 className="carbon-heading-02 text-white mb-5 text-center">Deployment Options</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
             {DEPLOYMENT_OPTIONS.map((opt) => (
               <div key={opt.label} className="p-5 bg-white/5 border border-white/10 rounded-lg">
@@ -81,7 +81,7 @@ export default function MonitoringSection() {
               ))}
             </div>
             <a
-              href="mailto:contact@perception-it.com?subject=NOC%20Dashboard%20Demo%20Request%20-%20UPS"
+              href="mailto:info@perception-it.com?subject=NOC%20Dashboard%20Demo%20Request%20-%20UPS"
               className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#0f62fe] carbon-heading-02 rounded-lg hover:bg-white/90 transition-colors"
             >
               Request Dashboard Demo
