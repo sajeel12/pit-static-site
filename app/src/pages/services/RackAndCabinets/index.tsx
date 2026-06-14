@@ -417,14 +417,14 @@ export default function RackAndCabinets() {
         </section>
 
         {/* AI-Accelerated Rack Design */}
-        <section id="ai-design" className="relative py-16 md:py-24 bg-[#0a1628] overflow-hidden">
-          {/* Background video */}
+        <section id="ai-design" className="relative py-16 md:py-24 bg-[#00071e] overflow-hidden">
+          {/* Background video — seamless because its background matches the section */}
           <video
             autoPlay
             muted
             loop
             playsInline
-            className="absolute top-0 right-0 w-[800px] h-[600px] max-w-full max-h-full object-contain opacity-20"
+            className="absolute top-0 right-0 w-[800px] h-[600px] max-w-full max-h-full object-contain"
             poster="/Sections/Racks and Cabinets/Racks and Cabinets - Images/AI image 800 x 600.mp4"
           >
             <source
@@ -432,8 +432,6 @@ export default function RackAndCabinets() {
               type="video/mp4"
             />
           </video>
-          {/* Gradient overlay: darker on the left for text, lighter on the right where the video sits */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/90 via-[#0a1628]/75 to-[#0a1628]/45" />
           <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             {/* Header */}
             <div className="max-w-3xl mb-12 md:mb-16">
@@ -444,10 +442,10 @@ export default function RackAndCabinets() {
               <h2 className="carbon-fluid-heading-05 text-white mb-4">
                 Precision Engineering at Machine Speed, Validated by Human Expertise
               </h2>
-              <p className="carbon-body-02 text-white/80">
-                Designing rack infrastructure requires balancing thermal dynamics, structural loads, cable pathways, 
-                and future expansion. Calculations that traditionally take days are compressed into hours by our 
-                AI-powered evaluation agents, while veteran architects ensure every design accounts for the physical 
+              <p className="carbon-body-02 text-white/90">
+                Designing rack infrastructure requires balancing thermal dynamics, structural loads, cable pathways,
+                and future expansion. Calculations that traditionally take days are compressed into hours by our
+                AI-powered evaluation agents, while veteran architects ensure every design accounts for the physical
                 realities no algorithm can see.
               </p>
             </div>
@@ -464,12 +462,12 @@ export default function RackAndCabinets() {
                   { icon: Zap, title: 'PDU & Power Positioning', desc: 'Automatic validation of power distribution unit placement, outlet density and phase balancing across three-phase feeds.' },
                   { icon: Shield, title: 'Compliance Cross-Checking', desc: 'Every design is validated against EIA-310 mounting standards, TIA-942 cable management guidelines and local electrical codes.' },
                 ].map((item) => (
-                  <div key={item.title} className="p-5 bg-white/5 border border-white/10 rounded-xl hover:border-white/20 transition-colors">
-                    <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/20 flex items-center justify-center mb-3">
-                      <item.icon className="w-5 h-5 text-[#78a9ff]" />
+                  <div key={item.title} className="p-5 bg-white/[0.08] border border-white/[0.15] rounded-xl hover:border-white/25 hover:bg-white/[0.10] transition-colors">
+                    <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/25 flex items-center justify-center mb-3">
+                      <item.icon className="w-5 h-5 text-[#aecbfa]" />
                     </div>
                     <h4 className="carbon-heading-02 text-white mb-2">{item.title}</h4>
-                    <p className="carbon-body-02 text-white/70">{item.desc}</p>
+                    <p className="carbon-body-02 text-white/85">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -485,23 +483,23 @@ export default function RackAndCabinets() {
                   { icon: LayoutGrid, title: 'Co-Location & Multi-Tenant Complexity', desc: 'Human experts design physical separation, independent metering and access control zones that meet audit requirements.' },
                   { icon: Award, title: 'Final Sign-Off & Liability', desc: 'Every layout, cable schedule and thermal model is signed off by a senior engineer with 20+ years of critical infrastructure experience.' },
                 ].map((item) => (
-                  <div key={item.title} className="p-5 bg-white/5 border border-white/10 rounded-xl hover:border-white/20 transition-colors">
-                    <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/20 flex items-center justify-center mb-3">
-                      <item.icon className="w-5 h-5 text-[#78a9ff]" />
+                  <div key={item.title} className="p-5 bg-white/[0.08] border border-white/[0.15] rounded-xl hover:border-white/25 hover:bg-white/[0.10] transition-colors">
+                    <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/25 flex items-center justify-center mb-3">
+                      <item.icon className="w-5 h-5 text-[#aecbfa]" />
                     </div>
                     <h4 className="carbon-heading-02 text-white mb-2">{item.title}</h4>
-                    <p className="carbon-body-02 text-white/70">{item.desc}</p>
+                    <p className="carbon-body-02 text-white/85">{item.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Result */}
-            <div className="bg-[#0f62fe]/10 border border-[#0f62fe]/20 rounded-2xl p-8 sm:p-10">
+            <div className="bg-[#0f62fe]/15 border border-[#0f62fe]/30 rounded-2xl p-8 sm:p-10">
               <div className="max-w-3xl">
                 <h3 className="carbon-fluid-heading-04 text-white mb-3">The Result</h3>
-                <p className="carbon-body-02 text-white/80">
-                  What traditionally takes 2–3 weeks of back-and-forth design iterations is compressed into 48–72 hours. 
+                <p className="carbon-body-02 text-white/90">
+                  What traditionally takes 2–3 weeks of back-and-forth design iterations is compressed into 48–72 hours.
                   You get machine-speed delivery without sacrificing the engineering rigor required for mission-critical deployments.
                 </p>
               </div>
