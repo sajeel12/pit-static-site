@@ -417,7 +417,7 @@ export default function RackAndCabinets() {
         </section>
 
         {/* AI-Accelerated Rack Design */}
-        <section id="ai-design" className="relative py-16 md:py-24 bg-[#00071e] overflow-hidden">
+        <section id="ai-design" className="relative py-16 md:py-24 bg-black overflow-hidden">
           {/* Background video — seamless because its background matches the section */}
           <video
             autoPlay
@@ -433,11 +433,11 @@ export default function RackAndCabinets() {
             />
           </video>
           {/* Gradient overlay keeps text readable while letting the video show on the right */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(0,7,30,0.25)_0%,_rgba(0,7,30,0.85)_60%,_rgba(0,7,30,0.95)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(0,0,0,0.25)_0%,_rgba(0,0,0,0.85)_60%,_rgba(0,0,0,0.95)_100%)]" />
           <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             {/* Header: text on the left, video visible on the right */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-12 md:mb-16">
-              <div className="max-w-3xl bg-black p-5 sm:p-6 rounded-xl">
+              <div className="max-w-3xl">
                 <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0f62fe]/10 border border-[#0f62fe]/20 rounded-full mb-4">
                   <Cpu className="w-4 h-4 text-[#78a9ff]" />
                   <span className="carbon-label-02 text-[#78a9ff] uppercase tracking-wider">AI-Accelerated Design</span>
