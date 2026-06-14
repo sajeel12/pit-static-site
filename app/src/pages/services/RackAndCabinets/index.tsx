@@ -424,7 +424,7 @@ export default function RackAndCabinets() {
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-25"
+            className="absolute top-0 right-0 w-[800px] h-[600px] max-w-full max-h-full object-contain opacity-20"
             poster="/Sections/Racks and Cabinets/Racks and Cabinets - Images/AI image 800 x 600.mp4"
           >
             <source
@@ -433,7 +433,7 @@ export default function RackAndCabinets() {
             />
           </video>
           {/* Dark overlay */}
-          <div className="absolute inset-0 bg-[#0a1628]/80" />
+          <div className="absolute inset-0 bg-[#0a1628]/85" />
           <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             {/* Header */}
             <div className="max-w-3xl mb-12 md:mb-16">
