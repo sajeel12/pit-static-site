@@ -433,8 +433,8 @@ export default function RackAndCabinets() {
                 type="video/mp4"
               />
             </video>
-            {/* Bottom-edge fade: blurs the sharp cut without affecting the rest of the image */}
-            <div className="absolute inset-x-0 bottom-0 h-20 md:h-32 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
+            {/* Bottom-edge fade: darkens and softens only the very bottom edge */}
+            <div className="absolute inset-x-0 bottom-0 h-20 md:h-32 bg-gradient-to-t from-black via-black/80 via-[20%] to-transparent to-[45%] pointer-events-none" />
           </div>
           {/* Gradient overlay keeps text readable while letting the video show on the right */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(0,0,0,0.25)_0%,_rgba(0,0,0,0.85)_60%,_rgba(0,0,0,0.95)_100%)]" />
@@ -450,11 +450,10 @@ export default function RackAndCabinets() {
                   Precision Engineering at Machine Speed, Validated by Human Expertise
                 </h2>
                 <p className="carbon-body-02 text-white/90">
-                  Designing rack infrastructure requires balancing thermal dynamics, structural loads, cable pathways,
-                and future expansion. Calculations that traditionally take days are compressed into hours by our
-                AI-powered evaluation agents, while veteran architects ensure every design accounts for the physical
-                realities no algorithm can see.
-              </p>
+                  Rack design must balance thermal, structural, cable and growth requirements. AI compresses days of
+                  calculations into hours, while our architects validate every layout against the physical realities
+                  no algorithm can see.
+                </p>
             </div>
             <div className="hidden md:block" aria-hidden="true" />
           </div>
