@@ -432,8 +432,8 @@ export default function RackAndCabinets() {
               type="video/mp4"
             />
           </video>
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-[#0a1628]/85" />
+          {/* Gradient overlay: darker on the left for text, lighter on the right where the video sits */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/90 via-[#0a1628]/75 to-[#0a1628]/45" />
           <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             {/* Header */}
             <div className="max-w-3xl mb-12 md:mb-16">
