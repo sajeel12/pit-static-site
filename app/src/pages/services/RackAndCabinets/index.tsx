@@ -432,6 +432,8 @@ export default function RackAndCabinets() {
               type="video/mp4"
             />
           </video>
+          {/* Gradient overlay keeps text readable while letting the video show on the right */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(0,7,30,0.25)_0%,_rgba(0,7,30,0.85)_60%,_rgba(0,7,30,0.95)_100%)]" />
           <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             {/* Header */}
             <div className="max-w-3xl mb-12 md:mb-16">
