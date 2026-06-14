@@ -437,7 +437,7 @@ export default function RackAndCabinets() {
           <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             {/* Header: text on the left, video visible on the right */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-12 md:mb-16">
-              <div className="max-w-3xl">
+              <div className="max-w-3xl bg-black p-5 sm:p-6 rounded-xl">
                 <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0f62fe]/10 border border-[#0f62fe]/20 rounded-full mb-4">
                   <Cpu className="w-4 h-4 text-[#78a9ff]" />
                   <span className="carbon-label-02 text-[#78a9ff] uppercase tracking-wider">AI-Accelerated Design</span>
