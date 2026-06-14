@@ -68,7 +68,7 @@ export default function FeaturedProductsSection() {
               Featured Hardware
             </span>
             <img
-              src="/Sections/UPSandPower/UPS IMAGES/Featured UPS product/SmartLi.png"
+              src="/Sections/UPSandPower/Featured UPS product/SmartLi.png"
               alt="Huawei SmartLi battery cabinet"
               className="max-w-[90%] max-h-[240px] object-contain"
               loading="lazy"
