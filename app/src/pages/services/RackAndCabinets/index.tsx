@@ -419,19 +419,23 @@ export default function RackAndCabinets() {
         {/* AI-Accelerated Rack Design */}
         <section id="ai-design" className="relative py-16 md:py-24 bg-black overflow-hidden">
           {/* Background video — seamless because its background matches the section */}
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="relative md:absolute top-0 right-0 w-full md:w-[800px] h-auto md:h-[600px] md:max-w-full md:max-h-full object-contain max-h-[260px] md:max-h-none"
-            poster="/Sections/Racks and Cabinets/Racks and Cabinets - Images/AI image 800 x 600.mp4"
-          >
-            <source
-              src="/Sections/Racks and Cabinets/Racks and Cabinets - Images/AI image 800 x 600.mp4"
-              type="video/mp4"
-            />
-          </video>
+          <div className="relative md:absolute top-0 right-0 w-full md:w-[800px] h-auto md:h-[600px] md:max-w-full md:max-h-full max-h-[260px] md:max-h-none">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-contain"
+              poster="/Sections/Racks and Cabinets/Racks and Cabinets - Images/AI image 800 x 600.mp4"
+            >
+              <source
+                src="/Sections/Racks and Cabinets/Racks and Cabinets - Images/AI image 800 x 600.mp4"
+                type="video/mp4"
+              />
+            </video>
+            {/* Bottom fade so the video doesn't end abruptly */}
+            <div className="absolute inset-x-0 bottom-0 h-20 md:h-32 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none" />
+          </div>
           {/* Gradient overlay keeps text readable while letting the video show on the right */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(0,0,0,0.25)_0%,_rgba(0,0,0,0.85)_60%,_rgba(0,0,0,0.95)_100%)]" />
           <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
