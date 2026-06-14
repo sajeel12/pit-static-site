@@ -424,7 +424,7 @@ export default function RackAndCabinets() {
             muted
             loop
             playsInline
-            className="absolute top-0 right-0 w-[800px] h-[600px] max-w-full max-h-full object-contain"
+            className="relative md:absolute top-0 right-0 w-full md:w-[800px] h-auto md:h-[600px] md:max-w-full md:max-h-full object-contain max-h-[260px] md:max-h-none"
             poster="/Sections/Racks and Cabinets/Racks and Cabinets - Images/AI image 800 x 600.mp4"
           >
             <source
