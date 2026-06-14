@@ -435,24 +435,27 @@ export default function RackAndCabinets() {
           {/* Gradient overlay keeps text readable while letting the video show on the right */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(0,7,30,0.25)_0%,_rgba(0,7,30,0.85)_60%,_rgba(0,7,30,0.95)_100%)]" />
           <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-            {/* Header */}
-            <div className="max-w-3xl mb-12 md:mb-16">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0f62fe]/10 border border-[#0f62fe]/20 rounded-full mb-4">
-                <Cpu className="w-4 h-4 text-[#78a9ff]" />
-                <span className="carbon-label-02 text-[#78a9ff] uppercase tracking-wider">AI-Accelerated Design</span>
-              </span>
-              <h2 className="carbon-fluid-heading-05 text-white mb-4">
-                Precision Engineering at Machine Speed, Validated by Human Expertise
-              </h2>
-              <p className="carbon-body-02 text-white/90">
-                Designing rack infrastructure requires balancing thermal dynamics, structural loads, cable pathways,
+            {/* Header: text on the left, video visible on the right */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-12 md:mb-16">
+              <div className="max-w-3xl">
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0f62fe]/10 border border-[#0f62fe]/20 rounded-full mb-4">
+                  <Cpu className="w-4 h-4 text-[#78a9ff]" />
+                  <span className="carbon-label-02 text-[#78a9ff] uppercase tracking-wider">AI-Accelerated Design</span>
+                </span>
+                <h2 className="carbon-fluid-heading-05 text-white mb-4">
+                  Precision Engineering at Machine Speed, Validated by Human Expertise
+                </h2>
+                <p className="carbon-body-02 text-white/90">
+                  Designing rack infrastructure requires balancing thermal dynamics, structural loads, cable pathways,
                 and future expansion. Calculations that traditionally take days are compressed into hours by our
                 AI-powered evaluation agents, while veteran architects ensure every design accounts for the physical
                 realities no algorithm can see.
               </p>
             </div>
+            <div className="hidden md:block" aria-hidden="true" />
+          </div>
 
-            {/* AI Advantage */}
+          {/* AI Advantage */}
             <div className="mb-12 md:mb-16">
               <h3 className="carbon-heading-02 text-white mb-6">The AI Advantage: Exhaustive Technical Validation</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
