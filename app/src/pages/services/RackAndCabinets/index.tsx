@@ -417,8 +417,24 @@ export default function RackAndCabinets() {
         </section>
 
         {/* AI-Accelerated Rack Design */}
-        <section id="ai-design" className="py-16 md:py-24 bg-[#0a1628]">
-          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <section id="ai-design" className="relative py-16 md:py-24 bg-[#0a1628] overflow-hidden">
+          {/* Background video */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-25"
+            poster="/Sections/Racks and Cabinets/Racks and Cabinets - Images/AI image 800 x 600.mp4"
+          >
+            <source
+              src="/Sections/Racks and Cabinets/Racks and Cabinets - Images/AI image 800 x 600.mp4"
+              type="video/mp4"
+            />
+          </video>
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-[#0a1628]/80" />
+          <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             {/* Header */}
             <div className="max-w-3xl mb-12 md:mb-16">
               <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0f62fe]/10 border border-[#0f62fe]/20 rounded-full mb-4">
