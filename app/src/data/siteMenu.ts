@@ -115,7 +115,7 @@ export const siteMenu: MenuCategory[] = [
           { label: 'Cooling', href: '/#/infrastructure/data-centre-services/cooling-thermal', desc: 'Precision cooling & thermal continuity' },
           { label: 'Power & UPS', href: '/#/infrastructure/data-centre-services/power-ups', desc: 'UPS & power distribution' },
           { label: 'Rack & Cabinet', href: '/#/services/rack-cabinets', desc: 'Server cabinets & enclosures' },
-          { label: 'Environmental Monitoring', href: '/#/services/environmental-monitoring', desc: 'Temp, humidity, leak detection' },
+          { label: 'Monitoring', href: '/#/services/monitoring', desc: 'Temp, humidity, leak detection' },
           { label: 'Fire Suppression', href: '/#/services/fire-suppression', desc: 'FM200 & clean-agent protection' },
           { label: 'Design & Build', href: '/#/services/design-build', desc: 'End-to-end construction & CFD' },
           { label: 'Migration & Relocation', href: '/#/services/migration-relocation', desc: 'Zero-downtime moves' },

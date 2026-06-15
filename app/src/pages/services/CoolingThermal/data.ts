@@ -378,7 +378,7 @@ export const ECOSYSTEM_ITEMS = [
 
 
 
-  { icon: Dashboard, title: 'Environmental Monitoring', desc: 'Rack-level temperature, humidity, and leak detection.', link: '/infrastructure/data-centre-services/environmental-monitoring' },
+  { icon: Dashboard, title: 'Monitoring', desc: 'Rack-level temperature, humidity, and leak detection.', link: '/services/monitoring' },
 
 
 

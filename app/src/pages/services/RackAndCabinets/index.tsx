@@ -82,6 +82,7 @@ const CABINET_ENCLOSURES = [
       { heading: 'Wall-mount', desc: 'Cabinets for space-constrained closets and edge sites' },
       { heading: 'Acoustic', desc: 'Soundproof quiet racks for noise-sensitive environments' },
       { heading: 'Ruggedised', desc: 'IP-rated enclosures for factory floors and harsh industrial sites' },
+      { heading: 'Micro Data Centres', desc: 'Self-contained edge data centre units with integrated power, cooling and monitoring in one enclosure' },
       { heading: 'Extreme sites', desc: 'Seismic Zone 4, military and remote-environment options available' },
     ],
   },
@@ -189,20 +190,22 @@ const CONSIDERATIONS = [
 ];
 
 const ASSESSMENT_EMAIL_BODY = encodeURIComponent(
-  'Hi Perception IT Team,\n\nI would like to schedule a rack and cabinet site assessment. Please find the initial details below.\n\nPlease provide as much information as you can — you do not need to fill out every field completely. Even partial details are helpful to start the conversation.\n\n- Company name:\n- Contact name and role:\n- Site location:\n- Current setup (existing cabinets / open floor / co-location):\n- Number of cabinets required:\n- Equipment to be housed (servers / switches / storage / UPS / PDU):\n- Site constraints (ceiling height, floor load, access, cooling):\n- Preferred cabinet type (Enterprise / Network / Colocation / Edge):\n- Target U-height and depth:\n- Thermal or power concerns:\n- Planned deployment timeline:\n\nPlease contact me to arrange the site visit and assessment.\n\nBest regards,'
+  'Hi Perception IT Team,\n\nI would like to schedule a rack and cabinet site assessment. Please find the initial details below.\n\nPlease provide as much information as you can — you do not need to fill out every field completely. Even partial details are helpful to start the conversation.\n\n- Company name:\n\n- Contact name and role:\n\n- Site location:\n\n- Current setup (existing cabinets / open floor / co-location):\n\n- Number of cabinets required:\n\n- Equipment to be housed (servers / switches / storage / UPS / PDU):\n\n- Site constraints (ceiling height, floor load, access, cooling):\n\n- Preferred cabinet type (Enterprise / Network / Colocation / Edge):\n\n- Target U-height and depth:\n\n- Thermal or power concerns:\n\n- Planned deployment timeline:\n\nPlease contact me to arrange the site visit and assessment.\n\nBest regards,'
 );
 
 const TECHNICAL_CONSULTATION_EMAIL_BODY = encodeURIComponent(
-  'Hi Perception IT Team,\n\nI would like to request a technical consultation for rack and cabinet selection. Please find our requirements below.\n\nPlease provide as much information as you can — you do not need to fill out every field completely. Even partial details are helpful to start the conversation.\n\n- Company name:\n- Contact name and role:\n- Site location and environment (server room / data centre / industrial / edge):\n- Equipment list (servers, switches, SAN, UPS, PDU, cable types):\n- Total U-space required:\n- Preferred cabinet width and depth:\n- Load capacity per cabinet:\n- Cooling and airflow requirements:\n- Power distribution and phase requirements:\n- Cable management preferences:\n- Security and access control needs:\n- Compliance standards (EIA-310 / TIA-942 / local electrical codes):\n- Deployment timeline:\n\nPlease recommend the most suitable cabinet configuration and any site-specific considerations.\n\nBest regards,'
+  'Hi Perception IT Team,\n\nI would like to request a technical consultation for rack and cabinet selection. Please find our requirements below.\n\nPlease provide as much information as you can — you do not need to fill out every field completely. Even partial details are helpful to start the conversation.\n\n- Company name:\n\n- Contact name and role:\n\n- Site location and environment (server room / data centre / industrial / edge):\n\n- Equipment list (servers, switches, SAN, UPS, PDU, cable types):\n\n- Total U-space required:\n\n- Preferred cabinet width and depth:\n\n- Load capacity per cabinet:\n\n- Cooling and airflow requirements:\n\n- Power distribution and phase requirements:\n\n- Cable management preferences:\n\n- Security and access control needs:\n\n- Compliance standards (EIA-310 / TIA-942 / local electrical codes):\n\n- Deployment timeline:\n\nPlease recommend the most suitable cabinet configuration and any site-specific considerations.\n\nBest regards,'
 );
 
 const ENTERPRISE_PRICING_EMAIL_BODY = encodeURIComponent(
-  'Hi Perception IT Team,\n\nI would like to request enterprise pricing for rack and cabinet infrastructure. Please find our requirements below.\n\nPlease provide as much information as you can — you do not need to fill out every field completely. Even partial details are helpful to start the conversation.\n\n- Company name:\n- Contact name and role:\n- Site location(s):\n- Number of cabinets required:\n- Cabinet types of interest (Enterprise / Network / Colocation / Edge):\n- Target U-height per cabinet:\n- Required depth and load capacity:\n- Cooling and thermal requirements:\n- Power and PDU requirements:\n- Monitoring and access control needs:\n- Deployment timeline:\n- Budget range (if available):\n- Any specific compliance or site constraints:\n\nPlease provide a tailored enterprise quotation and recommended approach.\n\nBest regards,'
+  'Hi Perception IT Team,\n\nI would like to request enterprise pricing for rack and cabinet infrastructure. Please find our requirements below.\n\nPlease provide as much information as you can — you do not need to fill out every field completely. Even partial details are helpful to start the conversation.\n\n- Company name:\n\n- Contact name and role:\n\n- Site location(s):\n\n- Number of cabinets required:\n\n- Cabinet types of interest (Enterprise / Network / Colocation / Edge):\n\n- Target U-height per cabinet:\n\n- Required depth and load capacity:\n\n- Cooling and thermal requirements:\n\n- Power and PDU requirements:\n\n- Monitoring and access control needs:\n\n- Deployment timeline:\n\n- Budget range (if available):\n\n- Any specific compliance or site constraints:\n\nPlease provide a tailored enterprise quotation and recommended approach.\n\nBest regards,'
 );
 
 export default function RackAndCabinets() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [expandedVP, setExpandedVP] = useState<string | null>(null);
+  const [expandedAI, setExpandedAI] = useState<string | null>(null);
+  const [expandedHM, setExpandedHM] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setShowBackToTop(window.scrollY > 600);
@@ -385,29 +388,37 @@ export default function RackAndCabinets() {
                   <button
                     key={item.label}
                     onClick={() => setExpandedVP(isOpen ? null : item.label)}
-                    className={`text-left p-5 bg-white/5 border rounded-xl transition-all duration-300 ${
+                    aria-expanded={isOpen}
+                    className={`group flex flex-col text-left h-full p-6 bg-white/[0.03] border rounded-2xl transition-all duration-300 ${
                       isOpen
-                        ? 'border-[#0f62fe]/40 shadow-lg shadow-[#0f62fe]/10'
-                        : 'border-white/10 hover:border-white/20 hover:bg-white/[0.07]'
+                        ? 'border-[#0f62fe]/40 shadow-lg shadow-[#0f62fe]/10 bg-white/[0.05]'
+                        : 'border-white/10 hover:border-[#0f62fe]/30 hover:bg-white/[0.06]'
                     }`}
                   >
-                    <div className="flex items-start justify-between gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/20 flex items-center justify-center flex-shrink-0">
-                        <item.icon className="w-5 h-5 text-[#78a9ff]" />
+                    <div className="flex-1">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0f62fe]/25 to-[#0f62fe]/10 flex items-center justify-center mb-4 ring-1 ring-[#0f62fe]/20">
+                        <item.icon className="w-6 h-6 text-[#aecbfa]" />
                       </div>
+                      <p className="carbon-heading-02 text-white/95 mb-3">{item.label}</p>
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ${
+                          isOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+                        }`}
+                      >
+                        <p className="carbon-body-02 text-white/70">{item.desc}</p>
+                      </div>
+                    </div>
+                    <div className="mt-5 pt-4 border-t border-white/10 flex flex-col items-start">
+                      <span className={`carbon-label-01 uppercase tracking-wider transition-colors duration-300 ${isOpen ? 'text-[#78a9ff]' : 'text-white/50 group-hover:text-[#78a9ff]'}`}>
+                        {isOpen ? 'Show less' : 'Find out more'}
+                      </span>
                       <ChevronDown
-                        className={`w-5 h-5 text-[#78a9ff] flex-shrink-0 mt-2.5 transition-transform duration-300 ${
-                          isOpen ? 'rotate-180' : ''
+                        className={`w-5 h-5 mt-1 transition-all duration-300 ${
+                          isOpen
+                            ? 'text-[#78a9ff] rotate-180'
+                            : 'text-white/40 group-hover:text-[#78a9ff]'
                         }`}
                       />
-                    </div>
-                    <p className="carbon-heading-02 text-white mb-2">{item.label}</p>
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ${
-                        isOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
-                      }`}
-                    >
-                      <p className="carbon-body-02 text-white/70 pt-1">{item.desc}</p>
                     </div>
                   </button>
                 );
@@ -460,45 +471,207 @@ export default function RackAndCabinets() {
 
           {/* AI Advantage */}
             <div className="mb-12 md:mb-16">
-              <h3 className="carbon-heading-02 text-white mb-6">The AI Advantage: Exhaustive Technical Validation</h3>
+              <div className="mb-6">
+                <div className="w-12 h-0.5 bg-[#0f62fe] mb-4" />
+                <span className="carbon-label-02 text-[#78a9ff] uppercase tracking-wider block mb-1">The AI Advantage</span>
+                <h3 className="carbon-fluid-heading-04 text-white">Exhaustive Technical Validation</h3>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
-                  { icon: Ruler, title: 'Instant U-Space Optimization', desc: 'Exact rack unit allocation across servers, switches, PDUs and cable managers with zero wasted vertical space and serviceability clearances.' },
-                  { icon: Weight, title: 'Automated Load Distribution', desc: 'Static and dynamic weight calculations for every cabinet position, ensuring floor load limits and seismic bracing requirements are met.' },
-                  { icon: Thermometer, title: 'Thermal Airflow Simulation', desc: 'Rack-level BTU analysis models hot/cold aisle containment effectiveness and identifies thermal hotspots before equipment is ordered.' },
-                  { icon: Cable, title: 'Cable Pathway Validation', desc: 'Bend radius compliance for fibre and copper, zero-U space utilisation for vertical managers, and rear-door egress clearance checks.' },
-                  { icon: Zap, title: 'PDU & Power Positioning', desc: 'Automatic validation of power distribution unit placement, outlet density and phase balancing across three-phase feeds.' },
-                  { icon: Shield, title: 'Compliance Cross-Checking', desc: 'Every design is validated against EIA-310 mounting standards, TIA-942 cable management guidelines and local electrical codes.' },
-                ].map((item) => (
-                  <div key={item.title} className="p-5 bg-white/[0.08] border border-white/[0.15] rounded-xl hover:border-white/25 hover:bg-white/[0.10] transition-colors">
-                    <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/25 flex items-center justify-center mb-3">
-                      <item.icon className="w-5 h-5 text-[#aecbfa]" />
-                    </div>
-                    <h4 className="carbon-heading-02 text-white mb-2">{item.title}</h4>
-                    <p className="carbon-body-02 text-white/85">{item.desc}</p>
-                  </div>
-                ))}
+                  { icon: Ruler, title: 'Instant U-Space Optimization', desc: (
+                    <>
+                      <p className="mb-2">Calculate exact rack-unit allocation for every component:</p>
+                      <ul className="list-disc pl-4 space-y-1">
+                        <li>Servers, switches, PDUs and cable managers</li>
+                        <li>Zero wasted vertical space</li>
+                        <li>Serviceability clearances preserved</li>
+                      </ul>
+                    </>
+                  ) },
+                  { icon: Weight, title: 'Automated Load Distribution', desc: (
+                    <>
+                      <p className="mb-2">Run static and dynamic weight calculations for every cabinet position:</p>
+                      <ul className="list-disc pl-4 space-y-1">
+                        <li>Floor load limits verified</li>
+                        <li>Seismic bracing requirements met</li>
+                        <li>Safe distribution across the cabinet array</li>
+                      </ul>
+                    </>
+                  ) },
+                  { icon: Thermometer, title: 'Thermal Airflow Simulation', desc: (
+                    <>
+                      <p className="mb-2">Model rack-level thermal behaviour before ordering equipment:</p>
+                      <ul className="list-disc pl-4 space-y-1">
+                        <li>BTU analysis across the rack</li>
+                        <li>Hot/cold aisle containment effectiveness</li>
+                        <li>Thermal hotspots identified early</li>
+                      </ul>
+                    </>
+                  ) },
+                  { icon: Cable, title: 'Cable Pathway Validation', desc: (
+                    <>
+                      <p className="mb-2">Validate every cable pathway for compliance and access:</p>
+                      <ul className="list-disc pl-4 space-y-1">
+                        <li>Fibre and copper bend radius compliance</li>
+                        <li>Zero-U space utilisation for vertical managers</li>
+                        <li>Rear-door egress clearance checks</li>
+                      </ul>
+                    </>
+                  ) },
+                  { icon: Zap, title: 'PDU & Power Positioning', desc: (
+                    <>
+                      <p className="mb-2">Automatically validate power distribution placement:</p>
+                      <ul className="list-disc pl-4 space-y-1">
+                        <li>PDU placement and outlet density</li>
+                        <li>Phase balancing across three-phase feeds</li>
+                        <li>Feed capacity matched to load</li>
+                      </ul>
+                    </>
+                  ) },
+                  { icon: Shield, title: 'Compliance Cross-Checking', desc: (
+                    <>
+                      <p className="mb-2">Cross-check every design against relevant standards:</p>
+                      <ul className="list-disc pl-4 space-y-1">
+                        <li>EIA-310 mounting standards</li>
+                        <li>TIA-942 cable management guidelines</li>
+                        <li>Local electrical codes</li>
+                      </ul>
+                    </>
+                  ) },
+                ].map((item) => {
+                  const isOpen = expandedAI === item.title;
+                  return (
+                    <button
+                      key={item.title}
+                      onClick={() => setExpandedAI(isOpen ? null : item.title)}
+                      aria-expanded={isOpen}
+                      className={`group flex flex-col text-left h-full p-6 bg-white/[0.03] border rounded-2xl transition-all duration-300 ${
+                        isOpen
+                          ? 'border-[#0f62fe]/40 shadow-lg shadow-[#0f62fe]/10 bg-white/[0.05]'
+                          : 'border-white/10 hover:border-[#0f62fe]/30 hover:bg-white/[0.06]'
+                      }`}
+                    >
+                      <div className="flex-1">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0f62fe]/25 to-[#0f62fe]/10 flex items-center justify-center mb-4 ring-1 ring-[#0f62fe]/20">
+                          <item.icon className="w-6 h-6 text-[#aecbfa]" />
+                        </div>
+                        <h4 className="carbon-heading-02 text-white/85 mb-2">{item.title}</h4>
+                        <div
+                          className={`overflow-hidden transition-all duration-300 ${
+                            isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                          }`}
+                        >
+                          <div className="text-sm leading-relaxed text-white/70 pt-2">{item.desc}</div>
+                        </div>
+                      </div>
+                      <div className="mt-5 pt-4 border-t border-white/10 flex flex-col items-start">
+                        <span className={`carbon-label-01 uppercase tracking-wider transition-colors duration-300 ${isOpen ? 'text-[#78a9ff]' : 'text-white/50 group-hover:text-[#78a9ff]'}`}>
+                          {isOpen ? 'Show less' : 'Find out more'}
+                        </span>
+                        <ChevronDown
+                          className={`w-5 h-5 mt-1 transition-all duration-300 ${
+                            isOpen
+                              ? 'text-[#78a9ff] rotate-180'
+                              : 'text-white/40 group-hover:text-[#78a9ff]'
+                          }`}
+                        />
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
             {/* Human Mandate */}
             <div className="mb-12 md:mb-16">
-              <h3 className="carbon-heading-02 text-white mb-6">The Human Mandate: Physical Context & Accountability</h3>
+              <div className="mb-6">
+                <div className="w-12 h-0.5 bg-[#0f62fe] mb-4" />
+                <span className="carbon-label-02 text-[#78a9ff] uppercase tracking-wider block mb-1">The Human Mandate</span>
+                <h3 className="carbon-fluid-heading-04 text-white">Physical Context & Accountability</h3>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
-                  { icon: Building2, title: 'Site-Specific Reality Checks', desc: 'Our engineers validate AI recommendations against floor conditions, column locations, ceiling heights and existing cooling infrastructure.' },
-                  { icon: Expand, title: 'Expansion & Scalability Judgment', desc: 'We design for your 3–5 year growth trajectory so cable pathways and power capacity do not become bottlenecks.' },
-                  { icon: LayoutGrid, title: 'Co-Location & Multi-Tenant Complexity', desc: 'Human experts design physical separation, independent metering and access control zones that meet audit requirements.' },
-                  { icon: Award, title: 'Final Sign-Off & Liability', desc: 'Every layout, cable schedule and thermal model is signed off by a senior engineer with 20+ years of critical infrastructure experience.' },
-                ].map((item) => (
-                  <div key={item.title} className="p-5 bg-white/[0.08] border border-white/[0.15] rounded-xl hover:border-white/25 hover:bg-white/[0.10] transition-colors">
-                    <div className="w-10 h-10 rounded-lg bg-[#0f62fe]/25 flex items-center justify-center mb-3">
-                      <item.icon className="w-5 h-5 text-[#aecbfa]" />
-                    </div>
-                    <h4 className="carbon-heading-02 text-white mb-2">{item.title}</h4>
-                    <p className="carbon-body-02 text-white/85">{item.desc}</p>
-                  </div>
-                ))}
+                  { icon: Building2, title: 'Site-Specific Reality Checks', desc: (
+                    <>
+                      <p className="mb-2">Our engineers validate AI recommendations against site realities:</p>
+                      <ul className="list-disc pl-4 space-y-1">
+                        <li>Floor conditions and load-bearing capacity</li>
+                        <li>Column locations and ceiling heights</li>
+                        <li>Existing cooling infrastructure</li>
+                      </ul>
+                    </>
+                  ) },
+                  { icon: Expand, title: 'Expansion & Scalability Judgment', desc: (
+                    <>
+                      <p className="mb-2">We design for your growth trajectory so future expansion is protected:</p>
+                      <ul className="list-disc pl-4 space-y-1">
+                        <li>Cable pathways sized for scale</li>
+                        <li>Power capacity planned ahead</li>
+                        <li>No bottlenecks as demand grows</li>
+                      </ul>
+                    </>
+                  ) },
+                  { icon: LayoutGrid, title: 'Co-Location & Multi-Tenant Complexity', desc: (
+                    <>
+                      <p className="mb-2">Human experts design secure multi-tenant layouts:</p>
+                      <ul className="list-disc pl-4 space-y-1">
+                        <li>Physical separation between tenants</li>
+                        <li>Independent metering</li>
+                        <li>Access control zones that meet audit requirements</li>
+                      </ul>
+                    </>
+                  ) },
+                  { icon: Award, title: 'Final Sign-Off & Liability', desc: (
+                    <>
+                      <p className="mb-2">Every deliverable is signed off by a senior engineer with 20+ years of critical infrastructure experience:</p>
+                      <ul className="list-disc pl-4 space-y-1">
+                        <li>Layout drawings</li>
+                        <li>Cable schedules</li>
+                        <li>Thermal models</li>
+                      </ul>
+                    </>
+                  ) },
+                ].map((item) => {
+                  const isOpen = expandedHM === item.title;
+                  return (
+                    <button
+                      key={item.title}
+                      onClick={() => setExpandedHM(isOpen ? null : item.title)}
+                      aria-expanded={isOpen}
+                      className={`group flex flex-col text-left h-full p-6 bg-white/[0.03] border rounded-2xl transition-all duration-300 ${
+                        isOpen
+                          ? 'border-[#0f62fe]/40 shadow-lg shadow-[#0f62fe]/10 bg-white/[0.05]'
+                          : 'border-white/10 hover:border-[#0f62fe]/30 hover:bg-white/[0.06]'
+                      }`}
+                    >
+                      <div className="flex-1">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0f62fe]/25 to-[#0f62fe]/10 flex items-center justify-center mb-4 ring-1 ring-[#0f62fe]/20">
+                          <item.icon className="w-6 h-6 text-[#aecbfa]" />
+                        </div>
+                        <h4 className="carbon-heading-02 text-white/85 mb-2">{item.title}</h4>
+                        <div
+                          className={`overflow-hidden transition-all duration-300 ${
+                            isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                          }`}
+                        >
+                          <div className="text-sm leading-relaxed text-white/70 pt-2">{item.desc}</div>
+                        </div>
+                      </div>
+                      <div className="mt-5 pt-4 border-t border-white/10 flex flex-col items-start">
+                        <span className={`carbon-label-01 uppercase tracking-wider transition-colors duration-300 ${isOpen ? 'text-[#78a9ff]' : 'text-white/50 group-hover:text-[#78a9ff]'}`}>
+                          {isOpen ? 'Show less' : 'Find out more'}
+                        </span>
+                        <ChevronDown
+                          className={`w-5 h-5 mt-1 transition-all duration-300 ${
+                            isOpen
+                              ? 'text-[#78a9ff] rotate-180'
+                              : 'text-white/40 group-hover:text-[#78a9ff]'
+                          }`}
+                        />
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -507,7 +680,7 @@ export default function RackAndCabinets() {
               <div className="max-w-3xl">
                 <h3 className="carbon-fluid-heading-04 text-white mb-3">The Result</h3>
                 <p className="carbon-body-02 text-white/90">
-                  What traditionally takes 2–3 weeks of back-and-forth design iterations is compressed into 48–72 hours.
+                  Back-and-forth design iterations are compressed into a fraction of the time.
                   You get machine-speed delivery without sacrificing the engineering rigor required for mission-critical deployments.
                 </p>
               </div>

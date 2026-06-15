@@ -119,8 +119,8 @@ const services = [
   },
   {
     icon: Eye,
-    title: 'Environmental Monitoring',
-    link: '/services/environmental-monitoring',
+    title: 'Monitoring',
+    link: '/services/monitoring',
     sections: [
       {
         label: 'Target Outcomes',
@@ -312,7 +312,7 @@ export default function ServiceCategoriesSection() {
     'Cooling & Airflow': new Set(['Target Outcomes']),
     'Power & UPS': new Set(['Target Outcomes']),
     'Rack & Cabinet': new Set(['Target Outcomes']),
-    'Environmental Monitoring': new Set(['Target Outcomes']),
+    'Monitoring': new Set(['Target Outcomes']),
     'Fire Suppression': new Set(['Target Outcomes']),
     'Design & Build': new Set(['Target Outcomes']),
     'Maintenance & Support': new Set(['Target Outcomes']),

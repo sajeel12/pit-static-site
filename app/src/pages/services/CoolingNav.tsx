@@ -88,7 +88,7 @@ const NAV_ITEMS: NavItemConfig[] = [
           { title: 'Cooling', href: '/infrastructure/data-centre-services/cooling-thermal', desc: 'Precision cooling & thermal continuity' },
           { title: 'Power & UPS', href: '/services/power-ups', desc: 'UPS systems & power distribution' },
           { title: 'Rack & Cabinet', href: '/services/rack-cabinets', desc: 'Server cabinets & enclosures' },
-          { title: 'Environmental Monitoring', href: '/services/environmental-monitoring', desc: 'Temp, humidity, leak detection' },
+          { title: 'Monitoring', href: '/services/monitoring', desc: 'Temp, humidity, leak detection' },
           { title: 'Fire Suppression', href: '/services/fire-suppression', desc: 'FM200 & clean-agent protection' },
           { title: 'Design & Build', href: '/services/design-build', desc: 'End-to-end construction & CFD' },
           { title: 'Migration & Relocation', href: '/services/migration-relocation', desc: 'Zero-downtime moves' },

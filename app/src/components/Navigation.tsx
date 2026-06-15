@@ -44,7 +44,7 @@ const dataCentreServices = [
 
   { id: 'power-ups', title: 'Power & UPS Solutions', description: 'UPS systems, power distribution, and backup power for critical infrastructure.', link: '/services/power-ups' },
   { id: 'rack-cabinets', title: 'Rack & Cabinet Solutions', description: 'Server cabinets, acoustic racks, and outdoor enclosures.', link: '/services/rack-cabinets' },
-  { id: 'environmental-monitoring', title: 'Environmental Monitoring', description: 'Temperature, humidity, leak detection, and IoT sensor networks.', link: '/services/environmental-monitoring' },
+  { id: 'monitoring', title: 'Monitoring', description: 'Temperature, humidity, leak detection, and IoT sensor networks.', link: '/services/monitoring' },
   { id: 'fire-suppression', title: 'Fire Suppression Systems', description: 'FM200, VESDA, and clean-agent fire protection for data centres.', link: '/services/fire-suppression' },
   { id: 'design-build', title: 'Data Centre Design & Build', description: 'End-to-end data centre construction, CFD modelling, and commissioning.', link: '/services/design-build' },
   { id: 'migration-relocation', title: 'Migration & Relocation Services', description: 'Zero-downtime server relocation and data centre migration.', link: '/services/migration-relocation' },

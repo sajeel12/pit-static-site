@@ -10,7 +10,7 @@ const UnderConstruction = () => {
 
   // Derive a parent hub link from the path
   const getHubLink = () => {
-    if (path.includes('cooling') || path.includes('power') || path.includes('rack') || path.includes('environmental') || path.includes('fire') || path.includes('design') || path.includes('migration') || path.includes('maintenance')) {
+    if (path.includes('cooling') || path.includes('power') || path.includes('rack') || path.includes('monitoring') || path.includes('fire') || path.includes('design') || path.includes('migration') || path.includes('maintenance')) {
       return { label: 'Data Centre Services', to: '/services/datacenter2' };
     }
     if (path.includes('server') || path.includes('hardware') || path.includes('sla')) {

@@ -109,7 +109,7 @@ export const UPS_SYSTEMS = [
       'Add remote monitoring and predictive alerting',
     ],
     specs: ['External battery strings', 'Maintenance bypass', 'Isolation transformers', 'SNMP cards'],
-    links: ['Maintenance and Support', 'Environmental Monitoring'],
+    links: ['Maintenance and Support', 'Monitoring'],
     icon: Cable,
   },
 ];
@@ -370,7 +370,7 @@ export const SLA_TIERS = [
 export const ECOSYSTEM_ITEMS = [
   { icon: Activity, title: 'Cooling and Airflow', desc: 'Thermal management · Synchronized with power load · Prevents thermal runaway', link: '/infrastructure/data-centre-services/cooling-thermal' },
   { icon: HardDrive, title: 'Rack and Cabinet', desc: 'Airflow containment · Blanking panels · Cable management', link: '/infrastructure/data-centre-services/rack-cabinet' },
-  { icon: Monitor, title: 'Environmental Monitoring', desc: 'Rack-level temperature · Humidity monitoring · Leak detection', link: '/infrastructure/data-centre-services/environmental-monitoring' },
+  { icon: Monitor, title: 'Monitoring', desc: 'Rack-level temperature · Humidity monitoring · Leak detection', link: '/services/monitoring' },
   { icon: Shield, title: 'Fire Suppression', desc: 'FM200 / clean agent protection · Power isolation logic · Automatic suppression', link: '/infrastructure/data-centre-services/fire-suppression' },
 ];
 

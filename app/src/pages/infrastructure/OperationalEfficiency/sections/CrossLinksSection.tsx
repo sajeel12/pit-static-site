@@ -5,7 +5,7 @@ const links = [
   { icon: Thermometer, title: 'Cooling & Airflow', desc: 'Precision cooling & thermal continuity', href: '/infrastructure/data-centre-services/cooling-thermal' },
   { icon: BatteryCharging, title: 'Power & UPS', desc: 'UPS & power distribution', href: '/services/power-ups' },
   { icon: Server, title: 'Rack & Cabinet', desc: 'Server cabinets & enclosures', href: '/services/rack-cabinets' },
-  { icon: Eye, title: 'Environmental Monitoring', desc: 'Temp, humidity, leak detection', href: '/services/environmental-monitoring' },
+  { icon: Eye, title: 'Monitoring', desc: 'Temp, humidity, leak detection', href: '/services/monitoring' },
   { icon: Flame, title: 'Fire Suppression', desc: 'FM200 & clean-agent protection', href: '/services/fire-suppression' },
   { icon: HardHat, title: 'Design & Build', desc: 'End-to-end construction & CFD', href: '/services/design-build' },
   { icon: Settings, title: 'Maintenance & Support', desc: 'SLA-backed contracts', href: '/services/maintenance-support' },
