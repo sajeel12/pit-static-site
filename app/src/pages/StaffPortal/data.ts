@@ -19,7 +19,7 @@ export const PORTAL_SECTIONS: PortalSection[] = [
   {
     id: 'cooling',
     label: 'Cooling & Airflow',
-    publicPath: '/#/infrastructure/data-centre-services/cooling-airflow',
+    publicPath: '/#/infrastructure/data-centre-services/cooling',
     categories: ['Costing', 'Case Studies', 'Testimonials', 'Training', 'Tools'],
     resources: [
       {

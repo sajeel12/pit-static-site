@@ -23,7 +23,7 @@ const testimonials: TestimonialData[] = [
     project: {
       headline: 'Deployed Precision Cooling to Critical Infrastructure',
       desc: 'Deferred CapEx spend without compromise on quality and continuity',
-      link: '/services/cooling-airflow',
+      link: '/infrastructure/data-centre-services/cooling',
     },
   },
   {
@@ -35,7 +35,7 @@ const testimonials: TestimonialData[] = [
     project: {
       headline: 'Cooling Refresh with Zero Downtime Migration',
       desc: 'PUE reduced from 1.8 to 1.35 with 40% annual energy savings across all facilities',
-      link: '/infrastructure/data-centre-services/cooling-thermal',
+      link: '/infrastructure/data-centre-services/cooling',
     },
   },
   {
@@ -47,7 +47,7 @@ const testimonials: TestimonialData[] = [
     project: {
       headline: 'Monsoon-Hardened Precision Cooling Deployment',
       desc: 'Custom 45°C ambient-rated solution delivering 60% additional cooling capacity with humidity resilience',
-      link: '/infrastructure/data-centre-services/cooling-thermal',
+      link: '/infrastructure/data-centre-services/cooling',
     },
   },
   {
@@ -59,7 +59,7 @@ const testimonials: TestimonialData[] = [
     project: {
       headline: 'Research Data Centre Thermal Assessment & Upgrade',
       desc: 'Precision cooling system maintaining stable temperatures through extended load-shedding periods',
-      link: '/infrastructure/data-centre-services/cooling-thermal',
+      link: '/infrastructure/data-centre-services/cooling',
     },
   },
 ];

@@ -19,19 +19,6 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Breadcrumb */}
-        <nav className="mb-6" aria-label="Breadcrumb">
-          <ol className="flex flex-wrap items-center gap-1.5 text-xs text-gray-400">
-            <li><a href="/#/" className="hover:text-[#78a9ff] transition-colors">Home</a></li>
-            <li className="text-gray-600">/</li>
-            <li><a href="/#/services/infrastructure" className="hover:text-[#78a9ff] transition-colors">Infrastructure</a></li>
-            <li className="text-gray-600">/</li>
-            <li><a href="/#/services/datacenter2" className="hover:text-[#78a9ff] transition-colors">Data Centre</a></li>
-            <li className="text-gray-600">/</li>
-            <li className="text-gray-300 font-medium" aria-current="page">Cost Optimisation</li>
-          </ol>
-        </nav>
-
         <div className="max-w-3xl">
           <h1 className="carbon-fluid-display-03 text-white mb-6 leading-[1.15]">
             Reduce Data Centre Costs.{" "}

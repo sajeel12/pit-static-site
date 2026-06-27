@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Thermometer, BatteryCharging, Server, Eye, Flame, HardHat, Settings } from 'lucide-react';
 
 const links = [
-  { icon: Thermometer, title: 'Cooling & Airflow', desc: 'Precision cooling & thermal continuity', href: '/infrastructure/data-centre-services/cooling-thermal' },
-  { icon: BatteryCharging, title: 'Power & UPS', desc: 'UPS & power distribution', href: '/services/power-ups' },
-  { icon: Server, title: 'Rack & Cabinet', desc: 'Server cabinets & enclosures', href: '/services/rack-cabinets' },
-  { icon: Eye, title: 'Monitoring', desc: 'Temp, humidity, leak detection', href: '/services/monitoring' },
+  { icon: Thermometer, title: 'Cooling & Airflow', desc: 'Precision cooling & thermal continuity', href: '/infrastructure/data-centre-services/cooling' },
+  { icon: BatteryCharging, title: 'Power & UPS', desc: 'UPS & power distribution', href: '/infrastructure/data-centre-services/power-ups' },
+  { icon: Server, title: 'Rack & Cabinet', desc: 'Server cabinets & enclosures', href: '/infrastructure/data-centre-services/rack-cabinets' },
+  { icon: Eye, title: 'Monitoring', desc: 'Temp, humidity, leak detection', href: '/infrastructure/data-centre-services/monitoring' },
   { icon: Flame, title: 'Fire Suppression', desc: 'FM200 & clean-agent protection', href: '/services/fire-suppression' },
   { icon: HardHat, title: 'Design & Build', desc: 'End-to-end construction & CFD', href: '/services/design-build' },
-  { icon: Settings, title: 'Maintenance & Support', desc: 'SLA-backed contracts', href: '/services/maintenance-support' },
+  { icon: Settings, title: 'Maintenance & Support', desc: 'SLA-backed contracts', href: '/infrastructure/data-centre-services/maintenance-support' },
   { icon: Server, title: 'Server Continuity', desc: 'Business continuity & DR', href: '/services/server-continuity' },
 ];
 

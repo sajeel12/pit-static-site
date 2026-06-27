@@ -30,6 +30,7 @@ import {
   RELATED_SOLUTIONS,
   CONTACT_EMAIL_BODY,
 } from './data';
+import ResultsSection from './sections/ResultsSection';
 
 export default function Monitoring() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -47,7 +48,7 @@ export default function Monitoring() {
     title: 'Server Room & Data Centre Monitoring | Perception IT',
     description:
       '24/7 environmental monitoring for server rooms and data centres in Pakistan. Temperature, humidity, water leak, power, security and fire monitoring with email, SMS and SNMP alerts.',
-    canonicalPath: '/services/monitoring',
+    canonicalPath: '/infrastructure/data-centre-services/monitoring',
     ogType: 'website',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -65,7 +66,7 @@ export default function Monitoring() {
       serviceType: 'Server Room and Data Centre Monitoring',
       description:
         'Environmental and infrastructure monitoring for critical IT environments, including temperature, humidity, water leak, power, security and fire detection.',
-      url: 'https://perception-it.com/#/services/monitoring',
+      url: 'https://perception-it.com/#/infrastructure/data-centre-services/monitoring',
     },
   });
 
@@ -86,7 +87,7 @@ export default function Monitoring() {
               <li className="text-gray-300">/</li>
               <li><a href="/#/infrastructure" className="hover:text-[#0f62fe] transition-colors">Infrastructure</a></li>
               <li className="text-gray-300">/</li>
-              <li><a href="/#/services/datacenter2" className="hover:text-[#0f62fe] transition-colors">Data Centre</a></li>
+              <li><a href="/#/infrastructure/data-centre-services" className="hover:text-[#0f62fe] transition-colors">Data Centre</a></li>
               <li className="text-gray-300">/</li>
               <li className="text-gray-900 font-medium" aria-current="page">Monitoring</li>
             </ol>
@@ -419,11 +420,42 @@ export default function Monitoring() {
                   Configure alerts through the channels your team already uses, so critical issues reach the right person at the right time.
                 </p>
 
-                <div className="bg-[#0f1d3a] rounded-xl p-5 border border-white/10">
-                  <p className="carbon-label-02 text-[#78a9ff] uppercase tracking-wider mb-2">Example Alert</p>
-                  <p className="carbon-body-02 text-white/90">
-                    CRITICAL: Server Room Temperature 32°C — Threshold 25°C exceeded at 14:32. Rack 5, Sensor T2. Immediate action required.
-                  </p>
+                <div className="rounded-xl bg-white border border-gray-200 shadow-sm overflow-hidden">
+                  <div className="flex items-start gap-4 p-5">
+                    <div className="w-10 h-10 rounded-full bg-[#fff5f5] flex items-center justify-center flex-shrink-0">
+                      <AlertTriangle className="w-5 h-5 text-[#da1e28]" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="inline-flex items-center px-2 py-0.5 bg-[#da1e28] text-white carbon-label-01 uppercase tracking-wider rounded">
+                          Critical
+                        </span>
+                        <span className="carbon-helper-text-01 text-gray-400">14:32</span>
+                      </div>
+                      <p className="carbon-heading-02 text-[#161616] mb-1">
+                        Server Room Temperature 32°C
+                      </p>
+                      <p className="carbon-body-02 text-gray-600 mb-3">
+                        Threshold 25°C exceeded. Rack 5, Sensor T2.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        <span className="px-2 py-1 bg-[#f4f4f4] text-gray-600 carbon-helper-text-01 rounded">Rack 5</span>
+                        <span className="px-2 py-1 bg-[#f4f4f4] text-gray-600 carbon-helper-text-01 rounded">Sensor T2</span>
+                        <span className="px-2 py-1 bg-[#f4f4f4] text-gray-600 carbon-helper-text-01 rounded">Server Room</span>
+                      </div>
+                      <p className="carbon-body-02 text-[#da1e28] font-medium">
+                        Immediate action required.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-end gap-2 px-5 py-3 bg-[#f4f4f4] border-t border-gray-100">
+                    <button className="px-3 py-1.5 carbon-label-01 text-gray-500 hover:text-[#161616] transition-colors">
+                      Dismiss
+                    </button>
+                    <button className="px-3 py-1.5 bg-[#0f62fe] text-white carbon-label-01 rounded hover:bg-[#0353e9] transition-colors">
+                      Acknowledge
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -510,6 +542,9 @@ export default function Monitoring() {
             </div>
           </div>
         </section>
+
+        {/* Results */}
+        <ResultsSection />
 
         {/* Related Solutions */}
         <section id="related" className="py-16 md:py-24 bg-[#f4f4f4]">

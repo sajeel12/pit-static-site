@@ -21,7 +21,7 @@ export const TESTIMONIALS = [
     project: {
       headline: 'Rack Reconfiguration with Thermal Modelling',
       desc: '40% floor space reclaimed and 2x capacity increase within the same footprint',
-      link: '/#/services/rack-cabinets',
+      link: '/#/infrastructure/data-centre-services/rack-cabinets',
     },
   },
   {
@@ -32,7 +32,7 @@ export const TESTIMONIALS = [
     project: {
       headline: 'Seismic-Rated Cabinet Deployment',
       desc: 'Zone 4 compliant racks with vibration damping for industrial environments',
-      link: '/#/services/rack-cabinets',
+      link: '/#/infrastructure/data-centre-services/rack-cabinets',
     },
   },
   {
@@ -43,7 +43,7 @@ export const TESTIMONIALS = [
     project: {
       headline: 'Co-Location Cabinet Design',
       desc: 'Multi-tenant enclosures with separate metering and access per apartment',
-      link: '/#/services/rack-cabinets',
+      link: '/#/infrastructure/data-centre-services/rack-cabinets',
     },
   },
 ];

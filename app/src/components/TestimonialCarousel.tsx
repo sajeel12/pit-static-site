@@ -16,9 +16,10 @@ export interface TestimonialData {
 
 interface TestimonialCarouselProps {
   testimonials: TestimonialData[];
+  compact?: boolean;
 }
 
-export default function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) {
+export default function TestimonialCarousel({ testimonials, compact = false }: TestimonialCarouselProps) {
   const [current, setCurrent] = useState(0);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const total = testimonials.length;
@@ -42,16 +43,16 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
 
   return (
     <div
-      className={`relative overflow-hidden rounded-xl bg-gradient-to-r ${t.bg} pt-10 px-8 pb-6 md:pt-14 md:px-12 md:pb-8 transition-all duration-700`}
+      className={`relative overflow-hidden rounded-xl bg-gradient-to-r ${t.bg} transition-all duration-700 ${compact ? 'pt-6 px-6 pb-5 md:pt-8 md:px-10 md:pb-6' : 'pt-10 px-8 pb-6 md:pt-14 md:px-12 md:pb-8'}`}
       onMouseEnter={pause}
       onMouseLeave={resume}
     >
       <Quote className="absolute top-6 left-6 w-16 h-16 text-white/10" />
 
       <div className="relative z-10">
-        <p className="carbon-fluid-quotation-03 text-white mt-4 mb-8 leading-relaxed px-8 md:px-16 whitespace-pre-line">"{t.quote}"</p>
+        <p className={`carbon-fluid-quotation-03 text-white mt-4 mb-8 leading-relaxed whitespace-pre-line ${compact ? 'px-6 md:px-10' : 'px-8 md:px-16'}`}>"{t.quote}"</p>
 
-        <div className="flex items-center gap-4 px-8 md:px-16">
+        <div className={`flex items-center gap-4 ${compact ? 'px-6 md:px-10' : 'px-8 md:px-16'}`}>
           {t.logo && (
             <div className="p-2 bg-white rounded-lg shadow-sm flex-shrink-0">
               <img src={t.logo} alt={t.org} className="h-8 w-auto" />
@@ -74,7 +75,7 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
         )}
       </div>
 
-      <div className="flex items-center justify-between mt-6">
+      <div className={`flex items-center justify-between ${compact ? 'mt-4' : 'mt-6'}`}>
         <div className="flex items-center gap-3">
           <div className="flex gap-2">
             {testimonials.map((_, i) => (

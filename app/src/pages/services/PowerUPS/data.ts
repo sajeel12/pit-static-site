@@ -368,9 +368,9 @@ export const SLA_TIERS = [
 ];
 
 export const ECOSYSTEM_ITEMS = [
-  { icon: Activity, title: 'Cooling and Airflow', desc: 'Thermal management · Synchronized with power load · Prevents thermal runaway', link: '/infrastructure/data-centre-services/cooling-thermal' },
+  { icon: Activity, title: 'Cooling and Airflow', desc: 'Thermal management · Synchronized with power load · Prevents thermal runaway', link: '/infrastructure/data-centre-services/cooling' },
   { icon: HardDrive, title: 'Rack and Cabinet', desc: 'Airflow containment · Blanking panels · Cable management', link: '/infrastructure/data-centre-services/rack-cabinet' },
-  { icon: Monitor, title: 'Monitoring', desc: 'Rack-level temperature · Humidity monitoring · Leak detection', link: '/services/monitoring' },
+  { icon: Monitor, title: 'Monitoring', desc: 'Rack-level temperature · Humidity monitoring · Leak detection', link: '/infrastructure/data-centre-services/monitoring' },
   { icon: Shield, title: 'Fire Suppression', desc: 'FM200 / clean agent protection · Power isolation logic · Automatic suppression', link: '/infrastructure/data-centre-services/fire-suppression' },
 ];
 

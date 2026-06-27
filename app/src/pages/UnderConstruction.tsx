@@ -11,7 +11,7 @@ const UnderConstruction = () => {
   // Derive a parent hub link from the path
   const getHubLink = () => {
     if (path.includes('cooling') || path.includes('power') || path.includes('rack') || path.includes('monitoring') || path.includes('fire') || path.includes('design') || path.includes('migration') || path.includes('maintenance')) {
-      return { label: 'Data Centre Services', to: '/services/datacenter2' };
+      return { label: 'Data Centre Services', to: '/infrastructure/data-centre-services' };
     }
     if (path.includes('server') || path.includes('hardware') || path.includes('sla')) {
       return { label: 'Infrastructure', to: '/services/infrastructure' };

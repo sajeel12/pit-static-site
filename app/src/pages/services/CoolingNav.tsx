@@ -28,23 +28,6 @@ interface NavItemConfig {
    ------------------------------------------------------------------ */
 const NAV_ITEMS: NavItemConfig[] = [
   {
-    label: 'Solutions',
-    href: '/services',
-    groups: [
-      {
-        heading: 'Core Services',
-        links: [
-          { title: 'View All Solutions', href: '/services', desc: '' },
-          { title: 'Cooling', href: '/infrastructure/data-centre-services/cooling-thermal', desc: 'Precision cooling & thermal continuity' },
-          { title: 'Power & UPS', href: '/services/power-ups', desc: 'UPS & power distribution' },
-          { title: 'Server Continuity', href: '/services/server-continuity', desc: 'Business continuity & disaster recovery' },
-          { title: 'Hardware Support', href: '/services/hardware-support', desc: 'Save 60% vs vendor contracts' },
-          { title: '24×7 SLA Support', href: '/services/sla-support', desc: 'Guaranteed response times' },
-        ],
-      },
-    ],
-  },
-  {
     label: 'Consultancy',
     href: '/services/consultancy',
     groups: [
@@ -67,6 +50,7 @@ const NAV_ITEMS: NavItemConfig[] = [
         heading: 'Cloud Services',
         links: [
           { title: 'View All Cloud', href: '/services/cloud', desc: '' },
+          { title: 'DevOps & Cloud', href: '/services/devops-cloud', desc: 'DevOps, FinOps, AIOps, MLOps & Platform Engineering' },
           { title: 'Cloud Strategy', href: '/services/cloud-strategy', desc: 'Multi-cloud roadmap & governance' },
           { title: 'Cloud Cost Optimisation', href: '/services/cloud-cost-optimisation', desc: 'Reduce spend by 30–40%' },
           { title: 'Cloud Management', href: '/services/cloud-management', desc: 'Operations & monitoring' },
@@ -82,17 +66,15 @@ const NAV_ITEMS: NavItemConfig[] = [
     groups: [
       {
         heading: 'Data Centre Infrastructure Services',
-        href: '/services/datacenter2',
+        href: '/infrastructure/data-centre-services',
         links: [
-          { title: 'Cost Optimisation', href: '/infrastructure/operational-efficiency', desc: 'Cost reduction & ROI across Data Centre infrastructure. Also available as part of our Ecosystem Integration.' },
-          { title: 'Cooling', href: '/infrastructure/data-centre-services/cooling-thermal', desc: 'Precision cooling & thermal continuity' },
-          { title: 'Power & UPS', href: '/services/power-ups', desc: 'UPS systems & power distribution' },
-          { title: 'Rack & Cabinet', href: '/services/rack-cabinets', desc: 'Server cabinets & enclosures' },
-          { title: 'Monitoring', href: '/services/monitoring', desc: 'Temp, humidity, leak detection' },
-          { title: 'Fire Suppression', href: '/services/fire-suppression', desc: 'FM200 & clean-agent protection' },
-          { title: 'Design & Build', href: '/services/design-build', desc: 'End-to-end construction & CFD' },
-          { title: 'Migration & Relocation', href: '/services/migration-relocation', desc: 'Zero-downtime moves' },
-          { title: 'Maintenance & Support', href: '/services/maintenance-support', desc: 'SLA-backed contracts' },
+          { title: 'Cost Optimisation', href: '/infrastructure/data-centre-services/cost-optimisation', desc: 'Cost reduction & ROI across Data Centre infrastructure. Also available as part of our Ecosystem Integration.' },
+          { title: 'Cooling', href: '/infrastructure/data-centre-services/cooling', desc: 'Precision cooling & thermal continuity' },
+          { title: 'Power & UPS', href: '/infrastructure/data-centre-services/power-ups', desc: 'UPS systems & power distribution' },
+          { title: 'Rack & Cabinet', href: '/infrastructure/data-centre-services/rack-cabinets', desc: 'Server cabinets & enclosures' },
+          { title: 'Monitoring', href: '/infrastructure/data-centre-services/monitoring', desc: 'Temp, humidity, leak detection' },
+          { title: 'Migration & Relocation', href: '/infrastructure/data-centre-services/migration-relocation', desc: 'Zero-downtime moves' },
+          { title: 'Maintenance & Support', href: '/infrastructure/data-centre-services/maintenance-support', desc: 'SLA-backed contracts' },
         ],
       },
       {
@@ -180,7 +162,7 @@ const DesktopDropdown = ({
 }) => {
   return (
     <div
-      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 z-[60]"
+      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 z-[80]"
       role="menu"
     >
       {/* Arrow pointer */}
@@ -189,26 +171,26 @@ const DesktopDropdown = ({
       <div className="relative bg-white shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-gray-100 rounded-xl overflow-hidden">
         <div className="flex">
           {groups.map((group, groupIdx) => (
-            <div key={group.heading} className={`min-w-[260px] border-r border-gray-50 last:border-r-0 px-1 ${groupIdx === 0 ? 'bg-[#fafbfc]' : ''}`}>
+            <div key={group.heading} className={`min-w-[260px] border-r border-gray-50 last:border-r-0 px-1 ${groupIdx === 0 && group.heading !== 'Data Centre Infrastructure Services' ? 'bg-[#fafbfc]' : ''}`}>
               {group.href ? (
                 <Link
                   to={group.href}
                   onClick={onClose}
                   className={`flex items-center gap-2 px-4 pt-5 pb-2 hover:underline transition-colors ${
-                    groupIdx === 0
+                    groupIdx === 0 && group.heading !== 'Data Centre Infrastructure Services'
                       ? 'text-sm font-bold text-[#161616]'
                       : 'text-xs font-semibold text-[#0f62fe]'
                   }`}
                 >
                   {group.heading}
-                  <ArrowUpRight className={`${groupIdx === 0 ? 'w-4 h-4' : 'w-3.5 h-3.5'}`} />
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
               ) : (
                 <p className={`px-4 pt-5 pb-2 ${groupIdx === 0 ? 'text-sm font-bold text-[#161616]' : 'text-xs font-semibold text-[#6f6f6f]'}`}>
                   {group.heading}
                 </p>
               )}
-              {groupIdx === 0 && (
+              {groupIdx === 0 && group.heading !== 'Data Centre Infrastructure Services' && (
                 <div className="mx-4 mb-2 h-px bg-[#e0e0e0]" />
               )}
               <ul className="space-y-1 pb-2">
@@ -372,7 +354,7 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
   const location = useLocation();
 
   return (
-    <div className="lg:hidden fixed inset-0 z-50 bg-[#161616] overflow-y-auto">
+    <div className="lg:hidden fixed inset-0 z-[80] bg-[#161616] overflow-y-auto">
       <div className="flex items-center justify-between px-6 py-4 border-b border-gray-800/60">
         <Link to="/" onClick={onClose} className="text-white font-semibold text-lg">
           Perception IT
@@ -390,7 +372,7 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
         <ul className="space-y-1">
           {NAV_ITEMS.map((item, idx) => {
             const isOpen = openIndex === idx;
-            const isActive = location.pathname.startsWith(item.href);
+            const isActive = isPathUnderItem(location.pathname, item);
             return (
               <li key={item.label}>
                 <div className={`flex items-center justify-between border rounded-lg transition-colors ${isOpen ? 'border-gray-700 bg-white/[0.03]' : 'border-gray-800/50'}`}>
@@ -482,7 +464,7 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
           })}
 
           {FLAT_LINKS.map((link) => {
-            const isActive = location.pathname === link.href;
+            const isActive = location.pathname.startsWith(link.href);
             return (
               <li key={link.label}>
                 <Link
@@ -506,6 +488,19 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
 };
 
 /* ------------------------------------------------------------------
+   ACTIVE STATE HELPERS
+   ------------------------------------------------------------------ */
+const isPathUnderItem = (pathname: string, item: NavItemConfig): boolean => {
+  if (pathname.startsWith(item.href)) return true;
+  return item.groups.some((group) =>
+    group.links.some((link) => {
+      const linkPath = link.href.split('#')[0];
+      return linkPath && pathname.startsWith(linkPath);
+    })
+  );
+};
+
+/* ------------------------------------------------------------------
    MAIN COMPONENT
    ------------------------------------------------------------------ */
 export default function CoolingNav() {
@@ -515,7 +510,7 @@ export default function CoolingNav() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#161616] border-b border-gray-800/60">
+      <header className="fixed top-0 left-0 right-0 z-[70] bg-[#161616] border-b border-gray-800/60">
 
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex items-center h-12">
@@ -538,11 +533,11 @@ export default function CoolingNav() {
                     setOpenDropdown(openDropdown === item.label ? null : item.label)
                   }
                   onClose={() => setOpenDropdown(null)}
-                  isActive={location.pathname.startsWith(item.href)}
+                  isActive={isPathUnderItem(location.pathname, item)}
                 />
               ))}
               {FLAT_LINKS.map((link) => {
-                const isActive = location.pathname === link.href;
+                const isActive = location.pathname.startsWith(link.href);
                 return (
                   <Link
                     key={link.label}

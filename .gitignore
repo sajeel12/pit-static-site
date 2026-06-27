@@ -3,9 +3,11 @@
 
 # Dependencies
 node_modules/
+.venv/
 
 # Build outputs
 app/dist/
+app/dist-test/
 *.tsbuildinfo
 
 # Vite cache
@@ -13,6 +15,20 @@ app/dist/
 
 # Local component backups
 app/src/components/backups/
+app/backups/
+
+# Environment secrets
+.env.local
+
+# Runtime files
+*.pid
+
+# Office temp files
+~$*
 
 # Screenshots
 screenshots/
+
+# Root-level working files
+/*.mp4
+DataCentreInfrastructureHub_PublishingChecklist.*

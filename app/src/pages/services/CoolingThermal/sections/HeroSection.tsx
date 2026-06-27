@@ -14,17 +14,6 @@ export default function HeroSection() {
       <HeroGradientPlanes />
     </Suspense>
     <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-6 pb-20 lg:pb-24">
-        <nav aria-label="Breadcrumb" className="mb-6">
-        <ol className="flex flex-wrap items-center gap-1.5 text-xs text-gray-400">
-          <li><a href="/#/" className="hover:text-[#78a9ff] transition-colors">Home</a></li>
-          <li className="text-gray-600">/</li>
-          <li><a href="/#/services/infrastructure" className="hover:text-[#78a9ff] transition-colors">Infrastructure</a></li>
-          <li className="text-gray-600">/</li>
-          <li><a href="/#/services/datacenter2" className="hover:text-[#78a9ff] transition-colors">Data Centre</a></li>
-          <li className="text-gray-600">/</li>
-          <li className="text-gray-300 font-medium" aria-current="page">Cooling</li>
-        </ol>
-      </nav>
       <div className="grid gap-10 items-center">
         <div className="relative max-w-3xl">
           <div className="absolute -left-16 top-10 w-72 h-72 rounded-full bg-[radial-gradient(circle,_rgba(100,116,139,0.10),transparent_55%)] blur-3xl pointer-events-none" />

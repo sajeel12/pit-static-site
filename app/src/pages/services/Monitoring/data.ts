@@ -34,6 +34,7 @@ export const PAGE_SECTIONS = [
   { id: 'alerts', label: 'Alerts', inNav: true },
   { id: 'software', label: 'Software', inNav: true },
   { id: 'services', label: 'Services', inNav: true },
+  { id: 'results', label: 'Results', inNav: true },
   { id: 'related', label: 'Related', inNav: true },
   { id: 'cta', label: 'Get Started', inNav: true },
 ] as const;
@@ -191,11 +192,80 @@ export const SERVICE_OFFERINGS = [
 ];
 
 export const RELATED_SOLUTIONS = [
-  { icon: Server, title: 'Rack & Cabinet', desc: 'Server cabinets and enclosures with integrated monitoring options.', href: '/#/services/rack-cabinets' },
-  { icon: Wind, title: 'Cooling & Airflow', desc: 'Optimise cooling efficiency with monitoring integration.', href: '/#/infrastructure/data-centre-services/cooling-airflow' },
+  { icon: Server, title: 'Rack & Cabinet', desc: 'Server cabinets and enclosures with integrated monitoring options.', href: '/#/infrastructure/data-centre-services/rack-cabinets' },
+  { icon: Wind, title: 'Cooling & Airflow', desc: 'Optimise cooling efficiency with monitoring integration.', href: '/#/infrastructure/data-centre-services/cooling' },
   { icon: Zap, title: 'Power & UPS', desc: 'Reliable power with UPS monitoring and battery health tracking.', href: '/#/infrastructure/data-centre-services/power-ups' },
   { icon: Coins, title: 'Cost Optimisation', desc: 'Reduce energy costs through intelligent monitoring and analysis.', href: '/#/services/cost-optimisation' },
-  { icon: Menu, title: 'Data Centre Services', desc: 'Complete range of data centre infrastructure solutions.', href: '/#/services/datacenter2' },
+  { icon: Menu, title: 'Data Centre Services', desc: 'Complete range of data centre infrastructure solutions.', href: '/#/infrastructure/data-centre-services' },
+];
+
+export const TESTIMONIALS = [
+  {
+    quote: "Perception IT deployed temperature, humidity and water-leak sensors across our server room within a week. We caught an AC failure at 2 a.m. before any hardware was damaged, and the dashboard has become part of our daily operations review.",
+    author: 'Head of IT',
+    org: 'Pakistani Financial Services Firm',
+    bg: 'from-[#0043ce] to-[#002d9c]',
+    project: {
+      headline: 'Server Room Environmental Monitoring',
+      desc: '24/7 temperature, humidity and leak detection with SMS and email alerts',
+      link: '/#/infrastructure/data-centre-services/monitoring',
+    },
+  },
+  {
+    quote: "We operate several unmanned edge sites across the GCC. Perception IT gave us a single dashboard where we can see every location, receive escalation alerts, and dispatch local teams only when needed. Downtime from environmental issues has dropped to near zero.",
+    author: 'Regional Operations Director',
+    org: 'GCC Logistics & Distribution Group',
+    bg: 'from-[#0f62fe] to-[#0353e9]',
+    project: {
+      headline: 'Multi-Site Edge Monitoring',
+      desc: 'Unified monitoring across distributed sites with centralised alerting',
+      link: '/#/infrastructure/data-centre-services/monitoring',
+    },
+  },
+  {
+    quote: "The monitoring platform integrated cleanly with our existing SNMP infrastructure and delivered the audit trails our compliance team required. Perception IT handled the sensor calibration, training and handover professionally.",
+    author: 'IT Infrastructure Manager',
+    org: 'Healthcare Provider Network',
+    bg: 'from-[#002d9c] to-[#0043ce]',
+    project: {
+      headline: 'DCIM-Integrated Monitoring',
+      desc: 'Sensor network with SNMP traps, dashboards and compliance reporting',
+      link: '/#/infrastructure/data-centre-services/monitoring',
+    },
+  },
+];
+
+export const PROJECTS = [
+  {
+    title: 'Server Room Monitoring for Financial Services Firm',
+    sector: 'Banking / Financial Services',
+    org: 'Pakistani Financial Services Firm',
+    desc: 'A fast-growing financial services firm in Karachi had experienced two overnight server room overheating events caused by ageing air conditioning. They needed continuous environmental visibility without adding local IT headcount.',
+    outcomes: [
+      'Installed wireless temperature, humidity and water-leak sensors',
+      'Configured email, SMS and phone-call escalation paths',
+      'Delivered cloud dashboard accessible to IT and facilities teams',
+      'Caught AC failure within 15 minutes of threshold breach',
+      'Zero hardware damage and no unplanned downtime since go-live',
+    ],
+    tags: ['Environmental Sensors', 'Cloud Dashboard', '24/7 Alerts'],
+    link: '/#/projects',
+  },
+  {
+    title: 'Multi-Site Edge Monitoring for GCC Logistics Group',
+    sector: 'Logistics / Industrial',
+    org: 'GCC Logistics & Distribution Group',
+    desc: 'A logistics group operated 14 unmanned edge sites across the GCC with no local IT presence. Environmental issues were only discovered during monthly visits, often after equipment had already been damaged.',
+    outcomes: [
+      'Deployed standardised sensor kits to all 14 sites',
+      'Built centralised monitoring dashboard with role-based access',
+      'Integrated SMS and Teams alerts with on-call escalation',
+      'Reduced environmental downtime incidents by 92%',
+      'Enabled predictive maintenance planning across the estate',
+    ],
+    tags: ['Edge Monitoring', 'Multi-Site', 'Predictive Maintenance'],
+    link: '/#/projects',
+  },
 ];
 
 export const CONTACT_EMAIL_BODY = encodeURIComponent(

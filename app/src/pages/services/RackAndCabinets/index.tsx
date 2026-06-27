@@ -1030,7 +1030,7 @@ export default function RackAndCabinets() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
               {[
-                { icon: Snowflake, title: 'Cooling & Airflow', desc: 'Precision thermal management for high-density racks', href: '/#/infrastructure/data-centre-services/cooling-airflow' },
+                { icon: Snowflake, title: 'Cooling & Airflow', desc: 'Precision thermal management for high-density racks', href: '/#/infrastructure/data-centre-services/cooling' },
                 { icon: Zap, title: 'Power & UPS', desc: 'UPS, PDU and busbar power for every cabinet', href: '/#/infrastructure/data-centre-services/power-ups' },
                 { icon: Activity, title: 'Monitoring', desc: 'Environmental sensors and NOC visibility per rack', href: '/#/services/observability' },
               ].map((item) => (

@@ -5,6 +5,7 @@ import {
   Settings,
   Network,
   Layers,
+  Infinity as InfinityIcon,
   CheckCircle2,
   Clock,
   Globe,
@@ -15,7 +16,7 @@ import {
 // SERVICE CATEGORIES - Single source of truth for navigation and portfolio
 // ============================================================================
 
-export type ServiceCategoryId = 'cloud' | 'infrastructure' | 'data' | 'platforms' | 'network' | 'ai';
+export type ServiceCategoryId = 'cloud' | 'devops-cloud' | 'infrastructure' | 'data' | 'platforms' | 'network' | 'ai';
 
 export interface ServiceItem {
   id: string;
@@ -78,6 +79,18 @@ export interface ServiceCategory {
 // ============================================================================
 
 const cloudHubs: HubItem[] = [
+  {
+    id: 'devops-cloud',
+    title: 'DevOps & Cloud',
+    description: 'DevOps, FinOps, AIOps, MLOps, LLMOps, and Platform Engineering for the AI era.',
+    badge: 'NEW',
+    spokes: [
+      { id: 'container-orchestration', title: 'Container Orchestration', link: '/services/devops-cloud#container-orchestration', icon: 'Hexagon' },
+      { id: 'cicd', title: 'AI-Enhanced CI/CD', link: '/services/devops-cloud#cicd', icon: 'Workflow' },
+      { id: 'aiops', title: 'AIOps & Observability', link: '/services/devops-cloud#aiops', icon: 'Eye' },
+      { id: 'platform-engineering', title: 'Platform Engineering', link: '/services/devops-cloud#platform-engineering', icon: 'LayoutGrid' },
+    ]
+  },
   {
     id: 'cloud-cost-optimisation',
     title: 'Cloud Cost Optimisation',
@@ -346,6 +359,177 @@ const cloudCaseStudies: CaseStudy[] = [
     slug: 'financial-markets-observability',
     featured: false,
     relatedServiceIds: ['observability', 'alerting-rules', 'sla-support']
+  }
+];
+
+// ============================================================================
+// DEVOPS & CLOUD CASE STUDIES
+// ============================================================================
+
+const devopsCloudCaseStudies: CaseStudy[] = [
+  {
+    id: 'devops-iot-data-analytics-mobile-towers',
+    title: 'IoT & Data Analytics for Mobile Towers',
+    subtitle: 'Cloud-based IoT and streaming data analytics across Africa',
+    client: 'Major African Telecom Operator',
+    industry: 'Telecommunications',
+    description:
+      'Perception IT implemented a sophisticated cloud-based IoT and streaming data analytics solution for monitoring mobile tower operations across Africa.',
+    image: '/Sections/projects/devops and cloud/IoT & Data Analytics for Mobile Towers 600×700.jpg',
+    outcomes: [
+      'Real-time monitoring of mobile tower operations',
+      'Cloud-native, scalable architecture',
+      'Streaming data analytics for operational insights',
+      'Cross-Africa network visibility'
+    ],
+    technologies: ['Azure', 'Databricks', 'MQTT', 'Kubernetes', 'IoT', 'Data Lakes'],
+    slug: 'iot-data-analytics-mobile-towers',
+    featured: true,
+    relatedServiceIds: ['container-orchestration', 'cloud-migration', 'aiops']
+  },
+  {
+    id: 'devops-property-management-communication-broker',
+    title: 'Property Management Communication Broker',
+    subtitle: 'Cross-platform communication and service brokerage application',
+    client: 'Real Estate Technology Company',
+    industry: 'Real Estate',
+    description:
+      'Sophisticated cross-platform application facilitating seamless communication and service brokerage between landlords, tenants, and property managers.',
+    outcomes: [
+      'Unified communication platform for property stakeholders',
+      'Streamlined property management workflows',
+      'Improved tenant and landlord satisfaction',
+      'Complete request audit trail'
+    ],
+    technologies: ['Angular', 'Custom Application Development', 'Real Estate APIs', 'Cloud'],
+    slug: 'property-management-communication-broker',
+    relatedServiceIds: ['cicd', 'devsecops', 'platform-engineering']
+  },
+  {
+    id: 'devops-cloud-infrastructure-iot-data-visualisation',
+    title: 'Cloud Infrastructure for IoT Data Collection and Visualisation',
+    subtitle: 'Low-management AWS infrastructure for IoT software',
+    client: 'IoT Software Provider',
+    industry: 'Technology',
+    description:
+      'Deployed a low-management AWS infrastructure solution for software providing IoT data collection and visualisation.',
+    outcomes: [
+      'Low-management AWS infrastructure',
+      'Scalable IoT data collection pipeline',
+      'Real-time data visualisation dashboards',
+      'Automated customer provisioning'
+    ],
+    technologies: ['AWS', 'IoT', 'Data Visualisation', 'Serverless', 'S3'],
+    slug: 'cloud-infrastructure-iot-data-visualisation',
+    relatedServiceIds: ['cloud-provisioning', 'container-orchestration', 'aiops']
+  },
+  {
+    id: 'devops-unified-data-federation-portal',
+    title: 'Unified Data Federation Portal',
+    subtitle: 'Cross-functional central portal for secure telecom data access',
+    client: 'Telecommunications Operator',
+    industry: 'Telecommunications',
+    description:
+      'Provided a cross-functional central portal for data federation to provide secure data access and analytics across various telecommunication domains.',
+    outcomes: [
+      'Secure cross-domain data access',
+      'Unified analytics platform',
+      'Reduced data silos across telecom domains',
+      'Centralised data governance'
+    ],
+    technologies: ['Data Federation', 'Analytics', 'API Gateway', 'Cloud'],
+    slug: 'unified-data-federation-portal',
+    relatedServiceIds: ['platform-engineering', 'cloud-provisioning', 'mlops']
+  },
+  {
+    id: 'devops-automated-incident-management',
+    title: 'Automated Incident Management',
+    subtitle: 'ServiceNow microservice for network alarm integration',
+    client: 'Major Telecom Operator',
+    industry: 'Telecommunications',
+    description:
+      'Developed an automated incident management microservice to integrate network alarms with ServiceNow, automating the management of incidents.',
+    outcomes: [
+      'Automated incident creation from network alarms',
+      'Reduced manual ticket handling',
+      'Faster incident response times',
+      'Context-rich tickets for faster triage'
+    ],
+    technologies: ['ServiceNow', 'REST APIs', 'Workflow Automation', 'Cloud'],
+    slug: 'automated-incident-management',
+    relatedServiceIds: ['cicd', 'aiops', 'devsecops']
+  },
+  {
+    id: 'devops-streaming-iot-data-analytics',
+    title: 'Streaming IoT and Data Analytics',
+    subtitle: 'Real-time telco analytics using Databricks, Azure and Data Lakes',
+    client: 'Major Telecom Operator',
+    industry: 'Telecommunications',
+    description:
+      'Engineered a streaming analytics solution for telco data using Databricks, Azure, and Data Lakes, providing real-time analytics and event analysis.',
+    outcomes: [
+      'Real-time streaming analytics pipeline',
+      'Event-driven operational insights',
+      'Scalable data lake architecture',
+      'Proactive network and customer care'
+    ],
+    technologies: ['Databricks', 'Azure', 'Data Lakes', 'Kafka', 'IoT'],
+    slug: 'streaming-iot-data-analytics',
+    relatedServiceIds: ['mlops', 'aiops', 'cloud-provisioning']
+  },
+  {
+    id: 'devops-kubernetes-deployment-telco-operations',
+    title: 'Kubernetes Deployment for Telco Operations',
+    subtitle: 'Kubernetes on AWS for mobile tower management',
+    client: 'Major African Telecom Operator',
+    industry: 'Telecommunications',
+    description:
+      'Architecture and deployment of Kubernetes on AWS to streamline development and production of mobile tower management.',
+    outcomes: [
+      'Containerised microservices platform deployed',
+      'Streamlined development and production workflows',
+      'Elastic scaling for tower management workloads',
+      'Consistent environments from dev to prod'
+    ],
+    technologies: ['Kubernetes', 'AWS', 'DevOps', 'Containers'],
+    slug: 'kubernetes-deployment-telco-operations',
+    relatedServiceIds: ['container-orchestration', 'cicd', 'platform-engineering']
+  },
+  {
+    id: 'devops-iot-data-collection-mobile-towers',
+    title: 'IoT Data Collection for Mobile Towers',
+    subtitle: 'MQTT-based IoT solution for centralised tower analytics across Africa',
+    client: 'Major African Telecom Operator',
+    industry: 'Telecommunications',
+    description:
+      'Development of an MQTT-based IoT solution for centralised data analytics of mobile towers across Africa.',
+    outcomes: [
+      'MQTT-based IoT data collection at scale',
+      'Centralised analytics platform',
+      'Africa-wide tower coverage',
+      'Resilient edge-to-cloud messaging'
+    ],
+    technologies: ['MQTT', 'IoT', 'AWS', 'Analytics', 'Kubernetes'],
+    slug: 'iot-data-collection-mobile-towers',
+    relatedServiceIds: ['container-orchestration', 'aiops', 'cloud-provisioning']
+  },
+  {
+    id: 'devops-farmdar-agritech-solution-enhancement',
+    title: 'Empowering Agriculture with Advanced Data Architectures',
+    subtitle: 'Modern data design and application frameworks for Farmdar',
+    client: 'Farmdar',
+    industry: 'AgriTech',
+    description:
+      "Farmdar's agritech platform has been transformed with advanced data design and modern application frameworks for unparalleled decision-making support.",
+    outcomes: [
+      'Advanced data architecture enabling real-time insights',
+      'Modern application frameworks adopted',
+      'Enhanced decision-making support for agriculture',
+      'Scalable foundation for AI and analytics'
+    ],
+    technologies: ['Data Architecture', 'Containerisation', 'Modern Frameworks', 'Cloud'],
+    slug: 'farmdar-agritech-solution-enhancement',
+    relatedServiceIds: ['mlops', 'platform-engineering', 'cloud-provisioning']
   }
 ];
 
@@ -1152,6 +1336,21 @@ const aiCaseStudies: CaseStudy[] = [
 // ============================================================================
 
 export const serviceCategories: ServiceCategory[] = [
+  {
+    id: 'devops-cloud',
+    label: 'DevOps & Cloud',
+    navLabel: 'DevOps & Cloud',
+    description: 'DevOps, FinOps, AIOps, MLOps, LLMOps, and Platform Engineering for the AI era',
+    icon: InfinityIcon,
+    color: {
+      bg: 'bg-teal-100',
+      text: 'text-teal-700',
+      border: 'border-teal-200',
+      light: 'bg-teal-50'
+    },
+    hubs: [cloudHubs[0]],
+    caseStudies: devopsCloudCaseStudies
+  },
   {
     id: 'cloud',
     label: 'Cloud',

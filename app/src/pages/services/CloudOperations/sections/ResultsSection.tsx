@@ -1,0 +1,25 @@
+import ProjectCardGrid from '@/components/ProjectCardGrid';
+import { PROJECTS } from '../data';
+
+export default function ResultsSection() {
+  return (
+    <section id="results" className="py-20 bg-[#f4f4f4]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="mb-8 carbon-font">
+          <p className="carbon-label-01 text-[#0f62fe] uppercase mb-3">Results</p>
+          <h2 className="carbon-fluid-heading-05 text-[#0F172A] mb-4">
+            Trusted Across Cloud & DevOps Projects
+          </h2>
+          <p className="carbon-body-02 text-gray-500 max-w-2xl">
+            Real outcomes from cloud, DevOps, and AI-driven engagements across telecom, agri-tech, and enterprise.
+          </p>
+        </div>
+
+        <div className="mb-8">
+          <p className="carbon-label-02 text-gray-500 uppercase mb-6">Project Outcomes</p>
+          <ProjectCardGrid projects={PROJECTS} />
+        </div>
+      </div>
+    </section>
+  );
+}

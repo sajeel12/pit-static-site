@@ -1,6 +1,10 @@
 import { ArrowRight, Battery, Download, ShieldCheck } from 'lucide-react';
 import { useState } from 'react';
 
+const SMARTLI_ENQUIRY_BODY = encodeURIComponent(
+  'Hi Perception IT Team,\n\nI would like to enquire about the Huawei SmartLi battery solution for our Power and UPS infrastructure. Please find the relevant details below.\n\nPlease complete the sections that apply to your situation. You are not required to fill out every field — even partial information is sufficient to begin the discussion.\n\n- Company name:\n\n- Contact name and role:\n\n- Site location:\n\n- Current UPS / battery setup:\n\n- Estimated load (kVA / kW):\n\n- Desired backup runtime (minutes):\n\n- Number of cabinets / racks:\n\n- Preferred battery technology (Li-ion / VRLA / unsure):\n\n- Project timeline:\n\n- Key concerns or requirements:\n\nPlease contact me to discuss next steps.\n\nBest regards,'
+);
+
 export default function FeaturedProductsSection() {
   const [datasheetOpen, setDatasheetOpen] = useState(false);
 
@@ -139,7 +143,7 @@ export default function FeaturedProductsSection() {
                 Get Datasheet
               </button>
               <a
-                href="mailto:info@perception-it.com?subject=SmartLi%20Enquiry%20-%20Power%20and%20UPS"
+                href={`mailto:info@perception-it.com?subject=SmartLi%20Enquiry%20-%20Power%20and%20UPS&body=${SMARTLI_ENQUIRY_BODY}`}
                 className="inline-flex items-center gap-2 px-5 py-3 bg-[#0f62fe] text-white carbon-body-02 hover:bg-[#0353e9] transition-colors rounded-lg"
               >
                 Enquire About This Model

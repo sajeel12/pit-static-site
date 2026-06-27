@@ -310,7 +310,7 @@ export default function ManagedSection() {
                   <strong className="text-gray-900">Thermal Energy Intelligence</strong> — Cooling system optimisation with VFD control, free-cooling integration, and AI-driven setpoint adjustments to reduce energy consumption by 25-40%.
                 </p>
               </div>
-              <a href="#/infrastructure/operational-efficiency" className="mt-6 inline-flex items-center justify-center gap-2 px-5 py-3 w-full carbon-body-02 rounded-lg border border-gray-300 text-black hover:bg-[#0f62fe] hover:border-[#0f62fe] hover:text-white active:bg-[#0353e9] active:border-[#0353e9] active:text-white transition-colors">
+              <a href="#/infrastructure/data-centre-services/cost-optimisation" className="mt-6 inline-flex items-center justify-center gap-2 px-5 py-3 w-full carbon-body-02 rounded-lg border border-gray-300 text-black hover:bg-[#0f62fe] hover:border-[#0f62fe] hover:text-white active:bg-[#0353e9] active:border-[#0353e9] active:text-white transition-colors">
                 See Full Infrastructure ROI
               </a>
             </div>

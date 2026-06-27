@@ -35,7 +35,7 @@ export default function HuaweiPartnership() {
             </p>
 
             <Link
-              to="/infrastructure/data-centre-services/cooling-airflow"
+              to="/infrastructure/data-centre-services/cooling"
               className="inline-flex items-center gap-2 px-6 h-12 bg-[#0f62fe] text-white carbon-body-02 font-medium hover:bg-[#0353e9] transition-colors"
             >
               Explore Cooling <ArrowRight className="w-4 h-4" />
@@ -175,7 +175,7 @@ export default function HuaweiPartnership() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              to="/infrastructure/data-centre-services/cooling-airflow"
+              to="/infrastructure/data-centre-services/cooling"
               className="inline-flex items-center gap-2 px-6 h-12 bg-[#0f62fe] text-white carbon-body-02 font-medium hover:bg-[#0353e9] transition-colors"
             >
               Explore Cooling <ArrowRight className="w-4 h-4" />

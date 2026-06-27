@@ -4,20 +4,31 @@ import ArrowRight from '@carbon/icons-react/es/ArrowRight';
 import CheckmarkFilled from '@carbon/icons-react/es/CheckmarkFilled';
 import Time from '@carbon/icons-react/es/Time';
 import Globe from '@carbon/icons-react/es/Globe';
-import ChevronRight from '@carbon/icons-react/es/ChevronRight';
+
 import ChevronDown from '@carbon/icons-react/es/ChevronDown';
-import '../styles/carbon-typography.css';
-import Navigation from '../components/Navigation';
-import Footer from '../sections/Footer';
+import '@/styles/carbon-typography.css';
+import CoolingNav from '@/pages/services/CoolingNav';
+import Footer from '@/sections/Footer';
 import {
   serviceCategories,
   getFeaturedCaseStudy,
-  type ServiceCategoryId
-} from '../config/services';
+  type ServiceCategoryId,
+  type CaseStudy,
+  type ServiceCategory
+} from '@/config/services';
+
+type FlattenedCaseStudy = CaseStudy & {
+  categoryId: ServiceCategoryId;
+  categoryLabel: string;
+  categoryColor: ServiceCategory['color'];
+};
 
 // Flatten case studies from all categories for display
-const getAllCaseStudies = () => {
-  return serviceCategories.flatMap(category => 
+// Deduplicate by slug so cross-category projects (e.g. Cloud + DevOps & Cloud)
+// only appear once in the "All Projects" view. DevOps & Cloud versions are
+// preferred when a slug exists in both categories.
+const getAllCaseStudies = (): FlattenedCaseStudy[] => {
+  const all: FlattenedCaseStudy[] = serviceCategories.flatMap(category => 
     category.caseStudies.map(study => ({
       ...study,
       categoryId: category.id,
@@ -25,6 +36,16 @@ const getAllCaseStudies = () => {
       categoryColor: category.color
     }))
   );
+
+  const bySlug = new Map<string, FlattenedCaseStudy>();
+  for (const study of all) {
+    const existing = bySlug.get(study.slug);
+    if (!existing || study.categoryId === 'devops-cloud') {
+      bySlug.set(study.slug, study);
+    }
+  }
+
+  return Array.from(bySlug.values());
 };
 
 function getInitialFilter(category: string | undefined): ServiceCategoryId | 'all' {
@@ -48,29 +69,37 @@ export default function Projects() {
 
   const allCaseStudies = getAllCaseStudies();
   const featuredStudy = getFeaturedCaseStudy();
+  const featuredCategory = featuredStudy
+    ? serviceCategories.find(c => c.caseStudies.some(s => s.slug === featuredStudy.slug))
+    : undefined;
+  const showFeatured = featuredStudy && (activeFilter === 'all' || activeFilter === featuredCategory?.id);
   
   const filteredStudies = activeFilter === 'all' 
     ? allCaseStudies 
     : allCaseStudies.filter(study => study.categoryId === activeFilter);
   
-  const regularStudies = filteredStudies.filter(s => !s.featured);
+  const regularStudies = filteredStudies.filter(s => !showFeatured || s.slug !== featuredStudy?.slug);
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
+      <CoolingNav />
+
+      {/* Sticky Breadcrumb */}
+      <div className="sticky top-12 z-40 bg-white border-b border-gray-300">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-12 flex items-center">
+          <nav aria-label="Breadcrumb">
+            <ol className="flex flex-wrap items-center gap-1.5 text-xs text-gray-500">
+              <li><a href="/#/" className="hover:text-[#0f62fe] transition-colors">Home</a></li>
+              <li className="text-gray-300">/</li>
+              <li className="text-gray-900 font-medium" aria-current="page">Projects</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
       
       {/* Hero Section - Light Theme like Case Study Detail */}
-      <section className="pt-32 pb-16 bg-[#f4f4f4] border-b border-[#e0e0e0]">
+      <section className="pt-28 pb-16 bg-[#f4f4f4] border-b border-[#e0e0e0]">
         <div className="max-w-[1584px] mx-auto px-6">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm mb-8" aria-label="Breadcrumb">
-            <Link to="/" className="text-[#0f62fe] hover:text-[#0353e9] transition-colors">Home</Link>
-            <ChevronRight className="w-4 h-4 text-[#8d8d8d]" />
-            <span className="px-2 py-0.5 border border-[#525252] text-[#525252] rounded-full">
-              Projects
-            </span>
-          </nav>
-
           <div className="max-w-3xl">
             {/* Heading */}
             <h1 className="carbon-fluid-heading-05 text-[#161616] mb-6">
@@ -106,7 +135,7 @@ export default function Projects() {
       </section>
 
       {/* Filter Tabs - Carbon Style */}
-      <div className="sticky top-16 z-30 bg-white border-b border-[#e0e0e0]">
+      <div className="sticky top-24 z-30 bg-white border-b border-[#e0e0e0]">
         <div className="max-w-[1584px] mx-auto px-6">
           <div className="flex items-center gap-1 py-4 overflow-x-auto">
             <button
@@ -137,7 +166,7 @@ export default function Projects() {
       </div>
 
       {/* Featured Project */}
-      {featuredStudy && (activeFilter === 'all' || activeFilter === 'cloud') && (
+      {showFeatured && (
         <section className="bg-[#f4f4f4] border-b border-[#e0e0e0]">
           <div className="max-w-[1584px] mx-auto px-6 py-16">
             {/* Section Label */}
@@ -158,7 +187,9 @@ export default function Projects() {
                   <div className="text-center p-8">
                     <div className="w-24 h-24 bg-[#e0e0e0] flex items-center justify-center mx-auto mb-4">
                       {(() => {
-                        const category = serviceCategories.find(c => c.id === 'cloud');
+                        const category = featuredStudy
+                          ? serviceCategories.find(c => c.caseStudies.some(s => s.slug === featuredStudy.slug))
+                          : undefined;
                         const Icon = category?.icon || CheckmarkFilled;
                         return <Icon className="w-12 h-12 text-[#9e9e9e]" />;
                       })()}

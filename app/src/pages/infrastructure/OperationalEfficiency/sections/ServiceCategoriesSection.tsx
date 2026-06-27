@@ -6,7 +6,7 @@ const services = [
   {
     icon: Thermometer,
     title: 'Cooling & Airflow',
-    link: '/infrastructure/data-centre-services/cooling-thermal',
+    link: '/infrastructure/data-centre-services/cooling',
     sections: [
       {
         label: 'Target Outcomes',
@@ -44,7 +44,7 @@ const services = [
   {
     icon: BatteryCharging,
     title: 'Power & UPS',
-    link: '/services/power-ups',
+    link: '/infrastructure/data-centre-services/power-ups',
     sections: [
       {
         label: 'Target Outcomes',
@@ -82,7 +82,7 @@ const services = [
   {
     icon: Server,
     title: 'Rack & Cabinet',
-    link: '/services/rack-cabinets',
+    link: '/infrastructure/data-centre-services/rack-cabinets',
     sections: [
       {
         label: 'Target Outcomes',
@@ -120,7 +120,7 @@ const services = [
   {
     icon: Eye,
     title: 'Monitoring',
-    link: '/services/monitoring',
+    link: '/infrastructure/data-centre-services/monitoring',
     sections: [
       {
         label: 'Target Outcomes',
@@ -234,7 +234,7 @@ const services = [
   {
     icon: Settings,
     title: 'Maintenance & Support',
-    link: '/services/maintenance-support',
+    link: '/infrastructure/data-centre-services/maintenance-support',
     sections: [
       {
         label: 'Target Outcomes',

@@ -11,16 +11,6 @@ import {
   type ServiceCategoryId
 } from '../config/services';
 
-interface SolutionItem {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  combines: string[];
-  link: string;
-  featured?: boolean;
-}
-
 interface AboutCategory {
   id: string;
   name: string;
@@ -40,15 +30,13 @@ const networkOperationsServices = [
 ];
 
 const dataCentreServices = [
-  { id: 'cooling-airflow', title: 'Cooling Management', description: 'Precision cooling from hardware supply to 24/7 managed thermal continuity.', link: '/infrastructure/data-centre-services/cooling-thermal' },
-
-  { id: 'power-ups', title: 'Power & UPS Solutions', description: 'UPS systems, power distribution, and backup power for critical infrastructure.', link: '/services/power-ups' },
-  { id: 'rack-cabinets', title: 'Rack & Cabinet Solutions', description: 'Server cabinets, acoustic racks, and outdoor enclosures.', link: '/services/rack-cabinets' },
-  { id: 'monitoring', title: 'Monitoring', description: 'Temperature, humidity, leak detection, and IoT sensor networks.', link: '/services/monitoring' },
-  { id: 'fire-suppression', title: 'Fire Suppression Systems', description: 'FM200, VESDA, and clean-agent fire protection for data centres.', link: '/services/fire-suppression' },
-  { id: 'design-build', title: 'Data Centre Design & Build', description: 'End-to-end data centre construction, CFD modelling, and commissioning.', link: '/services/design-build' },
-  { id: 'migration-relocation', title: 'Migration & Relocation Services', description: 'Zero-downtime server relocation and data centre migration.', link: '/services/migration-relocation' },
-  { id: 'maintenance-support', title: 'Maintenance & Support Contracts', description: 'SLA-backed maintenance, spare parts, and 24/7 technical support.', link: '/services/maintenance-support' },
+  { id: 'cost-optimisation', title: 'Cost Optimisation', description: 'Cost reduction and ROI across data centre power, cooling and physical infrastructure.', link: '/infrastructure/data-centre-services/cost-optimisation' },
+  { id: 'cooling', title: 'Cooling Management', description: 'Precision cooling from hardware supply to 24/7 managed thermal continuity.', link: '/infrastructure/data-centre-services/cooling' },
+  { id: 'power-ups', title: 'Power & UPS Solutions', description: 'UPS systems, power distribution, and backup power for critical infrastructure.', link: '/infrastructure/data-centre-services/power-ups' },
+  { id: 'rack-cabinets', title: 'Rack & Cabinet Solutions', description: 'Server cabinets, acoustic racks, and outdoor enclosures.', link: '/infrastructure/data-centre-services/rack-cabinets' },
+  { id: 'monitoring', title: 'Monitoring', description: 'Temperature, humidity, leak detection, and IoT sensor networks.', link: '/infrastructure/data-centre-services/monitoring' },
+  { id: 'migration-relocation', title: 'Migration & Relocation Services', description: 'Zero-downtime server relocation and data centre migration.', link: '/infrastructure/data-centre-services/migration-relocation' },
+  { id: 'maintenance-support', title: 'Maintenance & Support Contracts', description: 'SLA-backed maintenance, spare parts, and 24/7 technical support.', link: '/infrastructure/data-centre-services/maintenance-support' },
 ];
 
 interface NavigationProps {
@@ -85,11 +73,11 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
   const [activeServiceByCategory, setActiveServiceByCategory] = useState<Record<ServiceCategoryId, string>>(initialServiceState);
   const [activeInfrastructureItem, setActiveInfrastructureItem] = useState<string>('server-continuity');
 
-  const [activeSolution, setActiveSolution] = useState<string>('ai-accelerator');
+
   const [activeDataItem, setActiveDataItem] = useState<string>('iot-analytics');
   const [activeAIItem, setActiveAIItem] = useState<string>('mlops');
   const [activePlatformItem, setActivePlatformItem] = useState<string>('servicenow');
-  const [mobileActiveTab, setMobileActiveTab] = useState<string>('solutions');
+  const [mobileActiveTab, setMobileActiveTab] = useState<string>('consultancy');
   const [, setMobileExpandedCategory] = useState<string | null>(null);
   const closeTimerRef = useRef<NodeJS.Timeout | null>(null);
   const megaMenuRef = useRef<HTMLDivElement>(null);
@@ -198,51 +186,6 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
     }, 200);
   }, [setActiveMegaMenu]);
 
-  const solutions: SolutionItem[] = [
-    {
-      id: 'ai-accelerator',
-      title: 'AI Accelerator',
-      subtitle: '',
-      description: 'From data to deployed AI in 90 days',
-      combines: ['MLOps', 'Cloud Infrastructure', 'Data Observability', 'Consulting'],
-      link: '/services',
-      featured: true
-    },
-    {
-      id: 'cover3-prototype',
-      title: 'Cover 3 Prototype',
-      subtitle: 'Direct Homepage Copy',
-      description: 'Exact copy of the main landing page for controlled design experiments',
-      combines: ['Prototype', 'Homepage Copy', 'Baseline', 'Sandbox'],
-      link: '/cover3',
-      featured: false
-    },
-    {
-      id: 'cloud-control',
-      title: 'Cloud Control',
-      subtitle: 'Cost & Performance Management',
-      description: 'Cut cloud costs 40% and never worry about uptime',
-      combines: ['FinOps', 'Cloud Optimisation', 'Observability', 'Managed Cloud'],
-      link: '/services'
-    },
-    {
-      id: 'service-excellence',
-      title: 'Service Excellence',
-      subtitle: 'ITSM & Support Operations',
-      description: '95% user satisfaction, 60% cost reduction',
-      combines: ['ServiceNow', 'Service Desk', 'ITSM Processes', 'Automation'],
-      link: '/services'
-    },
-    {
-      id: 'total-transformation',
-      title: 'Total Transformation',
-      subtitle: 'Hardware to Cloud Journey',
-      description: 'End-to-end: Hardware audit → Cloud migration → Managed operations',
-      combines: ['ServerAudit™', 'Cloud Migration', 'Managed Services', 'Optimisation'],
-      link: '/services'
-    }
-  ];
-
   const aboutCategories: AboutCategory[] = [
     { 
       id: 'company-overview', 
@@ -303,7 +246,6 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
 
   // Mobile tabs - updated for new structure
   const mobileTabs = [
-    { id: 'solutions', label: 'Solutions' },
     { id: 'consultancy', label: 'Consultancy' },
     { id: 'cloud', label: 'Cloud' },
     { id: 'infrastructure', label: 'Infrastructure' },
@@ -321,7 +263,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
     <>
       {/* Highlight Bar */}
       {showHighlightBar && (
-        <div className="fixed top-0 left-0 right-0 z-[60] bg-slate-900 text-white">
+        <div className="fixed top-0 left-0 right-0 z-[80] bg-slate-900 text-white">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-2 flex items-center justify-center gap-2 text-sm">
             <span className="px-2 py-0.5 bg-blue-500 text-white text-xs font-bold rounded">NEW</span>
             <Link to="/services" className="hover:underline">AI Accelerator - Deploy AI in 90 days</Link>
@@ -337,7 +279,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
       )}
 
       {/* Main Navigation */}
-      <nav ref={navRef} className={`fixed left-0 right-0 z-50 transition-[background-color,backdrop-filter,box-shadow,border-color] duration-300 ${showHighlightBar ? 'top-[36px]' : 'top-0'} ${isDark ? (isScrolled ? 'bg-[#161616]/95 border-b border-gray-800' : 'bg-[#161616] border-b border-transparent') : (isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-white border-b border-transparent')}`}>
+      <nav ref={navRef} className={`fixed left-0 right-0 z-[70] transition-[background-color,backdrop-filter,box-shadow,border-color] duration-300 ${showHighlightBar ? 'top-[36px]' : 'top-0'} ${isDark ? (isScrolled ? 'bg-[#161616]/95 border-b border-gray-800' : 'bg-[#161616] border-b border-transparent') : (isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-white border-b border-transparent')}`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 sm:px-6 lg:px-8 relative">
           <div className="flex items-center h-16 lg:h-20">
             {/* Logo */}
@@ -347,214 +289,6 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
 
             <div className="hidden lg:flex items-center ml-8" ref={megaMenuRef}>
               
-              {/* SOLUTIONS - Hybrid Style */}
-              <div 
-                className="relative" 
-                onMouseEnter={() => handleMouseEnter('solutions')}
-                onMouseLeave={handleMouseLeave}
-              >
-                <button 
-                  onClick={() => setActiveMegaMenu(null)}
-                  className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-all mx-1 ${activeMegaMenu === 'solutions' ? isDark ? 'text-white bg-transparent border-2 border-white' : 'text-[#0f62fe] bg-white border-2 border-[#0f62fe]' : isDark ? 'text-white hover:text-white hover:bg-white/10' : 'text-[#161616] hover:text-[#0f62fe] hover:bg-[#f4f4f4]/50'}`}
-                >
-                  Solutions
-                  <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'solutions' ? 'rotate-90' : ''}`} />
-                </button>
-                {activeMegaMenu === 'solutions' && (
-                  <div className={`fixed left-0 right-0 z-[60] transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
-                    <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
-                      {/* Floating Close Button */}
-                      <button 
-                        onClick={() => setActiveMegaMenu(null)}
-                        className="absolute top-4 right-4 z-10 p-2 bg-[#e0e0e0] hover:bg-[#161616] transition-colors group"
-                        aria-label="Close menu"
-                      >
-                        <X className="w-5 h-5 text-[#161616] group-hover:text-white transition-colors" />
-                      </button>
-                      
-                      {/* Content - Three Panel Layout */}
-                      <div className="max-w-6xl mx-auto flex pb-8">
-                        {/* Left Rail - Category Links */}
-                        <div className="w-[240px] bg-white p-4 flex-shrink-0 border-r border-[#e0e0e0]">
-                          <div className="space-y-1">
-                            {solutions.map((solution) => {
-                              const isActive = activeSolution === solution.id;
-                              return (
-                                <Link 
-                                  key={solution.id}
-                                  to={solution.link}
-                                  onMouseEnter={() => setActiveSolution(solution.id)}
-                                  onClick={() => handleCategoryClick()}
-                                  className={`block w-full text-left px-3 py-2 text-sm transition-all border-l-2 ${
-                                    isActive 
-                                      ? 'bg-[#f4f4f4] text-[#161616] border-[#0f62fe] font-semibold' 
-                                      : 'text-[#161616] hover:bg-[#f4f4f4] border-transparent'
-                                  }`}
-                                >
-                                  <div className="flex items-center justify-between">
-                                    <span className="font-normal">{solution.title}</span>
-                                    {solution.featured && (
-                                      <Star className="w-4 h-4 text-[#0f62fe] fill-[#0f62fe]" />
-                                    )}
-                                  </div>
-                                </Link>
-                              );
-                            })}
-                            <Link 
-                              to="/services/observability"
-                              onMouseEnter={() => setActiveSolution('observability')}
-                              onClick={() => handleCategoryClick()}
-                              className={`block w-full text-left px-3 py-2 text-sm transition-all border-l-2 ${
-                                activeSolution === 'observability' 
-                                  ? 'bg-[#f4f4f4] text-[#161616] border-[#0f62fe] font-semibold' 
-                                  : 'text-[#161616] hover:bg-[#f4f4f4] border-transparent'
-                              }`}
-                            >
-                              <span className="font-normal">Observability</span>
-                            </Link>
-                            <Link 
-                              to="/services/optimisation"
-                              onMouseEnter={() => setActiveSolution('optimisation')}
-                              onClick={() => handleCategoryClick()}
-                              className={`block w-full text-left px-3 py-2 text-sm transition-all border-l-2 ${
-                                activeSolution === 'optimisation' 
-                                  ? 'bg-[#f4f4f4] text-[#161616] border-[#0f62fe] font-semibold' 
-                                  : 'text-[#161616] hover:bg-[#f4f4f4] border-transparent'
-                              }`}
-                            >
-                              <span className="font-normal">Optimisation</span>
-                            </Link>
-                            <div className="border-t border-[#e0e0e0] my-2" />
-                            <Link to="/services" onClick={() => setActiveMegaMenu(null)} className="flex items-center gap-2 px-3 py-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0353e9] hover:bg-[#f4f4f4] transition-colors">
-                              View All Solutions <ArrowRight className="w-4 h-4" />
-                            </Link>
-                          </div>
-                        </div>
-                        
-                        {/* Middle - Active Solution Details */}
-                        <div className="flex-1 p-6 bg-white">
-                          {(() => {
-                            if (activeSolution === 'observability') {
-                              return (
-                                <>
-                                  <Link 
-                                    to="/services/observability"
-                                    onClick={() => setActiveMegaMenu(null)}
-                                    className="group flex items-center gap-2 text-sm font-semibold text-[#161616] mb-2 hover:text-[#0f62fe] transition-colors"
-                                  >
-                                    Observability
-                                    <ArrowRight className="w-4 h-4 text-[#8d8d8d] group-hover:text-[#0f62fe] transition-colors" />
-                                  </Link>
-                                  <p className="text-sm text-[#525252] leading-relaxed mb-6">Monitor, trace, and gain insights across your entire infrastructure stack with modern observability platforms.</p>
-                                  
-                                  <div className="mb-6">
-                                    <h5 className="text-[11px] font-medium text-[#6f6f6f] uppercase tracking-[0.16px] mb-2">Includes</h5>
-                                    <div className="flex flex-wrap gap-2">
-                                      <span className="px-2 py-0.5 border border-[#e0e0e0] text-[#525252] text-xs font-medium rounded-full">APM</span>
-                                      <span className="px-2 py-0.5 border border-[#e0e0e0] text-[#525252] text-xs font-medium rounded-full">Distributed Tracing</span>
-                                      <span className="px-2 py-0.5 border border-[#e0e0e0] text-[#525252] text-xs font-medium rounded-full">Log Management</span>
-                                      <span className="px-2 py-0.5 border border-[#e0e0e0] text-[#525252] text-xs font-medium rounded-full">Alerting</span>
-                                    </div>
-                                  </div>
-                                  
-                                  <a href="#contact" onClick={() => setActiveMegaMenu(null)} className="inline-flex items-center gap-2 px-4 py-3 bg-[#0f62fe] text-white text-sm font-semibold hover:bg-[#0353e9] transition-colors">
-                                    Talk to an Expert <ArrowRight className="w-4 h-4" />
-                                  </a>
-                                  <div className="h-8" />
-                                </>
-                              );
-                            }
-                            
-                            if (activeSolution === 'optimisation') {
-                              return (
-                                <>
-                                  <Link 
-                                    to="/services/optimisation"
-                                    onClick={() => setActiveMegaMenu(null)}
-                                    className="group flex items-center gap-2 text-sm font-semibold text-[#161616] mb-2 hover:text-[#0f62fe] transition-colors"
-                                  >
-                                    Optimisation
-                                    <ArrowRight className="w-4 h-4 text-[#8d8d8d] group-hover:text-[#0f62fe] transition-colors" />
-                                  </Link>
-                                  <p className="text-sm text-[#525252] leading-relaxed mb-6">Maximise performance, reduce costs, and improve efficiency across your cloud and infrastructure investments.</p>
-                                  
-                                  <div className="mb-6">
-                                    <h5 className="text-[11px] font-medium text-[#6f6f6f] uppercase tracking-[0.16px] mb-2">Includes</h5>
-                                    <div className="flex flex-wrap gap-2">
-                                      <span className="px-2 py-0.5 border border-[#e0e0e0] text-[#525252] text-xs font-medium rounded-full">Cost Optimisation</span>
-                                      <span className="px-2 py-0.5 border border-[#e0e0e0] text-[#525252] text-xs font-medium rounded-full">Performance Tuning</span>
-                                      <span className="px-2 py-0.5 border border-[#e0e0e0] text-[#525252] text-xs font-medium rounded-full">Resource Rightsizing</span>
-                                      <span className="px-2 py-0.5 border border-[#e0e0e0] text-[#525252] text-xs font-medium rounded-full">FinOps</span>
-                                    </div>
-                                  </div>
-                                  
-                                  <a href="#contact" onClick={() => setActiveMegaMenu(null)} className="inline-flex items-center gap-2 px-4 py-3 bg-[#0f62fe] text-white text-sm font-semibold hover:bg-[#0353e9] transition-colors">
-                                    Talk to an Expert <ArrowRight className="w-4 h-4" />
-                                  </a>
-                                  <div className="h-8" />
-                                </>
-                              );
-                            }
-                            
-                            const activeItem = solutions.find(s => s.id === activeSolution);
-                            if (!activeItem) return null;
-                            
-                            return (
-                              <>
-                                <Link 
-                                  to={activeItem.link}
-                                  onClick={() => setActiveMegaMenu(null)}
-                                  className="group flex items-center gap-2 text-sm font-semibold text-[#161616] mb-2 hover:text-[#0f62fe] transition-colors"
-                                >
-                                  {activeItem.title}
-                                  <ArrowRight className="w-4 h-4 text-[#8d8d8d] group-hover:text-[#0f62fe] transition-colors" />
-                                </Link>
-                                <p className="text-xs text-[#6f6f6f] font-medium mb-3">{activeItem.subtitle}</p>
-                                <p className="text-sm text-[#525252] leading-relaxed mb-6">{activeItem.description}</p>
-                                
-                                {/* Labels section - 2 column grid */}
-                                <div className="mb-6">
-                                  <h5 className="text-[11px] font-medium text-[#6f6f6f] uppercase tracking-[0.16px] mb-2">Includes</h5>
-                                  <div className="flex flex-wrap gap-2">
-                                    {activeItem.combines.map((item, i) => (
-                                      <span key={i} className="px-2 py-0.5 border border-[#e0e0e0] text-[#525252] text-xs font-medium rounded-full">{item}</span>
-                                    ))}
-                                  </div>
-                                </div>
-                                
-                                {/* CTA Button */}
-                                <a 
-                                  href="#contact" 
-                                  onClick={() => setActiveMegaMenu(null)} 
-                                  className="inline-flex items-center gap-2 px-4 py-3 bg-[#0f62fe] text-white text-sm font-semibold hover:bg-[#0353e9] transition-colors"
-                                >
-                                  Talk to an Expert <ArrowRight className="w-4 h-4" />
-                                </a>
-                                
-                                {/* Spacer for dropdown length */}
-                                <div className="h-8" />
-                              </>
-                            );
-                          })()}
-                        </div>
-                        
-                        {/* Right Rail - Featured Case Study */}
-                        <div className="w-[280px] bg-white pt-6 pr-6 pb-6 flex-shrink-0">
-                          <div className="pl-4 pr-0 py-0 border-l-2 border-[#c6c6c6]">
-                            <p className="text-[11px] font-semibold text-[#6f6f6f] uppercase tracking-[0.16px] mb-3">Featured Case Study</p>
-                            <h4 className="text-sm font-semibold text-[#161616] mb-3">Total Transformation - African Telecom</h4>
-                            <p className="text-sm text-[#525252] mb-4 leading-relaxed">Hardware audit → Cloud migration → Managed operations.</p>
-                            <Link to="/projects" onClick={() => setActiveMegaMenu(null)} className="inline-flex items-center gap-1 text-sm font-semibold text-[#525252] hover:text-[#0f62fe]">
-                              View case study <ArrowRight className="w-4 h-4" />
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                  </div>
-                )}
-              </div>
 
               {/* CONSULTANCY - Hybrid Style */}
               <div 
@@ -571,7 +305,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 </button>
                 
                 {activeMegaMenu === 'consultancy' && (
-                  <div className={`fixed left-0 right-0 z-[60] transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
+                  <div className={`fixed left-0 right-0 z-[100] transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
                     <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
                       {/* Floating Close Button */}
                       <button 
@@ -662,7 +396,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 </Link>
                 
                 {activeMegaMenu === 'cloud' && cloudCategory && (
-                  <div className={`fixed left-0 right-0 z-[60] transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
+                  <div className={`fixed left-0 right-0 z-[100] transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
                     <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
                       {/* Floating Close Button */}
                       <button 
@@ -678,6 +412,14 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                         {/* Left Rail */}
                         <div className="w-[240px] bg-white p-4 flex-shrink-0 border-r border-[#e0e0e0]">
                           <div className="space-y-1 max-h-[calc(100vh-180px)] overflow-y-auto pr-1">
+                            <Link 
+                              to="/services/cloud"
+                              onClick={() => handleCategoryClick()}
+                              onMouseEnter={() => setActiveServiceByCategory(prev => ({ ...prev, cloud: cloudCategory.hubs?.[0]?.id ?? '' }))}
+                              className="block w-full text-left px-3 py-2 text-sm font-semibold text-[#0f62fe] hover:text-[#0353e9] hover:bg-[#f4f4f4] transition-colors border-l-2 border-transparent"
+                            >
+                              Cloud Services
+                            </Link>
                             {cloudCategory.hubs?.map((hub) => {
                               const isActive = activeServiceByCategory['cloud'] === hub.id;
                               return (
@@ -792,7 +534,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 </Link>
                 
                 {activeMegaMenu === 'infrastructure' && (
-                  <div className={`fixed left-0 right-0 z-[60] transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
+                  <div className={`fixed left-0 right-0 z-[100] transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
                     <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
                       {/* Floating Close Button */}
                       <button 
@@ -1018,7 +760,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 </button>
                 
                 {activeMegaMenu === 'data' && (
-                  <div className={`fixed left-0 right-0 z-[60] transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
+                  <div className={`fixed left-0 right-0 z-[100] transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
                     <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
                       {/* Floating Close Button */}
                       <button 
@@ -1147,7 +889,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 </button>
                 
                 {activeMegaMenu === 'ai' && (
-                  <div className={`fixed left-0 right-0 z-[60] transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
+                  <div className={`fixed left-0 right-0 z-[100] transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
                     <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
                       {/* Floating Close Button */}
                       <button 
@@ -1265,7 +1007,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                 </button>
                 
                 {activeMegaMenu === 'platforms' && (
-                  <div className={`fixed left-0 right-0 z-[60] transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
+                  <div className={`fixed left-0 right-0 z-[100] transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
                     <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
                       {/* Floating Close Button */}
                       <button 
@@ -1402,7 +1144,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
                   <ChevronRight className={`w-4 h-4 transition-transform ${activeMegaMenu === 'about' ? 'rotate-90' : ''}`} />
                 </button>
                 {activeMegaMenu === 'about' && (
-                  <div className={`fixed left-0 right-0 z-[60] transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
+                  <div className={`fixed left-0 right-0 z-[100] transition-opacity transition-transform duration-200 ease-out ${isClosing ? 'opacity-0 -translate-y-2' : 'opacity-100 translate-y-0'}`} style={{ top: 'var(--nav-bottom)' }} onMouseEnter={() => { if (closeTimerRef.current) { clearTimeout(closeTimerRef.current); closeTimerRef.current = null; } }}>
                     <div className="bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-full max-h-[calc(100vh-80px)] overflow-y-auto relative">
                       {/* Floating Close Button */}
                       <button 
@@ -1511,7 +1253,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
       {/* Background Overlay for Mega Menus */}
       {activeMegaMenu && (
         <div 
-          className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-40 transition-opacity duration-200 ${showHighlightBar ? 'top-[84px]' : 'top-[48px]'}`}
+          className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-[90] transition-opacity duration-200 ${showHighlightBar ? 'top-[84px]' : 'top-[48px]'}`}
           onClick={() => setActiveMegaMenu(null)}
           aria-hidden="true"
         />
@@ -1519,7 +1261,7 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className={`fixed inset-0 z-40 lg:hidden bg-white ${showHighlightBar ? 'top-[84px]' : 'top-[48px]'}`}>
+        <div className={`fixed inset-0 z-[100] lg:hidden bg-white ${showHighlightBar ? 'top-[84px]' : 'top-[48px]'}`}>
           <div className="flex items-center justify-between px-4 h-16 border-b border-gray-100">
             <Link to="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
               <img src="/logos/PIT/logo-icon-black.png" alt="Perception IT" className="h-8 w-auto" />
@@ -1544,26 +1286,6 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
           
           {/* Mobile Content */}
           <div className="px-4 py-4 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 140px)' }}>
-            {/* Solutions Mobile - Preserved */}
-            {mobileActiveTab === 'solutions' && (
-              <div className="space-y-4">
-                <p className="text-sm text-[#525252]">Integrated solutions from hardware to cloud</p>
-                {solutions.map((solution) => (
-                  <div key={solution.id} className={`p-4 rounded-lg border ${solution.featured ? 'border-blue-500 bg-blue-50' : 'border-gray-200'}`}>
-                    <div className="flex items-center justify-between mb-1">
-                      <h3 className="font-semibold text-[#161616]">{solution.title}</h3>
-                      {solution.featured && <Star className="w-4 h-4 text-[#0f62fe] fill-[#0f62fe]" />}
-                    </div>
-                    <p className="text-xs text-[#6f6f6f] mb-1">{solution.subtitle}</p>
-                    <p className="text-sm text-[#525252] mb-2">{solution.description}</p>
-                    <div className="flex flex-wrap gap-1">
-                      {solution.combines.map((item, i) => <span key={i} className="px-2 py-0.5 bg-white border border-gray-200 text-[9px] text-[#525252] rounded">{item}</span>)}
-                    </div>
-                  </div>
-                ))}
-                <a href="#services" className="block w-full text-center py-3 bg-blue-600 text-white rounded-lg font-medium">Talk to an architect</a>
-              </div>
-            )}
 
             {/* Consultancy Mobile */}
             {mobileActiveTab === 'consultancy' && (
@@ -1622,6 +1344,14 @@ const Navigation = ({ activeMegaMenu: externalActiveMegaMenu, setActiveMegaMenu:
             {mobileActiveTab === 'cloud' && cloudCategory && (
               <div className="space-y-4">
                 <p className="text-sm text-[#525252]">{cloudCategory.description}</p>
+                <Link 
+                  to="/services/cloud" 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center justify-between p-4 bg-[#edf5ff] rounded-lg text-[#0f62fe] font-semibold"
+                >
+                  Cloud Services
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
                 <div className="space-y-3">
                   {cloudCategory.hubs?.map((hub) => (
                     <div key={hub.id} className="border border-gray-200 rounded-lg overflow-hidden">

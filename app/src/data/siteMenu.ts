@@ -26,29 +26,6 @@ export interface MenuCategory {
 }
 
 export const siteMenu: MenuCategory[] = [
-  {
-    label: 'Solutions',
-    groups: [
-      {
-        label: 'By Challenge',
-        children: [
-          { label: 'Reduce Cloud Costs', href: '/#/services/cloud-cost-optimisation', desc: 'Cut 30–40% from your cloud bill' },
-          { label: 'Prevent Downtime', href: '/#/services/server-continuity', desc: 'Business continuity & DR' },
-          { label: 'Modernise Infrastructure', href: '/#/infrastructure/data-centre-services/cooling-thermal', desc: 'Cooling, power, rack, monitoring' },
-          { label: 'Secure Operations', href: '/#/services/cybersecurity-platform', desc: 'SOC & threat detection' },
-        ],
-      },
-      {
-        label: 'By Industry',
-        children: [
-          { label: 'Telecommunications', href: '/#/projects', desc: 'Tower monitoring & NOC' },
-          { label: 'Financial Services', href: '/#/projects', desc: 'Compliance & uptime' },
-          { label: 'Government', href: '/#/projects', desc: 'Secure data centres' },
-          { label: 'Manufacturing', href: '/#/projects', desc: 'IoT & edge computing' },
-        ],
-      },
-    ],
-  },
 
   {
     label: 'Consultancy',
@@ -68,14 +45,15 @@ export const siteMenu: MenuCategory[] = [
     label: 'Cloud',
     featured: {
       label: 'Featured',
-      title: 'Cloud Cost Optimisation',
-      desc: 'Identify waste, right-size resources, and automate savings.',
-      href: '/#/services/cloud-cost-optimisation',
+      title: 'DevOps & Cloud',
+      desc: 'DevOps, FinOps, AIOps, MLOps, LLMOps, and Platform Engineering.',
+      href: '/#/services/devops-cloud',
     },
     groups: [
       {
         label: 'Cloud Services',
         children: [
+          { label: 'DevOps & Cloud', href: '/#/services/devops-cloud', desc: 'Intelligent cloud & DevOps for the AI era' },
           { label: 'Cloud Strategy', href: '/#/services/cloud-strategy', desc: 'Multi-cloud roadmap & governance' },
           { label: 'Cloud Cost Optimisation', href: '/#/services/cloud-cost-optimisation', desc: 'Reduce spend by 30–40%' },
           { label: 'Cloud Management', href: '/#/services/cloud-management', desc: 'Operations & monitoring' },
@@ -112,14 +90,13 @@ export const siteMenu: MenuCategory[] = [
       {
         label: 'Data Centre Services',
         children: [
-          { label: 'Cooling', href: '/#/infrastructure/data-centre-services/cooling-thermal', desc: 'Precision cooling & thermal continuity' },
+          { label: 'Cost Optimisation', href: '/#/infrastructure/data-centre-services/cost-optimisation', desc: 'Cost reduction & ROI across data centre infrastructure' },
+          { label: 'Cooling', href: '/#/infrastructure/data-centre-services/cooling', desc: 'Precision cooling & thermal continuity' },
           { label: 'Power & UPS', href: '/#/infrastructure/data-centre-services/power-ups', desc: 'UPS & power distribution' },
-          { label: 'Rack & Cabinet', href: '/#/services/rack-cabinets', desc: 'Server cabinets & enclosures' },
-          { label: 'Monitoring', href: '/#/services/monitoring', desc: 'Temp, humidity, leak detection' },
-          { label: 'Fire Suppression', href: '/#/services/fire-suppression', desc: 'FM200 & clean-agent protection' },
-          { label: 'Design & Build', href: '/#/services/design-build', desc: 'End-to-end construction & CFD' },
-          { label: 'Migration & Relocation', href: '/#/services/migration-relocation', desc: 'Zero-downtime moves' },
-          { label: 'Maintenance & Support', href: '/#/services/maintenance-support', desc: 'SLA-backed contracts' },
+          { label: 'Rack & Cabinet', href: '/#/infrastructure/data-centre-services/rack-cabinets', desc: 'Server cabinets & enclosures' },
+          { label: 'Monitoring', href: '/#/infrastructure/data-centre-services/monitoring', desc: 'Temp, humidity, leak detection' },
+          { label: 'Migration & Relocation', href: '/#/infrastructure/data-centre-services/migration-relocation', desc: 'Zero-downtime moves' },
+          { label: 'Maintenance & Support', href: '/#/infrastructure/data-centre-services/maintenance-support', desc: 'SLA-backed contracts' },
         ],
       },
     ],

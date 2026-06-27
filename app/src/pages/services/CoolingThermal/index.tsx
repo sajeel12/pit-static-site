@@ -46,7 +46,7 @@ const CoolingThermal = () => {
 
 
 
-    canonicalPath: '/infrastructure/data-centre-services/cooling-thermal',
+    canonicalPath: '/infrastructure/data-centre-services/cooling',
 
 
 
@@ -118,7 +118,7 @@ const CoolingThermal = () => {
 
 
 
-      url: 'https://perception-it.com/#/infrastructure/data-centre-services/cooling-thermal',
+      url: 'https://perception-it.com/#/infrastructure/data-centre-services/cooling',
 
 
 
@@ -142,11 +142,11 @@ const CoolingThermal = () => {
 
 
 
-          { '@type': 'ListItem', position: 3, name: 'Data Centre Infrastructure Services', item: 'https://perception-it.com/#/services/datacenter2' },
+          { '@type': 'ListItem', position: 3, name: 'Data Centre Infrastructure Services', item: 'https://perception-it.com/#/infrastructure/data-centre-services' },
 
 
 
-          { '@type': 'ListItem', position: 4, name: 'Cooling & Airflow', item: 'https://perception-it.com/#/infrastructure/data-centre-services/cooling-thermal' },
+          { '@type': 'ListItem', position: 4, name: 'Cooling & Airflow', item: 'https://perception-it.com/#/infrastructure/data-centre-services/cooling' },
 
 
 
@@ -196,7 +196,22 @@ const CoolingThermal = () => {
 
       <CoolingNav />
 
-
+      {/* Sticky Breadcrumb */}
+      <div className="sticky top-12 z-40 bg-white border-b border-gray-300">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-12 flex items-center">
+          <nav aria-label="Breadcrumb">
+            <ol className="flex flex-wrap items-center gap-1.5 text-xs text-gray-500">
+              <li><a href="/#/" className="hover:text-[#0f62fe] transition-colors">Home</a></li>
+              <li className="text-gray-300">/</li>
+              <li><a href="/#/infrastructure" className="hover:text-[#0f62fe] transition-colors">Infrastructure</a></li>
+              <li className="text-gray-300">/</li>
+              <li><a href="/#/infrastructure/data-centre-services" className="hover:text-[#0f62fe] transition-colors">Data Centre</a></li>
+              <li className="text-gray-300">/</li>
+              <li className="text-gray-900 font-medium" aria-current="page">Cooling</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
 
       <main id="main-content">
 
@@ -221,7 +236,12 @@ const CoolingThermal = () => {
         <AIDesignSection
           id="ai-design"
           headline="Precision Cooling Design at Machine Speed, Validated by Human Expertise"
-          description="Data centre cooling is a balancing act between heat load, airflow, humidity, monsoon resilience and future expansion. Thermal models that traditionally take days are compressed into hours by our AI-powered evaluation agents, while certified engineers ensure every design accounts for the environmental realities no algorithm can see."
+          description="AI compresses thermal modelling from days to hours. Our engineers then validate every design against the site realities no algorithm can see."
+          media={{
+            type: 'video',
+            src: '/Sections/Cooling page/Images-cooling/cooling - AI image 800 x 600.mp4',
+            alt: 'AI-generated cooling visualisation',
+          }}
           aiAdvantages={[
             { icon: Thermometer, title: 'Heat Load Simulation', desc: 'AI models rack-level BTU output, cabinet densities and hot-spot formation across the full equipment list.' },
             { icon: Wind, title: 'CFD Airflow Modelling', desc: 'Computational fluid dynamics predicts cold/hot aisle effectiveness, bypass airflow and recirculation zones before installation.' },

@@ -1,4 +1,4 @@
-import { Meter, DataCenter, Dashboard, Warning } from '@carbon/icons-react';
+import { Zap, Server, Activity } from 'lucide-react';
 
 export const PAGE_SECTIONS = [
 
@@ -166,7 +166,7 @@ export const TESTIMONIALS = [
 
 
 
-      link: '/services/cooling-airflow',
+      link: '/infrastructure/data-centre-services/cooling',
 
 
 
@@ -214,7 +214,7 @@ export const TESTIMONIALS = [
 
 
 
-      link: '/infrastructure/data-centre-services/cooling-thermal',
+      link: '/infrastructure/data-centre-services/cooling',
 
 
 
@@ -262,7 +262,7 @@ export const TESTIMONIALS = [
 
 
 
-      link: '/infrastructure/data-centre-services/cooling-thermal',
+      link: '/infrastructure/data-centre-services/cooling',
 
 
 
@@ -310,7 +310,7 @@ export const TESTIMONIALS = [
 
 
 
-      link: '/infrastructure/data-centre-services/cooling-thermal',
+      link: '/infrastructure/data-centre-services/cooling',
 
 
 
@@ -367,25 +367,9 @@ export const PROJECTS = [
 
 
 export const ECOSYSTEM_ITEMS = [
-
-
-
-  { icon: Meter, title: 'Power & UPS', desc: 'Stable, conditioned, redundant power for cooling load.', link: '/infrastructure/data-centre-services/power-ups' },
-
-
-
-  { icon: DataCenter, title: 'Rack & Cabinet', desc: 'Airflow containment, blanking panels, and IP54 sealing.', link: '/infrastructure/data-centre-services/rack-cabinet' },
-
-
-
-  { icon: Dashboard, title: 'Monitoring', desc: 'Rack-level temperature, humidity, and leak detection.', link: '/services/monitoring' },
-
-
-
-  { icon: Warning, title: 'Fire Suppression', desc: 'FM200/clean-agent protection with thermal recovery.', link: '/infrastructure/data-centre-services/fire-suppression' },
-
-
-
+  { icon: Zap, title: 'Power & UPS', desc: 'UPS, PDU and busbar power for every cooling load.', link: '/#/infrastructure/data-centre-services/power-ups' },
+  { icon: Server, title: 'Rack & Cabinet', desc: 'Airflow containment, blanking panels, and IP54 sealing.', link: '/#/infrastructure/data-centre-services/rack-cabinets' },
+  { icon: Activity, title: 'Monitoring', desc: 'Environmental sensors and NOC visibility per rack.', link: '/#/infrastructure/data-centre-services/monitoring' },
 ];
 
 

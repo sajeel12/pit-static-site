@@ -63,7 +63,7 @@ export default function EcosystemSection() {
           </a>
           <p className="carbon-body-02 text-white/60">
             Volume discounts for complete Ecosystem Integration.{' '}
-            <a href="/#/infrastructure/operational-efficiency" className="text-[#78a9ff] hover:underline whitespace-nowrap">
+            <a href="/#/infrastructure/data-centre-services/cost-optimisation" className="text-[#78a9ff] hover:underline whitespace-nowrap">
               View the full infrastructure ecosystem
             </a>
           </p>

@@ -15,7 +15,6 @@ import Cover3 from './pages/Cover3';
 import Services from './pages/Services';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import UnderConstruction from './pages/UnderConstruction';
 import { HuaweiPartnership } from './pages/partners';
 
 // Tiny service pages — keep eager
@@ -32,6 +31,7 @@ const ContainerPlatform = lazy(() => import('./pages/services/ContainerPlatform'
 const OperationsMonitoring = lazy(() => import('./pages/services/OperationsMonitoring'));
 const ServiceNow = lazy(() => import('./pages/services/ServiceNow'));
 const CloudStrategy = lazy(() => import('./pages/services/CloudStrategy'));
+const CloudOperations = lazy(() => import('./pages/services/CloudOperations'));
 const DigitalTransformation = lazy(() => import('./pages/services/DigitalTransformation'));
 const ITAssessment = lazy(() => import('./pages/services/ITAssessment'));
 const ServerContinuity = lazy(() => import('./pages/services/ServerContinuity'));
@@ -41,7 +41,10 @@ const CoolingThermal = lazy(() => import('./pages/services/CoolingThermal'));
 const PowerUPS = lazy(() => import('./pages/services/PowerUPS'));
 const RackAndCabinets = lazy(() => import('./pages/services/RackAndCabinets'));
 const Monitoring = lazy(() => import('./pages/services/Monitoring'));
+const MigrationRelocation = lazy(() => import('./pages/services/MigrationRelocation'));
+const MaintenanceSupport = lazy(() => import('./pages/services/MaintenanceSupport'));
 const OperationalEfficiency = lazy(() => import('./pages/infrastructure/OperationalEfficiency'));
+const DataCentreInfrastructureHub = lazy(() => import('./pages/services/DataCentreInfrastructureHub'));
 const HardwareSupport = lazy(() => import('./pages/services/HardwareSupport'));
 const SLASupport = lazy(() => import('./pages/services/SLASupport'));
 const BusinessContinuity = lazy(() => import('./pages/services/BusinessContinuity'));
@@ -114,6 +117,8 @@ function App() {
 
               {/* Consultancy Services */}
               <Route path="/services/cloud-strategy" element={<CloudStrategy />} />
+              <Route path="/services/devops-cloud" element={<CloudOperations />} />
+              <Route path="/services/cloud-operations" element={<Navigate to="/services/devops-cloud" replace />} />
               <Route path="/services/digital-transformation" element={<DigitalTransformation />} />
               <Route path="/services/it-assessment" element={<ITAssessment />} />
               <Route path="/services/technology-roadmap" element={<TechnologyRoadmap />} />
@@ -121,18 +126,35 @@ function App() {
               {/* Infrastructure Hub - Landing Page */}
               <Route path="/services/infrastructure" element={<InfrastructureHub />} />
 
-              {/* Infrastructure Services */}
+              {/* Data Centre Infrastructure Services */}
+              <Route path="/infrastructure/data-centre-services" element={<DataCentreInfrastructureHub />} />
+              <Route path="/infrastructure/data-centre-services/cost-optimisation" element={<OperationalEfficiency />} />
+              <Route path="/infrastructure/data-centre-services/cooling" element={<CoolingThermal />} />
+              <Route path="/infrastructure/data-centre-services/power-ups" element={<PowerUPS />} />
+              <Route path="/infrastructure/data-centre-services/rack-cabinets" element={<RackAndCabinets />} />
+              <Route path="/infrastructure/data-centre-services/monitoring" element={<Monitoring />} />
+              <Route path="/infrastructure/data-centre-services/migration-relocation" element={<MigrationRelocation />} />
+              <Route path="/infrastructure/data-centre-services/maintenance-support" element={<MaintenanceSupport />} />
+
+              {/* Data Centre Infrastructure legacy redirects */}
+              <Route path="/infrastructure/operational-efficiency" element={<Navigate to="/infrastructure/data-centre-services/cost-optimisation" replace />} />
+              <Route path="/infrastructure/data-centre-services/cooling-airflow" element={<Navigate to="/infrastructure/data-centre-services/cooling" replace />} />
+              <Route path="/infrastructure/data-centre-services/cooling-thermal" element={<Navigate to="/infrastructure/data-centre-services/cooling" replace />} />
+              <Route path="/services/cooling-airflow" element={<Navigate to="/infrastructure/data-centre-services/cooling" replace />} />
+              <Route path="/services/cooling-airflow2" element={<Navigate to="/infrastructure/data-centre-services/cooling" replace />} />
+              <Route path="/services/power-ups" element={<Navigate to="/infrastructure/data-centre-services/power-ups" replace />} />
+              <Route path="/services/rack-cabinets" element={<Navigate to="/infrastructure/data-centre-services/rack-cabinets" replace />} />
+              <Route path="/services/monitoring" element={<Navigate to="/infrastructure/data-centre-services/monitoring" replace />} />
+              <Route path="/services/environmental-monitoring" element={<Navigate to="/infrastructure/data-centre-services/monitoring" replace />} />
+              <Route path="/services/migration-relocation" element={<Navigate to="/infrastructure/data-centre-services/migration-relocation" replace />} />
+              <Route path="/services/maintenance-support" element={<Navigate to="/infrastructure/data-centre-services/maintenance-support" replace />} />
+
+              {/* Core Infrastructure & Network Operations */}
               <Route path="/services/server-continuity" element={<ServerContinuity />} />
               <Route path="/services/datacenter" element={<Datacenter />} />
               <Route path="/services/datacenter2" element={<Datacenter2 />} />
               <Route path="/services/core-infrastructure" element={<CoreInfrastructure />} />
               <Route path="/services/network-operations" element={<NetworkOperations />} />
-              <Route path="/services/cooling-airflow" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
-              <Route path="/services/cooling-airflow2" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
-              <Route path="/infrastructure/data-centre-services/cooling-airflow" element={<CoolingThermal />} />
-              <Route path="/infrastructure/operational-efficiency" element={<OperationalEfficiency />} />
-              <Route path="/infrastructure/data-centre-services/power-ups" element={<PowerUPS />} />
-              <Route path="/infrastructure/data-centre-services/cooling-thermal" element={<Navigate to="/infrastructure/data-centre-services/cooling-airflow" replace />} />
 
               <Route path="/services/hardware-support" element={<HardwareSupport />} />
               <Route path="/services/sla-support" element={<SLASupport />} />
@@ -166,16 +188,6 @@ function App() {
               <Route path="/services/ai-model-development" element={<AIModelDevelopment />} />
               <Route path="/services/mlops" element={<MLOps />} />
               <Route path="/services/ai-consulting" element={<AIConsulting />} />
-
-              {/* Infrastructure | Under Construction placeholders */}
-              <Route path="/services/power-ups" element={<Navigate to="/infrastructure/data-centre-services/power-ups" replace />} />
-              <Route path="/services/rack-cabinets" element={<RackAndCabinets />} />
-              <Route path="/services/monitoring" element={<Monitoring />} />
-              <Route path="/services/environmental-monitoring" element={<Navigate to="/services/monitoring" replace />} />
-              <Route path="/services/fire-suppression" element={<UnderConstruction />} />
-              <Route path="/services/design-build" element={<UnderConstruction />} />
-              <Route path="/services/migration-relocation" element={<UnderConstruction />} />
-              <Route path="/services/maintenance-support" element={<UnderConstruction />} />
 
               {/* About & Contact */}
               <Route path="/about" element={<About />} />
