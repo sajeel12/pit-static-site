@@ -496,7 +496,7 @@ export default function ProcurementSection() {
 
 
 
-              { name: 'Dell', src: '/logos/partners/Partner-Dell-logo.svg' },
+              { name: 'Dell', src: '/logos/partners/DELL LOGO/DELL LOGO 1 .webp' },
 
 
 

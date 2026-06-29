@@ -273,12 +273,16 @@ const DesktopNavItem = ({
   item,
   isOpen,
   onToggle,
+  onOpen,
+  onScheduleClose,
   onClose,
   isActive,
 }: {
   item: NavItemConfig;
   isOpen: boolean;
   onToggle: () => void;
+  onOpen: () => void;
+  onScheduleClose: () => void;
   onClose: () => void;
   isActive: boolean;
 }) => {
@@ -301,7 +305,12 @@ const DesktopNavItem = ({
   }, [isOpen, onClose]);
 
   return (
-    <div ref={ref} className="relative">
+    <div
+      ref={ref}
+      className="relative"
+      onMouseEnter={onOpen}
+      onMouseLeave={onScheduleClose}
+    >
       <div className={`flex items-center rounded-lg transition-colors ${isOpen ? 'bg-white/10' : 'hover:bg-white/10'}`}>
         <Link
           to={item.href}
@@ -508,6 +517,37 @@ export default function CoolingNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
+  // A single shared close timer for the whole nav. Hovering onto a different
+  // tab cancels any pending close, so the menu never flickers when moving
+  // straight from one tab to the next.
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const cancelClose = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+
+  const openDropdownFor = (label: string) => {
+    cancelClose();
+    setOpenDropdown(label);
+  };
+
+  const closeDropdown = () => {
+    cancelClose();
+    setOpenDropdown(null);
+  };
+
+  // Small delay so moving the cursor across the gap between the trigger and
+  // the dropdown panel (or onto an adjacent tab) doesn't dismiss the menu.
+  const scheduleClose = () => {
+    cancelClose();
+    closeTimer.current = setTimeout(() => setOpenDropdown(null), 120);
+  };
+
+  useEffect(() => () => cancelClose(), []);
+
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-[70] bg-[#161616] border-b border-gray-800/60">
@@ -516,7 +556,7 @@ export default function CoolingNav() {
           <div className="flex items-center h-12">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0">
-              <img src="/logos/PIT/Perception IT_logo_in-white.png?v=2" alt="Perception IT" className="h-9 w-auto" />
+              <img src="/logos/PIT/Perception IT_logo_in-white.png?v=2" alt="Perception IT" className="h-8 w-auto bg-transparent" />
             </Link>
 
             {/* Desktop nav */}
@@ -530,9 +570,11 @@ export default function CoolingNav() {
                   item={item}
                   isOpen={openDropdown === item.label}
                   onToggle={() =>
-                    setOpenDropdown(openDropdown === item.label ? null : item.label)
+                    openDropdown === item.label ? closeDropdown() : openDropdownFor(item.label)
                   }
-                  onClose={() => setOpenDropdown(null)}
+                  onOpen={() => openDropdownFor(item.label)}
+                  onScheduleClose={scheduleClose}
+                  onClose={closeDropdown}
                   isActive={isPathUnderItem(location.pathname, item)}
                 />
               ))}
